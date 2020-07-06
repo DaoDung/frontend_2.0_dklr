@@ -110,7 +110,7 @@ public class DossierSyncModelImpl extends BaseModelImpl<DossierSync>
 		TABLE_COLUMNS_MAP.put("state_", Types.INTEGER);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table opencps_dossiersync (uuid_ VARCHAR(75) null,dossierSyncId LONG not null primary key,companyId LONG,groupId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,dossierId LONG,dossierReferenceUid VARCHAR(75) null,createDossier BOOLEAN,method INTEGER,classPK LONG,fileReferenceUid VARCHAR(75) null,serverNo VARCHAR(75) null,payload VARCHAR(1000) null,retry INTEGER,state_ INTEGER)";
+	public static final String TABLE_SQL_CREATE = "create table opencps_dossiersync (uuid_ VARCHAR(75) null,dossierSyncId LONG not null primary key,companyId LONG,groupId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,dossierId LONG,dossierReferenceUid VARCHAR(75) null,createDossier BOOLEAN,method INTEGER,classPK LONG,fileReferenceUid VARCHAR(75) null,serverNo VARCHAR(75) null,payload VARCHAR(75) null,retry INTEGER,state_ INTEGER)";
 	public static final String TABLE_SQL_DROP = "drop table opencps_dossiersync";
 	public static final String ORDER_BY_JPQL = " ORDER BY dossierSync.dossierId DESC, dossierSync.method DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY opencps_dossiersync.dossierId DESC, opencps_dossiersync.method DESC";

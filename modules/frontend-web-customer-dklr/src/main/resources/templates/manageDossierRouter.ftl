@@ -6,6 +6,7 @@
 		var viewPanel = new kendo.View("panelTemplate", {model: modelPanel});
 		var viewMainList = new kendo.View("mainTemplate", {model: modelMain});
 		var viewMainList_2 = new kendo.View("mainTemplate_2", {model: modelMain});
+		var mainTemplate_3 = new kendo.View("mainTemplate_3", {model: modelDanhSachXeXuatXuong});
 		var statusRouteTem = {
 			status : "",
 			subStatus : ""
@@ -112,6 +113,7 @@
 
 		// Show màn hình chọn dịch vụ công
 		manageDossier.route("/taohosomoi", function(id){
+			console.log('taohosomoi')
 			$("#mainType2").html("");
 			$("#mainType1").hide();
 			$(".filterField").hide();
@@ -345,6 +347,18 @@
 			$('#profileStatus li[dataPk='+id+']').addClass('active');*/
 			/*modelMain.set("visibleHeader", $('#profileStatus li[dataPk='+id+'] .dossierStatus').text());*/
 			modelMain.set("isInvestigated", false);
-		}); 
+		});
+		manageDossier.route("/danh-sach-xe-xuat-xuong", function() {
+			console.log('danh-sach-xe-xuat-xuong')
+			$("#mainType2").html("");
+			$("#mainType1").hide();
+			$(".filterField").hide();
+			$("#mainType2").show();
+			$("#mainType2").load("${ajax.danh_sach_xe_xuat_xuong}",function(result){
+			});
+			$("#profileStatus li").removeClass('active');
+			$("#profileStatus li>i").removeClass("fa fa-folder-open").addClass("fa fa-folder");
+			
+		})
 	</script>
 

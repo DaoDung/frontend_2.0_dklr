@@ -82,7 +82,7 @@
 				</div>
 				<#--  -->
 				<div class="col-sm-12">
-					<div class="accordion">
+					<div class="accordion" style="border: 1px solid #fff;">
 						<div class="accordion-group">
 							<div class="accordion-heading" style="background-color: #14bef0;border: none;font-family: 'Roboto-Regular'">
 								<a style="color: #ffffff" data-toggle="collapse" href="#groupLookup">
@@ -111,6 +111,40 @@
 					</div>
 				</div>
 				<#--  -->
+				<div class="col-sm-12">
+					<div class="accordion" style="border: 1px solid #fff;">
+						<div class="accordion-group">
+							<div class="accordion-heading" style="background-color: #14bef0;border: none;font-family: 'Roboto-Regular'">
+								<a style="color: #ffffff" data-toggle="collapse" href="#xuatXuong">
+									Xuất xưởng
+								</a>
+							</div>
+							<div id="xuatXuong" class="accordion-body collapse in">
+								<div class="accordion-inner">
+									<ul id="">
+										<li id="danhSachXeXuatXuong" class='itemStatus' style="display: flex;padding: 5px;justify-content: space-between;"
+											data-bind="click: filterDanhSachXeXuatXuong" >
+											<span class="dossierStatus">Xe đã xuất xưởng</span>
+											<span id="countDSXeDaXuatXuong" class="bagde" style="background-color: #ddd;padding: 3px; color: #14bef0;">0</span>
+										</li>
+										<li id="danhSachAnChiCapPhat" class='itemStatus'   style="display: flex;padding: 5px;justify-content: space-between;"
+											data-bind="click: filterDanhSachAnChiDaCapPhat">
+											<span class="dossierStatus">Ấn chỉ đã cấp phát</span>
+											<span id="countDSAnChiDaCapPhat" class="bagde" style="background-color: #ddd;padding: 3px; color: #14bef0;">0</span>
+										</li>
+										<li id="danhSachXeChoInPhieuXuatXuong" class='itemStatus'  style="display: flex;padding: 5px;justify-content: space-between;"
+											data-bind="click: filterDanhSachXeChoInPhieuXuatXuong">
+											<span class="dossierStatus">Xe chờ in phiếu</span>
+											<span class="bagde" style="background-color: #ddd;padding: 3px; color: #14bef0;">0</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>			
+				<#--  -->
+		
 			</div>
 	
 		</div>
@@ -118,3 +152,4 @@
 	<#-- TEMPLATE TRANG QUẢN LÝ HỒ SƠ/ C-04 -->
 	<#include "manageDossierView.ftl">
 	<#include "manageDossierView_2.ftl">
+	

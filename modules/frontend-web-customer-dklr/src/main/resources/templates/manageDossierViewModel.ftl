@@ -95,7 +95,7 @@
 	}
 
 	var fnGetCounter = function(){
-
+		let originUrl = window.location.href.substr(0, window.location.href.lastIndexOf('/group'))
 		$.when( $.ajax({
 			url : "${api.server}/statistics/dossiers/countTodo",
 			dataType : "json",
@@ -170,6 +170,21 @@
 			var total = r1[0].total + r2[0].total + r3[0].total + r4[0].total;
 			$("#profileStatus li[dataPk='all'] .bagde").html(total);
 		});
+		$.ajax({
+			url: originUrl + '/o/rest/vr-app/vehicle/record/count',
+			type: "GET",
+			success : function(result){
+				console.log('aaaaaa:', document.getElementById("countDSXeDaXuatXuong"))
+				document.getElementById("countDSXeDaXuatXuong").innerHTML = result
+			},
+		})
+		$.ajax({
+			url: originUrl + '/o/rest/vr-app/issue/stampbook/count',
+			type: "GET",
+			success : function(result){
+				$("#countDSAnChiDaCapPhat").html(result);
+			},
+		})
 	}
 
 	var currentStateBage = 0;
@@ -647,9 +662,33 @@
 			fnLoadStatus("all");
 
 			firstLoadDataSource = true;
+		},
+		filterDanhSachXeXuatXuong: function(e) {
+			e.preventDefault();
+			manageDossier.navigate("/danh-sach-xe-xuat-xuong")
+		},
+		filterDanhSachAnChiDaCapPhat: function(e) {
+			e.preventDefault();
+			manageDossier.navigate("/danh-sach-an-chi-da-cap-phap")
+		},
+		filterDanhSachXeChoInPhieuXuatXuong: function(e) {
+			e.preventDefault();
+			manageDossier.navigate("/danh-sach-xe-cho-in-phieu-xuat-xuong")
 		}
 	});
+	// model Danh sách xe xuất xưởng
+	var modelDanhSachXeXuatXuong = kendo.observable({
+		filterInvestigation: function(e){
+			e.preventDefault();
 
+			firstLoadDataSource = false;
+			manageDossier.navigate("/danh-sach-xe-xuat-xuong");
+
+			fnLoadStatus("all");
+
+			firstLoadDataSource = true;
+		}
+	})
 	var loadProfile = function(){
 		$(".downloadProfile").click(function(event){
 			var id = $(this).attr("data-Pk");

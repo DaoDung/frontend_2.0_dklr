@@ -331,15 +331,15 @@
 					dossierTemplateNo : dossierTemplateNo,
 					applicantName : "${(registration.applicantName)!}",
 					applicantIdType : "${(registration.applicantIdType)!}",
-					applicantIdNo : "${(registration.applicantIdNo)!}",
+					applicantIdNo : "${(registration.applicantCode)!}",
 					applicantIdDate : "01/01/2017 00:00:00",
-					address : "${(registration.address)!}",
-					cityCode : "${(registration.cityCode)!}",
-					districtCode : "${(registration.districtCode)!}",
-					wardCode : "${(registration.wardCode)!}",
-					contactName : "${(registration.contactName)!}",
-					contactTelNo : "${(registration.contactTelNo)!}",
-					contactEmail : "${(registration.contactEmail)!}"
+					address : "${(registration.applicantAddress)!}",
+					cityCode : "${(registration.applicantCityCode)!}",
+					districtCode : "${(registration.applicantDistrictCode)!}",
+					wardCode : "${(registration.applicantWardCode)!}",
+					contactName : "${(registration.applicantContactName)!}",
+					contactTelNo : "${(registration.applicantContactPhone)!}",
+					contactEmail : "${(registration.applicantContactEmail)!}"
 				},
 				headers : {"groupId": ${groupId}},
 				success : function(result){

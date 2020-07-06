@@ -241,54 +241,54 @@
 
 				#
 				if(hasForm){
-				var dossierFile =  getReferentUidFile(${dossierId},id);
+					var dossierFile =  getReferentUidFile(${dossierId},id);
 				#
 
-				<div class="collapse" id="collapseDossierPart#:id#">
-					<div class="col-xs-12 col-sm-12 text-right">
-						<button id="btn-save-formalpaca#:id#" class="btn btn-active MB10 MT10 MR20 saveForm saveFormAlpaca" 
-						type="button" data-pk="#:id#" referenceUid="#:dossierFile.referenceUid#">Ghi lại</button>
-						<input type="hidden" name="" id="dossierFileId#:id#" value="#:dossierFile.dossierFileId#">
+					<div class="collapse" id="collapseDossierPart#:id#">
+						<div class="col-xs-12 col-sm-12 text-right">
+							<button id="btn-save-formalpaca#:id#" class="btn btn-active MB10 MT10 MR20 saveForm saveFormAlpaca" 
+							type="button" data-pk="#:id#" referenceUid="#:dossierFile.referenceUid#">Ghi lại</button>
+							<input type="hidden" name="" id="dossierFileId#:id#" value="#:dossierFile.dossierFileId#">
+						</div>
+						<div class="col-sm-12" #if(dossierFile.referenceUid){# style="height:450px; width:100%;overflow:auto;" #}# >
+
+							<form id="formPartNo#:id#" class="formAlpacaDN" data-pk="#:id#" data-partname="#:partName#">
+
+							</form>
+
+						</div>
 					</div>
-					<div class="col-sm-12" #if(dossierFile.referenceUid){# style="height:450px; width:100%;overflow:auto;" #}# >
 
-						<form id="formPartNo#:id#" class="formAlpacaDN" data-pk="#:id#" data-partname="#:partName#">
+					#
+					$.ajax({
+						url : "${api.server}/dossiers/${dossierId}/files/"+dossierFile.referenceUid+"/formscript",
+						dataType : "text",
+						type : "GET",
+						headers : {"groupId": ${groupId}},
+						success : function(result){
+							$("\\#formPartNo"+id).empty();
 
-						</form>
+							var alpaca = eval("(" + result + ")");
+							var formdata = fnGetFormData(${dossierId},dossierFile.referenceUid);
+							if(formdata){
+								$("\\#validPart"+id).val("1");
+							}
+							alpaca.data = formdata; 
 
-					</div>
-				</div>
+							$("\\#formPartNo"+id).alpaca(alpaca);
+							<#-- $("\\#formPartNo"+id).append('<div class="row"><div class="col-xs-12 col-sm-12"><button id="btn-save-formalpaca'+id+'" class="btn btn-active MB10 MT10 saveForm" 
+							type="button" data-pk="'+id+'" referentUid="'+referentUidFile+'">Ghi lại</button></div></div>'); -->
 
-				#
-				$.ajax({
-				url : "${api.server}/dossiers/${dossierId}/files/"+dossierFile.referenceUid+"/formscript",
-				dataType : "text",
-				type : "GET",
-				headers : {"groupId": ${groupId}},
-				success : function(result){
-				$("\\#formPartNo"+id).empty();
+						},
+						error : function (result) {
 
-				var alpaca = eval("(" + result + ")");
-				var formdata = fnGetFormData(${dossierId},dossierFile.referenceUid);
-				if(formdata){
-				$("\\#validPart"+id).val("1");
-			}
-			alpaca.data = formdata; 
+						}
+					});
+				}#
 
-			$("\\#formPartNo"+id).alpaca(alpaca);
-			<#-- $("\\#formPartNo"+id).append('<div class="row"><div class="col-xs-12 col-sm-12"><button id="btn-save-formalpaca'+id+'" class="btn btn-active MB10 MT10 saveForm" 
-			type="button" data-pk="'+id+'" referentUid="'+referentUidFile+'">Ghi lại</button></div></div>'); -->
-
-		},
-		error : function(result){
-
-	}
-});
-}#
-
-#}#
-</script>
-</div>
+			#}#
+		</script>
+    </div>
 </div>
 
 <div class="row-parts-content" id="postalInfo">

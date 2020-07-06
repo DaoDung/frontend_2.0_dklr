@@ -416,50 +416,50 @@
 	}
 
 	var fnCheckLockTemplate = function(lockState, item){
-		if(lockState){
-			if(lockState.startsWith("LOCK")){
+		// if(lockState){
+		// 	if(lockState.startsWith("LOCK")){
 
-				if(lockState === "LOCK INPUT"){
-					return true;
-				}else if(lockState === "LOCK ALL"){
-					return true;
-				}else if (lockState !== "LOCK ALL" && lockState !== "LOCK INPUT" && lockState !== "LOCK OUTPUT" )  {
-					var partLocksStr = lockState.split(" ")[1];
-					if(partLocksStr){
-						var partLocks = partLocksStr.split(",");
-						for (var i = 0; i < partLocks.length; i++) {
-							if(partLocks[i] === item){
-								return true;
-							}
-						}
-					}
-				}
+		// 		if(lockState === "LOCK INPUT"){
+		// 			return true;
+		// 		}else if(lockState === "LOCK ALL"){
+		// 			return true;
+		// 		}else if (lockState !== "LOCK ALL" && lockState !== "LOCK INPUT" && lockState !== "LOCK OUTPUT" )  {
+		// 			var partLocksStr = lockState.split(" ")[1];
+		// 			if(partLocksStr){
+		// 				var partLocks = partLocksStr.split(",");
+		// 				for (var i = 0; i < partLocks.length; i++) {
+		// 					if(partLocks[i] === item){
+		// 						return true;
+		// 					}
+		// 				}
+		// 			}
+		// 		}
 
-			}else if(lockState.startsWith("UPDATE")){
+		// 	}else if(lockState.startsWith("UPDATE")){
 
-				if(lockState === "UPDATE INPUT"){
-					return false;
-				}
+		// 		if(lockState === "UPDATE INPUT"){
+		// 			return false;
+		// 		}
 
-				if(lockState === "UPDATE ALL"){
-					return false;
-				}
+		// 		if(lockState === "UPDATE ALL"){
+		// 			return false;
+		// 		}
 
-				if (lockState !== "UPDATE ALL" && lockState !== "UPDATE INPUT" && lockState !== "UPDATE OUTPUT" ){
-					var partLocksStr = lockState.split(" ")[1];
-					if(partLocksStr){
-						var partLocks = partLocksStr.split(",");
-						for (var i = 0; i < partLocks.length; i++) {
-							if(partLocks[i] === item){
-								return false;
-							}
-						}
-					}
-				}
+		// 		if (lockState !== "UPDATE ALL" && lockState !== "UPDATE INPUT" && lockState !== "UPDATE OUTPUT" ){
+		// 			var partLocksStr = lockState.split(" ")[1];
+		// 			if(partLocksStr){
+		// 				var partLocks = partLocksStr.split(",");
+		// 				for (var i = 0; i < partLocks.length; i++) {
+		// 					if(partLocks[i] === item){
+		// 						return false;
+		// 					}
+		// 				}
+		// 			}
+		// 		}
 
 
-			}
-		}
+		// 	}
+		// }
 
 		return false;
 	}
@@ -1883,7 +1883,7 @@
 		var value = null;
 		if(dossierId && referentUid){
 			$.ajax({
-				url : "${api.server}/dossiers/"+dossierId+"/files/"+referentUid+"/formdata",
+				url : "${api.server}/dossiers/"+dossierId+"/files/" + referentUid + "/formdata",
 				type : "GET",
 				dataType : "json",
 				async : false,

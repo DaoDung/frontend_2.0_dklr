@@ -96,6 +96,56 @@
 
 		});
 	});
+	manageDossier.route("/danh-sach-xe-xuat-xuong", function() {
+		console.log('danh-sach-xe-xuat-xuong')
+		$("#mainType2").html("");
+		$("#mainType1").hide();
+		$(".filterField").hide();
+		$("#mainType2").show();
+		$("#mainType2").load("${ajax.danh_sach_xe_xuat_xuong}",function(result){
+		});
+		
+	})
+	manageDossier.route("/danh-sach-an-chi-da-cap-phap", function() {
+		console.log('danh-sach-an-chi-da-cap-phap')
+		$("#mainType2").html("");
+		$("#mainType1").hide();
+		$(".filterField").hide();
+		$("#mainType2").show();
+		$("#mainType2").load("${ajax.danh_sach_an_chi_da_cap_phat}",function(result){
+		});
+		
+	})
+	manageDossier.route("/danh-sach-xe-cho-in-phieu-xuat-xuong", function() {
+		console.log('danh-sach-xe-xuat-xuong')
+		$("#mainType2").html("");
+		$("#mainType1").hide();
+		$(".filterField").hide();
+		$("#mainType2").show();
+		$("#mainType2").load("${ajax.danh_sach_xe_cho_in_phieu_xuat_xuong}",function(result){
+		});
+		
+	})
+	manageDossier.route("/chi-tiet-xe-xuat-xuong", function() {
+		console.log('chi-tiet-xe-xuat-xuong')
+		$("#mainType2").html("");
+		$("#mainType1").hide();
+		$(".filterField").hide();
+		$("#mainType2").show();
+		$("#mainType2").load("${ajax.chi_tiet_xe_xuat_xuong}",function(result){
+		});
+		
+	})
+	manageDossier.route("/chi-tiet-an-chi-cap-phat", function() {
+		console.log('chi-tiet-an-chi-cap-phat')
+		$("#mainType2").html("");
+		$("#mainType1").hide();
+		$(".filterField").hide();
+		$("#mainType2").show();
+		$("#mainType2").load("${ajax.chi_tiet_an_chi_cap_phat}",function(result){
+		});
+		
+	})
 </script>
 <#-- Include Router Component -->
 <#include "manageDossierRouter.ftl">

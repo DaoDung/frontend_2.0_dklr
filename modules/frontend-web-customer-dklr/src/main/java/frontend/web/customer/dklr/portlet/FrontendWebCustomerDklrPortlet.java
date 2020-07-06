@@ -2,6 +2,8 @@ package frontend.web.customer.dklr.portlet;
 
 import frontend.web.customer.dklr.constants.FrontendWebCustomerDklrPortletKeys;
 
+import com.fds.vr.business.model.VRApplicantProfile;
+import com.fds.vr.business.service.VRApplicantProfileLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -96,13 +98,20 @@ public class FrontendWebCustomerDklrPortlet extends FreeMarkerPortlet {
 		}
 		
 		try {
-			Registration registration = RegistrationLocalServiceUtil.getByRegistrationState(themeDisplay.getScopeGroupId(), themeDisplay.getUserId(), 2).get(0);
-			registration.setAddress(registration.getAddress().trim());
-			String registrationStr = JSONFactoryUtil.looseSerialize(registration);
-			JSONObject registrationObj = JSONFactoryUtil.createJSONObject(registrationStr);
-			if(registrationObj != null){
-				renderRequest.setAttribute("registration", registrationObj);
-			}
+//			Registration registration = RegistrationLocalServiceUtil.getByRegistrationState(themeDisplay.getScopeGroupId(), themeDisplay.getUserId(), 2).get(0);
+//			registration.setAddress(registration.getAddress().trim());
+//			String registrationStr = JSONFactoryUtil.looseSerialize(registration);
+//			JSONObject registrationObj = JSONFactoryUtil.createJSONObject(registrationStr);
+//			if(registrationObj != null){
+//				renderRequest.setAttribute("registration", registrationObj);
+//			}
+			
+			
+		      VRApplicantProfile vrApplicantProfile = VRApplicantProfileLocalServiceUtil.findByMT_APP_CODE(1, applicant.getApplicantIdNo());
+		      JSONObject jApplicantProfile = JSONFactoryUtil.createJSONObject(JSONFactoryUtil.looseSerialize(vrApplicantProfile));
+		      if(jApplicantProfile != null){
+		        renderRequest.setAttribute("registration", jApplicantProfile);
+		      }
 			
 		}
 		catch (Exception e) {
@@ -172,80 +181,80 @@ public class FrontendWebCustomerDklrPortlet extends FreeMarkerPortlet {
 		List<JSONObject> dossierStatus = new ArrayList<>();
 
 		JSONObject dossierNew = JSONFactoryUtil.createJSONObject();
-		dossierNew.put("text", "Hồ sơ mới");
+		dossierNew.put("text", "Há»“ sÆ¡ má»›i");
 		dossierNew.put("value", "new");
 		dossierNew.put("valueSub", "");
 		dossierStatus.add(dossierNew);
 		
 		JSONObject dossierReceiving = JSONFactoryUtil.createJSONObject();
-		dossierReceiving.put("text", "Hồ sơ chờ tiếp nhận");
+		dossierReceiving.put("text", "Há»“ sÆ¡ chá»� tiáº¿p nháº­n");
 		dossierReceiving.put("value", "receiving");
 		dossierReceiving.put("valueSub", "");
 		dossierStatus.add(dossierReceiving);
 		
 		JSONObject dossierWaiting = JSONFactoryUtil.createJSONObject();
-		dossierWaiting.put("text", "Hồ sơ chờ bổ sung");
+		dossierWaiting.put("text", "Há»“ sÆ¡ chá»� bá»• sung");
 		dossierWaiting.put("value", "waiting");
 		dossierWaiting.put("valueSub", "");
 		dossierStatus.add(dossierWaiting);
 		
 		JSONObject dossierProcessed = JSONFactoryUtil.createJSONObject();
-		dossierProcessed.put("text", "Hồ sơ đã tiếp nhận");
+		dossierProcessed.put("text", "Há»“ sÆ¡ Ä‘Ã£ tiáº¿p nháº­n");
 		dossierProcessed.put("value", "processing");
 		dossierProcessed.put("valueSub", "");
 		dossierStatus.add(dossierProcessed);
 
 
 		JSONObject dossierPaying = JSONFactoryUtil.createJSONObject();
-		dossierPaying.put("text", "Hồ sơ chờ thanh toán");
+		dossierPaying.put("text", "Há»“ sÆ¡ chá»� thanh toÃ¡n");
 		dossierPaying.put("value", "paying");
 		dossierPaying.put("valueSub", "");
 		dossierStatus.add(dossierPaying);
 
 		JSONObject dossierDone = JSONFactoryUtil.createJSONObject();
-		dossierDone.put("text", "Hồ sơ đã chứng nhận");
+		dossierDone.put("text", "Há»“ sÆ¡ Ä‘Ã£ chá»©ng nháº­n");
 		dossierDone.put("value", "done");
 		dossierDone.put("valueSub", "");
 		dossierStatus.add(dossierDone);
 
 		JSONObject dossierCancelling = JSONFactoryUtil.createJSONObject();
-		dossierCancelling.put("text", "Hồ sơ yêu cầu hủy");
+		dossierCancelling.put("text", "Há»“ sÆ¡ yÃªu cáº§u há»§y");
 		dossierCancelling.put("value", "cancelling");
 		dossierCancelling.put("valueSub", "");
 		dossierStatus.add(dossierCancelling);
 
 		JSONObject dossierCancelled = JSONFactoryUtil.createJSONObject();
-		dossierCancelled.put("text", "Hồ sơ xác nhận hủy");
+		dossierCancelled.put("text", "Há»“ sÆ¡ xÃ¡c nháº­n há»§y");
 		dossierCancelled.put("value", "cancelled");
 		dossierCancelled.put("valueSub", "");
 		dossierStatus.add(dossierCancelled);
 		
 		JSONObject dossierConfirmation = JSONFactoryUtil.createJSONObject();
-		dossierConfirmation.put("text", "Xác nhận kế hoạch kiểm tra");
+		dossierConfirmation.put("text", "XÃ¡c nháº­n káº¿ hoáº¡ch kiá»ƒm tra");
 		dossierConfirmation.put("value", "waiting_3");
 		dossierConfirmation.put("valueSub", "waiting_3");
 		dossierStatus.add(dossierConfirmation);
 		
 		JSONObject dossierDone2 = JSONFactoryUtil.createJSONObject();
-		dossierDone2.put("text", "Đề nghị cấp lại CC");
+		dossierDone2.put("text", "Ä�á»� nghá»‹ cáº¥p láº¡i CC");
 		dossierDone2.put("value", "correcting");
 		dossierDone2.put("valueSub", "correcting");
 		dossierStatus.add(dossierDone2);
 		
 		JSONObject dossierDone3 = JSONFactoryUtil.createJSONObject();
-		dossierDone3.put("text", "Hồ sơ SĐBS sau chứng nhận");
+		dossierDone3.put("text", "Há»“ sÆ¡ SÄ�BS sau chá»©ng nháº­n");
 		dossierDone3.put("value", "endorsement");
 		dossierDone3.put("valueSub", "endorsement");
 		dossierStatus.add(dossierDone3);
 
 		JSONObject dossierExpired = JSONFactoryUtil.createJSONObject();
-		dossierExpired.put("text", "Hồ sơ đến hạn XN hiệu lực");
+		dossierExpired.put("text", "Há»“ sÆ¡ Ä‘áº¿n háº¡n XN hiá»‡u lá»±c");
 		dossierExpired.put("value", "DONE_4");
 		dossierExpired.put("valueSub", "DONE_4");
 		dossierStatus.add(dossierExpired);
 
 		JSONObject dossierAll = JSONFactoryUtil.createJSONObject();
-		dossierAll.put("text", "Tất cả hồ sơ");
+		dossierAll.put("text", "Táº¥t cáº£ há»“ sÆ¡");
 		dossierAll.put("value", "all");
 		dossierAll.put("valueSub", "");
 		dossierStatus.add(dossierAll);
@@ -259,18 +268,18 @@ public class FrontendWebCustomerDklrPortlet extends FreeMarkerPortlet {
 	private String getLabelApplicantNote(String resCancelling, String sendAdd, String sendReissue) {
 
 		if (resCancelling != null && resCancelling != "") {
-			return "Thông báo yêu cầu huỷ";
+			return "ThÃ´ng bÃ¡o yÃªu cáº§u huá»·";
 		}
 
 		if (sendAdd != null && sendAdd != "") {
-			return "Thông báo yêu cầu gửi bổ sung";
+			return "ThÃ´ng bÃ¡o yÃªu cáº§u gá»­i bá»• sung";
 		}
 
 		if (sendReissue != null && sendReissue != "") {
-			return "Thông báo yêu cầu cấp lại";
+			return "ThÃ´ng bÃ¡o yÃªu cáº§u cáº¥p láº¡i";
 		}
 
-		return "Ghi chú";
+		return "Ghi chÃº";
 
 	}
 
