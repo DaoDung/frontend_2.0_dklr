@@ -101,13 +101,15 @@
 		<!-- Audit fields -->
 		<column name="mtCore" type="long" db-name="mtCore"/>
 		<column name="dossierId" type="long" db-name="dossierId"/>
+		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="dossierType" type="String" db-name="dossierType"/>
 		<column name="dossierNo" type="String" db-name="dossierNo"/>
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="serviceCode" type="String" db-name="serviceCode"/>
 		<column name="serviceName" type="String" db-name="serviceName"/>		
 		<column name="convertassembleId" type="long" db-name="convertassembleId"/>
-		<column name="applicantIdNo" type="String" db-name="applicantIdNo"/>		
+		<column name="applicantIdNo" type="String" db-name="applicantIdNo"/>
+		<column name="applicantTelNo" type="String" db-name="applicantTelNo"/>		
 		<column name="applicantName" type="String" db-name="applicantName"/>
 		<column name="applicantIdDate" type="Date" db-name="applicantIdDate"/>
 		<column name="applicantAddress" type="String" db-name="applicantAddress"/>
@@ -119,7 +121,13 @@
 		<column name="applicantContactName" type="String" db-name="applicantContactName"/>
 		<column name="applicantContactEmail" type="String" db-name="applicantContactEmail"/>
 		<column name="applicantcontactPhone" type="String" db-name="applicantcontactPhone"/>
+		<column name="applicantcontactTelNo" type="String" db-name="applicantcontactTelNo"/>
 		<column name="cityCode" type="String" db-name="cityCode"/>
+		<column name="cityName" type="String" db-name="cityName"/>
+		<column name="districtCode" type="String" db-name="districtCode"/>
+		<column name="districtName" type="String" db-name="districtName"/>
+		<column name="wardCode" type="String" db-name="wardCode"/>
+		<column name="wardName" type="String" db-name="wardName"/>
 		<column name="manufacturerForeignCode" type="String" db-name="manufacturerForeignCode"/>
 		<column name="manufacturerName" type="String" db-name="manufacturerName"/>
 		<column name="manufacturerAddress" type="String" db-name="manufacturerAddress"/>
@@ -199,9 +207,9 @@
 		<column name="emissionTestReportNo" type="String" db-name="emissionTestReportNo"/>
 		<column name="emissionTestReportDate" type="Date" db-name="emissionTestReportDate"/>
 		<column name="commonSafetyStandard" type="String" db-name="commonSafetyStandard"/>
+		<column name="commonSafetyDescription" type="String" db-name="commonSafetyDescription"/>
 		<column name="emissionStandard" type="String" db-name="emissionStandard"/>
-		<column name="commonSafetyDescription" type="String" db-name="commonsafetydescription"/>
-		<column name="emissionDescription" type="String" db-name="emissiondescription"/>
+		<column name="emissionDescription" type="String" db-name="emissionDescription"/>
 		<column name="otherTestReportNo" type="String" db-name="otherTestReportNo"/>
 		<column name="otherTestReportDate" type="Date" db-name="otherTestReportDate"/>
 		<column name="sampleFrameNo" type="String" db-name="sampleFrameNo"/>
@@ -230,6 +238,7 @@
 		<column name="inspectionNote" type="String" db-name="inspectionNote"/>
 		<column name="certificateNote" type="String" db-name="certificateNote"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
+		<column name="deliverableFileEntryid" type="long" db-name="deliverableFileEntryid" />
 		<column name="module" type="String" db-name="module"/>
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
 		<column name="syncDate" type="Date" db-name="syncDate"/>
@@ -259,13 +268,13 @@
 			<finder-column name="applicantIdNo" />
 			<finder-column name="productionPlantCode" />
 		</finder>
-		<finder return-type="Collection" name="Dossier">
+		<finder return-type="Collection" name="DossierNo_MtCore">
 			<finder-column name="dossierNo" />
+			<finder-column name="mtCore" />
 		</finder>
 		<finder return-type="Collection" name="DeliverableCode">
 			<finder-column name="deliverableCode" />
 		</finder>
-		
 		<finder return-type="Collection" name="ManufacturerForeignCode">
 			<finder-column name="manufacturerForeignCode" />
 		</finder>
@@ -314,12 +323,8 @@
 			<finder-column name="applicantIdNo" />
 			<finder-column name="mtCore" />			
 		</finder>
-		<finder return-type="Collection" name="DossierId">
+		<finder return-type="VRVehicleTypeCertificate" name="DossierId">
 			<finder-column name="dossierId" />
-			<finder-column name="mtCore" />
-		</finder>
-		<finder return-type="Collection" name="DossierNo">
-			<finder-column name="dossierNo" />
 			<finder-column name="mtCore" />
 		</finder>
 		<finder return-type="Collection" name="ServiceCodeAndProductionPlantCode">
@@ -471,19 +476,124 @@
 		<column name="id" type="long" primary="true" db-name="id"/>
 	
 		<!-- Audit fields -->
-		<column name="vehicleCertificateId" type="long" db-name="vehicleCertificateId"/>
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		<column name="certificateRecordId" type="long" db-name="certificateRecordId"/>
 		<column name="dossierId" type="long" db-name="dossierid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="dossierNo" type="String" db-name="dossierno"/>
+		<column name="isMandatory" type="int" db-name="isMandatory"/>
+		<column name="sequenceNo" type="long" db-name="sequenceNo"/>
+		<column name="certificateRecordNo" type="String" db-name="certificateRecordNo"/>
+		<column name="certificateRecordDate" type="Date" db-name="certificateRecordDate"/>
+		<column name="certificateRecordExpireDate" type="Date" db-name="certificateRecordExpireDate"/>
+		<column name="expiredStatus" type="int" db-name="expiredStatus"/>
+		<column name="vehicleClass" type="String" db-name="vehicleClass"/>
+		<column name="equipmentCode" type="String" db-name="equipmentCode"/>
+		<column name="equipmentName" type="String" db-name="equipmentName"/>
+		<column name="certifiedVehicleType" type="String" db-name="certifiedVehicleType"/>
+		<column name="certifiedVehicleTypeDescription" type="String" db-name="certifiedVehicleTypeDescription"/>
+		<column name="certifiedTrademark" type="String" db-name="certifiedTrademark"/>
+		<column name="certifiedTrademarkName" type="String" db-name="certifiedTrademarkName"/>
+		<column name="certifiedCommercialName" type="String" db-name="certifiedCommercialName"/>
+		<column name="certifiedModelCode" type="String" db-name="certifiedModelCode"/>
+		<column name="productionCountry" type="String" db-name="productionCountry"/>
+		<column name="originalCode" type="String" db-name="originalCode"/>
+		<column name="originalName" type="String" db-name="originalName"/>
+		<column name="productionName" type="String" db-name="productionName"/>
+		<column name="productionAddress" type="String" db-name="productionAddress"/>
+		<column name="manufacturerName" type="String" db-name="manufacturerName"/>
+		<column name="manufacturerAddress" type="String" db-name="manufacturerAddress"/>
+		<column name="safetytestReportNo" type="String" db-name="safetytestReportNo"/>
+		<column name="safetytestReportDate" type="Date" db-name="safetytestReportDate"/>
+		<column name="emissionTestReportNo" type="String" db-name="emissionTestReportNo"/>
+		<column name="emissionTestReportDate" type="Date" db-name="emissionTestReportDate"/>
+		<column name="commonSafetyStandard" type="String" db-name="commonSafetyStandard"/>
+		<column name="commonSafetyDescription" type="String" db-name="commonSafetyDescription"/>
+		<column name="emissionStandard" type="String" db-name="emissionStandard"/>
+		<column name="emissionDescription" type="String" db-name="emissionDescription"/>
+		<column name="othertestReportNo" type="String" db-name="othertestReportNo"/>
+		<column name="othertestReportDate" type="Date" db-name="othertestReportDate"/>
+		<column name="copReportNo" type="String" db-name="copReportNo"/>
+		<column name="copReportDate" type="Date" db-name="copReportDate"/>
+		<column name="copReportExpireDate" type="Date" db-name="copReportExpireDate"/>
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
 		<column name="syncDate" type="Date" db-name="syncDate"/>
 		
-		<finder return-type="Collection" name="F_vehicleCertificateId">
-			<finder-column name="vehicleCertificateId" />
+		<finder return-type="Collection" name="F_vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
+		</finder>
+		<finder return-type="Collection" name="F_certificateRecordId">
+			<finder-column name="certificateRecordId" />
 		</finder>
 		<finder return-type="Collection" name="dossierId">
 			<finder-column name="dossierId" />
+		</finder>
+	</entity>
+	
+	<entity name="VRExpireCertificate" local-service="true" table="vr_expire_certificate"
+	remote-service="false">
+		<!-- PK fields -->
+		<column name="id" type="long" primary="true" db-name="id"/>
+	
+		<!-- Audit fields -->
+		<column name="mtCore" type="long" db-name="mtCore" />
+		<column name="convertAssembleId" type="long" db-name="convertAssembleId" />
+		<column name="validDossierId" type="long" db-name="validDossierId" />
+		<column name="validDossierIdCTN" type="String" db-name="validDossierIdCTN" />
+		<column name="validDossierNo" type="String" db-name="validDossierNo" />
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
+		<column name="dossierId" type="long" db-name="dossierId"/>
+		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
+		<column name="dossierNo" type="String" db-name="dossierNo"/>
+		<column name="dossierStatus" type="String" db-name="dossierStatus"/>
+		<column name="previousExpireDate" type="Date" db-name="previousExpireDate"/>
+		<column name="certificateRecordNo" type="String" db-name="certificateRecordNo"/>
+		<column name="certificateRecordDate" type="Date" db-name="certificateRecordDate"/>
+		<column name="certificateRecordExpireDate" type="Date" db-name="certificateRecordExpireDate"/>
+		<column name="expiredStatus" type="int" db-name="expiredStatus"/>
+		<column name="vehicleClass" type="String" db-name="vehicleClass"/>
+		<column name="certifiedVehicleType" type="String" db-name="certifiedVehicleType"/>
+		<column name="certifiedVehicleTypeDescription" type="String" db-name="certifiedVehicleTypeDescription"/>
+		<column name="certifiedTrademark" type="String" db-name="certifiedTrademark"/>
+		<column name="certifiedTrademarkName" type="String" db-name="certifiedTrademarkName"/>
+		<column name="certifiedCommercialName" type="String" db-name="certifiedCommercialName"/>
+		<column name="certifiedModelCode" type="String" db-name="certifiedModelCode"/>
+		<column name="productionCountry" type="String" db-name="productionCountry"/>
+		<column name="safetytestReportNo" type="String" db-name="safetytestReportNo"/>
+		<column name="safetytestReportDate" type="Date" db-name="safetytestReportDate"/>
+		<column name="emissionTestReportNo" type="String" db-name="emissionTestReportNo"/>
+		<column name="emissionTestReportDate" type="Date" db-name="emissionTestReportDate"/>
+		<column name="commonSafetyStandard" type="String" db-name="commonSafetyStandard"/>
+		<column name="commonSafetyDescription" type="String" db-name="commonSafetyDescription"/>
+		<column name="emissionStandard" type="String" db-name="emissionStandard"/>
+		<column name="emissionDescription" type="String" db-name="emissionDescription"/>
+		<column name="othertestReportNo" type="String" db-name="othertestReportNo"/>
+		<column name="othertestReportDate" type="Date" db-name="othertestReportDate"/>
+		<column name="copReportNo" type="String" db-name="copReportNo"/>
+		<column name="copReportDate" type="Date" db-name="copReportDate"/>
+		<column name="copReportExpireDate" type="Date" db-name="copReportExpireDate"/>
+		<column name="validRequestNo" type="String" db-name="validRequestNo"/>
+		<column name="validRequestDate" type="Date" db-name="validRequestDate"/>
+		<column name="validInspectionRecordNo" type="String" db-name="validInspectionRecordNo"/>
+		<column name="validInspectionRecordDate" type="Date" db-name="validInspectionRecordDate"/>
+		<column name="validCorporationId" type="long" db-name="validCorporationId"/>
+		<column name="validInspectorId" type="long" db-name="validInspectorId"/>
+		<column name="validInspectorName" type="String" db-name="validInspectorName"/>
+		<column name="validRemarks" type="String" db-name="validRemarks"/>
+		<column name="validInspectionNote" type="String" db-name="validInspectionNote"/>
+		<column name="deliverableFileEntryId" type="long" db-name="deliverableFileEntryId"/>
+		<column name="documentFileEntryId" type="long" db-name="documentFileEntryId"/>
+		<column name="modifyDate" type="Date" db-name="modifyDate"/>
+		<column name="syncDate" type="Date" db-name="syncDate"/>
+		
+		<finder return-type="VRExpireCertificate" name="F_vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
+		</finder>
+		<finder return-type="VRExpireCertificate" name="dossierId">
+			<finder-column name="dossierId" />
+		</finder>
+		<finder return-type="Collection" name="F_dossierStatus">
+			<finder-column name="dossierStatus" />
 		</finder>
 	</entity>
 
@@ -784,42 +894,12 @@
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
 		<column name="syncDate" type="Date" db-name="syncDate"/>
 		
-		
 		<!-- Filter -->
         <order by="desc">
             <order-column name="modifyDate" order-by="desc"></order-column>
         </order>
         
-        <finder return-type="Collection" name="mappingStatus">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="mappingStatus"></finder-column>
-		</finder>
-		<finder return-type="Collection" name="applicantCode">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="applicantCode"></finder-column>		
-		</finder>
-		<finder return-type="Collection" name="mappingMA_CTY">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="mappingMA_CTY"></finder-column>			
-		</finder>
-		<finder return-type="Collection" name="mappingTEN_CTY">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="mappingTEN_CTY"></finder-column>			
-		</finder>
-		<finder return-type="Collection" name="applicantRegion">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="applicantRegion"></finder-column>			
-		</finder>
-		<finder return-type="Collection" name="applicantCity">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="applicantCity"></finder-column>			
-		</finder>
-		<finder return-type="Collection" name="applicantStatus">
-			<finder-column name="mtCore"></finder-column>
-			<finder-column name="applicantStatus"></finder-column>		
-		</finder>
-		<finder return-type="VRApplicantProfile" name="MT_APP_CODE">
-			<finder-column name="mtCore" />
+		<finder return-type="VRApplicantProfile" name="applicantCode">
 			<finder-column name="applicantCode" />
 		</finder>
 	</entity>
@@ -1137,7 +1217,73 @@
 		<column name="dossierIdCTN" type="String" />
 		<column name="dossierNo" type="String" />
 		
-		
+		<column name="applicantEmail" type="String" db-name="applicantEmail"/>
+		<column name="applicantPhone" type="String" db-name="applicantPhone"/>
+		<column name="applicantTelNo" type="String" db-name="applicantTelNo"/>
+		<column name="applicantFax" type="String" db-name="applicantFax"/>
+		<column name="applicantContactName" type="String" db-name="applicantContactName"/>
+		<column name="applicantContactEmail" type="String" db-name="applicantContactEmail"/>
+		<column name="applicantContactPhone" type="String" db-name="applicantContactPhone"/>
+		<column name="applicantContactTelNo" type="String" db-name="applicantContactTelNo"/>
+		<column name="applicantBusinessType" type="String" db-name="applicantBusinessType"/>
+		<column name="markupDesigner" type="String" db-name="markupDesigner"/>
+		<column name="markupOverseasManufacturer" type="String" db-name="markupOverseasManufacturer"/>
+		<column name="markupMaintainer" type="String" db-name="markupMaintainer"/>
+		<column name="importerDomesticSite" type="String" db-name="importerDomesticSite"/>
+		<column name="siteOfNationality" type="String" db-name="siteOfNationality"/>
+		<column name="siteOfNationalityCode" type="String" db-name="siteOfNationalityCode"/>
+		<column name="siteOfRegion" type="String" db-name="siteOfRegion"/>
+		<column name="siteOfRegionCode" type="String" db-name="siteOfRegionCode"/>
+		<column name="siteOfCity" type="String" db-name="siteOfCity"/>
+		<column name="siteOfCityCode" type="String" db-name="siteOfCityCode"/>
+		<column name="manufacturerRepresentative" type="String" db-name="manufacturerRepresentative"/>
+		<column name="manufacturerRepresentativeTitle" type="String" db-name="manufacturerRepresentativeTitle"/>
+		<column name="manufacturerEmail" type="String" db-name="manufacturerEmail"/>
+		<column name="manufacturerPhone" type="String" db-name="manufacturerPhone"/>
+		<column name="manufacturerFax" type="String" db-name="manufacturerFax"/>
+		<column name="productionPlantEmail" type="String" db-name="productionPlantEmail"/>
+		<column name="productionPlantWebsite" type="String" db-name="productionPlantWebsite"/>
+		<column name="productionPlantRepresentative" type="String" db-name="productionPlantRepresentative"/>
+		<column name="productionPlantRepresentativeTitle" type="String" db-name="productionPlantRepresentativeTitle"/>
+		<column name="corporationName" type="String" db-name="corporationName"/>
+		<column name="inspectorContactCode" type="String" db-name="inspectorContactCode"/>
+		<column name="inspectorName" type="String" db-name="inspectorName"/>
+		<column name="inspectoRendorSementDate" type="Date" db-name="inspectoRendorSementDate"/>
+		<column name="inspectorDeadline" type="Date" db-name="inspectorDeadline"/>
+		<column name="resolvedStatus" type="String" db-name="resolvedStatus"/>
+		<column name="numberOfNonConformity" type="int" db-name="numberOfNonConformity"/>
+		<column name="numberOfResolved" type="int" db-name="numberOfResolved"/>
+		<column name="observationDescription" type="String" db-name="observationDescription"/>
+		<column name="inspectionAuditCycle" type="String" db-name="inspectionAuditCycle"/>
+		<column name="inspectionNote" type="String" db-name="inspectionNote"/>
+		<column name="productionConformityChecking" type="String" db-name="productionConformityChecking"/>
+		<column name="productionStampChecking" type="String" db-name="productionStampChecking"/>
+		<column name="testingEquipmentChecking" type="String" db-name="testingEquipmentChecking"/>
+		<column name="productionPlantClassification" type="String" db-name="productionPlantClassification"/>
+		<column name="actualCapacity" type="String" db-name="actualCapacity"/>
+		<column name="maxCapacity" type="String" db-name="maxCapacity"/>
+		<column name="averageCapacity" type="String" db-name="averageCapacity"/>
+		<column name="totalEmployee" type="String" db-name="totalEmployee"/>
+		<column name="totalWorker" type="String" db-name="totalWorker"/>
+		<column name="totalManager" type="String" db-name="totalManager"/>
+		<column name="totalTechnical" type="String" db-name="totalTechnical"/>
+		<column name="totalQaEmployee" type="String" db-name="totalQaEmployee"/>
+		<column name="totalSquareMeter" type="String" db-name="totalSquareMeter"/>
+		<column name="wareHouseSquare" type="String" db-name="wareHouseSquare"/>
+		<column name="officeSquare" type="String" db-name="officeSquare"/>
+		<column name="productionSquare" type="String" db-name="productionSquare"/>
+		<column name="machiningArea" type="String" db-name="machiningArea"/>
+		<column name="weldingArea" type="String" db-name="weldingArea"/>
+		<column name="paintingArea" type="String" db-name="paintingArea"/>
+		<column name="productionAssembleArea" type="String" db-name="productionAssembleArea"/>
+		<column name="finishProductArea" type="String" db-name="finishProductArea"/>
+		<column name="testingArea" type="String" db-name="testingArea"/>
+		<column name="selfEquipment" type="String" db-name="selfEquipment"/>
+		<column name="contractEquipment" type="String" db-name="contractEquipment"/>
+		<column name="circularNo" type="String" db-name="circularNo"/>
+		<column name="circularDate" type="Date" db-name="circularDate"/>
+		<column name="circularNo2" type="String" db-name="circularNo2"/>
+		<column name="circularDate2" type="Date" db-name="circularDate2"/>
 		
 		<!-- Filter -->
         <order by="desc">
@@ -1157,7 +1303,11 @@
 			<finder-column name="mtCore"></finder-column>
 			<finder-column name="applicantProfileId"></finder-column>
 		</finder>
-		
+		<finder return-type="Collection" name="productionPlantCode_copClassification">
+			<finder-column name="mtCore"></finder-column>
+			<finder-column name="productionPlantCode"></finder-column>
+			<finder-column name="copClassification"></finder-column>
+		</finder>
 		<finder return-type="Collection" name="productionPlantCode">
 			<finder-column name="mtCore"></finder-column>
 			<finder-column name="applicantProfileId"></finder-column>
@@ -1175,8 +1325,9 @@
             <finder-column name="applicantProfileId"></finder-column>
             <finder-column name="productionPlantCode"></finder-column>
         </finder>
-        <finder return-type="Collection" name="copDossierId">
+		<finder return-type="VRCOPReportRepository" name="DosierId_MtCore">
 			<finder-column name="dossierId"></finder-column>
+			<finder-column name="mtCore"></finder-column>
 		</finder>
 	</entity>
 
@@ -1215,6 +1366,10 @@
         <finder return-type="Collection" name="copDossierId">
 			<finder-column name="dossierId"></finder-column>
 		</finder>
+		<finder return-type="Collection" name="DossierId_MtCore">
+			<finder-column name="dossierId" />
+			<finder-column name="mtCore" />
+		</finder>
 	</entity>
 
 	<entity name="VRCOPProductionPlantEquipment" local-service="true" table="vr_copproductionplantequipment"
@@ -1234,17 +1389,15 @@
 		<column name="trademarkName" type="String" db-name="trademarkName"/>
 		<column name="commercialName" type="String" db-name="commercialName"/>
 		<column name="modelCode" type="String" db-name="modelCode"/>
-		<!-- <column name="designSymbolNo" type="String" db-name="designSymbolNo"/> -->
 		<column name="productionCountryCode" type="String" db-name="productionCountryCode"/>
 		<column name="equipmentStatus" type="String" db-name="equipmentStatus"/>
 		<column name="expireDate" type="Date" db-name="expireDate"/>
 		<column name="notes" type="String" db-name="notes"/>
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
 		<column name="syncDate" type="Date" db-name="syncDate"/>
-		
 		<column name="equipmentSerialNo" type="String"/>
-		<column name="productionYear" type="Date"/>
-		<column name="registrationYear" type="Date"/>
+		<column name="productionYear" type="String"/>
+		<column name="registrationYear" type="String"/>
 		<column name="markupXCG" type="long"/>
 		<column name="markupXCGNK" type="long"/>
 		<column name="markupSMRM" type="long"/>
@@ -1279,6 +1432,10 @@
 		</finder>
 		<finder return-type="Collection" name="copDossierId">
 			<finder-column name="dossierId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="DossierId_MtCore">
+			<finder-column name="dossierId" />
+			<finder-column name="mtCore" />
 		</finder>
 	</entity>
 
@@ -1324,6 +1481,10 @@
 		</finder>
 		<finder return-type="Collection" name="copDossierId">
 			<finder-column name="dossierId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="DossierId_MtCore">
+			<finder-column name="dossierId" />
+			<finder-column name="mtCore" />
 		</finder>
 	</entity>
 
@@ -1371,6 +1532,10 @@
 		<finder return-type="Collection" name="copDossierId">
 			<finder-column name="dossierId"></finder-column>
 		</finder>
+		<finder return-type="Collection" name="DossierId_MtCore">
+			<finder-column name="dossierId" />
+			<finder-column name="mtCore" />
+		</finder>
 	</entity>
 
 
@@ -1407,6 +1572,10 @@
 		</finder>
 		<finder return-type="Collection" name="copDossierId">
 			<finder-column name="dossierId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="DossierId_MtCore">
+			<finder-column name="dossierId" />
+			<finder-column name="mtCore" />
 		</finder>
 	</entity>
 
@@ -1723,6 +1892,11 @@
         <order by="desc">
             <order-column name="modifyDate" order-by="desc"></order-column>
         </order>
+        <finder return-type="Collection" name="vehicleClass_stampType_sum3">
+			<finder-column name="vehicleClass"></finder-column>			
+			<finder-column name="stampType"></finder-column>
+			<finder-column name="sum3" comparator="&gt;"/>
+		</finder>
         <finder return-type="Collection" name="InputSheetId">
 			<finder-column name="mtCore"></finder-column>			
 			<finder-column name="inputSheetId"></finder-column>
@@ -2115,6 +2289,9 @@
 			<finder-column name="applicantProfileId"></finder-column>
 			<finder-column name="vehicleRecordStatus"></finder-column>
 		</finder>
+		<finder return-type="Collection" name="issueId">
+			<finder-column name="issueId" />
+		</finder>
 	</entity>
 
 	<entity name="VRIssue" local-service="true" table="vr_issue"
@@ -2149,7 +2326,7 @@
 		<column name="totalInDocument" type="long" db-name="totalInDocument"/>
 		<column name="issueCorporationId" type="long" db-name="issueCorporationId"/>
 		<column name="verifyCorporationId" type="String" db-name="verifyCorporationId"/>
-		<column name="digitalissuestatus" type="int" db-name="digitalissuestatus"/>
+		<column name="digitalIssueStatus" type="int" db-name="digitalIssueStatus"/>
 		
 		<!-- add new -->
 		<column type="String" name="issueType"/>
@@ -2166,18 +2343,21 @@
 		<column type="String" name="examinationRequired"/>
 		<column type="String" name="examinationPeriod"/>
 		<column type="Date" name="examinationLastTime"/>
-		<column type="String" name="copresult"/>
-		<column type="String" name="copreportno"/>
-		<column type="Date" name="copreportdate"/>
-		<column type="String" name="postreview"/>
-		<column type="String" name="postreviewrecordno"/>
-		<column type="Date" name="postreviewrecorddate"/>
+		<column type="String" name="copResult"/>
+		<column type="String" name="copReportNo"/>
+		<column type="Date" name="copReportDate"/>
+		<column type="String" name="postReview"/>
+		<column type="String" name="postReviewRecordNo"/>
+		<column type="Date" name="postReviewRecordDate"/>
 		<column type="String" name="corporationId"/>
-		<column type="String" name="inspectorcode"/>
-		<column type="String" name="inspectorname"/>
-		<column type="String" name="leadername"/>
-		<column type="String" name="applicantmaker"/>
-		<column type="String" name="applicantchecker"/>
+		<column type="String" name="inspectorCode"/>
+		<column type="String" name="inspectorName"/>
+		<column type="String" name="leaderName"/>
+		<column type="String" name="applicantMaker"/>
+		<column type="String" name="applicantChecker"/>
+		
+		<column name="certificateRecordDate" type="Date"/>
+		<column name="issueInspectionRecordId" type="long"/>
 		
 		<column name="inspectorId" type="long" db-name="inspectorId"/>
 		<column name="issueInspectorId" type="long" db-name="issueInspectorId"/>
@@ -2219,17 +2399,61 @@
 			<finder-column name="mtCore"></finder-column>			
 			<finder-column name="productionPlantId"></finder-column>
 		</finder>
-		<finder return-type="Collection" name="copreportno">
+		<finder return-type="Collection" name="copReportNo">
 			<finder-column name="mtCore"></finder-column>						
-			<finder-column name="copreportno"></finder-column>
+			<finder-column name="copReportNo"></finder-column>
 		</finder>
 		<finder return-type="Collection" name="IC_IS">
 			<finder-column name="issueCorporationId"></finder-column>
-			<finder-column name="digitalissuestatus"></finder-column>
+			<finder-column name="digitalIssueStatus"></finder-column>
 		</finder>
 		 <finder return-type="VRIssue" name="F_MT_DID">
 			<finder-column name="mtCore" />
 			<finder-column name="dossierId" />
+		</finder>
+	</entity>
+	
+	<entity name="VRIssueInspectionRecord" local-service="true" table="vr_issue_inspectionrecord"
+		remote-service="false">
+		<!-- PK fields -->
+		<column name="id" type="long" primary="true" db-name="id"/>
+		
+		<!-- Audit fields -->
+		<column name="mtCore" type="long"/>
+		<column name="issueId" type="long"/>
+		<column name="dossierId" type="long"/>
+		<column name="certificateId" type="long"/>
+		<column name="totalQuantity" type="int"/>
+		<column name="postReview" type="String"/>
+		<column name="postReviewRecordNo" type="String"/>
+		<column name="postReviewRecordDate" type="Date"/>
+		<column name="corporationId" type="long"/>
+		<column name="inspectorCode" type="String"/>
+		<column name="inspectorName" type="String"/>
+		<column name="leaderName" type="String"/>
+		<column name="issueCorporationId" type="long"/>
+		<column name="verifyCorporationId" type="long"/>
+		<column name="inspectorId" type="long"/>
+		<column name="issueInspectorId" type="long"/>
+		<column name="verifyInspectorId" type="long"/>
+		<column name="digitalIssueStatus" type="String"/>
+		<column name="validRemarks" type="String"/>
+		<column name="validInspectionNote" type="String"/>
+		<column name="documentFileEntryid" type="long"/>
+		<column name="modifyDate" type="Date"/>
+		<column name="syncDate" type="Date"/>
+		
+		<order by="desc">
+            <order-column name="modifyDate" order-by="desc"></order-column>
+        </order>
+        <finder return-type="Collection" name="dossierId">
+			<finder-column name="dossierId"/>
+		</finder>
+		<finder return-type="Collection" name="issueId">
+			<finder-column name="issueId"/>
+		</finder>
+		<finder return-type="Collection" name="certificateId">
+			<finder-column name="certificateId"/>
 		</finder>
 	</entity>
 
@@ -2246,11 +2470,12 @@
 		<column name="vehiclePrice" type="long" db-name="vehiclePrice"/>
 		<column name="totalQuantity" type="long" db-name="totalQuantity"/>
 		<column name="unitPrice" type="long" db-name="unitPrice"/>
-		<column name="totalProduct" type="int" db-name="totalproduct"/>
+		<column name="totalProduct" type="int" db-name="totalProduct"/>
 		
 		<!-- add new -->
-		<column  type="String" name="certificaterecordno"/>
-		<column  type="String" name="productionexamreportno"/>
+		<column  type="String" name="certificateRecordNo"/>
+		<column  type="String" name="productionExamReportNo"/>
+		<column  type="Date" name="certificateRecordDate"/>
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
 		<column name="syncDate" type="Date" db-name="syncDate"/>
 						
@@ -2262,7 +2487,7 @@
 			<finder-column name="mtCore"></finder-column>			
 			<finder-column name="dossierId"></finder-column>
 		</finder>
-        <finder return-type="Collection" name="issueId">
+        <finder return-type="Collection" name="issueId_MtCore">
 			<finder-column name="mtCore"></finder-column>			
 			<finder-column name="issueId"></finder-column>
 		</finder>        
@@ -2270,6 +2495,9 @@
 			<finder-column name="mtCore"></finder-column>			
 			<finder-column name="dossierId"></finder-column>
 			<finder-column name="certificateId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="issueId">
+			<finder-column name="issueId" />
 		</finder>
 	</entity>
 	
@@ -2295,6 +2523,35 @@
 		<!-- Finder -->
 		<finder return-type="VRReport" name="ReportCode">
 			<finder-column name="reportCode"/>
+		</finder>
+	</entity>
+	
+	<entity name="VRReportCategory" local-service="true" table="vr_report_category"
+		remote-service="false">
+
+		<column name="id" type="int" primary="true" db-name="id"/>
+		<column name="rptCode" type="String" db-name="rptCode"/>
+		<column name="rptName" type="String" db-name="rptName"/>
+		<column name="rptDescription" type="String" db-name="rptDescription"/>
+		<column name="rptGroup" type="String" db-name="rptGroup"/>
+		<column name="rptLevel" type="int" db-name="rptLevel"/>
+		<column name="sequenceNo" type="int" db-name="sequenceNo"/>
+		<column name="jasperFileTemplate" type="String" db-name="jasperFileTemplate"/>
+		<column name="excelFileTemplate" type="String" db-name="excelFileTemplate"/>
+		<column name="modifiedDate" type="Date" db-name="modifiedDate"/>
+		
+		<!-- Finder -->
+		<finder return-type="VRReportCategory" name="rptCode">
+			<finder-column name="rptCode"/>
+		</finder>
+		<finder return-type="Collection" name="rptGroup">
+			<finder-column name="rptGroup"/>
+		</finder>
+		<finder return-type="Collection" name="rptLevel">
+			<finder-column name="rptLevel"/>
+		</finder>
+		<finder return-type="VRReportCategory" name="rptDescription">
+			<finder-column name="rptDescription"/>
 		</finder>
 	</entity>
 
@@ -2405,6 +2662,8 @@
 		<column name="men2cancelled" type="String" db-name="men2cancelled"/>
 		<column name="men2expired" type="String" db-name="men2expired"/>
 		<column name="men2violated" type="String" db-name="men2violated"/>
+		<column name="dossierPaymentDate" type="Date" db-name="dossierpaymentdate" />
+		<column name="men2PaymentApproval" type="String" db-name="men2paymentapproval" />
 
 		<!-- Audit fields -->
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
@@ -2443,10 +2702,11 @@
 		<!-- PK fields -->
 		<column name="id" type="long" primary="true" db-name="id"/>
 		
-		<column name="mtcore" type="int" db-name="mtcore"/>
+		<column name="mtCore" type="long" db-name="mtCore"/>
+		<column name="dossierId" type="long" db-name="dossierId"/>
 		<column name="issueId" type="long" db-name="issueId"/>
 		<column name="issueVehicleCertificateId" type="long" db-name="issueVehicleCertificateId"/>
-		<column name="vehiclecertificaterecordno" type="String" db-name="vehiclecertificaterecordno"/>
+		<column name="vehicleCertificateRecordNo" type="String" db-name="vehicleCertificateRecordNo"/>
 		<column name="equipmentName" type="String" db-name="equipmentName"/>
 		<column name="equipmentType" type="String" db-name="equipmentType"/>
 		<column name="equipmentCertificateType" type="String" db-name="equipmentCertificateType"/>
@@ -2459,10 +2719,10 @@
 		<column name="TotalInUse" type="int" db-name="TotalInUse"/>
 		<column name="TotalNotUsed" type="int" db-name="TotalNotUsed"/>
 		<column name="applicantNo" type="String" db-name="applicantNo"/>
-		<column name="applicantname" type="String" db-name="applicantname"/>
-		<column name="applicantaddress" type="String" db-name="applicantaddress"/>
-		<column name="productionplantname" type="String" db-name="productionplantname"/>
-		<column name="productionplantaddress" type="String" db-name="productionplantaddress"/>
+		<column name="applicantName" type="String" db-name="applicantName"/>
+		<column name="applicantAddress" type="String" db-name="applicantAddress"/>
+		<column name="productionPlantName" type="String" db-name="productionPlantName"/>
+		<column name="productionPlantAddress" type="String" db-name="productionPlantAddress"/>
 
 		<!-- Audit fields -->
 		<column name="modifyDate" type="Date" db-name="modifyDate"/>
@@ -2475,15 +2735,22 @@
 		<finder return-type="Collection" name="IssueVehicleCertificateId">
 			<finder-column name="issueVehicleCertificateId" />			
 		</finder>
-		<finder return-type="Collection" name="Vehiclecertificaterecordno">
-			<finder-column name="vehiclecertificaterecordno" />			
+		<finder return-type="Collection" name="vehicleCertificateRecordNo">
+			<finder-column name="vehicleCertificateRecordNo" />			
 		</finder>
 		<finder return-type="Collection" name="ApplicantNo_CertificateRecordNo">
 			<finder-column name="applicantNo" />
-			<finder-column name="vehiclecertificaterecordno" />			
+			<finder-column name="vehicleCertificateRecordNo" />			
 		</finder>
 		<finder return-type="Collection" name="ApplicantNo">
 			<finder-column name="applicantNo" />			
+		</finder>
+		<finder return-type="Collection" name="dossierID_MtCore">
+			<finder-column name="dossierId" />
+			<finder-column name="mtCore" />
+		</finder>
+		<finder return-type="Collection" name="issueId">
+			<finder-column name="issueId" />
 		</finder>
 	</entity>
 	
@@ -2743,11 +3010,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 		
@@ -2989,11 +3262,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 		
@@ -3010,7 +3289,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-		
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="LKXMY0507" type="String" db-name="LKXMY0507"/>
 		<column name="LKXMY0508" type="String" db-name="LKXMY0508"/>
@@ -3139,11 +3418,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	<entity name="VRTechnicalSpec_XCG" local-service="true" table="vr_technicalspec_xcg"
@@ -4169,11 +4454,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	<entity name="VRTechnicalSpec_XCGPart1" local-service="true" table="vr_technicalspec_xcg"
@@ -4189,6 +4480,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="loai_dong_co" type="String" db-name="loai_dong_co"/>
 		<column name="XCG01001" type="String" db-name="XCG01001"/>
@@ -4369,11 +4661,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -4390,7 +4688,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>	
 		
 		<column name="XCG01163" type="String" db-name="XCG01163"/>
 		<column name="XCG01164" type="String" db-name="XCG01164"/>
@@ -4560,11 +4858,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -4581,7 +4885,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 				
 		<column name="XCG01310" type="String" db-name="XCG01310"/>
 		<column name="XCG01311" type="String" db-name="XCG01311"/>
@@ -4786,11 +5090,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -4807,7 +5117,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="XCG01496" type="String" db-name="XCG01496"/>
 		<column name="XCG01497" type="String" db-name="XCG01497"/>
@@ -4951,11 +5261,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -4972,7 +5288,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>	
 
 		<column name="XCG01598" type="String" db-name="XCG01598"/>
 		<column name="XCG01599" type="String" db-name="XCG01599"/>
@@ -5176,11 +5492,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -5197,6 +5519,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 			
 		<column name="XCG01757" type="String" db-name="XCG01757"/>
 		<column name="XCG01758" type="String" db-name="XCG01758"/>
@@ -5398,11 +5721,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -5680,11 +6009,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -5701,6 +6036,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="XCH01273" type="String" db-name="XCH01273"/>
 		<column name="XCH01274" type="String" db-name="XCH01274"/>
@@ -5940,6 +6276,9 @@
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
 		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
+		</finder>
 	</entity>
 	
 		<entity name="VRTechnicalSpec_XCN" local-service="true" table="vr_technicalspec_xcnbb"
@@ -6137,6 +6476,12 @@
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
+		</finder>
 	</entity>
 	
 	<entity name="VRTechnicalSpec_XCNPart2" local-service="true" table="vr_technicalspec_xcnbb"
@@ -6152,7 +6497,8 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
+		
 		<column name="XCN01186" type="String" db-name="XCN01186"/>		
 		<column name="XCN01187" type="String" db-name="XCN01187"/>
 		<column name="XCN01188" type="String" db-name="XCN01188"/>
@@ -6332,6 +6678,12 @@
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
+		</finder>
 	</entity>
 	
 		<entity name="VRTechnicalSpec_XCNPart3" local-service="true" table="vr_technicalspec_xcnbb"
@@ -6347,7 +6699,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="XCN01336" type="String" db-name="XCN01336"/>
 		<column name="XCN01337" type="String" db-name="XCN01337"/>
@@ -6537,6 +6889,12 @@
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -6752,11 +7110,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -6970,11 +7334,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -6991,7 +7361,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
-			
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="XMY0010" type="String" db-name="XMY0010"/>
 		<column name="XMY0011" type="String" db-name="XMY0011"/>
@@ -7152,11 +7522,17 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
+		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
 		</finder>
 	</entity>
 	
@@ -7173,6 +7549,7 @@
 		<column name="referenceUid" type="String" db-name="referenceUid"/>
 		<column name="dossierIdCTN" type="String" db-name="dossierIdCTN"/>
 		<column name="deliverableCode" type="String" db-name="deliverableCode"/>
+		<column name="vehicleTypeCertificateId" type="long" db-name="vehicleTypeCertificateId"/>
 		
 		<column name="XMY0149" type="String" db-name="XMY0149"/>
 		<column name="XMY0150" type="String" db-name="XMY0150"/>
@@ -7350,18 +7727,22 @@
 			<finder-column name="dossierId" />
 			<finder-column name="mtCore" />
 		</finder>
+		<finder return-type="Collection" name="_DossierId">
+			<finder-column name="dossierId" />
+		</finder>
 		<finder return-type="Collection" name="ConvertAssembleId">
 			<finder-column name="convertAssembleId" />
 		</finder>
 		<finder return-type="Collection" name="ReferenceUid">
 			<finder-column name="referenceUid" />
 		</finder>
+		<finder return-type="Collection" name="vehicleTypeCertificateId">
+			<finder-column name="vehicleTypeCertificateId" />
+		</finder>
 	</entity>
 	
-	
-	
 	<entity name="VRDossier" table="opencps_dossier" local-service="true"
-		remote-service="false" uuid="true">
+		remote-service="false" uuid="true" cache-enabled="false">
 
 		<!-- PK fields -->
 
@@ -7480,7 +7861,7 @@
 	</entity>
 	
 	<entity name="VRDossierFile" table="opencps_dossierfile"
-		local-service="true" remote-service="false" uuid="true">
+		local-service="true" remote-service="false" uuid="true" cache-enabled="false">
 
 		<!-- PK fields -->
 
@@ -7522,16 +7903,12 @@
 		<column name="deliverableCode" type="String"/>
 
 		<!-- Order -->
-
 		<order>
 			<order-column name="modifiedDate" order-by="desc"/>
 			<order-column name="dossierPartNo" order-by="asc" />
 		</order>
-		
-		
 
 		<!-- Finder methods -->
-		
 		<finder return-type="Collection" name="DID_FTN">
 			<finder-column name="dossierId" />
 			<finder-column name="fileTemplateNo" />
@@ -7574,7 +7951,7 @@
 			<finder-column name="fileTemplateNo"></finder-column>
 			<finder-column name="removed"></finder-column>
 		</finder>
-		<finder name="DID_DPNO" return-type="Collection">
+		<finder name="DID_DPNO" return-type="Collection" db-index="false">
 			<finder-column name="dossierId"></finder-column>
 			<finder-column name="dossierPartNo"></finder-column>
 			<finder-column name="removed"></finder-column>
@@ -7887,6 +8264,75 @@
         <column name="type" type="String" db-name="type"></column>
         <column name="data" type="String" db-name="data"></column>
     </entity>
+    
+    <entity name="VRMigrateMappings" local-service="true" table="vr_migrate_mappings"
+		remote-service="false">
+		<!-- PK fields -->
+		<column name="id" type="long" primary="true" db-name="id"/>
+		
+		<!-- Audit fields -->
+		<column name="dataGroupId" type="int" db-name="dataGroupID"/>
+		<column name="sequenceNo" type="int" db-name="sequenceNo"/>
+		<column name="migrateTableName" type="String" db-name="migrateTableName"/>
+		<column name="dataItemID" type="int" db-name="dataItemID"/>
+		<column name="itemCode" type="String" db-name="itemCode"/>
+		<column name="itemName" type="String" db-name="itemName"/>
+		<column name="itemShortName" type="String" db-name="itemShortName"/>
+		<column name="itemDescription" type="String" db-name="itemDescription"/>
+		<column name="code_0" type="String" db-name="code_0"/>
+		<column name="code_1" type="String" db-name="code_1"/>
+		<column name="code_2" type="String" db-name="code_2"/>
+		<column name="code_3" type="String" db-name="code_3"/>
+		<column name="level" type="int" db-name="level"/>
+		<column name="seqNo" type="int" db-name="seqNo"/>
+		<column name="markedAsRestore" type="int" db-name="markedAsRestore"/>
+		<column name="markedAsDelete" type="int" db-name="markedAsDelete"/>
+		<column name="alterCollectionCode" type="String" db-name="alterCollectionCode"/>
+		<column name="alterItemCode" type="String" db-name="alterItemCode"/>
+		<column name="alterItemName" type="String" db-name="alterItemName"/>
+		<column name="alterGroupCode" type="String" db-name="alterGroupCode"/>
+		<column name="alterLevel" type="String" db-name="alterLevel"/>
+		<column name="taskMigrationID" type="int" db-name="taskMigrationID"/>
+		
+		<finder name="MiId_DataGRId_Seq" return-type="Collection">
+            <finder-column name="taskMigrationID"></finder-column>
+            <finder-column name="dataGroupId"></finder-column>
+            <finder-column name="sequenceNo"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="VRMigrateTask" local-service="true" table="vr_migrate_task"
+		remote-service="false">
+		<!-- PK fields -->
+		<column name="task_id" type="long" primary="true" db-name="task_id"/>
+		
+		<!-- Audit fields -->
+		<column name="task_name" type="String" db-name="task_name"/>
+		<column name="taskMigrationID" type="int" db-name="taskMigrationID"/>
+		<column name="source_config" type="String" db-name="source_config"/>
+		<column name="target_config" type="String" db-name="target_config"/>
+		<column name="remarks" type="String" db-name="remarks"/>
+		<column name="status" type="int" db-name="status"/>
+	</entity>
+	
+	<entity name="VRMigrateReview" local-service="true" table="vr_migrate_review"
+		remote-service="false">
+		<!-- PK fields -->
+		<column name="id" type="long" primary="true" db-name="id"/>
+		
+		<!-- Audit fields -->
+		<column name="dataGroupID" type="int" db-name="dataGroupID"/>
+		<column name="migrateTableName" type="String" db-name="migrateTableName"/>
+		<column name="migrationConfiguration" type="String" db-name="migrationConfiguration"/>
+		<column name="sequenceNo" type="int" db-name="sequenceNo"/>
+		<column name="taskMigrationID" type="int" db-name="taskMigrationID"/>
+		<column name="migrateRows" type="String" db-name="migrateRows"/>
+		<column name="migrateRemarks" type="String" db-name="migrateRemarks"/>
+		
+		<finder name="taskMigrationID" return-type="Collection">
+			<finder-column name="taskMigrationID"></finder-column>
+		</finder>
+	</entity>
 	
 
 	<exceptions>
