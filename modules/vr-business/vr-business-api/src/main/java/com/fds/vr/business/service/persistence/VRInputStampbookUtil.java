@@ -112,6 +112,213 @@ public class VRInputStampbookUtil {
 	}
 
 	/**
+	* Returns all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @return the matching vr input stampbooks
+	*/
+	public static List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3) {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3(vehicleClass, stampType,
+			sum3);
+	}
+
+	/**
+	* Returns a range of all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRInputStampbookModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param start the lower bound of the range of vr input stampbooks
+	* @param end the upper bound of the range of vr input stampbooks (not inclusive)
+	* @return the range of matching vr input stampbooks
+	*/
+	public static List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		int start, int end) {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3(vehicleClass, stampType,
+			sum3, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRInputStampbookModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param start the lower bound of the range of vr input stampbooks
+	* @param end the upper bound of the range of vr input stampbooks (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr input stampbooks
+	*/
+	public static List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		int start, int end,
+		OrderByComparator<VRInputStampbook> orderByComparator) {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3(vehicleClass, stampType,
+			sum3, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRInputStampbookModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param start the lower bound of the range of vr input stampbooks
+	* @param end the upper bound of the range of vr input stampbooks (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr input stampbooks
+	*/
+	public static List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		int start, int end,
+		OrderByComparator<VRInputStampbook> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3(vehicleClass, stampType,
+			sum3, start, end, orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr input stampbook
+	* @throws NoSuchVRInputStampbookException if a matching vr input stampbook could not be found
+	*/
+	public static VRInputStampbook findByvehicleClass_stampType_sum3_First(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRInputStampbookException {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3_First(vehicleClass,
+			stampType, sum3, orderByComparator);
+	}
+
+	/**
+	* Returns the first vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr input stampbook, or <code>null</code> if a matching vr input stampbook could not be found
+	*/
+	public static VRInputStampbook fetchByvehicleClass_stampType_sum3_First(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator) {
+		return getPersistence()
+				   .fetchByvehicleClass_stampType_sum3_First(vehicleClass,
+			stampType, sum3, orderByComparator);
+	}
+
+	/**
+	* Returns the last vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr input stampbook
+	* @throws NoSuchVRInputStampbookException if a matching vr input stampbook could not be found
+	*/
+	public static VRInputStampbook findByvehicleClass_stampType_sum3_Last(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRInputStampbookException {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3_Last(vehicleClass,
+			stampType, sum3, orderByComparator);
+	}
+
+	/**
+	* Returns the last vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr input stampbook, or <code>null</code> if a matching vr input stampbook could not be found
+	*/
+	public static VRInputStampbook fetchByvehicleClass_stampType_sum3_Last(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator) {
+		return getPersistence()
+				   .fetchByvehicleClass_stampType_sum3_Last(vehicleClass,
+			stampType, sum3, orderByComparator);
+	}
+
+	/**
+	* Returns the vr input stampbooks before and after the current vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param id the primary key of the current vr input stampbook
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr input stampbook
+	* @throws NoSuchVRInputStampbookException if a vr input stampbook with the primary key could not be found
+	*/
+	public static VRInputStampbook[] findByvehicleClass_stampType_sum3_PrevAndNext(
+		long id, java.lang.String vehicleClass, java.lang.String stampType,
+		long sum3, OrderByComparator<VRInputStampbook> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRInputStampbookException {
+		return getPersistence()
+				   .findByvehicleClass_stampType_sum3_PrevAndNext(id,
+			vehicleClass, stampType, sum3, orderByComparator);
+	}
+
+	/**
+	* Removes all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63; from the database.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	*/
+	public static void removeByvehicleClass_stampType_sum3(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3) {
+		getPersistence()
+			.removeByvehicleClass_stampType_sum3(vehicleClass, stampType, sum3);
+	}
+
+	/**
+	* Returns the number of vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	*
+	* @param vehicleClass the vehicle class
+	* @param stampType the stamp type
+	* @param sum3 the sum3
+	* @return the number of matching vr input stampbooks
+	*/
+	public static int countByvehicleClass_stampType_sum3(
+		java.lang.String vehicleClass, java.lang.String stampType, long sum3) {
+		return getPersistence()
+				   .countByvehicleClass_stampType_sum3(vehicleClass, stampType,
+			sum3);
+	}
+
+	/**
 	* Returns all the vr input stampbooks where mtCore = &#63; and inputSheetId = &#63;.
 	*
 	* @param mtCore the mt core

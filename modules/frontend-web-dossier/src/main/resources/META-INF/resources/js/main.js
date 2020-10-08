@@ -6,6 +6,2762 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			'groupId': themeDisplay.getScopeGroupId()
 		}
 	};
+	const sampleDataCOP = {
+		"count": 0,
+		"dang_kiem_vien_1": "#userAction@PPC",
+		"1_1_1": "#ten_doanh_nghiep@TT302011BGTVTCOPTTDN",
+		"1_1_2": "#dia_chi_chinh_doanh_nghiep@TT302011BGTVTCOPTTDN",
+		"ma_so_tai_khoan": "#ma_so_tai_khoan@TT302011BGTVTCOPTTDN",
+		"ma_so_nha_xuong": "#ma_so_xuong@TT302011BGTVTCOPTTDN",
+		"productionplantcode": "#list_nha_xuong@TT302011BGTVTCOPTTDN",
+		"copclassification": "#loai_hinh_san_xuat@TT302011BGTVTCOPTTDN",
+		"loai_hinh_danh_gia": "#loai_ho_so_cop@TT302011BGTVTCOPTTDN",
+		"1_1_3": "#ten_xuong_san_xuat@TT302011BGTVTCOPTTDN",
+		"1_1_4": "#dia_chi_xuong_san_xuat@TT302011BGTVTCOPTTDN",
+		"thiet_bi_xuat_xuong": "#thiet_bi_xuat_xuong@TT302011BGTVTCOPTTDN",
+		"hop_dong": "#hop_dong@TT302011BGTVTCOPTTDN",
+		"kl_1_1_1": 2,
+		"kl_1_1_2": 2,
+		"kl_1_1_3": 2,
+		"kl_1_1_4": 2,
+		"kl_1_1_5": 2,
+		"kl_1_1_6": 2,
+		"part1": [
+		{
+			"stt": "1",
+			"noi_dung": "<span style='font-weight:bold;'>Đánh giá về tính pháp lý (Bussiness scope)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "1.1",
+			"noi_dung": "<span style='font-weight:bold;'>Có tài liệu thể hiện tư cách pháp nhân ( Bussiness licence / Certification)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "1.1.1",
+			"noi_dung": "<span style='font-weight:bold;'>Tên cơ sở sản xuất, địa chỉ chủ sở chính (Name / address of manufacturer):</span>",
+			"ky_hieu": "nd_1_1_1",
+			"diem_nd": "diem_nd_1_1_1",
+			"nd_result": "nd_1_1_1_result",
+			"mt_nd": "mt_nd_1_1_1",
+			"nd_1_1_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) khác hồ sơ (Different from declaration)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) khác hồ sơ do khai nhầm (Wrong with declaration)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) khác hồ sơ do đổi tên (Different from declaration due to changing name )"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) đúng hồ sơ (Accurate declaration)"
+			}
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+		},
+		{
+			"stt": "1.1.2",
+			"noi_dung": "<span style='font-weight:bold;'>Ngành nghề sản xuất kinh doanh (Production and business fields):</span>",
+			"ky_hieu": "nd_1_1_2",
+			"diem_nd": "diem_nd_1_1_2",
+			"nd_result": "nd_1_1_2_result",
+			"mt_nd": "mt_nd_1_1_2",
+			"nd_1_1_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không đăng ký kinh doanh (Non-licensed)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có đăng kí kinh doanh, ngành nghề không phù hợp (Licensed, insufficient)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đăng kí kinh doanh, ngành nghề phù hợp (Licensed, sufficient)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đăng kí kinh doanh, ngành nghề phù hợp, đã sản xuất kinh doanh (Included (3), taken into effect)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "1.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tài liệu thể hiện tính hợp pháp của địa điểm kinh doanh/sản xuất, lắp ráp <br>(Documents present the legality of manufacturing site)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "1.2.1",
+			"noi_dung": "<span style='font-weight:bold;'>Địa điểm đánh giá (Site address):</span>",
+			"ky_hieu": "nd_1_2_1",
+			"diem_nd": "diem_nd_1_2_1",
+			"nd_result": "nd_1_2_1_result",
+			"nd_1_2_1_result": 1,
+			"mt_nd": "mt_nd_1_2_1",
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) khác hồ sơ (Different from declaration)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) khác hồ sơ do khai nhầm (Wrong with declaration)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) khác hồ sơ do đổi tên (Different from declaration due to changing name )"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) đúng hồ sơ (Accurate declaration)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "1.2.2",
+			"noi_dung": "<span style='font-weight:bold;'>Ngành nghề sản xuất và thời hạn sử dụng (Production field registered and Period of validity)</span>",
+			"ky_hieu": "nd_1_2_2",
+			"diem_nd": "diem_nd_1_2_2",
+			"nd_result": "nd_1_2_2_result",
+			"mt_nd": "mt_nd_1_2_2",
+			"nd_1_2_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) chưa được phép (disapproved)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) được phép nhưng không phù hợp (Licensed, insufficient)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) được phép và phù hợp (Licensed, sufficient)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và đã sản xuất (Included (3), taken into effect)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2",
+			"noi_dung": "<span style='font-weight:bold;'>Đánh giá tài liệu quản lý chất lượng (Quality documents)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.1",
+			"noi_dung": "<span style='font-weight:bold;'>Quy trình sản xuất (Production procedure)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.1.1",
+			"noi_dung": "<span style=''><strong>Tính phù hợp:</strong> áp dụng cho đúng kiểu loại sản phẩm, thể hiện đầy đủ các yếu tố về vật tư, thiết bị, trình tự thực hiện, trách nhiệm, thời điểm. Các yêu cầu và tiêu chí thực hiện phù hợp với yêu cầu của loại hình sản xuất.<br><strong>Conformity:</strong> Apply for specific type of products, present full elements of incoming materials, machineries, sequent performing methods, responsibilities and timing. Requirements and performance criterions shall be complied with type of production demands.</span>",
+			"ky_hieu": "nd_2_1_1",
+			"diem_nd": "diem_nd_2_1_1",
+			"nd_result": "nd_2_1_1_result",
+			"mt_nd": "mt_nd_2_1_1",
+			"nd_2_1_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không sản xuất theo được (Available, non-applicable)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có và sản xuất theo được (Available, Applicable)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích để cải tiến <br>(Included (5), have ability to carry out the statistic and analysis for improvement)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng cải tiến liên tục nâng cao chất lượng, năng suất <br>(Included (6), have ability to carry out the continuous improvements for quality and productivity)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+
+		{
+			"stt": "2.1.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tính hiệu lực (Effectiveness):</span>",
+			"ky_hieu": "nd_2_1_2",
+			"diem_nd": "diem_nd_2_1_2",
+			"nd_result": "nd_2_1_2_result",
+			"mt_nd": "mt_nd_2_1_2",
+			"nd_2_1_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) người liên quan không biết (People involved unknow)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có soạn thảo, chưa phê duyệt (Edited, unapproved)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ và được phê duyệt áp dụng đến cấp quản lý (Approved and distributed to manager levels)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3), phổ biến đến người thực hiện và làm được (Included (3), distributed to implementors and followable)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và thực hiện thành thạo (Included (4) and can be done skillfully)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và người thực hiện có thể đào tạo (Included (5), trainable by implementors)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và người thực hiện có thể xây dựng, cải tiến (Included (6), creational and improvable by implementors)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.2",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định kiểm soát chất lượng ( Quality control)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.2.1",
+			"noi_dung": "<span style='font-weight:bold;'>Tính phù hợp:</span> Áp dụng cho đúng kiểu loại sản phẩm. Đủ các công đoạn kiểm tra từ đầu vào, trong sản xuất đến thành phẩm (xuất xưởng). Các công đoạn kiểm tra thể hiện được đầy đủ các yếu tố như trình tự thực hiện, tiêu chuẩn kiểm tra, thiết bị, dụng cụ kiểm tra, phương pháp thực hiện, người thực hiện. Các yêu cầu, tiêu chí và các biểu mẫu kiểm tra phù hợp các quy định hiện hành và thực tế sản xuất, kiểm tra.<br><span style='font-weight:italic;'>Áp dụng cho đúng kiểu loại sản phẩm. Đủ các công đoạn kiểm tra từ đầu vào, trong sản xuất đến thành phẩm (xuất xưởng). Các công đoạn kiểm tra thể hiện được đầy đủ các yếu tố như trình tự thực hiện, tiêu chuẩn kiểm tra, thiết bị, dụng cụ kiểm tra, phương pháp thực hiện, người thực hiện. Các yêu cầu, tiêu chí và các biểu mẫu kiểm tra phù hợp các quy định hiện hành và thực tế sản xuất, kiểm tra.</span> ",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.2.1.1",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định kiểm soát vật tư đầu vào (Incoming materials control):</span>",
+			"ky_hieu": "nd_2_2_1_1",
+			"diem_nd": "diem_nd_2_2_1_1",
+			"nd_result": "nd_2_2_1_1_result",
+			"mt_nd": "mt_nd_2_2_1_1",
+			"nd_2_2_1_1_result": 1,
+			"items": [
+				{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không có quy định (Not available)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) có nhưng không kiểm soát được (Available, uncontrolled)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) có đủ tài liệu để kiểm soát (Available, controlled)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) như (5) và có đánh giá nhà cung cấp (Included (5), have external audits performed on suppliers)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) như (6) và có khả năng thống kê phân tích để cải tiến (Included (6), have ability to carry out the statistic and analysis for improvement)"
+				}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.2.1.2",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định kiểm soát trong sản xuất (Processing control):</span>",
+			"ky_hieu": "nd_2_2_1_2",
+			"diem_nd": "diem_nd_2_2_1_2",
+			"nd_result": "nd_2_2_1_2_result",
+			"mt_nd": "mt_nd_2_2_1_2",
+			"nd_2_2_1_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có quy định (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không kiểm soát được (Available, uncontrolled)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ tài liệu để kiểm soát (Approved, controlled)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích để cải tiến (Included (5), have ability to carry out the statistic and analysis for improvement) "
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng cải tiến liên tục nâng cao chất lượng, năng suất (Included (6), have ability to carry out the continuous improvements for quality and productivity)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.2.1.3",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định kiểm tra xuất xưởng (Final control):</span>",
+			"ky_hieu": "nd_2_2_1_3",
+			"diem_nd": "diem_nd_2_2_1_3",
+			"nd_result": "nd_2_2_1_3_result",
+			"mt_nd": "mt_nd_2_2_1_3",
+			"nd_2_2_1_3_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có quy định (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không kiểm soát được (Available, uncontrolled)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ tài liệu để kiểm soát (Approved, controlled )"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích để cải tiến (Included (5), have ability to carry out the statistic and analysis for improvement) "
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng cải tiến liên tục nâng cao chất lượng, năng suất (Included (6), have ability to carry out continuous improvements for quality and productivity)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.2.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tính hiệu lực (Effectiveness):</span>",
+			"ky_hieu": "nd_2_2_2",
+			"diem_nd": "diem_nd_2_2_2",
+			"nd_result": "nd_2_2_2_result",
+			"mt_nd": "mt_nd_2_2_2",
+			"nd_2_2_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) người liên quan không biết (People involved unknow)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có soạn thảo, chưa phê duyệt (Edited, unapproved)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ và được phê duyệt áp dụng đến cấp quản lý (Approved and distributed to manager levels)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3), phổ biến đến người thực hiện và làm được (Included (3), distributed to implementors and followable)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và thực hiện thành thạo (Included (4), could be done skillfully)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và người thực hiện có thể đào tạo (Included (5), trainable by implementors)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và người thực hiện có thể xây dựng, cải tiến (Included (6), creational and improvable by implementors)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.3",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định bảo hành (Warranty documents)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.3.1",
+			"noi_dung": "<span style=''><strong>Tính phù hợp:</strong> có quy trình thực hiện bảo hành, có điều khoản cụ thể về bảo hành sản phẩm để khách hàng biết và thực hiện được quyền và nghĩa vụ.<br><strong>Conformity:</strong> have warranty processes, with specific provisions for product warranty, in order to let customers know and implement their rights and obligations.</span>",
+			"ky_hieu": "nd_2_3_1",
+			"diem_nd": "diem_nd_2_3_1",
+			"nd_result": "nd_2_3_1_result",
+			"mt_nd": "mt_nd_2_3_1",
+			"nd_2_3_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không thực hiện được (Available, unexecuted)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ tài liệu để thực hiện bảo hành sản phẩm (Approved, executed)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích để cải tiến (Included (5), have ability to carry out the statistic and analysis for improvement) "
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng cải tiến liên tục nâng cao chất lượng (Included (6), have ability to carry out continuous improvements for quality)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.3.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tính hiệu lực (Effectiveness):</span>",
+			"ky_hieu": "nd_2_3_2",
+			"diem_nd": "diem_nd_2_3_2",
+			"nd_result": "nd_2_3_2_result",
+			"mt_nd": "mt_nd_2_3_2",
+			"nd_2_3_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) người liên quan không biết (People involved unknow)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có soạn thảo, chưa phê duyệt (Edited, unapproved)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ và được phê duyệt áp dụng đến cấp quản lý (Approved and distributed to manager levels)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đủ, dược phê duyệt, phổ biến đến người thực hiện (Approved and distributed to implementors)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và thực hiện làm được (Included (4), followable)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và người thực hiện làm thành thạo (Included (5), could be done skillfully)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và người thực hiện hiểu rõ, có thể cải tiến (Included (6), comprehensible and improvable by implementors)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.4",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định kiểm soát không phù hợp (Non-conformity control documents)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.4.1",
+			"noi_dung": "<span style=''><strong>Tính phù hợp:</strong> có thể nhận biết, theo dõi cách ly và xử lý không phù hợp. Có thể phân tích nguyên nhân, đưa ra biện pháp khắc phục - phòng ngừa.<br><strong>Conformity:</strong> Could be able to identify, to classify, to isolate and to handle all type of non-conformities. Could be able to analyze the root causes and take the corrective and preventive actions.</span>",
+			"ky_hieu": "nd_2_4_1",
+			"diem_nd": "diem_nd_2_4_1",
+			"nd_result": "nd_2_4_1_result",
+			"mt_nd": "mt_nd_2_4_1",
+			"nd_2_4_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không thực hiện được (Available, unexecuted)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ nội dung để kiểm soát không phù hợp (Approved, controlled)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích nguyên nhân và khắc phục (Included (5), have ability to carry out the statistics and analysis of root causes and corrective actions)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng phòng ngừa (Included (6), have ability to carry out the preventive actions)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.4.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tính hiệu lực (Effectiveness):</span>",
+			"ky_hieu": "nd_2_4_2",
+			"diem_nd": "diem_nd_2_4_2",
+			"nd_result": "nd_2_4_2_result",
+			"mt_nd": "mt_nd_2_4_2",
+			"nd_2_4_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) người liên quan không biết (People involved unknow)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có soạn thảo, chưa phê duyệt (Edited, unapproved)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ và được phê duyệt áp dụng đến cấp quản lý (Approved and distributed to manager levels)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đủ, dược phê duyệt, phổ biến đến người thực hiện (Approved and distributed to implementors)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và thực hiện làm được (Included (4), followable)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và người thực hiện làm thành thạo (Included (5), could be done skillfully)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và người thực hiện hiểu rõ, có thể cải tiến (Included (6), comprehensible and improvable by implementors)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+
+		{
+			"stt": "2.5",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định triệu hồi sản phẩm (Recall documents)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.5.1",
+			"noi_dung": "<span style=''><strong>Tính phù hợp:</strong> có thể nhận biết, theo dõi và xử lý khi sản phẩm có lỗi thuộc phạm vi phải triệu hồi sản phẩm.<br><strong>Conformity:</strong> could be able to identify, to track and to handle the faulty products within the range of products recalled.</span>",
+			"ky_hieu": "nd_2_5_1",
+			"diem_nd": "diem_nd_2_5_1",
+			"nd_result": "nd_2_5_1_result",
+			"mt_nd": "mt_nd_2_5_1",
+			"nd_2_5_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không thực hiện được (Available, unexecuted)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ nội dung để xử lý sản phẩm bị triệu hồi (Meet requirements and applicable)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích nguyên nhân và khắc phục (Included (5), have ability to carry out the statistics and analysis of root causes and corrective actions)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng phòng ngừa (Included (6), have ability to carry out the preventive actions)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.5.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tính hiệu lực (Effectiveness):</span>",
+			"ky_hieu": "nd_2_5_2",
+			"diem_nd": "diem_nd_2_5_2",
+			"nd_result": "nd_2_5_2_result",
+			"mt_nd": "mt_nd_2_5_2",
+			"nd_2_5_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) người liên quan không biết (People involved unknow)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có soạn thảo, chưa phê duyệt (Edited, unapproved)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ và được phê duyệt áp dụng đến cấp quản lý (Approved and distributed to manager levels)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đủ, dược phê duyệt, phổ biến đến người thực hiện (Approved and distributed to implementors)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và thực hiện làm được (Included (4), followable)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và người thực hiện làm thành thạo (Included (5), could be done skillfully)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và người thực hiện hiểu rõ, có thể cải tiến (Included (6), comprehensible and improvable by implementors)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.6",
+			"noi_dung": "<span style='font-weight:bold;'>Quy định về kiểm soát tài liệu, hồ sơ chất lượng (Documents, records control regulations)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "2.6.1",
+			"noi_dung": "<span style=''><strong>Tính phù hợp:</strong>> thể hiện phương pháp rõ ràng để phân biệt, theo dõi tài liệu và hồ sơ chất lượng. Quy định rõ cách thức lưu trữ, bảo quản của tài liệu và hồ sơ. <br><strong>Conformity:</strong> Could be able to classify and to track the documents and quality records. Specify the practical method to store and preserve them.</span>",
+			"ky_hieu": "nd_2_6_1",
+			"diem_nd": "diem_nd_2_6_1",
+			"nd_result": "nd_2_6_1_result",
+			"mt_nd": "mt_nd_2_6_1",
+			"nd_2_6_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có nhưng không thực hiện được (Available, unexecuted)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ tài liệu để kiểm soát tài liệu, hồ sơ (Available, sufficient)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và phù hợp với thực tế (Included (3), comply with reality)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và dễ thực hiện (Included (4), easily get done)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có khả năng thống kê phân tích nguyên nhân và khắc phục (Included (5), have ability to carry out the statistics and analysis of root causes and corrective actions)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có khả năng cải tiến liên tục (Included (6), have ability to carry out continuous improvements)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "2.6.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tính hiệu lực (Effectiveness):</span>",
+			"ky_hieu": "nd_2_6_2",
+			"diem_nd": "diem_nd_2_6_2",
+			"nd_result": "nd_2_6_2_result",
+			"mt_nd": "mt_nd_2_6_2",
+			"nd_2_6_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) người liên quan không biết (People involved unknow)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có soạn thảo, chưa phê duyệt (Edited, unapproved)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ và được phê duyệt áp dụng đến cấp quản lý (Approved and distributed to manager levels)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đủ, dược phê duyệt, phổ biến đến người thực hiện (Approved and distributed to implementors)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và thực hiện làm được (Included (4), followable)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và người thực hiện làm thành thạo (Included (5), could be done skillfully)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và người thực hiện hiểu rõ, có thể cải tiến (Included (6), comprehensible and improvable by implementors)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+
+		{
+			"stt": "3",
+			"noi_dung": "<span style='font-weight:bold;'>Nhà xưởng, mặt bằng phục vụ sản xuất (Workshop space/area)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "3.1",
+			"noi_dung": "<span style='font-weight:bold;'>Nhà xưởng (Plant layout): </span>",
+			"ky_hieu": "nd_3_1",
+			"diem_nd": "diem_nd_3_1",
+			"nd_result": "nd_3_1_result",
+			"mt_nd": "mt_nd_3_1",
+			"nd_3_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không đủ để sản xuất (Non applicable for prodution procedure)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) bố trí không hợp lý gây khó khăn cho sản xuất (Not meet requirements of production procedure)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) chỉ phù hợp với quy mô sản xuất nhỏ, lẻ (Conformable with small scale production)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có thể sản xuất hàng loạt, nhỏ (Conformable with mass production)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) có thể sản xuất hàng loạt, lớn (Conformable with large-scale mass production)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và tối ưu cho sản xuất hàng loạt (Included (5) and optimal for mass production)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có thể dễ dàng nâng cấp mở rộng (Included (6), could be able to upgrade and enlarge)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "3.2",
+			"noi_dung": "<span style='font-weight:bold;'>Môi trường (Working condition):</span>",
+			"ky_hieu": "nd_3_2",
+			"diem_nd": "diem_nd_3_2",
+			"nd_result": "nd_3_2_result",
+			"mt_nd": "mt_nd_3_2",
+			"nd_3_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không làm việc được (Unable to work)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) không đảm bảo khả năng làm việc lâu dài (Bad condition)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có thể làm việc được (Acceptable)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và có cảnh báo, chỉ dẫn an toàn PCCC, an toàn lao động (Included (3), have warning, notices of  fire-extinguishing and working safety)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và có xác nhận của cơ quan chức năng về PCCC, môi trường, an toàn lao động (Included (4) and have of authorized bodies certifications)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có kiểm soát PCCC, môi trường, an toàn lao động chủ động (Included (5), have active control in fire-extinguishing, environment and working safety)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và không có nguy cơ rủi ro nghề nghiệp nào (Included (6), without occupational risks)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "3.3",
+			"noi_dung": "<span style='font-weight:bold;'>Kho (Warehouse/ storage):</span>",
+			"ky_hieu": "nd_3_3",
+			"diem_nd": "diem_nd_3_3",
+			"nd_result": "nd_3_3_result",
+			"mt_nd": "mt_nd_3_3",
+			"nd_3_3_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không bố trí kho (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) không đủ diện tích kho cho vật tư và thành phẩm (insufficient)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ diện tích nhưng bố trí chưa thuận tiện di chuyển (Sufficient, untidy)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đủ diện tích, có thể di chuyển thuận lợi (Sufficient, tidy)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) gọn gàng, ngăn nắp, dễ dàng tìm kiếm (Tidy and easy for retrieving)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) thực hiện tốt 5S, an toàn và FIFO (Applied 5S, safety and FIFO)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) Sản xuất tinh gọn (Applied methodology lean manufacturing)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4",
+			"noi_dung": "<span style='font-weight:bold;'>Thiết bị (Machineries)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "4.1",
+			"noi_dung": "<span style='font-weight:bold;'>Thiết bị sản xuất (Production machineries)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "4.1.1",
+			"noi_dung": "<span style='font-weight:bold;'>Năng lực thiết bị (Capacity):</span>",
+			"ky_hieu": "nd_4_1_1",
+			"diem_nd": "diem_nd_4_1_1",
+			"nd_result": "nd_4_1_1_result",
+			"mt_nd": "mt_nd_4_1_1",
+			"nd_4_1_1_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không đủ thiết bị để sản xuất theo quy trình sản xuất (Insufficient)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có các thiết bị sản xuất nhưng không phù hợp quy trình sản xuất (Sufficient, not meet the requirements of production procedure)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có các thiết bị sản xuất phù hợp quy trình sản xuất (Sufficient, meet the requirements of production procedure)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) nhưng điều khiển bằng thủ công (Included (3) operated by manual control)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (3) và được điều khiển bán tự động (Included (3) and operated by semi automatic control)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (3), được điều khiển hoàn toàn tự động (Included (3) and operated by fully automatic control)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) nhưng có tích hợp thiết bị kiểm tra (Included (6) intergrated with measuring equipments)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4.1.2",
+			"noi_dung": "<span style='font-weight:bold;'>Tình trạng hoạt động (Operation status):</span>",
+			"ky_hieu": "nd_4_1_2",
+			"diem_nd": "diem_nd_4_1_2",
+			"nd_result": "nd_4_1_2_result",
+			"mt_nd": "mt_nd_4_1_2",
+			"nd_4_1_2_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không thể hoạt động (Unable to operate)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) hoạt động được nhưng không phù hợp (Operate, not meet requirements of production procedure)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) hoạt động không ổn định (Unstable)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) hoạt động bình thường, không thường xuyên (Regular and infrequent)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) hoạt động bình thường, thường xuyên một ca (Regular and frequent in one-shift)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) hoạt động bình thường, cả ngày (All day)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) hoạt động bình thường, hết công suất (At full capacity)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4.1.3",
+			"noi_dung": "<span style='font-weight:bold;'>Bảo dưỡng (Maintenance):</span>",
+			"ky_hieu": "nd_4_1_3",
+			"diem_nd": "diem_nd_4_1_3",
+			"nd_result": "nd_4_1_3_result",
+			"mt_nd": "mt_nd_4_1_3",
+			"nd_4_1_3_result": 1,
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không bảo dưỡng (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) có kế hoạch nhưng không có nội dung bảo dưỡng cụ thể (Have plan available without detailed contents)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có kế hoạch và có nội dung bảo dưỡng cụ thể (Have plan available with detailed contents)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) như (3) và có thực hiện đúng (Included (3) and done correctly)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và có người chuyên trách để thực hiện bảo dưỡng (Included (4), have mantenance operator)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (5) và có bộ phận chuyên trách để thực hiện bảo dưỡng (Included (5), have mantenance department)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có sử dụng chương trình quản lý để thực hiện, kiểm soát (Included (6) and utilized preventive maintenance program)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		}
+		],
+		"part2": [
+		{
+			"stt": "4.2",
+			"noi_dung": "<span style='font-weight:bold;'>Thiết bị kiểm tra (Testing equipments)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "4.2.1",
+			"noi_dung": "<span style='font-weight:bold;'>Thiết bị kiểm tra xe xuất xưởng  (Căn cứ vào thông tin về thiết bị kiểm tra ở mục 9.1 của Bản thông tin DN mà hiển thị mục 4.2.1.1 hoặc 4.2.1.2 tương ứng)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+
+		},
+		{
+			"stt": "4.2.1.1",
+			"noi_dung": "<span style='font-weight:bold;'>Có trang bị</span>",
+			"ky_hieu": "nd_4_2_1_1",
+			"diem_nd": "diem_nd_4_2_1_1",
+			"nd_result": "nd_4_2_1_1_result",
+			"mt_nd": "mt_nd_4_2_1_1",
+			"items": [{}],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4.2.1.2",
+			"noi_dung": "<span style='font-weight:bold;'>Hợp đồng với Trung tâm Đăng kiểm</span>",
+			"ky_hieu": "nd_4_2_1_2",
+			"diem_nd": "diem_nd_4_2_1_2",
+			"nd_result": "nd_4_2_1_2_result",
+			"mt_nd": "mt_nd_4_2_1_2",
+			"items": [{}],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4.2.1.3",
+			"noi_dung": "<span style='font-weight:bold;'>Thiết bị kiểm tra chính khác</span>",
+			"ky_hieu": "nd_4_2_1_3",
+			"diem_nd": "diem_nd_4_2_1_3",
+			"nd_result": "nd_4_2_1_3_result",
+			"mt_nd": "mt_nd_4_2_1_3",
+			"items": [{}],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		}
+		],
+		"part3": [{
+			"stt": "4.2.2",
+			"noi_dung": "<span style='font-weight:bold;'>Năng lực thiết bị (capacity): </span>",
+			"ky_hieu": "nd_4_2_2",
+			"diem_nd": "diem_nd_4_2_2",
+			"nd_result": "nd_4_2_2_result",
+			"nd_4_2_2_result": 1,
+			"mt_nd": "mt_nd_4_2_2",
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không có thiết bị cần thiết để kiểm tra theo quy trình (Not available)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) không đủ thiết bị để kiểm tra theo quy trình (Insufficient)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có đủ thiết bị nhưng không phù hợp để kiểm tra theo quy trình (Sufficient, not meet requirements)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có đủ các thiết bị để thục hiện kiểm tra theo loại hình, quy mô sản xuất (Sufficient, complied with production structure)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (3) và được điều khiển bán tự động (Included (3), operated by semi-automatic control)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) như (3) và được điều khiển hoàn toàn tự động, con người thực hiện đánh giá kết quả (Included (3), operated by fully automatic control and results manually evaluated)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và được kiểm tra bằng thiết bị tự động, có phân tích đánh giá (Included (6), results automatically analyzed)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4.2.3",
+			"noi_dung": "<span style='font-weight:bold;'>Tình trạng hoạt động (Operation status):</span>",
+			"ky_hieu": "nd_4_2_3",
+			"diem_nd": "diem_nd_4_2_3",
+			"nd_result": "nd_4_2_3_result",
+			"nd_4_2_3_result": 1,
+			"mt_nd": "mt_nd_4_2_3",
+			"items": [{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "(1) không thể hoạt động (Unable to operate)"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "(2) hoạt động được nhưng không phù hợp (Operate, not meet requirements of production procedure)"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) hoạt động không ổn định (Unstable)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) hoạt động bình thường, không thường xuyên (Regular and infrequent)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) hoạt động bình thường, thường xuyên một ca (Regular and frequent in one-shift)"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) hoạt động bình thường, cả ngày (All day)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) hoạt động bình thường, hết công suất (At full capacity)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		{
+			"stt": "4.2.4",
+			"noi_dung": "<span style='font-weight:bold;'>kiểm tra, hiệu chuẩn (Calibration)</span>",
+			"ky_hieu": "nd_4_2_4",
+			"diem_nd": "diem_nd_4_2_4",
+			"nd_result": "nd_4_2_4_result",
+			"nd_4_2_4_result": 1,
+			"mt_nd": "mt_nd_4_2_4",
+			"items": [
+			{
+				"gia_tri": "1",
+				"chon": "",
+				"noi_dung": "Kiểm tra độ ồn, âm lượng còi 1"
+			},
+			{
+				"gia_tri": "2",
+				"chon": "",
+				"noi_dung": "Kiểm tra độ ồn, âm lượng còi …"
+			},
+			{
+				"gia_tri": "3",
+				"chon": "",
+				"noi_dung": "(3) có kế hoạch để thực hiện được (Have plan available with detailed contents)"
+			},
+			{
+				"gia_tri": "4",
+				"chon": "",
+				"noi_dung": "(4) có thực hiện theo kế hoạch bởi đơn vị có chức năng bên ngoài (Outsourced followed to the plan)"
+			},
+			{
+				"gia_tri": "5",
+				"chon": "",
+				"noi_dung": "(5) như (4) và tự thực hiện (có đủ quy trình và dụng cụ mẫu chuẩn) (Included (4) and self-performed (have full approved process and standard samples))"
+			},
+			{
+				"gia_tri": "6",
+				"chon": "",
+				"noi_dung": "(6) có bộ phận chuyên trách để kiểm soát (Controlled by calibration department)"
+			},
+			{
+				"gia_tri": "7",
+				"chon": "",
+				"noi_dung": "(7) như (6) và có phần mềm quản lý (Included (6), utilized the management programs)"
+			}
+
+			],
+			"gia_tri": "",
+			"ket_luan": "1"
+
+		},
+		],
+		"part4": [
+		{
+			"stt": "5",
+			"noi_dung": "<span style='font-weight:bold;'>Nhân lực (Manpower)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": ""
+		},
+		{
+			"stt": "5.1",
+			"noi_dung": "<span style='font-weight:bold;'>Tổng số nhân lực (Total number of employees)</span>",
+			"ky_hieu": "",
+			"items": "",
+			"gia_tri": "",
+			"ket_luan": "",
+			"nd_result": "nd_5_1_result",
+			"diem_nd": "diem_nd_5_1"
+		}
+		],
+		"part5": [
+			{
+				"stt": "5.2",
+				"noi_dung": "<span style='font-weight:bold;'>Đào tạo (Training)</span>",
+				"ky_hieu": "nd_5_2",
+				"diem_nd": "diem_nd_5_2",
+				"nd_result": "nd_5_2_result",
+				"nd_5_2_result": 1,
+				"mt_nd": "mt_nd_5_2",
+				"items": [
+				{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không đào tạo (Not available)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) tự đào tạo truyền tay theo kinh nghiệm (Hand to hand training)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) như (2) và làm được theo quy trình (Included (2), trainees follow the process)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) như (3) và có tài liệu được phê duyệt (Included (3), followed the approved document)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) có kế hoạch và tài liệu đào tạo nâng cao (Have plan and approved document for advanced training)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) như (5) và thực hiện theo kế hoạch và tài liệu đào tạo nâng cao (Included (5), followed the trainnig plan)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) như (6) và có bộ phận chuyên trách đào tạo (Included (6), have a training department)"
+				}
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "5.3",
+				"noi_dung": "<span style='font-weight:bold;'>Kỹ năng nghiệp vụ (Professional skills / Job skills)</span>",
+				"ky_hieu": "",
+				"items": "",
+				"gia_tri": "",
+				"ket_luan": ""
+
+			},
+			{
+				"stt": "5.3.1",
+				"noi_dung": "<span style='font-weight:bold;'>Cán bộ quản lý, kỹ thuật (Managements, technicians):</span>",
+				"ky_hieu": "nd_5_3_1",
+				"diem_nd": "diem_nd_5_3_1",
+				"nd_result": "nd_5_3_1_result",
+				"nd_5_3_1_result": 1,
+				"mt_nd": "mt_nd_5_3_1",
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không hiểu về quy định, quy trình sản xuất, kiểm soát chất lượng (Unaware of the control process)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) có biết về quy định, quy trình sản xuất, kiểm soát chất lượng (Aware the control plan)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) có được đào tạo và hiểu biết về quản lý sản xuất, kiểm soát chất lượng (Have been trained, understood the operation process and quality control)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) như (3) và thực hiện đúng các quy định, quy trình về sản xuất và kiểm soát chất lượng (Included (3), followed to the control process)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) như (4) và có thể hướng dẫn, đào tạo người khác thực hiện công việc do mình phụ trách (Included (4), could be able to train others)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) xây dựng được các quy trình quy định phù hợp với thực tế và yêu cầu của các tiêu chuẩn quản lý, áp dụng tốt (Able to create the process complied with reality and requirements of management standard, execution done well)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) đào tạo được người khác xây dựng quy định, quy trình quản lý (Able to train others to create regulations and managements process)"
+				}
+
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "5.3.2",
+				"noi_dung": "<span style='font-weight:bold;'>Nhân lực trực tiếp tham gia sản xuất, lắp ráp (Personel directly involved in the production):</span>",
+				"ky_hieu": "nd_5_3_2",
+				"diem_nd": "diem_nd_5_3_2",
+				"nd_result": "nd_5_3_2_result",
+				"nd_5_3_2_result": 1,
+				"mt_nd": "mt_nd_5_3_2",
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không thực hiện được (Unable to implement)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) không hiểu yêu cầu của tài liệu (Not understand the requirements of process)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) có thể làm được theo tài liệu (Able to follow process)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) có thể làm đúng theo tài liệu (Able to follow process correctly)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) làm tốt theo tài liệu (Able to implement the document's requirements precisely)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) có thể đào tạo hướng dẫn người khác làm được việc theo tài liệu (Able to instruct others to implement in accordance with the process)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) có thể cải tiển trong sản xuất, lắp ráp (Able to improve in production and assembling)"
+				}
+
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "5.3.3",
+				"noi_dung": "<span style='font-weight:bold;'>Nhân lực kiểm tra chất lượng (Product quality control staff):</span>",
+				"ky_hieu": "nd_5_3_3",
+				"diem_nd": "diem_nd_5_3_3",
+				"nd_result": "nd_5_3_3_result",
+				"mt_nd": "mt_nd_5_3_3",
+				"nd_5_3_3_result": 1,
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không thực hiện được (Unable to implement)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) không hiểu yêu cầu của tài liệu (Not understand the requirements of process)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) có thể làm được theo tài liệu (Able to follow the process)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) có thể làm đúng theo tài liệu (Able to follow process correctly)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) làm tốt theo tài liệu (Able to implement document's requirements precisely)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) có thể đào tạo hướng dẫn người khác làm được việc theo tài liệu (Able to instruct others to implement in accordance with the process)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) có thể cải tiển trong sản xuất, lắp ráp và kiểm tra (Able to improve in production, assembling and inspection)"
+				}
+
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "6",
+				"noi_dung": "<span style='font-weight:bold;'>Chọn mẫu và kiểm tra, thử nghiệm (Selecting samples, Inspection and testing )</span>",
+				"ky_hieu": "",
+				"items": "",
+				"gia_tri": "",
+				"ket_luan": ""
+
+			},
+			{
+				"stt": "6.1",
+				"noi_dung": "<span style='font-weight:bold;'>Chọn mẫu (Sampling): </span>",
+				"ky_hieu": "nd_6_1",
+				"diem_nd": "diem_nd_6_1",
+				"nd_result": "nd_6_1_result",
+				"mt_nd": "mt_nd_6_1",
+				"nd_6_1_result": 1,
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không chọn mẫu (Non sampling) "
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) có chọn mẫu không có quy định (Sampling without process)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) có quy định không thực hiện đúng (Sampling process unfollowed)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) thực hiện đúng quy định về số lượng (Sampling process followed)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) bao gồm (4) và khách quan (Included (4) by objective method)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) bao gồm (5) và bảo quản tốt (Included (5) and have sample kept in good condition)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) bao gồm (6) và đúng thời điểm (Included (6) and implement at exact timing)"
+				}
+
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "6.2",
+				"noi_dung": "<span style='font-weight:bold;'>Kiểm tra, thử nghiệm (Inspection, Testing): </span>",
+				"ky_hieu": "nd_6_2",
+				"diem_nd": "diem_nd_6_2",
+				"nd_result": "nd_6_2_result",
+				"nd_6_2_result": 1,
+				"mt_nd": "mt_nd_6_2",
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không kiểm tra, thử nghiệm (Not available)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) kiểm tra, thử nghiệm sai phương pháp (Carried out by unreliable method)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) kiểm tra, thử nghiệm bởi người không có quyền hạn (Carried out by unauthorized people)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) người được phân công thực hiện đúng phương pháp có ghi chép kết quả (Carried out by authorized person, correct methods with records)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) bao gồm (4) và có lưu kết quả  (Included (4) and stored the records)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) bao gồm (5) và có thống kê, phân tích (Included (5) and  have ability to carry out the statistic and analysis)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) bao gồm (6) và có khả năng cải tiến (Included (6), have ability to carry out the improvement)"
+				}
+
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "6.3",
+				"noi_dung": "<span style='font-weight:bold;'>Tiêu chuẩn áp dụng (Applied Standards):</span>",
+				"ky_hieu": "nd_6_3",
+				"diem_nd": "diem_nd_6_3",
+				"nd_result": "nd_6_3_result",
+				"nd_6_3_result": 1,
+				"mt_nd": "mt_nd_6_3",
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không có tiêu chuẩn, tiêu chí (Not available)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) có tiêu chí nhưng không phù hợp tiêu chuẩn, quy chuẩn Quốc gia (Available, non-conformable with the national standards and regulations)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) phù hợp với tiêu chuẩn, quy chuẩn Quốc gia (conformable with the national standards and regulations)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) phù hợp với tiêu chuẩn Quốc tế (EC, ECE..) (conformable with the international standards (EC,ECE...))"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) phù hợp với tiêu chuẩn nhà sản xuất toàn cầu (conformable with the standards of global manufacturers)"
+				}
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+
+			},
+			{
+				"stt": "7",
+				"noi_dung": "<span style='font-weight:bold;'>Kiểm soát tài liệu, hồ sơ (Documents and records control)</span>",
+				"ky_hieu": "nd_7",
+				"diem_nd": "diem_nd_7",
+				"nd_result": "nd_7_result",
+				"nd_7_result": 1,
+				"mt_nd": "mt_nd_7",
+				"items": [{
+					"gia_tri": "1",
+					"chon": "",
+					"noi_dung": "(1) không lưu trữ (Unstored)"
+				},
+				{
+					"gia_tri": "2",
+					"chon": "",
+					"noi_dung": "(2) lưu trữ nhưng không có quy định (Stored without process)"
+				},
+				{
+					"gia_tri": "3",
+					"chon": "",
+					"noi_dung": "(3) lưu trữ không đúng quy định (Irregular stored)"
+				},
+				{
+					"gia_tri": "4",
+					"chon": "",
+					"noi_dung": "(4) lưu trữ đúng quy định nhưng mất nhiều thời gian để tìm kiếm (Regular stored, difficult for retrieving)"
+				},
+				{
+					"gia_tri": "5",
+					"chon": "",
+					"noi_dung": "(5) lưu trữ đúng quy định, dễ tìm kiếm sử dụng (Regular stored, easy for retrieving)"
+				},
+				{
+					"gia_tri": "6",
+					"chon": "",
+					"noi_dung": "(6) như (5) và khoa học, các bộ phận có thể tiếp cận sử dụng (Included (5) and logical storing, convinient for other dept to ultilize)"
+				},
+				{
+					"gia_tri": "7",
+					"chon": "",
+					"noi_dung": "(7) như (6) và lưu trữ bằng điện tử (Included (6) and stored by electronical storing)"
+				}
+				],
+				"gia_tri": "",
+				"ket_luan": "1"
+			}
+			// {
+			// 	"stt": "8",
+			// 	"noi_dung": "<span style='font-weight:bold;'>Kiểm tra tính phù hợp của sản phẩm xuất xưởng</span>",
+			// 	"ky_hieu": "nd_8",
+			// 	"items": "",
+			// 	"diem_nd": "diem_nd_8",
+			// 	"nd_result": "nd_8_result",
+			// 	"mt_nd": "mt_nd_8",
+			// 	"gia_tri": "",
+			// 	"ket_luan": "1"
+			// },
+			// {
+			// 	"stt": "9",
+			// 	"noi_dung": "<span style='font-weight:bold;'>Kiểm tra việc sử dụng phôi phiếu kiểm tra chất lượng xuất xưởng</span>",
+			// 	"ky_hieu": "nd_9",
+			// 	"diem_nd": "diem_nd_9",
+			// 	"nd_result": "nd_9_result",
+			// 	"mt_nd": "mt_nd_9",
+			// 	"items": "",
+			// 	"gia_tri": "",
+			// 	"ket_luan": "1"
+			// }
+		],
+		"part6": [
+			{
+				"stt": 1,
+				"noi_dung": "Địa điểm sản xuất ổn định, lâu dài",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_1",
+				"kqAB": [
+					{
+						text: 'A',
+						value: 'a'
+					},
+					{
+						text: 'B',
+						value: 'b'
+					},
+					{
+						text: 'C',
+						value: 'c'
+					}
+				],
+				"items": [
+					{
+						"noi_dung": "(A) Địa điểm sản xuất có tính ổn định cao, có quyền sử dụng hợp pháp trong thời gian từ 10 năm trở lên",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(A)  Địa điểm sản xuất có tính ổn định trung bình, có quyền sử dụng hợp pháp trong thời gian từ 5- dưới 10 năm",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(A)  Địa điểm sản xuất có tính ổn định thấp, có quyền sử dụng hợp pháp trong thời gian dưới 5 năm",
+						"id": "doi_chieu_D_1_3",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				]
+			},
+			{
+				"stt": 2,
+				"noi_dung": "Quy mô sản xuất theo thiết kế theo dự án triển khai (sản lượng thiết kế)",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_2",
+				"items": [
+					{
+						"noi_dung": "(A)  Lớn: từ 10.000 xe/năm trở lên",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(B)  Trung bình: từ 500 đến dưới 10.000 xe/năm",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": " (C) Nhỏ: dưới 500 xe/năm  ",
+						"id": "doi_chieu_D_1_3",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				],
+				"kqAB": [
+					{
+						text: 'A',
+						value: 'a'
+					},
+					{
+						text: 'B',
+						value: 'b'
+					},
+					{
+						text: 'C',
+						value: 'c'
+					}
+				]
+			},
+			{
+				"stt": 3,
+				"noi_dung": "Công nghệ sản xuất, lắp ráp",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_3",
+				"kqAB": [
+				{
+					text: 'A',
+					value: 'a'
+				},
+				{
+					text: 'B',
+					value: 'b'
+				},
+				{
+					text: 'C',
+					value: 'c'
+				}
+				],
+				"items": [{
+					"noi_dung": "(A)  Hiện đại, được chuyển giao công nghệ từ các hãng sản xuất thuộc khối các nước thuộc EU, G7 (Hoa Kỳ, Đức, Nhật Bản, Pháp, Anh, Ý, Canada)",
+					"id": "doi_chieu_D_1_1",
+					"thong_bao": 2,
+					"ket_qua": 2,
+					"ket_luan": 1
+				},
+				{
+					"noi_dung": "(B)  Được chuyển giao công nghệ từ các hãng sản xuất thuộc khối các nước thuộc khối G20 (không bao gồm các nước thuộc EU, G7 đã nêu trên: Hàn Quốc, Argentina, Úc, Brasil, Trung Quốc, Ấn Độ, Indonesia, México, Nga, Ả Rập Xê Út, Nam Phi và Thổ Nhĩ Kỳ) hoặc doanh nghiệp không được chuyển giao công nghệ nhưng có Trung tâm nghiên cứu phát triển sản phẩm riêng",
+					"id": "doi_chieu_D_1_2",
+					"thong_bao": 2,
+					"ket_qua": 2,
+					"ket_luan": 1
+				},
+				{
+					"noi_dung": "(C)  Không thuộc 02 đối tượng trên",
+					"id": "doi_chieu_D_1_3",
+					"thong_bao": 2,
+					"ket_qua": 2,
+					"ket_luan": 1
+				}
+				]
+			},
+			{
+				"stt": 4,
+				"noi_dung": "Trang thiết bị sản xuất",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_4",
+				"kqAB": [
+				{
+					text: 'A',
+					value: 'a'
+				},
+				{
+					text: 'B',
+					value: 'b'
+				},
+				{
+					text: 'C',
+					value: 'c'
+				}
+				],
+				"items": [{
+					"noi_dung": "(A)  Được trang bị dây chuyền sản xuất hiện đại, mức độ tự động hóa cao (robot công đoạn hàn, sơn…)",
+					"id": "doi_chieu_D_1_1",
+					"thong_bao": 2,
+					"ket_qua": 2,
+					"ket_luan": 1
+				},
+				{
+					"noi_dung": "(B)  Được trang bị dây chuyền sản xuất đồng bộ, có một số phần điều khiển bán tự động",
+					"id": "doi_chieu_D_1_2",
+					"thong_bao": 2,
+					"ket_qua": 2,
+					"ket_luan": 1
+				},
+				{
+					"noi_dung": "(C)  Hoàn toàn thủ công",
+					"id": "doi_chieu_D_1_3",
+					"thong_bao": 2,
+					"ket_qua": 2,
+					"ket_luan": 1
+				}
+				]
+			},
+			{
+				"stt": 5,
+				"noi_dung": "Nhân lực kiểm tra chất lượng xuất xưởng",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_5",
+				"items": [
+					{
+						"noi_dung": "(A)  Có nhân lực được Cơ quan QLCL hoặc nhà sản xuất nước ngoài (bên chuyển giao công nghệ) đào tạo, bồi dưỡng",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(B)  Có nhân lực được đào tạo bởi các hình thức khác (không thuộc nhóm trên)",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				],
+				"kqAB": [
+					{
+						text: 'A',
+						value: 'a'
+					},
+					{
+						text: 'B',
+						value: 'b'
+					}
+				]
+			},
+			{
+				"stt": 6,
+				"noi_dung": "Hệ thống quản lý chất lượng",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_6",
+				"kqAB": [
+				{
+					text: 'A',
+					value: 'a'
+				},
+				{
+					text: 'B',
+					value: 'b'
+				},
+				{
+					text: 'C',
+					value: 'c'
+				}
+				],
+				"items": [
+					{
+						"noi_dung": "(A)  Có chứng chỉ hệ thống quản lý chất lượng ISO 9001:2015 hoặc IATF16949 hoặc tương đương còn hiệu lực và được duy trì tốt",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(B)  Có chứng chỉ hệ thống quản lý chất lượng ISO 9001:2015 hoặc IATF 16949 hoặc tương đương còn hiệu lực",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(C)  Có chứng chỉ hệ thống quản lý chất lượng ISO 9001:2015 hoặc IATF 16949 hoặc tương đương còn hiệu lực nhưng không được duy trì tốt hoặc chưa có chứng chỉ hệ thống quản lý chất lượng",
+						"id": "doi_chieu_D_1_3",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				]
+			},
+			{
+				"stt": 7,
+				"noi_dung": "Kết quả đánh giá COP (kết quả của lần đánh giá hiện tại)",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_7",
+				"kqAB": [
+				{
+					text: 'A',
+					value: 'a'
+				},
+				{
+					text: 'B',
+					value: 'b'
+				},
+				{
+					text: 'C',
+					value: 'c'
+				}
+				],
+				"items": [
+					{
+						"noi_dung": "(A)  Không có nội dung cần khắc phục",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(B)  Có đến 03 nội dung cần khắc phục",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(C)  Có trên 03 nội dung cần khắc phục",
+						"id": "doi_chieu_D_1_3",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				]
+			},
+			{
+				"stt": 8,
+				"noi_dung": "Tuân thủ trong quá trình sản xuất, lắp ráp và cung ứng sản phẩm  (lấy tự động dữ liệu từ VR)",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_8",
+				"kqAB": [
+					{
+						text: 'A',
+						value: 'a'
+					},
+					{
+						text: 'B',
+						value: 'b'
+					},
+					{
+						text: 'C',
+						value: 'c'
+					}
+				],
+				"items": [
+					{
+						"noi_dung": "(A)  Không bị tạm dừng xuất xưởng sản phẩm ",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(B)  Bị tạm dừng xuất xưởng 01 kiểu loại sản phẩm",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(C)  Bị tạm dừng xuất xưởng một kiểu loại sản phẩm từ 02 lần trở lên hoặc bị tạm dừng xuất xưởng đồng thời từ 02 kiểu loại sản phẩm trở lên",
+						"id": "doi_chieu_D_1_3",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				]
+			},
+			{
+				"stt": 9,
+				"noi_dung": "Thực hiện việc triệu hồi sản phẩm bị lỗi kỹ thuật (lấy tự động dữ liệu từ VR)",
+				"id": "doi_chieu_D_1",
+				"ky_hieu": "danh_gia_9",
+				"kqAB": [
+					{
+						text: 'A',
+						value: 'a'
+					},
+					{
+						text: 'B',
+						value: 'b'
+					},
+					{
+						text: 'C',
+						value: 'c'
+					}
+				],
+				"items": [
+					{
+						"noi_dung": "(A)  Không có sản phẩm triệu hồi hoặc chủ động thực hiện triệu hồi và báo cáo đúng quy định",
+						"id": "doi_chieu_D_1_1",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(B)  Chậm chễ trong việc thực hiện triệu hồi theo kế hoạch, báo cáo không kịp thời",
+						"id": "doi_chieu_D_1_2",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					},
+					{
+						"noi_dung": "(C)  Cơ quan QLCL bắt buộc thực hiện triệu hồi",
+						"id": "doi_chieu_D_1_3",
+						"thong_bao": 2,
+						"ket_qua": 2,
+						"ket_luan": 1
+					}
+				]
+			}
+		],
+		"doi_chieu_A": [
+		{
+			"stt": 1,
+			"noi_dung": "Nhà xưởng được xây dựng trên khu đất thuộc quyền sử dụng hợp pháp của doanh nghiệp.",
+			"id": "doi_chieu_A_1",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 2,
+			"noi_dung": "Nhà xưởng phải có đủ diện tích để bố trí các dây chuyền sản xuất, lắp ráp, kiểm tra phù hợp quy trình công nghệ sản xuất, lắp ráp ô tô",
+			"id": "doi_chieu_A_2",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 3,
+			"noi_dung": "Nền nhà xưởng phải được sơn chống trơn hoặc có biện pháp khác nhằm chống trơn trượt và có vạch chỉ giới phân biệt lối đi an toàn và khu vực lắp đặt, bố trí các dây chuyền sản xuất.",
+			"id": "doi_chieu_A_3",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 4,
+			"noi_dung": "Các sơ đồ quy trình công nghệ tổng thể và theo từng công đoạn sản xuất, lắp ráp phải được bố trí ở nơi thuận tiện thực hiện, theo dõi và kiểm soát quy trình.",
+			"id": "doi_chieu_A_4",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 5,
+			"noi_dung": "Nhà xưởng phải được trang bị các hệ thống, trang thiết bị phụ trợ khác như: Hệ thống điện công nghiệp - điện sinh hoạt; hệ thống cấp nước công nghiệp - sinh hoạt; hệ thống thông gió; hệ thống cung cấp và phân phối khí nén; máy phát điện dự phòng, bãi đậu xe, khu vực thu hồi, xử lý sản phẩm thải bỏ",
+			"id": "doi_chieu_A_5",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		}
+		],
+		"doi_chieu_B": [
+		{
+			"stt": 1,
+			"noi_dung": "Dây chuyền lắp ráp khung, thân xe",
+			"id": "doi_chieu_B_1",
+			"items": [{
+				"noi_dung": "+ Hệ thống nâng hạ, xe vận chuyển gá đẩy chuyên dụng theo dây chuyền, hệ thống ray dẫn hướng dùng cho xe gá đẩy",
+				"id": "doi_chieu_B_1_1",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Đối với ô tô con: Các đồ gá hàn lắp cho sườn trái, sườn phải, mui xe, sàn xe, đuôi xe và cho lắp các cụm khung, vỏ",
+				"id": "doi_chieu_B_1_2",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Đối với ô tô khách: các đồ gá cho hàn lắp các dầm ngang dọc của khung",
+				"id": "doi_chieu_B_1_3",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Đối với ô tô tải: Đồ gá lắp thùng chở hàng vào thân",
+				"id": "doi_chieu_B_1_4",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Các đồ gá chuyên dụng cho ghép mảng, cụm vỏ ô tô vào khung",
+				"id": "doi_chieu_B_1_5",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Các trang thiết bị phụ, sửa chữa đi kèm",
+				"id": "doi_chieu_B_1_6",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			}
+			]
+		},
+		{
+			"stt": 2,
+			"noi_dung": "Dây chuyền lắp ráp tổng thành: Lắp ráp các cụm tổng thành, hệ thống gầm, cầu sau, cầu trước và động cơ vào khung, các cụm điều khiển chính",
+			"id": "doi_chieu_B_2",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 3,
+			"noi_dung": "Dây chuyền lắp ráp tổng thành: Lắp ráp các cụm tổng thành, hệ thống gầm, cầu sau, cầu trước và động cơ vào khung, các cụm điều khiển chính",
+			"id": "doi_chieu_B_3",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 4,
+			"noi_dung": "Dây chuyền lắp ráp tổng thành: Lắp ráp các cụm tổng thành, hệ thống gầm, cầu sau, cầu trước và động cơ vào khung, các cụm điều khiển chính",
+			"id": "doi_chieu_B_4",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		}
+		],
+		"doi_chieu_C": [
+		{
+			"stt": 1,
+			"noi_dung": "Máy hàn, thiết bị hàn và đồ gá chuyên dùng",
+			"id": "doi_chieu_C_1",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 2,
+			"noi_dung": "Hệ thống nâng, hạ, vận chuyển gá đẩy chuyên dụng theo dây chuyền",
+			"id": "doi_chieu_C_2",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 3,
+			"noi_dung": "Đồ gá hàn các mảng thân ô tô",
+			"id": "doi_chieu_C_3",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		}
+		],
+		"doi_chieu_D": [
+		{
+			"stt": 1,
+			"noi_dung": "Dây chuyền sơn tự động hoặc bán tự động",
+			"id": "doi_chieu_D_1",
+			"items": [{
+				"noi_dung": "+ Làm sạch và xử lý bề mặt",
+				"id": "doi_chieu_D_1_1",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Rửa, loại bỏ khoáng chất và điều hòa thể tích",
+				"id": "doi_chieu_D_1_2",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Sơn nhúng điện ly, sơn phun, sơn áp lực, sấy",
+				"id": "doi_chieu_D_1_3",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Chống thấm nước",
+				"id": "doi_chieu_D_1_4",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Sơn trang trí, sơn bóng lớp ngoài cùng và phủ sáp để bảo vệ nước sơn",
+				"id": "doi_chieu_D_1_5",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			}
+			]
+		},
+		{
+			"stt": 2,
+			"noi_dung": "Kỹ thuật công nghệ sơn",
+			"id": "doi_chieu_D_2",
+			"items": [{
+				"noi_dung": "+ Đối với ô tô con: Thân vỏ ô tô phải được sơn nhúng điện ly lớp bên trong; lớp ngoài thân vỏ ô tô được sơn phun",
+				"id": "doi_chieu_D_2_1",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Đối với ô tô khách: Thân vỏ ô tô phải được sơn nhúng điện ly toàn bộ hoặc từng phần trước khi được sơn màu",
+				"id": "doi_chieu_D_2_2",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			},
+			{
+				"noi_dung": "+ Đối với ô tô tải: Cabin ô tô được sơn nhúng điện ly lớp bên trong và sơn phun lớp bên ngoài; khung ô tô được sơn phun",
+				"id": "doi_chieu_D_2_3",
+				"thong_bao": 2,
+				"ket_qua": 2,
+				"ket_luan": 1
+			}
+			]
+		},
+		{
+			"stt": 3,
+			"noi_dung": "Các thiết bị kiểm tra các chỉ tiêu chất lượng lớp sơn: Độ dày, độ bóng, độ bám dính bề mặt",
+			"id": "doi_chieu_D_3",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		}
+		],
+		"doi_chieu_E": [
+		{
+			"stt": 1,
+			"noi_dung": "Các thiết bị kiểm tra chuyên dùng theo tùng công đoạn lắp ráp",
+			"id": "doi_chieu_E_1",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 2,
+			"noi_dung": "Các thiết bị kiểm tra các chỉ tiêu xuất xưởng",
+			"id": "doi_chieu_E_2",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 3,
+			"noi_dung": "Hệ thống máy tính lưu trữ các kết quả kiểm tra chỉ tiêu ô tô lắp ráp xuất xưởng",
+			"id": "doi_chieu_E_3",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		}
+		],
+		"doi_chieu_F": [
+		{
+			"stt": 1,
+			"noi_dung": "Đường bằng phẳng",
+			"id": "doi_chieu_F_1",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 2,
+			"noi_dung": "Đường sỏi đá",
+			"id": "doi_chieu_F_2",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 3,
+			"noi_dung": "Đường gồ ghề",
+			"id": "doi_chieu_F_3",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 4,
+			"noi_dung": "Đường gợn sóng",
+			"id": "doi_chieu_F_4",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 5,
+			"noi_dung": "Đường dốc lên xuống",
+			"id": "doi_chieu_F_5",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 6,
+			"noi_dung": "Đường trơn ướt",
+			"id": "doi_chieu_F_6",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		},
+		{
+			"stt": 7,
+			"noi_dung": "Đường cua",
+			"id": "doi_chieu_F_7",
+			"thong_bao": 2,
+			"ket_qua": 2,
+			"ket_luan": 1
+		}
+		],
+		"phan_nhom_1": [
+		{
+			"noi_dung": "(A) Địa điểm sản xuất có tính ổn định cao, có quyền sử dụng hợp pháp trong thời gian từ 10 năm trở lên",
+			"id": "phan_nhom_1_1",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B) Địa điểm sản xuất có tính ổn định trung bình, có quyền sử dụng hợp pháp trong thời gian từ 5- dưới 10 năm",
+			"id": "phan_nhom_1_2",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C) Địa điểm sản xuất có tính ổn định thấp, có quyền sử dụng hợp pháp trong thời gian dưới 5 năm",
+			"id": "phan_nhom_1_3",
+			"thong_bao": 1,
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_2": [
+		{
+			"noi_dung": "(A) Lớn: từ 10.000 xe/năm trở lên",
+			"id": "phan_nhom_2_1",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B) Trung bình: từ 500 đến dưới 10.000 xe/năm",
+			"id": "phan_nhom_2_2",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C) Nhỏ: dưới 500 xe/năm",
+			"id": "phan_nhom_2_3",
+			"thong_bao": 1,
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_3": [
+		{
+			"noi_dung": "(A) Hiện đại, được chuyển giao công nghệ từ các hãng sản xuất thuộc khối các nước thuộc EU, G7 (Hoa Kỳ, Đức, Nhật Bản, Pháp, Anh, Ý, Canada)",
+			"id": "phan_nhom_3_1",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B) Được chuyển giao công nghệ từ các hãng sản xuất thuộc khối các nước thuộc khối G20 (không bao gồm các nước thuộc EU, G7 đã nêu trên: Hàn Quốc, Argentina, Úc, Brasil, Trung Quốc, Ấn Độ, Indonesia, México, Nga, Ả Rập Xê Út, Nam Phi và Thổ Nhĩ Kỳ) hoặc doanh nghiệp không được chuyển giao công nghệ nhưng có Trung tâm nghiên cứu phát triển sản phẩm riêng",
+			"id": "phan_nhom_3_2",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C) Không thuộc 02 đối tượng trên",
+			"id": "phan_nhom_3_3",
+			"thong_bao": 1,
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_4": [
+		{
+			"noi_dung": "(A) Được trang bị dây chuyền sản xuất hiện đại, mức độ tự động hóa cao (robot công đoạn hàn, sơn…)",
+			"id": "phan_nhom_4_1",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B) Được trang bị dây chuyền sản xuất đồng bộ, có một số phần điều khiển bán tự động",
+			"id": "phan_nhom_4_2",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C) Hoàn toàn thủ công",
+			"id": "phan_nhom_4_3",
+			"thong_bao": 1,
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_5": [
+		{
+			"noi_dung": "(A) Có nhân lực được Cơ quan QLCL hoặc nhà sản xuất nước ngoài (bên chuyển giao công nghệ) đào tạo, bồi dưỡng",
+			"id": "phan_nhom_5_1",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B) Có nhân lực được đào tạo bởi các hình thức khác (không thuộc nhóm trên)",
+			"id": "phan_nhom_5_2",
+			"thong_bao": 1,
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_6": [
+		{
+			"noi_dung": "(A) Có chứng chỉ hệ thống quản lý chất lượng ISO 9001:2015 hoặc IATF16949 hoặc tương đương còn hiệu lực và được duy trì tốt",
+			"id": "phan_nhom_6_1",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B) Có chứng chỉ hệ thống quản lý chất lượng ISO 9001:2015 hoặc IATF 16949 hoặc tương đương còn hiệu lực",
+			"id": "phan_nhom_6_2",
+			"thong_bao": 1,
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C) Có chứng chỉ hệ thống quản lý chất lượng ISO 9001:2015 hoặc IATF 16949 hoặc tương đương còn hiệu lực nhưng không được duy trì tốt hoặc chưa có chứng chỉ hệ thống quản lý chất lượng",
+			"id": "phan_nhom_6_3",
+			"thong_bao": 1,
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_7": [
+		{
+			"noi_dung": "(A)Không có nội dung cần khắc phục",
+			"id": "phan_nhom_7_1",
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B)Có đến 03 nội dung cần khắc phục",
+			"id": "phan_nhom_7_2",
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C)Có trên 03 nội dung cần khắc phục",
+			"id": "phan_nhom_7_3",
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_8": [
+		{
+			"noi_dung": "(A)Không bị tạm dừng xuất xưởng sản phẩm",
+			"id": "phan_nhom_8_1",
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B)Bị tạm dừng xuất xưởng 01 kiểu loại sản phẩm",
+			"id": "phan_nhom_8_2",
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C)Bị tạm dừng xuất xưởng một kiểu loại sản phẩm từ 02 lần trở lên hoặc bị tạm dừng xuất xưởng đồng thời từ 02 kiểu loại sản phẩm trở lên",
+			"id": "phan_nhom_8_3",
+			"ket_qua": 1
+		}
+		],
+		"phan_nhom_9": [
+		{
+			"noi_dung": "(A)Không có sản phẩm triệu hồi hoặc chủ động thực hiện triệu hồi và báo cáo đúng quy định",
+			"id": "phan_nhom_9_1",
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(B)Chậm chễ trong việc thực hiện triệu hồi theo kế hoạch, báo cáo không kịp thời",
+			"id": "phan_nhom_9_2",
+			"ket_qua": 1
+		},
+		{
+			"noi_dung": "(C)Cơ quan QLCL bắt buộc thực hiện triệu hồi",
+			"id": "phan_nhom_9_3",
+			"ket_qua": 1
+		}
+		]
+	}
 	const itemCodeNuocNgoai = 'VR86';
 
 	var dossierViewJX = new VueJX({
@@ -13,6 +2769,410 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 		pk: 1,
 		groupid: themeDisplay.getScopeGroupId(),
 		data: {
+			totalXe: 0,
+			totalChuaCap: 0,
+			kq2: [
+				{
+					text: 'Đạt;',
+					value: 1
+				},
+				{
+					text: 'KĐ;',
+					value: 4
+				},
+			],
+			kq3: [
+				{
+					text: 'Đạt',
+					value: 1
+				},
+				{
+					text: '---',
+					value: 4
+				}
+			],
+			totalSubTotalInDocument: 0,
+			indexGCNXuatKho: -1,
+			totalMoneyPhieuXuat: 0,
+			thongTinGCN: {},
+			titleTableSoatXet: 'Đề nghị cấp phiếu',
+			detailSoatXetGCN: {},
+			popUpDsXeCapPhieu: false,
+			phuongThucCapSoatXetItems: [
+				{
+					text: 'Phương thức 1',
+					value: '1'
+				},
+				{
+					text: 'Phương thức 2',
+					value: '2'
+				},
+				{
+					text: 'Phương thức 3',
+					value: '3'
+				}
+			],
+			hinhThucCapSoatXetItems: [
+				{
+					text: 'Cấp mới lần đầu',
+					value: '1'
+				},
+				{
+					text: 'Cấp thay thế (cho phiếu mất)',
+					value: '2'
+				},
+				{
+					text: 'Cấp thay thế (đổi phiếu hỏng)',
+					value: '3'
+				}
+			],
+			donViNhapItems: [],
+			stateActionCOP: false,
+			indexThietBi: -1,
+			popUpkieuLoaiXe: false,
+			labelMauCOP: '',
+			labelKiemTraMauCOP: '',
+			loaiXe: '',
+			doOn: '',
+			statePopupCOP: '',
+			labelPopupThietBiCOP: '',
+			popUpThietBiCOP: false,
+			labelMucKiemTra: '',
+			donVi: '',
+			loaiHinhSanXuatItems: [
+				{
+					text: 'Khác',
+					value: 'KHAC'
+				},
+				{
+					text: 'Linh kiện Xe cơ giới',
+					value: 'LKXCG'
+				},
+				{
+					text: 'Linh kiện Xe mô tô, xe gắn máy',
+					value: 'LKXMY'
+				},
+				{
+					text: 'Rơ mooc, Sơmi rơ mooc',
+					value: 'SMRM'
+				},
+				{
+					text: 'Xe chở hàng bốn bánh có gắn động cơ',
+					value: 'XCH'
+				},
+				{
+					text: 'Xe chở người bốn bánh có gắn động cơ',
+					value: 'XCN'
+				},
+				{
+					text: 'Xe mô tô, xe gắn máy',
+					value: 'XMY'
+				},
+				{
+					text: 'Xe đạp điện',
+					value: 'XDD'
+				},
+				{
+					text: 'Ô tô SXLR từ linh kiện rời',
+					value: 'XCG'
+				},
+				{
+					text: 'Ô tô SXLR từ xe cơ sở',
+					value: 'XCGNK'
+				}
+			],
+			doiTuongPhieuItems: [
+				{
+					text: 'Ô tô SXLR từ linh kiện rời',
+					value: 'XCG'
+				},
+				{
+					text: 'Ô tô từ ô tô cơ sở, ô tô sát xi đã được cấp giấy chứng nhận',
+					value: 'XCGNK'
+				},
+				{
+					text: 'Rơ moóc, Sơ mi rơ moóc',
+					value: 'SMRM'
+				},
+				{
+					text: 'Xe mô tô, xe gắn máy',
+					value: 'XMY'
+				},
+				{
+					text: 'Xe mô tô, xe gắn máy động cơ xăng',
+					value: 'XMYDCOXANG'
+				},
+				{
+					text: 'Xe mô tô, xe gắn máy điện',
+					value: 'XMYDCODIEN'
+				},
+				{
+					text: 'Xe đạp điện',
+					value: 'XDD'
+				},
+				{
+					text: 'Xe 4 bánh',
+					value: 'XBB'
+				}
+			],
+			tinhPhuHopItems: [
+				{
+					text: 'Phù hợp',
+					value: 'PH'
+				},
+				{
+					text: 'Không phù hợp',
+					value: 'KPH'
+				},
+				{
+					text: 'NA',
+					value: 'NA'
+				}
+			],
+			thietBiKiemTra: {
+				totalD: 0,
+				totalKD: 0,
+				totalNA: 0
+			},
+			dangKiemVienItems: [],
+			kqThietBi: [
+				{
+					text: 'Đ &nbsp;',
+					value: 1
+				},
+				{
+					text: 'KĐ &nbsp;',
+					value: 4
+				},
+				{
+					text: 'NA',
+					value: 5
+				}
+			],
+			kq: [
+				{
+					text: 'Đ &nbsp;',
+					value: 1
+				},
+				{
+					text: 'KC',
+					value: 2
+				},
+				{
+					text: 'CĐ',
+					value: 3
+				},
+				{
+					text: 'KĐ',
+					value: 4
+				},
+				{
+					text: 'NA',
+					value: 5
+				}
+			],
+			kqFullText: [
+				{
+					text: 'Đạt',
+					value: 1
+				},
+				{
+					text: 'Khuyến cáo',
+					value: 2
+				},
+				{
+					text: 'Chưa đạt',
+					value: 3
+				},
+				{
+					text: 'Không đạt',
+					value: 4
+				},
+				{
+					text: 'Không xác định',
+					value: 5
+				}
+			],
+			kiemTraTinhPhuHop: {},
+			sanPhamXuatXuongItems: [
+				{
+					hangMuc: 'Khung xe',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Động cơ',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Đèn chiếu sáng phía trước',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Ống xả',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Gương chiếu hậu',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Vành',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Lốp',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Thùng nhiên liệu',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Thùng nhiên liệu',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Ắc quy',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Kính chắn gió, kính bên, kính hậu',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Bình khí nén HTP',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Vật liệu chính thùng, xe chuyên dùng,',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Cơ cấu chuyên dùng',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Kết cấu',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Kiểu dáng xe',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Kích thước',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				},
+				{
+					hangMuc: 'Khối lượng bản thân',
+					doiChieuGCN: 'PH',
+					noiDungkoPhuHop: ''
+				}
+			],
+			sanPhanXuatXuong: [],
+			indexSpXuatXuong: -1,
+			dsXePopUpKieuLoai: [
+				{
+					'so_khung': '',
+					'so_dong_co': ''
+				},
+				{
+					'so_khung': '',
+					'so_dong_co': ''
+				},
+				{
+					'so_khung': '',
+					'so_dong_co': ''
+				}
+			],
+			detailCOP: {
+				nd_1_1_1_result: 1,
+				nd_1_1_2_result: 1,
+				nd_1_2_1_result: 1,
+				nd_1_2_2_result: 1,
+				nd_2_1_1_result: 1,
+				nd_2_1_2_result: 1,
+				nd_2_2_1_1_result: 1,
+				nd_2_2_1_2_result: 1,
+				nd_2_2_1_3_result: 1,
+				nd_2_2_2_result: 1,
+				nd_2_3_1_result: 1,
+				nd_2_3_2_result: 1,
+				nd_2_4_1_result: 1,
+				nd_2_4_2_result: 1,
+				nd_2_5_1_result: 1,
+				nd_2_5_2_result: 1,
+				nd_2_6_1_result: 1,
+				nd_2_6_2_result: 1,
+				nd_3_1_result: 1,
+				nd_3_2_result: 1,
+				nd_3_3_result: 1,
+				nd_4_1_1_result: 1,
+				nd_4_1_2_result: 1,
+				nd_4_1_3_result: 1,
+				nd_4_2_1_1_result: 1,
+				nd_4_2_1_2_result: 1,
+				nd_4_2_1_3_result: 1,
+				nd_4_2_2_result: 1,
+				nd_4_2_3_result: 1,
+				nd_4_2_4_result: 1,
+				nd_5_1_result: 1,
+				nd_5_1_1_result: 1,
+				nd_5_1_2_result: 1,
+				nd_5_1_3_result: 1,
+				nd_5_1_4_result: 1,
+				nd_5_2_result: 1,
+				nd_5_3_1_result: 1,
+				nd_5_3_2_result: 1,
+				nd_5_3_3_result: 1,
+				nd_6_1_result: 1,
+				nd_6_2_result: 1,
+				nd_6_3_result: 1,
+				nd_7_result: 1,
+				nd_8_result: 1,
+				nd_9_result: 1,
+				nd_10_result: 1,
+				nd_11_result: 1,
+				nd_12_result: 1
+			},
+			loaiSPItems: [],
+			part1: sampleDataCOP['part1'] || [],
+			part2: sampleDataCOP['part2'] || [],
+			part3: sampleDataCOP['part3'] || [],
+			part4: sampleDataCOP['part4'] || [],
+			part5: sampleDataCOP['part5'] || [],
+			part6: sampleDataCOP['part6'] || [],
+			part1Active: true,
+			part2Active: true,
+			part3Active: true,
+			part4Active: true,
+			part5Active: true,
+			part6Active: true,
+			part7Active: true,
+			disabledPart1: false,
+			disabledPart2: false,
+			disabledPart3: false,
+			disabledPart4: false,
+			disabledPart5: false,
+			disabledPart6: false,
+			disabledPart7: false,
 			offsetTop: 0,
 			stageFilterView: null,
 			detailPage: false,
@@ -53,7 +3213,20 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			doiPhongItems: [],
 			searchDoiPhong: '',
 			soSerial: '',
-			mauPhoiItems: [],
+			mauPhoiItems: [
+				{
+					itemName: 'Phiếu xuất xưởng',
+					itemCode: 'PXX'
+				},
+				{
+					itemName: 'Giấy chứng nhận',
+					itemCode: 'GCN'
+				},
+				{
+					itemName: 'Tem hợp quy',
+					itemCode: 'THQ'
+				}
+			],
 			searchMauPhoi: '',
 			namItems: [
 				2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
@@ -115,7 +3288,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 				value: 'xuatkho'
 			},
 			{
-				text: 'Tồn trên số',
+				text: 'Tồn trên sổ',
 				align: 'center',
 				sortable: false,
 				value: 'tontrenso'
@@ -133,10 +3306,10 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 				value: 'chenhlechtanggiam'
 			},
 			{
-				text: 'Ngày kiểm kê <br> nguyên nhân',
+				text: 'Ngày kiểm kê',
 				align: 'center',
 				sortable: false,
-				value: 'ngaykiemke,nguyennhan'
+				value: 'ngaykiemke'
 			}
 			],
 			headersXuatKhoDSSP: [
@@ -261,13 +3434,87 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			// 	value: 'hanhdong'
 			// }
 			],
+			headersDSSPXuatXuong: [
+				{
+					text: 'STT',
+					align: 'center',
+					sortable: false,
+					value: 'stt'
+				},
+				{
+					text: 'Số serial',
+					align: 'center',
+					sortable: false,
+					value: 'soserial'
+				},
+				{
+					text: 'Từ số',
+					align: 'center',
+					sortable: false,
+					value: 'tuso'
+				},
+				{
+					text: 'Đến số',
+					align: 'center',
+					sortable: false,
+					value: 'denso'
+				},
+				{
+					text: 'Số lượng',
+					align: 'center',
+					sortable: false,
+					value: 'soluong'
+				},
+				{
+					text: 'Đơn giá',
+					align: 'center',
+					sortable: false,
+					value: 'dongia'
+				},
+				{
+					text: 'Thành tiền',
+					align: 'center',
+					sortable: false,
+					value: 'thanhtien'
+				}
+			],
+			headersBBKiemTraGS: [
+				{
+					text: 'STT',
+					align: 'center',
+					sortable: false,
+					value: 'stt'
+				},
+				{
+					text: 'Ngày đề nghị',
+					align: 'center',
+					sortable: false,
+					value: 'ngaydenghi'
+				},
+				{
+					text: 'SL đạt',
+					align: 'center',
+					sortable: false,
+					value: 'sldat'
+				}
+			],
+			stateKiemTraDotXuat: -1,
+			popUpBienBanKiemTraGS: false,
+			bienBanDXModel: {},
+			bienBanGSModel: {},
+			totalDat: 0,
+			dsBBKiemTraGS: [],
+			phieuConItems: [],
 			dsGCNItems: [],
 			selected: [],
 			dieuChuyenItems: [],
 			dieuChuyen: '',
-			doiTuongItems: [],
-			thongTinPhieu: {},
-			tongTien: 0,
+			doiTuongItems: [
+			],
+			thongTinPhieu: {
+				outputSheetNo: '',
+				outputSheetDate: ''
+			},
 			stateAddPhieu: 'dieu_chuyen',
 			soGCN_add: '',
 			nhanHieu_add: '',
@@ -276,57 +3523,116 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			soLuong_add: '',
 			donGia_add: '',
 			ngayXuatXuong_add: '',
-			popUpAddGCN: false,
-			popUpDieuCHuyen: false,
+			popUpAddPhieu: false,
+			popUpNhap_Xuat_DieuChuyen: false,
 			loadingPxx: false,
-			detailGCN: {},
+			detailAnChi: {
+				serialEndNo: '',
+				serialStartNo: '',
+				serialEndNo: ''
+			},
+			listsTraCuu: [],
+			lengthPageTraCuu: 0,
+			pageTraCuu: 1,
+			lengthPageTraCuuThongKe: 0,
+			pageTraCuuThongKe: 1,
+			headersTraCuu: headersCOP,
+			menuDateTraCuuFrom: false,
+			fromDateTraCuu: '',
+			menuDateTraCuuTo: false,
+			toDateTraCuu: '',
+			dataItemString: [
+	            {
+	              id: 29891,
+	              dataGroupId: 70,
+	              code_0: 24,
+	              code_1: '',
+	              code_2: '',
+	              code_3: '',
+	              level: 2,
+	              name: 'Gần giống ~',
+	              altername: 'like',
+	              description: '',
+	              validatedFrom: '01/01/2015 00:00',
+	              validatedTo: '',
+	              status: 1,
+	              syncDate: '18/09/2017 02:05'
+	            },
+	            {
+	              id: 29861,
+	              dataGroupId: 70,
+	              code_0: 21,
+	              code_1: '',
+	              code_2: '',
+	              code_3: '',
+	              level: 2,
+	              name: 'Bằng =',
+	              altername: '=',
+	              description: '',
+	              validatedFrom: '01/01/2015 00:00',
+	              validatedTo: '',
+	              status: 1,
+	              syncDate: '18/09/2017 02:05'
+	            }
+            ],
+			conditions: conditionsCOP,
+			listSearch: [
+				{
+					index: 0,
+					value: null,
+					searchType: null,
+					dataitem: null,
+					dataCollection: [],
+					conditionsSelect: {}
+				}
+			],
 			headersChiTietPhieu: [
-			{
-				text: 'STT',
-				align: 'center',
-				sortable: false,
-				value: 'stt'
-			},
-			{
-				text: 'Số seri',
-				align: 'center',
-				sortable: false,
-				value: 'soseri'
-			},
-			{
-				text: 'Số phiếu quản lý',
-				align: 'center',
-				sortable: false,
-				value: 'sophieuquanly'
-			},
-			{
-				text: 'Ngày XX',
-				align: 'center',
-				sortable: false,
-				value: 'ngayxx'
-			},
-			{
-				text: 'Màu sơn',
-				align: 'center',
-				sortable: false,
-				value: 'mauson'
-			},
-			{
-				text: 'Số khung',
-				align: 'center',
-				sortable: false,
-				value: 'sokhung'
-			},
-			{
-				text: 'Số động cơ',
-				align: 'center',
-				sortable: false,
-				value: 'sodongco'
-			}
+				{
+					text: 'STT',
+					align: 'center',
+					sortable: false,
+					value: 'stt'
+				},
+				{
+					text: 'Số seri',
+					align: 'center',
+					sortable: false,
+					value: 'soseri'
+				},
+				{
+					text: 'Số phiếu quản lý',
+					align: 'center',
+					sortable: false,
+					value: 'sophieuquanly'
+				},
+				{
+					text: 'Ngày XX',
+					align: 'center',
+					sortable: false,
+					value: 'ngayxx'
+				},
+				{
+					text: 'Màu sơn',
+					align: 'center',
+					sortable: false,
+					value: 'mauson'
+				},
+				{
+					text: 'Số khung',
+					align: 'center',
+					sortable: false,
+					value: 'sokhung'
+				},
+				{
+					text: 'Số động cơ',
+					align: 'center',
+					sortable: false,
+					value: 'sodongco'
+				}
 			],
 			dsCTPItems: [
 			],
-			chiTietGCNModel: {},
+			chiTietPhieuModel: {},
 			popUpChiTietKiemKe: false,
 			hoSoItems: [],
 			hoSo: '',
@@ -336,6 +3642,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			dateNgayXuatXuong_add : '',
 			menuNgayXuatXuong_add: false,
 			menuNgayNhap: false,
+			menuNgayXuat_Dossier: false,
 			dateNgayNhap: '',
 			totalPxx: 0,
 			tabActive: null,
@@ -344,6 +3651,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			indexSelectMenu: -1,
 			indexGroupMenu: -1,
 			coSoSanXuatItems: [],
+			isToggle: true,
 			headersDSPNK: [
 				{
 					text: 'STT',
@@ -475,7 +3783,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			itemsPTSXLR: [],
 			lengthPTSXLR: 0,
 			pagePTSXLR: 0,
-
+			dossierIdFormDN: 0,
 			tcDoiTuongItems: [],
 			tcDoiTuong: '',
 			tcPphuongTienItems: [],
@@ -544,6 +3852,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			tcMaSoThue: '',
 			tcSoHoaDon: '',
 			tcMauSon: '',
+			titleHistory: '',
 			tcTinhTrangItems: [
 				{
 					itemCode: 'chuasudung',
@@ -628,6 +3937,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			tcSoSerial: '',
 			tcTuSo: '',
 			tcDenSo: '',
+			stampBook: {},
 			headersCoSoNuocNgoai: [
 				{
 					text: 'STT',
@@ -676,13 +3986,122 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 			loaiHinhCSSXItems: [],
 			loaiHinhCSSX: '',
 			cssxChaItems: [],
-			cssxCha: ''
+			cssxCha: '',
+			popUpPhieuXX: false,
+			groupXuatXuong: [{title: 'Xe đã xuất xưởng',},{title: 'Ấn chỉ đã cấp phát'},{title: 'Xe chờ in phiếu'}],
+			headersDSXeXuatXuong: [
+				{ text: 'STT',sortable: false,value: 'stt'},
+				{ text: 'Doanh nghiệp',sortable: false,value: 'stt'},
+				{ text: 'Đối tượng',sortable: false,value: 'stt'},
+				{ text: 'Số ấn chỉ',sortable: false,value: 'stt'},
+				{ text: 'Số GCN',sortable: false,value: 'stt'},
+				{ text: 'Số khung',sortable: false,value: 'stt'},
+				{ text: 'Số động cơ',sortable: false,value: 'stt'},
+				{ text: 'Mà sơn',sortable: false,value: 'stt'},
+				{ text: 'Thao tác',sortable: false,value: 'stt'}
+			],
+			headersDSHoSoFilter: [
+				{ text: 'Chọn',sortable: false,value: 'stt'},
+				{ text: 'Số hồ sơ',sortable: false,value: 'stt'},
+				{ text: 'Ngày hồ sơ',sortable: false,value: 'stt'},
+				{ text: 'Đối tượng',sortable: false,value: 'stt'},
+				{ text: 'Loại hồ sơ',sortable: false,value: 'stt'},
+				{ text: 'SL đã cấp',sortable: false,value: 'stt'},
+				{ text: 'SL chưa sử dụng',sortable: false,value: 'stt'},
+			],
+			danhSachHoSoFilter: [],
+			headersTSKT: [{text: 'STT',sortable: false,value: 'stt'},{text: 'Mã TSKT',sortable: false,value: 'stt'},{text: 'Tên TSKT',sortable: false,value: 'stt'},{text: 'Giá trị TSKT',sortable: false,value: 'stt'},{text: 'STT hiển thị',sortable: false,value: 'stt'},{text: 'Đơn vị',sortable: false,value: 'stt'},{text: 'TT quy chuẩn',sortable: false,value: 'stt'},{text: 'Nhóm TSKT',sortable: false,value: 'stt'}],
+			danhSachTSKT: [],
+			danhSachXeXuatXuong: [],
+			headerDanhSachXe: [
+				{text: 'Chọn',sortable: false,value: 'stt'},
+				{text: 'STT',sortable: false,value: 'stt'},
+				{text: 'Số GCN',sortable: false,value: 'stt'},
+				{text: 'Số khung',sortable: false,value: 'stt'},
+				{text: 'Số động cơ',sortable: false,value: 'stt'},
+				{text: 'Màu sơn',sortable: false,value: 'stt'},
+				{text: '',sortable: false,value: 'stt'},
+
+			],
+			danhSachXe: [],
+			vehicleclassFilter: '',
+			stampissueNoFilter: '',
+			certificaterecordnoFilter: '',
+			productiondateFilter: null,
+			framenoFilter: '',
+			enginenoFilter: '',
+			serialnoFilter: '',
+			applicantprofileidFilter: '',
+			danhSachDoanhNghiep: [],
+			danhSachDoiTuong: [],
+			danhSachTinhTrang: [{text: 'Đã sử dụng hết', value: 0},{text: 'Chưa sử dụng hết', value: 1}],
+			danhSachTrangThai: [{text: 'Đã in', value: 1}, {text: 'Chưa in', value: 0}],
+			headersDSAnChiDaCapPhat: [{text: 'STT',sortable: false,value: 'stt'}, {text: 'Doanh nghiệp',sortable: false,value: 'stt'}, {text: 'Đối tượng',sortable: false,value: 'stt'}, {text: 'Số hồ sơ',sortable: false,value: 'stt'}, {text: 'Ngày nộp',sortable: false,value: 'stt'}, {text: 'Tên sổ',sortable: false,value: 'stt'}, {text: 'Số ấn chỉ',sortable: false,value: 'stt'}, {text: 'Năm cấp phát',sortable: false,value: 'stt'}, {text: 'Trạng thái',sortable: false,value: 'stt'}, {text: 'Ghi chú',sortable: false,value: 'stt'}, {text: 'Thao tác',sortable: false,value: 'stt'}],
+			danhSachAnChiDaCapPhat: [],
+			chiTietAnChiDaCapPhat: {},
+			preview: '',
+			popUpPhoiXCG: false,
+			listLabel: [{name: 'nhanhieu'},{name: 'loaixe'}],
+			listLabelTemp: [],
+			popUpHistoryDossierPart: false,
+			urlPdfHistory: '',
+			selectModule: {
+				"name": "Đánh giá COP",
+				"children": [
+				],
+				"level": 1,
+				"id": "COP",
+				"showLableSearch": false,
+				"doanhNghiep": null,
+				"listDoanhNghiep": [],
+				"module": "COP",
+				"pathParent": "Đánh giá COP"
+			},
+			modules: modules,
+			soureTable: 'vr_COPReportRepository',
+			headersLanChuyenDoi: [
+				{ text: 'Lần',sortable: false,value: 'stt', align: 'center'},
+				{ text: 'Nội dung',sortable: false,value: 'noiDung', align: 'center'},
+				{ text: 'Từ ngày',sortable: false,value: 'tuNgay', align: 'center'}
+			],
+			itemsLanChuyenDoi: [],
+			headersKQChuyenDoi: [
+				{ text: 'Tên bảng',sortable: false,value: 'tenBang', align: 'center'},
+				{ text: 'Lượt',sortable: false,value: 'luot', align: 'center'},
+				{ text: 'Số lượng',sortable: false,value: 'soLuong', align: 'center'},
+				{ text: 'Ghi chú',sortable: false,value: 'ghiChu', align: 'center'}
+			],
+			itemsKQChuyenDoi: [],
+			headersChuyenDoiMapping: [
+				{ text: 'STT',sortable: false,value: 'stt', align: 'center'},
+				{ text: 'ID',sortable: false,value: 'id', align: 'center'},
+				{ text: 'Mã',sortable: false,value: 'ma', align: 'center'},
+				{ text: 'Tên',sortable: false,value: 'ten', align: 'center'},
+				{ text: 'Mã bảng',sortable: false,value: 'maBang', align: 'center'},
+				{ text: 'Mã CD',sortable: false,value: 'maCD', align: 'center'},
+				{ text: 'Tên chuyển đổi',sortable: false,value: 'tenChuyenDoi', align: 'center'},
+				{ text: 'Đối tượng',sortable: false,value: 'doiTuong', align: 'center'}
+			],
+			itemsMapping: [],
+			migrateTaskSelect: {},
+			migrateReviewSelect: {},
+			rowPerPage: [
+				15,
+				25,
+				40,
+				50,
+				{ text: "Tất cả", value: -1 }
+			],
+			loadingLanChuyenDoi: false,
+			loadingKQChuyenDoi: false,
+			loadingChuyenDoiMapping: false,
+			loadingTableTraCuu: false
 		},
 		watch: {
 			dateNgayXuatXuong_add (val) {
 				var vm = this;
 				console.log('this.dateNgayXuatXuong_add +++++++++', this.dateNgayXuatXuong_add);
-				vm.detailGCN['ngayXuatXuong_add'] = vm.parseDate2(this.dateNgayXuatXuong_add);
+				vm.detailAnChi['ngayXuatXuong_add'] = vm.parseDate2(this.dateNgayXuatXuong_add);
 			}
 		},
 		created: function () {
@@ -699,6 +4118,1594 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 					"template": "menu_template",
 					"template_content": "dossierViewJX_form_template",
 					'events': {
+						parseDateTraCuuFrom (item) {
+							let vm = this
+							item['fromDate'] = vm.parseDate2(item['fromDateTraCuu'])
+						},
+						parseDateTraCuuTo (item) {
+							let vm = this
+							item['toDate'] = vm.parseDate2(item['toDateTraCuu'])
+						},
+						toPartActive (id) {
+							console.log('anchorage==========', id)
+							// $('html,body').animate({
+							// 	scrollTop: $('#' + id).offset().top
+							// });​
+							window.scrollTo(0, $("#" + id).offset().top);
+						},
+						// checkDatKoDat (type) {
+						// 	if (type === 5) {
+						// 		// kc cam
+						// 		// na vàng
+						// 		// kđ đỏ
+						// 		// cđ xanh lam
+						// 	} 
+						// 	if (type === 3 || type === 4 || type === 5) {
+						// 		return true
+						// 	} else {
+						// 		return false
+						// 	}
+						// },
+						checkColorCop (type) {
+							if (type === 5) {
+								return 'yellow'
+							} else if (type === 4) {
+								return '#fa6363'
+							} else if (type === 3) {
+								return '#47a9fe'
+							} else if (type === 2) {
+								return 'orange'
+							} else {
+								return 'white'
+							}
+						},
+						getFormDataSoatXetGCN () {
+							let vm = this
+							console.log('vm.listDocumentInItems=======', vm.listDocumentInItems)
+							console.log('vm.detailModel=======', vm.detailModel)
+							// trường hợp soát xét hồ sơ cấp phiếu
+							if (vm.detailModel['dossierSubStatus'] === 'PROCESSING_60' || 
+								vm.detailModel['dossierSubStatus'] === 'PROCESSING_69' || 
+								vm.detailModel['dossierSubStatus'] === 'PROCESSING_72' || 
+								vm.detailModel['dossierSubStatus'] === 'PROCESSING_57') {
+								if (vm.listDocumentInItems && vm.listDocumentInItems['length']) {
+									let itemTP2 = vm.listDocumentInItems.find(item => {
+										if (item && item['partNo'] === 'TP2') {
+											return true
+										}
+									})
+									if (itemTP2 && itemTP2['formData']) {
+										let formData = JSON.parse(itemTP2['formData']) || {}
+										vm.detailSoatXetGCN = formData
+									}
+								}
+								console.log('vm.detailSoatXetGCN=======', vm.detailSoatXetGCN)
+								if (vm.detailModel['dossierSubStatus'] === 'PROCESSING_72') {
+									vm.dsGCNItems = [];
+									vm.thongTinPhieu = {
+										stampType: 'PXX',
+										applicantName: vm.detailSoatXetGCN['ten_doanh_nghiep'],
+										receiverPlace: vm.detailSoatXetGCN['dia_chi'],
+										outputSheetNo: '---',
+										outputSheetDate: vm.getCurrentTime() || ''
+									};
+									vm.selected = [];
+									vm.loadCoSoSanXuat()
+								}
+								if (vm.detailSoatXetGCN['bang_khai']) {
+									for (var i = 0; i < vm.detailSoatXetGCN['bang_khai'].length; i++) {
+										let tmp = vm.detailSoatXetGCN['bang_khai'][i]
+										if (tmp && tmp['chi_tiet']) {
+											if (tmp['so_luong']) {
+												vm.totalXe += parseInt(tmp['so_luong'])
+											}
+										}
+									}
+								}
+							} else if (vm.detailModel['dossierSubStatus'] === 'PROCESSING_61') {
+
+							} else if (vm.detailModel['dossierSubStatus'] === 'PROCESSING_62') {
+								
+							}
+						},
+						toDetailSoatXetGCN (item, index) {
+							let vm = this
+							vm.popUpDsXeCapPhieu = !vm.popUpDsXeCapPhieu
+							$('#dsXePopUpCapPhieu').empty()
+							console.log('chi tiet=========', item)
+							if (item['chi_tiet']) {
+								let colHeaders = []
+								let columns = []
+								let colWidths = []
+								let colHeaders_loai3 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri hỏng']
+								let colHeaders_loai2 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri mất']
+								let colHeaders_loai1 = [ 'Số khung', 'Số máy', 'Mầu sơn']
+								if (vm.detailSoatXetGCN['hinh_thuc_cap'] === 1 || vm.detailSoatXetGCN['hinh_thuc_cap'] === '1') {
+									colHeaders = colHeaders_loai1
+									colWidths = [ 200, 200, 200, 200]
+									columns = [
+										{ type: 'text'},
+										{ type: 'text'},
+										{ type: 'text'},
+										{ type: 'text'}
+									]
+								} else if (vm.detailSoatXetGCN['hinh_thuc_cap'] === 2 || vm.detailSoatXetGCN['hinh_thuc_cap'] === '2') {
+									colHeaders = colHeaders_loai2
+									colWidths = [ 200, 200, 200, 200]
+									columns = [
+										{ type: 'text'},
+										{ type: 'text'},
+										{ type: 'text'},
+										{ type: 'text'}
+									]
+								} else {
+									colHeaders = colHeaders_loai3
+									colWidths = [ 200, 200, 200]
+									columns = [
+										{ type: 'text'},
+										{ type: 'text'},
+										{ type: 'text'}
+									]
+								}
+								$('#dsXePopUpCapPhieu').jexcel({
+									data: item['chi_tiet'],
+									colHeaders:  colHeaders,
+									colWidths: colWidths,
+									columns: columns
+								});
+							} else {
+								$('#dsXePopUpCapPhieu').jexcel({
+									data: [],
+									colHeaders:  ['Không có dữ liệu'],
+									colWidths: [600],
+									columns: [
+										{ type: 'text'}
+									]
+								});
+							}
+						},
+						uploadFileCop (key) {
+							let vm = this
+							console.log('key upload cop', key)
+							let keyUpload = 'uploadfile_' + key
+							let idInputFile = 'chon-file_' + key
+							let inputFile = $('#' + idInputFile)[0]
+							vm.detailCOP[keyUpload] = []
+							let dataTmp = new FormData()
+							dataTmp.append('file', inputFile.files[0])
+							$.ajax({
+								headers: { 'groupId': themeDisplay.getScopeGroupId() },
+								type: 'POST',
+								url: '/o/rest/v2/dossiers/formfiles',
+								data: dataTmp,
+								processData: false,
+								contentType: false,
+								dataType: 'json',
+								cache: false,
+								timeout: 600000,
+								success: function (data) {
+									vm.snackbartextdossierViewJX = "Yêu cầu thực hiện thành công!";
+									vm.snackbardossierViewJX = true;
+									let tenFile = vm.detailCOP['ten_file_' + key]
+									vm.detailCOP[keyUpload].push({
+										"ten_file": tenFile || '',
+										"fileUrl": data['fileUrl'],
+										"fileId": data['fileId']
+									})
+								},
+								error: function (xhr) {
+									vm.snackbartextdossierViewJX = "Yêu cầu thực hiện thất bại, vui lòng thử lại!";
+									vm.snackbarerordossierViewJX = true;
+								}
+							})
+						},
+						closeAndSaveCop: function (argument) {
+							let vm = this
+							vm.popUpThietBiCOP = false
+							if (vm.indexThietBi < 0) {
+								console.log('can not set item thiet bi')
+								return;
+							}
+							vm.thietBiKiemTra['don_vi'] = vm.donVi
+							vm.detailCOP['thiet_bi_xuat_xuong'][vm.indexThietBi] = Object.assign({}, vm.thietBiKiemTra)
+							let referenceUid = $("#formCOP").attr('referenceUid') || ''
+							vm.submitAlpacajsForm({
+								eform: true,
+								dossierPartId: 288,
+								partNo: 'KQ4',
+								referenceUid: referenceUid
+							})
+						},
+						xacNhanBBKiemTraGSKT () {
+							let vm = this
+							if (vm.stateKiemTraDotXuat === -1) {
+								vm.dsBBKiemTraGS.push(Object.assign({}, vm.bienBanGSModel))
+							} else {
+								vm.dsBBKiemTraGS.push(Object.assign({}, vm.bienBanDXModel))
+							}
+							vm.popUpBienBanKiemTraGS = !vm.popUpBienBanKiemTraGS
+						},
+						addBienBanKTGS (state) {
+							let vm = this
+							vm.popUpBienBanKiemTraGS = !vm.popUpBienBanKiemTraGS
+							vm.stateKiemTraDotXuat = state
+							if (vm.stateKiemTraDotXuat === -1) {
+								vm.bienBanGSModel = Object.assign({}, vm.thongTinGCN)
+							} else {
+								vm.bienBanDXModel = Object.assign({}, vm.detailSoatXetGCN)
+							}
+							console.log('bienBanGSModel=========', vm.bienBanGSModel)
+							vm.getDoiPhongItems()
+							// if (vm.dsBBKiemTraGS && vm.dsBBKiemTraGS['length']) {
+							// 	for (var i = 0; i < vm.dsBBKiemTraGS.length; i++) {
+							// 		vm.totalDat += vm.dsBBKiemTraGS[i]
+							// 	}
+							// }
+						},
+						filterNgayCap (date) {
+							if (!date) {
+								return ''
+							}
+							let index = date.indexOf(' ')
+							if (date.indexOf(':') !== -1) {
+								return date.substring(0, index)
+							}
+						},
+						xacNhanCOP () {
+							let vm = this
+							vm.calPointCop()
+							vm.closeAndSaveCop()
+						},
+						setPointFormCop (item, index, key) {
+							let vm = this
+							vm.detailCOP[key] = (item['gia_tri'] || 0)
+						},
+						gopMoTa () {
+							let vm = this
+							vm.detailCOP['mt_nd_12'] = ''
+							for (var key in vm.detailCOP) {
+								if (key && key.indexOf('mt_nd') !== -1) {
+									vm.detailCOP['mt_nd_12'] += '- ' + vm.detailCOP[key] + ' \n'
+								}
+							}
+						},
+						calPointCop () {
+							let vm = this
+							setTimeout(function () {
+								let totalD = 0
+								let totalKD = 0
+								let totalNA = 0
+								if (vm.thietBiKiemTra['resultTest'] && vm.thietBiKiemTra['resultTest']['length']) {
+									let dat = vm.thietBiKiemTra['resultTest'].forEach(item => {
+										if (item['result'] === 1 || item['result'] === '1') {
+											totalD ++
+										} else if (item['result'] === 4 || item['result'] === '4') {
+											totalKD ++
+										} else if (item['result'] === 5 || item['result'] === '5') {
+											totalNA ++
+										}
+									})
+								}
+								let arrTmp = ['resultMark', 'resultModel', 'resultSeri', 'yearTest', 'resultCountry', 'resultStatus']
+								for (var i = 0; i < arrTmp.length; i++) {
+									let key = arrTmp[i]
+									if (vm.thietBiKiemTra[key] === 1 || vm.thietBiKiemTra[key] === '1') {
+										totalD ++
+									} else if (vm.thietBiKiemTra[key] === 4 || vm.thietBiKiemTra[key] === '4') {
+										totalKD ++
+									} else if (vm.thietBiKiemTra[key] === 5 || vm.thietBiKiemTra[key] === '5') {
+										totalNA ++
+									}
+								}
+								vm.thietBiKiemTra['totalD'] = (totalD || 0)
+								vm.thietBiKiemTra['totalKD'] = (totalKD || 0)
+								vm.thietBiKiemTra['totalNA'] = (totalNA || 0)
+							}, 300)
+						},
+						mapTextKq: function (kq) {
+							if (kq === 1 || kq === '1') {
+								return 'Đ'
+							} else if (kq === 2 || kq === '2') {
+								return 'KC'
+							} else if (kq === 3 || kq === '3') {
+								return 'CĐ'
+							} else if (kq === 4 || kq === '4') {
+								return 'KĐ'
+							} else if (kq === 5 || kq === '5') {
+								return 'NA'
+							}
+							return ''
+						},
+						toDetailKieuLoaiXe: function (item, index) {
+							let vm = this
+							vm.popUpkieuLoaiXe = !vm.popUpkieuLoaiXe
+							vm.indexSpXuatXuong = index
+							vm.kiemTraTinhPhuHop = {
+								dang_kiem_vien_1: vm.detailCOP['dang_kiem_vien_1'],
+								dang_kiem_vien_2: vm.detailCOP['dang_kiem_vien_2'],
+								copReportNo: vm.detailCOP['copReportNo'],
+								copReportDateFrom: vm.detailCOP['copReportDateFrom'],
+								copReportDateTo: vm.detailCOP['copReportDateTo']
+							}
+							vm.kiemTraTinhPhuHop = Object.assign(vm.kiemTraTinhPhuHop, item)
+							if (!vm.kiemTraTinhPhuHop['chiTietKieuLoai'] || !vm.kiemTraTinhPhuHop['chiTietKieuLoai']['length']) {
+								vm.kiemTraTinhPhuHop['chiTietKieuLoai'] = vm.sanPhamXuatXuongItems.slice()
+							}
+							if (!vm.kiemTraTinhPhuHop['dsXePopUpKieuLoai'] || !vm.kiemTraTinhPhuHop['dsXePopUpKieuLoai']['length']) {
+								vm.kiemTraTinhPhuHop['dsXePopUpKieuLoai'] = vm.dsXePopUpKieuLoai.slice()
+							}
+							// if (item['chiTietKieuLoai'] && item['chiTietKieuLoai']['length']) {
+							// 	vm.sanPhanXuatXuong = item['chiTietKieuLoai']
+							// } else {
+							// 	vm.sanPhanXuatXuong = vm.sanPhamXuatXuongItems.slice()
+							// }
+						},
+						xacNhanKieuLoaiXe: function () {
+							let vm = this
+							console.log('vm.indexSpXuatXuong========', vm.indexSpXuatXuong)
+							if (vm.indexSpXuatXuong !== -1) {
+								vm.detailCOP['danh_sach_san_pham'][vm.indexSpXuatXuong] = Object.assign({}, vm.kiemTraTinhPhuHop)
+							}
+							vm.popUpkieuLoaiXe = !vm.popUpkieuLoaiXe
+						},
+						getDossierIdFromCTN: function (_dossierIdCTN) {
+							let vm = this
+							return new Promise((resolve, reject) => {
+								$.ajax({
+									url: "/o/rest/v2/dossiers?dossierIdCTN=" + _dossierIdCTN + "&status=new,receiving,processing,waiting,paying,done,cancelling,cancelled,expired",
+									type: 'GET',
+									dataType: 'json',
+									headers: {
+										'groupId': 55217
+									},
+									success: function (response) {
+										if (response.data) {
+											let myObjStr = JSON.stringify(response.data);
+											let array = JSON.parse(myObjStr);
+											let tempDossierId = array[0].dossierId;
+											resolve(tempDossierId)
+										} else {
+											resolve(0)
+										}
+									},
+									error: function (err) {
+										reject(0)
+									}
+								});
+							})
+						},
+						getDonViNhapItems () {
+							let vm = this
+							if (vm.donViNhapItems && vm.donViNhapItems['length']) {
+								console.log('Đã có đơn vị nhập')
+								return
+							}
+							$.ajax({
+								url: '/o/rest/v2/dictcollections/VR30/dictgroups/DVHANHCHINHCONG/dictitems',
+								type: 'GET',
+								dataType: 'json',
+								data: {
+									sort: 'sibling',
+									full: true
+								},
+								headers: {
+									'groupId': themeDisplay.getScopeGroupId()
+								},
+								success: function (response) {
+									vm.donViNhapItems = response['data'].map(item => {
+										item['dictItemId'] = String(item['dictItemId']) || ''
+										return item
+									}) || []
+								},
+								error: function (err) {
+									console.log(err)
+								}
+							});
+						},
+						getPhieuConItems (vehicleClass, stampType) {
+							let vm = this
+							$.ajax({
+								url: '/o/rest/vr-stamp/inputStampbooks/inventory',
+								type: 'GET',
+								dataType: 'json',
+								data: {
+									vehicleClass: vehicleClass,
+									stampType: stampType,
+									start: -1,
+									end: -1
+								},
+								headers: {
+									'groupId': themeDisplay.getScopeGroupId()
+								},
+								success: function (response) {
+									vm.phieuConItems = response['data'] || []
+								},
+								error: function (err) {
+									console.log(err)
+									vm.phieuConItems = []
+								}
+							});
+						},
+						getDoiPhongItems () {
+							let vm = this
+							if (vm.doiPhongItems && vm.doiPhongItems['length']) {
+								console.log('Đã có đơn vị nhập')
+								return
+							}
+							$.ajax({
+								url: '/o/rest/v2/temp/dictcollections/VR30/dictitems',
+								type: 'GET',
+								dataType: 'json',
+								data: {
+									sort: 'itemName'
+								},
+								headers: {
+									'groupId': themeDisplay.getScopeGroupId()
+								},
+								success: function (response) {
+									vm.doiPhongItems = response['data'].map(item => {
+										item['dictItemId'] = String(item['dictItemId'])
+										return item
+									}) || []
+								},
+								error: function (err) {
+									console.log(err)
+									vm.doiPhongItems = []
+								}
+							});
+						},
+						getFormDataBanKhai: function (dossierIdCTN) {
+							let vm = this
+							vm.getDossierIdFromCTN(dossierIdCTN).then(result => {
+								vm.dossierIdFormDN = result || 0
+								console.log('dossierId CTN====', result)
+								$.ajax({
+									url: '/o/rest/vr-app/cop/reportrepository/' + result + '/1',
+									type: 'GET',
+									dataType: 'json',
+									headers: {
+										'groupId': 55217
+									},
+									success: function (response) {
+										if (response && Object.keys(response).length !== 0 && response.constructor === Object) {
+											vm.detailCOP = Object.assign(vm.detailCOP, response)
+										}
+										if (!vm.detailCOP['copReportNo']) {
+											vm.genSoBaoCao(vm.detailCOP['copReportDateFrom'], 
+														vm.detailCOP['applicantCode'],
+														vm.detailCOP['productionPlantCode'],
+														vm.detailCOP['copclassification'])
+										}
+										vm.getThietBiKiemTra(result)
+									},
+									error: function (err) {
+										console.log(err)
+									}
+								});
+							}).catch(xhr => {
+								console.log(xhr)
+							})
+						},
+						convertDataCOP: function () {
+							let vm = this
+							let tmp = Object.assign({}, vm.detailCOP)
+							// TO DO
+							return tmp
+						},
+						convertDataCOPProductionPlantEmployee () {
+							let vm = this
+							let vr_COPProductionPlantEmployee = vm.detailCOP['danh_sach_nhan_vien'] || []
+							if (vr_COPProductionPlantEmployee && vr_COPProductionPlantEmployee['length']) {
+								vr_COPProductionPlantEmployee = vr_COPProductionPlantEmployee.map(item => {
+									return {
+										mtCore: 1,
+										copReportNo: vm.detailCOP['copReportNo'],
+										sequenceNo: item['sequenceNo'],
+										employeeName: item['name'],
+										employeeCertificateNo: item['certNo'],
+										trainningAt: item['place'],
+										workingPosition: item['position'],
+										dossierId: vm.dossierIdFormDN,
+										dossierIdCTN: vm.detailModel['dossierIdCTN'],
+										dossierNo: vm.detailModel['dossierNo']
+									}
+								})
+							}
+							return vr_COPProductionPlantEmployee
+						},
+						convertCOPProductionPlantEquipment () {
+							let vm = this
+							let vr_COPProductionPlantEquipment = vm.detailCOP['thiet_bi_xuat_xuong'] || []
+							if (vr_COPProductionPlantEquipment && vr_COPProductionPlantEquipment['length']) {
+								vr_COPProductionPlantEquipment = vr_COPProductionPlantEquipment.map(item => {
+									let MarkupXCG = 0
+									let MarkupXCGNK = 0
+									let MarkupSMRM = 0
+									let MarkupXCH = 0
+									let MarkupXCN = 0
+									let MarkupXMY = 0
+									let MarkupXDD = 0
+									if (vm.detailCOP['copclassification'] === 'XCG') {
+										MarkupXCG = 1
+									} else if (vm.detailCOP['copclassification'] === 'XCGNK') {
+										MarkupXCGNK = 1
+									} else if (vm.detailCOP['copclassification'] === 'SMRM') {
+										MarkupSMRM = 1
+									} else if (vm.detailCOP['copclassification'] === 'XCH') {
+										MarkupXCH = 1
+									} else if (vm.detailCOP['copclassification'] === 'XCN') {
+										MarkupXCN = 1
+									} else if (vm.detailCOP['copclassification'] === 'XMY') {
+										MarkupXMY = 1
+									} else if (vm.detailCOP['copclassification'] === 'XDD') {
+										MarkupXDD = 1
+									}
+									return {
+										vrcopProductionPlantEquipmentId: item['id'],
+										mtCore: 1,
+										copReportNo: vm.detailCOP['copReportNo'],
+										productionPlantId: vm.detailCOP['productionPlantId'],
+										productionPlantCode: vm.detailCOP['productionPlantCode'],
+										sequenceNo: item['sequenceNo'],
+										equipmentCode: item['name'],
+										equipmentName: item['name_text'],
+										equipmentType: 0,
+										trademark: item['mark'],
+										trademarkName: item['mark'],
+										commercialName: '',
+										modelCode: item['model'],
+										equipmentSerialNo: item['seri'],
+										productionYear: item['year'],
+										registrationYear: 0,
+										markupXCG: MarkupXCG,
+										markupXCGNK: MarkupXCGNK,
+										markupSMRM: MarkupSMRM,
+										markupXCH: MarkupXCH,
+										markupXCN: MarkupXCN,
+										markupXMY: MarkupXMY,
+										markupXDD: MarkupXDD,
+										testingResult: item['nd_result'],
+										description: item['mt_nd_4_2_1_3'],
+										inspectionRecordNumber: item['inspectionRecordNumber'],
+										inspectionRecordDate: item['inspectionRecordDate'],
+										expiredStatus: item['expiredStatus'] || '',
+										stampTestingNo: item['temp'],
+										productionCountryCode: item['countryTest'],
+										equipmentStatus: item['statusActive'],
+										notes: item['ghi_chu'],
+										dossierId: vm.dossierIdFormDN,
+										dossierIdCTN: vm.detailModel['dossierIdCTN'],
+										dossierNo: vm.detailModel['dossierNo']
+									}
+								})
+							}
+							return vr_COPProductionPlantEquipment
+						},
+						calToTalPointABC () {
+							let vm = this
+							let totalPointA = 0
+							let totalPointB = 0
+							let totalPointC = 0
+							for (var key in vm.detailCOP) {
+								if (key && key.indexOf('danh_gia_') !== -1) {
+									if (vm.detailCOP[key] === 'a') {
+										totalPointA ++
+									} else if (vm.detailCOP[key] === 'b') {
+										totalPointB ++
+									} else if (vm.detailCOP[key] === 'c') {
+										totalPointC ++
+									}
+								}
+							}
+							vm.detailCOP['totalPointA'] = totalPointA
+							vm.detailCOP['totalPointB'] = totalPointB
+							vm.detailCOP['totalPointC'] = totalPointC
+						},
+						convertCOPReportRepository () {
+							let vm = this
+							let markupDesigner = 0
+							let markupOverseasManufacturer = 0
+							let markupDomesticsManufacturer = 0
+							let markupMaintainer = 0
+							let markupImporter = 0
+							vm.calToTalPointABC()
+							if (vm.detailModel['list_COP_TrongNuoc_NuocNgoai'] === 'TK') {
+								markupDesigner = 1
+							} else if (vm.detailModel['list_COP_TrongNuoc_NuocNgoai'] === 'NN') {
+								markupOverseasManufacturer = 1
+							} else if (vm.detailModel['list_COP_TrongNuoc_NuocNgoai'] === 'TN') {
+								markupDomesticsManufacturer = 1
+							} else if (vm.detailModel['list_COP_TrongNuoc_NuocNgoai'] === 'BHBD') {
+								markupMaintainer = 1
+							} else if (vm.detailModel['list_COP_TrongNuoc_NuocNgoai'] === 'NK') {
+								markupImporter = 1
+							}
+							return {
+								mtCore: 1,
+								convertAssembleId: 0,
+								dossierId: vm.dossierIdFormDN,
+								dossierIdCTN: vm.detailModel['dossierIdCTN'],
+								dossierNo: vm.detailModel['dossierNo'],
+								applicantprofileid: vm.detailCOP['dossierNo'],
+								applicantCode: vm.detailCOP['applicantCode'],
+								applicantName: vm.detailCOP['applicantName'],
+								applicantAddress: vm.detailCOP['applicantAddress'],
+								applicantRepresentative: vm.detailCOP['applicantRepresentative'],
+								applicantRepresentativeTitle: vm.detailCOP['applicantRepresentativeTitle'],
+								applicantEmail: vm.detailCOP['applicantEmail'],
+								applicantPhone: vm.detailCOP['applicantPhone'],
+								applicantTelNo: vm.detailCOP['applicantTelNo'],
+								applicantFax: vm.detailCOP['applicantFax'],
+								applicantContactName: vm.detailCOP['applicantContactName'],
+								applicantContactEmail: vm.detailCOP['applicantContactEmail'],
+								applicantContactPhone: vm.detailCOP['applicantContactPhone'],
+								applicantContactTelNo: vm.detailCOP['applicantContactTelNo'],
+								applicantBusinessType: vm.detailCOP['applicantBusinessType'],
+								markupDesigner: markupDesigner,
+								markupOverseasManufacturer: markupOverseasManufacturer,
+								markupDomesticsManufacturer: markupDomesticsManufacturer,
+								markupMaintainer: markupMaintainer,
+								markupImporter: markupImporter,
+								importerDomesticSite: vm.detailCOP['importerDomesticSite'],
+								siteOfNationality: vm.detailCOP['siteOfNationality'],
+								siteOfNationalityCode: vm.detailCOP['siteOfNationalityCode'],
+								siteOfRegion: vm.detailCOP['siteOfRegion'],
+								siteOfRegionCode: vm.detailCOP['siteOfRegionCode'],
+								siteOfCity: vm.detailCOP['siteOfCity'],
+								siteOfCityCode: vm.detailCOP['siteOfCityCode'],
+								manufacturerRepresentative: vm.detailCOP['manufacturerRepresentative'],
+								manufacturerRepresentativeTitle: vm.detailCOP['manufacturerRepresentativeTitle'],
+								manufacturerEmail: vm.detailCOP['manufacturerEmail'],
+								manufacturerPhone: vm.detailCOP['manufacturerPhone'],
+								manufacturerFax: vm.detailCOP['manufacturerFax'],
+								overseasManufacturerCode: vm.detailCOP['overseasManufacturerCode'],
+								overseasManufacturerName: vm.detailCOP['overseasManufacturerName'],
+								overseasmanufacturerAddress: vm.detailCOP['overseasmanufacturerAddress'],
+								productionPlantId: vm.detailCOP['productionPlantId'] || 0,
+								productionPlantCode: vm.detailCOP['ma_so_xuong'],
+								productionPlantName: vm.detailCOP['ten_xuong_san_xuat'],
+								productionPlantAddress: vm.detailCOP['dia_chi_xuong'],
+								productionPlantEmail: vm.detailCOP['email_xuong'],
+								productionPlantWebsite: vm.detailCOP['web_doanh_nghiep'],
+								productionPlantRepesentative: vm.detailCOP['nguoi_dai_dien_xuong'],
+								productionPlantRepresentativeTitle: vm.detailCOP['chuc_danh_dai_dien_xuong'],
+								importerManufacturerCode: vm.detailCOP['importerManufacturerCode'],
+								importerManufacturerName: vm.detailCOP['importerManufacturerName'],
+								importerManufacturerAddress: vm.detailCOP['importerManufacturerAddress'],
+								markupdomesticsmanufacturer: vm.detailCOP['markupdomesticsmanufacturer'],
+								copReportNo: vm.detailCOP['copReportNo'],
+								copReportDate: vm.detailCOP['copReportDateFrom'],
+								copReportStatus: vm.detailCOP['copReportStatus'],
+								copReportType: vm.detailCOP['loai_hinh_danh_gia'],
+								copClassification: vm.detailCOP['copclassification'],
+								productClassificationDescription: vm.detailCOP['productClassificationDescription'],
+								copReportMetadata: vm.detailCOP['copReportMetadata'],
+								copReportSignName: vm.detailCOP['copReportSignName'],
+								copReportSignTitle: vm.detailCOP['copReportSignTitle'],
+								copReportSignPlace: vm.detailCOP['copReportSignPlace'],
+								copReportApprovedDate: vm.detailCOP['copReportApprovedDate'],
+								copReportExpiredDate: vm.detailCOP['copReportExpiredDate'],
+								copFileEntryId: vm.detailCOP['copFileEntryId'],
+								totalPointA: vm.detailCOP['totalPointA'],
+								totalPointB: vm.detailCOP['totalPointB'],
+								totalPointC: vm.detailCOP['totalPointC'],
+								copNonConformity: vm.detailCOP['copNonConformity'],
+								inspectionRecordno: vm.detailCOP['inspectionRecordno'],
+								inspectionRecorddate: vm.detailCOP['inspectionRecorddate'],
+								corporationId: vm.detailCOP['corporationId'],
+								inspectorId: vm.detailCOP['inspectorId'],
+								inspectionSite: vm.detailCOP['inspectionSite'],
+								inspectionDateFrom: vm.detailCOP['inspectionDateFrom'],
+								inspectionDateTo: vm.detailCOP['inspectionDateTo'],
+								subInspector: vm.detailCOP['subInspector'],
+								inspectionRecordFileEntryId: vm.detailCOP['inspectionRecordFileEntryId'],
+								copReportRefNo: vm.detailCOP['copReportRefNo'],
+								copReportRefDate: vm.detailCOP['copReportRefDate'],
+								copReportPreviousNo: vm.detailCOP['copReportPreviousNo'],
+								copReportPreviousDate: vm.detailCOP['copReportPreviousDate'],
+								expiredStatus: vm.detailCOP['expiredStatus'],
+								description: vm.detailCOP['description'],
+								corporationName: vm.detailCOP['corporationName'],
+								inspectorContactCode: vm.detailCOP['inspectorContactCode'],
+								inspectorName: vm.detailCOP['inspectorName'],
+								inspectorEndorsementDate: vm.detailCOP['inspectorEndorsementDate'],
+								inspectorDeadline: vm.detailCOP['inspectorDeadline'],
+								resolvedStatus: vm.detailCOP['resolvedStatus'],
+								numberOfNonConformity: vm.detailCOP['numberOfNonConformity'],
+								numberOfResolved: vm.detailCOP['numberOfResolved'],
+								observationDescription: vm.detailCOP['observationDescription'],
+								inspectionAuditCycle: vm.detailCOP['inspectionAuditCycle'],
+								inspectionNote: vm.detailCOP['inspectionNote'],
+								productionConformityChecking: vm.detailCOP['productionConformityChecking'],
+								productionStampChecking: vm.detailCOP['productionStampChecking'],
+								testingEquipmentChecking: vm.detailCOP['testingEquipmentChecking'],
+								productionPlantClassification: vm.detailCOP['productionPlantClassification'],
+								actualCapacity: vm.detailCOP['actualCapacity'],
+								maxCapacity: vm.detailCOP['maxCapacity'],
+								averageCapacity: vm.detailCOP['averageCapacity'],
+								totalEmployee: vm.detailCOP['totalEmployee'],
+								totalWorker: vm.detailCOP['diem_nd_5_1_1'],
+								totalManager: vm.detailCOP['diem_nd_5_1_2'],
+								totalTechnical: vm.detailCOP['diem_nd_5_1_2'],
+								totalQaEmployee: vm.detailCOP['diem_nd_5_1_3'],
+								totalSquaremeter: vm.detailCOP['totalSquaremeter'],
+								warehouseSquare: vm.detailCOP['warehouseSquare'],
+								officeSquare: vm.detailCOP['officeSquare'],
+								productionSquare: vm.detailCOP['productionSquare'],
+								machiningArea: vm.detailCOP['machiningArea'],
+								weldingArea: vm.detailCOP['weldingArea'],
+								paintingArea: vm.detailCOP['paintingArea'],
+								productionAssembleArea: vm.detailCOP['productionAssembleArea'],
+								finishProductArea: vm.detailCOP['finishProductArea'],
+								testingArea: vm.detailCOP['testingArea'],
+								selfEquipment: vm.detailCOP['selfEquipment'],
+								contractEquipment: vm.detailCOP['contractEquipment'],
+								circularNo: vm.detailCOP['circularNo'],
+								circularDate: vm.detailCOP['circularDate'],
+								circularNo2: vm.detailCOP['circularNo2'],
+								circularDate2: vm.detailCOP['circularDate2'],
+								module: '01'
+							}
+						},
+						postDataCOP: function () {
+							let vm = this
+							var dklrData = {}
+							// dklrData['vr_COPProductionPlantEmployee'] = vm.convertDataCOPProductionPlantEmployee()
+							dklrData['vr_COPReportRepository'] = vm.convertCOPReportRepository()
+							dklrData['vr_COPProductionPlantEquipment'] = vm.convertCOPProductionPlantEquipment()
+							var jsonData = new Object();
+							jsonData['body'] = dklrData;
+							jsonData['indice'] = 'vr_COPReportRepository';
+							$.ajax('/o/dklr/post', {
+								type: 'POST',
+								data: JSON.stringify(jsonData),
+								dataType: 'json',
+								contentType: 'application/json',
+								processData: false,
+								success: function (data) {
+									if (data['status'] && data['status']['err_msg'] == 'success') {
+										console.log('POST API thanh cong');
+										vm.snackbartextdossierViewJX = "Yêu cầu thực hiện thành công!";
+										vm.snackbardossierViewJX = true;
+									}
+								},
+								error: function (data) {
+									if (!data['status'] || !(data['status']['err_msg'] == 'success')) {
+										console.log('POST API that bai');
+										vm.snackbartextdossierViewJX = "Yêu cầu thực hiện thất bại, vui lòng thử lại!";
+										vm.snackbarerordossierViewJX = true;
+									}
+								}
+							});
+						},
+						getCurrentTime () {
+							let date = new Date()
+							return date.getDate() + '/' + (date.getMonth() +  1 ) + '/' + date.getFullYear()
+						},
+						genSoBaoCao: function (copReportDateFrom, applicantCode, productionPlantCode, copclassification) {
+							let vm = this
+							$.ajax({
+								url: '/o/rest/vr-app/cop/reportrepository/count',
+								type: 'GET',
+								data: {
+									copreportdate: copReportDateFrom,
+									applicantcode: applicantCode,
+									productionplantcode: productionPlantCode,
+									copclassification: copclassification
+								},
+								dataType: 'json',
+								success: function (data) {
+									console.log('genSoBaoCao=========', data)
+									vm.detailCOP['copReportNo'] = vm.detailCOP['applicantCode'] + '/' +
+																  vm.detailCOP['ma_so_nha_xuong'] + '/' +
+																  vm.detailCOP['copclassification'] + '/' +
+																  vm.detailCOP['copReportDateFrom'] + '/' +
+																  data
+								},
+								error: function (data) {
+								}
+							});
+						},
+						getThietBiKiemTra: function (dossierId) {
+							let vm = this
+							$.ajax({
+								url: '/o/rest/vr-app/cop/productionplant/prodequipment/' + dossierId + '/1',
+								type: 'GET',
+								data: {
+								},
+								dataType: 'json',
+								success: function (data) {
+									if (data && data['data']) {
+										// vm.detailCOP['thiet_bi_xuat_xuong'] = data['data'] || []
+										for (var i = 0; i < vm.detailCOP['thiet_bi_xuat_xuong']['length']; i++) {
+											let tmp = vm.detailCOP['thiet_bi_xuat_xuong'][i]
+											for (var j = 0; j < data['data'].length; j++) {
+												let tmpTb = data['data'][j]
+												if (tmp && tmp['name'] === tmpTb['name'] 
+													&& tmp['model'] === tmpTb['model'] 
+													&& tmp['seri'] === tmpTb['seri']
+													&& tmp['mark'] === tmpTb['mark']) {
+													console.log('===========')
+													vm.detailCOP['thiet_bi_xuat_xuong'][i] = Object.assign({}, tmpTb, tmp)
+												}
+											}
+										}
+										vm.initFormPopupBienBanThietBi()
+										// for (var i = 0; i < vm.detailCOP['thiet_bi_xuat_xuong'].length; i++) {
+										// 	vm.detailCOP['thiet_bi_xuat_xuong'][i] = Object.assign(vm.detailCOP['thiet_bi_xuat_xuong'][i], data['data'][i])
+										// }
+									}
+								},
+								error: function (data) {
+								}
+							});
+						},
+						toKetQuaKiemTra: function (item, index, itemParent) {
+							let vm = this
+							console.log('toKetQuaKiemTra==========', item)
+							vm.indexThietBi = index
+							vm.labelPopupThietBiCOP = item['name']
+							vm.thietBiKiemTra = {
+								totalD: 0,
+								totalKD: 0,
+								totalNA: 0,
+								dang_kiem_vien_1: vm.detailCOP['dang_kiem_vien_1'],
+								dang_kiem_vien_2: vm.detailCOP['dang_kiem_vien_2'],
+								copReportNo: vm.detailCOP['copReportNo'],
+								copReportDateFrom: vm.detailCOP['copReportDateFrom'],
+								copReportDateTo: vm.detailCOP['copReportDateTo']
+							}
+							item['ky_hieu'] = itemParent['ky_hieu']
+							if (item['name'] === '1009' || 
+								item['name'] === 'LRTBKT3' || 
+								item['name'] === 'LRTBKT2' || 
+								item['name'] === '1001' || 
+								item['name'] === '1019' || 
+								item['name'] === 'LRTBKT44' ||
+								item['name'] === 'LRTBKT70') {
+								vm.statePopupCOP = 'MAU_1'
+								if (item['name'] === '1009' || item['name'] === 'LRTBKT2' || item['name'] === '1001') {
+									vm.labelMauCOP = 'thiết bị kiểm tra độ ồn'
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị tạo độ ồn chuẩn'
+									vm.donVi = 'db(A)'
+								} else if (item['name'] === '1019') {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị đo tốc độ vòng quay chuyên dùng'
+									vm.labelMauCOP = 'thiết bị kiểm tra đồng hồ tốc độ'
+									vm.donVi = 'km/h'
+								} else {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị đo tốc độ vòng quay chuyên dùng'
+									vm.labelMauCOP = 'thiết bị kiểm tra đồng hồ tốc độ'
+									vm.donVi = 'km/h'
+								}
+							} else if (item['name'] === '1007' || 
+										item['name'] === '1011' || 
+										item['name'] === 'LRTBKT43') {
+								vm.statePopupCOP = 'MAU_2'
+								vm.labelMauCOP = 'thiết bị kiểm tra lực phanh'
+								vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng cách tạo lực phanh chuẩn thông qua các khối lượng chuẩn và đồ gá'
+								vm.donVi = 'N'
+							} else if (item['name'] === '1013' ||
+										item['name'] === '1016' ||
+										item['name'] === '1005' || 
+										item['name'] === '1018' || 
+										item['name'] === '1020' || 
+										item['name'] === 'LRTBKT7' || 
+										item['name'] === 'LRTBKT42' ||
+										item['name'] === 'LRTBKT45') {
+								vm.statePopupCOP = 'MAU_3'
+								if (item['name'] === '1016') {
+									vm.donVi = 'độ'
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị bằng thước đo góc chuẩn'
+									vm.labelMauCOP = 'thiết bị kiểm tra góc quay lái của bánh xe dẫn hướng'
+								} else if (item['name'] === '1020') {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng cách tạo lực phanh chuẩn thông qua các khối lượng chuẩn và dồ gá'
+									vm.labelMauCOP = 'thiết bị kiểm tra phanh'
+								} else if (item['name'] === '1018' || item['name'] === 'LRTBKT42') {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng các khối lượng chuẩn/ lực chuẩn'
+									vm.labelMauCOP = 'kiểm tra thiết bị cân'
+								} else {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị tạo độ sáng chuẩn'
+									vm.labelMauCOP = 'thiết bị kiểm tra đèn pha'
+								}
+							} else if (item['name'] === 'LRTBKT5' || item['name'] === '1012') {
+								vm.statePopupCOP = 'MAU_4'
+								vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị đồng hồ đo và đồ gá chuẩn'
+								vm.labelMauCOP = 'thiết bị kiểm tra độ trượt ngang'
+							} else if (item['name'] === '1004' || item['name'] === 'LRTBKT22' || item['name'] === '1021') {
+								vm.statePopupCOP = 'MAU_5'
+								if (item['name'] === '1021') {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị hồ sơ và đồ gá chuẩn'
+									vm.labelMauCOP = 'thiết bị kiểm tra độ không trùng vết'
+								} else {
+									vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị đồng hồ đo và đồ gá chuẩn'
+									vm.labelMauCOP = 'thiết bị kiểm tra độ không trùng vết bánh xe'
+								}
+							} else if (item['name'] === '1015' || item['name'] === 'LRTBKT1') {
+								vm.statePopupCOP = 'MAU_6'
+								vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng giấy chuẩn (kính chuẩn)'
+								vm.labelMauCOP = 'thiết bị đo khói động cơ Diesel'
+								if (item['resultTest'] && item['resultTest']['length']) {
+									item['resultTest'].map(itemTmp => {
+										if (!itemTmp['unit_1']) {
+											itemTmp['unit_1'] = 'm^1'
+										}
+										if (!itemTmp['unit_2']) {
+											itemTmp['unit_2'] = '% HSU'
+										}
+										return itemTmp
+									})
+								}
+							} else if (item['name'] === 'LRTBKT21' || 
+										item['name'] === '1006' || 
+										item['name'] === '1014' ||
+										item['name'] === 'LRTBKT46') {
+								vm.statePopupCOP = 'MAU_7'
+								vm.labelMauCOP = 'thiết bị phân tích khí thải động cơ xăng'
+								vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng bình khí chuẩn'
+							} else if (item['name'] === '1010' || item['name'] === 'LRTBKT3') {
+								vm.statePopupCOP = 'MAU_8'
+								vm.labelKiemTraMauCOP = 'Kiểm tra độ chính xác của thiết bị bằng thiết bị đo tốc độ vòng quay chuyên dùng'
+								vm.labelMauCOP = 'thiết bị kiểm tra sai số đồng hồ tốc độ'
+							} else if (item['name'] === '1017') {
+								vm.statePopupCOP = 'MAU_9'
+								vm.labelKiemTraMauCOP = 'Kiểm tra sự đầy đủ các chức năng hoạt động của thiết bị'
+								vm.labelMauCOP = 'thiết bị kiểm tra góc đặt bánh xe'
+							}
+							item = vm.setDefaultValue(item)
+							vm.thietBiKiemTra = Object.assign(vm.thietBiKiemTra, item)
+							vm.calPointCop()
+							vm.popUpThietBiCOP = true
+							vm.labelPopupThietBiCOP = ''
+						},
+						setDefaultValue: function (item) {
+							let vm = this
+							let arrKeyBase = ['mark', 'model', 'seri', 'year', 'country']
+							let arrKey = ['markTest', 'modelTest', 'seriTest', 'yearTest', 'countryTest']
+							let arrKeyResult = ['resultMark', 'resultModel', 'resultSeri', 'resultYear', 'resultCountry']
+							// copy thông số chuẩn vào thông số đo khi chưa có dữ liệu
+							for (var i = 0; i < arrKey.length; i++) {
+								if (!item[arrKey[i]]) {
+									item[arrKey[i]] = item[arrKeyBase[i]]
+								}
+							}
+							//set default value 'đạt' cho 5 mục đầu khi chưa có dữ liệu
+							for (var i = 0; i < arrKeyResult.length; i++) {
+								if (!item[arrKeyResult[i]]) {
+									item[arrKeyResult[i]] = 1 // 1 là đạt
+								}
+							}
+							return item
+						},
+						getDangKiemVien: function () {
+							let vm = this
+							return new Promise(function (resolve, reject) {
+								$.ajax({
+									url : '/o/rest/v2/employees/role/62111',
+									dataType : "json",
+									type : "GET",
+									data: {
+										'active': true
+									},
+									headers : {
+										"groupId" : themeDisplay.getScopeGroupId()
+									},
+									success :  function (result) {
+										vm.dangKiemVienItems = result['data'].map(item => {
+											if (item['mappingUser'] && item['mappingUser']['userId']) {
+												item['userId'] = item['mappingUser']['userId'] ? String(item['mappingUser']['userId']) : ''
+											}
+											return item
+										}) || []
+										console.log('vm.dangKiemVienItems========', vm.dangKiemVienItems)
+										resolve(result);
+									},
+									error : function (result) {
+										vm.dangKiemVienItems = []
+										reject(result);
+									}
+								});
+							})
+						},
+						getTSKT (vehicleclass, table) {
+							let vm = this
+							if (!vehicleclass) {
+								return new Promise()
+							}
+							let url = '/o/rest/vr-app/techspecs/' + vehicleclass + '/vehicleclassexts'
+							let urlTDTK = '/o/rest/vr-app/techspecs/' + 'TDTK' + vehicleclass + '/vehicleclassexts'
+							let configTSKT = {
+								headers: {
+									apikey: "1234567890",
+									module: "",
+									groupId: themeDisplay.getScopeGroupId()
+								}
+							}
+							let tskt = axios.get(url, configTSKT)
+							let tsktExts = axios.get(urlTDTK, configTSKT)
+							Promise.all([tskt, tsktExts]).then(results => {
+								let resTSKT = results[0]['data'] || []
+								let resTSKT2 = results[1]['data'] || []
+								console.log("resTSKT============", resTSKT)
+								console.log("resTSKT2============", resTSKT2)
+								let resTmp = resTSKT.concat(resTSKT2)
+								let res = []
+								for (var i = 0; i < resTmp.length; i++) {
+									let items = resTmp[i]['items'] || []
+									for (var j = 0; j < items.length; j++) {
+										if (items[j] && items[j]['datasource']) {
+											res.push({
+												"key": "data." + table + "." + items[j]['key'],
+												"value": items[j]['title'],
+												"type": "select",
+												"itemText": "text",
+												"itemValue": "value",
+												"items": items[j]['datasource']
+											})
+										} else {
+											res.push({
+												"key": "data." + table + "." + items[j]['key'],
+												"value": items[j]['title'],
+												"type": "string"
+											})
+										}
+									}
+								}
+								console.log("res============", res)
+								vm.conditions = vm.conditions.concat(res)
+							})
+						},
+						selectModuleAction () {
+							let vm = this
+							console.log('selectModule+++++', vm.selectModule)
+							vm.listsTraCuu = []
+							vm.lengthPageTraCuuThongKe = 0
+							vm.pageTraCuuThongKe = 1
+							vm.listSearch = [
+								{
+									index: 0,
+									value: null,
+									searchType: null,
+									dataitem: null,
+									dataCollection: [],
+									conditionsSelect: {}
+								}
+							]
+							if (vm.selectModule && vm.selectModule['module'] === 'COP') {
+								vm.headersTraCuu = headersCOP
+								vm.conditions = conditionsCOP
+								vm.soureTable = 'vr_COPReportRepository'
+							} else if (vm.selectModule && vm.selectModule['module'] === 'TT302011BGTVTTDTKXCG') {
+								vm.headersTraCuu = headersThamDinh
+								vm.conditions = conditionsTDTKXCG
+								vm.soureTable = 'vr_VehicleTypeCertificate'
+							}  else if (vm.selectModule && (vm.selectModule['module'] === 'TT302011BGTVTKTSPMXBBCN' || vm.selectModule['module'] === 'TT302011BGTVTKTSPMXCG')) {
+								vm.headersTraCuu = headersThamDinh
+								vm.conditions = conditionsKTSPMXCG
+								vm.soureTable = 'vr_VehicleTypeCertificate'
+							} else {
+								vm.headersTraCuu = headersCNCLKL
+								vm.conditions = conditionsCNCLKL
+								vm.soureTable = 'vr_VehicleTypeCertificate'
+							}
+							// load thông số kỹ thuật từ api cho vào điều kiện tìm kiếm
+							if (vm.selectModule['vehicleClass'] && vm.selectModule['table']) {
+								vm.getTSKT(vm.selectModule['vehicleClass'], vm.selectModule['table'])
+							}
+						},
+						xemGiayChungNhan (item) {
+						},
+						xemBienBan (item) {
+						},
+						xemTSKT (item) {
+						},
+						checkMtCore (item) {
+							let vm = this
+							let result = ''
+							let ref = vm.soureTable + '.mtCore'
+							let arrKey = ref.split('.')
+							for (var i = 0; i < arrKey.length; i++) {
+								let key = arrKey[i]
+								if (typeof result === 'object' && result.constructor === Object) {
+									result = result[key]
+								} else {
+									result = item[key]
+								}
+							}
+							console.log('mtCore==========', result)
+							if (result && (result === 1 || result === '1')) {
+								return true
+							} else {
+								return false
+							}
+						},
+						getDisplay (item, link, type) {
+							let result = ''
+							if (!link) {
+								return ''
+							} else {
+								let arrKey = link.split('.')
+								for (var i = 0; i < arrKey.length; i++) {
+									let key = arrKey[i]
+									if (typeof result === 'object' && result.constructor === Object) {
+										result = result[key]
+									} else {
+										result = item[key]
+									}
+								}
+							}
+							if (type && type === 'date' && result) {
+								let date = new Date(result)
+								let strDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+								result = strDate
+							}
+							return result
+						},
+						parseTimestamp (str) {
+							if (!str) {
+								return 0
+							}
+							var dateString = str;
+							var dateMomentObject = moment(dateString, "DD/MM/YYYY");
+							var dateObject = dateMomentObject.toDate();
+							return dateObject.getTime() || 0
+						},
+						generateQuery (query) {
+				          let vm = this
+				          let mustQuery = [
+				            {
+				              'match': {
+				                'type_es': vm.soureTable
+				              }
+				            }
+				          ]
+				          let queries = {
+				            'indice': vm.soureTable,
+				            'query': {
+				            	'size': 15,
+				            	'from': this.pageTraCuuThongKe * 15 - 15,
+					            'query': {
+					              'bool': {
+					                'must': mustQuery
+					              }
+					            }
+				            }
+				          }
+				          for (var i = 0; i < vm.listSearch.length; i++) {
+				            if (vm.listSearch[i] && vm.listSearch[i]['conditionsSelect']) {
+				              let conditionsSelect = vm.listSearch[i]['conditionsSelect']
+				              let key = conditionsSelect['key']
+				              if (vm.listSearch[i]['conditionsSelect']['type'] === 'string') {
+				                if (conditionsSelect) {
+				                  let tmpObj = {}
+				                  tmpObj[key] = vm.listSearch[i]['valueSearch']
+				                  mustQuery.push({
+				                  	'match_phrase': tmpObj
+				                  })
+				                  // if (conditionsSelect['keyword']) {
+				                  // 	mustQuery.push({
+				                  // 		'match_phrase': tmpObj
+				                  // 	})
+				                  // } else {
+				                  // 	mustQuery.push({
+				                  // 		'match': tmpObj
+				                  // 	})
+				                  // }
+				                }
+				              } else if (vm.listSearch[i]['conditionsSelect']['type'] === 'date') {
+				                if (conditionsSelect) {
+				                  let tmpObj = {}
+				                  let fromDate = vm.parseTimestamp(vm.listSearch[i]['fromDate'])
+				                  let toDate = vm.parseTimestamp(vm.listSearch[i]['toDate'])
+				                  tmpObj[key] = {
+				                  	timestamp: {
+				                  		gte: fromDate,
+				                    	lte: toDate
+				                  	}
+				                  }
+				                  mustQuery.push({
+				                    'range': tmpObj
+				                  })
+				                }
+				              } else if (vm.listSearch[i]['conditionsSelect']['type'] === 'number') {
+				                console.log('typeSearch+++++++++++++++++++', vm.listSearch[i]['typeSearch'])
+				                if (conditionsSelect) {
+				                  let tmpObj = {}
+				                  tmpObj[key] = {
+				                  }
+				                  if (vm.listSearch[i]['typeSearch'] === 'gte') {
+				                    tmpObj[key] = {
+				                      gte: vm.listSearch[i]['valueSearch']
+				                    }
+				                    mustQuery.push({
+				                      'range': tmpObj
+				                    })
+				                  } else if (vm.listSearch[i]['typeSearch'] === 'lte') {
+				                    tmpObj[key] = {
+				                      lte: vm.listSearch[i]['valueSearch']
+				                    }
+				                    mustQuery.push({
+				                      'range': tmpObj
+				                    })
+				                  } else {
+				                    tmpObj[key] = vm.listSearch[i]['valueSearch']
+				                    mustQuery.push({
+				                      'match': tmpObj
+				                    })
+				                  }
+				                }
+				              } else if (vm.listSearch[i]['conditionsSelect']['type'] === 'select') {
+				                if (conditionsSelect) {
+				                  let tmpObj = {}
+				                  tmpObj[key] = vm.listSearch[i]['valueSearch']
+				                  mustQuery.push({
+				                  	'match_phrase': tmpObj
+				                  })
+				                }
+				              }
+				            }
+				          }
+				          // module Kiểm tra sản phẩm mẫu Xe cơ giới
+				          if (vm.selectModule && (vm.selectModule['module'] === 'TT302011BGTVTKTSPMXCG' || vm.selectModule['module'] === 'TT302011BGTVTKTSPMXBBCN')) {
+				          	let tmpObj = {}
+				          	tmpObj['data.vr_VehicleTypeCertificate.module'] = '02'
+				          	mustQuery.push({
+				          		'match': tmpObj
+				          	})
+				          // Thẩm định thiết kế
+				          } else if (vm.selectModule && (vm.selectModule['module'] === 'TT302011BGTVTTDTKXMCD' || vm.selectModule['module'] === 'TT302011BGTVTTDTKXCG')) {
+				          	let tmpObj = {}
+				          	tmpObj['data.vr_VehicleTypeCertificate.module'] = '01'
+				          	mustQuery.push({
+				          		'match': tmpObj
+				          	})
+				          // Chứng nhận kiểu loại toàn xe
+				          } else if (vm.selectModule && (vm.selectModule['module'] === 'TT302011BGTVTCNCLKLTXXBBCHXNHL' || vm.selectModule['module'] === 'TT302011BGTVTCNCLKLTXXBBCNXNHL' || vm.selectModule['module'] === 'TT302011BGTVTCNCLKLTXXCGXNHL' || vm.selectModule['module'] === 'TT302011BGTVTCNCLKLTXXMTGMXNHL' || vm.selectModule['module'] === 'TT302011BGTVTCNCLKLTXXDDXNHL')) {
+				          	let tmpObj = {}
+				          	tmpObj['data.vr_VehicleTypeCertificate.module'] = '03'
+				          	mustQuery.push({
+				          		'match': tmpObj
+				          	})
+				          // Chứng nhận chất lượng linh kiện
+				          } else if (vm.selectModule && (vm.selectModule['module'] === 'TT302011BGTVTCNCLKLLKXCGXNHL' || vm.selectModule['module'] === 'TT302011BGTVTCNCLKLLKXMXNHL')) {
+				          	let tmpObj = {}
+				          	tmpObj['data.vr_VehicleTypeCertificate.module'] = '04'
+				          	mustQuery.push({
+				          		'match': tmpObj
+				          	})
+				          }
+				          queries = {
+				            'indice': vm.soureTable,
+				            'query': {
+				               'size': 15,
+				               'from': this.pageTraCuuThongKe * 15 - 15,
+				              'query': {
+				                'bool': {
+				                  'must': mustQuery
+				                }
+				              }
+				            }
+				          }
+				          console.log(queries)
+				          return queries
+				        },
+				        xemHoSo (item) {
+				        	let vm = this
+				        	vm.toDetailHoSo({
+				        		dossierId: item['dossierId'],
+				        		dossierIdCTN: item['dossierIdCTN'],
+				        		dossierNo: item['dossierNo'],
+				        		referenceUid: item['vr_VehicleTypeCertificate']['referenceUid']
+				        	}, 'tra_cuu')
+				        },
+				        convertModelCOP (model) {
+							if (!model) {
+								return []
+							}
+							return model.map(item => {
+								return {
+									vr_COPProductionPlantEquipment: item['_source']['data']['vr_COPProductionPlantEquipment'],
+									vr_COPProductType: item['_source']['data']['vr_COPProductType'],
+									vr_COPReportRepository: item['_source']['data']['vr_COPReportRepository'],
+									vr_COPProductionPlantEmployee: item['_source']['data']['vr_COPProductionPlantEmployee'],
+									vr_COPReport_Attach: item['_source']['data']['vr_COPReport_Attach'],
+									vr_COPProductLine: item['_source']['data']['vr_COPProductLine'],
+									vr_COPProductionPlantProdEquipment: item['_source']['data']['vr_COPProductionPlantProdEquipment'],
+									dossierId: item['_source']['dossierId'],
+									dossierIdCTN: item['_source']['dossierIdCTN'],
+									dossierNo: item['_source']['dossierNo'],
+									companyId: item['_source']['companyId'],
+									id: item['_source']['id']
+								}
+							})
+						},
+						convertModelCNCLKL (model) {
+							if (!model) {
+								return []
+							}
+							return model.map(item => {
+								return {
+									vr_technicalspec_xmy: item['_source']['data']['vr_technicalspec_xmy'],
+									vr_cfg_technicalspec: item['_source']['data']['vr_cfg_technicalspec'],
+									vr_VehicleSpecification: item['_source']['data']['vr_VehicleSpecification'],
+									vr_inspectionstandard: item['_source']['data']['vr_inspectionstandard'],
+									vr_technicalspec_xcg: item['_source']['data']['vr_technicalspec_xcg'],
+									vr_VehicleEquipment: item['_source']['data']['vr_VehicleEquipment'],
+									vr_technicalspec_lkxmy: item['_source']['data']['vr_technicalspec_lkxmy'],
+									vr_technicalspec_xdd: item['_source']['data']['vr_technicalspec_xdd'],
+									vr_technicalspec_xcnbb: item['_source']['data']['vr_technicalspec_xcnbb'],
+									vr_cfg_limit_technicalspec: item['_source']['data']['vr_cfg_limit_technicalspec'],
+									vr_technicalspec_lkxcg: item['_source']['data']['vr_technicalspec_lkxcg'],
+									vr_technicalspec_xchbb: item['_source']['data']['vr_technicalspec_xchbb'],
+									vr_VehicleTypeCertificate: item['_source']['data']['vr_VehicleTypeCertificate'],
+									dossierId: item['_source']['dossierId'],
+									dossierIdCTN: item['_source']['dossierIdCTN'],
+									dossierNo: item['_source']['dossierNo'],
+									companyId: item['_source']['companyId'],
+									id: item['_source']['id']
+								}
+							})
+						},
+						pagingTraCuu (page) {
+							let vm = this
+							console.log('vm.pageTraCuuThongKe==============', vm.pageTraCuuThongKe)
+							vm.traCuuThongKe()
+						},
+						traCuuThongKe : function (callBack) {
+							var vm = this;
+							let queries = vm.generateQuery({})
+							vm.listsTraCuu = []
+							vm.loadingTableTraCuu = true
+							var promise = new Promise(function (resolve, reject) {
+								var url = '/o/dklr/_search';
+								axios.post(url, queries).then(function (response) {
+									var serializable = response.data;
+									let tmpData = serializable['hits']['hits'] || []
+									if (tmpData && tmpData['length']) {
+										if (vm.selectModule && vm.selectModule['module'] === 'COP') {
+											tmpData = vm.convertModelCOP(tmpData)
+										} else {
+											tmpData = vm.convertModelCNCLKL(tmpData)
+										}
+										// tmpData = tmpData.map(item => {
+										// 	return {
+										// 		vr_COPProductionPlantEquipment: item['_source']['data']['vr_COPProductionPlantEquipment'],
+										// 		vr_COPProductType: item['_source']['data']['vr_COPProductType'],
+										// 		vr_COPReportRepository: item['_source']['data']['vr_COPReportRepository'],
+										// 		vr_COPProductionPlantEmployee: item['_source']['data']['vr_COPProductionPlantEmployee'],
+										// 		vr_COPReport_Attach: item['_source']['data']['vr_COPReport_Attach'],
+										// 		vr_COPProductLine: item['_source']['data']['vr_COPProductLine'],
+										// 		vr_COPProductionPlantProdEquipment: item['_source']['data']['vr_COPProductionPlantProdEquipment'],
+										// 		dossierId: item['_source']['dossierId'],
+										// 		id: item['_source']['id']
+										// 	}
+										// })
+									}
+									vm.lengthPageTraCuuThongKe = Math.ceil((serializable['hits']['total'] || 0) / 15);
+									vm.listsTraCuu = tmpData
+									vm.loadingTableTraCuu = false
+									resolve(true);
+								}).catch(function (error) {
+									console.log(error);
+									vm.loadingTableTraCuu = false
+									reject(false);
+								});
+							});
+							promise.then(function (success) {
+								// callBack();
+							}, function (error) {
+
+							});
+						},
+						removeSearch (item, index) {
+							if (this.listSearch && this.listSearch['length'] === 1) {
+								return
+							}
+							this.listSearch.splice(index, 1)
+						},
+						addSearch () {
+							const index = this.listSearch.length + 1
+							const item = {
+								index,
+								value: null,
+								searchType: null,
+								dataitem: null,
+								dataCollection: [],
+								conditionsSelect: {}
+							}
+							this.listSearch.push(item)
+						},
+						getSelect (item) {
+
+						},
+						changeCondition (item) {
+							var conditionsSelect = item['conditionsSelect']
+							if (conditionsSelect && conditionsSelect['type']) {
+								if (conditionsSelect['type'] === 'string') {
+									if (conditionsSelect['keyword']) {
+										item['typeSearch'] = "="
+									} else {
+										item['typeSearch'] = 'like'
+									}
+									item['typeSearchItems'] = this.dataItemString
+								} else if (conditionsSelect['type'] === 'number') {
+									item['typeSearch'] = '='
+									item['typeSearchItems'] = this.dataItem
+								}
+							} else {
+								item['typeSearch'] = '='
+							}
+						},
+						xemTSKT: function (certificateid){
+							let vm = this
+							let originUrl = window.location.href.substr(0, window.location.href.lastIndexOf('/group'))
+							let Url = originUrl + '/o/rest/vr-app/vehicle/specification/search?vehiclecertificateid=' + certificateid
+							$.ajax({
+								url: Url,
+								type: "GET",
+								success: function (success) {
+									vm.danhSachTSKT = success.data
+									
+								},
+							});
+							this.stageFilterView = 'thong_so_ky_thuat'
+						},
+						xemChiTietAnChiDaCapPhat: function(id2) {
+							let vm = this
+							let originUrl = window.location.href.substr(0, window.location.href.lastIndexOf('/group'))
+							let Url = originUrl + '/o/rest/vr-app/outputsheetdetail/' + id2
+							$.ajax({
+								url: Url,
+								type: "GET",
+								success: function (success) {
+									vm.chiTietAnChiDaCapPhat = success.data
+									
+								},
+							});
+							this.stageFilterView = 'chi_tiet_an_chi_da_cap_phat'
+						},
+						groupXuatXuongFilter: function (item) {
+							console.log('111111111111:',item)
+							if (item.title === 'Xe đã xuất xưởng'){
+								this.stageFilterView = 'danh_sach_xe_da_xuat_xuong'
+								this.getDanhSachDoanhNghiep()
+								this.getDanhSachDoiTuong()
+								this.getDanhSachXeDaXuatXuong()
+							}
+							else if(item.title === 'Ấn chỉ đã cấp phát') {
+								this.stageFilterView = 'danh_sach_an_chi_da_cap_phat'
+								this.getDanhSachDoanhNghiep()
+								this.getDanhSachDoiTuong()
+								this.getDanhSachAnChiDaCapPhat()
+							}
+							else if (item.title === 'Xe chờ in phiếu'){
+								this.stageFilterView = 'danh_xe_cho_in_phieu'
+								
+							}
+							
+						},
+						getDanhSachDoanhNghiep () {
+							var vm = this
+							var orginURL = window.location.href
+							var endPoit = orginURL.substr(0, orginURL.lastIndexOf('/group'))
+							var url = endPoit + '/o/rest/vr-app/applicant/profile/search?start=-1&end=-1'
+							$.ajax({
+								url : url,
+								type : "GET",
+								success : function (result) {
+									vm.danhSachDoanhNghiep = result.data
+								},
+								error : function (xhr) {
+									console.log(xhr);
+								}
+							});
+						},
+						viewHistoryPdf (item) {
+							let vm = this
+							let config = {
+								headers: {
+									groupId: window.themeDisplay.getScopeGroupId()
+								},
+								responseType: 'blob',
+								params: {
+								}
+							}
+							let url = '/o/rest/v2/dossiers/formfiles/' + (item['contentFileEntryId'] || 0)
+							axios.get(url, config).then(result => {
+								var url = window.URL.createObjectURL(result.data);
+								var link = document.createElement('a')
+								document.body.appendChild(link)
+								link.download = vm.detailModel['dossierNo'] + '_' + item['contentType'] + '_' + item['createdDate'];
+								link.href = url
+								link.click()
+								document.body.removeChild(link)
+							}).catch(xhr => {
+								console.log('xhr===========>', xhr)
+							})
+						},
+						getHistoryDossierPart (dossierId, partNo, index, type) {
+							let vm = this
+							let config = {
+								headers: {
+									groupId: window.themeDisplay.getScopeGroupId()
+								},
+								params: {
+									dossierid: dossierId,
+									contentfiletemplate: partNo
+								}
+							}
+							let url = '/o/rest/vr-app/historyprofile/dossier'
+							axios.get(url, config).then(result => {
+								console.log("result.data==========", result['data'])
+								console.log("index==========", index)
+								if (index !== -1 && result['data'] && result['data']['data']) {
+									if (type === 'IN') {
+										vm.listDocumentInItems[index]['historyDossierPart'] = result['data']['data'] || []
+									} else {
+										vm.listDocumentOutItems[index]['historyDossierPart'] = result['data']['data'] || []
+									}
+								}
+							}).catch(xhr => {
+								console.log('xhr===========>', xhr)
+							})
+						},
+						getDanhSachDoiTuong () {
+							var vm = this
+							var orginURL = window.location.href
+							var endPoit = orginURL.substr(0, orginURL.lastIndexOf('/group'))
+							$.ajax({
+								url: endPoit + '/o/rest/v2/dictcollections/VR84/dictgroups',
+								type: "GET",
+								headers: {
+									groupId: window.themeDisplay.getScopeGroupId(),
+									Accept: 'application/json'
+								},
+								success: function(success) {
+									vm.danhSachDoiTuong = success.data
+								},
+							})
+						},
+						getDanhSachXeDaXuatXuong () {
+							console.log('vehicleclassFilter',this.vehicleclassFilter)
+							console.log('stampissueNoFilter',this.stampissueNoFilter)
+							console.log('productiondateFilter',this.productiondateFilter)
+							console.log('frameno',this.framenoFilter )
+							console.log('engineno',this.enginenoFilter)
+							console.log('serialno',this.serialnoFilter)
+							console.log('applicantprofileidFilter',this.applicantprofileidFilter)
+							console.log('certificaterecordnoFilter',this.certificaterecordnoFilter)
+							var vm = this
+							var orginURL = window.location.href
+							var endPoit = orginURL.substr(0, orginURL.lastIndexOf('/group'))
+							let productiondateFormat = ''
+							if(this.productiondateFilter){
+								const [year, month, day] = this.productiondateFilter.split('-')
+								productiondateFormat = day + '/' + month + '/' + year
+							}
+							let params = {
+								vehicleclass: this.vehicleclassFilter,
+								stampissueno: this.stampissueNoFilter,
+								certificaterecordno: this.certificaterecordnoFilter,
+								productiondate: productiondateFormat,
+								frameno: this.framenoFilter,
+								engineno: this.enginenoFilter,
+								serialno: this.serialnoFilter,
+								applicantprofileid: this.applicantprofileidFilter 
+							}
+							let Url = endPoit + '/o/rest/vr-app/vehicle/record/search?'
+							for (const key in params) {
+								if (params[key] !== '') {
+									Url += '&' + key + '=' + params[key]
+								}
+							}
+							$.ajax({
+								url: Url,
+								type: "GET",
+								success: function (success) {
+									vm.danhSachXeXuatXuong = success.data
+								},
+							});
+							
+						},
 						deleteDossierFileVersion: function (item) {
 							var vm = this;
 
@@ -731,15 +5738,120 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								console.log(e)
 							})
 						},
+						getDanhSachAnChiDaCapPhat () {
+							var vm = this
+							var orginURL = window.location.href
+							var endPoit = orginURL.substr(0, orginURL.lastIndexOf('/group'))
+							let productiondateFormat = ''
+							if(this.productiondateFilter){
+								const [year, month, day] = this.productiondateFilter.split('-')
+								productiondateFormat = day + '/' + month + '/' + year
+							}
+							let params = {
+								vehicleclass: this.vehicleclassFilter,
+								stampissueno: this.stampissueNoFilter,
+								certificaterecordno: this.certificaterecordnoFilter,
+								productiondate: productiondateFormat,
+								frameno: this.framenoFilter,
+								engineno: this.enginenoFilter,
+								serialno: this.serialnoFilter,
+								applicantprofileid: this.applicantprofileidFilter 
+							}
+							let Url = endPoit + '/o/rest/vr-app/issue/stampbook/search?'
+							for (const key in params) {
+								if (params[key] !== '') {
+									Url += '&' + key + '=' + params[key]
+								}
+							}
+							$.ajax({
+								url : Url,
+								type : "GET",
+								success : function (result) {
+									vm.danhSachAnChiDaCapPhat = result.data
+								},
+								error : function (xhr) {
+									console.log(xhr);
+								}
+							});
+						},
+						openPopUpPhoiXCG () {
+							this.popUpPhoiXCG = true
+							this.listLabelTemp = this.listLabel
+							
+						},
+						addLabel(name) {
+							for(let j = 0; j < this.listLabelTemp.length ; j++) {
+								if(this.listLabelTemp[j].name === name){
+									this.listLabelTemp.splice(j, 1)
+								}
+							}
+							// Thêm label vào phôi
+							$("#printTraCuu").append('<div id=' + name + ' title=' + name + ' style="z-index: 99; position:absolute; left : ' + 490 + 'px; top : ' + 123 + 'px;">' + name + '</div>');
+							// Thêm event draggable vào label
+							$('#' + name ).draggable({
+								stop: function() {
+
+
+								}
+							});
+							// Thêm event mousedown vào label
+							$('#' + name).mousedown(function(event) {
+								if(event.which===3){
+									$('#dialog-cauhinh').append(`
+										<div id="tooltip-`+name+`" style="position: absolute;top: 0px; left: 0px; width: 180px;box-shadow: -3px 6px 16px #888888;background-color: #fff; padding: 10px;display: none;z-index: inherit;">
+											<i id="close-tooltip-`+name+`" class="fa fa-times" aria-hidden="true" style="position: absolute; top: 0px; right: 0px;"></i>
+											<div style="width: 100%; height: 30px;display: flex;">
+												<strong style="width: 50%;">Font size:</strong>
+												<div style="width: 50%;padding: 3px; box-sizing: border-box;"><input  id="input-size-`+name+`"  style="width: 100%;" type="" name=""></div>
+												
+											</div>
+											<div style="width: 100%;height: 30px;display: flex;">
+												<strong style=" width: 50%;">Màu sắc:</strong>
+												<div style="width: 50%;padding: 3px; box-sizing: border-box;"><input id="input-mau-`+name+`" type="color" style="width: 100%;" type="" name=""></div>
+											</div>
+											<div style="width: 100%;height: 30px;display: flex;">
+												<strong style=" width: 50%;">Chiều dài:</strong>
+												<div style="width: 50%;padding: 3px; box-sizing: border-box;"><input id="input-width-`+name+`" style="width: 100%;" type="" name=""></div>
+											</div>
+											<div style="width: 100%;height: 30px;display: flex;">
+												<strong style=" width: 50%;">Chiều rộng:</strong>
+												<div style="width: 50%;padding: 3px; box-sizing: border-box;"><input id="input-height-`+name+`" style="width: 100%;" type="" name=""></div>
+											</div>
+										</div>
+									`)
+									$('#tooltip-'+ name).css({
+										top: event.pageY + 'px',
+										left: event.pageX + 'px'
+									}).fadeIn(250);
+									$("#input-size-"+ name).change(function(){
+										$('#' + name ).css('font-size', $("#input-size-"+ name).val() + 'px')
+									})
+									$("#input-mau-"+ name).change(function(){
+										$('#' + name ).css('color', $("#input-mau-"+ name).val())
+									})
+									$("#input-width-"+ name).change(function(){
+										$('#' + name ).css('width', $("#input-width-"+ name).val())
+									})
+									$("#input-height-"+ name).change(function(){
+										$('#' + name ).css('height', $("#input-height-"+ name).val())
+									})
+									$("#close-tooltip-"+ name).click(function(){
+										$("#tooltip-"+ name).remove()
+									})
+								}
+							});
+						},
 						parseNgayXuatXuong_add (val) {
 							var vm = this;
-							vm.detailGCN['ngayXuatXuong_add'] = vm.parseDate2(vm.dateNgayXuatXuong_add);
+							vm.detailAnChi['ngayXuatXuong_add'] = vm.parseDate2(vm.dateNgayXuatXuong_add);
 							vm.menuNgayXuatXuong_add = false;
 						},
 						parseNgayNhap (val) {
 							var vm = this;
-							vm.thongTinPhieu['ngayNhap'] = vm.parseDate2(vm.dateNgayNhap);
+							vm.thongTinPhieu['inputSheetDate'] = vm.parseDate2(vm.dateNgayNhap);
+							vm.thongTinPhieu['outputSheetDate'] = vm.parseDate2(vm.dateNgayNhap);
 							vm.menuNgayNhap = false;
+							vm.menuNgayXuat_Dossier = false;
 						},
 						setStateOnlyFollow : function (emailAddress) {
 							var vm = this;
@@ -1049,6 +6161,12 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 
 							});
 						},
+						tonTrenSo (item) {
+							if (item && item['sum3'] && item['sum3']) {
+								return item['sum3'] - item['sum3']
+							}
+							return 0
+						},
 						changeQuanLyPhieuXX: function () {
 							var vm = this;
 							vm.stageFilterView = "quan_ly_pxx";
@@ -1056,33 +6174,8 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							vm.detailRegistPage = false;
 							vm.loadPhieuXX();
 							vm.loadDoiPhong();
-							vm.loadMauPhoi();
+							// vm.loadMauPhoi();
 							vm.loadDoiTuong();
-						},
-						loadDoiPhong: function () {
-							var vm = this;
-							var url = "/o/rest/v2/dictcollections/DOIPHONG/dictitems?sort=sibling";
-							axios.get(url, config).then(function (response) {
-								vm.doiPhongItems = response.data.data;
-							}).catch(function (xhr) {
-								console.log(xhr);
-								vm.doiPhongItems = [{
-									itemName: 'Phòng VAQ',
-									itemCode: 'vaq'
-								}, {
-									itemName: 'Phòng ABC',
-									itemCode: 'vaq1'
-								}, {
-									itemName: 'Phòng DEF',
-									itemCode: 'vaq2'
-								}, {
-									itemName: 'Phòng AGGG',
-									itemCode: 'vaq3'
-								}, {
-									itemName: 'Phòng NHJ',
-									itemCode: 'vaq4'
-								}]
-							});
 						},
 						loadLoaiHinhCSSX: function () {
 							var vm = this;
@@ -1128,66 +6221,101 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								}
 							})
 						},
-						loadMauPhoi: function () {
-							var vm = this;
-							var url = "/o/rest/v2/dictcollections/MAUPHOI/dictitems?sort=sibling";
-							axios.get(url, config).then(function (response) {
-								vm.mauPhoiItems = response.data.data;
-							}).catch(function (xhr) {
-								console.log(xhr);
-								vm.mauPhoiItems = [
-									{
-										itemName: 'Mẫu GCN',
-										itemCode: 'gcn'
-									},
-									{
-										itemName: 'Mẫu PXX',
-										itemCode: 'gcn'
-									},
-									{
-										itemName: 'Mẫu ECK',
-										itemCode: 'eck'
-									},
-									{
-										itemName: 'Mẫu IMO',
-										itemCode: 'imo'
-									},
-									{
-										itemName: 'Mẫu QWE',
-										itemCode: 'qwe'
-									}
-								]
-							});
-						},
 						loadCoSoSanXuat: function () {
 							var vm = this;
-							var url = "/o/rest/v2/dictcollections/COSOSANXUAT/dictitems?sort=sibling";
-							axios.get(url, config).then(function (response) {
-								vm.mauPhoiItems = response.data.data;
+							var url = "/o/rest/vr-app/applicant/profile/search";
+							let configTmp = {
+								headers: {
+									'groupId': themeDisplay.getScopeGroupId()
+								},
+								params: {
+									start: -1,
+									end: -1
+								}
+							}
+							axios.get(url, configTmp).then(function (response) {
+								vm.coSoSanXuatItems = response.data['data'] || [];
 							}).catch(function (xhr) {
 								console.log(xhr);
-								vm.coSoSanXuatItems = [
-									{
-										itemName: 'Cơ sở 1',
-										itemCode: 'cs1'
-									},
-									{
-										itemName: 'Cơ sở 2',
-										itemCode: 'cs2'
-									},
-									{
-										itemName: 'Cơ sở 3',
-										itemCode: 'cs3'
-									},
-									{
-										itemName: 'Cơ sở 4',
-										itemCode: 'cs4'
-									},
-									{
-										itemName: 'Cơ sở 5',
-										itemCode: 'cs5'
-									}
-								]
+								vm.coSoSanXuatItems = []
+							});
+						},
+						chuyenDoiDuLieu () {
+							let vm = this
+							vm.stageFilterView = 'thong_ke_chuyen_doi_du_lieu'
+							vm.detailPage = false
+							vm.loadVrmigrateTask()
+						},
+						toDetailMigrateReview (item) {
+							let vm = this
+							vm.migrateTaskSelect = item
+							vm.migrateReviewSelect = {}
+							vm.itemsMapping = []
+							vm.loadVrmigrateReview(item['task_id'])
+						},
+						toDetailMigratemapping (item) {
+							let vm = this
+							vm.migrateReviewSelect = item
+							vm.loadVrmigrateMapping(item['taskMigrationID'], item['dataGroupID'], item['sequenceNo'])
+						},
+						loadVrmigrateTask: function () {
+							var vm = this;
+							var url = "/o/rest/vr-app/vrmigrate/task";
+							vm.loadingLanChuyenDoi = true
+							let config = {
+								params: {
+									start: -1,
+									end: -1
+								}
+							}
+							axios.get(url, config).then(function (response) {
+								vm.itemsLanChuyenDoi = response.data['data'] || [];
+								vm.loadingLanChuyenDoi = false
+							}).catch(function (xhr) {
+								console.log(xhr);
+								vm.loadingLanChuyenDoi = false
+							});
+						},
+						loadVrmigrateReview: function (taskMigrationId) {
+							var vm = this;
+							var url = "/o/rest/vr-app/vrmigrate/review";
+							vm.loadingKQChuyenDoi = true
+							vm.itemsKQChuyenDoi = []
+							let config = {
+								params: {
+									start: -1,
+									end: -1,
+									taskMigrationId: taskMigrationId
+								}
+							}
+							axios.get(url, config).then(function (response) {
+								vm.itemsKQChuyenDoi = response.data['data'] || [];
+								vm.loadingKQChuyenDoi = false
+							}).catch(function (xhr) {
+								vm.loadingKQChuyenDoi = false
+								console.log(xhr);
+							});
+						},
+						loadVrmigrateMapping: function (taskMigrationId, dataGroupId, sequenceNo) {
+							var vm = this;
+							var url = "/o/rest/vr-app/vrmigrate/mapping";
+							vm.itemsMapping = []
+							vm.loadingChuyenDoiMapping = true
+							let config = {
+								params: {
+									start: -1,
+									end: -1,
+									taskMigrationId: taskMigrationId,
+									dataGroupId: dataGroupId,
+									sequenceNo: sequenceNo
+								}
+							}
+							axios.get(url, config).then(function (response) {
+								vm.itemsMapping = response.data['data'] || [];
+								vm.loadingChuyenDoiMapping = false
+							}).catch(function (xhr) {
+								console.log(xhr);
+								vm.loadingChuyenDoiMapping = false
 							});
 						},
 						loadDoiTuong: function () {
@@ -1207,17 +6335,23 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							var vm = this;
 							vm.stateAddPhieu = 'nhap_kho';
 							vm.dsGCNItems = [];
-							vm.thongTinPhieu = {};
+							vm.thongTinPhieu = {
+							};
 							vm.selected = [];
-							vm.popUpDieuCHuyen = !vm.popUpDieuCHuyen;
+							vm.popUpNhap_Xuat_DieuChuyen = !vm.popUpNhap_Xuat_DieuChuyen;
+							vm.getDonViNhapItems()
 						},
 						xuatKhoAction: function () {
 							var vm = this;
 							vm.stateAddPhieu = 'xuat_kho';
 							vm.dsGCNItems = [];
-							vm.thongTinPhieu = {};
+							vm.thongTinPhieu = {
+								stampType: 'PXX',
+								outputSheetNo: '---'
+							};
 							vm.selected = [];
-							vm.popUpDieuCHuyen = !vm.popUpDieuCHuyen;
+							vm.popUpNhap_Xuat_DieuChuyen = !vm.popUpNhap_Xuat_DieuChuyen;
+							vm.loadCoSoSanXuat()
 						},
 						dieuChuyenAction: function () {
 							var vm = this;
@@ -1225,7 +6359,8 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							vm.dsGCNItems = [];
 							vm.thongTinPhieu = {};
 							vm.selected = [];
-							vm.popUpDieuCHuyen = !vm.popUpDieuCHuyen;
+							vm.popUpNhap_Xuat_DieuChuyen = !vm.popUpNhap_Xuat_DieuChuyen;
+							vm.getDoiPhongItems()
 						},
 						changeDoiPhong: function () {
 							var vm = this;
@@ -1238,7 +6373,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 						loadPhieuXX: function () {
 							var vm = this;
 							vm.loadingPxx = true;
-							var url = "/abc123";
+							var url = "/o/rest/vr-stamp/inputStampbooks";
 							var start = (vm.pagePxx - 1) * 15;
 							var end = (vm.pagePxx - 1) * 15 + 15;
 							let configPXX = {
@@ -1248,9 +6383,9 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								params: {
 									start: start,
 									end: end,
-									searchDoiPhong: vm.searchDoiPhong,
-									soSerial: vm.soSerial,
-									searchMauPhoi: vm.searchMauPhoi,
+									purchaserCorporationId: vm.searchDoiPhong,
+									stampShortNo: vm.soSerial,
+									stampType: vm.searchMauPhoi,
 									searchNam: vm.searchNam
 								}
 							}
@@ -1262,60 +6397,12 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								} else {
 									vm.itemsPxx = [];
 								}
-								// vm.lengthPxx = Math.ceil(total / 15);
-								vm.lengthPxx = 0;
+								vm.lengthPxx = Math.ceil(total / 15);
+								// vm.lengthPxx = 0;
 								vm.loadingPxx = false;
 								vm.totalPxx = total;
 							}).catch(function (xhr) {
 								vm.itemsPxx = [
-									{
-										btnText: 'Kiểm kê',
-										mauPhoi: 'MAU_1',
-										nam: '2018',
-										soSerial: 'AQ',
-										tuSo: '10001',
-										denSo: '20000',
-										nhapKho: '100000',
-										xuatKho: '0',
-										tonTrenSo: '10000',
-										kiemKe: '10000',
-										chenhLechTang: '0',
-										chenhLechGiam: '0',
-										ngayKiemKe: '1/4/2018',
-										lyDo: '30/2/2018'
-									},
-									{
-										btnText: 'Kiểm kê',
-										mauPhoi: 'MAU_2',
-										nam: '2018',
-										soSerial: 'AQ',
-										tuSo: '20000',
-										denSo: '30000',
-										nhapKho: '450000',
-										xuatKho: '0',
-										tonTrenSo: '10000',
-										kiemKe: '10000',
-										chenhLechTang: '0',
-										chenhLechGiam: '0',
-										ngayKiemKe: '1/4/2018',
-										lyDo: '30/4/2018'
-									},
-									{
-										btnText: 'Kiểm kê',
-										mauPhoi: 'MAU_1',
-										nam: '2018',
-										soSerial: 'AQ',
-										tuSo: '10001',
-										denSo: '62000',
-										nhapKho: '100000',
-										xuatKho: '0',
-										tonTrenSo: '10000',
-										kiemKe: '601545',
-										chenhLechTang: '0',
-										chenhLechGiam: '0',
-										ngayKiemKe: '1/4/2018',
-										lyDo: '30/2/2018'
-									}
 								];
 								vm.lengthPxx = 1;
 								vm.loadingPxx = false;
@@ -1562,7 +6649,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 						loadDSPNK: function () {
 							var vm = this;
 							vm.loadingPxx = true;
-							var url = "/abc123";
+							var url = "/o/rest/vr-stamp/inputsheet";
 							var start = (vm.pagePxx - 1) * 15;
 							var end = (vm.pagePxx - 1) * 15 + 15;
 							let configPNK = {
@@ -1582,44 +6669,20 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								} else {
 									vm.itemsDSPNK = [];
 								}
-								// vm.lengthPxx = Math.ceil(total / 15);
+								vm.lengthPxx = Math.ceil(total / 15);
 								vm.lengthDSPNK = 0;
-								// vm.loadingPxx = false;
+								vm.loadingPxx = false;
 							}).catch(function (xhr) {
 								vm.itemsDSPNK = [
-									{
-										soPhieu: 'Kiểm kê',
-										ngayNhap: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									},
-									{
-										soPhieu: 'Kiểm kê',
-										ngayNhap: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									},
-									{
-										soPhieu: 'Kiểm kê',
-										ngayNhap: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									},
-									{
-										soPhieu: 'Kiểm kê',
-										ngayNhap: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									}
 								];
 								vm.lengthDSPNK = 1;
-								// vm.loadingPxx = false;
+								vm.loadingPxx = false;
 							})
 						},
 						loadDSPXK: function () {
 							var vm = this;
 							vm.loadingPxx = true;
-							var url = "/abc123";
+							var url = " /o/rest/vr-stamp/outputsheet";
 							var start = (vm.pagePxx - 1) * 15;
 							var end = (vm.pagePxx - 1) * 15 + 15;
 							let configPXK = {
@@ -1639,38 +6702,14 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								} else {
 									vm.itemsDSPXK = [];
 								}
-								// vm.lengthPxx = Math.ceil(total / 15);
+								vm.lengthPxx = Math.ceil(total / 15);
 								vm.lengthDSPXK = 0;
-								// vm.loadingPxx = false;
+								vm.loadingPxx = false;
 							}).catch(function (xhr) {
 								vm.itemsDSPXK = [
-									{
-										soPhieu: 'Kiểm kê',
-										ngayXuat: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									},
-									{
-										soPhieu: 'Kiểm kê',
-										ngayXuat: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									},
-									{
-										soPhieu: 'Kiểm kê',
-										ngayXuat: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									},
-									{
-										soPhieu: 'Kiểm kê',
-										ngayXuat: 'MAU_1',
-										doiTuong: '2018',
-										trangThai: 'AQ'
-									}
 								];
 								vm.lengthDSPXK = 1;
-								// vm.loadingPxx = false;
+								vm.loadingPxx = false;
 							})
 						},
 						xemPhieuXX: function () {
@@ -1721,7 +6760,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 						},
 						suaVatTu: function (item) {
 							var vm = this;
-							vm.detailGCN = item;
+							vm.detailAnChi = item;
 						},
 						deleteVatTuSelect: function () {
 							var vm = this;
@@ -1739,15 +6778,42 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								}).then((dialog) => {
 									var arrAction = [];
 									for (var i = 0; i < vm.selected.length; i++) {
-										arrAction.push(vm.deleteItemVatTu(vm.selected[i]));
+										if (vm.selected[i]['id']) {
+											arrAction.push(vm.deleteItemVatTu(vm.selected[i]));
+										} else {
+											let index = vm.dsGCNItems.findIndex(item => {
+												if (item['stampShortNo'] == vm.selected[i]['stampShortNo'] &&
+														item['serialStartNo'] == vm.selected[i]['serialStartNo'] &&
+														item['serialEndNo'] == vm.selected[i]['serialEndNo'] &&
+														item['subTotalInDocument'] == vm.selected[i]['subTotalInDocument']
+														) {
+													return true
+												}
+											})
+											if (index !== -1) {
+												vm.dsGCNItems.splice(index, 1)
+											}
+										}
 									}
+									vm.calTotalMoneyPhieuXuat()
 									Promise.all(arrAction).then(function (results) {
 										vm.selected = [];
-										vm.dsGCNItems = [];
+										let index = vm.dsGCNItems.findIndex(item => {
+											if (item['stampShortNo'] == vm.selected[i]['stampShortNo'] &&
+												item['serialStartNo'] == vm.selected[i]['serialStartNo'] &&
+												item['serialEndNo'] == vm.selected[i]['serialEndNo'] &&
+												item['subTotalInDocument'] == vm.selected[i]['subTotalInDocument']
+												) {
+												return true
+											}
+										})
+										if (index !== -1) {
+											vm.dsGCNItems.splice(index, 1)
+										}
 										vm.snackbartextdossierViewJX = "Xoá dữ liệu thành công!";
 										vm.snackbardossierViewJX = true;
+										vm.calTotalMoneyPhieuXuat()
 									}).catch(function (xhr) {
-										vm.dsGCNItems = [];
 										vm.snackbartextdossierViewJX = "Xoá dữ liệu thất bại!";
 										vm.snackbarerordossierViewJX = true;
 									})
@@ -1760,7 +6826,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 						deleteItemVatTu: function (item) {
 							return new Promise(function (resolve, reject) {
 								$.ajax({
-									url : "/o/rest/v2/delete/" + item.id,
+									url : " /o/rest/vr-stamp/inputStampbook/" + item['id'],
 									dataType : "json",
 									type : "DELETE",
 									headers : {
@@ -1775,34 +6841,206 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								});
 							})
 						},
-						luuPhieu: function (state) {
+						selectSoGCNCapPhieu (item, index) {
+							let vm = this
+							vm.thongTinGCN = item
+							console.log('selectSoGCNCapPhieu==============>', item)
+							if (vm.indexGCNXuatKho != -1) {
+								let data = $('#dsXeCapPhieuHoSo').jexcel('getData');
+								if (data && data['length']) {
+									let mang = []
+									let i = 0;
+									$(data).each(function(k,v){
+										mang[i]={"so_khung": v[0], "so_may": v[1], "mau_son": v[2], "so_seri": v[3]}
+										i++;
+									});
+									if (vm.detailSoatXetGCN['bang_khai'] && vm.detailSoatXetGCN['bang_khai']['length']) {
+										vm.detailSoatXetGCN['bang_khai'][vm.indexGCNXuatKho]['chi_tiet'] = data
+										vm.detailSoatXetGCN['bang_khai'][vm.indexGCNXuatKho]['chi_tiet_2'] = mang
+									}
+								}
+							}
+							if (item['loai_hinh_lap_rap']) {
+								vm.thongTinPhieu['vehicleClass'] = item['loai_hinh_lap_rap']
+							}
+							vm.indexGCNXuatKho = index
+							$('#dsXePopUpCapPhieu').empty()
+							if (item) {
+								let colHeaders = []
+								let columns = []
+								let colWidths = []
+								let colHeaders_loai3 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri hỏng', 'Số seri mới']
+								let colHeaders_loai2 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri mất', 'Số seri mới']
+								let colHeaders_loai1 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri']
+								if (vm.detailSoatXetGCN['hinh_thuc_cap'] === 1 || vm.detailSoatXetGCN['hinh_thuc_cap'] === '1') {
+									// colHeaders = colHeaders_loai1
+									// columns = [
+									// 	{ type: 'text'},
+									// 	{ type: 'text'},
+									// 	{ type: 'text'},
+									// 	{ type: 'text'},
+									// 	{ type: 'text'}
+									// ]
+									columns = [
+										{
+											type:'text',
+											width:'150',
+											name:'Số khung'
+										},
+										{
+											type:'text',
+											width:'150',
+											name:'Số máy'
+										},
+										{
+											type:'text',
+											width:'150',
+											name:'Mầu sơn'
+										},
+										{
+											type:'text',
+											width:'150',
+											name:'Số seri'
+										},
+									]
+								}
+								jexcel(document.getElementById('dsXeCapPhieuHoSo'), {
+									json: item['chi_tiet'],
+									columns: columns
+								});
+								// $('#dsXeCapPhieuHoSo').jexcel({
+								// 	json: item['chi_tiet'],
+								// 	columns: columns
+								// });
+							}
+						},
+						inPhieuBanGiao () {
+							// let vm = this
+						},
+						luuPhieuXKHoSo: function (state, stateAddPhieu) {
+							let vm = this
+							// Tổ TH Tạm ứng trực tiếp cho CSSX (outputSheetType = 4)
+							vm.thongTinPhieu['outputSheetType'] = 4
+							vm.luuPhieu(state, stateAddPhieu)
+							let itemTP2 = vm.listDocumentInItems.find(item => {
+								if (item && item['partNo'] === 'TP2') {
+									return true
+								}
+							})
+							let indexGCNXuatKho = vm.indexGCNXuatKho
+							if (vm.indexGCNXuatKho != -1) {
+								let data = $('#dsXeCapPhieuHoSo').jexcel('getData');
+								let mang = []
+								let i = 0;
+								let notSeri = 0
+								$(data).each(function(k,v){
+									mang[i]={"so_khung": v[0], "so_may": v[1], "mau_son": v[2], "so_seri": v[3]}
+									if (!mang[i]['so_seri']) {
+										notSeri ++
+									}
+									i++;
+								});
+								vm.detailSoatXetGCN['bang_khai'][vm.indexGCNXuatKho]['chi_tiet'] = data
+								vm.detailSoatXetGCN['bang_khai'][vm.indexGCNXuatKho]['chi_tiet_2'] = mang
+								if (notSeri) {
+									vm.snackbartextdossierViewJX = "Có " + notSeri + " số seri chưa điền, vui lòng kiểm tra lại!";
+									vm.snackbarerordossierViewJX = true;
+								}
+							}
+							if (itemTP2) {
+								// vm.getDossierIdFromCTN(vm.detailModel['dossierIdCTN']).then(resultId => {
+									
+								// })
+								let idCTN = vm.detailModel['dossierId'] || 0
+								$.ajax({
+									url : "/o/rest/v2/dossiers/" + idCTN + "/files/" + itemTP2['referenceUid'] + "/formdata",
+									dataType : "json",
+									type : "PUT",
+									headers: {
+										"groupId": themeDisplay.getScopeGroupId(),
+										Accept : "application/json"
+									},
+									data : {
+										formdata: JSON.stringify(vm.detailSoatXetGCN)
+									},
+									success : function (result) {
+										// vm.snackbartextdossierViewJX = "Lưu form thành công!";
+										// vm.snackbardossierViewJX = true;
+									},
+									error : function (result) {
+										// vm.snackbartextdossierViewJX = "Lưu form thất bại!";
+										// vm.snackbarerordossierViewJX = true;
+									}
+								});
+							}
+						},
+						luuPhieu: function (state, stateAddPhieu) {
 							var vm = this;
 							var url = "";
+							let data = Object.assign({}, vm.thongTinPhieu)
+							data['isApproval'] = state
+							if (stateAddPhieu) {
+								vm.stateAddPhieu = stateAddPhieu
+							}
+							console.log('vm.stateAddPhieu==========', vm.stateAddPhieu)
+							if (vm.stateAddPhieu === 'nhap_kho') {
+								url = '/o/rest/vr-stamp/inputsheet'
+								vm.dsGCNItems = vm.dsGCNItems.map(item => {
+									item['vehicleClass'] = vm.thongTinPhieu['vehicleClass']
+									item['stampType'] = 'PXX'
+									item['stampType'] = 'PXX'
+									return item
+								})
+								data['stampbooks'] = JSON.stringify(vm.dsGCNItems)
+							} else if (vm.stateAddPhieu === 'xuat_kho' || vm.stateAddPhieu === 'dieu_chuyen') {
+								url = '/o/rest/vr-stamp/outputsheet'
+								data['details'] = JSON.stringify(vm.dsGCNItems)
+							}
+							if (vm.stateAddPhieu === 'dieu_chuyen') {
+								data['outputSheetType'] = 5
+							}
+							let type = 'POST'
+							if (vm.thongTinPhieu['id']) {
+								type = 'PUT'
+								url += '/' + vm.thongTinPhieu['id']
+							}
 							$.ajax({
 								url: url,
 								dataType: "json",
-								type: "POST",
-								data: {
-									doiTuong: vm.thongTinPhieu.doiTuong ? vm.thongTinPhieu.doiTuong : '',
-									coSoSanXuat: vm.thongTinPhieu.coSoSanXuat ? vm.thongTinPhieu.coSoSanXuat : '',
-									diaChi: vm.thongTinPhieu.diaChi ? vm.thongTinPhieu.diaChi : '',
-									diaChiXuong: vm.thongTinPhieu.diaChiXuong ? vm.thongTinPhieu.diaChiXuong : '',
-									soPhieuNhap: vm.thongTinPhieu.soPhieuNhap ? vm.thongTinPhieu.soPhieuNhap : '',
-									ngayNhap: vm.thongTinPhieu.ngayNhap ? vm.thongTinPhieu.ngayNhap : '',
-									state: state
-								},
+								type: type,
+								data: data,
 								headers: {
 									groupId: themeDisplay.getScopeGroupId()
 								},
 								success: function (result) {
-									vm.dsGCNItems = result.data ? result.data : [];
-									vm.thongTinPhieu = result;
-									vm.snackbartextdossierViewJX = "Thêm thành công!";
+									if (result['VRInputSheet']) {
+										vm.thongTinPhieu = Object.assign(vm.thongTinPhieu, result['VRInputSheet'])
+									}
+									if (result['VROutputSheet']) {
+										vm.thongTinPhieu = Object.assign(vm.thongTinPhieu, result['VROutputSheet'])
+									} 
+									if (result['VRInputStampbook'] && result['VRInputStampbook']['length'] && state == 1) {
+										vm.dsGCNItems = result['VRInputStampbook']
+										vm.calTotalMoneyPhieuXuat()
+									}
+									if (result['VROutputSheetDetails'] && result['VROutputSheetDetails']['length'] && state == 1) {
+										vm.dsGCNItems = result['VROutputSheetDetails']
+										vm.calTotalMoneyPhieuXuat()
+									}
+									if (!vm.thongTinPhieu['id']) {
+										vm.snackbartextdossierViewJX = "Thêm thành công!";
+									} else {
+										vm.snackbartextdossierViewJX = "Lưu thành công!";
+									}
 									vm.snackbardossierViewJX = true;
-									vm.popUpDieuCHuyen = false;
 								},
 								error: function (result) {
-									vm.snackbartextdossierViewJX = "Thêm thất bại, Vui lòng thử lại!";
+									// if (!vm.thongTinPhieu['id']) {
+									// 	vm.snackbartextdossierViewJX = "Thêm thất bại, Vui lòng thử lại!";
+									// } else {
+									// 	vm.snackbartextdossierViewJX = "Lưu thất bại, Vui lòng thử lại!";
+									// }
+									vm.snackbartextdossierViewJX = result['msg'] || '';
 									vm.snackbarerordossierViewJX = true;
 								}
 							})
@@ -1824,7 +7062,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									vm.thongTinPhieu = result;
 									vm.snackbartextdossierViewJX = "Thêm thành công!";
 									vm.snackbardossierViewJX = true;
-									vm.popUpAddGCN = false;
+									vm.popUpAddPhieu = false;
 								},
 								error: function (result) {
 									vm.snackbartextdossierViewJX = "Thêm thất bại, Vui lòng thử lại!";
@@ -1854,32 +7092,28 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									vm.thongTinPhieu = result;
 									vm.snackbartextdossierViewJX = "Thêm thành công!";
 									vm.snackbardossierViewJX = true;
-									vm.popUpAddGCN = false;
-									vm.calTongTien();
+									vm.popUpAddPhieu = false;
 								},
 								error: function (result) {
 								}
 							})
 						},
-						addGCN: function () {
+						addNhapKho: function () {
 							var vm = this;
-							vm.detailGCN = {};
-							vm.popUpAddGCN = !vm.popUpAddGCN;
-						},
-						calTongTien: function () {
-							var vm = this;
-							var total = 0;
-							if (vm.dsGCNItems.length) {
-								for (var i = 0; i < vm.dsGCNItems.length; i++) {
-									total += vm.dsGCNItems[i].thanhtien;
-								}
+							vm.detailAnChi = {
+								serialStartNo: '',
+								serialEndNo: '',
+								subTotalInDocument: ''
+							};
+							vm.popUpAddPhieu = !vm.popUpAddPhieu;
+							if (vm.stateAddPhieu === 'xuat_kho' || vm.stateAddPhieu === 'dieu_chuyen') {
+								vm.getPhieuConItems(vm.thongTinPhieu['vehicleClass'], 'PXX')
 							}
-							vm.tongTien = total;
 						},
-						chiTietGCN: function (item) {
+						chiTietPhieu: function (item) {
 							var vm = this;
 							vm.popUpChiTietPhieu = !vm.popUpChiTietPhieu;
-							vm.chiTietGCNModel = item;
+							vm.chiTietPhieuModel = item;
 							vm.stateNumberSerial = 1
 							$('#chiTietPhieuTable').jexcel({
 								data: vm.dsCTPItems,
@@ -1900,7 +7134,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 						},
 						checkStateNumberGCN: function (item) {
 							var vm = this;
-							var number = vm.chiTietGCNModel['soLuong'] ? vm.chiTietGCNModel['soLuong'] : 0;
+							var number = vm.chiTietPhieuModel['soLuong'] ? vm.chiTietPhieuModel['soLuong'] : 0;
 							var totalNumber = 0;
 							if (vm.dsSoSerialItems.length) {
 								for (var i = 0; i < vm.dsSoSerialItems.length; i++) {
@@ -1945,40 +7179,87 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								vm.snackbarerordossierViewJX = true;
 							}
 						},
-						addRowVatTu: function () {
+						autoFillSerial: function () {
+							let vm = this
+							if (vm.detailAnChi['serialStartNo'] && vm.detailAnChi['serialEndNo']) {
+								let serialStartNo = parseInt(vm.detailAnChi['serialStartNo'])
+								let serialEndNo = parseInt(vm.detailAnChi['serialEndNo'])
+								if (serialEndNo < serialStartNo) {
+									return
+								}
+								vm.detailAnChi['subTotalInDocument'] = serialEndNo - serialStartNo + 1
+								console.log('serialStartNo========', vm.detailAnChi['serialStartNo'])
+								console.log('serialEndNo========', vm.detailAnChi['serialEndNo'])
+								console.log('subTotalInDocument========', vm.detailAnChi['subTotalInDocument'])
+								return
+							} 
+
+							if (vm.detailAnChi['serialStartNo'] && vm.detailAnChi['subTotalInDocument']) {
+								let serialStartNo = parseInt(vm.detailAnChi['serialStartNo'])
+								let subTotalInDocument = parseInt(vm.detailAnChi['subTotalInDocument'])
+								vm.detailAnChi['serialEndNo'] = subTotalInDocument + serialStartNo - 1
+								return
+							} 
+
+							if (vm.detailAnChi['serialEndNo'] && vm.detailAnChi['subTotalInDocument']) {
+								let serialEndNo = parseInt(vm.detailAnChi['serialEndNo'])
+								let subTotalInDocument = parseInt(vm.detailAnChi['subTotalInDocument'])
+								vm.detailAnChi['serialStartNo'] = serialEndNo + 1 - subTotalInDocument
+								return
+							}
+						},
+						calTotalMoneyPhieuXuat () {
+							let vm = this
+							let total = 0
+							let totalSubTotalInDocument = 0
+							if (vm.dsGCNItems && vm.dsGCNItems['length']) {
+								for (var i = 0; i < vm.dsGCNItems.length; i++) {
+									if (!vm.dsGCNItems[i]['totalMoney']) {
+										let soLuong = vm.dsGCNItems[i]['subTotalInDocument'] ? parseInt(vm.dsGCNItems[i]['subTotalInDocument']) : 0
+										let donGia = vm.thongTinGCN['gia_ban'] ? parseInt(vm.thongTinGCN['gia_ban']) : 0
+										let thanhTien = (soLuong * donGia) || 0
+										vm.dsGCNItems[i]['totalMoney'] = thanhTien
+									}
+									totalSubTotalInDocument += (vm.dsGCNItems[i]['subTotalInDocument'] || 0)
+									total += vm.dsGCNItems[i]['totalMoney']
+								}
+							}
+							vm.totalSubTotalInDocument = totalSubTotalInDocument || 0
+							vm.totalMoneyPhieuXuat = total || 0
+							if (vm.thongTinGCN['so_luong']) {
+								vm.thongTinGCN['so_luong'] = parseInt(vm.thongTinGCN['so_luong'])
+								if (vm.thongTinGCN['so_luong'] >= totalSubTotalInDocument) {
+									vm.totalChuaCap = vm.thongTinGCN['so_luong'] - vm.totalSubTotalInDocument
+								}
+							}
+						},
+						addPhieu: function () {
 							var vm = this
 							var url = "";
-							$.ajax({
-								url: url,
-								dataType: "json",
-								type: "POST",
-								data: {
-									soSerial: vm.detailGCN.soSerial_add ? vm.detailGCN.soSerial_add : "",
-									tuSo: vm.detailGCN.tuSo_add ? vm.detailGCN.tuSo_add : "",
-									denSo: vm.detailGCN.denSo_add ? vm.detailGCN.denSo_add : "",
-									soLuong: vm.detailGCN.soLuong_add ? vm.detailGCN.soLuong_add : ""
-								},
-								headers: {
-									groupId: themeDisplay.getScopeGroupId()
-								},
-								success: function (result) {
-									vm.dsGCNItems.push(result);
-									vm.snackbartextdossierViewJX = "Thêm thành công!";
-									vm.snackbardossierViewJX = true;
-									vm.popUpAddGCN = false;
-								},
-								error: function (result) {
-									vm.dsGCNItems.push({
-										id: Math.random(),
-										soSerial: vm.detailGCN['soSerial_add'],
-										tuSo: vm.detailGCN['tuSo_add'],
-										denSo: vm.detailGCN['denSo_add'],
-										soLuong: vm.detailGCN['soLuong_add']
-									})
-									vm.calTongTien();
-									vm.snackbartextdossierViewJX = "Thêm thất bại, Vui lòng thử lại!";
-									vm.snackbarerordossierViewJX = true;
-								}
+							// let soLuong = vm.detailAnChi['subTotalInDocument'] ? parseInt(vm.detailAnChi['subTotalInDocument']) : 0
+							// let donGia = vm.thongTinGCN['gia_ban'] ? parseInt(vm.thongTinGCN['gia_ban']) : 0
+							// let thanhTien = (soLuong * donGia) || 0
+							// vm.detailAnChi['totalMoney'] = thanhTien
+							vm.dsGCNItems.push(vm.detailAnChi)
+							vm.calTotalMoneyPhieuXuat()
+							vm.detailAnChi = {
+								serialStartNo: '',
+								serialEndNo: '',
+								subTotalInDocument: ''
+							}
+							vm.stampBook = {}
+							if (vm.totalSubTotalInDocument && vm.thongTinGCN['so_luong'] && vm.totalSubTotalInDocument > vm.thongTinGCN['so_luong']) {
+								vm.snackbartextdossierViewJX = "SL kê khai vượt quá SL duyệt cấp!";
+								vm.snackbarerordossierViewJX = true;
+							}
+							vm.popUpAddPhieu = !vm.popUpAddPhieu
+						},
+						bindStamp: function () {
+							var vm = this
+							var url = "";
+							vm.detailAnChi = Object.assign(vm.detailAnChi, {
+								stampShortNo: vm.stampBook['stampShortNo'],
+								bookId: vm.stampBook['bookId']
 							})
 						},
 						putStateUserInfo: function () {
@@ -2046,9 +7327,15 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									$("#alpacajs_form_" + item.partNo + " .formType").val() == 'undefined' ) {
 									console.log("formType 1");
 								vm.loadingAlpacajsForm = true;
-
-								var control = $("#alpacajs_form_" + item.partNo).alpaca("get");
-								var formData = control.getValue();
+								var formData = {}
+								if (item.eform && item['dossierPartId'] === 288 && item['partNo'] === 'KQ4') {
+									formData = vm.detailCOP
+									vm.postDataCOP()
+									console.log("formType COPPPPP");
+								} else {
+									var control = $("#alpacajs_form_" + item.partNo).alpaca("get");
+									formData = control.getValue();
+								}
 
 								$.ajax({
 									url : "/o/rest/v2/dossiers/" + vm.detailModel.dossierId + "/files/" + item.referenceUid + "/formdata",
@@ -2078,7 +7365,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 
 
 										} catch (e) {
-
+											console.log(e)
 										}
 									},
 									error : function (result) {
@@ -2154,13 +7441,103 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									3000);
 							}
 						} catch (e) {
+							console.log(e);
 							vm.loadingAlpacajsForm = false;
+						}
+					},
+					initFormPopupBienBanThietBi () {
+						let vm = this
+						if (vm.detailCOP['hop_dong'] && vm.detailCOP['hop_dong']['length']) {
+							if (typeof vm.detailCOP['hop_dong'] === 'string') {
+								vm.detailCOP['hop_dong'] = JSON.parse(vm.detailCOP['hop_dong'])
+							}
+						}
+						if (vm.detailCOP['loai_san_pham_xuong'] && vm.detailCOP['loai_san_pham_xuong']['length']) {
+							if (typeof vm.detailCOP['loai_san_pham_xuong'] === 'string') {
+								vm.detailCOP['loai_san_pham_xuong'] = JSON.parse(vm.detailCOP['loai_san_pham_xuong'])
+							}
+						}
+						if (vm.detailCOP['danh_sach_nhan_vien'] && vm.detailCOP['danh_sach_nhan_vien']['length']) {
+							if (typeof vm.detailCOP['danh_sach_nhan_vien'] === 'string') {
+								vm.detailCOP['danh_sach_nhan_vien'] = JSON.parse(vm.detailCOP['danh_sach_nhan_vien'])
+							}
+						}
+						if (vm.detailCOP['thiet_bi_xuat_xuong'] && vm.detailCOP['thiet_bi_xuat_xuong']['length']) {
+							if (typeof vm.detailCOP['thiet_bi_xuat_xuong'] === 'string') {
+								vm.detailCOP['thiet_bi_xuat_xuong'] = JSON.parse(vm.detailCOP['thiet_bi_xuat_xuong'])
+							}
+							for (var i = 0; i < vm.detailCOP['thiet_bi_xuat_xuong'].length; i++) {
+								if (!vm.detailCOP['thiet_bi_xuat_xuong'][i]['resultTest'] || !vm.detailCOP['thiet_bi_xuat_xuong'][i]['resultTest']['length']) {
+									vm.detailCOP['thiet_bi_xuat_xuong'][i]['resultTest'] = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+								}
+							}
+						}
+						if (vm.detailCOP['danh_sach_san_pham'] && vm.detailCOP['danh_sach_san_pham']['length']) {
+							if (typeof vm.detailCOP['danh_sach_san_pham'] === 'string') {
+								vm.detailCOP['danh_sach_san_pham'] = JSON.parse(vm.detailCOP['danh_sach_san_pham'])
+							}
+							for (var i = 0; i < vm.detailCOP['danh_sach_san_pham'].length; i++) {
+								if (!vm.detailCOP['danh_sach_san_pham'][i]['resultTest'] || !vm.detailCOP['danh_sach_san_pham'][i]['resultTest']['length']) {
+									vm.detailCOP['danh_sach_san_pham'][i]['resultTest'] = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+								}
+							}
+						}
+						if (vm.detailCOP['danh_sach_tai_lieu'] && vm.detailCOP['danh_sach_tai_lieu']['length']) {
+							if (typeof vm.detailCOP['danh_sach_tai_lieu'] === 'string') {
+								vm.detailCOP['danh_sach_tai_lieu'] = JSON.parse(vm.detailCOP['danh_sach_tai_lieu'])
+							}
+							for (var i = 0; i < vm.detailCOP['danh_sach_tai_lieu'].length; i++) {
+								if (!vm.detailCOP['danh_sach_tai_lieu'][i]['resultTest'] || !vm.detailCOP['danh_sach_tai_lieu'][i]['resultTest']['length']) {
+									vm.detailCOP['danh_sach_tai_lieu'][i]['resultTest'] = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+								}
+							}
+						}
+						if (vm.detailCOP['thiet_bi_dung_cu'] && vm.detailCOP['thiet_bi_dung_cu']['length']) {
+							if (typeof vm.detailCOP['thiet_bi_dung_cu'] === 'string') {
+								vm.detailCOP['thiet_bi_dung_cu'] = JSON.parse(vm.detailCOP['thiet_bi_dung_cu'])
+							}
+							for (var i = 0; i < vm.detailCOP['thiet_bi_dung_cu'].length; i++) {
+								if (!vm.detailCOP['thiet_bi_dung_cu'][i]['resultTest'] || !vm.detailCOP['thiet_bi_dung_cu'][i]['resultTest']['length']) {
+									vm.detailCOP['thiet_bi_dung_cu'][i]['resultTest'] = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+								}
+							}
 						}
 					},
 					showAlpacaJSFORM: function (item) {
 						var vm = this;
-						var alpacajsForm = document.getElementById("alpacajs_form_" + item.partNo);
-						if (alpacajsForm.innerHTML == '' && item.eform) {
+						console.log('item show form======', item)
+						var alpacajsForm = $("alpacajs_form_" + item.partNo);
+						if (item.eform && item['dossierPartId'] === 288 && item['partNo'] === 'KQ4') {
+							// set default đạt vào ô tick đạt ko đạt
+							for (var i = 0; i < vm.part1.length; i++) {
+								if (vm.part1[i] && vm.part1[i]['nd_result']) {
+									vm.detailCOP[vm.part1[i]['nd_result']] = 1
+								}
+							}
+							for (var j = 0; j < vm.part3.length; j++) {
+								if (vm.part3[j] && vm.part3[j]['nd_result']) {
+									vm.detailCOP[vm.part3[j]['nd_result']] = 1
+								}
+							}
+							for (var k = 0; k < vm.part5.length; k++) {
+								if (vm.part5[k] && vm.part5[k]['nd_result']) {
+									vm.detailCOP[vm.part5[k]['nd_result']] = 1
+								}
+							}
+							let formData = JSON.parse(item['formData'])
+							let tmpObj = Object.assign({}, formData)
+							tmpObj['dang_kiem_vien_1'] = tmpObj['dang_kiem_vien_1'] ? String(tmpObj['dang_kiem_vien_1']) : ''
+							tmpObj['dang_kiem_vien_2'] = tmpObj['dang_kiem_vien_2'] ? String(tmpObj['dang_kiem_vien_2']) : ''
+							vm.initFormPopupBienBanThietBi()
+							console.log('tmpObj===========', tmpObj)
+							vm.detailCOP = Object.assign(vm.detailCOP, tmpObj)
+							vm.getFormDataBanKhai(vm.detailModel['dossierIdCTN'])
+							console.log('detailCOP===========', vm.detailCOP)
+						} else if (item.eform && item['partNo'] === 'KQ6' && item['dossierTemplateNo'] === 'TT302011BGTVTCPPXCG') {
+							// TODO
+						} else if (alpacajsForm && item.eform) {
+							console.log('alpacajsForm=======', alpacajsForm)
+							alpacajsForm.empty()
 							console.log(item);
 							var alapcaJS = eval('('+item.formScript+')');
 							alapcaJS['data'] = item.formData;
@@ -2246,38 +7623,44 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								}
 								$(vm.stepModel.createFiles).each(function (index,createFileItems) {
 									createFileItems['save'] = false;
-									console.log('run apacalForm')
-									var formScriptNew;
-									var formDataNew;
-									var urlFormData = '/o/rest/v2/dossiers/'+vm.detailModel.dossierId+'/files/'+createFileItems.referenceUid+'/formdata';
-									var urlFormScript = '/o/rest/v2/dossiers/'+vm.detailModel.dossierId+'/files/'+createFileItems.referenceUid+'/formscript';
-									var config_plugins = {
-										headers: {
-											'groupId': themeDisplay.getScopeGroupId()
-										}
-									};
-									axios.all([
-										axios.get(urlFormScript, config_plugins),
-										axios.get(urlFormData, config_plugins)
-										]).then( axios.spread(function (responesFormScript, responesFormData) {
-											console.log('responesFormScript', responesFormScript)
-											console.log('responesFormData', responesFormData)
-											formScriptNew = responesFormScript.data;
-											formDataNew = responesFormData.data;
-											console.log('createFileItems', createFileItems)
-											console.log('formScriptNew', formScriptNew)
-											console.log('vm.stepModel.createFiles', vm.stepModel.createFiles)
-											createFileItems.formScript = formScriptNew
-											createFileItems.formData = formDataNew
-											console.log('vm.stepModel', vm.stepModel)
-											vm.stepLoading = false;
-										}))
-										.catch(function (error) {
-											console.log(error);
-											vm.stepLoading = false;
-										});
+									// console.log('run apacalForm')
+									// var formScriptNew;
+									// var formDataNew;
+									// var urlFormData = '/o/rest/v2/dossiers/'+vm.detailModel.dossierId+'/files/'+createFileItems.referenceUid+'/formdata';
+									// var urlFormScript = '/o/rest/v2/dossiers/'+vm.detailModel.dossierId+'/files/'+createFileItems.referenceUid+'/formscript';
+									// var config_plugins = {
+									// 	headers: {
+									// 		'groupId': themeDisplay.getScopeGroupId()
+									// 	}
+									// };
+									// axios.all([
+									// 	axios.get(urlFormScript, config_plugins),
+									// 	axios.get(urlFormData, config_plugins)
+									// 	]).then( axios.spread(function (responesFormScript, responesFormData) {
+									// 		console.log('responesFormScript', responesFormScript)
+									// 		console.log('responesFormData', responesFormData)
+									// 		formScriptNew = responesFormScript.data;
+									// 		formDataNew = responesFormData.data;
+									// 		console.log('createFileItems', createFileItems)
+									// 		console.log('formScriptNew', formScriptNew)
+									// 		console.log('vm.stepModel.createFiles', vm.stepModel.createFiles)
+									// 		createFileItems.formScript = formScriptNew
+									// 		createFileItems.formData = formDataNew
+									// 		console.log('vm.stepModel', vm.stepModel)
+									// 		vm.stepLoading = false;
+									// 	}))
+									// 	.catch(function (error) {
+									// 		console.log(error);
+									// 		vm.stepLoading = false;
+									// 	});
+									vm.stepLoading = false;
 									})
 								console.log('++++++++++++++createFiles--------------', vm.stepModel.createFiles)
+							}
+							if (vm.stepModel['actionCode'] === 1124 && vm.stepModel['postStepCode'] === 205) {
+								vm.titleTableSoatXet = 'Đề nghị cấp phiếu'
+							} else if (vm.stepModel['actionCode'] === 1126 && vm.stepModel['postStepCode'] === 206) {
+								vm.titleTableSoatXet = 'Duyệt đề nghị cấp phiếu'
 							}
 						} else {
 
@@ -2536,7 +7919,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							}
 
 						},
-						kyDuyetYCGiamDinh: function (strIdArr,paramObj, actionName) {
+						kyDuyetYCGiamDinh: function (strIdArr, paramObj, actionName) {
 
 							var vm = this;
 							var url = '/o/rest/v2/digitalSignature/'+vm.detailModel.dossierId+'/hashComputed';
@@ -2552,13 +7935,17 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									strIdArr: strIdArr,
 									actionCode: paramObj.actionCode,
 									postStepCode: paramObj.postStepCode
+									// useHSM: true
 									// strDossierPartId: strDossierPartId
 									/*id : controlRequirementId*/
 								},
 								success : function (result) {
 									console.log(result);
+									vm.snackbartextdossierViewJX = actionName + " thành công!";
+									vm.snackbardossierViewJX = true;
 									/*var jsonData = JSON.parse(result);*/
 									var msgs = result.msg;
+									vm.actionsSubmitLoading = false;
 									if (msgs !== 'fileEntryId') {
 										var hashComputers = result.hashComputers;
 										var signFieldNames = result.signFieldNames;
@@ -2568,7 +7955,6 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 										console.log("signFieldNames: "+signFieldNames);
 										console.log("fileNames: "+fileNames);
 										console.log("msgs: "+msgs);
-										vm.actionsSubmitLoading = false;
 										if (plugin().valid) {
 
 											for ( var i = 0; i < hashComputers.length; i++) {
@@ -2612,6 +7998,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 						},
 						completeKyDuyetYCGiamDinh: function (sign, signFieldName, fileName, fileEntryId,paramObj, actionName) {
 							var vm = this;
+							vm.actionsSubmitLoading = true;
 							var url = '/o/rest/v2/digitalSignature/' + vm.detailModel.dossierId + '/dossierFile';
 							$.ajax({
 								type : 'PUT',
@@ -2637,6 +8024,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									console.log(result);
 									/*var jsonData = JSON.parse(result);*/
 									var msg = result.msg;
+									vm.actionsSubmitLoading = false;
 									if (msg == 'success') {
 										//	alert('ký số thành công!');
 										vm.snackbartextdossierViewJX = actionName + " thành công!";
@@ -2648,7 +8036,6 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 										}, 1000);
 
 										vm.detailPage = false;
-										vm.actionsSubmitLoading = false;
 									} else if (msg == 'fileEntryId') {
 										alert("Cảnh báo: Không tìm thấy file bản thảo. Tạm dừng tiến trình đóng dấu số");
 									} else {
@@ -2656,6 +8043,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									}
 								},
 								error: function() {
+									vm.actionsSubmitLoading = false;
 									alert('ky so false');
 								}
 							})
@@ -2903,6 +8291,12 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
                     		groupHoSoFilter: function (item) {
                     			var vm = this;
                     			console.log("item status",item);
+                    			let stateFilterCOP = ['PROCESSING_26', 'PROCESSING_27', 'PROCESSING_29', 'waiting_6', 'PROCESSING_30']
+                    			if (stateFilterCOP.includes(item['idSub']) || stateFilterCOP.includes(item['id'])) {
+                    				vm.stateActionCOP = true
+                    			} else {
+                    				vm.stateActionCOP = false
+                    			}
 
                     			if (item.id === 'special') {
                     				vm.detailPage = false;
@@ -2910,8 +8304,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
                     				if (item.idSub === 'special') {
                     					vm.stageFilterView = "quan_ly_pxx";
                     					vm.loadPhieuXX();
-                    					vm.loadDoiPhong();
-                    					vm.loadMauPhoi();
+                    					// vm.loadMauPhoi();
                     					vm.loadDoiTuong();
                     				} else if (item.idSub === 'ds_nhap_kho') {
                     					vm.stageFilterView = item.idSub;
@@ -3024,6 +8417,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
                     			vm.getLastedStateUserInfo(function() {
                     				vm._inidanhSachHoSoTable(false);
                     			});
+                    			vm.getDoiPhongItems()
                     			vm.stageFilterView = 'danh_sach';
                     			vm.listgroupHoSoFilterItems = [];
                     			var url = '/o/rest/v2/statistics/dossiers/todo';
@@ -3165,6 +8559,14 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
                     					vm.showGroupMenus = true;
                     				} else {
                     					vm.showGroupMenus = false;
+                    				}
+
+                    				let itemTmp = vm.listgroupHoSoFilterItems[0] ? vm.listgroupHoSoFilterItems[0] : {}
+                    				let stateFilterCOP = ['PROCESSING_26', 'PROCESSING_27', 'PROCESSING_29', 'waiting_6', 'PROCESSING_30']
+                    				if (stateFilterCOP.includes(itemTmp['idSub']) || stateFilterCOP.includes(itemTmp['id'])) {
+                    					vm.stateActionCOP = true
+                    				} else {
+                    					vm.stateActionCOP = false
                     				}
                     			})).catch(function (error) {
 									console.log(error);
@@ -3314,10 +8716,10 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
                     				id: 'tat_ca_hoso',
                     				title: 'Tất cả hồ sơ'
                     			},
-                    			// {
-                    			// 	id: 'tra_cuu_hoso',
-                    			// 	title: 'Tra cứu kết quả'
-                    			// },
+                    			{
+                    				id: 'tra_cuu_thongke',
+                    				title: 'Tra cứu kết quả'
+                    			},
                     			{
                     				id: 'tra_cuu_phuong_tien',
                     				title: 'Phương tiện sản xuất lắp ráp'
@@ -4425,13 +9827,13 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 									'groupId': themeDisplay.getScopeGroupId(),
 								}
 							};
-							var url = '/o/rest/v2/dossiers/dossiersTest';
+							var url = '/o/rest/v2/dossiers/todo';
 
-							if (vm.follow) {
-								url = '/o/rest/v2/dossiers/dossiersTest';
-							} else {
-								url = '/o/rest/v2/dossiers';
-							}
+							// if (vm.follow) {
+							// 	url = '/o/rest/v2/dossiers/todo';
+							// } else {
+							// 	url = '/o/rest/v2/dossiers';
+							// }
 							axios.get(url, config_dossiers).then(function (response) {
 								var serializable = response.data;
 								vm.follow = true;
@@ -4502,13 +9904,15 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							});
 							return false;
 						},
-						toDetailHoSo: function (item) {
+						toDetailHoSo: function (item, type) {
 
 							var vm = this;
 							vm.stepModel = null;
 							// call DetailAPI.
-
-							var url = '/o/rest/v2/dossiers/'+item.dossierId;
+							var url = '/o/rest/v2/dossiers/' + item.dossierId;
+							if (type == 'tra_cuu') {
+								url = '/o/rest/v2/dossiers/detail/' + item['referenceUid']
+							}
 
 							axios.get(url, config).then(function (response) {
 								var serializable = response.data;
@@ -4516,9 +9920,12 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								vm.detailModel = serializable;
 								vm.detailModel.dossierIdCTN = item.dossierIdCTN;
 								vm.detailPage = true;
-
+								vm.stateAddPhieu = 'xuat_kho'
 								vm.dsGCNItems = [];
-								vm.thongTinPhieu = {};
+								vm.thongTinPhieu = {
+									outputSheetNo: '---',
+									outputSheetDate: vm.getCurrentTime() || ''
+								};
 								vm.selected = [];
 								vm.chonHoSo(serializable.dossierId);
 								window.scrollBy(0, -99999);
@@ -4529,6 +9936,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								}
 								vm._inilistDocumentIn(vm.detailModel);
 								vm._inilistDocumentOut(vm.detailModel);
+								vm.getDangKiemVien()
 
 							}).catch(function (error) {
 								console.log(error);
@@ -4579,6 +9987,13 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							    			serializable.dossierParts[key].referenceUid = vm.dossierFiles[keyFile].referenceUid;
 							    			serializable.dossierParts[key].fileEntryId = vm.dossierFiles[keyFile].fileEntryId;
 							    			serializable.dossierParts[key].displayName = vm.dossierFiles[keyFile].displayName;
+							    			if (item && (item['dossierSubStatus'] === 'PROCESSING_60' || 
+							    				item['dossierSubStatus'] === 'PROCESSING_69' || 
+							    				item['dossierSubStatus'] === 'PROCESSING_72' || 
+							    				item['dossierSubStatus'] === 'PROCESSING_57')) {
+							    				serializable.dossierParts[key]['formData'] = vm.dossierFiles[keyFile]['formData'];
+							    			}
+							    			serializable.dossierParts[key].displayName = vm.dossierFiles[keyFile].displayName;
 
 							    			listAll.push(serializable.dossierParts[key]);
 							    		}
@@ -4595,8 +10010,17 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 
 							    }
 
+
+
 							    vm.listDocumentInItems = listIn;
 							    vm.listDocumentOutItems = listOut;
+							    vm.getFormDataSoatXetGCN()
+							    for (var i = 0; i < vm.listDocumentInItems['length']; i++) {
+							    	vm.getHistoryDossierPart(item.dossierId, vm.listDocumentInItems[i]['partNo'], i, 'IN')
+							    }
+							    for (var j = 0; j < vm.listDocumentOutItems['length']; j++) {
+							    	vm.getHistoryDossierPart(item.dossierId, vm.listDocumentOutItems[j]['partNo'], j, 'OUT')
+							    }
 								vm._initCbxDocumentNewTab(listAll);
 
 								return Promise.reject();

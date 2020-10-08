@@ -8,6 +8,11 @@
 
 		<input type="hidden" name="dossierTemplateNo" id="dossierTemplateNo">
 		<input type="hidden" name="dossierId" id="dossierId" value="${(dossierId)!}">
+		<input type="hidden" name="dossierId_Hidden" id="dossierId_Hidden" value="${(dossierId)!}">
+		<input type="hidden" name="dossierNo" id="dossierNo" value="${(dossier.dossierNo)!}">
+		<input type="hidden" name="applicantIdNo" id="applicantIdNo" value="${(dossier.applicantIdNo)!}">
+		<input type="hidden" name="expireCertificateId_hidden" id="expireCertificateId_hidden" value="">
+		<input type="hidden" name="dossierIdCTN" id="dossierIdCTN" value="${(dossier.dossierIdCTN)!}">
 		<div class="row-header align-middle">
 			<div class="background-triangle-big">Tên thủ tục</div>
 			<span class="text-bold" data-bind="text:serviceName"></span>
@@ -203,110 +208,167 @@
 								</span>
 							</div>
 						</div>
-						<div class="content-part collapse in" id="lsDossierTemplPart">
-							<#-- <#include "customer_dossier_online_form.ftl"> -->
+						<div class="content-part collapse in PB0 PT0">
+					<div>
+						<div class="row-parts-head align-middle slide-toggle PT5" style="background: #dbd9d9; cursor: pointer;">
+						<div class="col-sm-12 PL0">
+							<span> 
+								Bản khai trực tuyến <i class="fa fa-angle-down hover-pointer" aria-hidden="true" style="font-size: 128%;"></i>
+							</span>
 						</div>
-						<script type="text/x-kendo-template" id="templateDossierPart">
-							#if(partType == 1){#
-							<div class="row-parts-head align-middle slide-toggle">
-								<span class="text-bold MR5">#:itemIndex#.</span>
-								<span class="hover-pointer show-dossierpart-new-tab" data-partno="#:id#" #if(hasForm){# hasForm="true" #}#>
-									#:partName#
-									#if(required){#
-									<span class="red">*</span>
-									<input type="hidden" id="validPart#:id#" name="validPart#:id#" class="validPart" value="0">
+						<div class="clear"></div>
+					</div>
+					<div class="collapse" id="banKhaiTrucTuyenCollapse" style="display: block;">
+						<div class="col-sm-12 PL0 PR0 content-part collapse in" id="lsDossierTemplPart">
+							<script type="text/x-kendo-template" id="templateDossierPart">
+								#if (partType == 1 && hasForm) {#
+
+										<div class="row-parts-head align-middle slide-toggle">
+											<span class="text-bold MR5">#:itemIndex#.</span>
+												<span class="hover-pointer"> #:partName# 
+													#
+													if(required){
+													#
+														<span class="red">*</span>
+														<input type="hidden" id="validPart#:id#" name="validPart#:id#" class="validPart" value="0">
+													#}#
+												</span>
+
+													<div class="actions">
+
+														<a href="javascript:;" class="text-light-blue uploadfile-form-repository" data-toggle="tooltip" data-placement="top" title="Tải giấy tờ từ kho lưu trữ" part-no="#:id#">
+															<i class="fa fa-archive" aria-hidden="true"></i>
+														</a>
+
+														<label class="MB0 ML10 hover-pointer" for="file#:id#" title="Tải file lên" >
+															<i class="fa fa-upload text-light-blue"></i>
+														</label>
+
+														<input type='file' id="file#:id#" name="file#:id#" class="hidden dossier-file" #if(multiple){# multiple #}# part-no="#:id#" file-template-no="#:fileTemplateNo#" hasform="#if(hasForm){# true #}#" >
+
+														<#-- <a href="javascript:;" class="dossier-component-profile" data-toggle="tooltip" data-placement="top" title="Số tệp tin" data-partno="#:id#" data-number="#if(hasForm){# 1 #}else {# 0 #}#">
+															<span class="number-in-circle" >#if(hasForm){# 1 #}else {# 0 #}#</span>
+														</a> -->
+														<a href="javascript:;" class="dossier-component-profile" data-placement="top" title="Số tệp tin" data-partno="#:id#" data-number="#if(hasForm){# 1 #}else {# 0 #}#">
+															<span class="number-in-circle" >#if(hasForm){# 1 #}else {# 0 #}#</span>
+														</a>
+
+														<a href="javascript:;" class="text-light-gray delete-dossier-file" data-toggle="tooltip" data-placement="top" title="Xóa" data-partno="#:id#" eForm="#:hasForm#" fileTemplateNo="#:fileTemplateNo#">
+															<i class="fa fa-trash-o" aria-hidden="true"></i> Xóa
+														</a>
+													</div>
+												</div>
+											</div>
+
+											#
+											if (hasForm) {
+											var dossierFile =  getReferentUidFile(${dossierId},id);
+											#
+
+											<div class="collapse" id="collapseDossierPart#:id#">
+												<div class="col-xs-12 col-sm-12 text-right">
+													<button id="btn-save-formalpaca#:id#" class="btn btn-active MB10 MT10 MR20 saveForm saveFormAlpaca" 
+															type="button" data-pk="#:id#" referenceUid="#:dossierFile.referenceUid#">Ghi lại</button>
+													<input type="hidden" name="" id="dossierFileId#:id#" value="#:dossierFile.dossierFileId#">
+												</div>
+												<div class="col-sm-12" #if(dossierFile.referenceUid){# style="height:450px; width:100%;overflow:auto;" #}# >
+
+													<div id="formPartNo#:id#" class="formAlpacaDN" data-pk="#:id#" data-partname="#:partName#">
+
+													</div>
+
+												</div>
+											</div>
+
+											#
+												$.ajax({
+													url : "${api.server}/dossiers/${dossierId}/files/"+dossierFile.referenceUid+"/formscript",
+													dataType : "text",
+													type : "GET",
+													headers : {"groupId": ${groupId}},
+													success : function(result) {
+														$("\\#formPartNo"+id).empty();
+
+														var alpaca4 = eval("(" + result + ")");
+														var formdata = fnGetFormData(${dossierId},dossierFile.referenceUid);
+														if (formdata) {
+															$("\\#validPart"+id).val("1");
+														}
+														alpaca4.data = formdata;
+														setTimeout(function () {
+															$("\\#formPartNo"+id).alpaca(alpaca4);
+														}, 1000)
+
+														<#-- $("\\#formPartNo"+id).append('<div class="row"><div class="col-xs-12 col-sm-12"><button id="btn-save-formalpaca'+id+'" class="btn btn-active MB10 MT10 saveForm" type="button" data-pk="'+id+'" referentUid="'+referentUidFile+'">Ghi lại</button></div></div>'); -->
+
+													},
+													error : function (result) {
+
+													}
+												});
+											}
+										#
 									#}#
+							</script>
+						</div>
+						<div class="clear"></div>
+					</div>
+					</div>
+
+					<div style="clear: both;">
+						<div class="row-parts-head align-middle slide-toggle PT5" style="background: #dbd9d9; cursor: pointer;">
+							<div class="col-sm-12 PL0">
+								<span> 
+									Tài liệu đính kèm <i class="fa fa-angle-down hover-pointer" aria-hidden="true" style="font-size: 128%;"></i>
 								</span>
-
-								#
-									var lockState = fnCheckLockTemplate("${dossier.lockState}",id);
-								#
-
-								<div class="actions">
-									#if(!lockState){#
-										<a href="javascript:;" class="text-light-blue uploadfile-form-repository" data-toggle="tooltip" data-placement="top" title="Tải giấy tờ từ kho lưu trữ" part-no="#:id#">
-											<i class="fa fa-archive" aria-hidden="true"></i>
-										</a>
-									#}#
-
-									<#-- #if("${(dossier.dossierStatus)!}" === "new" || "${(dossier.dossierStatus)!}" === "waiting" || "${(dossier.dossierStatus)!}" === "" || "${(sendAdd)!}" === "true"){#
-
-									#}# -->
-									#if(!lockState){#
-									<label class="MB0 ML10 hover-pointer lbl-dossier-file" for="file#:id#" data-partno="#:id#" title="Tải file lên" >
-										<i class="fa fa-upload text-light-blue"></i>
-									</label>
-									#}#
-
-									<input type='file' id="file#:id#" name="file#:id#" class="hidden dossier-file" #if(multiple){# multiple #}# part-no="#:id#" file-template-no="#:fileTemplateNo#">
-
-									<a href="javascript:;" class="dossier-component-profile" data-placement="top" title="Số tệp tin" data-partno="#:id#" data-number="#if(hasForm){# 1 #}else {# 0 #}#">
-										<span class="number-in-circle" >#if(hasForm){# 1 #}else {# 0 #}#</span>
-									</a>
-
-									#if(!lockState){#
-									<a href="javascript:;" class="text-light-gray delete-dossier-file" data-toggle="tooltip" data-placement="top" title="Xóa" data-partno="#:id#" fileTemplateNo="#:fileTemplateNo#" eForm="#:hasForm#">
-										<i class="fa fa-trash-o" aria-hidden="true"></i> Xóa
-									</a>
-									#}#
-								</div>
 							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="collapse" id="vanBanDinhKemCollapse" style="display: block;">
+							<div class="col-sm-12 PL0 PR0 content-part collapse in" id="lsDossierTemplPart2">
+								<script type="text/x-kendo-template" id="templateDossierPart2">
+									#if (partType == 1 && !hasForm) {#
 
-							#if(hasForm){
-							var dossierFile =  getReferentUidFile(${dossierId},id);
-							console.log(dossierFile);
+											<div class="row-parts-head align-middle slide-toggle">
+												<span class="text-bold MR5">#:itemIndex2#.</span>
+													<span class="hover-pointer"> #:partName# 
+														#
+														if(required){
+														#
+															<span class="red">*</span>
+															<input type="hidden" id="validPart#:id#" name="validPart#:id#" class="validPart" value="0">
+														#}#
+													</span>
 
-							var hiddenState = "";
+														<div class="actions">
 
-							if(lockState){
-								hiddenState = "pointer-events:none;";
-							}
+															<a href="javascript:;" class="text-light-blue uploadfile-form-repository" data-toggle="tooltip" data-placement="top" title="Tải giấy tờ từ kho lưu trữ" part-no="#:id#">
+																<i class="fa fa-archive" aria-hidden="true"></i>
+															</a>
 
-							#
+															<label class="MB0 ML10 hover-pointer" for="file#:id#" title="Tải file lên" >
+																<i class="fa fa-upload text-light-blue"></i>
+															</label>
 
-							<div class="collapse" id="collapseDossierPart#:id#">
-								<input type="hidden" name="" id="dossierFileId#:id#" value="#:dossierFile.dossierFileId#">
-								#if(!lockState){#
-								<div class="col-xs-12 col-sm-12 text-right">
-									<button id="btn-save-formalpaca#:id#" class="btn btn-active MB10 MT10 MR20 saveForm saveFormAlpaca"
-									type="button" data-pk="#:id#" referenceUid="#:dossierFile.referenceUid#">Ghi lại</button>
-								</div>
-								#}#
+															<input type='file' id="file#:id#" name="file#:id#" class="hidden dossier-file" #if(multiple){# multiple #}# part-no="#:id#" file-template-no="#:fileTemplateNo#" hasform="#if(hasForm){# true #}#" >
 
+															<a href="javascript:;" class="dossier-component-profile" data-placement="top" title="Số tệp tin" data-partno="#:id#" data-number="#if(hasForm){# 1 #}else {# 0 #}#">
+																<span class="number-in-circle" >#if(hasForm){# 1 #} else {# 0 #}#</span>
+															</a>
 
-								<div class="col-sm-12" #if(dossierFile.referenceUid){# style="height:450px; width:100%;overflow:auto;" #}# >
-									<div class="formAlpacaDN" id="formPartNo#:id#" style="#:hiddenState#" data-pk="#:id#" data-partname="#:partName#">
-
-									</div>
-								</div>
+															<a href="javascript:;" class="text-light-gray delete-dossier-file" data-toggle="tooltip" data-placement="top" title="Xóa" data-partno="#:id#" eForm="#:hasForm#" fileTemplateNo="#:fileTemplateNo#">
+																<i class="fa fa-trash-o" aria-hidden="true"></i> Xóa
+															</a>
+														</div>
+													</div>
+												</div>
+										#}#
+								</script>
 							</div>
-
-							#
-							$.ajax({
-							url : "${api.server}/dossiers/${dossierId}/files/"+dossierFile.referenceUid+"/formscript",
-							dataType : "text",
-							type : "GET",
-							headers : {"groupId": ${groupId}},
-							success : function(result){
-							$("\\#formPartNo"+id).empty();
-							var alpaca1 = eval("(" + result + ")");
-							var formdata = fnGetFormData(${dossierId},dossierFile.referenceUid);
-
-						alpaca1.data = formdata;
-
-						$("\\#formPartNo"+id).alpaca(alpaca1);
-
-						<#-- $("\\#formPartNo"+id).append('<div class="row"><div class="col-xs-12 col-sm-12 "><button id="btn-save-formalpaca'+id+'" class="btn btn-active MB10 MT10 saveForm" type="button" data-pk="'+id+'" referentUid="'+referentUidFile+'">Ghi lại</button></div></div>'); -->
-
-					},
-					error : function(result){
-
-				}
-			});
-		}#
-
-		#}#
-	</script>
+							<div class="clear"></div>
+						</div>
+					</div>
+			</div>
 </div>
 </form>
 </div>
@@ -965,13 +1027,13 @@
 	var arrIsChangeForm = [];
 
 	var fnCheckIsChangeForm = function(){
-		if (arrIsChangeForm) {
-			for (var i = 0; i < arrIsChangeForm.length; i++) {
-				if(!arrIsChangeForm[i].isSave){
-					return arrIsChangeForm[i];
-				}
-			}
-		}
+		// if (arrIsChangeForm) {
+		// 	for (var i = 0; i < arrIsChangeForm.length; i++) {
+		// 		if(!arrIsChangeForm[i].isSave){
+		// 			return arrIsChangeForm[i];
+		// 		}
+		// 	}
+		// }
 
 		return null;
 	}
@@ -1358,6 +1420,31 @@
 		}
 	});
 
+	var indexDossiserPart2 =0 ;
+		$("#lsDossierTemplPart2").kendoListView({
+			dataSource : dataSourceDossierTemplate,
+			autoBind : false,
+			change : function(){
+
+			},
+			template : function(data){
+
+				
+				if(data.partType === 1 && !data['hasForm']){
+					indexDossiserPart2 ++;
+				}
+
+				data['itemIndex2'] = indexDossiserPart2;
+
+				return kendo.template($("#templateDossierPart2").html())(data);
+
+			},
+			dataBound : function(){
+				indexDossiserPart2 = 0;
+				funDossierFile("${dossierId}",funGenNumberFile);
+			}
+		});
+
 printDetailDossier(${dossierId});
 
 var funUploadFile = function(file, partNo , dossierTemplateNo , fileTemplateNo){
@@ -1372,6 +1459,7 @@ var funUploadFile = function(file, partNo , dossierTemplateNo , fileTemplateNo){
 	data.append('formData', "");
 	data.append('isSync', "true");
 	data.append('fileType', "");
+	data.append('formDataDossierFile', "");
 	//data.append('deliverableCode', "");
 
 	$.ajax({
@@ -1591,6 +1679,8 @@ var getReferentUidFile = function(dossierId,dossierPartNo){
 
 var fnGetFormData = function(dossierId,referentUid){
 	var value = null;
+	var expireCertificateId = window.sessionStorage.getItem('expireCertificateId');
+	$('#expireCertificateId_hidden').val(expireCertificateId)
 	if(dossierId && referentUid){
 		$.ajax({
 			url : "${api.server}/dossiers/"+dossierId+"/files/"+referentUid+"/formdata",
@@ -1664,13 +1754,23 @@ $(document).on("click",".saveFormAlpaca",function(event){
 	if(formType !== "dklr"){
 		value = $("#formPartNo"+id).alpaca('get').getValue();
 
-
+		var extendValue = $('.extendValueForm')
+		if (extendValue && extendValue['length']) {
+			for (var i = 0; i < extendValue.length; i++) {
+				var key = $(extendValue[i]).attr('key')
+				if (key) {
+					value[key] = $(extendValue[i]).val()
+				}
+				
+			}
+		}
+		
 		var errorMessage = '';
-		$("#formPartNo"+id+' div[class*="has-error"] > label').each(function( index ) {
+		// $("#formPartNo"+id+' div[class*="has-error"] > label').each(function( index ) {
 
-			errorMessage = "notValid";
+		// 	errorMessage = "notValid";
 
-		});
+		// });
 
 		if(errorMessage === '' && referentUidFile){
 
@@ -1715,6 +1815,12 @@ $(document).on("click",".saveFormAlpaca",function(event){
 				message: "Vui lòng kiểm tra lại các thông tin bắt buộc trước khi ghi lại!"
 			}, "error");
 		}
+	}
+
+	if ("${dossier.dossierTemplateNo}" === 'TT302011BGTVTCOP' && id === 'TP99') {
+		$('#thoi_han_kiem_tra_from').val($('#ngay_kiem_tra').val())
+		$('#thoi_han_kiem_tra_to').val($('#ngay_kiem_tra_to').val())
+		$('#btn-save-formalpacaTP1').click()
 	}
 
 });
@@ -1980,11 +2086,7 @@ $("#btn-sendadd-dossier-header,#btn-sendadd-dossier-footer").click(function(){
 	var validateDossierTemplate = fnCheckValidTemplate();
 
 	if(!validateDossierTemplate){
-		notification.show({
-			message: "Vui lòng kiểm tra lại các thông tin bắt buộc của các thành phần hồ sơ!"
-		}, "error");
-
-		return false;
+		$('.saveFormAlpaca').click()
 	}
 
 	var cf = fnConfirm("Thông báo",
@@ -2029,7 +2131,15 @@ $("#btn-submit-dossier,#btn-submit-dossier-header").click(function(){
 
 	var validateDossierTemplate = fnCheckValidTemplate();
 
-	if(!validateDossierTemplate){
+	// check valid Thời gian dự kiến kiểm tra *
+	let validTp99 = $("#validPartTP99").val()
+	if ("${dossier.dossierStatus}" === 'waiting_3' && validTp99 === '0') {
+		notification.show({
+			message: "Bạn vui lòng lưu lại mục thời gian dự kiến kiểm tra!"
+		}, "error");
+
+		return false;
+	} else if(!validateDossierTemplate && "${dossier.dossierStatus}" !== 'waiting_3'){
 		notification.show({
 			message: "Vui lòng kiểm tra lại các thông tin bắt buộc của các thành phần hồ sơ!"
 		}, "error");
@@ -2112,8 +2222,9 @@ $("#btn-submit-dossier,#btn-submit-dossier-header").click(function(){
 								}catch(e){
 
 								}
-
-								$("#lsDossierTemplPart").getKendoListView().refresh();
+								if ($("#lsDossierTemplPart").getKendoListView()) {
+									$("#lsDossierTemplPart").getKendoListView().refresh();
+								}
 
 								printDetailDossier(${dossierId});
 							},

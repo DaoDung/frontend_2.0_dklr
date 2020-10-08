@@ -140,10 +140,10 @@ public class VRDossierFileModelImpl extends BaseModelImpl<VRDossierFile>
 	public static final String TX_MANAGER = "liferayTransactionManager";
 	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.fds.vr.service.util.ServiceProps.get(
 				"value.object.entity.cache.enabled.com.fds.vr.business.model.VRDossierFile"),
-			true);
+			false);
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.fds.vr.service.util.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.fds.vr.business.model.VRDossierFile"),
-			true);
+			false);
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.fds.vr.service.util.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.fds.vr.business.model.VRDossierFile"),
 			true);

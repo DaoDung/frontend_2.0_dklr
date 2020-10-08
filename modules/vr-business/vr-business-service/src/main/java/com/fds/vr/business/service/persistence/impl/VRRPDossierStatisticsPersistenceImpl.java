@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -4206,6 +4207,8 @@ public class VRRPDossierStatisticsPersistenceImpl extends BasePersistenceImpl<VR
 		vrrpDossierStatisticsImpl.setMen2cancelled(vrrpDossierStatistics.getMen2cancelled());
 		vrrpDossierStatisticsImpl.setMen2expired(vrrpDossierStatistics.getMen2expired());
 		vrrpDossierStatisticsImpl.setMen2violated(vrrpDossierStatistics.getMen2violated());
+		vrrpDossierStatisticsImpl.setDossierPaymentDate(vrrpDossierStatistics.getDossierPaymentDate());
+		vrrpDossierStatisticsImpl.setMen2PaymentApproval(vrrpDossierStatistics.getMen2PaymentApproval());
 		vrrpDossierStatisticsImpl.setModifyDate(vrrpDossierStatistics.getModifyDate());
 		vrrpDossierStatisticsImpl.setSyncDate(vrrpDossierStatistics.getSyncDate());
 
@@ -4595,6 +4598,11 @@ public class VRRPDossierStatisticsPersistenceImpl extends BasePersistenceImpl<VR
 	}
 
 	@Override
+	public Set<String> getBadColumnNames() {
+		return _badColumnNames;
+	}
+
+	@Override
 	protected Map<String, Integer> getTableColumnsMap() {
 		return VRRPDossierStatisticsModelImpl.TABLE_COLUMNS_MAP;
 	}
@@ -4625,4 +4633,7 @@ public class VRRPDossierStatisticsPersistenceImpl extends BasePersistenceImpl<VR
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No VRRPDossierStatistics exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No VRRPDossierStatistics exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(VRRPDossierStatisticsPersistenceImpl.class);
+	private static final Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
+				"dossierPaymentDate", "men2PaymentApproval"
+			});
 }

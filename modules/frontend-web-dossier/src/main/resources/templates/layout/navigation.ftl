@@ -41,6 +41,34 @@
         <div slot="header">BÁO CÁO THỐNG KÊ</div>
         <div class="flex xs12 tracuu-dossier-navigation" jx-bind="listgroupBaoCaoFilter"></div>
       </v-expansion-panel-content>
+
+      <v-expansion-panel-content :key="5">
+        <div slot="header">Xuất xưởng</div>
+        <div class="flex xs12 tracuu-dossier-navigation">
+          <v-list>
+            <v-list-tile avatar v-for="(item, index2) in groupXuatXuong" v-bind:key="item.title" @click="groupXuatXuongFilter(item)">
+              <v-list-tile-content>
+                <v-list-tile-title>{{item.title}}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </div>
+      </v-expansion-panel-content>
+
+      <v-expansion-panel-content :key="6">
+        <div slot="header" @click="chuyenDoiDuLieu()">Chuyển đổi dữ liệu</div>
+        <div class="flex xs12 tracuu-dossier-navigation">
+          <v-list>
+            <#-- <v-list-tile avatar @click="chuyenDoiDuLieu()">
+              <v-list-tile-content>
+                <v-list-tile-title>{{item.title}}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile> -->
+          </v-list>
+        </div>
+      </v-expansion-panel-content>
+
+      
     </v-expansion-panel>
   </div>
 </div>

@@ -460,7 +460,8 @@ public class VRTechnicalSpec_XDDModelImpl extends BaseModelImpl<VRTechnicalSpec_
 	public static final long DOSSIERNO_COLUMN_BITMASK = 16L;
 	public static final long MTCORE_COLUMN_BITMASK = 32L;
 	public static final long REFERENCEUID_COLUMN_BITMASK = 64L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 128L;
+	public static final long VEHICLETYPECERTIFICATEID_COLUMN_BITMASK = 128L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRTechnicalSpec_XDD"));
 
@@ -1983,7 +1984,19 @@ public class VRTechnicalSpec_XDDModelImpl extends BaseModelImpl<VRTechnicalSpec_
 
 	@Override
 	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_columnBitmask |= VEHICLETYPECERTIFICATEID_COLUMN_BITMASK;
+
+		if (!_setOriginalVehicleTypeCertificateId) {
+			_setOriginalVehicleTypeCertificateId = true;
+
+			_originalVehicleTypeCertificateId = _vehicleTypeCertificateId;
+		}
+
 		_vehicleTypeCertificateId = vehicleTypeCertificateId;
+	}
+
+	public long getOriginalVehicleTypeCertificateId() {
+		return _originalVehicleTypeCertificateId;
 	}
 
 	@Override
@@ -4901,6 +4914,10 @@ public class VRTechnicalSpec_XDDModelImpl extends BaseModelImpl<VRTechnicalSpec_
 
 		vrTechnicalSpec_XDDModelImpl._originalDeliverableCode = vrTechnicalSpec_XDDModelImpl._deliverableCode;
 
+		vrTechnicalSpec_XDDModelImpl._originalVehicleTypeCertificateId = vrTechnicalSpec_XDDModelImpl._vehicleTypeCertificateId;
+
+		vrTechnicalSpec_XDDModelImpl._setOriginalVehicleTypeCertificateId = false;
+
 		vrTechnicalSpec_XDDModelImpl._columnBitmask = 0;
 	}
 
@@ -7505,6 +7522,8 @@ public class VRTechnicalSpec_XDDModelImpl extends BaseModelImpl<VRTechnicalSpec_
 	private String _deliverableCode;
 	private String _originalDeliverableCode;
 	private long _vehicleTypeCertificateId;
+	private long _originalVehicleTypeCertificateId;
+	private boolean _setOriginalVehicleTypeCertificateId;
 	private String _XDD01001;
 	private String _XDD01002;
 	private String _XDD01003;

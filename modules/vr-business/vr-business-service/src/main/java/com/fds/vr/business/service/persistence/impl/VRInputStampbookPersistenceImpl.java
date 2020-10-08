@@ -84,6 +84,685 @@ public class VRInputStampbookPersistenceImpl extends BasePersistenceImpl<VRInput
 	public static final FinderPath FINDER_PATH_COUNT_ALL = new FinderPath(VRInputStampbookModelImpl.ENTITY_CACHE_ENABLED,
 			VRInputStampbookModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll", new String[0]);
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLECLASS_STAMPTYPE_SUM3 =
+		new FinderPath(VRInputStampbookModelImpl.ENTITY_CACHE_ENABLED,
+			VRInputStampbookModelImpl.FINDER_CACHE_ENABLED,
+			VRInputStampbookImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByvehicleClass_stampType_sum3",
+			new String[] {
+				String.class.getName(), String.class.getName(),
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_COUNT_BY_VEHICLECLASS_STAMPTYPE_SUM3 =
+		new FinderPath(VRInputStampbookModelImpl.ENTITY_CACHE_ENABLED,
+			VRInputStampbookModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"countByvehicleClass_stampType_sum3",
+			new String[] {
+				String.class.getName(), String.class.getName(),
+				Long.class.getName()
+			});
+
+	/**
+	 * Returns all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @return the matching vr input stampbooks
+	 */
+	@Override
+	public List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		String vehicleClass, String stampType, long sum3) {
+		return findByvehicleClass_stampType_sum3(vehicleClass, stampType, sum3,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRInputStampbookModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param start the lower bound of the range of vr input stampbooks
+	 * @param end the upper bound of the range of vr input stampbooks (not inclusive)
+	 * @return the range of matching vr input stampbooks
+	 */
+	@Override
+	public List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		String vehicleClass, String stampType, long sum3, int start, int end) {
+		return findByvehicleClass_stampType_sum3(vehicleClass, stampType, sum3,
+			start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRInputStampbookModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param start the lower bound of the range of vr input stampbooks
+	 * @param end the upper bound of the range of vr input stampbooks (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching vr input stampbooks
+	 */
+	@Override
+	public List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		String vehicleClass, String stampType, long sum3, int start, int end,
+		OrderByComparator<VRInputStampbook> orderByComparator) {
+		return findByvehicleClass_stampType_sum3(vehicleClass, stampType, sum3,
+			start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRInputStampbookModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param start the lower bound of the range of vr input stampbooks
+	 * @param end the upper bound of the range of vr input stampbooks (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching vr input stampbooks
+	 */
+	@Override
+	public List<VRInputStampbook> findByvehicleClass_stampType_sum3(
+		String vehicleClass, String stampType, long sum3, int start, int end,
+		OrderByComparator<VRInputStampbook> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLECLASS_STAMPTYPE_SUM3;
+		finderArgs = new Object[] {
+				vehicleClass, stampType, sum3,
+				
+				start, end, orderByComparator
+			};
+
+		List<VRInputStampbook> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<VRInputStampbook>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (VRInputStampbook vrInputStampbook : list) {
+					if (!Objects.equals(vehicleClass,
+								vrInputStampbook.getVehicleClass()) ||
+							!Objects.equals(stampType,
+								vrInputStampbook.getStampType()) ||
+							(sum3 >= vrInputStampbook.getSum3())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(5 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(5);
+			}
+
+			query.append(_SQL_SELECT_VRINPUTSTAMPBOOK_WHERE);
+
+			boolean bindVehicleClass = false;
+
+			if (vehicleClass == null) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_1);
+			}
+			else if (vehicleClass.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_3);
+			}
+			else {
+				bindVehicleClass = true;
+
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_2);
+			}
+
+			boolean bindStampType = false;
+
+			if (stampType == null) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_1);
+			}
+			else if (stampType.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_3);
+			}
+			else {
+				bindStampType = true;
+
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_2);
+			}
+
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_SUM3_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(VRInputStampbookModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindVehicleClass) {
+					qPos.add(vehicleClass);
+				}
+
+				if (bindStampType) {
+					qPos.add(stampType);
+				}
+
+				qPos.add(sum3);
+
+				if (!pagination) {
+					list = (List<VRInputStampbook>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<VRInputStampbook>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr input stampbook
+	 * @throws NoSuchVRInputStampbookException if a matching vr input stampbook could not be found
+	 */
+	@Override
+	public VRInputStampbook findByvehicleClass_stampType_sum3_First(
+		String vehicleClass, String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator)
+		throws NoSuchVRInputStampbookException {
+		VRInputStampbook vrInputStampbook = fetchByvehicleClass_stampType_sum3_First(vehicleClass,
+				stampType, sum3, orderByComparator);
+
+		if (vrInputStampbook != null) {
+			return vrInputStampbook;
+		}
+
+		StringBundler msg = new StringBundler(8);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("vehicleClass=");
+		msg.append(vehicleClass);
+
+		msg.append(", stampType=");
+		msg.append(stampType);
+
+		msg.append(", sum3=");
+		msg.append(sum3);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRInputStampbookException(msg.toString());
+	}
+
+	/**
+	 * Returns the first vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr input stampbook, or <code>null</code> if a matching vr input stampbook could not be found
+	 */
+	@Override
+	public VRInputStampbook fetchByvehicleClass_stampType_sum3_First(
+		String vehicleClass, String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator) {
+		List<VRInputStampbook> list = findByvehicleClass_stampType_sum3(vehicleClass,
+				stampType, sum3, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr input stampbook
+	 * @throws NoSuchVRInputStampbookException if a matching vr input stampbook could not be found
+	 */
+	@Override
+	public VRInputStampbook findByvehicleClass_stampType_sum3_Last(
+		String vehicleClass, String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator)
+		throws NoSuchVRInputStampbookException {
+		VRInputStampbook vrInputStampbook = fetchByvehicleClass_stampType_sum3_Last(vehicleClass,
+				stampType, sum3, orderByComparator);
+
+		if (vrInputStampbook != null) {
+			return vrInputStampbook;
+		}
+
+		StringBundler msg = new StringBundler(8);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("vehicleClass=");
+		msg.append(vehicleClass);
+
+		msg.append(", stampType=");
+		msg.append(stampType);
+
+		msg.append(", sum3=");
+		msg.append(sum3);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRInputStampbookException(msg.toString());
+	}
+
+	/**
+	 * Returns the last vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr input stampbook, or <code>null</code> if a matching vr input stampbook could not be found
+	 */
+	@Override
+	public VRInputStampbook fetchByvehicleClass_stampType_sum3_Last(
+		String vehicleClass, String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator) {
+		int count = countByvehicleClass_stampType_sum3(vehicleClass, stampType,
+				sum3);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<VRInputStampbook> list = findByvehicleClass_stampType_sum3(vehicleClass,
+				stampType, sum3, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the vr input stampbooks before and after the current vr input stampbook in the ordered set where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param id the primary key of the current vr input stampbook
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next vr input stampbook
+	 * @throws NoSuchVRInputStampbookException if a vr input stampbook with the primary key could not be found
+	 */
+	@Override
+	public VRInputStampbook[] findByvehicleClass_stampType_sum3_PrevAndNext(
+		long id, String vehicleClass, String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator)
+		throws NoSuchVRInputStampbookException {
+		VRInputStampbook vrInputStampbook = findByPrimaryKey(id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			VRInputStampbook[] array = new VRInputStampbookImpl[3];
+
+			array[0] = getByvehicleClass_stampType_sum3_PrevAndNext(session,
+					vrInputStampbook, vehicleClass, stampType, sum3,
+					orderByComparator, true);
+
+			array[1] = vrInputStampbook;
+
+			array[2] = getByvehicleClass_stampType_sum3_PrevAndNext(session,
+					vrInputStampbook, vehicleClass, stampType, sum3,
+					orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected VRInputStampbook getByvehicleClass_stampType_sum3_PrevAndNext(
+		Session session, VRInputStampbook vrInputStampbook,
+		String vehicleClass, String stampType, long sum3,
+		OrderByComparator<VRInputStampbook> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(6 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(5);
+		}
+
+		query.append(_SQL_SELECT_VRINPUTSTAMPBOOK_WHERE);
+
+		boolean bindVehicleClass = false;
+
+		if (vehicleClass == null) {
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_1);
+		}
+		else if (vehicleClass.equals(StringPool.BLANK)) {
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_3);
+		}
+		else {
+			bindVehicleClass = true;
+
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_2);
+		}
+
+		boolean bindStampType = false;
+
+		if (stampType == null) {
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_1);
+		}
+		else if (stampType.equals(StringPool.BLANK)) {
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_3);
+		}
+		else {
+			bindStampType = true;
+
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_2);
+		}
+
+		query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_SUM3_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(VRInputStampbookModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		if (bindVehicleClass) {
+			qPos.add(vehicleClass);
+		}
+
+		if (bindStampType) {
+			qPos.add(stampType);
+		}
+
+		qPos.add(sum3);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(vrInputStampbook);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<VRInputStampbook> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63; from the database.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 */
+	@Override
+	public void removeByvehicleClass_stampType_sum3(String vehicleClass,
+		String stampType, long sum3) {
+		for (VRInputStampbook vrInputStampbook : findByvehicleClass_stampType_sum3(
+				vehicleClass, stampType, sum3, QueryUtil.ALL_POS,
+				QueryUtil.ALL_POS, null)) {
+			remove(vrInputStampbook);
+		}
+	}
+
+	/**
+	 * Returns the number of vr input stampbooks where vehicleClass = &#63; and stampType = &#63; and sum3 &gt; &#63;.
+	 *
+	 * @param vehicleClass the vehicle class
+	 * @param stampType the stamp type
+	 * @param sum3 the sum3
+	 * @return the number of matching vr input stampbooks
+	 */
+	@Override
+	public int countByvehicleClass_stampType_sum3(String vehicleClass,
+		String stampType, long sum3) {
+		FinderPath finderPath = FINDER_PATH_WITH_PAGINATION_COUNT_BY_VEHICLECLASS_STAMPTYPE_SUM3;
+
+		Object[] finderArgs = new Object[] { vehicleClass, stampType, sum3 };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(4);
+
+			query.append(_SQL_COUNT_VRINPUTSTAMPBOOK_WHERE);
+
+			boolean bindVehicleClass = false;
+
+			if (vehicleClass == null) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_1);
+			}
+			else if (vehicleClass.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_3);
+			}
+			else {
+				bindVehicleClass = true;
+
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_2);
+			}
+
+			boolean bindStampType = false;
+
+			if (stampType == null) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_1);
+			}
+			else if (stampType.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_3);
+			}
+			else {
+				bindStampType = true;
+
+				query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_2);
+			}
+
+			query.append(_FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_SUM3_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindVehicleClass) {
+					qPos.add(vehicleClass);
+				}
+
+				if (bindStampType) {
+					qPos.add(stampType);
+				}
+
+				qPos.add(sum3);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_1 =
+		"vrInputStampbook.vehicleClass IS NULL AND ";
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_2 =
+		"vrInputStampbook.vehicleClass = ? AND ";
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_VEHICLECLASS_3 =
+		"(vrInputStampbook.vehicleClass IS NULL OR vrInputStampbook.vehicleClass = '') AND ";
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_1 =
+		"vrInputStampbook.stampType IS NULL AND ";
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_2 =
+		"vrInputStampbook.stampType = ? AND ";
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_STAMPTYPE_3 =
+		"(vrInputStampbook.stampType IS NULL OR vrInputStampbook.stampType = '') AND ";
+	private static final String _FINDER_COLUMN_VEHICLECLASS_STAMPTYPE_SUM3_SUM3_2 =
+		"vrInputStampbook.sum3 > ?";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_INPUTSHEETID =
 		new FinderPath(VRInputStampbookModelImpl.ENTITY_CACHE_ENABLED,
 			VRInputStampbookModelImpl.FINDER_CACHE_ENABLED,

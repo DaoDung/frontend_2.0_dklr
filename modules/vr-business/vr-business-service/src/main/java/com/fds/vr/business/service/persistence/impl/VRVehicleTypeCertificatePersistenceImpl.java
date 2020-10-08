@@ -34,7 +34,6 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -3590,87 +3589,97 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		"vrVehicleTypeCertificate.productionPlantCode = ?";
 	private static final String _FINDER_COLUMN_APPLICANTANDPRODUCTIONPLANT_PRODUCTIONPLANTCODE_3 =
 		"(vrVehicleTypeCertificate.productionPlantCode IS NULL OR vrVehicleTypeCertificate.productionPlantCode = '')";
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIER = new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERNO_MTCORE =
+		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
 			VRVehicleTypeCertificateImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByDossier",
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByDossierNo_MtCore",
 			new String[] {
-				String.class.getName(),
+				String.class.getName(), Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIER =
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO_MTCORE =
 		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
 			VRVehicleTypeCertificateImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByDossier",
-			new String[] { String.class.getName() },
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findByDossierNo_MtCore",
+			new String[] { String.class.getName(), Long.class.getName() },
 			VRVehicleTypeCertificateModelImpl.DOSSIERNO_COLUMN_BITMASK |
+			VRVehicleTypeCertificateModelImpl.MTCORE_COLUMN_BITMASK |
 			VRVehicleTypeCertificateModelImpl.MODIFYDATE_COLUMN_BITMASK);
-	public static final FinderPath FINDER_PATH_COUNT_BY_DOSSIER = new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_COUNT_BY_DOSSIERNO_MTCORE = new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByDossier",
-			new String[] { String.class.getName() });
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByDossierNo_MtCore",
+			new String[] { String.class.getName(), Long.class.getName() });
 
 	/**
-	 * Returns all the vr vehicle type certificates where dossierNo = &#63;.
+	 * Returns all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @return the matching vr vehicle type certificates
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossier(String dossierNo) {
-		return findByDossier(dossierNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
-			null);
+	public List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		String dossierNo, long mtCore) {
+		return findByDossierNo_MtCore(dossierNo, mtCore, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns a range of all the vr vehicle type certificates where dossierNo = &#63;.
+	 * Returns a range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param start the lower bound of the range of vr vehicle type certificates
 	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
 	 * @return the range of matching vr vehicle type certificates
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossier(String dossierNo,
-		int start, int end) {
-		return findByDossier(dossierNo, start, end, null);
+	public List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		String dossierNo, long mtCore, int start, int end) {
+		return findByDossierNo_MtCore(dossierNo, mtCore, start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63;.
+	 * Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param start the lower bound of the range of vr vehicle type certificates
 	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching vr vehicle type certificates
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossier(String dossierNo,
-		int start, int end,
+	public List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		String dossierNo, long mtCore, int start, int end,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return findByDossier(dossierNo, start, end, orderByComparator, true);
+		return findByDossierNo_MtCore(dossierNo, mtCore, start, end,
+			orderByComparator, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63;.
+	 * Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param start the lower bound of the range of vr vehicle type certificates
 	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -3678,8 +3687,8 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	 * @return the ordered range of matching vr vehicle type certificates
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossier(String dossierNo,
-		int start, int end,
+	public List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		String dossierNo, long mtCore, int start, int end,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
 		boolean retrieveFromCache) {
 		boolean pagination = true;
@@ -3689,12 +3698,16 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
 				(orderByComparator == null)) {
 			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIER;
-			finderArgs = new Object[] { dossierNo };
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO_MTCORE;
+			finderArgs = new Object[] { dossierNo, mtCore };
 		}
 		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIER;
-			finderArgs = new Object[] { dossierNo, start, end, orderByComparator };
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERNO_MTCORE;
+			finderArgs = new Object[] {
+					dossierNo, mtCore,
+					
+					start, end, orderByComparator
+				};
 		}
 
 		List<VRVehicleTypeCertificate> list = null;
@@ -3706,7 +3719,8 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			if ((list != null) && !list.isEmpty()) {
 				for (VRVehicleTypeCertificate vrVehicleTypeCertificate : list) {
 					if (!Objects.equals(dossierNo,
-								vrVehicleTypeCertificate.getDossierNo())) {
+								vrVehicleTypeCertificate.getDossierNo()) ||
+							(mtCore != vrVehicleTypeCertificate.getMtCore())) {
 						list = null;
 
 						break;
@@ -3719,11 +3733,11 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			StringBundler query = null;
 
 			if (orderByComparator != null) {
-				query = new StringBundler(3 +
+				query = new StringBundler(4 +
 						(orderByComparator.getOrderByFields().length * 2));
 			}
 			else {
-				query = new StringBundler(3);
+				query = new StringBundler(4);
 			}
 
 			query.append(_SQL_SELECT_VRVEHICLETYPECERTIFICATE_WHERE);
@@ -3731,16 +3745,18 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			boolean bindDossierNo = false;
 
 			if (dossierNo == null) {
-				query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_1);
+				query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_1);
 			}
 			else if (dossierNo.equals(StringPool.BLANK)) {
-				query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_3);
+				query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_3);
 			}
 			else {
 				bindDossierNo = true;
 
-				query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_2);
+				query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_2);
 			}
+
+			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_MTCORE_2);
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
@@ -3765,6 +3781,8 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 				if (bindDossierNo) {
 					qPos.add(dossierNo);
 				}
+
+				qPos.add(mtCore);
 
 				if (!pagination) {
 					list = (List<VRVehicleTypeCertificate>)QueryUtil.list(q,
@@ -3797,30 +3815,35 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
-	 * Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	 * Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching vr vehicle type certificate
 	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public VRVehicleTypeCertificate findByDossier_First(String dossierNo,
+	public VRVehicleTypeCertificate findByDossierNo_MtCore_First(
+		String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
 		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossier_First(dossierNo,
-				orderByComparator);
+		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierNo_MtCore_First(dossierNo,
+				mtCore, orderByComparator);
 
 		if (vrVehicleTypeCertificate != null) {
 			return vrVehicleTypeCertificate;
 		}
 
-		StringBundler msg = new StringBundler(4);
+		StringBundler msg = new StringBundler(6);
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
 		msg.append("dossierNo=");
 		msg.append(dossierNo);
+
+		msg.append(", mtCore=");
+		msg.append(mtCore);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -3828,17 +3851,19 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
-	 * Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	 * Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public VRVehicleTypeCertificate fetchByDossier_First(String dossierNo,
+	public VRVehicleTypeCertificate fetchByDossierNo_MtCore_First(
+		String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		List<VRVehicleTypeCertificate> list = findByDossier(dossierNo, 0, 1,
-				orderByComparator);
+		List<VRVehicleTypeCertificate> list = findByDossierNo_MtCore(dossierNo,
+				mtCore, 0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -3848,30 +3873,35 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
-	 * Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	 * Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching vr vehicle type certificate
 	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public VRVehicleTypeCertificate findByDossier_Last(String dossierNo,
+	public VRVehicleTypeCertificate findByDossierNo_MtCore_Last(
+		String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
 		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossier_Last(dossierNo,
-				orderByComparator);
+		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierNo_MtCore_Last(dossierNo,
+				mtCore, orderByComparator);
 
 		if (vrVehicleTypeCertificate != null) {
 			return vrVehicleTypeCertificate;
 		}
 
-		StringBundler msg = new StringBundler(4);
+		StringBundler msg = new StringBundler(6);
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
 		msg.append("dossierNo=");
 		msg.append(dossierNo);
+
+		msg.append(", mtCore=");
+		msg.append(mtCore);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -3879,23 +3909,25 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
-	 * Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	 * Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public VRVehicleTypeCertificate fetchByDossier_Last(String dossierNo,
+	public VRVehicleTypeCertificate fetchByDossierNo_MtCore_Last(
+		String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		int count = countByDossier(dossierNo);
+		int count = countByDossierNo_MtCore(dossierNo, mtCore);
 
 		if (count == 0) {
 			return null;
 		}
 
-		List<VRVehicleTypeCertificate> list = findByDossier(dossierNo,
-				count - 1, count, orderByComparator);
+		List<VRVehicleTypeCertificate> list = findByDossierNo_MtCore(dossierNo,
+				mtCore, count - 1, count, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -3905,17 +3937,18 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
-	 * Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	 * Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param id the primary key of the current vr vehicle type certificate
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next vr vehicle type certificate
 	 * @throws NoSuchVRVehicleTypeCertificateException if a vr vehicle type certificate with the primary key could not be found
 	 */
 	@Override
-	public VRVehicleTypeCertificate[] findByDossier_PrevAndNext(long id,
-		String dossierNo,
+	public VRVehicleTypeCertificate[] findByDossierNo_MtCore_PrevAndNext(
+		long id, String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
 		throws NoSuchVRVehicleTypeCertificateException {
 		VRVehicleTypeCertificate vrVehicleTypeCertificate = findByPrimaryKey(id);
@@ -3927,14 +3960,15 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 
 			VRVehicleTypeCertificate[] array = new VRVehicleTypeCertificateImpl[3];
 
-			array[0] = getByDossier_PrevAndNext(session,
-					vrVehicleTypeCertificate, dossierNo, orderByComparator, true);
+			array[0] = getByDossierNo_MtCore_PrevAndNext(session,
+					vrVehicleTypeCertificate, dossierNo, mtCore,
+					orderByComparator, true);
 
 			array[1] = vrVehicleTypeCertificate;
 
-			array[2] = getByDossier_PrevAndNext(session,
-					vrVehicleTypeCertificate, dossierNo, orderByComparator,
-					false);
+			array[2] = getByDossierNo_MtCore_PrevAndNext(session,
+					vrVehicleTypeCertificate, dossierNo, mtCore,
+					orderByComparator, false);
 
 			return array;
 		}
@@ -3946,20 +3980,20 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		}
 	}
 
-	protected VRVehicleTypeCertificate getByDossier_PrevAndNext(
+	protected VRVehicleTypeCertificate getByDossierNo_MtCore_PrevAndNext(
 		Session session, VRVehicleTypeCertificate vrVehicleTypeCertificate,
-		String dossierNo,
+		String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
 		boolean previous) {
 		StringBundler query = null;
 
 		if (orderByComparator != null) {
-			query = new StringBundler(4 +
+			query = new StringBundler(5 +
 					(orderByComparator.getOrderByConditionFields().length * 3) +
 					(orderByComparator.getOrderByFields().length * 3));
 		}
 		else {
-			query = new StringBundler(3);
+			query = new StringBundler(4);
 		}
 
 		query.append(_SQL_SELECT_VRVEHICLETYPECERTIFICATE_WHERE);
@@ -3967,16 +4001,18 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		boolean bindDossierNo = false;
 
 		if (dossierNo == null) {
-			query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_1);
+			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_1);
 		}
 		else if (dossierNo.equals(StringPool.BLANK)) {
-			query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_3);
+			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_3);
 		}
 		else {
 			bindDossierNo = true;
 
-			query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_2);
+			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_2);
 		}
+
+		query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_MTCORE_2);
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -4050,6 +4086,8 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			qPos.add(dossierNo);
 		}
 
+		qPos.add(mtCore);
+
 		if (orderByComparator != null) {
 			Object[] values = orderByComparator.getOrderByConditionValues(vrVehicleTypeCertificate);
 
@@ -4069,50 +4107,54 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
-	 * Removes all the vr vehicle type certificates where dossierNo = &#63; from the database.
+	 * Removes all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63; from the database.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 */
 	@Override
-	public void removeByDossier(String dossierNo) {
-		for (VRVehicleTypeCertificate vrVehicleTypeCertificate : findByDossier(
-				dossierNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+	public void removeByDossierNo_MtCore(String dossierNo, long mtCore) {
+		for (VRVehicleTypeCertificate vrVehicleTypeCertificate : findByDossierNo_MtCore(
+				dossierNo, mtCore, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(vrVehicleTypeCertificate);
 		}
 	}
 
 	/**
-	 * Returns the number of vr vehicle type certificates where dossierNo = &#63;.
+	 * Returns the number of vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	 *
 	 * @param dossierNo the dossier no
+	 * @param mtCore the mt core
 	 * @return the number of matching vr vehicle type certificates
 	 */
 	@Override
-	public int countByDossier(String dossierNo) {
-		FinderPath finderPath = FINDER_PATH_COUNT_BY_DOSSIER;
+	public int countByDossierNo_MtCore(String dossierNo, long mtCore) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_DOSSIERNO_MTCORE;
 
-		Object[] finderArgs = new Object[] { dossierNo };
+		Object[] finderArgs = new Object[] { dossierNo, mtCore };
 
 		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
 
 		if (count == null) {
-			StringBundler query = new StringBundler(2);
+			StringBundler query = new StringBundler(3);
 
 			query.append(_SQL_COUNT_VRVEHICLETYPECERTIFICATE_WHERE);
 
 			boolean bindDossierNo = false;
 
 			if (dossierNo == null) {
-				query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_1);
+				query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_1);
 			}
 			else if (dossierNo.equals(StringPool.BLANK)) {
-				query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_3);
+				query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_3);
 			}
 			else {
 				bindDossierNo = true;
 
-				query.append(_FINDER_COLUMN_DOSSIER_DOSSIERNO_2);
+				query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_2);
 			}
+
+			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_MTCORE_2);
 
 			String sql = query.toString();
 
@@ -4128,6 +4170,8 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 				if (bindDossierNo) {
 					qPos.add(dossierNo);
 				}
+
+				qPos.add(mtCore);
 
 				count = (Long)q.uniqueResult();
 
@@ -4146,9 +4190,10 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		return count.intValue();
 	}
 
-	private static final String _FINDER_COLUMN_DOSSIER_DOSSIERNO_1 = "vrVehicleTypeCertificate.dossierNo IS NULL";
-	private static final String _FINDER_COLUMN_DOSSIER_DOSSIERNO_2 = "vrVehicleTypeCertificate.dossierNo = ?";
-	private static final String _FINDER_COLUMN_DOSSIER_DOSSIERNO_3 = "(vrVehicleTypeCertificate.dossierNo IS NULL OR vrVehicleTypeCertificate.dossierNo = '')";
+	private static final String _FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_1 = "vrVehicleTypeCertificate.dossierNo IS NULL AND ";
+	private static final String _FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_2 = "vrVehicleTypeCertificate.dossierNo = ? AND ";
+	private static final String _FINDER_COLUMN_DOSSIERNO_MTCORE_DOSSIERNO_3 = "(vrVehicleTypeCertificate.dossierNo IS NULL OR vrVehicleTypeCertificate.dossierNo = '') AND ";
+	private static final String _FINDER_COLUMN_DOSSIERNO_MTCORE_MTCORE_2 = "vrVehicleTypeCertificate.mtCore = ?";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_DELIVERABLECODE =
 		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
@@ -12958,168 +13003,104 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	private static final String _FINDER_COLUMN_APPLICANTANDSERVICE_APPLICANTIDNO_3 =
 		"(vrVehicleTypeCertificate.applicantIdNo IS NULL OR vrVehicleTypeCertificate.applicantIdNo = '') AND ";
 	private static final String _FINDER_COLUMN_APPLICANTANDSERVICE_MTCORE_2 = "vrVehicleTypeCertificate.mtCore = ?";
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERID =
-		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_FETCH_BY_DOSSIERID = new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
-			VRVehicleTypeCertificateImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByDossierId",
-			new String[] {
-				Long.class.getName(), Long.class.getName(),
-				
-			Integer.class.getName(), Integer.class.getName(),
-				OrderByComparator.class.getName()
-			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID =
-		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
-			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
-			VRVehicleTypeCertificateImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByDossierId",
+			VRVehicleTypeCertificateImpl.class, FINDER_CLASS_NAME_ENTITY,
+			"fetchByDossierId",
 			new String[] { Long.class.getName(), Long.class.getName() },
 			VRVehicleTypeCertificateModelImpl.DOSSIERID_COLUMN_BITMASK |
-			VRVehicleTypeCertificateModelImpl.MTCORE_COLUMN_BITMASK |
-			VRVehicleTypeCertificateModelImpl.MODIFYDATE_COLUMN_BITMASK);
+			VRVehicleTypeCertificateModelImpl.MTCORE_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_DOSSIERID = new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByDossierId",
 			new String[] { Long.class.getName(), Long.class.getName() });
 
 	/**
-	 * Returns all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
+	 * Returns the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; or throws a {@link NoSuchVRVehicleTypeCertificateException} if it could not be found.
 	 *
 	 * @param dossierId the dossier ID
 	 * @param mtCore the mt core
-	 * @return the matching vr vehicle type certificates
+	 * @return the matching vr vehicle type certificate
+	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossierId(long dossierId,
-		long mtCore) {
-		return findByDossierId(dossierId, mtCore, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, null);
+	public VRVehicleTypeCertificate findByDossierId(long dossierId, long mtCore)
+		throws NoSuchVRVehicleTypeCertificateException {
+		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierId(dossierId,
+				mtCore);
+
+		if (vrVehicleTypeCertificate == null) {
+			StringBundler msg = new StringBundler(6);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("dossierId=");
+			msg.append(dossierId);
+
+			msg.append(", mtCore=");
+			msg.append(mtCore);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(msg.toString());
+			}
+
+			throw new NoSuchVRVehicleTypeCertificateException(msg.toString());
+		}
+
+		return vrVehicleTypeCertificate;
 	}
 
 	/**
-	 * Returns a range of all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
+	 * Returns the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	 *
 	 * @param dossierId the dossier ID
 	 * @param mtCore the mt core
-	 * @param start the lower bound of the range of vr vehicle type certificates
-	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	 * @return the range of matching vr vehicle type certificates
+	 * @return the matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossierId(long dossierId,
-		long mtCore, int start, int end) {
-		return findByDossierId(dossierId, mtCore, start, end, null);
+	public VRVehicleTypeCertificate fetchByDossierId(long dossierId, long mtCore) {
+		return fetchByDossierId(dossierId, mtCore, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
+	 * Returns the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
 	 *
 	 * @param dossierId the dossier ID
 	 * @param mtCore the mt core
-	 * @param start the lower bound of the range of vr vehicle type certificates
-	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of matching vr vehicle type certificates
-	 */
-	@Override
-	public List<VRVehicleTypeCertificate> findByDossierId(long dossierId,
-		long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return findByDossierId(dossierId, mtCore, start, end,
-			orderByComparator, true);
-	}
-
-	/**
-	 * Returns an ordered range of all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dossierId the dossier ID
-	 * @param mtCore the mt core
-	 * @param start the lower bound of the range of vr vehicle type certificates
-	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @param retrieveFromCache whether to retrieve from the finder cache
-	 * @return the ordered range of matching vr vehicle type certificates
+	 * @return the matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	 */
 	@Override
-	public List<VRVehicleTypeCertificate> findByDossierId(long dossierId,
-		long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
-		boolean retrieveFromCache) {
-		boolean pagination = true;
-		FinderPath finderPath = null;
-		Object[] finderArgs = null;
+	public VRVehicleTypeCertificate fetchByDossierId(long dossierId,
+		long mtCore, boolean retrieveFromCache) {
+		Object[] finderArgs = new Object[] { dossierId, mtCore };
 
-		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
-				(orderByComparator == null)) {
-			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID;
-			finderArgs = new Object[] { dossierId, mtCore };
-		}
-		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERID;
-			finderArgs = new Object[] {
-					dossierId, mtCore,
-					
-					start, end, orderByComparator
-				};
-		}
-
-		List<VRVehicleTypeCertificate> list = null;
+		Object result = null;
 
 		if (retrieveFromCache) {
-			list = (List<VRVehicleTypeCertificate>)finderCache.getResult(finderPath,
+			result = finderCache.getResult(FINDER_PATH_FETCH_BY_DOSSIERID,
 					finderArgs, this);
+		}
 
-			if ((list != null) && !list.isEmpty()) {
-				for (VRVehicleTypeCertificate vrVehicleTypeCertificate : list) {
-					if ((dossierId != vrVehicleTypeCertificate.getDossierId()) ||
-							(mtCore != vrVehicleTypeCertificate.getMtCore())) {
-						list = null;
+		if (result instanceof VRVehicleTypeCertificate) {
+			VRVehicleTypeCertificate vrVehicleTypeCertificate = (VRVehicleTypeCertificate)result;
 
-						break;
-					}
-				}
+			if ((dossierId != vrVehicleTypeCertificate.getDossierId()) ||
+					(mtCore != vrVehicleTypeCertificate.getMtCore())) {
+				result = null;
 			}
 		}
 
-		if (list == null) {
-			StringBundler query = null;
-
-			if (orderByComparator != null) {
-				query = new StringBundler(4 +
-						(orderByComparator.getOrderByFields().length * 2));
-			}
-			else {
-				query = new StringBundler(4);
-			}
+		if (result == null) {
+			StringBundler query = new StringBundler(4);
 
 			query.append(_SQL_SELECT_VRVEHICLETYPECERTIFICATE_WHERE);
 
 			query.append(_FINDER_COLUMN_DOSSIERID_DOSSIERID_2);
 
 			query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_2);
-
-			if (orderByComparator != null) {
-				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
-					orderByComparator);
-			}
-			else
-			 if (pagination) {
-				query.append(VRVehicleTypeCertificateModelImpl.ORDER_BY_JPQL);
-			}
 
 			String sql = query.toString();
 
@@ -13136,25 +13117,40 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 
 				qPos.add(mtCore);
 
-				if (!pagination) {
-					list = (List<VRVehicleTypeCertificate>)QueryUtil.list(q,
-							getDialect(), start, end, false);
+				List<VRVehicleTypeCertificate> list = q.list();
 
-					Collections.sort(list);
-
-					list = Collections.unmodifiableList(list);
+				if (list.isEmpty()) {
+					finderCache.putResult(FINDER_PATH_FETCH_BY_DOSSIERID,
+						finderArgs, list);
 				}
 				else {
-					list = (List<VRVehicleTypeCertificate>)QueryUtil.list(q,
-							getDialect(), start, end);
+					if (list.size() > 1) {
+						Collections.sort(list, Collections.reverseOrder());
+
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"VRVehicleTypeCertificatePersistenceImpl.fetchByDossierId(long, long, boolean) with parameters (" +
+								StringUtil.merge(finderArgs) +
+								") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
+						}
+					}
+
+					VRVehicleTypeCertificate vrVehicleTypeCertificate = list.get(0);
+
+					result = vrVehicleTypeCertificate;
+
+					cacheResult(vrVehicleTypeCertificate);
+
+					if ((vrVehicleTypeCertificate.getDossierId() != dossierId) ||
+							(vrVehicleTypeCertificate.getMtCore() != mtCore)) {
+						finderCache.putResult(FINDER_PATH_FETCH_BY_DOSSIERID,
+							finderArgs, vrVehicleTypeCertificate);
+					}
 				}
-
-				cacheResult(list);
-
-				finderCache.putResult(finderPath, finderArgs, list);
 			}
 			catch (Exception e) {
-				finderCache.removeResult(finderPath, finderArgs);
+				finderCache.removeResult(FINDER_PATH_FETCH_BY_DOSSIERID,
+					finderArgs);
 
 				throw processException(e);
 			}
@@ -13163,299 +13159,28 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			}
 		}
 
-		return list;
-	}
-
-	/**
-	 * Returns the first vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierId the dossier ID
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching vr vehicle type certificate
-	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate findByDossierId_First(long dossierId,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierId_First(dossierId,
-				mtCore, orderByComparator);
-
-		if (vrVehicleTypeCertificate != null) {
-			return vrVehicleTypeCertificate;
-		}
-
-		StringBundler msg = new StringBundler(6);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("dossierId=");
-		msg.append(dossierId);
-
-		msg.append(", mtCore=");
-		msg.append(mtCore);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchVRVehicleTypeCertificateException(msg.toString());
-	}
-
-	/**
-	 * Returns the first vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierId the dossier ID
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate fetchByDossierId_First(long dossierId,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		List<VRVehicleTypeCertificate> list = findByDossierId(dossierId,
-				mtCore, 0, 1, orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the last vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierId the dossier ID
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching vr vehicle type certificate
-	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate findByDossierId_Last(long dossierId,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierId_Last(dossierId,
-				mtCore, orderByComparator);
-
-		if (vrVehicleTypeCertificate != null) {
-			return vrVehicleTypeCertificate;
-		}
-
-		StringBundler msg = new StringBundler(6);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("dossierId=");
-		msg.append(dossierId);
-
-		msg.append(", mtCore=");
-		msg.append(mtCore);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchVRVehicleTypeCertificateException(msg.toString());
-	}
-
-	/**
-	 * Returns the last vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierId the dossier ID
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate fetchByDossierId_Last(long dossierId,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		int count = countByDossierId(dossierId, mtCore);
-
-		if (count == 0) {
+		if (result instanceof List<?>) {
 			return null;
 		}
-
-		List<VRVehicleTypeCertificate> list = findByDossierId(dossierId,
-				mtCore, count - 1, count, orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	 *
-	 * @param id the primary key of the current vr vehicle type certificate
-	 * @param dossierId the dossier ID
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the previous, current, and next vr vehicle type certificate
-	 * @throws NoSuchVRVehicleTypeCertificateException if a vr vehicle type certificate with the primary key could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate[] findByDossierId_PrevAndNext(long id,
-		long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = findByPrimaryKey(id);
-
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			VRVehicleTypeCertificate[] array = new VRVehicleTypeCertificateImpl[3];
-
-			array[0] = getByDossierId_PrevAndNext(session,
-					vrVehicleTypeCertificate, dossierId, mtCore,
-					orderByComparator, true);
-
-			array[1] = vrVehicleTypeCertificate;
-
-			array[2] = getByDossierId_PrevAndNext(session,
-					vrVehicleTypeCertificate, dossierId, mtCore,
-					orderByComparator, false);
-
-			return array;
-		}
-		catch (Exception e) {
-			throw processException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-	}
-
-	protected VRVehicleTypeCertificate getByDossierId_PrevAndNext(
-		Session session, VRVehicleTypeCertificate vrVehicleTypeCertificate,
-		long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
-		boolean previous) {
-		StringBundler query = null;
-
-		if (orderByComparator != null) {
-			query = new StringBundler(5 +
-					(orderByComparator.getOrderByConditionFields().length * 3) +
-					(orderByComparator.getOrderByFields().length * 3));
-		}
 		else {
-			query = new StringBundler(4);
-		}
-
-		query.append(_SQL_SELECT_VRVEHICLETYPECERTIFICATE_WHERE);
-
-		query.append(_FINDER_COLUMN_DOSSIERID_DOSSIERID_2);
-
-		query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_2);
-
-		if (orderByComparator != null) {
-			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
-
-			if (orderByConditionFields.length > 0) {
-				query.append(WHERE_AND);
-			}
-
-			for (int i = 0; i < orderByConditionFields.length; i++) {
-				query.append(_ORDER_BY_ENTITY_ALIAS);
-				query.append(orderByConditionFields[i]);
-
-				if ((i + 1) < orderByConditionFields.length) {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(WHERE_GREATER_THAN_HAS_NEXT);
-					}
-					else {
-						query.append(WHERE_LESSER_THAN_HAS_NEXT);
-					}
-				}
-				else {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(WHERE_GREATER_THAN);
-					}
-					else {
-						query.append(WHERE_LESSER_THAN);
-					}
-				}
-			}
-
-			query.append(ORDER_BY_CLAUSE);
-
-			String[] orderByFields = orderByComparator.getOrderByFields();
-
-			for (int i = 0; i < orderByFields.length; i++) {
-				query.append(_ORDER_BY_ENTITY_ALIAS);
-				query.append(orderByFields[i]);
-
-				if ((i + 1) < orderByFields.length) {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(ORDER_BY_ASC_HAS_NEXT);
-					}
-					else {
-						query.append(ORDER_BY_DESC_HAS_NEXT);
-					}
-				}
-				else {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(ORDER_BY_ASC);
-					}
-					else {
-						query.append(ORDER_BY_DESC);
-					}
-				}
-			}
-		}
-		else {
-			query.append(VRVehicleTypeCertificateModelImpl.ORDER_BY_JPQL);
-		}
-
-		String sql = query.toString();
-
-		Query q = session.createQuery(sql);
-
-		q.setFirstResult(0);
-		q.setMaxResults(2);
-
-		QueryPos qPos = QueryPos.getInstance(q);
-
-		qPos.add(dossierId);
-
-		qPos.add(mtCore);
-
-		if (orderByComparator != null) {
-			Object[] values = orderByComparator.getOrderByConditionValues(vrVehicleTypeCertificate);
-
-			for (Object value : values) {
-				qPos.add(value);
-			}
-		}
-
-		List<VRVehicleTypeCertificate> list = q.list();
-
-		if (list.size() == 2) {
-			return list.get(1);
-		}
-		else {
-			return null;
+			return (VRVehicleTypeCertificate)result;
 		}
 	}
 
 	/**
-	 * Removes all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63; from the database.
+	 * Removes the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; from the database.
 	 *
 	 * @param dossierId the dossier ID
 	 * @param mtCore the mt core
+	 * @return the vr vehicle type certificate that was removed
 	 */
 	@Override
-	public void removeByDossierId(long dossierId, long mtCore) {
-		for (VRVehicleTypeCertificate vrVehicleTypeCertificate : findByDossierId(
-				dossierId, mtCore, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
-			remove(vrVehicleTypeCertificate);
-		}
+	public VRVehicleTypeCertificate removeByDossierId(long dossierId,
+		long mtCore) throws NoSuchVRVehicleTypeCertificateException {
+		VRVehicleTypeCertificate vrVehicleTypeCertificate = findByDossierId(dossierId,
+				mtCore);
+
+		return remove(vrVehicleTypeCertificate);
 	}
 
 	/**
@@ -13516,609 +13241,6 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 
 	private static final String _FINDER_COLUMN_DOSSIERID_DOSSIERID_2 = "vrVehicleTypeCertificate.dossierId = ? AND ";
 	private static final String _FINDER_COLUMN_DOSSIERID_MTCORE_2 = "vrVehicleTypeCertificate.mtCore = ?";
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERNO =
-		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
-			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
-			VRVehicleTypeCertificateImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByDossierNo",
-			new String[] {
-				String.class.getName(), Long.class.getName(),
-				
-			Integer.class.getName(), Integer.class.getName(),
-				OrderByComparator.class.getName()
-			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO =
-		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
-			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
-			VRVehicleTypeCertificateImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByDossierNo",
-			new String[] { String.class.getName(), Long.class.getName() },
-			VRVehicleTypeCertificateModelImpl.DOSSIERNO_COLUMN_BITMASK |
-			VRVehicleTypeCertificateModelImpl.MTCORE_COLUMN_BITMASK |
-			VRVehicleTypeCertificateModelImpl.MODIFYDATE_COLUMN_BITMASK);
-	public static final FinderPath FINDER_PATH_COUNT_BY_DOSSIERNO = new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
-			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByDossierNo",
-			new String[] { String.class.getName(), Long.class.getName() });
-
-	/**
-	 * Returns all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @return the matching vr vehicle type certificates
-	 */
-	@Override
-	public List<VRVehicleTypeCertificate> findByDossierNo(String dossierNo,
-		long mtCore) {
-		return findByDossierNo(dossierNo, mtCore, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, null);
-	}
-
-	/**
-	 * Returns a range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param start the lower bound of the range of vr vehicle type certificates
-	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	 * @return the range of matching vr vehicle type certificates
-	 */
-	@Override
-	public List<VRVehicleTypeCertificate> findByDossierNo(String dossierNo,
-		long mtCore, int start, int end) {
-		return findByDossierNo(dossierNo, mtCore, start, end, null);
-	}
-
-	/**
-	 * Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param start the lower bound of the range of vr vehicle type certificates
-	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of matching vr vehicle type certificates
-	 */
-	@Override
-	public List<VRVehicleTypeCertificate> findByDossierNo(String dossierNo,
-		long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return findByDossierNo(dossierNo, mtCore, start, end,
-			orderByComparator, true);
-	}
-
-	/**
-	 * Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param start the lower bound of the range of vr vehicle type certificates
-	 * @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @param retrieveFromCache whether to retrieve from the finder cache
-	 * @return the ordered range of matching vr vehicle type certificates
-	 */
-	@Override
-	public List<VRVehicleTypeCertificate> findByDossierNo(String dossierNo,
-		long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
-		boolean retrieveFromCache) {
-		boolean pagination = true;
-		FinderPath finderPath = null;
-		Object[] finderArgs = null;
-
-		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
-				(orderByComparator == null)) {
-			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO;
-			finderArgs = new Object[] { dossierNo, mtCore };
-		}
-		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERNO;
-			finderArgs = new Object[] {
-					dossierNo, mtCore,
-					
-					start, end, orderByComparator
-				};
-		}
-
-		List<VRVehicleTypeCertificate> list = null;
-
-		if (retrieveFromCache) {
-			list = (List<VRVehicleTypeCertificate>)finderCache.getResult(finderPath,
-					finderArgs, this);
-
-			if ((list != null) && !list.isEmpty()) {
-				for (VRVehicleTypeCertificate vrVehicleTypeCertificate : list) {
-					if (!Objects.equals(dossierNo,
-								vrVehicleTypeCertificate.getDossierNo()) ||
-							(mtCore != vrVehicleTypeCertificate.getMtCore())) {
-						list = null;
-
-						break;
-					}
-				}
-			}
-		}
-
-		if (list == null) {
-			StringBundler query = null;
-
-			if (orderByComparator != null) {
-				query = new StringBundler(4 +
-						(orderByComparator.getOrderByFields().length * 2));
-			}
-			else {
-				query = new StringBundler(4);
-			}
-
-			query.append(_SQL_SELECT_VRVEHICLETYPECERTIFICATE_WHERE);
-
-			boolean bindDossierNo = false;
-
-			if (dossierNo == null) {
-				query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_1);
-			}
-			else if (dossierNo.equals(StringPool.BLANK)) {
-				query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_3);
-			}
-			else {
-				bindDossierNo = true;
-
-				query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_2);
-			}
-
-			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_2);
-
-			if (orderByComparator != null) {
-				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
-					orderByComparator);
-			}
-			else
-			 if (pagination) {
-				query.append(VRVehicleTypeCertificateModelImpl.ORDER_BY_JPQL);
-			}
-
-			String sql = query.toString();
-
-			Session session = null;
-
-			try {
-				session = openSession();
-
-				Query q = session.createQuery(sql);
-
-				QueryPos qPos = QueryPos.getInstance(q);
-
-				if (bindDossierNo) {
-					qPos.add(dossierNo);
-				}
-
-				qPos.add(mtCore);
-
-				if (!pagination) {
-					list = (List<VRVehicleTypeCertificate>)QueryUtil.list(q,
-							getDialect(), start, end, false);
-
-					Collections.sort(list);
-
-					list = Collections.unmodifiableList(list);
-				}
-				else {
-					list = (List<VRVehicleTypeCertificate>)QueryUtil.list(q,
-							getDialect(), start, end);
-				}
-
-				cacheResult(list);
-
-				finderCache.putResult(finderPath, finderArgs, list);
-			}
-			catch (Exception e) {
-				finderCache.removeResult(finderPath, finderArgs);
-
-				throw processException(e);
-			}
-			finally {
-				closeSession(session);
-			}
-		}
-
-		return list;
-	}
-
-	/**
-	 * Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching vr vehicle type certificate
-	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate findByDossierNo_First(String dossierNo,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierNo_First(dossierNo,
-				mtCore, orderByComparator);
-
-		if (vrVehicleTypeCertificate != null) {
-			return vrVehicleTypeCertificate;
-		}
-
-		StringBundler msg = new StringBundler(6);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("dossierNo=");
-		msg.append(dossierNo);
-
-		msg.append(", mtCore=");
-		msg.append(mtCore);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchVRVehicleTypeCertificateException(msg.toString());
-	}
-
-	/**
-	 * Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate fetchByDossierNo_First(String dossierNo,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		List<VRVehicleTypeCertificate> list = findByDossierNo(dossierNo,
-				mtCore, 0, 1, orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching vr vehicle type certificate
-	 * @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate findByDossierNo_Last(String dossierNo,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = fetchByDossierNo_Last(dossierNo,
-				mtCore, orderByComparator);
-
-		if (vrVehicleTypeCertificate != null) {
-			return vrVehicleTypeCertificate;
-		}
-
-		StringBundler msg = new StringBundler(6);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("dossierNo=");
-		msg.append(dossierNo);
-
-		msg.append(", mtCore=");
-		msg.append(mtCore);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchVRVehicleTypeCertificateException(msg.toString());
-	}
-
-	/**
-	 * Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate fetchByDossierNo_Last(String dossierNo,
-		long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		int count = countByDossierNo(dossierNo, mtCore);
-
-		if (count == 0) {
-			return null;
-		}
-
-		List<VRVehicleTypeCertificate> list = findByDossierNo(dossierNo,
-				mtCore, count - 1, count, orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param id the primary key of the current vr vehicle type certificate
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the previous, current, and next vr vehicle type certificate
-	 * @throws NoSuchVRVehicleTypeCertificateException if a vr vehicle type certificate with the primary key could not be found
-	 */
-	@Override
-	public VRVehicleTypeCertificate[] findByDossierNo_PrevAndNext(long id,
-		String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws NoSuchVRVehicleTypeCertificateException {
-		VRVehicleTypeCertificate vrVehicleTypeCertificate = findByPrimaryKey(id);
-
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			VRVehicleTypeCertificate[] array = new VRVehicleTypeCertificateImpl[3];
-
-			array[0] = getByDossierNo_PrevAndNext(session,
-					vrVehicleTypeCertificate, dossierNo, mtCore,
-					orderByComparator, true);
-
-			array[1] = vrVehicleTypeCertificate;
-
-			array[2] = getByDossierNo_PrevAndNext(session,
-					vrVehicleTypeCertificate, dossierNo, mtCore,
-					orderByComparator, false);
-
-			return array;
-		}
-		catch (Exception e) {
-			throw processException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-	}
-
-	protected VRVehicleTypeCertificate getByDossierNo_PrevAndNext(
-		Session session, VRVehicleTypeCertificate vrVehicleTypeCertificate,
-		String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
-		boolean previous) {
-		StringBundler query = null;
-
-		if (orderByComparator != null) {
-			query = new StringBundler(5 +
-					(orderByComparator.getOrderByConditionFields().length * 3) +
-					(orderByComparator.getOrderByFields().length * 3));
-		}
-		else {
-			query = new StringBundler(4);
-		}
-
-		query.append(_SQL_SELECT_VRVEHICLETYPECERTIFICATE_WHERE);
-
-		boolean bindDossierNo = false;
-
-		if (dossierNo == null) {
-			query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_1);
-		}
-		else if (dossierNo.equals(StringPool.BLANK)) {
-			query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_3);
-		}
-		else {
-			bindDossierNo = true;
-
-			query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_2);
-		}
-
-		query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_2);
-
-		if (orderByComparator != null) {
-			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
-
-			if (orderByConditionFields.length > 0) {
-				query.append(WHERE_AND);
-			}
-
-			for (int i = 0; i < orderByConditionFields.length; i++) {
-				query.append(_ORDER_BY_ENTITY_ALIAS);
-				query.append(orderByConditionFields[i]);
-
-				if ((i + 1) < orderByConditionFields.length) {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(WHERE_GREATER_THAN_HAS_NEXT);
-					}
-					else {
-						query.append(WHERE_LESSER_THAN_HAS_NEXT);
-					}
-				}
-				else {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(WHERE_GREATER_THAN);
-					}
-					else {
-						query.append(WHERE_LESSER_THAN);
-					}
-				}
-			}
-
-			query.append(ORDER_BY_CLAUSE);
-
-			String[] orderByFields = orderByComparator.getOrderByFields();
-
-			for (int i = 0; i < orderByFields.length; i++) {
-				query.append(_ORDER_BY_ENTITY_ALIAS);
-				query.append(orderByFields[i]);
-
-				if ((i + 1) < orderByFields.length) {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(ORDER_BY_ASC_HAS_NEXT);
-					}
-					else {
-						query.append(ORDER_BY_DESC_HAS_NEXT);
-					}
-				}
-				else {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(ORDER_BY_ASC);
-					}
-					else {
-						query.append(ORDER_BY_DESC);
-					}
-				}
-			}
-		}
-		else {
-			query.append(VRVehicleTypeCertificateModelImpl.ORDER_BY_JPQL);
-		}
-
-		String sql = query.toString();
-
-		Query q = session.createQuery(sql);
-
-		q.setFirstResult(0);
-		q.setMaxResults(2);
-
-		QueryPos qPos = QueryPos.getInstance(q);
-
-		if (bindDossierNo) {
-			qPos.add(dossierNo);
-		}
-
-		qPos.add(mtCore);
-
-		if (orderByComparator != null) {
-			Object[] values = orderByComparator.getOrderByConditionValues(vrVehicleTypeCertificate);
-
-			for (Object value : values) {
-				qPos.add(value);
-			}
-		}
-
-		List<VRVehicleTypeCertificate> list = q.list();
-
-		if (list.size() == 2) {
-			return list.get(1);
-		}
-		else {
-			return null;
-		}
-	}
-
-	/**
-	 * Removes all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63; from the database.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 */
-	@Override
-	public void removeByDossierNo(String dossierNo, long mtCore) {
-		for (VRVehicleTypeCertificate vrVehicleTypeCertificate : findByDossierNo(
-				dossierNo, mtCore, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
-			remove(vrVehicleTypeCertificate);
-		}
-	}
-
-	/**
-	 * Returns the number of vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	 *
-	 * @param dossierNo the dossier no
-	 * @param mtCore the mt core
-	 * @return the number of matching vr vehicle type certificates
-	 */
-	@Override
-	public int countByDossierNo(String dossierNo, long mtCore) {
-		FinderPath finderPath = FINDER_PATH_COUNT_BY_DOSSIERNO;
-
-		Object[] finderArgs = new Object[] { dossierNo, mtCore };
-
-		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
-
-		if (count == null) {
-			StringBundler query = new StringBundler(3);
-
-			query.append(_SQL_COUNT_VRVEHICLETYPECERTIFICATE_WHERE);
-
-			boolean bindDossierNo = false;
-
-			if (dossierNo == null) {
-				query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_1);
-			}
-			else if (dossierNo.equals(StringPool.BLANK)) {
-				query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_3);
-			}
-			else {
-				bindDossierNo = true;
-
-				query.append(_FINDER_COLUMN_DOSSIERNO_DOSSIERNO_2);
-			}
-
-			query.append(_FINDER_COLUMN_DOSSIERNO_MTCORE_2);
-
-			String sql = query.toString();
-
-			Session session = null;
-
-			try {
-				session = openSession();
-
-				Query q = session.createQuery(sql);
-
-				QueryPos qPos = QueryPos.getInstance(q);
-
-				if (bindDossierNo) {
-					qPos.add(dossierNo);
-				}
-
-				qPos.add(mtCore);
-
-				count = (Long)q.uniqueResult();
-
-				finderCache.putResult(finderPath, finderArgs, count);
-			}
-			catch (Exception e) {
-				finderCache.removeResult(finderPath, finderArgs);
-
-				throw processException(e);
-			}
-			finally {
-				closeSession(session);
-			}
-		}
-
-		return count.intValue();
-	}
-
-	private static final String _FINDER_COLUMN_DOSSIERNO_DOSSIERNO_1 = "vrVehicleTypeCertificate.dossierNo IS NULL AND ";
-	private static final String _FINDER_COLUMN_DOSSIERNO_DOSSIERNO_2 = "vrVehicleTypeCertificate.dossierNo = ? AND ";
-	private static final String _FINDER_COLUMN_DOSSIERNO_DOSSIERNO_3 = "(vrVehicleTypeCertificate.dossierNo IS NULL OR vrVehicleTypeCertificate.dossierNo = '') AND ";
-	private static final String _FINDER_COLUMN_DOSSIERNO_MTCORE_2 = "vrVehicleTypeCertificate.mtCore = ?";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_SERVICECODEANDPRODUCTIONPLANTCODE =
 		new FinderPath(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRVehicleTypeCertificateModelImpl.FINDER_CACHE_ENABLED,
@@ -19288,6 +18410,12 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			VRVehicleTypeCertificateImpl.class,
 			vrVehicleTypeCertificate.getPrimaryKey(), vrVehicleTypeCertificate);
 
+		finderCache.putResult(FINDER_PATH_FETCH_BY_DOSSIERID,
+			new Object[] {
+				vrVehicleTypeCertificate.getDossierId(),
+				vrVehicleTypeCertificate.getMtCore()
+			}, vrVehicleTypeCertificate);
+
 		vrVehicleTypeCertificate.resetOriginalValues();
 	}
 
@@ -19343,6 +18471,9 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+
+		clearUniqueFindersCache((VRVehicleTypeCertificateModelImpl)vrVehicleTypeCertificate,
+			true);
 	}
 
 	@Override
@@ -19355,6 +18486,47 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			entityCache.removeResult(VRVehicleTypeCertificateModelImpl.ENTITY_CACHE_ENABLED,
 				VRVehicleTypeCertificateImpl.class,
 				vrVehicleTypeCertificate.getPrimaryKey());
+
+			clearUniqueFindersCache((VRVehicleTypeCertificateModelImpl)vrVehicleTypeCertificate,
+				true);
+		}
+	}
+
+	protected void cacheUniqueFindersCache(
+		VRVehicleTypeCertificateModelImpl vrVehicleTypeCertificateModelImpl) {
+		Object[] args = new Object[] {
+				vrVehicleTypeCertificateModelImpl.getDossierId(),
+				vrVehicleTypeCertificateModelImpl.getMtCore()
+			};
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_DOSSIERID, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_DOSSIERID, args,
+			vrVehicleTypeCertificateModelImpl, false);
+	}
+
+	protected void clearUniqueFindersCache(
+		VRVehicleTypeCertificateModelImpl vrVehicleTypeCertificateModelImpl,
+		boolean clearCurrent) {
+		if (clearCurrent) {
+			Object[] args = new Object[] {
+					vrVehicleTypeCertificateModelImpl.getDossierId(),
+					vrVehicleTypeCertificateModelImpl.getMtCore()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERID, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_DOSSIERID, args);
+		}
+
+		if ((vrVehicleTypeCertificateModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_DOSSIERID.getColumnBitmask()) != 0) {
+			Object[] args = new Object[] {
+					vrVehicleTypeCertificateModelImpl.getOriginalDossierId(),
+					vrVehicleTypeCertificateModelImpl.getOriginalMtCore()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERID, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_DOSSIERID, args);
 		}
 	}
 
@@ -19624,21 +18796,25 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			}
 
 			if ((vrVehicleTypeCertificateModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIER.getColumnBitmask()) != 0) {
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO_MTCORE.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
-						vrVehicleTypeCertificateModelImpl.getOriginalDossierNo()
+						vrVehicleTypeCertificateModelImpl.getOriginalDossierNo(),
+						vrVehicleTypeCertificateModelImpl.getOriginalMtCore()
 					};
 
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIER, args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIER,
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERNO_MTCORE,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO_MTCORE,
 					args);
 
 				args = new Object[] {
-						vrVehicleTypeCertificateModelImpl.getDossierNo()
+						vrVehicleTypeCertificateModelImpl.getDossierNo(),
+						vrVehicleTypeCertificateModelImpl.getMtCore()
 					};
 
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIER, args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIER,
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERNO_MTCORE,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO_MTCORE,
 					args);
 			}
 
@@ -19949,48 +19125,6 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			}
 
 			if ((vrVehicleTypeCertificateModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID.getColumnBitmask()) != 0) {
-				Object[] args = new Object[] {
-						vrVehicleTypeCertificateModelImpl.getOriginalDossierId(),
-						vrVehicleTypeCertificateModelImpl.getOriginalMtCore()
-					};
-
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERID, args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID,
-					args);
-
-				args = new Object[] {
-						vrVehicleTypeCertificateModelImpl.getDossierId(),
-						vrVehicleTypeCertificateModelImpl.getMtCore()
-					};
-
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERID, args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID,
-					args);
-			}
-
-			if ((vrVehicleTypeCertificateModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO.getColumnBitmask()) != 0) {
-				Object[] args = new Object[] {
-						vrVehicleTypeCertificateModelImpl.getOriginalDossierNo(),
-						vrVehicleTypeCertificateModelImpl.getOriginalMtCore()
-					};
-
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERNO, args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO,
-					args);
-
-				args = new Object[] {
-						vrVehicleTypeCertificateModelImpl.getDossierNo(),
-						vrVehicleTypeCertificateModelImpl.getMtCore()
-					};
-
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERNO, args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERNO,
-					args);
-			}
-
-			if ((vrVehicleTypeCertificateModelImpl.getColumnBitmask() &
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SERVICECODEANDPRODUCTIONPLANTCODE.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						vrVehicleTypeCertificateModelImpl.getOriginalServiceCode(),
@@ -20142,6 +19276,9 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 			vrVehicleTypeCertificate.getPrimaryKey(), vrVehicleTypeCertificate,
 			false);
 
+		clearUniqueFindersCache(vrVehicleTypeCertificateModelImpl, false);
+		cacheUniqueFindersCache(vrVehicleTypeCertificateModelImpl);
+
 		vrVehicleTypeCertificate.resetOriginalValues();
 
 		return vrVehicleTypeCertificate;
@@ -20161,6 +19298,7 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		vrVehicleTypeCertificateImpl.setId(vrVehicleTypeCertificate.getId());
 		vrVehicleTypeCertificateImpl.setMtCore(vrVehicleTypeCertificate.getMtCore());
 		vrVehicleTypeCertificateImpl.setDossierId(vrVehicleTypeCertificate.getDossierId());
+		vrVehicleTypeCertificateImpl.setDossierIdCTN(vrVehicleTypeCertificate.getDossierIdCTN());
 		vrVehicleTypeCertificateImpl.setDossierType(vrVehicleTypeCertificate.getDossierType());
 		vrVehicleTypeCertificateImpl.setDossierNo(vrVehicleTypeCertificate.getDossierNo());
 		vrVehicleTypeCertificateImpl.setReferenceUid(vrVehicleTypeCertificate.getReferenceUid());
@@ -20168,6 +19306,7 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		vrVehicleTypeCertificateImpl.setServiceName(vrVehicleTypeCertificate.getServiceName());
 		vrVehicleTypeCertificateImpl.setConvertassembleId(vrVehicleTypeCertificate.getConvertassembleId());
 		vrVehicleTypeCertificateImpl.setApplicantIdNo(vrVehicleTypeCertificate.getApplicantIdNo());
+		vrVehicleTypeCertificateImpl.setApplicantTelNo(vrVehicleTypeCertificate.getApplicantTelNo());
 		vrVehicleTypeCertificateImpl.setApplicantName(vrVehicleTypeCertificate.getApplicantName());
 		vrVehicleTypeCertificateImpl.setApplicantIdDate(vrVehicleTypeCertificate.getApplicantIdDate());
 		vrVehicleTypeCertificateImpl.setApplicantAddress(vrVehicleTypeCertificate.getApplicantAddress());
@@ -20179,7 +19318,13 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		vrVehicleTypeCertificateImpl.setApplicantContactName(vrVehicleTypeCertificate.getApplicantContactName());
 		vrVehicleTypeCertificateImpl.setApplicantContactEmail(vrVehicleTypeCertificate.getApplicantContactEmail());
 		vrVehicleTypeCertificateImpl.setApplicantcontactPhone(vrVehicleTypeCertificate.getApplicantcontactPhone());
+		vrVehicleTypeCertificateImpl.setApplicantcontactTelNo(vrVehicleTypeCertificate.getApplicantcontactTelNo());
 		vrVehicleTypeCertificateImpl.setCityCode(vrVehicleTypeCertificate.getCityCode());
+		vrVehicleTypeCertificateImpl.setCityName(vrVehicleTypeCertificate.getCityName());
+		vrVehicleTypeCertificateImpl.setDistrictCode(vrVehicleTypeCertificate.getDistrictCode());
+		vrVehicleTypeCertificateImpl.setDistrictName(vrVehicleTypeCertificate.getDistrictName());
+		vrVehicleTypeCertificateImpl.setWardCode(vrVehicleTypeCertificate.getWardCode());
+		vrVehicleTypeCertificateImpl.setWardName(vrVehicleTypeCertificate.getWardName());
 		vrVehicleTypeCertificateImpl.setManufacturerForeignCode(vrVehicleTypeCertificate.getManufacturerForeignCode());
 		vrVehicleTypeCertificateImpl.setManufacturerName(vrVehicleTypeCertificate.getManufacturerName());
 		vrVehicleTypeCertificateImpl.setManufacturerAddress(vrVehicleTypeCertificate.getManufacturerAddress());
@@ -20259,8 +19404,8 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		vrVehicleTypeCertificateImpl.setEmissionTestReportNo(vrVehicleTypeCertificate.getEmissionTestReportNo());
 		vrVehicleTypeCertificateImpl.setEmissionTestReportDate(vrVehicleTypeCertificate.getEmissionTestReportDate());
 		vrVehicleTypeCertificateImpl.setCommonSafetyStandard(vrVehicleTypeCertificate.getCommonSafetyStandard());
-		vrVehicleTypeCertificateImpl.setEmissionStandard(vrVehicleTypeCertificate.getEmissionStandard());
 		vrVehicleTypeCertificateImpl.setCommonSafetyDescription(vrVehicleTypeCertificate.getCommonSafetyDescription());
+		vrVehicleTypeCertificateImpl.setEmissionStandard(vrVehicleTypeCertificate.getEmissionStandard());
 		vrVehicleTypeCertificateImpl.setEmissionDescription(vrVehicleTypeCertificate.getEmissionDescription());
 		vrVehicleTypeCertificateImpl.setOtherTestReportNo(vrVehicleTypeCertificate.getOtherTestReportNo());
 		vrVehicleTypeCertificateImpl.setOtherTestReportDate(vrVehicleTypeCertificate.getOtherTestReportDate());
@@ -20290,6 +19435,7 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 		vrVehicleTypeCertificateImpl.setInspectionNote(vrVehicleTypeCertificate.getInspectionNote());
 		vrVehicleTypeCertificateImpl.setCertificateNote(vrVehicleTypeCertificate.getCertificateNote());
 		vrVehicleTypeCertificateImpl.setDeliverableCode(vrVehicleTypeCertificate.getDeliverableCode());
+		vrVehicleTypeCertificateImpl.setDeliverableFileEntryid(vrVehicleTypeCertificate.getDeliverableFileEntryid());
 		vrVehicleTypeCertificateImpl.setModule(vrVehicleTypeCertificate.getModule());
 		vrVehicleTypeCertificateImpl.setModifyDate(vrVehicleTypeCertificate.getModifyDate());
 		vrVehicleTypeCertificateImpl.setSyncDate(vrVehicleTypeCertificate.getSyncDate());
@@ -20681,11 +19827,6 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	}
 
 	@Override
-	public Set<String> getBadColumnNames() {
-		return _badColumnNames;
-	}
-
-	@Override
 	protected Map<String, Integer> getTableColumnsMap() {
 		return VRVehicleTypeCertificateModelImpl.TABLE_COLUMNS_MAP;
 	}
@@ -20717,7 +19858,4 @@ public class VRVehicleTypeCertificatePersistenceImpl extends BasePersistenceImpl
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No VRVehicleTypeCertificate exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No VRVehicleTypeCertificate exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(VRVehicleTypeCertificatePersistenceImpl.class);
-	private static final Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
-				"commonSafetyDescription", "emissionDescription"
-			});
 }

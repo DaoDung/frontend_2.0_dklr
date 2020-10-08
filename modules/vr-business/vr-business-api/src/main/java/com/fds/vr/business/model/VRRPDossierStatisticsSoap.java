@@ -118,6 +118,8 @@ public class VRRPDossierStatisticsSoap implements Serializable {
 		soapModel.setMen2cancelled(model.getMen2cancelled());
 		soapModel.setMen2expired(model.getMen2expired());
 		soapModel.setMen2violated(model.getMen2violated());
+		soapModel.setDossierPaymentDate(model.getDossierPaymentDate());
+		soapModel.setMen2PaymentApproval(model.getMen2PaymentApproval());
 		soapModel.setModifyDate(model.getModifyDate());
 		soapModel.setSyncDate(model.getSyncDate());
 
@@ -851,6 +853,22 @@ public class VRRPDossierStatisticsSoap implements Serializable {
 		_men2violated = men2violated;
 	}
 
+	public Date getDossierPaymentDate() {
+		return _dossierPaymentDate;
+	}
+
+	public void setDossierPaymentDate(Date dossierPaymentDate) {
+		_dossierPaymentDate = dossierPaymentDate;
+	}
+
+	public String getMen2PaymentApproval() {
+		return _men2PaymentApproval;
+	}
+
+	public void setMen2PaymentApproval(String men2PaymentApproval) {
+		_men2PaymentApproval = men2PaymentApproval;
+	}
+
 	public Date getModifyDate() {
 		return _modifyDate;
 	}
@@ -951,6 +969,8 @@ public class VRRPDossierStatisticsSoap implements Serializable {
 	private String _men2cancelled;
 	private String _men2expired;
 	private String _men2violated;
+	private Date _dossierPaymentDate;
+	private String _men2PaymentApproval;
 	private Date _modifyDate;
 	private Date _syncDate;
 }

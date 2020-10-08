@@ -69,8 +69,9 @@ public class VRIssueVehiclecertificateWrapper
 		attributes.put("totalQuantity", getTotalQuantity());
 		attributes.put("unitPrice", getUnitPrice());
 		attributes.put("totalProduct", getTotalProduct());
-		attributes.put("certificaterecordno", getCertificaterecordno());
-		attributes.put("productionexamreportno", getProductionexamreportno());
+		attributes.put("certificateRecordNo", getCertificateRecordNo());
+		attributes.put("productionExamReportNo", getProductionExamReportNo());
+		attributes.put("certificateRecordDate", getCertificateRecordDate());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -133,18 +134,25 @@ public class VRIssueVehiclecertificateWrapper
 			setTotalProduct(totalProduct);
 		}
 
-		String certificaterecordno = (String)attributes.get(
-				"certificaterecordno");
+		String certificateRecordNo = (String)attributes.get(
+				"certificateRecordNo");
 
-		if (certificaterecordno != null) {
-			setCertificaterecordno(certificaterecordno);
+		if (certificateRecordNo != null) {
+			setCertificateRecordNo(certificateRecordNo);
 		}
 
-		String productionexamreportno = (String)attributes.get(
-				"productionexamreportno");
+		String productionExamReportNo = (String)attributes.get(
+				"productionExamReportNo");
 
-		if (productionexamreportno != null) {
-			setProductionexamreportno(productionexamreportno);
+		if (productionExamReportNo != null) {
+			setProductionExamReportNo(productionExamReportNo);
+		}
+
+		Date certificateRecordDate = (Date)attributes.get(
+				"certificateRecordDate");
+
+		if (certificateRecordDate != null) {
+			setCertificateRecordDate(certificateRecordDate);
 		}
 
 		Date modifyDate = (Date)attributes.get("modifyDate");
@@ -226,23 +234,23 @@ public class VRIssueVehiclecertificateWrapper
 	}
 
 	/**
-	* Returns the certificaterecordno of this vr issue vehiclecertificate.
+	* Returns the certificate record no of this vr issue vehiclecertificate.
 	*
-	* @return the certificaterecordno of this vr issue vehiclecertificate
+	* @return the certificate record no of this vr issue vehiclecertificate
 	*/
 	@Override
-	public java.lang.String getCertificaterecordno() {
-		return _vrIssueVehiclecertificate.getCertificaterecordno();
+	public java.lang.String getCertificateRecordNo() {
+		return _vrIssueVehiclecertificate.getCertificateRecordNo();
 	}
 
 	/**
-	* Returns the productionexamreportno of this vr issue vehiclecertificate.
+	* Returns the production exam report no of this vr issue vehiclecertificate.
 	*
-	* @return the productionexamreportno of this vr issue vehiclecertificate
+	* @return the production exam report no of this vr issue vehiclecertificate
 	*/
 	@Override
-	public java.lang.String getProductionexamreportno() {
-		return _vrIssueVehiclecertificate.getProductionexamreportno();
+	public java.lang.String getProductionExamReportNo() {
+		return _vrIssueVehiclecertificate.getProductionExamReportNo();
 	}
 
 	@Override
@@ -253,6 +261,16 @@ public class VRIssueVehiclecertificateWrapper
 	@Override
 	public java.lang.String toXmlString() {
 		return _vrIssueVehiclecertificate.toXmlString();
+	}
+
+	/**
+	* Returns the certificate record date of this vr issue vehiclecertificate.
+	*
+	* @return the certificate record date of this vr issue vehiclecertificate
+	*/
+	@Override
+	public Date getCertificateRecordDate() {
+		return _vrIssueVehiclecertificate.getCertificateRecordDate();
 	}
 
 	/**
@@ -386,13 +404,23 @@ public class VRIssueVehiclecertificateWrapper
 	}
 
 	/**
-	* Sets the certificaterecordno of this vr issue vehiclecertificate.
+	* Sets the certificate record date of this vr issue vehiclecertificate.
 	*
-	* @param certificaterecordno the certificaterecordno of this vr issue vehiclecertificate
+	* @param certificateRecordDate the certificate record date of this vr issue vehiclecertificate
 	*/
 	@Override
-	public void setCertificaterecordno(java.lang.String certificaterecordno) {
-		_vrIssueVehiclecertificate.setCertificaterecordno(certificaterecordno);
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_vrIssueVehiclecertificate.setCertificateRecordDate(certificateRecordDate);
+	}
+
+	/**
+	* Sets the certificate record no of this vr issue vehiclecertificate.
+	*
+	* @param certificateRecordNo the certificate record no of this vr issue vehiclecertificate
+	*/
+	@Override
+	public void setCertificateRecordNo(java.lang.String certificateRecordNo) {
+		_vrIssueVehiclecertificate.setCertificateRecordNo(certificateRecordNo);
 	}
 
 	/**
@@ -482,14 +510,14 @@ public class VRIssueVehiclecertificateWrapper
 	}
 
 	/**
-	* Sets the productionexamreportno of this vr issue vehiclecertificate.
+	* Sets the production exam report no of this vr issue vehiclecertificate.
 	*
-	* @param productionexamreportno the productionexamreportno of this vr issue vehiclecertificate
+	* @param productionExamReportNo the production exam report no of this vr issue vehiclecertificate
 	*/
 	@Override
-	public void setProductionexamreportno(
-		java.lang.String productionexamreportno) {
-		_vrIssueVehiclecertificate.setProductionexamreportno(productionexamreportno);
+	public void setProductionExamReportNo(
+		java.lang.String productionExamReportNo) {
+		_vrIssueVehiclecertificate.setProductionExamReportNo(productionExamReportNo);
 	}
 
 	/**

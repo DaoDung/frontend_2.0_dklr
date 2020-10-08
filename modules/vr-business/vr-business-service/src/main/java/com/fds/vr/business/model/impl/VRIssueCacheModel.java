@@ -65,7 +65,7 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(119);
+		StringBundler sb = new StringBundler(123);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -121,8 +121,8 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 		sb.append(issueCorporationId);
 		sb.append(", verifyCorporationId=");
 		sb.append(verifyCorporationId);
-		sb.append(", digitalissuestatus=");
-		sb.append(digitalissuestatus);
+		sb.append(", digitalIssueStatus=");
+		sb.append(digitalIssueStatus);
 		sb.append(", issueType=");
 		sb.append(issueType);
 		sb.append(", averageSTBQuantity=");
@@ -151,30 +151,34 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 		sb.append(examinationPeriod);
 		sb.append(", examinationLastTime=");
 		sb.append(examinationLastTime);
-		sb.append(", copresult=");
-		sb.append(copresult);
-		sb.append(", copreportno=");
-		sb.append(copreportno);
-		sb.append(", copreportdate=");
-		sb.append(copreportdate);
-		sb.append(", postreview=");
-		sb.append(postreview);
-		sb.append(", postreviewrecordno=");
-		sb.append(postreviewrecordno);
-		sb.append(", postreviewrecorddate=");
-		sb.append(postreviewrecorddate);
+		sb.append(", copResult=");
+		sb.append(copResult);
+		sb.append(", copReportNo=");
+		sb.append(copReportNo);
+		sb.append(", copReportDate=");
+		sb.append(copReportDate);
+		sb.append(", postReview=");
+		sb.append(postReview);
+		sb.append(", postReviewRecordNo=");
+		sb.append(postReviewRecordNo);
+		sb.append(", postReviewRecordDate=");
+		sb.append(postReviewRecordDate);
 		sb.append(", corporationId=");
 		sb.append(corporationId);
-		sb.append(", inspectorcode=");
-		sb.append(inspectorcode);
-		sb.append(", inspectorname=");
-		sb.append(inspectorname);
-		sb.append(", leadername=");
-		sb.append(leadername);
-		sb.append(", applicantmaker=");
-		sb.append(applicantmaker);
-		sb.append(", applicantchecker=");
-		sb.append(applicantchecker);
+		sb.append(", inspectorCode=");
+		sb.append(inspectorCode);
+		sb.append(", inspectorName=");
+		sb.append(inspectorName);
+		sb.append(", leaderName=");
+		sb.append(leaderName);
+		sb.append(", applicantMaker=");
+		sb.append(applicantMaker);
+		sb.append(", applicantChecker=");
+		sb.append(applicantChecker);
+		sb.append(", certificateRecordDate=");
+		sb.append(certificateRecordDate);
+		sb.append(", issueInspectionRecordId=");
+		sb.append(issueInspectionRecordId);
 		sb.append(", inspectorId=");
 		sb.append(inspectorId);
 		sb.append(", issueInspectorId=");
@@ -345,7 +349,7 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 			vrIssueImpl.setVerifyCorporationId(verifyCorporationId);
 		}
 
-		vrIssueImpl.setDigitalissuestatus(digitalissuestatus);
+		vrIssueImpl.setDigitalIssueStatus(digitalIssueStatus);
 
 		if (issueType == null) {
 			vrIssueImpl.setIssueType(StringPool.BLANK);
@@ -392,46 +396,46 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 			vrIssueImpl.setExaminationLastTime(new Date(examinationLastTime));
 		}
 
-		if (copresult == null) {
-			vrIssueImpl.setCopresult(StringPool.BLANK);
+		if (copResult == null) {
+			vrIssueImpl.setCopResult(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setCopresult(copresult);
+			vrIssueImpl.setCopResult(copResult);
 		}
 
-		if (copreportno == null) {
-			vrIssueImpl.setCopreportno(StringPool.BLANK);
+		if (copReportNo == null) {
+			vrIssueImpl.setCopReportNo(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setCopreportno(copreportno);
+			vrIssueImpl.setCopReportNo(copReportNo);
 		}
 
-		if (copreportdate == Long.MIN_VALUE) {
-			vrIssueImpl.setCopreportdate(null);
+		if (copReportDate == Long.MIN_VALUE) {
+			vrIssueImpl.setCopReportDate(null);
 		}
 		else {
-			vrIssueImpl.setCopreportdate(new Date(copreportdate));
+			vrIssueImpl.setCopReportDate(new Date(copReportDate));
 		}
 
-		if (postreview == null) {
-			vrIssueImpl.setPostreview(StringPool.BLANK);
+		if (postReview == null) {
+			vrIssueImpl.setPostReview(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setPostreview(postreview);
+			vrIssueImpl.setPostReview(postReview);
 		}
 
-		if (postreviewrecordno == null) {
-			vrIssueImpl.setPostreviewrecordno(StringPool.BLANK);
+		if (postReviewRecordNo == null) {
+			vrIssueImpl.setPostReviewRecordNo(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setPostreviewrecordno(postreviewrecordno);
+			vrIssueImpl.setPostReviewRecordNo(postReviewRecordNo);
 		}
 
-		if (postreviewrecorddate == Long.MIN_VALUE) {
-			vrIssueImpl.setPostreviewrecorddate(null);
+		if (postReviewRecordDate == Long.MIN_VALUE) {
+			vrIssueImpl.setPostReviewRecordDate(null);
 		}
 		else {
-			vrIssueImpl.setPostreviewrecorddate(new Date(postreviewrecorddate));
+			vrIssueImpl.setPostReviewRecordDate(new Date(postReviewRecordDate));
 		}
 
 		if (corporationId == null) {
@@ -441,41 +445,49 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 			vrIssueImpl.setCorporationId(corporationId);
 		}
 
-		if (inspectorcode == null) {
-			vrIssueImpl.setInspectorcode(StringPool.BLANK);
+		if (inspectorCode == null) {
+			vrIssueImpl.setInspectorCode(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setInspectorcode(inspectorcode);
+			vrIssueImpl.setInspectorCode(inspectorCode);
 		}
 
-		if (inspectorname == null) {
-			vrIssueImpl.setInspectorname(StringPool.BLANK);
+		if (inspectorName == null) {
+			vrIssueImpl.setInspectorName(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setInspectorname(inspectorname);
+			vrIssueImpl.setInspectorName(inspectorName);
 		}
 
-		if (leadername == null) {
-			vrIssueImpl.setLeadername(StringPool.BLANK);
+		if (leaderName == null) {
+			vrIssueImpl.setLeaderName(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setLeadername(leadername);
+			vrIssueImpl.setLeaderName(leaderName);
 		}
 
-		if (applicantmaker == null) {
-			vrIssueImpl.setApplicantmaker(StringPool.BLANK);
+		if (applicantMaker == null) {
+			vrIssueImpl.setApplicantMaker(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setApplicantmaker(applicantmaker);
+			vrIssueImpl.setApplicantMaker(applicantMaker);
 		}
 
-		if (applicantchecker == null) {
-			vrIssueImpl.setApplicantchecker(StringPool.BLANK);
+		if (applicantChecker == null) {
+			vrIssueImpl.setApplicantChecker(StringPool.BLANK);
 		}
 		else {
-			vrIssueImpl.setApplicantchecker(applicantchecker);
+			vrIssueImpl.setApplicantChecker(applicantChecker);
 		}
 
+		if (certificateRecordDate == Long.MIN_VALUE) {
+			vrIssueImpl.setCertificateRecordDate(null);
+		}
+		else {
+			vrIssueImpl.setCertificateRecordDate(new Date(certificateRecordDate));
+		}
+
+		vrIssueImpl.setIssueInspectionRecordId(issueInspectionRecordId);
 		vrIssueImpl.setInspectorId(inspectorId);
 		vrIssueImpl.setIssueInspectorId(issueInspectorId);
 		vrIssueImpl.setVerifyInspectorId(verifyInspectorId);
@@ -535,7 +547,7 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 		issueCorporationId = objectInput.readLong();
 		verifyCorporationId = objectInput.readUTF();
 
-		digitalissuestatus = objectInput.readInt();
+		digitalIssueStatus = objectInput.readInt();
 		issueType = objectInput.readUTF();
 
 		averageSTBQuantity = objectInput.readInt();
@@ -559,18 +571,21 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 		examinationRequired = objectInput.readUTF();
 		examinationPeriod = objectInput.readUTF();
 		examinationLastTime = objectInput.readLong();
-		copresult = objectInput.readUTF();
-		copreportno = objectInput.readUTF();
-		copreportdate = objectInput.readLong();
-		postreview = objectInput.readUTF();
-		postreviewrecordno = objectInput.readUTF();
-		postreviewrecorddate = objectInput.readLong();
+		copResult = objectInput.readUTF();
+		copReportNo = objectInput.readUTF();
+		copReportDate = objectInput.readLong();
+		postReview = objectInput.readUTF();
+		postReviewRecordNo = objectInput.readUTF();
+		postReviewRecordDate = objectInput.readLong();
 		corporationId = objectInput.readUTF();
-		inspectorcode = objectInput.readUTF();
-		inspectorname = objectInput.readUTF();
-		leadername = objectInput.readUTF();
-		applicantmaker = objectInput.readUTF();
-		applicantchecker = objectInput.readUTF();
+		inspectorCode = objectInput.readUTF();
+		inspectorName = objectInput.readUTF();
+		leaderName = objectInput.readUTF();
+		applicantMaker = objectInput.readUTF();
+		applicantChecker = objectInput.readUTF();
+		certificateRecordDate = objectInput.readLong();
+
+		issueInspectionRecordId = objectInput.readLong();
 
 		inspectorId = objectInput.readLong();
 
@@ -727,7 +742,7 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 			objectOutput.writeUTF(verifyCorporationId);
 		}
 
-		objectOutput.writeInt(digitalissuestatus);
+		objectOutput.writeInt(digitalIssueStatus);
 
 		if (issueType == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -777,37 +792,37 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 
 		objectOutput.writeLong(examinationLastTime);
 
-		if (copresult == null) {
+		if (copResult == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(copresult);
+			objectOutput.writeUTF(copResult);
 		}
 
-		if (copreportno == null) {
+		if (copReportNo == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(copreportno);
+			objectOutput.writeUTF(copReportNo);
 		}
 
-		objectOutput.writeLong(copreportdate);
+		objectOutput.writeLong(copReportDate);
 
-		if (postreview == null) {
+		if (postReview == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(postreview);
+			objectOutput.writeUTF(postReview);
 		}
 
-		if (postreviewrecordno == null) {
+		if (postReviewRecordNo == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(postreviewrecordno);
+			objectOutput.writeUTF(postReviewRecordNo);
 		}
 
-		objectOutput.writeLong(postreviewrecorddate);
+		objectOutput.writeLong(postReviewRecordDate);
 
 		if (corporationId == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -816,40 +831,44 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 			objectOutput.writeUTF(corporationId);
 		}
 
-		if (inspectorcode == null) {
+		if (inspectorCode == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(inspectorcode);
+			objectOutput.writeUTF(inspectorCode);
 		}
 
-		if (inspectorname == null) {
+		if (inspectorName == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(inspectorname);
+			objectOutput.writeUTF(inspectorName);
 		}
 
-		if (leadername == null) {
+		if (leaderName == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(leadername);
+			objectOutput.writeUTF(leaderName);
 		}
 
-		if (applicantmaker == null) {
+		if (applicantMaker == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(applicantmaker);
+			objectOutput.writeUTF(applicantMaker);
 		}
 
-		if (applicantchecker == null) {
+		if (applicantChecker == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(applicantchecker);
+			objectOutput.writeUTF(applicantChecker);
 		}
+
+		objectOutput.writeLong(certificateRecordDate);
+
+		objectOutput.writeLong(issueInspectionRecordId);
 
 		objectOutput.writeLong(inspectorId);
 
@@ -887,7 +906,7 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 	public long totalInDocument;
 	public long issueCorporationId;
 	public String verifyCorporationId;
-	public int digitalissuestatus;
+	public int digitalIssueStatus;
 	public String issueType;
 	public int averageSTBQuantity;
 	public int maxMonthQuantity;
@@ -902,18 +921,20 @@ public class VRIssueCacheModel implements CacheModel<VRIssue>, Externalizable {
 	public String examinationRequired;
 	public String examinationPeriod;
 	public long examinationLastTime;
-	public String copresult;
-	public String copreportno;
-	public long copreportdate;
-	public String postreview;
-	public String postreviewrecordno;
-	public long postreviewrecorddate;
+	public String copResult;
+	public String copReportNo;
+	public long copReportDate;
+	public String postReview;
+	public String postReviewRecordNo;
+	public long postReviewRecordDate;
 	public String corporationId;
-	public String inspectorcode;
-	public String inspectorname;
-	public String leadername;
-	public String applicantmaker;
-	public String applicantchecker;
+	public String inspectorCode;
+	public String inspectorName;
+	public String leaderName;
+	public String applicantMaker;
+	public String applicantChecker;
+	public long certificateRecordDate;
+	public long issueInspectionRecordId;
 	public long inspectorId;
 	public long issueInspectorId;
 	public long verifyInspectorId;

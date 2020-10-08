@@ -261,7 +261,7 @@
             message: "Yêu cầu được thực hiện thành công"
           }, "success");
 
-          $("#registration_template_list_view").getKendoListView().dataSource.read();
+          // $("#registration_template_list_view").getKendoListView().dataSource.read();
           
         } else {
           notification.show({

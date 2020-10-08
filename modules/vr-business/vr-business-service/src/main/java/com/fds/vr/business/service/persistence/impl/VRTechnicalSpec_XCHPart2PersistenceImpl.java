@@ -3489,6 +3489,539 @@ public class VRTechnicalSpec_XCHPart2PersistenceImpl extends BasePersistenceImpl
 	private static final String _FINDER_COLUMN_REFERENCEUID_REFERENCEUID_1 = "vrTechnicalSpec_XCHPart2.referenceUid IS NULL";
 	private static final String _FINDER_COLUMN_REFERENCEUID_REFERENCEUID_2 = "vrTechnicalSpec_XCHPart2.referenceUid = ?";
 	private static final String _FINDER_COLUMN_REFERENCEUID_REFERENCEUID_3 = "(vrTechnicalSpec_XCHPart2.referenceUid IS NULL OR vrTechnicalSpec_XCHPart2.referenceUid = '')";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID =
+		new FinderPath(VRTechnicalSpec_XCHPart2ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCHPart2ModelImpl.FINDER_CACHE_ENABLED,
+			VRTechnicalSpec_XCHPart2Impl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByvehicleTypeCertificateId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID =
+		new FinderPath(VRTechnicalSpec_XCHPart2ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCHPart2ModelImpl.FINDER_CACHE_ENABLED,
+			VRTechnicalSpec_XCHPart2Impl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findByvehicleTypeCertificateId",
+			new String[] { Long.class.getName() },
+			VRTechnicalSpec_XCHPart2ModelImpl.VEHICLETYPECERTIFICATEID_COLUMN_BITMASK |
+			VRTechnicalSpec_XCHPart2ModelImpl.MODIFYDATE_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID =
+		new FinderPath(VRTechnicalSpec_XCHPart2ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCHPart2ModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByvehicleTypeCertificateId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the vr technical spec_xch part2s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @return the matching vr technical spec_xch part2s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCHPart2> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		return findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the vr technical spec_xch part2s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHPart2ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param start the lower bound of the range of vr technical spec_xch part2s
+	 * @param end the upper bound of the range of vr technical spec_xch part2s (not inclusive)
+	 * @return the range of matching vr technical spec_xch part2s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCHPart2> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end) {
+		return findByvehicleTypeCertificateId(vehicleTypeCertificateId, start,
+			end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr technical spec_xch part2s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHPart2ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param start the lower bound of the range of vr technical spec_xch part2s
+	 * @param end the upper bound of the range of vr technical spec_xch part2s (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching vr technical spec_xch part2s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCHPart2> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator) {
+		return findByvehicleTypeCertificateId(vehicleTypeCertificateId, start,
+			end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr technical spec_xch part2s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHPart2ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param start the lower bound of the range of vr technical spec_xch part2s
+	 * @param end the upper bound of the range of vr technical spec_xch part2s (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching vr technical spec_xch part2s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCHPart2> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID;
+			finderArgs = new Object[] { vehicleTypeCertificateId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID;
+			finderArgs = new Object[] {
+					vehicleTypeCertificateId,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<VRTechnicalSpec_XCHPart2> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<VRTechnicalSpec_XCHPart2>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (VRTechnicalSpec_XCHPart2 vrTechnicalSpec_XCHPart2 : list) {
+					if ((vehicleTypeCertificateId != vrTechnicalSpec_XCHPart2.getVehicleTypeCertificateId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_VRTECHNICALSPEC_XCHPART2_WHERE);
+
+			query.append(_FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(VRTechnicalSpec_XCHPart2ModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(vehicleTypeCertificateId);
+
+				if (!pagination) {
+					list = (List<VRTechnicalSpec_XCHPart2>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<VRTechnicalSpec_XCHPart2>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first vr technical spec_xch part2 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr technical spec_xch part2
+	 * @throws NoSuchVRTechnicalSpec_XCHPart2Exception if a matching vr technical spec_xch part2 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCHPart2 findByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCHPart2Exception {
+		VRTechnicalSpec_XCHPart2 vrTechnicalSpec_XCHPart2 = fetchByvehicleTypeCertificateId_First(vehicleTypeCertificateId,
+				orderByComparator);
+
+		if (vrTechnicalSpec_XCHPart2 != null) {
+			return vrTechnicalSpec_XCHPart2;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("vehicleTypeCertificateId=");
+		msg.append(vehicleTypeCertificateId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRTechnicalSpec_XCHPart2Exception(msg.toString());
+	}
+
+	/**
+	 * Returns the first vr technical spec_xch part2 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr technical spec_xch part2, or <code>null</code> if a matching vr technical spec_xch part2 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCHPart2 fetchByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator) {
+		List<VRTechnicalSpec_XCHPart2> list = findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+				0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last vr technical spec_xch part2 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr technical spec_xch part2
+	 * @throws NoSuchVRTechnicalSpec_XCHPart2Exception if a matching vr technical spec_xch part2 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCHPart2 findByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCHPart2Exception {
+		VRTechnicalSpec_XCHPart2 vrTechnicalSpec_XCHPart2 = fetchByvehicleTypeCertificateId_Last(vehicleTypeCertificateId,
+				orderByComparator);
+
+		if (vrTechnicalSpec_XCHPart2 != null) {
+			return vrTechnicalSpec_XCHPart2;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("vehicleTypeCertificateId=");
+		msg.append(vehicleTypeCertificateId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRTechnicalSpec_XCHPart2Exception(msg.toString());
+	}
+
+	/**
+	 * Returns the last vr technical spec_xch part2 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr technical spec_xch part2, or <code>null</code> if a matching vr technical spec_xch part2 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCHPart2 fetchByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator) {
+		int count = countByvehicleTypeCertificateId(vehicleTypeCertificateId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<VRTechnicalSpec_XCHPart2> list = findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the vr technical spec_xch part2s before and after the current vr technical spec_xch part2 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param id the primary key of the current vr technical spec_xch part2
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next vr technical spec_xch part2
+	 * @throws NoSuchVRTechnicalSpec_XCHPart2Exception if a vr technical spec_xch part2 with the primary key could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCHPart2[] findByvehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCHPart2Exception {
+		VRTechnicalSpec_XCHPart2 vrTechnicalSpec_XCHPart2 = findByPrimaryKey(id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			VRTechnicalSpec_XCHPart2[] array = new VRTechnicalSpec_XCHPart2Impl[3];
+
+			array[0] = getByvehicleTypeCertificateId_PrevAndNext(session,
+					vrTechnicalSpec_XCHPart2, vehicleTypeCertificateId,
+					orderByComparator, true);
+
+			array[1] = vrTechnicalSpec_XCHPart2;
+
+			array[2] = getByvehicleTypeCertificateId_PrevAndNext(session,
+					vrTechnicalSpec_XCHPart2, vehicleTypeCertificateId,
+					orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected VRTechnicalSpec_XCHPart2 getByvehicleTypeCertificateId_PrevAndNext(
+		Session session, VRTechnicalSpec_XCHPart2 vrTechnicalSpec_XCHPart2,
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCHPart2> orderByComparator,
+		boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_VRTECHNICALSPEC_XCHPART2_WHERE);
+
+		query.append(_FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(VRTechnicalSpec_XCHPart2ModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(vehicleTypeCertificateId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(vrTechnicalSpec_XCHPart2);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<VRTechnicalSpec_XCHPart2> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the vr technical spec_xch part2s where vehicleTypeCertificateId = &#63; from the database.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 */
+	@Override
+	public void removeByvehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		for (VRTechnicalSpec_XCHPart2 vrTechnicalSpec_XCHPart2 : findByvehicleTypeCertificateId(
+				vehicleTypeCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+				null)) {
+			remove(vrTechnicalSpec_XCHPart2);
+		}
+	}
+
+	/**
+	 * Returns the number of vr technical spec_xch part2s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @return the number of matching vr technical spec_xch part2s
+	 */
+	@Override
+	public int countByvehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID;
+
+		Object[] finderArgs = new Object[] { vehicleTypeCertificateId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_VRTECHNICALSPEC_XCHPART2_WHERE);
+
+			query.append(_FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(vehicleTypeCertificateId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2 =
+		"vrTechnicalSpec_XCHPart2.vehicleTypeCertificateId = ?";
 
 	public VRTechnicalSpec_XCHPart2PersistenceImpl() {
 		setModelClass(VRTechnicalSpec_XCHPart2.class);
@@ -3835,6 +4368,27 @@ public class VRTechnicalSpec_XCHPart2PersistenceImpl extends BasePersistenceImpl
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_REFERENCEUID,
 					args);
 			}
+
+			if ((vrTechnicalSpec_XCHPart2ModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						vrTechnicalSpec_XCHPart2ModelImpl.getOriginalVehicleTypeCertificateId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID,
+					args);
+
+				args = new Object[] {
+						vrTechnicalSpec_XCHPart2ModelImpl.getVehicleTypeCertificateId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID,
+					args);
+			}
 		}
 
 		entityCache.putResult(VRTechnicalSpec_XCHPart2ModelImpl.ENTITY_CACHE_ENABLED,
@@ -3866,6 +4420,7 @@ public class VRTechnicalSpec_XCHPart2PersistenceImpl extends BasePersistenceImpl
 		vrTechnicalSpec_XCHPart2Impl.setReferenceUid(vrTechnicalSpec_XCHPart2.getReferenceUid());
 		vrTechnicalSpec_XCHPart2Impl.setDossierIdCTN(vrTechnicalSpec_XCHPart2.getDossierIdCTN());
 		vrTechnicalSpec_XCHPart2Impl.setDeliverableCode(vrTechnicalSpec_XCHPart2.getDeliverableCode());
+		vrTechnicalSpec_XCHPart2Impl.setVehicleTypeCertificateId(vrTechnicalSpec_XCHPart2.getVehicleTypeCertificateId());
 		vrTechnicalSpec_XCHPart2Impl.setXCH01273(vrTechnicalSpec_XCHPart2.getXCH01273());
 		vrTechnicalSpec_XCHPart2Impl.setXCH01274(vrTechnicalSpec_XCHPart2.getXCH01274());
 		vrTechnicalSpec_XCHPart2Impl.setXCH01275(vrTechnicalSpec_XCHPart2.getXCH01275());

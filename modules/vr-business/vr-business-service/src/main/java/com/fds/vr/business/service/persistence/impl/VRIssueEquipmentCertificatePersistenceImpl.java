@@ -626,7 +626,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
 			VRIssueEquipmentCertificateImpl.class,
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
-			"findByVehiclecertificaterecordno",
+			"findByvehicleCertificateRecordNo",
 			new String[] {
 				String.class.getName(),
 				
@@ -638,7 +638,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
 			VRIssueEquipmentCertificateImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
-			"findByVehiclecertificaterecordno",
+			"findByvehicleCertificateRecordNo",
 			new String[] { String.class.getName() },
 			VRIssueEquipmentCertificateModelImpl.VEHICLECERTIFICATERECORDNO_COLUMN_BITMASK |
 			VRIssueEquipmentCertificateModelImpl.SYNCDATE_COLUMN_BITMASK);
@@ -646,70 +646,70 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 		new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
 			Long.class, FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
-			"countByVehiclecertificaterecordno",
+			"countByvehicleCertificateRecordNo",
 			new String[] { String.class.getName() });
 
 	/**
-	 * Returns all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	 * Returns all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @return the matching vr issue equipment certificates
 	 */
 	@Override
-	public List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		String vehiclecertificaterecordno) {
-		return findByVehiclecertificaterecordno(vehiclecertificaterecordno,
+	public List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		String vehicleCertificateRecordNo) {
+		return findByvehicleCertificateRecordNo(vehicleCertificateRecordNo,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns a range of all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	 * Returns a range of all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param start the lower bound of the range of vr issue equipment certificates
 	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	 * @return the range of matching vr issue equipment certificates
 	 */
 	@Override
-	public List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		String vehiclecertificaterecordno, int start, int end) {
-		return findByVehiclecertificaterecordno(vehiclecertificaterecordno,
+	public List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		String vehicleCertificateRecordNo, int start, int end) {
+		return findByvehicleCertificateRecordNo(vehicleCertificateRecordNo,
 			start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	 * Returns an ordered range of all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param start the lower bound of the range of vr issue equipment certificates
 	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching vr issue equipment certificates
 	 */
 	@Override
-	public List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		String vehiclecertificaterecordno, int start, int end,
+	public List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		String vehicleCertificateRecordNo, int start, int end,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
-		return findByVehiclecertificaterecordno(vehiclecertificaterecordno,
+		return findByvehicleCertificateRecordNo(vehicleCertificateRecordNo,
 			start, end, orderByComparator, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	 * Returns an ordered range of all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param start the lower bound of the range of vr issue equipment certificates
 	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -717,8 +717,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	 * @return the ordered range of matching vr issue equipment certificates
 	 */
 	@Override
-	public List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		String vehiclecertificaterecordno, int start, int end,
+	public List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		String vehicleCertificateRecordNo, int start, int end,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
 		boolean retrieveFromCache) {
 		boolean pagination = true;
@@ -729,12 +729,12 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 				(orderByComparator == null)) {
 			pagination = false;
 			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLECERTIFICATERECORDNO;
-			finderArgs = new Object[] { vehiclecertificaterecordno };
+			finderArgs = new Object[] { vehicleCertificateRecordNo };
 		}
 		else {
 			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLECERTIFICATERECORDNO;
 			finderArgs = new Object[] {
-					vehiclecertificaterecordno,
+					vehicleCertificateRecordNo,
 					
 					start, end, orderByComparator
 				};
@@ -748,8 +748,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 			if ((list != null) && !list.isEmpty()) {
 				for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : list) {
-					if (!Objects.equals(vehiclecertificaterecordno,
-								vrIssueEquipmentCertificate.getVehiclecertificaterecordno())) {
+					if (!Objects.equals(vehicleCertificateRecordNo,
+								vrIssueEquipmentCertificate.getVehicleCertificateRecordNo())) {
 						list = null;
 
 						break;
@@ -771,16 +771,16 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 			query.append(_SQL_SELECT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
 
-			boolean bindVehiclecertificaterecordno = false;
+			boolean bindVehicleCertificateRecordNo = false;
 
-			if (vehiclecertificaterecordno == null) {
+			if (vehicleCertificateRecordNo == null) {
 				query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1);
 			}
-			else if (vehiclecertificaterecordno.equals(StringPool.BLANK)) {
+			else if (vehicleCertificateRecordNo.equals(StringPool.BLANK)) {
 				query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3);
 			}
 			else {
-				bindVehiclecertificaterecordno = true;
+				bindVehicleCertificateRecordNo = true;
 
 				query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2);
 			}
@@ -805,8 +805,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				if (bindVehiclecertificaterecordno) {
-					qPos.add(vehiclecertificaterecordno);
+				if (bindVehicleCertificateRecordNo) {
+					qPos.add(vehicleCertificateRecordNo);
 				}
 
 				if (!pagination) {
@@ -840,19 +840,19 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the first vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	 * Returns the first vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching vr issue equipment certificate
 	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
-	public VRIssueEquipmentCertificate findByVehiclecertificaterecordno_First(
-		String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate findByvehicleCertificateRecordNo_First(
+		String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException {
-		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByVehiclecertificaterecordno_First(vehiclecertificaterecordno,
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByvehicleCertificateRecordNo_First(vehicleCertificateRecordNo,
 				orderByComparator);
 
 		if (vrIssueEquipmentCertificate != null) {
@@ -863,8 +863,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("vehiclecertificaterecordno=");
-		msg.append(vehiclecertificaterecordno);
+		msg.append("vehicleCertificateRecordNo=");
+		msg.append(vehicleCertificateRecordNo);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -872,17 +872,17 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the first vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	 * Returns the first vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
-	public VRIssueEquipmentCertificate fetchByVehiclecertificaterecordno_First(
-		String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate fetchByvehicleCertificateRecordNo_First(
+		String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
-		List<VRIssueEquipmentCertificate> list = findByVehiclecertificaterecordno(vehiclecertificaterecordno,
+		List<VRIssueEquipmentCertificate> list = findByvehicleCertificateRecordNo(vehicleCertificateRecordNo,
 				0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -893,19 +893,19 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the last vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	 * Returns the last vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching vr issue equipment certificate
 	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
-	public VRIssueEquipmentCertificate findByVehiclecertificaterecordno_Last(
-		String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate findByvehicleCertificateRecordNo_Last(
+		String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException {
-		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByVehiclecertificaterecordno_Last(vehiclecertificaterecordno,
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByvehicleCertificateRecordNo_Last(vehicleCertificateRecordNo,
 				orderByComparator);
 
 		if (vrIssueEquipmentCertificate != null) {
@@ -916,8 +916,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("vehiclecertificaterecordno=");
-		msg.append(vehiclecertificaterecordno);
+		msg.append("vehicleCertificateRecordNo=");
+		msg.append(vehicleCertificateRecordNo);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -925,23 +925,23 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the last vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	 * Returns the last vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
-	public VRIssueEquipmentCertificate fetchByVehiclecertificaterecordno_Last(
-		String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate fetchByvehicleCertificateRecordNo_Last(
+		String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
-		int count = countByVehiclecertificaterecordno(vehiclecertificaterecordno);
+		int count = countByvehicleCertificateRecordNo(vehicleCertificateRecordNo);
 
 		if (count == 0) {
 			return null;
 		}
 
-		List<VRIssueEquipmentCertificate> list = findByVehiclecertificaterecordno(vehiclecertificaterecordno,
+		List<VRIssueEquipmentCertificate> list = findByvehicleCertificateRecordNo(vehicleCertificateRecordNo,
 				count - 1, count, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -952,17 +952,17 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	 * Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param id the primary key of the current vr issue equipment certificate
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next vr issue equipment certificate
 	 * @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
 	 */
 	@Override
-	public VRIssueEquipmentCertificate[] findByVehiclecertificaterecordno_PrevAndNext(
-		long id, String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate[] findByvehicleCertificateRecordNo_PrevAndNext(
+		long id, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException {
 		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = findByPrimaryKey(id);
@@ -974,14 +974,14 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 			VRIssueEquipmentCertificate[] array = new VRIssueEquipmentCertificateImpl[3];
 
-			array[0] = getByVehiclecertificaterecordno_PrevAndNext(session,
-					vrIssueEquipmentCertificate, vehiclecertificaterecordno,
+			array[0] = getByvehicleCertificateRecordNo_PrevAndNext(session,
+					vrIssueEquipmentCertificate, vehicleCertificateRecordNo,
 					orderByComparator, true);
 
 			array[1] = vrIssueEquipmentCertificate;
 
-			array[2] = getByVehiclecertificaterecordno_PrevAndNext(session,
-					vrIssueEquipmentCertificate, vehiclecertificaterecordno,
+			array[2] = getByvehicleCertificateRecordNo_PrevAndNext(session,
+					vrIssueEquipmentCertificate, vehicleCertificateRecordNo,
 					orderByComparator, false);
 
 			return array;
@@ -994,10 +994,10 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 		}
 	}
 
-	protected VRIssueEquipmentCertificate getByVehiclecertificaterecordno_PrevAndNext(
+	protected VRIssueEquipmentCertificate getByvehicleCertificateRecordNo_PrevAndNext(
 		Session session,
 		VRIssueEquipmentCertificate vrIssueEquipmentCertificate,
-		String vehiclecertificaterecordno,
+		String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
 		boolean previous) {
 		StringBundler query = null;
@@ -1013,16 +1013,16 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 		query.append(_SQL_SELECT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
 
-		boolean bindVehiclecertificaterecordno = false;
+		boolean bindVehicleCertificateRecordNo = false;
 
-		if (vehiclecertificaterecordno == null) {
+		if (vehicleCertificateRecordNo == null) {
 			query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1);
 		}
-		else if (vehiclecertificaterecordno.equals(StringPool.BLANK)) {
+		else if (vehicleCertificateRecordNo.equals(StringPool.BLANK)) {
 			query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3);
 		}
 		else {
-			bindVehiclecertificaterecordno = true;
+			bindVehicleCertificateRecordNo = true;
 
 			query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2);
 		}
@@ -1095,8 +1095,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 		QueryPos qPos = QueryPos.getInstance(q);
 
-		if (bindVehiclecertificaterecordno) {
-			qPos.add(vehiclecertificaterecordno);
+		if (bindVehicleCertificateRecordNo) {
+			qPos.add(vehicleCertificateRecordNo);
 		}
 
 		if (orderByComparator != null) {
@@ -1118,32 +1118,32 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Removes all the vr issue equipment certificates where vehiclecertificaterecordno = &#63; from the database.
+	 * Removes all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63; from the database.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 */
 	@Override
-	public void removeByVehiclecertificaterecordno(
-		String vehiclecertificaterecordno) {
-		for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : findByVehiclecertificaterecordno(
-				vehiclecertificaterecordno, QueryUtil.ALL_POS,
+	public void removeByvehicleCertificateRecordNo(
+		String vehicleCertificateRecordNo) {
+		for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : findByvehicleCertificateRecordNo(
+				vehicleCertificateRecordNo, QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS, null)) {
 			remove(vrIssueEquipmentCertificate);
 		}
 	}
 
 	/**
-	 * Returns the number of vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	 * Returns the number of vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @return the number of matching vr issue equipment certificates
 	 */
 	@Override
-	public int countByVehiclecertificaterecordno(
-		String vehiclecertificaterecordno) {
+	public int countByvehicleCertificateRecordNo(
+		String vehicleCertificateRecordNo) {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_VEHICLECERTIFICATERECORDNO;
 
-		Object[] finderArgs = new Object[] { vehiclecertificaterecordno };
+		Object[] finderArgs = new Object[] { vehicleCertificateRecordNo };
 
 		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
 
@@ -1152,16 +1152,16 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 			query.append(_SQL_COUNT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
 
-			boolean bindVehiclecertificaterecordno = false;
+			boolean bindVehicleCertificateRecordNo = false;
 
-			if (vehiclecertificaterecordno == null) {
+			if (vehicleCertificateRecordNo == null) {
 				query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1);
 			}
-			else if (vehiclecertificaterecordno.equals(StringPool.BLANK)) {
+			else if (vehicleCertificateRecordNo.equals(StringPool.BLANK)) {
 				query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3);
 			}
 			else {
-				bindVehiclecertificaterecordno = true;
+				bindVehicleCertificateRecordNo = true;
 
 				query.append(_FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2);
 			}
@@ -1177,8 +1177,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				if (bindVehiclecertificaterecordno) {
-					qPos.add(vehiclecertificaterecordno);
+				if (bindVehicleCertificateRecordNo) {
+					qPos.add(vehicleCertificateRecordNo);
 				}
 
 				count = (Long)q.uniqueResult();
@@ -1199,11 +1199,11 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	private static final String _FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1 =
-		"vrIssueEquipmentCertificate.vehiclecertificaterecordno IS NULL";
+		"vrIssueEquipmentCertificate.vehicleCertificateRecordNo IS NULL";
 	private static final String _FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2 =
-		"vrIssueEquipmentCertificate.vehiclecertificaterecordno = ?";
+		"vrIssueEquipmentCertificate.vehicleCertificateRecordNo = ?";
 	private static final String _FINDER_COLUMN_VEHICLECERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3 =
-		"(vrIssueEquipmentCertificate.vehiclecertificaterecordno IS NULL OR vrIssueEquipmentCertificate.vehiclecertificaterecordno = '')";
+		"(vrIssueEquipmentCertificate.vehicleCertificateRecordNo IS NULL OR vrIssueEquipmentCertificate.vehicleCertificateRecordNo = '')";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_APPLICANTNO_CERTIFICATERECORDNO =
 		new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
@@ -1234,50 +1234,50 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 			new String[] { String.class.getName(), String.class.getName() });
 
 	/**
-	 * Returns all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @return the matching vr issue equipment certificates
 	 */
 	@Override
 	public List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
-		String applicantNo, String vehiclecertificaterecordno) {
+		String applicantNo, String vehicleCertificateRecordNo) {
 		return findByApplicantNo_CertificateRecordNo(applicantNo,
-			vehiclecertificaterecordno, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			vehicleCertificateRecordNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			null);
 	}
 
 	/**
-	 * Returns a range of all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns a range of all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param start the lower bound of the range of vr issue equipment certificates
 	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	 * @return the range of matching vr issue equipment certificates
 	 */
 	@Override
 	public List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
-		String applicantNo, String vehiclecertificaterecordno, int start,
+		String applicantNo, String vehicleCertificateRecordNo, int start,
 		int end) {
 		return findByApplicantNo_CertificateRecordNo(applicantNo,
-			vehiclecertificaterecordno, start, end, null);
+			vehicleCertificateRecordNo, start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param start the lower bound of the range of vr issue equipment certificates
 	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -1285,22 +1285,22 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	 */
 	@Override
 	public List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
-		String applicantNo, String vehiclecertificaterecordno, int start,
+		String applicantNo, String vehicleCertificateRecordNo, int start,
 		int end,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
 		return findByApplicantNo_CertificateRecordNo(applicantNo,
-			vehiclecertificaterecordno, start, end, orderByComparator, true);
+			vehicleCertificateRecordNo, start, end, orderByComparator, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param start the lower bound of the range of vr issue equipment certificates
 	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -1309,7 +1309,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	 */
 	@Override
 	public List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
-		String applicantNo, String vehiclecertificaterecordno, int start,
+		String applicantNo, String vehicleCertificateRecordNo, int start,
 		int end,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
 		boolean retrieveFromCache) {
@@ -1321,12 +1321,12 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 				(orderByComparator == null)) {
 			pagination = false;
 			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_APPLICANTNO_CERTIFICATERECORDNO;
-			finderArgs = new Object[] { applicantNo, vehiclecertificaterecordno };
+			finderArgs = new Object[] { applicantNo, vehicleCertificateRecordNo };
 		}
 		else {
 			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_APPLICANTNO_CERTIFICATERECORDNO;
 			finderArgs = new Object[] {
-					applicantNo, vehiclecertificaterecordno,
+					applicantNo, vehicleCertificateRecordNo,
 					
 					start, end, orderByComparator
 				};
@@ -1342,8 +1342,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 				for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : list) {
 					if (!Objects.equals(applicantNo,
 								vrIssueEquipmentCertificate.getApplicantNo()) ||
-							!Objects.equals(vehiclecertificaterecordno,
-								vrIssueEquipmentCertificate.getVehiclecertificaterecordno())) {
+							!Objects.equals(vehicleCertificateRecordNo,
+								vrIssueEquipmentCertificate.getVehicleCertificateRecordNo())) {
 						list = null;
 
 						break;
@@ -1379,16 +1379,16 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_APPLICANTNO_2);
 			}
 
-			boolean bindVehiclecertificaterecordno = false;
+			boolean bindVehicleCertificateRecordNo = false;
 
-			if (vehiclecertificaterecordno == null) {
+			if (vehicleCertificateRecordNo == null) {
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1);
 			}
-			else if (vehiclecertificaterecordno.equals(StringPool.BLANK)) {
+			else if (vehicleCertificateRecordNo.equals(StringPool.BLANK)) {
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3);
 			}
 			else {
-				bindVehiclecertificaterecordno = true;
+				bindVehicleCertificateRecordNo = true;
 
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2);
 			}
@@ -1417,8 +1417,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 					qPos.add(applicantNo);
 				}
 
-				if (bindVehiclecertificaterecordno) {
-					qPos.add(vehiclecertificaterecordno);
+				if (bindVehicleCertificateRecordNo) {
+					qPos.add(vehicleCertificateRecordNo);
 				}
 
 				if (!pagination) {
@@ -1452,21 +1452,21 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching vr issue equipment certificate
 	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
 	public VRIssueEquipmentCertificate findByApplicantNo_CertificateRecordNo_First(
-		String applicantNo, String vehiclecertificaterecordno,
+		String applicantNo, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException {
 		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByApplicantNo_CertificateRecordNo_First(applicantNo,
-				vehiclecertificaterecordno, orderByComparator);
+				vehicleCertificateRecordNo, orderByComparator);
 
 		if (vrIssueEquipmentCertificate != null) {
 			return vrIssueEquipmentCertificate;
@@ -1479,8 +1479,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 		msg.append("applicantNo=");
 		msg.append(applicantNo);
 
-		msg.append(", vehiclecertificaterecordno=");
-		msg.append(vehiclecertificaterecordno);
+		msg.append(", vehicleCertificateRecordNo=");
+		msg.append(vehicleCertificateRecordNo);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -1488,19 +1488,19 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
 	public VRIssueEquipmentCertificate fetchByApplicantNo_CertificateRecordNo_First(
-		String applicantNo, String vehiclecertificaterecordno,
+		String applicantNo, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
 		List<VRIssueEquipmentCertificate> list = findByApplicantNo_CertificateRecordNo(applicantNo,
-				vehiclecertificaterecordno, 0, 1, orderByComparator);
+				vehicleCertificateRecordNo, 0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -1510,21 +1510,21 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching vr issue equipment certificate
 	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
 	public VRIssueEquipmentCertificate findByApplicantNo_CertificateRecordNo_Last(
-		String applicantNo, String vehiclecertificaterecordno,
+		String applicantNo, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException {
 		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByApplicantNo_CertificateRecordNo_Last(applicantNo,
-				vehiclecertificaterecordno, orderByComparator);
+				vehicleCertificateRecordNo, orderByComparator);
 
 		if (vrIssueEquipmentCertificate != null) {
 			return vrIssueEquipmentCertificate;
@@ -1537,8 +1537,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 		msg.append("applicantNo=");
 		msg.append(applicantNo);
 
-		msg.append(", vehiclecertificaterecordno=");
-		msg.append(vehiclecertificaterecordno);
+		msg.append(", vehicleCertificateRecordNo=");
+		msg.append(vehicleCertificateRecordNo);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -1546,26 +1546,26 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	 */
 	@Override
 	public VRIssueEquipmentCertificate fetchByApplicantNo_CertificateRecordNo_Last(
-		String applicantNo, String vehiclecertificaterecordno,
+		String applicantNo, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
 		int count = countByApplicantNo_CertificateRecordNo(applicantNo,
-				vehiclecertificaterecordno);
+				vehicleCertificateRecordNo);
 
 		if (count == 0) {
 			return null;
 		}
 
 		List<VRIssueEquipmentCertificate> list = findByApplicantNo_CertificateRecordNo(applicantNo,
-				vehiclecertificaterecordno, count - 1, count, orderByComparator);
+				vehicleCertificateRecordNo, count - 1, count, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -1575,18 +1575,18 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param id the primary key of the current vr issue equipment certificate
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next vr issue equipment certificate
 	 * @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
 	 */
 	@Override
 	public VRIssueEquipmentCertificate[] findByApplicantNo_CertificateRecordNo_PrevAndNext(
-		long id, String applicantNo, String vehiclecertificaterecordno,
+		long id, String applicantNo, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException {
 		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = findByPrimaryKey(id);
@@ -1600,13 +1600,13 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 			array[0] = getByApplicantNo_CertificateRecordNo_PrevAndNext(session,
 					vrIssueEquipmentCertificate, applicantNo,
-					vehiclecertificaterecordno, orderByComparator, true);
+					vehicleCertificateRecordNo, orderByComparator, true);
 
 			array[1] = vrIssueEquipmentCertificate;
 
 			array[2] = getByApplicantNo_CertificateRecordNo_PrevAndNext(session,
 					vrIssueEquipmentCertificate, applicantNo,
-					vehiclecertificaterecordno, orderByComparator, false);
+					vehicleCertificateRecordNo, orderByComparator, false);
 
 			return array;
 		}
@@ -1621,7 +1621,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	protected VRIssueEquipmentCertificate getByApplicantNo_CertificateRecordNo_PrevAndNext(
 		Session session,
 		VRIssueEquipmentCertificate vrIssueEquipmentCertificate,
-		String applicantNo, String vehiclecertificaterecordno,
+		String applicantNo, String vehicleCertificateRecordNo,
 		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
 		boolean previous) {
 		StringBundler query = null;
@@ -1651,16 +1651,16 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 			query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_APPLICANTNO_2);
 		}
 
-		boolean bindVehiclecertificaterecordno = false;
+		boolean bindVehicleCertificateRecordNo = false;
 
-		if (vehiclecertificaterecordno == null) {
+		if (vehicleCertificateRecordNo == null) {
 			query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1);
 		}
-		else if (vehiclecertificaterecordno.equals(StringPool.BLANK)) {
+		else if (vehicleCertificateRecordNo.equals(StringPool.BLANK)) {
 			query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3);
 		}
 		else {
-			bindVehiclecertificaterecordno = true;
+			bindVehicleCertificateRecordNo = true;
 
 			query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2);
 		}
@@ -1737,8 +1737,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 			qPos.add(applicantNo);
 		}
 
-		if (bindVehiclecertificaterecordno) {
-			qPos.add(vehiclecertificaterecordno);
+		if (bindVehicleCertificateRecordNo) {
+			qPos.add(vehicleCertificateRecordNo);
 		}
 
 		if (orderByComparator != null) {
@@ -1760,35 +1760,35 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	}
 
 	/**
-	 * Removes all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63; from the database.
+	 * Removes all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63; from the database.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 */
 	@Override
 	public void removeByApplicantNo_CertificateRecordNo(String applicantNo,
-		String vehiclecertificaterecordno) {
+		String vehicleCertificateRecordNo) {
 		for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : findByApplicantNo_CertificateRecordNo(
-				applicantNo, vehiclecertificaterecordno, QueryUtil.ALL_POS,
+				applicantNo, vehicleCertificateRecordNo, QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS, null)) {
 			remove(vrIssueEquipmentCertificate);
 		}
 	}
 
 	/**
-	 * Returns the number of vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	 * Returns the number of vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	 *
 	 * @param applicantNo the applicant no
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no
 	 * @return the number of matching vr issue equipment certificates
 	 */
 	@Override
 	public int countByApplicantNo_CertificateRecordNo(String applicantNo,
-		String vehiclecertificaterecordno) {
+		String vehicleCertificateRecordNo) {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_APPLICANTNO_CERTIFICATERECORDNO;
 
 		Object[] finderArgs = new Object[] {
-				applicantNo, vehiclecertificaterecordno
+				applicantNo, vehicleCertificateRecordNo
 			};
 
 		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
@@ -1812,16 +1812,16 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_APPLICANTNO_2);
 			}
 
-			boolean bindVehiclecertificaterecordno = false;
+			boolean bindVehicleCertificateRecordNo = false;
 
-			if (vehiclecertificaterecordno == null) {
+			if (vehicleCertificateRecordNo == null) {
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1);
 			}
-			else if (vehiclecertificaterecordno.equals(StringPool.BLANK)) {
+			else if (vehicleCertificateRecordNo.equals(StringPool.BLANK)) {
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3);
 			}
 			else {
-				bindVehiclecertificaterecordno = true;
+				bindVehicleCertificateRecordNo = true;
 
 				query.append(_FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2);
 			}
@@ -1841,8 +1841,8 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 					qPos.add(applicantNo);
 				}
 
-				if (bindVehiclecertificaterecordno) {
-					qPos.add(vehiclecertificaterecordno);
+				if (bindVehicleCertificateRecordNo) {
+					qPos.add(vehicleCertificateRecordNo);
 				}
 
 				count = (Long)q.uniqueResult();
@@ -1869,11 +1869,11 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	private static final String _FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_APPLICANTNO_3 =
 		"(vrIssueEquipmentCertificate.applicantNo IS NULL OR vrIssueEquipmentCertificate.applicantNo = '') AND ";
 	private static final String _FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_1 =
-		"vrIssueEquipmentCertificate.vehiclecertificaterecordno IS NULL";
+		"vrIssueEquipmentCertificate.vehicleCertificateRecordNo IS NULL";
 	private static final String _FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_2 =
-		"vrIssueEquipmentCertificate.vehiclecertificaterecordno = ?";
+		"vrIssueEquipmentCertificate.vehicleCertificateRecordNo = ?";
 	private static final String _FINDER_COLUMN_APPLICANTNO_CERTIFICATERECORDNO_VEHICLECERTIFICATERECORDNO_3 =
-		"(vrIssueEquipmentCertificate.vehiclecertificaterecordno IS NULL OR vrIssueEquipmentCertificate.vehiclecertificaterecordno = '')";
+		"(vrIssueEquipmentCertificate.vehicleCertificateRecordNo IS NULL OR vrIssueEquipmentCertificate.vehicleCertificateRecordNo = '')";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_APPLICANTNO =
 		new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
 			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
@@ -2442,6 +2442,1081 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 	private static final String _FINDER_COLUMN_APPLICANTNO_APPLICANTNO_1 = "vrIssueEquipmentCertificate.applicantNo IS NULL";
 	private static final String _FINDER_COLUMN_APPLICANTNO_APPLICANTNO_2 = "vrIssueEquipmentCertificate.applicantNo = ?";
 	private static final String _FINDER_COLUMN_APPLICANTNO_APPLICANTNO_3 = "(vrIssueEquipmentCertificate.applicantNo IS NULL OR vrIssueEquipmentCertificate.applicantNo = '')";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERID_MTCORE =
+		new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
+			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
+			VRIssueEquipmentCertificateImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBydossierID_MtCore",
+			new String[] {
+				Long.class.getName(), Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID_MTCORE =
+		new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
+			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
+			VRIssueEquipmentCertificateImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findBydossierID_MtCore",
+			new String[] { Long.class.getName(), Long.class.getName() },
+			VRIssueEquipmentCertificateModelImpl.DOSSIERID_COLUMN_BITMASK |
+			VRIssueEquipmentCertificateModelImpl.MTCORE_COLUMN_BITMASK |
+			VRIssueEquipmentCertificateModelImpl.SYNCDATE_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_DOSSIERID_MTCORE = new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
+			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
+			Long.class, FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countBydossierID_MtCore",
+			new String[] { Long.class.getName(), Long.class.getName() });
+
+	/**
+	 * Returns all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @return the matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore) {
+		return findBydossierID_MtCore(dossierId, mtCore, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param start the lower bound of the range of vr issue equipment certificates
+	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	 * @return the range of matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore, int start, int end) {
+		return findBydossierID_MtCore(dossierId, mtCore, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param start the lower bound of the range of vr issue equipment certificates
+	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
+		return findBydossierID_MtCore(dossierId, mtCore, start, end,
+			orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param start the lower bound of the range of vr issue equipment certificates
+	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID_MTCORE;
+			finderArgs = new Object[] { dossierId, mtCore };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_DOSSIERID_MTCORE;
+			finderArgs = new Object[] {
+					dossierId, mtCore,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<VRIssueEquipmentCertificate> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<VRIssueEquipmentCertificate>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : list) {
+					if ((dossierId != vrIssueEquipmentCertificate.getDossierId()) ||
+							(mtCore != vrIssueEquipmentCertificate.getMtCore())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(4 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(4);
+			}
+
+			query.append(_SQL_SELECT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
+
+			query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_DOSSIERID_2);
+
+			query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_MTCORE_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(VRIssueEquipmentCertificateModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(dossierId);
+
+				qPos.add(mtCore);
+
+				if (!pagination) {
+					list = (List<VRIssueEquipmentCertificate>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<VRIssueEquipmentCertificate>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr issue equipment certificate
+	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate findBydossierID_MtCore_First(
+		long dossierId, long mtCore,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException {
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchBydossierID_MtCore_First(dossierId,
+				mtCore, orderByComparator);
+
+		if (vrIssueEquipmentCertificate != null) {
+			return vrIssueEquipmentCertificate;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("dossierId=");
+		msg.append(dossierId);
+
+		msg.append(", mtCore=");
+		msg.append(mtCore);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRIssueEquipmentCertificateException(msg.toString());
+	}
+
+	/**
+	 * Returns the first vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate fetchBydossierID_MtCore_First(
+		long dossierId, long mtCore,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
+		List<VRIssueEquipmentCertificate> list = findBydossierID_MtCore(dossierId,
+				mtCore, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr issue equipment certificate
+	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate findBydossierID_MtCore_Last(
+		long dossierId, long mtCore,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException {
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchBydossierID_MtCore_Last(dossierId,
+				mtCore, orderByComparator);
+
+		if (vrIssueEquipmentCertificate != null) {
+			return vrIssueEquipmentCertificate;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("dossierId=");
+		msg.append(dossierId);
+
+		msg.append(", mtCore=");
+		msg.append(mtCore);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRIssueEquipmentCertificateException(msg.toString());
+	}
+
+	/**
+	 * Returns the last vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate fetchBydossierID_MtCore_Last(
+		long dossierId, long mtCore,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
+		int count = countBydossierID_MtCore(dossierId, mtCore);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<VRIssueEquipmentCertificate> list = findBydossierID_MtCore(dossierId,
+				mtCore, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param id the primary key of the current vr issue equipment certificate
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next vr issue equipment certificate
+	 * @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate[] findBydossierID_MtCore_PrevAndNext(
+		long id, long dossierId, long mtCore,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException {
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = findByPrimaryKey(id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			VRIssueEquipmentCertificate[] array = new VRIssueEquipmentCertificateImpl[3];
+
+			array[0] = getBydossierID_MtCore_PrevAndNext(session,
+					vrIssueEquipmentCertificate, dossierId, mtCore,
+					orderByComparator, true);
+
+			array[1] = vrIssueEquipmentCertificate;
+
+			array[2] = getBydossierID_MtCore_PrevAndNext(session,
+					vrIssueEquipmentCertificate, dossierId, mtCore,
+					orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected VRIssueEquipmentCertificate getBydossierID_MtCore_PrevAndNext(
+		Session session,
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate,
+		long dossierId, long mtCore,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
+		boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(5 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		query.append(_SQL_SELECT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
+
+		query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_DOSSIERID_2);
+
+		query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_MTCORE_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(VRIssueEquipmentCertificateModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(dossierId);
+
+		qPos.add(mtCore);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(vrIssueEquipmentCertificate);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<VRIssueEquipmentCertificate> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63; from the database.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 */
+	@Override
+	public void removeBydossierID_MtCore(long dossierId, long mtCore) {
+		for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : findBydossierID_MtCore(
+				dossierId, mtCore, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(vrIssueEquipmentCertificate);
+		}
+	}
+
+	/**
+	 * Returns the number of vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param mtCore the mt core
+	 * @return the number of matching vr issue equipment certificates
+	 */
+	@Override
+	public int countBydossierID_MtCore(long dossierId, long mtCore) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_DOSSIERID_MTCORE;
+
+		Object[] finderArgs = new Object[] { dossierId, mtCore };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_COUNT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
+
+			query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_DOSSIERID_2);
+
+			query.append(_FINDER_COLUMN_DOSSIERID_MTCORE_MTCORE_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(dossierId);
+
+				qPos.add(mtCore);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_DOSSIERID_MTCORE_DOSSIERID_2 = "vrIssueEquipmentCertificate.dossierId = ? AND ";
+	private static final String _FINDER_COLUMN_DOSSIERID_MTCORE_MTCORE_2 = "vrIssueEquipmentCertificate.mtCore = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_ISSUEID = new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
+			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
+			VRIssueEquipmentCertificateImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByissueId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ISSUEID =
+		new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
+			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
+			VRIssueEquipmentCertificateImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByissueId",
+			new String[] { Long.class.getName() },
+			VRIssueEquipmentCertificateModelImpl.ISSUEID_COLUMN_BITMASK |
+			VRIssueEquipmentCertificateModelImpl.SYNCDATE_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_ISSUEID = new FinderPath(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
+			VRIssueEquipmentCertificateModelImpl.FINDER_CACHE_ENABLED,
+			Long.class, FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByissueId", new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the vr issue equipment certificates where issueId = &#63;.
+	 *
+	 * @param issueId the issue ID
+	 * @return the matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findByissueId(long issueId) {
+		return findByissueId(issueId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the vr issue equipment certificates where issueId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param issueId the issue ID
+	 * @param start the lower bound of the range of vr issue equipment certificates
+	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	 * @return the range of matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findByissueId(long issueId,
+		int start, int end) {
+		return findByissueId(issueId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr issue equipment certificates where issueId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param issueId the issue ID
+	 * @param start the lower bound of the range of vr issue equipment certificates
+	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findByissueId(long issueId,
+		int start, int end,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
+		return findByissueId(issueId, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr issue equipment certificates where issueId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param issueId the issue ID
+	 * @param start the lower bound of the range of vr issue equipment certificates
+	 * @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching vr issue equipment certificates
+	 */
+	@Override
+	public List<VRIssueEquipmentCertificate> findByissueId(long issueId,
+		int start, int end,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ISSUEID;
+			finderArgs = new Object[] { issueId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_ISSUEID;
+			finderArgs = new Object[] { issueId, start, end, orderByComparator };
+		}
+
+		List<VRIssueEquipmentCertificate> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<VRIssueEquipmentCertificate>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : list) {
+					if ((issueId != vrIssueEquipmentCertificate.getIssueId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
+
+			query.append(_FINDER_COLUMN_ISSUEID_ISSUEID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(VRIssueEquipmentCertificateModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(issueId);
+
+				if (!pagination) {
+					list = (List<VRIssueEquipmentCertificate>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<VRIssueEquipmentCertificate>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first vr issue equipment certificate in the ordered set where issueId = &#63;.
+	 *
+	 * @param issueId the issue ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr issue equipment certificate
+	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate findByissueId_First(long issueId,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException {
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByissueId_First(issueId,
+				orderByComparator);
+
+		if (vrIssueEquipmentCertificate != null) {
+			return vrIssueEquipmentCertificate;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("issueId=");
+		msg.append(issueId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRIssueEquipmentCertificateException(msg.toString());
+	}
+
+	/**
+	 * Returns the first vr issue equipment certificate in the ordered set where issueId = &#63;.
+	 *
+	 * @param issueId the issue ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate fetchByissueId_First(long issueId,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
+		List<VRIssueEquipmentCertificate> list = findByissueId(issueId, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last vr issue equipment certificate in the ordered set where issueId = &#63;.
+	 *
+	 * @param issueId the issue ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr issue equipment certificate
+	 * @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate findByissueId_Last(long issueId,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException {
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = fetchByissueId_Last(issueId,
+				orderByComparator);
+
+		if (vrIssueEquipmentCertificate != null) {
+			return vrIssueEquipmentCertificate;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("issueId=");
+		msg.append(issueId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRIssueEquipmentCertificateException(msg.toString());
+	}
+
+	/**
+	 * Returns the last vr issue equipment certificate in the ordered set where issueId = &#63;.
+	 *
+	 * @param issueId the issue ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate fetchByissueId_Last(long issueId,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator) {
+		int count = countByissueId(issueId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<VRIssueEquipmentCertificate> list = findByissueId(issueId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where issueId = &#63;.
+	 *
+	 * @param id the primary key of the current vr issue equipment certificate
+	 * @param issueId the issue ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next vr issue equipment certificate
+	 * @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
+	 */
+	@Override
+	public VRIssueEquipmentCertificate[] findByissueId_PrevAndNext(long id,
+		long issueId,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException {
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate = findByPrimaryKey(id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			VRIssueEquipmentCertificate[] array = new VRIssueEquipmentCertificateImpl[3];
+
+			array[0] = getByissueId_PrevAndNext(session,
+					vrIssueEquipmentCertificate, issueId, orderByComparator,
+					true);
+
+			array[1] = vrIssueEquipmentCertificate;
+
+			array[2] = getByissueId_PrevAndNext(session,
+					vrIssueEquipmentCertificate, issueId, orderByComparator,
+					false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected VRIssueEquipmentCertificate getByissueId_PrevAndNext(
+		Session session,
+		VRIssueEquipmentCertificate vrIssueEquipmentCertificate, long issueId,
+		OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
+		boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
+
+		query.append(_FINDER_COLUMN_ISSUEID_ISSUEID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(VRIssueEquipmentCertificateModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(issueId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(vrIssueEquipmentCertificate);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<VRIssueEquipmentCertificate> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the vr issue equipment certificates where issueId = &#63; from the database.
+	 *
+	 * @param issueId the issue ID
+	 */
+	@Override
+	public void removeByissueId(long issueId) {
+		for (VRIssueEquipmentCertificate vrIssueEquipmentCertificate : findByissueId(
+				issueId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(vrIssueEquipmentCertificate);
+		}
+	}
+
+	/**
+	 * Returns the number of vr issue equipment certificates where issueId = &#63;.
+	 *
+	 * @param issueId the issue ID
+	 * @return the number of matching vr issue equipment certificates
+	 */
+	@Override
+	public int countByissueId(long issueId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_ISSUEID;
+
+		Object[] finderArgs = new Object[] { issueId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_VRISSUEEQUIPMENTCERTIFICATE_WHERE);
+
+			query.append(_FINDER_COLUMN_ISSUEID_ISSUEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(issueId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_ISSUEID_ISSUEID_2 = "vrIssueEquipmentCertificate.issueId = ?";
 
 	public VRIssueEquipmentCertificatePersistenceImpl() {
 		setModelClass(VRIssueEquipmentCertificate.class);
@@ -2696,7 +3771,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 			if ((vrIssueEquipmentCertificateModelImpl.getColumnBitmask() &
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLECERTIFICATERECORDNO.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
-						vrIssueEquipmentCertificateModelImpl.getOriginalVehiclecertificaterecordno()
+						vrIssueEquipmentCertificateModelImpl.getOriginalVehicleCertificateRecordNo()
 					};
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_VEHICLECERTIFICATERECORDNO,
@@ -2705,7 +3780,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 					args);
 
 				args = new Object[] {
-						vrIssueEquipmentCertificateModelImpl.getVehiclecertificaterecordno()
+						vrIssueEquipmentCertificateModelImpl.getVehicleCertificateRecordNo()
 					};
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_VEHICLECERTIFICATERECORDNO,
@@ -2718,7 +3793,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_APPLICANTNO_CERTIFICATERECORDNO.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						vrIssueEquipmentCertificateModelImpl.getOriginalApplicantNo(),
-						vrIssueEquipmentCertificateModelImpl.getOriginalVehiclecertificaterecordno()
+						vrIssueEquipmentCertificateModelImpl.getOriginalVehicleCertificateRecordNo()
 					};
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_APPLICANTNO_CERTIFICATERECORDNO,
@@ -2728,7 +3803,7 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 
 				args = new Object[] {
 						vrIssueEquipmentCertificateModelImpl.getApplicantNo(),
-						vrIssueEquipmentCertificateModelImpl.getVehiclecertificaterecordno()
+						vrIssueEquipmentCertificateModelImpl.getVehicleCertificateRecordNo()
 					};
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_APPLICANTNO_CERTIFICATERECORDNO,
@@ -2755,6 +3830,48 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_APPLICANTNO,
 					args);
 			}
+
+			if ((vrIssueEquipmentCertificateModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID_MTCORE.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						vrIssueEquipmentCertificateModelImpl.getOriginalDossierId(),
+						vrIssueEquipmentCertificateModelImpl.getOriginalMtCore()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERID_MTCORE,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID_MTCORE,
+					args);
+
+				args = new Object[] {
+						vrIssueEquipmentCertificateModelImpl.getDossierId(),
+						vrIssueEquipmentCertificateModelImpl.getMtCore()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_DOSSIERID_MTCORE,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_DOSSIERID_MTCORE,
+					args);
+			}
+
+			if ((vrIssueEquipmentCertificateModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ISSUEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						vrIssueEquipmentCertificateModelImpl.getOriginalIssueId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_ISSUEID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ISSUEID,
+					args);
+
+				args = new Object[] {
+						vrIssueEquipmentCertificateModelImpl.getIssueId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_ISSUEID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ISSUEID,
+					args);
+			}
 		}
 
 		entityCache.putResult(VRIssueEquipmentCertificateModelImpl.ENTITY_CACHE_ENABLED,
@@ -2779,10 +3896,11 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 		vrIssueEquipmentCertificateImpl.setPrimaryKey(vrIssueEquipmentCertificate.getPrimaryKey());
 
 		vrIssueEquipmentCertificateImpl.setId(vrIssueEquipmentCertificate.getId());
-		vrIssueEquipmentCertificateImpl.setMtcore(vrIssueEquipmentCertificate.getMtcore());
+		vrIssueEquipmentCertificateImpl.setMtCore(vrIssueEquipmentCertificate.getMtCore());
+		vrIssueEquipmentCertificateImpl.setDossierId(vrIssueEquipmentCertificate.getDossierId());
 		vrIssueEquipmentCertificateImpl.setIssueId(vrIssueEquipmentCertificate.getIssueId());
 		vrIssueEquipmentCertificateImpl.setIssueVehicleCertificateId(vrIssueEquipmentCertificate.getIssueVehicleCertificateId());
-		vrIssueEquipmentCertificateImpl.setVehiclecertificaterecordno(vrIssueEquipmentCertificate.getVehiclecertificaterecordno());
+		vrIssueEquipmentCertificateImpl.setVehicleCertificateRecordNo(vrIssueEquipmentCertificate.getVehicleCertificateRecordNo());
 		vrIssueEquipmentCertificateImpl.setEquipmentName(vrIssueEquipmentCertificate.getEquipmentName());
 		vrIssueEquipmentCertificateImpl.setEquipmentType(vrIssueEquipmentCertificate.getEquipmentType());
 		vrIssueEquipmentCertificateImpl.setEquipmentCertificateType(vrIssueEquipmentCertificate.getEquipmentCertificateType());
@@ -2795,10 +3913,10 @@ public class VRIssueEquipmentCertificatePersistenceImpl
 		vrIssueEquipmentCertificateImpl.setTotalInUse(vrIssueEquipmentCertificate.getTotalInUse());
 		vrIssueEquipmentCertificateImpl.setTotalNotUsed(vrIssueEquipmentCertificate.getTotalNotUsed());
 		vrIssueEquipmentCertificateImpl.setApplicantNo(vrIssueEquipmentCertificate.getApplicantNo());
-		vrIssueEquipmentCertificateImpl.setApplicantname(vrIssueEquipmentCertificate.getApplicantname());
-		vrIssueEquipmentCertificateImpl.setApplicantaddress(vrIssueEquipmentCertificate.getApplicantaddress());
-		vrIssueEquipmentCertificateImpl.setProductionplantname(vrIssueEquipmentCertificate.getProductionplantname());
-		vrIssueEquipmentCertificateImpl.setProductionplantaddress(vrIssueEquipmentCertificate.getProductionplantaddress());
+		vrIssueEquipmentCertificateImpl.setApplicantName(vrIssueEquipmentCertificate.getApplicantName());
+		vrIssueEquipmentCertificateImpl.setApplicantAddress(vrIssueEquipmentCertificate.getApplicantAddress());
+		vrIssueEquipmentCertificateImpl.setProductionPlantName(vrIssueEquipmentCertificate.getProductionPlantName());
+		vrIssueEquipmentCertificateImpl.setProductionPlantAddress(vrIssueEquipmentCertificate.getProductionPlantAddress());
 		vrIssueEquipmentCertificateImpl.setModifyDate(vrIssueEquipmentCertificate.getModifyDate());
 		vrIssueEquipmentCertificateImpl.setSyncDate(vrIssueEquipmentCertificate.getSyncDate());
 

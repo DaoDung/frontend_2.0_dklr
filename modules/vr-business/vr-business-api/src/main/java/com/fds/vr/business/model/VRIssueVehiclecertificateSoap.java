@@ -43,8 +43,9 @@ public class VRIssueVehiclecertificateSoap implements Serializable {
 		soapModel.setTotalQuantity(model.getTotalQuantity());
 		soapModel.setUnitPrice(model.getUnitPrice());
 		soapModel.setTotalProduct(model.getTotalProduct());
-		soapModel.setCertificaterecordno(model.getCertificaterecordno());
-		soapModel.setProductionexamreportno(model.getProductionexamreportno());
+		soapModel.setCertificateRecordNo(model.getCertificateRecordNo());
+		soapModel.setProductionExamReportNo(model.getProductionExamReportNo());
+		soapModel.setCertificateRecordDate(model.getCertificateRecordDate());
 		soapModel.setModifyDate(model.getModifyDate());
 		soapModel.setSyncDate(model.getSyncDate());
 
@@ -174,20 +175,28 @@ public class VRIssueVehiclecertificateSoap implements Serializable {
 		_totalProduct = totalProduct;
 	}
 
-	public String getCertificaterecordno() {
-		return _certificaterecordno;
+	public String getCertificateRecordNo() {
+		return _certificateRecordNo;
 	}
 
-	public void setCertificaterecordno(String certificaterecordno) {
-		_certificaterecordno = certificaterecordno;
+	public void setCertificateRecordNo(String certificateRecordNo) {
+		_certificateRecordNo = certificateRecordNo;
 	}
 
-	public String getProductionexamreportno() {
-		return _productionexamreportno;
+	public String getProductionExamReportNo() {
+		return _productionExamReportNo;
 	}
 
-	public void setProductionexamreportno(String productionexamreportno) {
-		_productionexamreportno = productionexamreportno;
+	public void setProductionExamReportNo(String productionExamReportNo) {
+		_productionExamReportNo = productionExamReportNo;
+	}
+
+	public Date getCertificateRecordDate() {
+		return _certificateRecordDate;
+	}
+
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_certificateRecordDate = certificateRecordDate;
 	}
 
 	public Date getModifyDate() {
@@ -215,8 +224,9 @@ public class VRIssueVehiclecertificateSoap implements Serializable {
 	private long _totalQuantity;
 	private long _unitPrice;
 	private int _totalProduct;
-	private String _certificaterecordno;
-	private String _productionexamreportno;
+	private String _certificateRecordNo;
+	private String _productionExamReportNo;
+	private Date _certificateRecordDate;
 	private Date _modifyDate;
 	private Date _syncDate;
 }

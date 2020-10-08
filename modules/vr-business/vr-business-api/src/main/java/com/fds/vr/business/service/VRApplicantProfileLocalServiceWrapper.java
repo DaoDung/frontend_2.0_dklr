@@ -54,13 +54,6 @@ public class VRApplicantProfileLocalServiceWrapper
 			mtCore, applicantCode);
 	}
 
-	@Override
-	public com.fds.vr.business.model.VRApplicantProfile createVRApplicantProfile(
-		com.fds.vr.business.model.VRApplicantProfile object)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.createVRApplicantProfile(object);
-	}
-
 	/**
 	* Creates a new vr applicant profile with the primary key. Does not add the vr applicant profile to the database.
 	*
@@ -105,10 +98,9 @@ public class VRApplicantProfileLocalServiceWrapper
 	}
 
 	@Override
-	public com.fds.vr.business.model.VRApplicantProfile findByMT_APP_CODE(
-		long mtCore, java.lang.String applicantCode) {
-		return _vrApplicantProfileLocalService.findByMT_APP_CODE(mtCore,
-			applicantCode);
+	public com.fds.vr.business.model.VRApplicantProfile findByApplicantCode(
+		java.lang.String applicantCode) {
+		return _vrApplicantProfileLocalService.findByApplicantCode(applicantCode);
 	}
 
 	/**
@@ -124,23 +116,15 @@ public class VRApplicantProfileLocalServiceWrapper
 		return _vrApplicantProfileLocalService.getVRApplicantProfile(id);
 	}
 
-	@Override
-	public com.fds.vr.business.model.VRApplicantProfile updateApplicantProfile(
-		java.util.LinkedHashMap<java.lang.String, java.lang.String> mapValues) {
-		return _vrApplicantProfileLocalService.updateApplicantProfile(mapValues);
-	}
-
 	/**
 	* Updates the vr applicant profile in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param vrApplicantProfile the vr applicant profile
 	* @return the vr applicant profile that was updated
-	* @throws SystemException
 	*/
 	@Override
 	public com.fds.vr.business.model.VRApplicantProfile updateVRApplicantProfile(
-		com.fds.vr.business.model.VRApplicantProfile vrApplicantProfile)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.fds.vr.business.model.VRApplicantProfile vrApplicantProfile) {
 		return _vrApplicantProfileLocalService.updateVRApplicantProfile(vrApplicantProfile);
 	}
 
@@ -259,62 +243,6 @@ public class VRApplicantProfileLocalServiceWrapper
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return _vrApplicantProfileLocalService.dynamicQuery(dynamicQuery,
 			start, end, orderByComparator);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantCity(
-		long mtCore, java.lang.String applicantCity)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findByapplicantCity(mtCore,
-			applicantCity);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantCode(
-		long mtCore, java.lang.String applicantCode)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findByapplicantCode(mtCore,
-			applicantCode);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantRegion(
-		long mtCore, java.lang.String applicantRegion)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findByapplicantRegion(mtCore,
-			applicantRegion);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantStatus(
-		long mtCore, java.lang.String applicantStatus)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findByapplicantStatus(mtCore,
-			applicantStatus);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findBymappingMA_CTY(
-		long mtCore, java.lang.String mappingMA_CTY)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findBymappingMA_CTY(mtCore,
-			mappingMA_CTY);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findBymappingStatus(
-		long mtCore, java.lang.String mappingStatus)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findBymappingStatus(mtCore,
-			mappingStatus);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRApplicantProfile> findBymappingTEN_CTY(
-		long mtCore, java.lang.String mappingTEN_CTY)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _vrApplicantProfileLocalService.findBymappingTEN_CTY(mtCore,
-			mappingTEN_CTY);
 	}
 
 	/**

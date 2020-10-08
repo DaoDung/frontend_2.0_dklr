@@ -7,6 +7,8 @@
 </div>
 <script type="text/javascript">
 	
+	var dossierIdBanKhaiHoSoXNHL = 0;
+
 	var fnConfirm = function(title, message, okText, cancelText, okCallBack, cancelCallBack){
 		$("#confirm").html("");
 		var cf = $("#confirm").kendoDialog({
@@ -50,6 +52,38 @@
 				"govAgencyCode":$("#govAgency").val(),
 				"status": "new,receiving,processing,waiting,paying,done,cancelling,cancelled,expired",
 			});
+		} else if(id == "HSDHXNHL"){
+			dataSourceProfile.read({
+				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+				"serviceInfo" : $("#serviceInfo").val(),
+				"govAgencyCode" : $("#govAgency").val(),
+				"dossierStatus": "new",
+				"id": "HSDHXNHL"
+			});
+		} else if(id == "DNXNHL"){
+			dataSourceProfile.read({
+				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+				"serviceInfo" : $("#serviceInfo").val(),
+				"govAgencyCode" : $("#govAgency").val(),
+				"dossierStatus": "processing",
+				"id": "DNXNHL"
+			});
+		} else if(id == "XNHL"){
+			dataSourceProfile.read({
+				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+				"serviceInfo" : $("#serviceInfo").val(),
+				"govAgencyCode" : $("#govAgency").val(),
+				"dossierStatus": "DONE_4",
+				"id": "XNHL"
+			});
+		} else if(id == "TBDSX"){
+			dataSourceProfile.read({
+				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+				"serviceInfo" : $("#serviceInfo").val(),
+				"govAgencyCode" : $("#govAgency").val(),
+				"dossierStatus": "---",
+				"id": "TBDSX"
+			});
 		} else if (id == "cancelling") {
 			dataSourceProfile.read({
 				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
@@ -66,7 +100,7 @@
 				"statusReg" : 3
 				
 			});
-		}else if (id == "endorsement") {
+		} else if (id == "endorsement") {
 			dataSourceProfile.read({
 				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
 				"serviceInfo" : $("#serviceInfo").val(),
@@ -74,7 +108,7 @@
 				"state" : "endorsement",
 				"statusReg" : 3
 			});
-		}else if (id == "done") {
+		} else if (id == "done") {
 			dataSourceProfile.read({
 				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
 				"serviceInfo" : $("#serviceInfo").val(),
@@ -82,7 +116,7 @@
 				"status" : "done",
 				"notStatusReg" : 3
 			});
-		}else {
+		} else {
 			dataSourceProfile.read({
 				"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
 				"serviceInfo" : $("#serviceInfo").val(),
@@ -146,6 +180,38 @@
 			headers : {"groupId": ${groupId}},
 			success : function(result){
 				$("#profileStatus li[dataPk='correcting'] .bagde").html(result.total);
+			},
+			error : function(result){
+
+			}
+		}),
+		$.ajax({
+			url : "${api.server}/dossiers",
+			dataType : "json",
+			type : "GET",
+			data : {
+				"status": "waiting_3"
+			},
+			headers : {"groupId": ${groupId}},
+			success : function(result){
+				$("#profileStatus li[dataPk='waiting_3'] .bagde").html(result.total);
+			},
+			error : function(result){
+
+			}
+		}),
+		$.ajax({
+			url : "/o/rest/v2/dossiers/expiredcertificates",
+			dataType : "json",
+			type : "GET",
+			data : {
+				"dossierStatus": "new",
+				"start": -1,
+				"end": -1
+			},
+			headers : {"groupId": ${groupId}},
+			success : function(result){
+				$("#profileStatus li[dataPk='HSDHXNHL'] .bagde").html(result.total);
 			},
 			error : function(result){
 
@@ -221,14 +287,14 @@
 
 	var fnCheckIsChangeForm = function(){
 		try{
-			if (arrIsChangeForm) {
-				for (var i = 0; i < arrIsChangeForm.length; i++) {
-					if(!arrIsChangeForm[i].isSave){
-						return arrIsChangeForm[i];
-					}
-				}
-			}
-
+			// if (arrIsChangeForm) {
+			// 	for (var i = 0; i < arrIsChangeForm.length; i++) {
+			// 		if(!arrIsChangeForm[i].isSave){
+			// 			return arrIsChangeForm[i];
+			// 		}
+			// 	}
+			// }
+			return  null;
 
 		}catch(e){
 			return  null;
@@ -283,21 +349,44 @@
 	var dataSourceProfile = new kendo.data.DataSource({
 		transport:{
 			read:function(options){
+				var url = "${api.server}/dossiers";
+				console.log('options==========', options['data'])
+				if (options['data'] && (options['data']['id'] === "HSDHXNHL" || options['data']['id'] === "DNXNHL" || options['data']['id'] === "XNHL")) {
+					url = "/o/rest/v2/dossiers/expiredcertificates"
+					options['data']['start'] = -1
+					options['data']['end'] = -1
+				}
 				$.ajax({
-					url:"${api.server}/dossiers",
+					url: url,
 					dataType:"json",
 					type:"GET",
 					headers : {"groupId": ${groupId}},
-					data: options.data,
-					success:function(result){
+					data: options['data'],
+					success: function(result) {
 						if (result.total!=0) {
 							var indexItem = result.total+1;
 							$(result.data).each(function(index, value){
 								indexItem -= 1;
-								value.count = indexItem;
+								value['count'] = indexItem;
+								if (options['data'] && (options['data']['id'] === "HSDHXNHL" || options['data']['id'] === "DNXNHL" || options['data']['id'] === "XNHL")) {
+									value['isExpiredCertificates'] = true
+								} else {
+									value['isExpiredCertificates'] = false
+								}
+								if (!value['correctingDate']) {
+									value['correctingDate'] = ''
+								}
+								if (!value['statusReg']) {
+									value['statusReg'] = ''
+								}
+								if (!value['endorsementDate']) {
+									value['endorsementDate'] = ''
+								}
+								if (!value['cancellingDate']) {
+									value['cancellingDate'] = ''
+								}
 							});
 						};
-
 						options.success(result);
 						optBoxPageSize();
 						if (result.total!=0) {
@@ -607,7 +696,7 @@
 			$(e.currentTarget).children("i").removeClass("fa fa-folder").addClass("fa fa-folder-open");
 			$("#keyInput").val("");
 			$("#dossier-emp-nav-selectbox-by-dossierNo").val("");
-
+			dossierIdBanKhaiHoSoXNHL = 0
 			var id = $(e.currentTarget).attr("dataPk");
 			try{
 
@@ -760,21 +849,163 @@
 			}
 		})
 	};
-	var resCancelling = function(){
-		$(".resCancelling").click(function(e){
+
+	var createDossierXNHL = function(dossierTemplateNo, serviceCode, govAgencyCode){
+
+		
+
+		$.ajax({
+			url : "${api.server}/dossiers",
+			dataType : "json",
+			type : "POST",
+			data : {
+				referenceUid : "",
+				serviceCode : serviceCode,
+				govAgencyCode : govAgencyCode,
+				dossierTemplateNo : dossierTemplateNo,
+				applicantName : "${(registration.applicantName)!}",
+				applicantIdType : "${(registration.applicantIdType)!}",
+				applicantIdNo : "${(registration.applicantCode)!}",
+				applicantIdDate : "01/01/2017 00:00:00",
+				address : "${(registration.applicantAddress)!}",
+				cityCode : "${(registration.applicantCityCode)!}",
+				districtCode : "${(registration.applicantDistrictCode)!}",
+				wardCode : "${(registration.applicantWardCode)!}",
+				contactName : "${(registration.applicantContactName)!}",
+				contactTelNo : "${(registration.applicantContactPhone)!}",
+				contactEmail : "${(registration.applicantContactEmail)!}"
+			},
+			headers : {"groupId": ${groupId}},
+			success : function(result){
+				manageDossier.navigate("/taohosomoi/chuanbihoso/" + result.dossierId);
+			},
+			error : function(result){
+				// selector.button('reset');
+			}
+		});
+	}
+	var resCancelling = function () {
+		$(".resCancelling").click( function (e) {
 			e.stopPropagation();
 			var id = $(this).attr("data-Pk");
 			manageDossier.navigate("/dossiers/"+id+"/yeucauhuy");
 		});
 	};
-	var sendAdd = function(){
-		$(".sendAdd").click(function(e){
+	var sendAdd = function () {
+		$(".sendAdd").click( function (e) {
 			e.stopPropagation();
 			var id = $(this).attr("data-Pk");
 			manageDossier.navigate("/dossiers/"+id+"/guibosung");
 		});
 	};
-	var counter = function(){
+
+	var deNghiXNHH = function () {
+		$(".deNghiXNHH").click( function (e) {
+			e.stopPropagation();
+			var id = $(this).attr("data-Pk");
+			dossierIdBanKhaiHoSoXNHL = id || 0;
+			var data = dataSourceProfile.data() || [];
+			var tmp = {};
+			var dossierTemplateNo = '';
+			var serviceCode = '';
+			var govAgencyCode = 'BGTVTCDKVN';
+			if (data && data['length']) {
+				for (var i = 0; i < data.length; i++) {
+					if (data[i] && data[i]['dossierId'] == id) {
+						tmp = data[i]
+						break;
+					}
+				}
+			}
+			window.sessionStorage.setItem('expireCertificateId', tmp['expireCertificateId']);
+			console.log('tmp=========', tmp)
+			if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLLKXCG') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLLKXCGXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLLKXM') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLLKXMXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLLKXCD') {
+				dossierTemplateNo = ''
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLLKXDD') {
+				dossierTemplateNo = ''
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLLKXCN') {
+				dossierTemplateNo = ''
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLLKXCH') {
+				dossierTemplateNo = ''
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLTXXCG') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLTXXCGXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLTXXMTGM') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLTXXMTGMXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLTXXDD') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLTXXDDXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLTXXBBCN') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLTXXBBCNXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLTXXBBCH') {
+				dossierTemplateNo = 'TT302011BGTVTCNCLKLTXXBBCHXNHL'
+			} else if (tmp['dossierTemplateNo'] == 'TT302011BGTVTCNCLKLXMCD') {
+				dossierTemplateNo = ''
+			}
+
+			if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLLKOTO') {
+				serviceCode = 'TT302011BGTVTCNCLKLLKXCGXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLLKXM') {
+				serviceCode = 'TT302011BGTVTCNCLKLLKXMXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLLKXCD') {
+				serviceCode = ''
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLLKXDD') {
+				serviceCode = ''
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLLKXCN') {
+				serviceCode = ''
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLLKXCH') {
+				serviceCode = ''
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLTXXCG') {
+				serviceCode = 'TT302011BGTVTCNCLKLTXXCGXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLTXXMTGM') {
+				serviceCode = 'TT302011BGTVTCNCLKLTXXMTGMXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLTXXDD') {
+				serviceCode = 'TT302011BGTVTCNCLKLTXXDDXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLTXXBBCN') {
+				serviceCode = 'TT302011BGTVTCNCLKLTXXBBCNXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLTXXBBCH') {
+				serviceCode = 'TT302011BGTVTCNCLKLTXXBBCHXNHL'
+			} else if (tmp['serviceCode'] == 'TT302011BGTVTCNCLKLXMCD') {
+				serviceCode = ''
+			}
+			console.log('tmp===params======', dossierTemplateNo, serviceCode, govAgencyCode)
+			if (dossierTemplateNo && serviceCode && govAgencyCode) {
+				createDossierXNHL(dossierTemplateNo, serviceCode, govAgencyCode)
+			}
+		});
+	};
+	var dungSX = function () {
+		$(".dungSX").click( function (e) {
+			e.stopPropagation();
+			var id = $(this).attr("data-Pk");
+			vm.dossierIdBanKhaiHoSoXNHL = id ? id : 0
+			var cf = confirm("Bạn có muốn thực hiện hành động này?")
+			if (cf) {
+				$.ajax({
+					url: "${api.server}/dossiers/" + id + '/dungsx',
+					dataType: "json",
+					type: "PUT",
+					data: {
+						state: 0
+					},
+					headers: {"groupId": ${groupId}},
+					success: function (result) {
+						notification.show({
+							message: "Yêu cầu được thực hiện thành công"
+						}, "success");
+					},
+					error: function (result) {
+						notification.show({
+							message: "Yêu cầu được thực hiện thất bại"
+						}, "error");
+					}
+				});
+			}
+		});
+	};
+	var counter = function () {
 		try {
 			if ($("#listViewDossier").data("kendoListView").dataSource.total()!=0) {
 				var count = $("#listViewDossier").data("kendoListView").dataSource.currentRangeStart();
@@ -898,6 +1129,8 @@
 			copyProfile();
 			resCancelling();
 			sendAdd();
+			dungSX();
+			deNghiXNHH();
 			counter();
 			resDone();
 

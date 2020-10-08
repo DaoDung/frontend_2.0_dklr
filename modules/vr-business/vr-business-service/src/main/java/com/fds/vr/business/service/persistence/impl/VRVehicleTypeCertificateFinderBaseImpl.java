@@ -20,19 +20,11 @@ import com.fds.vr.business.service.persistence.VRVehicleTypeCertificatePersisten
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 
-import java.util.Set;
-
 /**
  * @author LamTV
  * @generated
  */
 public class VRVehicleTypeCertificateFinderBaseImpl extends BasePersistenceImpl<VRVehicleTypeCertificate> {
-	@Override
-	public Set<String> getBadColumnNames() {
-		return getVRVehicleTypeCertificatePersistence()
-				   .getBadColumnNames();
-	}
-
 	/**
 	 * Returns the vr vehicle type certificate persistence.
 	 *

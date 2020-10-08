@@ -1179,167 +1179,190 @@ public class VRVehicleTypeCertificateUtil {
 	}
 
 	/**
-	* Returns all the vr vehicle type certificates where dossierNo = &#63;.
+	* Returns all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @return the matching vr vehicle type certificates
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossier(
-		java.lang.String dossierNo) {
-		return getPersistence().findByDossier(dossierNo);
+	public static List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		java.lang.String dossierNo, long mtCore) {
+		return getPersistence().findByDossierNo_MtCore(dossierNo, mtCore);
 	}
 
 	/**
-	* Returns a range of all the vr vehicle type certificates where dossierNo = &#63;.
+	* Returns a range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param start the lower bound of the range of vr vehicle type certificates
 	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
 	* @return the range of matching vr vehicle type certificates
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossier(
-		java.lang.String dossierNo, int start, int end) {
-		return getPersistence().findByDossier(dossierNo, start, end);
+	public static List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		java.lang.String dossierNo, long mtCore, int start, int end) {
+		return getPersistence()
+				   .findByDossierNo_MtCore(dossierNo, mtCore, start, end);
 	}
 
 	/**
-	* Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63;.
+	* Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param start the lower bound of the range of vr vehicle type certificates
 	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching vr vehicle type certificates
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossier(
-		java.lang.String dossierNo, int start, int end,
+	public static List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		java.lang.String dossierNo, long mtCore, int start, int end,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
 		return getPersistence()
-				   .findByDossier(dossierNo, start, end, orderByComparator);
+				   .findByDossierNo_MtCore(dossierNo, mtCore, start, end,
+			orderByComparator);
 	}
 
 	/**
-	* Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63;.
+	* Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param start the lower bound of the range of vr vehicle type certificates
 	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching vr vehicle type certificates
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossier(
-		java.lang.String dossierNo, int start, int end,
+	public static List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
+		java.lang.String dossierNo, long mtCore, int start, int end,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
 		boolean retrieveFromCache) {
 		return getPersistence()
-				   .findByDossier(dossierNo, start, end, orderByComparator,
-			retrieveFromCache);
+				   .findByDossierNo_MtCore(dossierNo, mtCore, start, end,
+			orderByComparator, retrieveFromCache);
 	}
 
 	/**
-	* Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	* Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr vehicle type certificate
 	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
 	*/
-	public static VRVehicleTypeCertificate findByDossier_First(
-		java.lang.String dossierNo,
+	public static VRVehicleTypeCertificate findByDossierNo_MtCore_First(
+		java.lang.String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence().findByDossier_First(dossierNo, orderByComparator);
+		return getPersistence()
+				   .findByDossierNo_MtCore_First(dossierNo, mtCore,
+			orderByComparator);
 	}
 
 	/**
-	* Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	* Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	*/
-	public static VRVehicleTypeCertificate fetchByDossier_First(
-		java.lang.String dossierNo,
+	public static VRVehicleTypeCertificate fetchByDossierNo_MtCore_First(
+		java.lang.String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
 		return getPersistence()
-				   .fetchByDossier_First(dossierNo, orderByComparator);
+				   .fetchByDossierNo_MtCore_First(dossierNo, mtCore,
+			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	* Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr vehicle type certificate
 	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
 	*/
-	public static VRVehicleTypeCertificate findByDossier_Last(
-		java.lang.String dossierNo,
+	public static VRVehicleTypeCertificate findByDossierNo_MtCore_Last(
+		java.lang.String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence().findByDossier_Last(dossierNo, orderByComparator);
+		return getPersistence()
+				   .findByDossierNo_MtCore_Last(dossierNo, mtCore,
+			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	* Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	*/
-	public static VRVehicleTypeCertificate fetchByDossier_Last(
-		java.lang.String dossierNo,
+	public static VRVehicleTypeCertificate fetchByDossierNo_MtCore_Last(
+		java.lang.String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence().fetchByDossier_Last(dossierNo, orderByComparator);
+		return getPersistence()
+				   .fetchByDossierNo_MtCore_Last(dossierNo, mtCore,
+			orderByComparator);
 	}
 
 	/**
-	* Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierNo = &#63;.
+	* Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param id the primary key of the current vr vehicle type certificate
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr vehicle type certificate
 	* @throws NoSuchVRVehicleTypeCertificateException if a vr vehicle type certificate with the primary key could not be found
 	*/
-	public static VRVehicleTypeCertificate[] findByDossier_PrevAndNext(
-		long id, java.lang.String dossierNo,
+	public static VRVehicleTypeCertificate[] findByDossierNo_MtCore_PrevAndNext(
+		long id, java.lang.String dossierNo, long mtCore,
 		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
 		return getPersistence()
-				   .findByDossier_PrevAndNext(id, dossierNo, orderByComparator);
+				   .findByDossierNo_MtCore_PrevAndNext(id, dossierNo, mtCore,
+			orderByComparator);
 	}
 
 	/**
-	* Removes all the vr vehicle type certificates where dossierNo = &#63; from the database.
+	* Removes all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63; from the database.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	*/
-	public static void removeByDossier(java.lang.String dossierNo) {
-		getPersistence().removeByDossier(dossierNo);
+	public static void removeByDossierNo_MtCore(java.lang.String dossierNo,
+		long mtCore) {
+		getPersistence().removeByDossierNo_MtCore(dossierNo, mtCore);
 	}
 
 	/**
-	* Returns the number of vr vehicle type certificates where dossierNo = &#63;.
+	* Returns the number of vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
 	*
 	* @param dossierNo the dossier no
+	* @param mtCore the mt core
 	* @return the number of matching vr vehicle type certificates
 	*/
-	public static int countByDossier(java.lang.String dossierNo) {
-		return getPersistence().countByDossier(dossierNo);
+	public static int countByDossierNo_MtCore(java.lang.String dossierNo,
+		long mtCore) {
+		return getPersistence().countByDossierNo_MtCore(dossierNo, mtCore);
 	}
 
 	/**
@@ -3974,172 +3997,56 @@ public class VRVehicleTypeCertificateUtil {
 	}
 
 	/**
-	* Returns all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
+	* Returns the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; or throws a {@link NoSuchVRVehicleTypeCertificateException} if it could not be found.
 	*
 	* @param dossierId the dossier ID
 	* @param mtCore the mt core
-	* @return the matching vr vehicle type certificates
+	* @return the matching vr vehicle type certificate
+	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossierId(
-		long dossierId, long mtCore) {
+	public static VRVehicleTypeCertificate findByDossierId(long dossierId,
+		long mtCore)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
 		return getPersistence().findByDossierId(dossierId, mtCore);
 	}
 
 	/**
-	* Returns a range of all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
+	* Returns the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	*
 	* @param dossierId the dossier ID
 	* @param mtCore the mt core
-	* @param start the lower bound of the range of vr vehicle type certificates
-	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	* @return the range of matching vr vehicle type certificates
+	* @return the matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossierId(
-		long dossierId, long mtCore, int start, int end) {
-		return getPersistence().findByDossierId(dossierId, mtCore, start, end);
+	public static VRVehicleTypeCertificate fetchByDossierId(long dossierId,
+		long mtCore) {
+		return getPersistence().fetchByDossierId(dossierId, mtCore);
 	}
 
 	/**
-	* Returns an ordered range of all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
+	* Returns the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
 	*
 	* @param dossierId the dossier ID
 	* @param mtCore the mt core
-	* @param start the lower bound of the range of vr vehicle type certificates
-	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching vr vehicle type certificates
-	*/
-	public static List<VRVehicleTypeCertificate> findByDossierId(
-		long dossierId, long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence()
-				   .findByDossierId(dossierId, mtCore, start, end,
-			orderByComparator);
-	}
-
-	/**
-	* Returns an ordered range of all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dossierId the dossier ID
-	* @param mtCore the mt core
-	* @param start the lower bound of the range of vr vehicle type certificates
-	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
-	* @return the ordered range of matching vr vehicle type certificates
+	* @return the matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
 	*/
-	public static List<VRVehicleTypeCertificate> findByDossierId(
-		long dossierId, long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
-		boolean retrieveFromCache) {
+	public static VRVehicleTypeCertificate fetchByDossierId(long dossierId,
+		long mtCore, boolean retrieveFromCache) {
 		return getPersistence()
-				   .findByDossierId(dossierId, mtCore, start, end,
-			orderByComparator, retrieveFromCache);
+				   .fetchByDossierId(dossierId, mtCore, retrieveFromCache);
 	}
 
 	/**
-	* Returns the first vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	* Removes the vr vehicle type certificate where dossierId = &#63; and mtCore = &#63; from the database.
 	*
 	* @param dossierId the dossier ID
 	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching vr vehicle type certificate
-	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
+	* @return the vr vehicle type certificate that was removed
 	*/
-	public static VRVehicleTypeCertificate findByDossierId_First(
-		long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
+	public static VRVehicleTypeCertificate removeByDossierId(long dossierId,
+		long mtCore)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence()
-				   .findByDossierId_First(dossierId, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the first vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	*
-	* @param dossierId the dossier ID
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate fetchByDossierId_First(
-		long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence()
-				   .fetchByDossierId_First(dossierId, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the last vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	*
-	* @param dossierId the dossier ID
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching vr vehicle type certificate
-	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate findByDossierId_Last(
-		long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence()
-				   .findByDossierId_Last(dossierId, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the last vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	*
-	* @param dossierId the dossier ID
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate fetchByDossierId_Last(
-		long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence()
-				   .fetchByDossierId_Last(dossierId, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
-	*
-	* @param id the primary key of the current vr vehicle type certificate
-	* @param dossierId the dossier ID
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the previous, current, and next vr vehicle type certificate
-	* @throws NoSuchVRVehicleTypeCertificateException if a vr vehicle type certificate with the primary key could not be found
-	*/
-	public static VRVehicleTypeCertificate[] findByDossierId_PrevAndNext(
-		long id, long dossierId, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence()
-				   .findByDossierId_PrevAndNext(id, dossierId, mtCore,
-			orderByComparator);
-	}
-
-	/**
-	* Removes all the vr vehicle type certificates where dossierId = &#63; and mtCore = &#63; from the database.
-	*
-	* @param dossierId the dossier ID
-	* @param mtCore the mt core
-	*/
-	public static void removeByDossierId(long dossierId, long mtCore) {
-		getPersistence().removeByDossierId(dossierId, mtCore);
+		return getPersistence().removeByDossierId(dossierId, mtCore);
 	}
 
 	/**
@@ -4151,186 +4058,6 @@ public class VRVehicleTypeCertificateUtil {
 	*/
 	public static int countByDossierId(long dossierId, long mtCore) {
 		return getPersistence().countByDossierId(dossierId, mtCore);
-	}
-
-	/**
-	* Returns all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @return the matching vr vehicle type certificates
-	*/
-	public static List<VRVehicleTypeCertificate> findByDossierNo(
-		java.lang.String dossierNo, long mtCore) {
-		return getPersistence().findByDossierNo(dossierNo, mtCore);
-	}
-
-	/**
-	* Returns a range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param start the lower bound of the range of vr vehicle type certificates
-	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	* @return the range of matching vr vehicle type certificates
-	*/
-	public static List<VRVehicleTypeCertificate> findByDossierNo(
-		java.lang.String dossierNo, long mtCore, int start, int end) {
-		return getPersistence().findByDossierNo(dossierNo, mtCore, start, end);
-	}
-
-	/**
-	* Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param start the lower bound of the range of vr vehicle type certificates
-	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching vr vehicle type certificates
-	*/
-	public static List<VRVehicleTypeCertificate> findByDossierNo(
-		java.lang.String dossierNo, long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence()
-				   .findByDossierNo(dossierNo, mtCore, start, end,
-			orderByComparator);
-	}
-
-	/**
-	* Returns an ordered range of all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleTypeCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param start the lower bound of the range of vr vehicle type certificates
-	* @param end the upper bound of the range of vr vehicle type certificates (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @param retrieveFromCache whether to retrieve from the finder cache
-	* @return the ordered range of matching vr vehicle type certificates
-	*/
-	public static List<VRVehicleTypeCertificate> findByDossierNo(
-		java.lang.String dossierNo, long mtCore, int start, int end,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator,
-		boolean retrieveFromCache) {
-		return getPersistence()
-				   .findByDossierNo(dossierNo, mtCore, start, end,
-			orderByComparator, retrieveFromCache);
-	}
-
-	/**
-	* Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching vr vehicle type certificate
-	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate findByDossierNo_First(
-		java.lang.String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence()
-				   .findByDossierNo_First(dossierNo, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the first vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate fetchByDossierNo_First(
-		java.lang.String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence()
-				   .fetchByDossierNo_First(dossierNo, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching vr vehicle type certificate
-	* @throws NoSuchVRVehicleTypeCertificateException if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate findByDossierNo_Last(
-		java.lang.String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence()
-				   .findByDossierNo_Last(dossierNo, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the last vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching vr vehicle type certificate, or <code>null</code> if a matching vr vehicle type certificate could not be found
-	*/
-	public static VRVehicleTypeCertificate fetchByDossierNo_Last(
-		java.lang.String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator) {
-		return getPersistence()
-				   .fetchByDossierNo_Last(dossierNo, mtCore, orderByComparator);
-	}
-
-	/**
-	* Returns the vr vehicle type certificates before and after the current vr vehicle type certificate in the ordered set where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param id the primary key of the current vr vehicle type certificate
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the previous, current, and next vr vehicle type certificate
-	* @throws NoSuchVRVehicleTypeCertificateException if a vr vehicle type certificate with the primary key could not be found
-	*/
-	public static VRVehicleTypeCertificate[] findByDossierNo_PrevAndNext(
-		long id, java.lang.String dossierNo, long mtCore,
-		OrderByComparator<VRVehicleTypeCertificate> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRVehicleTypeCertificateException {
-		return getPersistence()
-				   .findByDossierNo_PrevAndNext(id, dossierNo, mtCore,
-			orderByComparator);
-	}
-
-	/**
-	* Removes all the vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63; from the database.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	*/
-	public static void removeByDossierNo(java.lang.String dossierNo, long mtCore) {
-		getPersistence().removeByDossierNo(dossierNo, mtCore);
-	}
-
-	/**
-	* Returns the number of vr vehicle type certificates where dossierNo = &#63; and mtCore = &#63;.
-	*
-	* @param dossierNo the dossier no
-	* @param mtCore the mt core
-	* @return the number of matching vr vehicle type certificates
-	*/
-	public static int countByDossierNo(java.lang.String dossierNo, long mtCore) {
-		return getPersistence().countByDossierNo(dossierNo, mtCore);
 	}
 
 	/**
@@ -5950,10 +5677,6 @@ public class VRVehicleTypeCertificateUtil {
 	*/
 	public static int countAll() {
 		return getPersistence().countAll();
-	}
-
-	public static java.util.Set<java.lang.String> getBadColumnNames() {
-		return getPersistence().getBadColumnNames();
 	}
 
 	public static VRVehicleTypeCertificatePersistence getPersistence() {

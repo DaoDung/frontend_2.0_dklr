@@ -472,6 +472,154 @@ public interface VRCOPProdEquipmentPersistence extends BasePersistence<VRCOPProd
 	public int countBycopDossierId(long dossierId);
 
 	/**
+	* Returns all the vrcop prod equipments where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @return the matching vrcop prod equipments
+	*/
+	public java.util.List<VRCOPProdEquipment> findByDossierId_MtCore(
+		long dossierId, long mtCore);
+
+	/**
+	* Returns a range of all the vrcop prod equipments where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPProdEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vrcop prod equipments
+	* @param end the upper bound of the range of vrcop prod equipments (not inclusive)
+	* @return the range of matching vrcop prod equipments
+	*/
+	public java.util.List<VRCOPProdEquipment> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vrcop prod equipments where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPProdEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vrcop prod equipments
+	* @param end the upper bound of the range of vrcop prod equipments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vrcop prod equipments
+	*/
+	public java.util.List<VRCOPProdEquipment> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vrcop prod equipments where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPProdEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vrcop prod equipments
+	* @param end the upper bound of the range of vrcop prod equipments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vrcop prod equipments
+	*/
+	public java.util.List<VRCOPProdEquipment> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vrcop prod equipment in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vrcop prod equipment
+	* @throws NoSuchVRCOPProdEquipmentException if a matching vrcop prod equipment could not be found
+	*/
+	public VRCOPProdEquipment findByDossierId_MtCore_First(long dossierId,
+		long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator)
+		throws NoSuchVRCOPProdEquipmentException;
+
+	/**
+	* Returns the first vrcop prod equipment in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vrcop prod equipment, or <code>null</code> if a matching vrcop prod equipment could not be found
+	*/
+	public VRCOPProdEquipment fetchByDossierId_MtCore_First(long dossierId,
+		long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator);
+
+	/**
+	* Returns the last vrcop prod equipment in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vrcop prod equipment
+	* @throws NoSuchVRCOPProdEquipmentException if a matching vrcop prod equipment could not be found
+	*/
+	public VRCOPProdEquipment findByDossierId_MtCore_Last(long dossierId,
+		long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator)
+		throws NoSuchVRCOPProdEquipmentException;
+
+	/**
+	* Returns the last vrcop prod equipment in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vrcop prod equipment, or <code>null</code> if a matching vrcop prod equipment could not be found
+	*/
+	public VRCOPProdEquipment fetchByDossierId_MtCore_Last(long dossierId,
+		long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator);
+
+	/**
+	* Returns the vrcop prod equipments before and after the current vrcop prod equipment in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param id the primary key of the current vrcop prod equipment
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vrcop prod equipment
+	* @throws NoSuchVRCOPProdEquipmentException if a vrcop prod equipment with the primary key could not be found
+	*/
+	public VRCOPProdEquipment[] findByDossierId_MtCore_PrevAndNext(long id,
+		long dossierId, long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRCOPProdEquipment> orderByComparator)
+		throws NoSuchVRCOPProdEquipmentException;
+
+	/**
+	* Removes all the vrcop prod equipments where dossierId = &#63; and mtCore = &#63; from the database.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	*/
+	public void removeByDossierId_MtCore(long dossierId, long mtCore);
+
+	/**
+	* Returns the number of vrcop prod equipments where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @return the number of matching vrcop prod equipments
+	*/
+	public int countByDossierId_MtCore(long dossierId, long mtCore);
+
+	/**
 	* Caches the vrcop prod equipment in the entity cache if it is enabled.
 	*
 	* @param vrcopProdEquipment the vrcop prod equipment

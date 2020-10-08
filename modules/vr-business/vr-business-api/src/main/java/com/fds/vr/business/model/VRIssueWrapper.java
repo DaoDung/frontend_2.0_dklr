@@ -85,7 +85,7 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 		attributes.put("totalInDocument", getTotalInDocument());
 		attributes.put("issueCorporationId", getIssueCorporationId());
 		attributes.put("verifyCorporationId", getVerifyCorporationId());
-		attributes.put("digitalissuestatus", getDigitalissuestatus());
+		attributes.put("digitalIssueStatus", getDigitalIssueStatus());
 		attributes.put("issueType", getIssueType());
 		attributes.put("averageSTBQuantity", getAverageSTBQuantity());
 		attributes.put("maxMonthQuantity", getMaxMonthQuantity());
@@ -100,18 +100,20 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 		attributes.put("examinationRequired", getExaminationRequired());
 		attributes.put("examinationPeriod", getExaminationPeriod());
 		attributes.put("examinationLastTime", getExaminationLastTime());
-		attributes.put("copresult", getCopresult());
-		attributes.put("copreportno", getCopreportno());
-		attributes.put("copreportdate", getCopreportdate());
-		attributes.put("postreview", getPostreview());
-		attributes.put("postreviewrecordno", getPostreviewrecordno());
-		attributes.put("postreviewrecorddate", getPostreviewrecorddate());
+		attributes.put("copResult", getCopResult());
+		attributes.put("copReportNo", getCopReportNo());
+		attributes.put("copReportDate", getCopReportDate());
+		attributes.put("postReview", getPostReview());
+		attributes.put("postReviewRecordNo", getPostReviewRecordNo());
+		attributes.put("postReviewRecordDate", getPostReviewRecordDate());
 		attributes.put("corporationId", getCorporationId());
-		attributes.put("inspectorcode", getInspectorcode());
-		attributes.put("inspectorname", getInspectorname());
-		attributes.put("leadername", getLeadername());
-		attributes.put("applicantmaker", getApplicantmaker());
-		attributes.put("applicantchecker", getApplicantchecker());
+		attributes.put("inspectorCode", getInspectorCode());
+		attributes.put("inspectorName", getInspectorName());
+		attributes.put("leaderName", getLeaderName());
+		attributes.put("applicantMaker", getApplicantMaker());
+		attributes.put("applicantChecker", getApplicantChecker());
+		attributes.put("certificateRecordDate", getCertificateRecordDate());
+		attributes.put("issueInspectionRecordId", getIssueInspectionRecordId());
 		attributes.put("inspectorId", getInspectorId());
 		attributes.put("issueInspectorId", getIssueInspectorId());
 		attributes.put("verifyInspectorId", getVerifyInspectorId());
@@ -294,11 +296,11 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 			setVerifyCorporationId(verifyCorporationId);
 		}
 
-		Integer digitalissuestatus = (Integer)attributes.get(
-				"digitalissuestatus");
+		Integer digitalIssueStatus = (Integer)attributes.get(
+				"digitalIssueStatus");
 
-		if (digitalissuestatus != null) {
-			setDigitalissuestatus(digitalissuestatus);
+		if (digitalIssueStatus != null) {
+			setDigitalIssueStatus(digitalIssueStatus);
 		}
 
 		String issueType = (String)attributes.get("issueType");
@@ -389,40 +391,40 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 			setExaminationLastTime(examinationLastTime);
 		}
 
-		String copresult = (String)attributes.get("copresult");
+		String copResult = (String)attributes.get("copResult");
 
-		if (copresult != null) {
-			setCopresult(copresult);
+		if (copResult != null) {
+			setCopResult(copResult);
 		}
 
-		String copreportno = (String)attributes.get("copreportno");
+		String copReportNo = (String)attributes.get("copReportNo");
 
-		if (copreportno != null) {
-			setCopreportno(copreportno);
+		if (copReportNo != null) {
+			setCopReportNo(copReportNo);
 		}
 
-		Date copreportdate = (Date)attributes.get("copreportdate");
+		Date copReportDate = (Date)attributes.get("copReportDate");
 
-		if (copreportdate != null) {
-			setCopreportdate(copreportdate);
+		if (copReportDate != null) {
+			setCopReportDate(copReportDate);
 		}
 
-		String postreview = (String)attributes.get("postreview");
+		String postReview = (String)attributes.get("postReview");
 
-		if (postreview != null) {
-			setPostreview(postreview);
+		if (postReview != null) {
+			setPostReview(postReview);
 		}
 
-		String postreviewrecordno = (String)attributes.get("postreviewrecordno");
+		String postReviewRecordNo = (String)attributes.get("postReviewRecordNo");
 
-		if (postreviewrecordno != null) {
-			setPostreviewrecordno(postreviewrecordno);
+		if (postReviewRecordNo != null) {
+			setPostReviewRecordNo(postReviewRecordNo);
 		}
 
-		Date postreviewrecorddate = (Date)attributes.get("postreviewrecorddate");
+		Date postReviewRecordDate = (Date)attributes.get("postReviewRecordDate");
 
-		if (postreviewrecorddate != null) {
-			setPostreviewrecorddate(postreviewrecorddate);
+		if (postReviewRecordDate != null) {
+			setPostReviewRecordDate(postReviewRecordDate);
 		}
 
 		String corporationId = (String)attributes.get("corporationId");
@@ -431,34 +433,48 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 			setCorporationId(corporationId);
 		}
 
-		String inspectorcode = (String)attributes.get("inspectorcode");
+		String inspectorCode = (String)attributes.get("inspectorCode");
 
-		if (inspectorcode != null) {
-			setInspectorcode(inspectorcode);
+		if (inspectorCode != null) {
+			setInspectorCode(inspectorCode);
 		}
 
-		String inspectorname = (String)attributes.get("inspectorname");
+		String inspectorName = (String)attributes.get("inspectorName");
 
-		if (inspectorname != null) {
-			setInspectorname(inspectorname);
+		if (inspectorName != null) {
+			setInspectorName(inspectorName);
 		}
 
-		String leadername = (String)attributes.get("leadername");
+		String leaderName = (String)attributes.get("leaderName");
 
-		if (leadername != null) {
-			setLeadername(leadername);
+		if (leaderName != null) {
+			setLeaderName(leaderName);
 		}
 
-		String applicantmaker = (String)attributes.get("applicantmaker");
+		String applicantMaker = (String)attributes.get("applicantMaker");
 
-		if (applicantmaker != null) {
-			setApplicantmaker(applicantmaker);
+		if (applicantMaker != null) {
+			setApplicantMaker(applicantMaker);
 		}
 
-		String applicantchecker = (String)attributes.get("applicantchecker");
+		String applicantChecker = (String)attributes.get("applicantChecker");
 
-		if (applicantchecker != null) {
-			setApplicantchecker(applicantchecker);
+		if (applicantChecker != null) {
+			setApplicantChecker(applicantChecker);
+		}
+
+		Date certificateRecordDate = (Date)attributes.get(
+				"certificateRecordDate");
+
+		if (certificateRecordDate != null) {
+			setCertificateRecordDate(certificateRecordDate);
+		}
+
+		Long issueInspectionRecordId = (Long)attributes.get(
+				"issueInspectionRecordId");
+
+		if (issueInspectionRecordId != null) {
+			setIssueInspectionRecordId(issueInspectionRecordId);
 		}
 
 		Long inspectorId = (Long)attributes.get("inspectorId");
@@ -563,13 +579,13 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the digitalissuestatus of this vr issue.
+	* Returns the digital issue status of this vr issue.
 	*
-	* @return the digitalissuestatus of this vr issue
+	* @return the digital issue status of this vr issue
 	*/
 	@Override
-	public int getDigitalissuestatus() {
-		return _vrIssue.getDigitalissuestatus();
+	public int getDigitalIssueStatus() {
+		return _vrIssue.getDigitalIssueStatus();
 	}
 
 	/**
@@ -658,6 +674,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
+	* Returns the applicant checker of this vr issue.
+	*
+	* @return the applicant checker of this vr issue
+	*/
+	@Override
+	public java.lang.String getApplicantChecker() {
+		return _vrIssue.getApplicantChecker();
+	}
+
+	/**
 	* Returns the applicant contact email of this vr issue.
 	*
 	* @return the applicant contact email of this vr issue
@@ -708,6 +734,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
+	* Returns the applicant maker of this vr issue.
+	*
+	* @return the applicant maker of this vr issue
+	*/
+	@Override
+	public java.lang.String getApplicantMaker() {
+		return _vrIssue.getApplicantMaker();
+	}
+
+	/**
 	* Returns the applicant name of this vr issue.
 	*
 	* @return the applicant name of this vr issue
@@ -748,43 +784,23 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the applicantchecker of this vr issue.
+	* Returns the cop report no of this vr issue.
 	*
-	* @return the applicantchecker of this vr issue
+	* @return the cop report no of this vr issue
 	*/
 	@Override
-	public java.lang.String getApplicantchecker() {
-		return _vrIssue.getApplicantchecker();
+	public java.lang.String getCopReportNo() {
+		return _vrIssue.getCopReportNo();
 	}
 
 	/**
-	* Returns the applicantmaker of this vr issue.
+	* Returns the cop result of this vr issue.
 	*
-	* @return the applicantmaker of this vr issue
+	* @return the cop result of this vr issue
 	*/
 	@Override
-	public java.lang.String getApplicantmaker() {
-		return _vrIssue.getApplicantmaker();
-	}
-
-	/**
-	* Returns the copreportno of this vr issue.
-	*
-	* @return the copreportno of this vr issue
-	*/
-	@Override
-	public java.lang.String getCopreportno() {
-		return _vrIssue.getCopreportno();
-	}
-
-	/**
-	* Returns the copresult of this vr issue.
-	*
-	* @return the copresult of this vr issue
-	*/
-	@Override
-	public java.lang.String getCopresult() {
-		return _vrIssue.getCopresult();
+	public java.lang.String getCopResult() {
+		return _vrIssue.getCopResult();
 	}
 
 	/**
@@ -828,23 +844,23 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the inspectorcode of this vr issue.
+	* Returns the inspector code of this vr issue.
 	*
-	* @return the inspectorcode of this vr issue
+	* @return the inspector code of this vr issue
 	*/
 	@Override
-	public java.lang.String getInspectorcode() {
-		return _vrIssue.getInspectorcode();
+	public java.lang.String getInspectorCode() {
+		return _vrIssue.getInspectorCode();
 	}
 
 	/**
-	* Returns the inspectorname of this vr issue.
+	* Returns the inspector name of this vr issue.
 	*
-	* @return the inspectorname of this vr issue
+	* @return the inspector name of this vr issue
 	*/
 	@Override
-	public java.lang.String getInspectorname() {
-		return _vrIssue.getInspectorname();
+	public java.lang.String getInspectorName() {
+		return _vrIssue.getInspectorName();
 	}
 
 	/**
@@ -858,13 +874,13 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the leadername of this vr issue.
+	* Returns the leader name of this vr issue.
 	*
-	* @return the leadername of this vr issue
+	* @return the leader name of this vr issue
 	*/
 	@Override
-	public java.lang.String getLeadername() {
-		return _vrIssue.getLeadername();
+	public java.lang.String getLeaderName() {
+		return _vrIssue.getLeaderName();
 	}
 
 	/**
@@ -878,23 +894,23 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the postreview of this vr issue.
+	* Returns the post review of this vr issue.
 	*
-	* @return the postreview of this vr issue
+	* @return the post review of this vr issue
 	*/
 	@Override
-	public java.lang.String getPostreview() {
-		return _vrIssue.getPostreview();
+	public java.lang.String getPostReview() {
+		return _vrIssue.getPostReview();
 	}
 
 	/**
-	* Returns the postreviewrecordno of this vr issue.
+	* Returns the post review record no of this vr issue.
 	*
-	* @return the postreviewrecordno of this vr issue
+	* @return the post review record no of this vr issue
 	*/
 	@Override
-	public java.lang.String getPostreviewrecordno() {
-		return _vrIssue.getPostreviewrecordno();
+	public java.lang.String getPostReviewRecordNo() {
+		return _vrIssue.getPostReviewRecordNo();
 	}
 
 	/**
@@ -998,13 +1014,23 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the copreportdate of this vr issue.
+	* Returns the certificate record date of this vr issue.
 	*
-	* @return the copreportdate of this vr issue
+	* @return the certificate record date of this vr issue
 	*/
 	@Override
-	public Date getCopreportdate() {
-		return _vrIssue.getCopreportdate();
+	public Date getCertificateRecordDate() {
+		return _vrIssue.getCertificateRecordDate();
+	}
+
+	/**
+	* Returns the cop report date of this vr issue.
+	*
+	* @return the cop report date of this vr issue
+	*/
+	@Override
+	public Date getCopReportDate() {
+		return _vrIssue.getCopReportDate();
 	}
 
 	/**
@@ -1028,13 +1054,13 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Returns the postreviewrecorddate of this vr issue.
+	* Returns the post review record date of this vr issue.
 	*
-	* @return the postreviewrecorddate of this vr issue
+	* @return the post review record date of this vr issue
 	*/
 	@Override
-	public Date getPostreviewrecorddate() {
-		return _vrIssue.getPostreviewrecorddate();
+	public Date getPostReviewRecordDate() {
+		return _vrIssue.getPostReviewRecordDate();
 	}
 
 	/**
@@ -1095,6 +1121,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	@Override
 	public long getIssueCorporationId() {
 		return _vrIssue.getIssueCorporationId();
+	}
+
+	/**
+	* Returns the issue inspection record ID of this vr issue.
+	*
+	* @return the issue inspection record ID of this vr issue
+	*/
+	@Override
+	public long getIssueInspectionRecordId() {
+		return _vrIssue.getIssueInspectionRecordId();
 	}
 
 	/**
@@ -1183,6 +1219,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
+	* Sets the applicant checker of this vr issue.
+	*
+	* @param applicantChecker the applicant checker of this vr issue
+	*/
+	@Override
+	public void setApplicantChecker(java.lang.String applicantChecker) {
+		_vrIssue.setApplicantChecker(applicantChecker);
+	}
+
+	/**
 	* Sets the applicant contact email of this vr issue.
 	*
 	* @param applicantContactEmail the applicant contact email of this vr issue
@@ -1230,6 +1276,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	@Override
 	public void setApplicantFax(java.lang.String applicantFax) {
 		_vrIssue.setApplicantFax(applicantFax);
+	}
+
+	/**
+	* Sets the applicant maker of this vr issue.
+	*
+	* @param applicantMaker the applicant maker of this vr issue
+	*/
+	@Override
+	public void setApplicantMaker(java.lang.String applicantMaker) {
+		_vrIssue.setApplicantMaker(applicantMaker);
 	}
 
 	/**
@@ -1285,26 +1341,6 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Sets the applicantchecker of this vr issue.
-	*
-	* @param applicantchecker the applicantchecker of this vr issue
-	*/
-	@Override
-	public void setApplicantchecker(java.lang.String applicantchecker) {
-		_vrIssue.setApplicantchecker(applicantchecker);
-	}
-
-	/**
-	* Sets the applicantmaker of this vr issue.
-	*
-	* @param applicantmaker the applicantmaker of this vr issue
-	*/
-	@Override
-	public void setApplicantmaker(java.lang.String applicantmaker) {
-		_vrIssue.setApplicantmaker(applicantmaker);
-	}
-
-	/**
 	* Sets the applied date of this vr issue.
 	*
 	* @param appliedDate the applied date of this vr issue
@@ -1350,33 +1386,43 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Sets the copreportdate of this vr issue.
+	* Sets the certificate record date of this vr issue.
 	*
-	* @param copreportdate the copreportdate of this vr issue
+	* @param certificateRecordDate the certificate record date of this vr issue
 	*/
 	@Override
-	public void setCopreportdate(Date copreportdate) {
-		_vrIssue.setCopreportdate(copreportdate);
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_vrIssue.setCertificateRecordDate(certificateRecordDate);
 	}
 
 	/**
-	* Sets the copreportno of this vr issue.
+	* Sets the cop report date of this vr issue.
 	*
-	* @param copreportno the copreportno of this vr issue
+	* @param copReportDate the cop report date of this vr issue
 	*/
 	@Override
-	public void setCopreportno(java.lang.String copreportno) {
-		_vrIssue.setCopreportno(copreportno);
+	public void setCopReportDate(Date copReportDate) {
+		_vrIssue.setCopReportDate(copReportDate);
 	}
 
 	/**
-	* Sets the copresult of this vr issue.
+	* Sets the cop report no of this vr issue.
 	*
-	* @param copresult the copresult of this vr issue
+	* @param copReportNo the cop report no of this vr issue
 	*/
 	@Override
-	public void setCopresult(java.lang.String copresult) {
-		_vrIssue.setCopresult(copresult);
+	public void setCopReportNo(java.lang.String copReportNo) {
+		_vrIssue.setCopReportNo(copReportNo);
+	}
+
+	/**
+	* Sets the cop result of this vr issue.
+	*
+	* @param copResult the cop result of this vr issue
+	*/
+	@Override
+	public void setCopResult(java.lang.String copResult) {
+		_vrIssue.setCopResult(copResult);
 	}
 
 	/**
@@ -1390,13 +1436,13 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Sets the digitalissuestatus of this vr issue.
+	* Sets the digital issue status of this vr issue.
 	*
-	* @param digitalissuestatus the digitalissuestatus of this vr issue
+	* @param digitalIssueStatus the digital issue status of this vr issue
 	*/
 	@Override
-	public void setDigitalissuestatus(int digitalissuestatus) {
-		_vrIssue.setDigitalissuestatus(digitalissuestatus);
+	public void setDigitalIssueStatus(int digitalIssueStatus) {
+		_vrIssue.setDigitalIssueStatus(digitalIssueStatus);
 	}
 
 	/**
@@ -1476,6 +1522,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
+	* Sets the inspector code of this vr issue.
+	*
+	* @param inspectorCode the inspector code of this vr issue
+	*/
+	@Override
+	public void setInspectorCode(java.lang.String inspectorCode) {
+		_vrIssue.setInspectorCode(inspectorCode);
+	}
+
+	/**
 	* Sets the inspector ID of this vr issue.
 	*
 	* @param inspectorId the inspector ID of this vr issue
@@ -1486,23 +1542,13 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Sets the inspectorcode of this vr issue.
+	* Sets the inspector name of this vr issue.
 	*
-	* @param inspectorcode the inspectorcode of this vr issue
+	* @param inspectorName the inspector name of this vr issue
 	*/
 	@Override
-	public void setInspectorcode(java.lang.String inspectorcode) {
-		_vrIssue.setInspectorcode(inspectorcode);
-	}
-
-	/**
-	* Sets the inspectorname of this vr issue.
-	*
-	* @param inspectorname the inspectorname of this vr issue
-	*/
-	@Override
-	public void setInspectorname(java.lang.String inspectorname) {
-		_vrIssue.setInspectorname(inspectorname);
+	public void setInspectorName(java.lang.String inspectorName) {
+		_vrIssue.setInspectorName(inspectorName);
 	}
 
 	/**
@@ -1513,6 +1559,16 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	@Override
 	public void setIssueCorporationId(long issueCorporationId) {
 		_vrIssue.setIssueCorporationId(issueCorporationId);
+	}
+
+	/**
+	* Sets the issue inspection record ID of this vr issue.
+	*
+	* @param issueInspectionRecordId the issue inspection record ID of this vr issue
+	*/
+	@Override
+	public void setIssueInspectionRecordId(long issueInspectionRecordId) {
+		_vrIssue.setIssueInspectionRecordId(issueInspectionRecordId);
 	}
 
 	/**
@@ -1536,13 +1592,13 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Sets the leadername of this vr issue.
+	* Sets the leader name of this vr issue.
 	*
-	* @param leadername the leadername of this vr issue
+	* @param leaderName the leader name of this vr issue
 	*/
 	@Override
-	public void setLeadername(java.lang.String leadername) {
-		_vrIssue.setLeadername(leadername);
+	public void setLeaderName(java.lang.String leaderName) {
+		_vrIssue.setLeaderName(leaderName);
 	}
 
 	/**
@@ -1591,33 +1647,33 @@ public class VRIssueWrapper implements VRIssue, ModelWrapper<VRIssue> {
 	}
 
 	/**
-	* Sets the postreview of this vr issue.
+	* Sets the post review of this vr issue.
 	*
-	* @param postreview the postreview of this vr issue
+	* @param postReview the post review of this vr issue
 	*/
 	@Override
-	public void setPostreview(java.lang.String postreview) {
-		_vrIssue.setPostreview(postreview);
+	public void setPostReview(java.lang.String postReview) {
+		_vrIssue.setPostReview(postReview);
 	}
 
 	/**
-	* Sets the postreviewrecorddate of this vr issue.
+	* Sets the post review record date of this vr issue.
 	*
-	* @param postreviewrecorddate the postreviewrecorddate of this vr issue
+	* @param postReviewRecordDate the post review record date of this vr issue
 	*/
 	@Override
-	public void setPostreviewrecorddate(Date postreviewrecorddate) {
-		_vrIssue.setPostreviewrecorddate(postreviewrecorddate);
+	public void setPostReviewRecordDate(Date postReviewRecordDate) {
+		_vrIssue.setPostReviewRecordDate(postReviewRecordDate);
 	}
 
 	/**
-	* Sets the postreviewrecordno of this vr issue.
+	* Sets the post review record no of this vr issue.
 	*
-	* @param postreviewrecordno the postreviewrecordno of this vr issue
+	* @param postReviewRecordNo the post review record no of this vr issue
 	*/
 	@Override
-	public void setPostreviewrecordno(java.lang.String postreviewrecordno) {
-		_vrIssue.setPostreviewrecordno(postreviewrecordno);
+	public void setPostReviewRecordNo(java.lang.String postReviewRecordNo) {
+		_vrIssue.setPostReviewRecordNo(postReviewRecordNo);
 	}
 
 	/**

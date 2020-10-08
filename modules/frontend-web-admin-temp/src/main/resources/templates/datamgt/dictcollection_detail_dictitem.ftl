@@ -14,13 +14,19 @@
 	
 	</div>
 	
-	<div class="col-xs-8 col-sm-8 input-group MB15 PR15">
+	<!-- <div class="col-xs-12 col-sm-4">
 
 		<input type="text" class="form-control" id="_collectionSub_dictItem_keySearch"
 				oninput="_collectionSub_dictItem_autocompleteSearch(this.value)" 
 				placeholder="Tên, mã loại danh mục">
 		
 		<span class="input-group-addon"><i class="fa fa-search"></i></span>
+	
+	</div> -->
+
+	<div class="col-xs-12 col-sm-4 input-group MB15 PR15">
+
+		<input type="text" class="form-control" id="_collectionSub_dictGroup_keySearch"	placeholder="Chọn nhóm danh mục">
 	
 	</div>
 
@@ -131,7 +137,7 @@
 
 <script type="text/javascript">
 
-function _collectionSub_dictItem_autocompleteSearch(val) {
+function _collectionSub_dictItem_autocompleteSearch (val) {
 	
 	var _collectionSub_dictItem_listView = $("#_collectionSub_dictItem_listView").getKendoListView();
 	
@@ -155,7 +161,7 @@ function _collectionSub_dictItem_autocompleteSearch(val) {
 		_collectionSub_dictItem_dataSource_detail = new kendo.data.DataSource({
 		
 			transport: {
-	
+				
 				read: function(options) {
 					
 					$.ajax({
@@ -167,9 +173,9 @@ function _collectionSub_dictItem_autocompleteSearch(val) {
 							"groupId": ${groupId}
 						},
 						data: {
-							
-							sort: 'sibling'
-							
+							sort: 'sibling',
+							groupCode: ''
+							// groupCode: $("#_collectionSub_dictGroup_keySearch").data('kendoComboBox').value()
 						},
 						success: function(result) {
 						
@@ -288,14 +294,53 @@ function _collectionSub_dictItem_autocompleteSearch(val) {
 				logic: "or",
 				filters: [
 					
-					{ field: "itemCode", operator: "contains", 	value: $("#_collectionSub_dictItem_keySearch").val().trim() },
-					{ field: "itemName", operator: "contains", 	value: $("#_collectionSub_dictItem_keySearch").val().trim() }
+					// { field: "itemCode", operator: "contains", 	value: $("#_collectionSub_dictItem_keySearch").val().trim() },
+					// { field: "itemName", operator: "contains", 	value: $("#_collectionSub_dictItem_keySearch").val().trim() }
 				]
 			
 			}
 			
 		});
-		
+
+		$("#_collectionSub_dictGroup_keySearch").kendoComboBox({
+			placeholder: "Chọn nhóm danh mục",
+			dataTextField: "groupName",
+			dataValueField: "groupCode",
+			noDataTemplate: 'Không có dữ liệu',
+			filter: "contains",
+			dataSource: {
+				transport: {
+					read: function (options) {
+						$.ajax({
+							url: "/o/rest/v2/temp/dictcollections/${(dictCollection_dictCollection.collectionCode)!}/dictgroups",
+							dataType: "json",
+							type: "GET",
+							headers: {"groupId": ${groupId}},
+							success: function (result) {
+								if (result.data) {
+									options.success(result);
+								} else {
+									options.success({
+										data: [],
+										total: 0
+									});
+								}
+							},
+							error: function (result) {
+								options.error(result);
+							}
+						});
+					}
+				},
+				schema: {
+					data: "data",
+					total: "total"
+				}
+			},
+			change: function (e) {
+				$("#_collectionSub_dictItem_listView").getKendoListView().dataSource.read();
+			}
+		});
 
 })(jQuery);
 </script>

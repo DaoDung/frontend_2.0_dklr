@@ -62,6 +62,7 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 		attributes.put("id", getId());
 		attributes.put("mtCore", getMtCore());
 		attributes.put("dossierId", getDossierId());
+		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("dossierType", getDossierType());
 		attributes.put("dossierNo", getDossierNo());
 		attributes.put("referenceUid", getReferenceUid());
@@ -69,6 +70,7 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 		attributes.put("serviceName", getServiceName());
 		attributes.put("convertassembleId", getConvertassembleId());
 		attributes.put("applicantIdNo", getApplicantIdNo());
+		attributes.put("applicantTelNo", getApplicantTelNo());
 		attributes.put("applicantName", getApplicantName());
 		attributes.put("applicantIdDate", getApplicantIdDate());
 		attributes.put("applicantAddress", getApplicantAddress());
@@ -81,7 +83,13 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 		attributes.put("applicantContactName", getApplicantContactName());
 		attributes.put("applicantContactEmail", getApplicantContactEmail());
 		attributes.put("applicantcontactPhone", getApplicantcontactPhone());
+		attributes.put("applicantcontactTelNo", getApplicantcontactTelNo());
 		attributes.put("cityCode", getCityCode());
+		attributes.put("cityName", getCityName());
+		attributes.put("districtCode", getDistrictCode());
+		attributes.put("districtName", getDistrictName());
+		attributes.put("wardCode", getWardCode());
+		attributes.put("wardName", getWardName());
 		attributes.put("manufacturerForeignCode", getManufacturerForeignCode());
 		attributes.put("manufacturerName", getManufacturerName());
 		attributes.put("manufacturerAddress", getManufacturerAddress());
@@ -175,8 +183,8 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 		attributes.put("emissionTestReportNo", getEmissionTestReportNo());
 		attributes.put("emissionTestReportDate", getEmissionTestReportDate());
 		attributes.put("commonSafetyStandard", getCommonSafetyStandard());
-		attributes.put("emissionStandard", getEmissionStandard());
 		attributes.put("commonSafetyDescription", getCommonSafetyDescription());
+		attributes.put("emissionStandard", getEmissionStandard());
 		attributes.put("emissionDescription", getEmissionDescription());
 		attributes.put("otherTestReportNo", getOtherTestReportNo());
 		attributes.put("otherTestReportDate", getOtherTestReportDate());
@@ -207,6 +215,7 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 		attributes.put("inspectionNote", getInspectionNote());
 		attributes.put("certificateNote", getCertificateNote());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("deliverableFileEntryid", getDeliverableFileEntryid());
 		attributes.put("module", getModule());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
@@ -232,6 +241,12 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 
 		if (dossierId != null) {
 			setDossierId(dossierId);
+		}
+
+		String dossierIdCTN = (String)attributes.get("dossierIdCTN");
+
+		if (dossierIdCTN != null) {
+			setDossierIdCTN(dossierIdCTN);
 		}
 
 		String dossierType = (String)attributes.get("dossierType");
@@ -274,6 +289,12 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 
 		if (applicantIdNo != null) {
 			setApplicantIdNo(applicantIdNo);
+		}
+
+		String applicantTelNo = (String)attributes.get("applicantTelNo");
+
+		if (applicantTelNo != null) {
+			setApplicantTelNo(applicantTelNo);
 		}
 
 		String applicantName = (String)attributes.get("applicantName");
@@ -347,10 +368,47 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 			setApplicantcontactPhone(applicantcontactPhone);
 		}
 
+		String applicantcontactTelNo = (String)attributes.get(
+				"applicantcontactTelNo");
+
+		if (applicantcontactTelNo != null) {
+			setApplicantcontactTelNo(applicantcontactTelNo);
+		}
+
 		String cityCode = (String)attributes.get("cityCode");
 
 		if (cityCode != null) {
 			setCityCode(cityCode);
+		}
+
+		String cityName = (String)attributes.get("cityName");
+
+		if (cityName != null) {
+			setCityName(cityName);
+		}
+
+		String districtCode = (String)attributes.get("districtCode");
+
+		if (districtCode != null) {
+			setDistrictCode(districtCode);
+		}
+
+		String districtName = (String)attributes.get("districtName");
+
+		if (districtName != null) {
+			setDistrictName(districtName);
+		}
+
+		String wardCode = (String)attributes.get("wardCode");
+
+		if (wardCode != null) {
+			setWardCode(wardCode);
+		}
+
+		String wardName = (String)attributes.get("wardName");
+
+		if (wardName != null) {
+			setWardName(wardName);
 		}
 
 		String manufacturerForeignCode = (String)attributes.get(
@@ -868,17 +926,17 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 			setCommonSafetyStandard(commonSafetyStandard);
 		}
 
-		String emissionStandard = (String)attributes.get("emissionStandard");
-
-		if (emissionStandard != null) {
-			setEmissionStandard(emissionStandard);
-		}
-
 		String commonSafetyDescription = (String)attributes.get(
 				"commonSafetyDescription");
 
 		if (commonSafetyDescription != null) {
 			setCommonSafetyDescription(commonSafetyDescription);
+		}
+
+		String emissionStandard = (String)attributes.get("emissionStandard");
+
+		if (emissionStandard != null) {
+			setEmissionStandard(emissionStandard);
 		}
 
 		String emissionDescription = (String)attributes.get(
@@ -1065,6 +1123,13 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 			setDeliverableCode(deliverableCode);
 		}
 
+		Long deliverableFileEntryid = (Long)attributes.get(
+				"deliverableFileEntryid");
+
+		if (deliverableFileEntryid != null) {
+			setDeliverableFileEntryid(deliverableFileEntryid);
+		}
+
 		String module = (String)attributes.get("module");
 
 		if (module != null) {
@@ -1240,6 +1305,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	}
 
 	/**
+	* Returns the applicant tel no of this vr vehicle type certificate.
+	*
+	* @return the applicant tel no of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getApplicantTelNo() {
+		return _vrVehicleTypeCertificate.getApplicantTelNo();
+	}
+
+	/**
 	* Returns the applicantcontact phone of this vr vehicle type certificate.
 	*
 	* @return the applicantcontact phone of this vr vehicle type certificate
@@ -1247,6 +1322,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	@Override
 	public java.lang.String getApplicantcontactPhone() {
 		return _vrVehicleTypeCertificate.getApplicantcontactPhone();
+	}
+
+	/**
+	* Returns the applicantcontact tel no of this vr vehicle type certificate.
+	*
+	* @return the applicantcontact tel no of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getApplicantcontactTelNo() {
+		return _vrVehicleTypeCertificate.getApplicantcontactTelNo();
 	}
 
 	/**
@@ -1490,6 +1575,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	}
 
 	/**
+	* Returns the city name of this vr vehicle type certificate.
+	*
+	* @return the city name of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getCityName() {
+		return _vrVehicleTypeCertificate.getCityName();
+	}
+
+	/**
 	* Returns the common safety description of this vr vehicle type certificate.
 	*
 	* @return the common safety description of this vr vehicle type certificate
@@ -1667,6 +1762,36 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	@Override
 	public java.lang.String getDigitalIssueStatus() {
 		return _vrVehicleTypeCertificate.getDigitalIssueStatus();
+	}
+
+	/**
+	* Returns the district code of this vr vehicle type certificate.
+	*
+	* @return the district code of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getDistrictCode() {
+		return _vrVehicleTypeCertificate.getDistrictCode();
+	}
+
+	/**
+	* Returns the district name of this vr vehicle type certificate.
+	*
+	* @return the district name of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getDistrictName() {
+		return _vrVehicleTypeCertificate.getDistrictName();
+	}
+
+	/**
+	* Returns the dossier ID ctn of this vr vehicle type certificate.
+	*
+	* @return the dossier ID ctn of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getDossierIdCTN() {
+		return _vrVehicleTypeCertificate.getDossierIdCTN();
 	}
 
 	/**
@@ -2209,6 +2334,26 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 		return _vrVehicleTypeCertificate.getVerificationRefNo();
 	}
 
+	/**
+	* Returns the ward code of this vr vehicle type certificate.
+	*
+	* @return the ward code of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getWardCode() {
+		return _vrVehicleTypeCertificate.getWardCode();
+	}
+
+	/**
+	* Returns the ward name of this vr vehicle type certificate.
+	*
+	* @return the ward name of this vr vehicle type certificate
+	*/
+	@Override
+	public java.lang.String getWardName() {
+		return _vrVehicleTypeCertificate.getWardName();
+	}
+
 	@Override
 	public java.lang.String toString() {
 		return _vrVehicleTypeCertificate.toString();
@@ -2450,6 +2595,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	}
 
 	/**
+	* Returns the deliverable file entryid of this vr vehicle type certificate.
+	*
+	* @return the deliverable file entryid of this vr vehicle type certificate
+	*/
+	@Override
+	public long getDeliverableFileEntryid() {
+		return _vrVehicleTypeCertificate.getDeliverableFileEntryid();
+	}
+
+	/**
 	* Returns the dossier ID of this vr vehicle type certificate.
 	*
 	* @return the dossier ID of this vr vehicle type certificate
@@ -2627,6 +2782,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	}
 
 	/**
+	* Sets the applicant tel no of this vr vehicle type certificate.
+	*
+	* @param applicantTelNo the applicant tel no of this vr vehicle type certificate
+	*/
+	@Override
+	public void setApplicantTelNo(java.lang.String applicantTelNo) {
+		_vrVehicleTypeCertificate.setApplicantTelNo(applicantTelNo);
+	}
+
+	/**
 	* Sets the applicantcontact phone of this vr vehicle type certificate.
 	*
 	* @param applicantcontactPhone the applicantcontact phone of this vr vehicle type certificate
@@ -2634,6 +2799,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	@Override
 	public void setApplicantcontactPhone(java.lang.String applicantcontactPhone) {
 		_vrVehicleTypeCertificate.setApplicantcontactPhone(applicantcontactPhone);
+	}
+
+	/**
+	* Sets the applicantcontact tel no of this vr vehicle type certificate.
+	*
+	* @param applicantcontactTelNo the applicantcontact tel no of this vr vehicle type certificate
+	*/
+	@Override
+	public void setApplicantcontactTelNo(java.lang.String applicantcontactTelNo) {
+		_vrVehicleTypeCertificate.setApplicantcontactTelNo(applicantcontactTelNo);
 	}
 
 	@Override
@@ -2911,6 +3086,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	}
 
 	/**
+	* Sets the city name of this vr vehicle type certificate.
+	*
+	* @param cityName the city name of this vr vehicle type certificate
+	*/
+	@Override
+	public void setCityName(java.lang.String cityName) {
+		_vrVehicleTypeCertificate.setCityName(cityName);
+	}
+
+	/**
 	* Sets the common safety description of this vr vehicle type certificate.
 	*
 	* @param commonSafetyDescription the common safety description of this vr vehicle type certificate
@@ -3009,6 +3194,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	@Override
 	public void setDeliverableCode(java.lang.String deliverableCode) {
 		_vrVehicleTypeCertificate.setDeliverableCode(deliverableCode);
+	}
+
+	/**
+	* Sets the deliverable file entryid of this vr vehicle type certificate.
+	*
+	* @param deliverableFileEntryid the deliverable file entryid of this vr vehicle type certificate
+	*/
+	@Override
+	public void setDeliverableFileEntryid(long deliverableFileEntryid) {
+		_vrVehicleTypeCertificate.setDeliverableFileEntryid(deliverableFileEntryid);
 	}
 
 	/**
@@ -3135,6 +3330,26 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	}
 
 	/**
+	* Sets the district code of this vr vehicle type certificate.
+	*
+	* @param districtCode the district code of this vr vehicle type certificate
+	*/
+	@Override
+	public void setDistrictCode(java.lang.String districtCode) {
+		_vrVehicleTypeCertificate.setDistrictCode(districtCode);
+	}
+
+	/**
+	* Sets the district name of this vr vehicle type certificate.
+	*
+	* @param districtName the district name of this vr vehicle type certificate
+	*/
+	@Override
+	public void setDistrictName(java.lang.String districtName) {
+		_vrVehicleTypeCertificate.setDistrictName(districtName);
+	}
+
+	/**
 	* Sets the dossier ID of this vr vehicle type certificate.
 	*
 	* @param dossierId the dossier ID of this vr vehicle type certificate
@@ -3142,6 +3357,16 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	@Override
 	public void setDossierId(long dossierId) {
 		_vrVehicleTypeCertificate.setDossierId(dossierId);
+	}
+
+	/**
+	* Sets the dossier ID ctn of this vr vehicle type certificate.
+	*
+	* @param dossierIdCTN the dossier ID ctn of this vr vehicle type certificate
+	*/
+	@Override
+	public void setDossierIdCTN(java.lang.String dossierIdCTN) {
+		_vrVehicleTypeCertificate.setDossierIdCTN(dossierIdCTN);
 	}
 
 	/**
@@ -3932,6 +4157,26 @@ public class VRVehicleTypeCertificateWrapper implements VRVehicleTypeCertificate
 	@Override
 	public void setVerificationRefNo(java.lang.String verificationRefNo) {
 		_vrVehicleTypeCertificate.setVerificationRefNo(verificationRefNo);
+	}
+
+	/**
+	* Sets the ward code of this vr vehicle type certificate.
+	*
+	* @param wardCode the ward code of this vr vehicle type certificate
+	*/
+	@Override
+	public void setWardCode(java.lang.String wardCode) {
+		_vrVehicleTypeCertificate.setWardCode(wardCode);
+	}
+
+	/**
+	* Sets the ward name of this vr vehicle type certificate.
+	*
+	* @param wardName the ward name of this vr vehicle type certificate
+	*/
+	@Override
+	public void setWardName(java.lang.String wardName) {
+		_vrVehicleTypeCertificate.setWardName(wardName);
 	}
 
 	@Override

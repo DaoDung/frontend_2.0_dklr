@@ -291,6 +291,13 @@
 						id = $("#dossiertemplateTmp").val();
 						
 					}
+					if (!id) {
+						options.success({
+							"total" : 0,
+							"data" : []
+						});
+						return;
+					}
 
 					$.ajax({
 						url : "${api.server}" + "/dossiertemplates/"+id+"/parts",
@@ -345,6 +352,14 @@
 					}else {
 						id = $("#dossiertemplateTmp").val();
 						
+					}
+
+					if (!id) {
+						options.success({
+							"total" : 0,
+							"data" : []
+						});
+						return;
 					}
 
 					$.ajax({

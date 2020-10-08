@@ -63,11 +63,46 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 	public static final String TABLE_NAME = "vr_vehicleequipment";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "id", Types.BIGINT },
-			{ "vehicleCertificateId", Types.BIGINT },
+			{ "vehicleTypeCertificateId", Types.BIGINT },
 			{ "certificateRecordId", Types.BIGINT },
 			{ "dossierid", Types.BIGINT },
 			{ "dossierIdCTN", Types.VARCHAR },
 			{ "dossierno", Types.VARCHAR },
+			{ "isMandatory", Types.INTEGER },
+			{ "sequenceNo", Types.BIGINT },
+			{ "certificateRecordNo", Types.VARCHAR },
+			{ "certificateRecordDate", Types.TIMESTAMP },
+			{ "certificateRecordExpireDate", Types.TIMESTAMP },
+			{ "expiredStatus", Types.INTEGER },
+			{ "vehicleClass", Types.VARCHAR },
+			{ "equipmentCode", Types.VARCHAR },
+			{ "equipmentName", Types.VARCHAR },
+			{ "certifiedVehicleType", Types.VARCHAR },
+			{ "certifiedVehicleTypeDescription", Types.VARCHAR },
+			{ "certifiedTrademark", Types.VARCHAR },
+			{ "certifiedTrademarkName", Types.VARCHAR },
+			{ "certifiedCommercialName", Types.VARCHAR },
+			{ "certifiedModelCode", Types.VARCHAR },
+			{ "productionCountry", Types.VARCHAR },
+			{ "originalCode", Types.VARCHAR },
+			{ "originalName", Types.VARCHAR },
+			{ "productionName", Types.VARCHAR },
+			{ "productionAddress", Types.VARCHAR },
+			{ "manufacturerName", Types.VARCHAR },
+			{ "manufacturerAddress", Types.VARCHAR },
+			{ "safetytestReportNo", Types.VARCHAR },
+			{ "safetytestReportDate", Types.TIMESTAMP },
+			{ "emissionTestReportNo", Types.VARCHAR },
+			{ "emissionTestReportDate", Types.TIMESTAMP },
+			{ "commonSafetyStandard", Types.VARCHAR },
+			{ "commonSafetyDescription", Types.VARCHAR },
+			{ "emissionStandard", Types.VARCHAR },
+			{ "emissionDescription", Types.VARCHAR },
+			{ "othertestReportNo", Types.VARCHAR },
+			{ "othertestReportDate", Types.TIMESTAMP },
+			{ "copReportNo", Types.VARCHAR },
+			{ "copReportDate", Types.TIMESTAMP },
+			{ "copReportExpireDate", Types.TIMESTAMP },
 			{ "modifyDate", Types.TIMESTAMP },
 			{ "syncDate", Types.TIMESTAMP }
 		};
@@ -75,16 +110,51 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 
 	static {
 		TABLE_COLUMNS_MAP.put("id", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("vehicleCertificateId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("vehicleTypeCertificateId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("certificateRecordId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("dossierid", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("dossierIdCTN", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("dossierno", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("isMandatory", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("sequenceNo", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("certificateRecordNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certificateRecordDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("certificateRecordExpireDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("expiredStatus", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("vehicleClass", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("equipmentCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("equipmentName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certifiedVehicleType", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certifiedVehicleTypeDescription", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certifiedTrademark", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certifiedTrademarkName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certifiedCommercialName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certifiedModelCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionCountry", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("originalCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("originalName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionAddress", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerAddress", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("safetytestReportNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("safetytestReportDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("emissionTestReportNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("emissionTestReportDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("commonSafetyStandard", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("commonSafetyDescription", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("emissionStandard", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("emissionDescription", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("othertestReportNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("othertestReportDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("copReportNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("copReportDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("copReportExpireDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifyDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_vehicleequipment (id LONG not null primary key,vehicleCertificateId LONG,certificateRecordId LONG,dossierid LONG,dossierIdCTN VARCHAR(75) null,dossierno VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_vehicleequipment (id LONG not null primary key,vehicleTypeCertificateId LONG,certificateRecordId LONG,dossierid LONG,dossierIdCTN VARCHAR(75) null,dossierno VARCHAR(75) null,isMandatory INTEGER,sequenceNo LONG,certificateRecordNo VARCHAR(75) null,certificateRecordDate DATE null,certificateRecordExpireDate DATE null,expiredStatus INTEGER,vehicleClass VARCHAR(75) null,equipmentCode VARCHAR(75) null,equipmentName VARCHAR(75) null,certifiedVehicleType VARCHAR(75) null,certifiedVehicleTypeDescription VARCHAR(75) null,certifiedTrademark VARCHAR(75) null,certifiedTrademarkName VARCHAR(75) null,certifiedCommercialName VARCHAR(75) null,certifiedModelCode VARCHAR(75) null,productionCountry VARCHAR(75) null,originalCode VARCHAR(75) null,originalName VARCHAR(75) null,productionName VARCHAR(75) null,productionAddress VARCHAR(75) null,manufacturerName VARCHAR(75) null,manufacturerAddress VARCHAR(75) null,safetytestReportNo VARCHAR(75) null,safetytestReportDate DATE null,emissionTestReportNo VARCHAR(75) null,emissionTestReportDate DATE null,commonSafetyStandard VARCHAR(75) null,commonSafetyDescription VARCHAR(75) null,emissionStandard VARCHAR(75) null,emissionDescription VARCHAR(75) null,othertestReportNo VARCHAR(75) null,othertestReportDate DATE null,copReportNo VARCHAR(75) null,copReportDate DATE null,copReportExpireDate DATE null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_vehicleequipment";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrVehicleEquipment.id ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_vehicleequipment.id ASC";
@@ -100,9 +170,10 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.fds.vr.service.util.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.fds.vr.business.model.VRVehicleEquipment"),
 			true);
-	public static final long DOSSIERID_COLUMN_BITMASK = 1L;
-	public static final long VEHICLECERTIFICATEID_COLUMN_BITMASK = 2L;
-	public static final long ID_COLUMN_BITMASK = 4L;
+	public static final long CERTIFICATERECORDID_COLUMN_BITMASK = 1L;
+	public static final long DOSSIERID_COLUMN_BITMASK = 2L;
+	public static final long VEHICLETYPECERTIFICATEID_COLUMN_BITMASK = 4L;
+	public static final long ID_COLUMN_BITMASK = 8L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRVehicleEquipment"));
 
@@ -144,11 +215,48 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("id", getId());
-		attributes.put("vehicleCertificateId", getVehicleCertificateId());
+		attributes.put("vehicleTypeCertificateId", getVehicleTypeCertificateId());
 		attributes.put("certificateRecordId", getCertificateRecordId());
 		attributes.put("dossierId", getDossierId());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("dossierNo", getDossierNo());
+		attributes.put("isMandatory", getIsMandatory());
+		attributes.put("sequenceNo", getSequenceNo());
+		attributes.put("certificateRecordNo", getCertificateRecordNo());
+		attributes.put("certificateRecordDate", getCertificateRecordDate());
+		attributes.put("certificateRecordExpireDate",
+			getCertificateRecordExpireDate());
+		attributes.put("expiredStatus", getExpiredStatus());
+		attributes.put("vehicleClass", getVehicleClass());
+		attributes.put("equipmentCode", getEquipmentCode());
+		attributes.put("equipmentName", getEquipmentName());
+		attributes.put("certifiedVehicleType", getCertifiedVehicleType());
+		attributes.put("certifiedVehicleTypeDescription",
+			getCertifiedVehicleTypeDescription());
+		attributes.put("certifiedTrademark", getCertifiedTrademark());
+		attributes.put("certifiedTrademarkName", getCertifiedTrademarkName());
+		attributes.put("certifiedCommercialName", getCertifiedCommercialName());
+		attributes.put("certifiedModelCode", getCertifiedModelCode());
+		attributes.put("productionCountry", getProductionCountry());
+		attributes.put("originalCode", getOriginalCode());
+		attributes.put("originalName", getOriginalName());
+		attributes.put("productionName", getProductionName());
+		attributes.put("productionAddress", getProductionAddress());
+		attributes.put("manufacturerName", getManufacturerName());
+		attributes.put("manufacturerAddress", getManufacturerAddress());
+		attributes.put("safetytestReportNo", getSafetytestReportNo());
+		attributes.put("safetytestReportDate", getSafetytestReportDate());
+		attributes.put("emissionTestReportNo", getEmissionTestReportNo());
+		attributes.put("emissionTestReportDate", getEmissionTestReportDate());
+		attributes.put("commonSafetyStandard", getCommonSafetyStandard());
+		attributes.put("commonSafetyDescription", getCommonSafetyDescription());
+		attributes.put("emissionStandard", getEmissionStandard());
+		attributes.put("emissionDescription", getEmissionDescription());
+		attributes.put("othertestReportNo", getOthertestReportNo());
+		attributes.put("othertestReportDate", getOthertestReportDate());
+		attributes.put("copReportNo", getCopReportNo());
+		attributes.put("copReportDate", getCopReportDate());
+		attributes.put("copReportExpireDate", getCopReportExpireDate());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -166,10 +274,11 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 			setId(id);
 		}
 
-		Long vehicleCertificateId = (Long)attributes.get("vehicleCertificateId");
+		Long vehicleTypeCertificateId = (Long)attributes.get(
+				"vehicleTypeCertificateId");
 
-		if (vehicleCertificateId != null) {
-			setVehicleCertificateId(vehicleCertificateId);
+		if (vehicleTypeCertificateId != null) {
+			setVehicleTypeCertificateId(vehicleTypeCertificateId);
 		}
 
 		Long certificateRecordId = (Long)attributes.get("certificateRecordId");
@@ -196,6 +305,229 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 			setDossierNo(dossierNo);
 		}
 
+		Integer isMandatory = (Integer)attributes.get("isMandatory");
+
+		if (isMandatory != null) {
+			setIsMandatory(isMandatory);
+		}
+
+		Long sequenceNo = (Long)attributes.get("sequenceNo");
+
+		if (sequenceNo != null) {
+			setSequenceNo(sequenceNo);
+		}
+
+		String certificateRecordNo = (String)attributes.get(
+				"certificateRecordNo");
+
+		if (certificateRecordNo != null) {
+			setCertificateRecordNo(certificateRecordNo);
+		}
+
+		Date certificateRecordDate = (Date)attributes.get(
+				"certificateRecordDate");
+
+		if (certificateRecordDate != null) {
+			setCertificateRecordDate(certificateRecordDate);
+		}
+
+		Date certificateRecordExpireDate = (Date)attributes.get(
+				"certificateRecordExpireDate");
+
+		if (certificateRecordExpireDate != null) {
+			setCertificateRecordExpireDate(certificateRecordExpireDate);
+		}
+
+		Integer expiredStatus = (Integer)attributes.get("expiredStatus");
+
+		if (expiredStatus != null) {
+			setExpiredStatus(expiredStatus);
+		}
+
+		String vehicleClass = (String)attributes.get("vehicleClass");
+
+		if (vehicleClass != null) {
+			setVehicleClass(vehicleClass);
+		}
+
+		String equipmentCode = (String)attributes.get("equipmentCode");
+
+		if (equipmentCode != null) {
+			setEquipmentCode(equipmentCode);
+		}
+
+		String equipmentName = (String)attributes.get("equipmentName");
+
+		if (equipmentName != null) {
+			setEquipmentName(equipmentName);
+		}
+
+		String certifiedVehicleType = (String)attributes.get(
+				"certifiedVehicleType");
+
+		if (certifiedVehicleType != null) {
+			setCertifiedVehicleType(certifiedVehicleType);
+		}
+
+		String certifiedVehicleTypeDescription = (String)attributes.get(
+				"certifiedVehicleTypeDescription");
+
+		if (certifiedVehicleTypeDescription != null) {
+			setCertifiedVehicleTypeDescription(certifiedVehicleTypeDescription);
+		}
+
+		String certifiedTrademark = (String)attributes.get("certifiedTrademark");
+
+		if (certifiedTrademark != null) {
+			setCertifiedTrademark(certifiedTrademark);
+		}
+
+		String certifiedTrademarkName = (String)attributes.get(
+				"certifiedTrademarkName");
+
+		if (certifiedTrademarkName != null) {
+			setCertifiedTrademarkName(certifiedTrademarkName);
+		}
+
+		String certifiedCommercialName = (String)attributes.get(
+				"certifiedCommercialName");
+
+		if (certifiedCommercialName != null) {
+			setCertifiedCommercialName(certifiedCommercialName);
+		}
+
+		String certifiedModelCode = (String)attributes.get("certifiedModelCode");
+
+		if (certifiedModelCode != null) {
+			setCertifiedModelCode(certifiedModelCode);
+		}
+
+		String productionCountry = (String)attributes.get("productionCountry");
+
+		if (productionCountry != null) {
+			setProductionCountry(productionCountry);
+		}
+
+		String originalCode = (String)attributes.get("originalCode");
+
+		if (originalCode != null) {
+			setOriginalCode(originalCode);
+		}
+
+		String originalName = (String)attributes.get("originalName");
+
+		if (originalName != null) {
+			setOriginalName(originalName);
+		}
+
+		String productionName = (String)attributes.get("productionName");
+
+		if (productionName != null) {
+			setProductionName(productionName);
+		}
+
+		String productionAddress = (String)attributes.get("productionAddress");
+
+		if (productionAddress != null) {
+			setProductionAddress(productionAddress);
+		}
+
+		String manufacturerName = (String)attributes.get("manufacturerName");
+
+		if (manufacturerName != null) {
+			setManufacturerName(manufacturerName);
+		}
+
+		String manufacturerAddress = (String)attributes.get(
+				"manufacturerAddress");
+
+		if (manufacturerAddress != null) {
+			setManufacturerAddress(manufacturerAddress);
+		}
+
+		String safetytestReportNo = (String)attributes.get("safetytestReportNo");
+
+		if (safetytestReportNo != null) {
+			setSafetytestReportNo(safetytestReportNo);
+		}
+
+		Date safetytestReportDate = (Date)attributes.get("safetytestReportDate");
+
+		if (safetytestReportDate != null) {
+			setSafetytestReportDate(safetytestReportDate);
+		}
+
+		String emissionTestReportNo = (String)attributes.get(
+				"emissionTestReportNo");
+
+		if (emissionTestReportNo != null) {
+			setEmissionTestReportNo(emissionTestReportNo);
+		}
+
+		Date emissionTestReportDate = (Date)attributes.get(
+				"emissionTestReportDate");
+
+		if (emissionTestReportDate != null) {
+			setEmissionTestReportDate(emissionTestReportDate);
+		}
+
+		String commonSafetyStandard = (String)attributes.get(
+				"commonSafetyStandard");
+
+		if (commonSafetyStandard != null) {
+			setCommonSafetyStandard(commonSafetyStandard);
+		}
+
+		String commonSafetyDescription = (String)attributes.get(
+				"commonSafetyDescription");
+
+		if (commonSafetyDescription != null) {
+			setCommonSafetyDescription(commonSafetyDescription);
+		}
+
+		String emissionStandard = (String)attributes.get("emissionStandard");
+
+		if (emissionStandard != null) {
+			setEmissionStandard(emissionStandard);
+		}
+
+		String emissionDescription = (String)attributes.get(
+				"emissionDescription");
+
+		if (emissionDescription != null) {
+			setEmissionDescription(emissionDescription);
+		}
+
+		String othertestReportNo = (String)attributes.get("othertestReportNo");
+
+		if (othertestReportNo != null) {
+			setOthertestReportNo(othertestReportNo);
+		}
+
+		Date othertestReportDate = (Date)attributes.get("othertestReportDate");
+
+		if (othertestReportDate != null) {
+			setOthertestReportDate(othertestReportDate);
+		}
+
+		String copReportNo = (String)attributes.get("copReportNo");
+
+		if (copReportNo != null) {
+			setCopReportNo(copReportNo);
+		}
+
+		Date copReportDate = (Date)attributes.get("copReportDate");
+
+		if (copReportDate != null) {
+			setCopReportDate(copReportDate);
+		}
+
+		Date copReportExpireDate = (Date)attributes.get("copReportExpireDate");
+
+		if (copReportExpireDate != null) {
+			setCopReportExpireDate(copReportExpireDate);
+		}
+
 		Date modifyDate = (Date)attributes.get("modifyDate");
 
 		if (modifyDate != null) {
@@ -220,25 +552,25 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 	}
 
 	@Override
-	public long getVehicleCertificateId() {
-		return _vehicleCertificateId;
+	public long getVehicleTypeCertificateId() {
+		return _vehicleTypeCertificateId;
 	}
 
 	@Override
-	public void setVehicleCertificateId(long vehicleCertificateId) {
-		_columnBitmask |= VEHICLECERTIFICATEID_COLUMN_BITMASK;
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_columnBitmask |= VEHICLETYPECERTIFICATEID_COLUMN_BITMASK;
 
-		if (!_setOriginalVehicleCertificateId) {
-			_setOriginalVehicleCertificateId = true;
+		if (!_setOriginalVehicleTypeCertificateId) {
+			_setOriginalVehicleTypeCertificateId = true;
 
-			_originalVehicleCertificateId = _vehicleCertificateId;
+			_originalVehicleTypeCertificateId = _vehicleTypeCertificateId;
 		}
 
-		_vehicleCertificateId = vehicleCertificateId;
+		_vehicleTypeCertificateId = vehicleTypeCertificateId;
 	}
 
-	public long getOriginalVehicleCertificateId() {
-		return _originalVehicleCertificateId;
+	public long getOriginalVehicleTypeCertificateId() {
+		return _originalVehicleTypeCertificateId;
 	}
 
 	@Override
@@ -248,7 +580,19 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 
 	@Override
 	public void setCertificateRecordId(long certificateRecordId) {
+		_columnBitmask |= CERTIFICATERECORDID_COLUMN_BITMASK;
+
+		if (!_setOriginalCertificateRecordId) {
+			_setOriginalCertificateRecordId = true;
+
+			_originalCertificateRecordId = _certificateRecordId;
+		}
+
 		_certificateRecordId = certificateRecordId;
+	}
+
+	public long getOriginalCertificateRecordId() {
+		return _originalCertificateRecordId;
 	}
 
 	@Override
@@ -304,6 +648,482 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 	}
 
 	@Override
+	public int getIsMandatory() {
+		return _isMandatory;
+	}
+
+	@Override
+	public void setIsMandatory(int isMandatory) {
+		_isMandatory = isMandatory;
+	}
+
+	@Override
+	public long getSequenceNo() {
+		return _sequenceNo;
+	}
+
+	@Override
+	public void setSequenceNo(long sequenceNo) {
+		_sequenceNo = sequenceNo;
+	}
+
+	@Override
+	public String getCertificateRecordNo() {
+		if (_certificateRecordNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certificateRecordNo;
+		}
+	}
+
+	@Override
+	public void setCertificateRecordNo(String certificateRecordNo) {
+		_certificateRecordNo = certificateRecordNo;
+	}
+
+	@Override
+	public Date getCertificateRecordDate() {
+		return _certificateRecordDate;
+	}
+
+	@Override
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_certificateRecordDate = certificateRecordDate;
+	}
+
+	@Override
+	public Date getCertificateRecordExpireDate() {
+		return _certificateRecordExpireDate;
+	}
+
+	@Override
+	public void setCertificateRecordExpireDate(Date certificateRecordExpireDate) {
+		_certificateRecordExpireDate = certificateRecordExpireDate;
+	}
+
+	@Override
+	public int getExpiredStatus() {
+		return _expiredStatus;
+	}
+
+	@Override
+	public void setExpiredStatus(int expiredStatus) {
+		_expiredStatus = expiredStatus;
+	}
+
+	@Override
+	public String getVehicleClass() {
+		if (_vehicleClass == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _vehicleClass;
+		}
+	}
+
+	@Override
+	public void setVehicleClass(String vehicleClass) {
+		_vehicleClass = vehicleClass;
+	}
+
+	@Override
+	public String getEquipmentCode() {
+		if (_equipmentCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _equipmentCode;
+		}
+	}
+
+	@Override
+	public void setEquipmentCode(String equipmentCode) {
+		_equipmentCode = equipmentCode;
+	}
+
+	@Override
+	public String getEquipmentName() {
+		if (_equipmentName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _equipmentName;
+		}
+	}
+
+	@Override
+	public void setEquipmentName(String equipmentName) {
+		_equipmentName = equipmentName;
+	}
+
+	@Override
+	public String getCertifiedVehicleType() {
+		if (_certifiedVehicleType == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certifiedVehicleType;
+		}
+	}
+
+	@Override
+	public void setCertifiedVehicleType(String certifiedVehicleType) {
+		_certifiedVehicleType = certifiedVehicleType;
+	}
+
+	@Override
+	public String getCertifiedVehicleTypeDescription() {
+		if (_certifiedVehicleTypeDescription == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certifiedVehicleTypeDescription;
+		}
+	}
+
+	@Override
+	public void setCertifiedVehicleTypeDescription(
+		String certifiedVehicleTypeDescription) {
+		_certifiedVehicleTypeDescription = certifiedVehicleTypeDescription;
+	}
+
+	@Override
+	public String getCertifiedTrademark() {
+		if (_certifiedTrademark == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certifiedTrademark;
+		}
+	}
+
+	@Override
+	public void setCertifiedTrademark(String certifiedTrademark) {
+		_certifiedTrademark = certifiedTrademark;
+	}
+
+	@Override
+	public String getCertifiedTrademarkName() {
+		if (_certifiedTrademarkName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certifiedTrademarkName;
+		}
+	}
+
+	@Override
+	public void setCertifiedTrademarkName(String certifiedTrademarkName) {
+		_certifiedTrademarkName = certifiedTrademarkName;
+	}
+
+	@Override
+	public String getCertifiedCommercialName() {
+		if (_certifiedCommercialName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certifiedCommercialName;
+		}
+	}
+
+	@Override
+	public void setCertifiedCommercialName(String certifiedCommercialName) {
+		_certifiedCommercialName = certifiedCommercialName;
+	}
+
+	@Override
+	public String getCertifiedModelCode() {
+		if (_certifiedModelCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _certifiedModelCode;
+		}
+	}
+
+	@Override
+	public void setCertifiedModelCode(String certifiedModelCode) {
+		_certifiedModelCode = certifiedModelCode;
+	}
+
+	@Override
+	public String getProductionCountry() {
+		if (_productionCountry == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionCountry;
+		}
+	}
+
+	@Override
+	public void setProductionCountry(String productionCountry) {
+		_productionCountry = productionCountry;
+	}
+
+	@Override
+	public String getOriginalCode() {
+		if (_originalCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _originalCode;
+		}
+	}
+
+	@Override
+	public void setOriginalCode(String originalCode) {
+		_originalCode = originalCode;
+	}
+
+	@Override
+	public String getOriginalName() {
+		if (_originalName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _originalName;
+		}
+	}
+
+	@Override
+	public void setOriginalName(String originalName) {
+		_originalName = originalName;
+	}
+
+	@Override
+	public String getProductionName() {
+		if (_productionName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionName;
+		}
+	}
+
+	@Override
+	public void setProductionName(String productionName) {
+		_productionName = productionName;
+	}
+
+	@Override
+	public String getProductionAddress() {
+		if (_productionAddress == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionAddress;
+		}
+	}
+
+	@Override
+	public void setProductionAddress(String productionAddress) {
+		_productionAddress = productionAddress;
+	}
+
+	@Override
+	public String getManufacturerName() {
+		if (_manufacturerName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerName;
+		}
+	}
+
+	@Override
+	public void setManufacturerName(String manufacturerName) {
+		_manufacturerName = manufacturerName;
+	}
+
+	@Override
+	public String getManufacturerAddress() {
+		if (_manufacturerAddress == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerAddress;
+		}
+	}
+
+	@Override
+	public void setManufacturerAddress(String manufacturerAddress) {
+		_manufacturerAddress = manufacturerAddress;
+	}
+
+	@Override
+	public String getSafetytestReportNo() {
+		if (_safetytestReportNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _safetytestReportNo;
+		}
+	}
+
+	@Override
+	public void setSafetytestReportNo(String safetytestReportNo) {
+		_safetytestReportNo = safetytestReportNo;
+	}
+
+	@Override
+	public Date getSafetytestReportDate() {
+		return _safetytestReportDate;
+	}
+
+	@Override
+	public void setSafetytestReportDate(Date safetytestReportDate) {
+		_safetytestReportDate = safetytestReportDate;
+	}
+
+	@Override
+	public String getEmissionTestReportNo() {
+		if (_emissionTestReportNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _emissionTestReportNo;
+		}
+	}
+
+	@Override
+	public void setEmissionTestReportNo(String emissionTestReportNo) {
+		_emissionTestReportNo = emissionTestReportNo;
+	}
+
+	@Override
+	public Date getEmissionTestReportDate() {
+		return _emissionTestReportDate;
+	}
+
+	@Override
+	public void setEmissionTestReportDate(Date emissionTestReportDate) {
+		_emissionTestReportDate = emissionTestReportDate;
+	}
+
+	@Override
+	public String getCommonSafetyStandard() {
+		if (_commonSafetyStandard == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _commonSafetyStandard;
+		}
+	}
+
+	@Override
+	public void setCommonSafetyStandard(String commonSafetyStandard) {
+		_commonSafetyStandard = commonSafetyStandard;
+	}
+
+	@Override
+	public String getCommonSafetyDescription() {
+		if (_commonSafetyDescription == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _commonSafetyDescription;
+		}
+	}
+
+	@Override
+	public void setCommonSafetyDescription(String commonSafetyDescription) {
+		_commonSafetyDescription = commonSafetyDescription;
+	}
+
+	@Override
+	public String getEmissionStandard() {
+		if (_emissionStandard == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _emissionStandard;
+		}
+	}
+
+	@Override
+	public void setEmissionStandard(String emissionStandard) {
+		_emissionStandard = emissionStandard;
+	}
+
+	@Override
+	public String getEmissionDescription() {
+		if (_emissionDescription == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _emissionDescription;
+		}
+	}
+
+	@Override
+	public void setEmissionDescription(String emissionDescription) {
+		_emissionDescription = emissionDescription;
+	}
+
+	@Override
+	public String getOthertestReportNo() {
+		if (_othertestReportNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _othertestReportNo;
+		}
+	}
+
+	@Override
+	public void setOthertestReportNo(String othertestReportNo) {
+		_othertestReportNo = othertestReportNo;
+	}
+
+	@Override
+	public Date getOthertestReportDate() {
+		return _othertestReportDate;
+	}
+
+	@Override
+	public void setOthertestReportDate(Date othertestReportDate) {
+		_othertestReportDate = othertestReportDate;
+	}
+
+	@Override
+	public String getCopReportNo() {
+		if (_copReportNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _copReportNo;
+		}
+	}
+
+	@Override
+	public void setCopReportNo(String copReportNo) {
+		_copReportNo = copReportNo;
+	}
+
+	@Override
+	public Date getCopReportDate() {
+		return _copReportDate;
+	}
+
+	@Override
+	public void setCopReportDate(Date copReportDate) {
+		_copReportDate = copReportDate;
+	}
+
+	@Override
+	public Date getCopReportExpireDate() {
+		return _copReportExpireDate;
+	}
+
+	@Override
+	public void setCopReportExpireDate(Date copReportExpireDate) {
+		_copReportExpireDate = copReportExpireDate;
+	}
+
+	@Override
 	public Date getModifyDate() {
 		return _modifyDate;
 	}
@@ -355,11 +1175,46 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 		VRVehicleEquipmentImpl vrVehicleEquipmentImpl = new VRVehicleEquipmentImpl();
 
 		vrVehicleEquipmentImpl.setId(getId());
-		vrVehicleEquipmentImpl.setVehicleCertificateId(getVehicleCertificateId());
+		vrVehicleEquipmentImpl.setVehicleTypeCertificateId(getVehicleTypeCertificateId());
 		vrVehicleEquipmentImpl.setCertificateRecordId(getCertificateRecordId());
 		vrVehicleEquipmentImpl.setDossierId(getDossierId());
 		vrVehicleEquipmentImpl.setDossierIdCTN(getDossierIdCTN());
 		vrVehicleEquipmentImpl.setDossierNo(getDossierNo());
+		vrVehicleEquipmentImpl.setIsMandatory(getIsMandatory());
+		vrVehicleEquipmentImpl.setSequenceNo(getSequenceNo());
+		vrVehicleEquipmentImpl.setCertificateRecordNo(getCertificateRecordNo());
+		vrVehicleEquipmentImpl.setCertificateRecordDate(getCertificateRecordDate());
+		vrVehicleEquipmentImpl.setCertificateRecordExpireDate(getCertificateRecordExpireDate());
+		vrVehicleEquipmentImpl.setExpiredStatus(getExpiredStatus());
+		vrVehicleEquipmentImpl.setVehicleClass(getVehicleClass());
+		vrVehicleEquipmentImpl.setEquipmentCode(getEquipmentCode());
+		vrVehicleEquipmentImpl.setEquipmentName(getEquipmentName());
+		vrVehicleEquipmentImpl.setCertifiedVehicleType(getCertifiedVehicleType());
+		vrVehicleEquipmentImpl.setCertifiedVehicleTypeDescription(getCertifiedVehicleTypeDescription());
+		vrVehicleEquipmentImpl.setCertifiedTrademark(getCertifiedTrademark());
+		vrVehicleEquipmentImpl.setCertifiedTrademarkName(getCertifiedTrademarkName());
+		vrVehicleEquipmentImpl.setCertifiedCommercialName(getCertifiedCommercialName());
+		vrVehicleEquipmentImpl.setCertifiedModelCode(getCertifiedModelCode());
+		vrVehicleEquipmentImpl.setProductionCountry(getProductionCountry());
+		vrVehicleEquipmentImpl.setOriginalCode(getOriginalCode());
+		vrVehicleEquipmentImpl.setOriginalName(getOriginalName());
+		vrVehicleEquipmentImpl.setProductionName(getProductionName());
+		vrVehicleEquipmentImpl.setProductionAddress(getProductionAddress());
+		vrVehicleEquipmentImpl.setManufacturerName(getManufacturerName());
+		vrVehicleEquipmentImpl.setManufacturerAddress(getManufacturerAddress());
+		vrVehicleEquipmentImpl.setSafetytestReportNo(getSafetytestReportNo());
+		vrVehicleEquipmentImpl.setSafetytestReportDate(getSafetytestReportDate());
+		vrVehicleEquipmentImpl.setEmissionTestReportNo(getEmissionTestReportNo());
+		vrVehicleEquipmentImpl.setEmissionTestReportDate(getEmissionTestReportDate());
+		vrVehicleEquipmentImpl.setCommonSafetyStandard(getCommonSafetyStandard());
+		vrVehicleEquipmentImpl.setCommonSafetyDescription(getCommonSafetyDescription());
+		vrVehicleEquipmentImpl.setEmissionStandard(getEmissionStandard());
+		vrVehicleEquipmentImpl.setEmissionDescription(getEmissionDescription());
+		vrVehicleEquipmentImpl.setOthertestReportNo(getOthertestReportNo());
+		vrVehicleEquipmentImpl.setOthertestReportDate(getOthertestReportDate());
+		vrVehicleEquipmentImpl.setCopReportNo(getCopReportNo());
+		vrVehicleEquipmentImpl.setCopReportDate(getCopReportDate());
+		vrVehicleEquipmentImpl.setCopReportExpireDate(getCopReportExpireDate());
 		vrVehicleEquipmentImpl.setModifyDate(getModifyDate());
 		vrVehicleEquipmentImpl.setSyncDate(getSyncDate());
 
@@ -424,9 +1279,13 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 	public void resetOriginalValues() {
 		VRVehicleEquipmentModelImpl vrVehicleEquipmentModelImpl = this;
 
-		vrVehicleEquipmentModelImpl._originalVehicleCertificateId = vrVehicleEquipmentModelImpl._vehicleCertificateId;
+		vrVehicleEquipmentModelImpl._originalVehicleTypeCertificateId = vrVehicleEquipmentModelImpl._vehicleTypeCertificateId;
 
-		vrVehicleEquipmentModelImpl._setOriginalVehicleCertificateId = false;
+		vrVehicleEquipmentModelImpl._setOriginalVehicleTypeCertificateId = false;
+
+		vrVehicleEquipmentModelImpl._originalCertificateRecordId = vrVehicleEquipmentModelImpl._certificateRecordId;
+
+		vrVehicleEquipmentModelImpl._setOriginalCertificateRecordId = false;
 
 		vrVehicleEquipmentModelImpl._originalDossierId = vrVehicleEquipmentModelImpl._dossierId;
 
@@ -441,7 +1300,7 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 
 		vrVehicleEquipmentCacheModel.id = getId();
 
-		vrVehicleEquipmentCacheModel.vehicleCertificateId = getVehicleCertificateId();
+		vrVehicleEquipmentCacheModel.vehicleTypeCertificateId = getVehicleTypeCertificateId();
 
 		vrVehicleEquipmentCacheModel.certificateRecordId = getCertificateRecordId();
 
@@ -461,6 +1320,285 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 
 		if ((dossierNo != null) && (dossierNo.length() == 0)) {
 			vrVehicleEquipmentCacheModel.dossierNo = null;
+		}
+
+		vrVehicleEquipmentCacheModel.isMandatory = getIsMandatory();
+
+		vrVehicleEquipmentCacheModel.sequenceNo = getSequenceNo();
+
+		vrVehicleEquipmentCacheModel.certificateRecordNo = getCertificateRecordNo();
+
+		String certificateRecordNo = vrVehicleEquipmentCacheModel.certificateRecordNo;
+
+		if ((certificateRecordNo != null) &&
+				(certificateRecordNo.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certificateRecordNo = null;
+		}
+
+		Date certificateRecordDate = getCertificateRecordDate();
+
+		if (certificateRecordDate != null) {
+			vrVehicleEquipmentCacheModel.certificateRecordDate = certificateRecordDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.certificateRecordDate = Long.MIN_VALUE;
+		}
+
+		Date certificateRecordExpireDate = getCertificateRecordExpireDate();
+
+		if (certificateRecordExpireDate != null) {
+			vrVehicleEquipmentCacheModel.certificateRecordExpireDate = certificateRecordExpireDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.certificateRecordExpireDate = Long.MIN_VALUE;
+		}
+
+		vrVehicleEquipmentCacheModel.expiredStatus = getExpiredStatus();
+
+		vrVehicleEquipmentCacheModel.vehicleClass = getVehicleClass();
+
+		String vehicleClass = vrVehicleEquipmentCacheModel.vehicleClass;
+
+		if ((vehicleClass != null) && (vehicleClass.length() == 0)) {
+			vrVehicleEquipmentCacheModel.vehicleClass = null;
+		}
+
+		vrVehicleEquipmentCacheModel.equipmentCode = getEquipmentCode();
+
+		String equipmentCode = vrVehicleEquipmentCacheModel.equipmentCode;
+
+		if ((equipmentCode != null) && (equipmentCode.length() == 0)) {
+			vrVehicleEquipmentCacheModel.equipmentCode = null;
+		}
+
+		vrVehicleEquipmentCacheModel.equipmentName = getEquipmentName();
+
+		String equipmentName = vrVehicleEquipmentCacheModel.equipmentName;
+
+		if ((equipmentName != null) && (equipmentName.length() == 0)) {
+			vrVehicleEquipmentCacheModel.equipmentName = null;
+		}
+
+		vrVehicleEquipmentCacheModel.certifiedVehicleType = getCertifiedVehicleType();
+
+		String certifiedVehicleType = vrVehicleEquipmentCacheModel.certifiedVehicleType;
+
+		if ((certifiedVehicleType != null) &&
+				(certifiedVehicleType.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certifiedVehicleType = null;
+		}
+
+		vrVehicleEquipmentCacheModel.certifiedVehicleTypeDescription = getCertifiedVehicleTypeDescription();
+
+		String certifiedVehicleTypeDescription = vrVehicleEquipmentCacheModel.certifiedVehicleTypeDescription;
+
+		if ((certifiedVehicleTypeDescription != null) &&
+				(certifiedVehicleTypeDescription.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certifiedVehicleTypeDescription = null;
+		}
+
+		vrVehicleEquipmentCacheModel.certifiedTrademark = getCertifiedTrademark();
+
+		String certifiedTrademark = vrVehicleEquipmentCacheModel.certifiedTrademark;
+
+		if ((certifiedTrademark != null) && (certifiedTrademark.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certifiedTrademark = null;
+		}
+
+		vrVehicleEquipmentCacheModel.certifiedTrademarkName = getCertifiedTrademarkName();
+
+		String certifiedTrademarkName = vrVehicleEquipmentCacheModel.certifiedTrademarkName;
+
+		if ((certifiedTrademarkName != null) &&
+				(certifiedTrademarkName.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certifiedTrademarkName = null;
+		}
+
+		vrVehicleEquipmentCacheModel.certifiedCommercialName = getCertifiedCommercialName();
+
+		String certifiedCommercialName = vrVehicleEquipmentCacheModel.certifiedCommercialName;
+
+		if ((certifiedCommercialName != null) &&
+				(certifiedCommercialName.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certifiedCommercialName = null;
+		}
+
+		vrVehicleEquipmentCacheModel.certifiedModelCode = getCertifiedModelCode();
+
+		String certifiedModelCode = vrVehicleEquipmentCacheModel.certifiedModelCode;
+
+		if ((certifiedModelCode != null) && (certifiedModelCode.length() == 0)) {
+			vrVehicleEquipmentCacheModel.certifiedModelCode = null;
+		}
+
+		vrVehicleEquipmentCacheModel.productionCountry = getProductionCountry();
+
+		String productionCountry = vrVehicleEquipmentCacheModel.productionCountry;
+
+		if ((productionCountry != null) && (productionCountry.length() == 0)) {
+			vrVehicleEquipmentCacheModel.productionCountry = null;
+		}
+
+		vrVehicleEquipmentCacheModel.originalCode = getOriginalCode();
+
+		String originalCode = vrVehicleEquipmentCacheModel.originalCode;
+
+		if ((originalCode != null) && (originalCode.length() == 0)) {
+			vrVehicleEquipmentCacheModel.originalCode = null;
+		}
+
+		vrVehicleEquipmentCacheModel.originalName = getOriginalName();
+
+		String originalName = vrVehicleEquipmentCacheModel.originalName;
+
+		if ((originalName != null) && (originalName.length() == 0)) {
+			vrVehicleEquipmentCacheModel.originalName = null;
+		}
+
+		vrVehicleEquipmentCacheModel.productionName = getProductionName();
+
+		String productionName = vrVehicleEquipmentCacheModel.productionName;
+
+		if ((productionName != null) && (productionName.length() == 0)) {
+			vrVehicleEquipmentCacheModel.productionName = null;
+		}
+
+		vrVehicleEquipmentCacheModel.productionAddress = getProductionAddress();
+
+		String productionAddress = vrVehicleEquipmentCacheModel.productionAddress;
+
+		if ((productionAddress != null) && (productionAddress.length() == 0)) {
+			vrVehicleEquipmentCacheModel.productionAddress = null;
+		}
+
+		vrVehicleEquipmentCacheModel.manufacturerName = getManufacturerName();
+
+		String manufacturerName = vrVehicleEquipmentCacheModel.manufacturerName;
+
+		if ((manufacturerName != null) && (manufacturerName.length() == 0)) {
+			vrVehicleEquipmentCacheModel.manufacturerName = null;
+		}
+
+		vrVehicleEquipmentCacheModel.manufacturerAddress = getManufacturerAddress();
+
+		String manufacturerAddress = vrVehicleEquipmentCacheModel.manufacturerAddress;
+
+		if ((manufacturerAddress != null) &&
+				(manufacturerAddress.length() == 0)) {
+			vrVehicleEquipmentCacheModel.manufacturerAddress = null;
+		}
+
+		vrVehicleEquipmentCacheModel.safetytestReportNo = getSafetytestReportNo();
+
+		String safetytestReportNo = vrVehicleEquipmentCacheModel.safetytestReportNo;
+
+		if ((safetytestReportNo != null) && (safetytestReportNo.length() == 0)) {
+			vrVehicleEquipmentCacheModel.safetytestReportNo = null;
+		}
+
+		Date safetytestReportDate = getSafetytestReportDate();
+
+		if (safetytestReportDate != null) {
+			vrVehicleEquipmentCacheModel.safetytestReportDate = safetytestReportDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.safetytestReportDate = Long.MIN_VALUE;
+		}
+
+		vrVehicleEquipmentCacheModel.emissionTestReportNo = getEmissionTestReportNo();
+
+		String emissionTestReportNo = vrVehicleEquipmentCacheModel.emissionTestReportNo;
+
+		if ((emissionTestReportNo != null) &&
+				(emissionTestReportNo.length() == 0)) {
+			vrVehicleEquipmentCacheModel.emissionTestReportNo = null;
+		}
+
+		Date emissionTestReportDate = getEmissionTestReportDate();
+
+		if (emissionTestReportDate != null) {
+			vrVehicleEquipmentCacheModel.emissionTestReportDate = emissionTestReportDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.emissionTestReportDate = Long.MIN_VALUE;
+		}
+
+		vrVehicleEquipmentCacheModel.commonSafetyStandard = getCommonSafetyStandard();
+
+		String commonSafetyStandard = vrVehicleEquipmentCacheModel.commonSafetyStandard;
+
+		if ((commonSafetyStandard != null) &&
+				(commonSafetyStandard.length() == 0)) {
+			vrVehicleEquipmentCacheModel.commonSafetyStandard = null;
+		}
+
+		vrVehicleEquipmentCacheModel.commonSafetyDescription = getCommonSafetyDescription();
+
+		String commonSafetyDescription = vrVehicleEquipmentCacheModel.commonSafetyDescription;
+
+		if ((commonSafetyDescription != null) &&
+				(commonSafetyDescription.length() == 0)) {
+			vrVehicleEquipmentCacheModel.commonSafetyDescription = null;
+		}
+
+		vrVehicleEquipmentCacheModel.emissionStandard = getEmissionStandard();
+
+		String emissionStandard = vrVehicleEquipmentCacheModel.emissionStandard;
+
+		if ((emissionStandard != null) && (emissionStandard.length() == 0)) {
+			vrVehicleEquipmentCacheModel.emissionStandard = null;
+		}
+
+		vrVehicleEquipmentCacheModel.emissionDescription = getEmissionDescription();
+
+		String emissionDescription = vrVehicleEquipmentCacheModel.emissionDescription;
+
+		if ((emissionDescription != null) &&
+				(emissionDescription.length() == 0)) {
+			vrVehicleEquipmentCacheModel.emissionDescription = null;
+		}
+
+		vrVehicleEquipmentCacheModel.othertestReportNo = getOthertestReportNo();
+
+		String othertestReportNo = vrVehicleEquipmentCacheModel.othertestReportNo;
+
+		if ((othertestReportNo != null) && (othertestReportNo.length() == 0)) {
+			vrVehicleEquipmentCacheModel.othertestReportNo = null;
+		}
+
+		Date othertestReportDate = getOthertestReportDate();
+
+		if (othertestReportDate != null) {
+			vrVehicleEquipmentCacheModel.othertestReportDate = othertestReportDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.othertestReportDate = Long.MIN_VALUE;
+		}
+
+		vrVehicleEquipmentCacheModel.copReportNo = getCopReportNo();
+
+		String copReportNo = vrVehicleEquipmentCacheModel.copReportNo;
+
+		if ((copReportNo != null) && (copReportNo.length() == 0)) {
+			vrVehicleEquipmentCacheModel.copReportNo = null;
+		}
+
+		Date copReportDate = getCopReportDate();
+
+		if (copReportDate != null) {
+			vrVehicleEquipmentCacheModel.copReportDate = copReportDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.copReportDate = Long.MIN_VALUE;
+		}
+
+		Date copReportExpireDate = getCopReportExpireDate();
+
+		if (copReportExpireDate != null) {
+			vrVehicleEquipmentCacheModel.copReportExpireDate = copReportExpireDate.getTime();
+		}
+		else {
+			vrVehicleEquipmentCacheModel.copReportExpireDate = Long.MIN_VALUE;
 		}
 
 		Date modifyDate = getModifyDate();
@@ -486,12 +1624,12 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(87);
 
 		sb.append("{id=");
 		sb.append(getId());
-		sb.append(", vehicleCertificateId=");
-		sb.append(getVehicleCertificateId());
+		sb.append(", vehicleTypeCertificateId=");
+		sb.append(getVehicleTypeCertificateId());
 		sb.append(", certificateRecordId=");
 		sb.append(getCertificateRecordId());
 		sb.append(", dossierId=");
@@ -500,6 +1638,76 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 		sb.append(getDossierIdCTN());
 		sb.append(", dossierNo=");
 		sb.append(getDossierNo());
+		sb.append(", isMandatory=");
+		sb.append(getIsMandatory());
+		sb.append(", sequenceNo=");
+		sb.append(getSequenceNo());
+		sb.append(", certificateRecordNo=");
+		sb.append(getCertificateRecordNo());
+		sb.append(", certificateRecordDate=");
+		sb.append(getCertificateRecordDate());
+		sb.append(", certificateRecordExpireDate=");
+		sb.append(getCertificateRecordExpireDate());
+		sb.append(", expiredStatus=");
+		sb.append(getExpiredStatus());
+		sb.append(", vehicleClass=");
+		sb.append(getVehicleClass());
+		sb.append(", equipmentCode=");
+		sb.append(getEquipmentCode());
+		sb.append(", equipmentName=");
+		sb.append(getEquipmentName());
+		sb.append(", certifiedVehicleType=");
+		sb.append(getCertifiedVehicleType());
+		sb.append(", certifiedVehicleTypeDescription=");
+		sb.append(getCertifiedVehicleTypeDescription());
+		sb.append(", certifiedTrademark=");
+		sb.append(getCertifiedTrademark());
+		sb.append(", certifiedTrademarkName=");
+		sb.append(getCertifiedTrademarkName());
+		sb.append(", certifiedCommercialName=");
+		sb.append(getCertifiedCommercialName());
+		sb.append(", certifiedModelCode=");
+		sb.append(getCertifiedModelCode());
+		sb.append(", productionCountry=");
+		sb.append(getProductionCountry());
+		sb.append(", originalCode=");
+		sb.append(getOriginalCode());
+		sb.append(", originalName=");
+		sb.append(getOriginalName());
+		sb.append(", productionName=");
+		sb.append(getProductionName());
+		sb.append(", productionAddress=");
+		sb.append(getProductionAddress());
+		sb.append(", manufacturerName=");
+		sb.append(getManufacturerName());
+		sb.append(", manufacturerAddress=");
+		sb.append(getManufacturerAddress());
+		sb.append(", safetytestReportNo=");
+		sb.append(getSafetytestReportNo());
+		sb.append(", safetytestReportDate=");
+		sb.append(getSafetytestReportDate());
+		sb.append(", emissionTestReportNo=");
+		sb.append(getEmissionTestReportNo());
+		sb.append(", emissionTestReportDate=");
+		sb.append(getEmissionTestReportDate());
+		sb.append(", commonSafetyStandard=");
+		sb.append(getCommonSafetyStandard());
+		sb.append(", commonSafetyDescription=");
+		sb.append(getCommonSafetyDescription());
+		sb.append(", emissionStandard=");
+		sb.append(getEmissionStandard());
+		sb.append(", emissionDescription=");
+		sb.append(getEmissionDescription());
+		sb.append(", othertestReportNo=");
+		sb.append(getOthertestReportNo());
+		sb.append(", othertestReportDate=");
+		sb.append(getOthertestReportDate());
+		sb.append(", copReportNo=");
+		sb.append(getCopReportNo());
+		sb.append(", copReportDate=");
+		sb.append(getCopReportDate());
+		sb.append(", copReportExpireDate=");
+		sb.append(getCopReportExpireDate());
 		sb.append(", modifyDate=");
 		sb.append(getModifyDate());
 		sb.append(", syncDate=");
@@ -511,7 +1719,7 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+		StringBundler sb = new StringBundler(133);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRVehicleEquipment");
@@ -522,8 +1730,8 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 		sb.append(getId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>vehicleCertificateId</column-name><column-value><![CDATA[");
-		sb.append(getVehicleCertificateId());
+			"<column><column-name>vehicleTypeCertificateId</column-name><column-value><![CDATA[");
+		sb.append(getVehicleTypeCertificateId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>certificateRecordId</column-name><column-value><![CDATA[");
@@ -540,6 +1748,146 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 		sb.append(
 			"<column><column-name>dossierNo</column-name><column-value><![CDATA[");
 		sb.append(getDossierNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>isMandatory</column-name><column-value><![CDATA[");
+		sb.append(getIsMandatory());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>sequenceNo</column-name><column-value><![CDATA[");
+		sb.append(getSequenceNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certificateRecordNo</column-name><column-value><![CDATA[");
+		sb.append(getCertificateRecordNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certificateRecordDate</column-name><column-value><![CDATA[");
+		sb.append(getCertificateRecordDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certificateRecordExpireDate</column-name><column-value><![CDATA[");
+		sb.append(getCertificateRecordExpireDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>expiredStatus</column-name><column-value><![CDATA[");
+		sb.append(getExpiredStatus());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>vehicleClass</column-name><column-value><![CDATA[");
+		sb.append(getVehicleClass());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>equipmentCode</column-name><column-value><![CDATA[");
+		sb.append(getEquipmentCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>equipmentName</column-name><column-value><![CDATA[");
+		sb.append(getEquipmentName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certifiedVehicleType</column-name><column-value><![CDATA[");
+		sb.append(getCertifiedVehicleType());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certifiedVehicleTypeDescription</column-name><column-value><![CDATA[");
+		sb.append(getCertifiedVehicleTypeDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certifiedTrademark</column-name><column-value><![CDATA[");
+		sb.append(getCertifiedTrademark());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certifiedTrademarkName</column-name><column-value><![CDATA[");
+		sb.append(getCertifiedTrademarkName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certifiedCommercialName</column-name><column-value><![CDATA[");
+		sb.append(getCertifiedCommercialName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certifiedModelCode</column-name><column-value><![CDATA[");
+		sb.append(getCertifiedModelCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionCountry</column-name><column-value><![CDATA[");
+		sb.append(getProductionCountry());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>originalCode</column-name><column-value><![CDATA[");
+		sb.append(getOriginalCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>originalName</column-name><column-value><![CDATA[");
+		sb.append(getOriginalName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionName</column-name><column-value><![CDATA[");
+		sb.append(getProductionName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionAddress</column-name><column-value><![CDATA[");
+		sb.append(getProductionAddress());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerName</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerAddress</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerAddress());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>safetytestReportNo</column-name><column-value><![CDATA[");
+		sb.append(getSafetytestReportNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>safetytestReportDate</column-name><column-value><![CDATA[");
+		sb.append(getSafetytestReportDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>emissionTestReportNo</column-name><column-value><![CDATA[");
+		sb.append(getEmissionTestReportNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>emissionTestReportDate</column-name><column-value><![CDATA[");
+		sb.append(getEmissionTestReportDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>commonSafetyStandard</column-name><column-value><![CDATA[");
+		sb.append(getCommonSafetyStandard());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>commonSafetyDescription</column-name><column-value><![CDATA[");
+		sb.append(getCommonSafetyDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>emissionStandard</column-name><column-value><![CDATA[");
+		sb.append(getEmissionStandard());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>emissionDescription</column-name><column-value><![CDATA[");
+		sb.append(getEmissionDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>othertestReportNo</column-name><column-value><![CDATA[");
+		sb.append(getOthertestReportNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>othertestReportDate</column-name><column-value><![CDATA[");
+		sb.append(getOthertestReportDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>copReportNo</column-name><column-value><![CDATA[");
+		sb.append(getCopReportNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>copReportDate</column-name><column-value><![CDATA[");
+		sb.append(getCopReportDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>copReportExpireDate</column-name><column-value><![CDATA[");
+		sb.append(getCopReportExpireDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>modifyDate</column-name><column-value><![CDATA[");
@@ -560,15 +1908,52 @@ public class VRVehicleEquipmentModelImpl extends BaseModelImpl<VRVehicleEquipmen
 			VRVehicleEquipment.class
 		};
 	private long _id;
-	private long _vehicleCertificateId;
-	private long _originalVehicleCertificateId;
-	private boolean _setOriginalVehicleCertificateId;
+	private long _vehicleTypeCertificateId;
+	private long _originalVehicleTypeCertificateId;
+	private boolean _setOriginalVehicleTypeCertificateId;
 	private long _certificateRecordId;
+	private long _originalCertificateRecordId;
+	private boolean _setOriginalCertificateRecordId;
 	private long _dossierId;
 	private long _originalDossierId;
 	private boolean _setOriginalDossierId;
 	private String _dossierIdCTN;
 	private String _dossierNo;
+	private int _isMandatory;
+	private long _sequenceNo;
+	private String _certificateRecordNo;
+	private Date _certificateRecordDate;
+	private Date _certificateRecordExpireDate;
+	private int _expiredStatus;
+	private String _vehicleClass;
+	private String _equipmentCode;
+	private String _equipmentName;
+	private String _certifiedVehicleType;
+	private String _certifiedVehicleTypeDescription;
+	private String _certifiedTrademark;
+	private String _certifiedTrademarkName;
+	private String _certifiedCommercialName;
+	private String _certifiedModelCode;
+	private String _productionCountry;
+	private String _originalCode;
+	private String _originalName;
+	private String _productionName;
+	private String _productionAddress;
+	private String _manufacturerName;
+	private String _manufacturerAddress;
+	private String _safetytestReportNo;
+	private Date _safetytestReportDate;
+	private String _emissionTestReportNo;
+	private Date _emissionTestReportDate;
+	private String _commonSafetyStandard;
+	private String _commonSafetyDescription;
+	private String _emissionStandard;
+	private String _emissionDescription;
+	private String _othertestReportNo;
+	private Date _othertestReportDate;
+	private String _copReportNo;
+	private Date _copReportDate;
+	private Date _copReportExpireDate;
 	private Date _modifyDate;
 	private Date _syncDate;
 	private long _columnBitmask;

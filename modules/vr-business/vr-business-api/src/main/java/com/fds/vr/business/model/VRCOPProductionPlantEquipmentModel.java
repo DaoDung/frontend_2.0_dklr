@@ -345,28 +345,30 @@ public interface VRCOPProductionPlantEquipmentModel extends BaseModel<VRCOPProdu
 	 *
 	 * @return the production year of this vrcop production plant equipment
 	 */
-	public Date getProductionYear();
+	@AutoEscape
+	public String getProductionYear();
 
 	/**
 	 * Sets the production year of this vrcop production plant equipment.
 	 *
 	 * @param productionYear the production year of this vrcop production plant equipment
 	 */
-	public void setProductionYear(Date productionYear);
+	public void setProductionYear(String productionYear);
 
 	/**
 	 * Returns the registration year of this vrcop production plant equipment.
 	 *
 	 * @return the registration year of this vrcop production plant equipment
 	 */
-	public Date getRegistrationYear();
+	@AutoEscape
+	public String getRegistrationYear();
 
 	/**
 	 * Sets the registration year of this vrcop production plant equipment.
 	 *
 	 * @param registrationYear the registration year of this vrcop production plant equipment
 	 */
-	public void setRegistrationYear(Date registrationYear);
+	public void setRegistrationYear(String registrationYear);
 
 	/**
 	 * Returns the markup xcg of this vrcop production plant equipment.

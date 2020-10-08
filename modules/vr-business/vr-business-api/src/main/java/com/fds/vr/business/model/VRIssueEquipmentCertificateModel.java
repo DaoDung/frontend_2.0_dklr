@@ -77,18 +77,32 @@ public interface VRIssueEquipmentCertificateModel extends BaseModel<VRIssueEquip
 	public void setId(long id);
 
 	/**
-	 * Returns the mtcore of this vr issue equipment certificate.
+	 * Returns the mt core of this vr issue equipment certificate.
 	 *
-	 * @return the mtcore of this vr issue equipment certificate
+	 * @return the mt core of this vr issue equipment certificate
 	 */
-	public int getMtcore();
+	public long getMtCore();
 
 	/**
-	 * Sets the mtcore of this vr issue equipment certificate.
+	 * Sets the mt core of this vr issue equipment certificate.
 	 *
-	 * @param mtcore the mtcore of this vr issue equipment certificate
+	 * @param mtCore the mt core of this vr issue equipment certificate
 	 */
-	public void setMtcore(int mtcore);
+	public void setMtCore(long mtCore);
+
+	/**
+	 * Returns the dossier ID of this vr issue equipment certificate.
+	 *
+	 * @return the dossier ID of this vr issue equipment certificate
+	 */
+	public long getDossierId();
+
+	/**
+	 * Sets the dossier ID of this vr issue equipment certificate.
+	 *
+	 * @param dossierId the dossier ID of this vr issue equipment certificate
+	 */
+	public void setDossierId(long dossierId);
 
 	/**
 	 * Returns the issue ID of this vr issue equipment certificate.
@@ -119,19 +133,19 @@ public interface VRIssueEquipmentCertificateModel extends BaseModel<VRIssueEquip
 	public void setIssueVehicleCertificateId(long issueVehicleCertificateId);
 
 	/**
-	 * Returns the vehiclecertificaterecordno of this vr issue equipment certificate.
+	 * Returns the vehicle certificate record no of this vr issue equipment certificate.
 	 *
-	 * @return the vehiclecertificaterecordno of this vr issue equipment certificate
+	 * @return the vehicle certificate record no of this vr issue equipment certificate
 	 */
 	@AutoEscape
-	public String getVehiclecertificaterecordno();
+	public String getVehicleCertificateRecordNo();
 
 	/**
-	 * Sets the vehiclecertificaterecordno of this vr issue equipment certificate.
+	 * Sets the vehicle certificate record no of this vr issue equipment certificate.
 	 *
-	 * @param vehiclecertificaterecordno the vehiclecertificaterecordno of this vr issue equipment certificate
+	 * @param vehicleCertificateRecordNo the vehicle certificate record no of this vr issue equipment certificate
 	 */
-	public void setVehiclecertificaterecordno(String vehiclecertificaterecordno);
+	public void setVehicleCertificateRecordNo(String vehicleCertificateRecordNo);
 
 	/**
 	 * Returns the equipment name of this vr issue equipment certificate.
@@ -311,64 +325,64 @@ public interface VRIssueEquipmentCertificateModel extends BaseModel<VRIssueEquip
 	public void setApplicantNo(String applicantNo);
 
 	/**
-	 * Returns the applicantname of this vr issue equipment certificate.
+	 * Returns the applicant name of this vr issue equipment certificate.
 	 *
-	 * @return the applicantname of this vr issue equipment certificate
+	 * @return the applicant name of this vr issue equipment certificate
 	 */
 	@AutoEscape
-	public String getApplicantname();
+	public String getApplicantName();
 
 	/**
-	 * Sets the applicantname of this vr issue equipment certificate.
+	 * Sets the applicant name of this vr issue equipment certificate.
 	 *
-	 * @param applicantname the applicantname of this vr issue equipment certificate
+	 * @param applicantName the applicant name of this vr issue equipment certificate
 	 */
-	public void setApplicantname(String applicantname);
+	public void setApplicantName(String applicantName);
 
 	/**
-	 * Returns the applicantaddress of this vr issue equipment certificate.
+	 * Returns the applicant address of this vr issue equipment certificate.
 	 *
-	 * @return the applicantaddress of this vr issue equipment certificate
-	 */
-	@AutoEscape
-	public String getApplicantaddress();
-
-	/**
-	 * Sets the applicantaddress of this vr issue equipment certificate.
-	 *
-	 * @param applicantaddress the applicantaddress of this vr issue equipment certificate
-	 */
-	public void setApplicantaddress(String applicantaddress);
-
-	/**
-	 * Returns the productionplantname of this vr issue equipment certificate.
-	 *
-	 * @return the productionplantname of this vr issue equipment certificate
+	 * @return the applicant address of this vr issue equipment certificate
 	 */
 	@AutoEscape
-	public String getProductionplantname();
+	public String getApplicantAddress();
 
 	/**
-	 * Sets the productionplantname of this vr issue equipment certificate.
+	 * Sets the applicant address of this vr issue equipment certificate.
 	 *
-	 * @param productionplantname the productionplantname of this vr issue equipment certificate
+	 * @param applicantAddress the applicant address of this vr issue equipment certificate
 	 */
-	public void setProductionplantname(String productionplantname);
+	public void setApplicantAddress(String applicantAddress);
 
 	/**
-	 * Returns the productionplantaddress of this vr issue equipment certificate.
+	 * Returns the production plant name of this vr issue equipment certificate.
 	 *
-	 * @return the productionplantaddress of this vr issue equipment certificate
+	 * @return the production plant name of this vr issue equipment certificate
 	 */
 	@AutoEscape
-	public String getProductionplantaddress();
+	public String getProductionPlantName();
 
 	/**
-	 * Sets the productionplantaddress of this vr issue equipment certificate.
+	 * Sets the production plant name of this vr issue equipment certificate.
 	 *
-	 * @param productionplantaddress the productionplantaddress of this vr issue equipment certificate
+	 * @param productionPlantName the production plant name of this vr issue equipment certificate
 	 */
-	public void setProductionplantaddress(String productionplantaddress);
+	public void setProductionPlantName(String productionPlantName);
+
+	/**
+	 * Returns the production plant address of this vr issue equipment certificate.
+	 *
+	 * @return the production plant address of this vr issue equipment certificate
+	 */
+	@AutoEscape
+	public String getProductionPlantAddress();
+
+	/**
+	 * Sets the production plant address of this vr issue equipment certificate.
+	 *
+	 * @param productionPlantAddress the production plant address of this vr issue equipment certificate
+	 */
+	public void setProductionPlantAddress(String productionPlantAddress);
 
 	/**
 	 * Returns the modify date of this vr issue equipment certificate.

@@ -119,7 +119,74 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 			{ "expiredStatus", Types.VARCHAR },
 			{ "dossierId", Types.BIGINT },
 			{ "dossierIdCTN", Types.VARCHAR },
-			{ "dossierNo", Types.VARCHAR }
+			{ "dossierNo", Types.VARCHAR },
+			{ "applicantEmail", Types.VARCHAR },
+			{ "applicantPhone", Types.VARCHAR },
+			{ "applicantTelNo", Types.VARCHAR },
+			{ "applicantFax", Types.VARCHAR },
+			{ "applicantContactName", Types.VARCHAR },
+			{ "applicantContactEmail", Types.VARCHAR },
+			{ "applicantContactPhone", Types.VARCHAR },
+			{ "applicantContactTelNo", Types.VARCHAR },
+			{ "applicantBusinessType", Types.VARCHAR },
+			{ "markupDesigner", Types.VARCHAR },
+			{ "markupOverseasManufacturer", Types.VARCHAR },
+			{ "markupMaintainer", Types.VARCHAR },
+			{ "importerDomesticSite", Types.VARCHAR },
+			{ "siteOfNationality", Types.VARCHAR },
+			{ "siteOfNationalityCode", Types.VARCHAR },
+			{ "siteOfRegion", Types.VARCHAR },
+			{ "siteOfRegionCode", Types.VARCHAR },
+			{ "siteOfCity", Types.VARCHAR },
+			{ "siteOfCityCode", Types.VARCHAR },
+			{ "manufacturerRepresentative", Types.VARCHAR },
+			{ "manufacturerRepresentativeTitle", Types.VARCHAR },
+			{ "manufacturerEmail", Types.VARCHAR },
+			{ "manufacturerPhone", Types.VARCHAR },
+			{ "manufacturerFax", Types.VARCHAR },
+			{ "productionPlantEmail", Types.VARCHAR },
+			{ "productionPlantWebsite", Types.VARCHAR },
+			{ "productionPlantRepresentative", Types.VARCHAR },
+			{ "productionPlantRepresentativeTitle", Types.VARCHAR },
+			{ "corporationName", Types.VARCHAR },
+			{ "inspectorContactCode", Types.VARCHAR },
+			{ "inspectorName", Types.VARCHAR },
+			{ "inspectoRendorSementDate", Types.TIMESTAMP },
+			{ "inspectorDeadline", Types.TIMESTAMP },
+			{ "resolvedStatus", Types.VARCHAR },
+			{ "numberOfNonConformity", Types.INTEGER },
+			{ "numberOfResolved", Types.INTEGER },
+			{ "observationDescription", Types.VARCHAR },
+			{ "inspectionAuditCycle", Types.VARCHAR },
+			{ "inspectionNote", Types.VARCHAR },
+			{ "productionConformityChecking", Types.VARCHAR },
+			{ "productionStampChecking", Types.VARCHAR },
+			{ "testingEquipmentChecking", Types.VARCHAR },
+			{ "productionPlantClassification", Types.VARCHAR },
+			{ "actualCapacity", Types.VARCHAR },
+			{ "maxCapacity", Types.VARCHAR },
+			{ "averageCapacity", Types.VARCHAR },
+			{ "totalEmployee", Types.VARCHAR },
+			{ "totalWorker", Types.VARCHAR },
+			{ "totalManager", Types.VARCHAR },
+			{ "totalTechnical", Types.VARCHAR },
+			{ "totalQaEmployee", Types.VARCHAR },
+			{ "totalSquareMeter", Types.VARCHAR },
+			{ "wareHouseSquare", Types.VARCHAR },
+			{ "officeSquare", Types.VARCHAR },
+			{ "productionSquare", Types.VARCHAR },
+			{ "machiningArea", Types.VARCHAR },
+			{ "weldingArea", Types.VARCHAR },
+			{ "paintingArea", Types.VARCHAR },
+			{ "productionAssembleArea", Types.VARCHAR },
+			{ "finishProductArea", Types.VARCHAR },
+			{ "testingArea", Types.VARCHAR },
+			{ "selfEquipment", Types.VARCHAR },
+			{ "contractEquipment", Types.VARCHAR },
+			{ "circularNo", Types.VARCHAR },
+			{ "circularDate", Types.TIMESTAMP },
+			{ "circularNo2", Types.VARCHAR },
+			{ "circularDate2", Types.TIMESTAMP }
 		};
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP = new HashMap<String, Integer>();
 
@@ -181,9 +248,77 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 		TABLE_COLUMNS_MAP.put("dossierId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("dossierIdCTN", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("dossierNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantEmail", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantPhone", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantTelNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantFax", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantContactName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantContactEmail", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantContactPhone", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantContactTelNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantBusinessType", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("markupDesigner", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("markupOverseasManufacturer", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("markupMaintainer", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("importerDomesticSite", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("siteOfNationality", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("siteOfNationalityCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("siteOfRegion", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("siteOfRegionCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("siteOfCity", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("siteOfCityCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerRepresentative", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerRepresentativeTitle", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerEmail", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerPhone", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("manufacturerFax", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantEmail", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantWebsite", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantRepresentative", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantRepresentativeTitle",
+			Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("corporationName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectorContactCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectorName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectoRendorSementDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("inspectorDeadline", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("resolvedStatus", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("numberOfNonConformity", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("numberOfResolved", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("observationDescription", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectionAuditCycle", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectionNote", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionConformityChecking", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionStampChecking", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("testingEquipmentChecking", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantClassification", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("actualCapacity", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("maxCapacity", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("averageCapacity", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalEmployee", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalWorker", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalManager", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalTechnical", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalQaEmployee", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalSquareMeter", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("wareHouseSquare", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("officeSquare", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionSquare", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("machiningArea", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("weldingArea", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("paintingArea", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionAssembleArea", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("finishProductArea", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("testingArea", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("selfEquipment", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("contractEquipment", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("circularNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("circularDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("circularNo2", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("circularDate2", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_copreportrepository (id LONG not null primary key,mtCore LONG,applicantProfileId LONG,applicantCode VARCHAR(75) null,applicantName VARCHAR(75) null,applicantAddress VARCHAR(75) null,overseasManufacturerCode VARCHAR(75) null,overseasManufacturerName VARCHAR(75) null,overseasManufacturerAddress VARCHAR(75) null,productionPlantId LONG,productionPlantCode VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,copReportNo VARCHAR(75) null,copReportStatus VARCHAR(75) null,copReportType VARCHAR(75) null,copReportMetadata VARCHAR(75) null,copReportSignName VARCHAR(75) null,copReportSignTitle VARCHAR(75) null,copReportSignPlace VARCHAR(75) null,copReportDate DATE null,copReportApprovedDate DATE null,copReportExpiredDate DATE null,COPFileEntryId LONG,modifyDate DATE null,syncDate DATE null,importerManufacturerCode VARCHAR(75) null,importerManufacturerName VARCHAR(75) null,importerManufacturerAddress VARCHAR(75) null,markupDomesticsManufacturer VARCHAR(75) null,markupImporter VARCHAR(75) null,copClassification VARCHAR(75) null,productClassificationDescription VARCHAR(75) null,totalPointA INTEGER,totalPointB INTEGER,totalPointC INTEGER,copNonConformity VARCHAR(75) null,inspectionRecordNo VARCHAR(75) null,inspectionRecordDate DATE null,corporationId LONG,inspectorId LONG,inspectionSite VARCHAR(75) null,inspectionDateFrom DATE null,inspectionDateTo DATE null,subInspector VARCHAR(75) null,description VARCHAR(75) null,applicantRepresentative VARCHAR(75) null,applicantRepresentativeTitle VARCHAR(75) null,inspectionRecordFileEntryId LONG,copReportRefNo VARCHAR(75) null,copReportRefDate DATE null,copReportPreviousNo VARCHAR(75) null,copReportPreviousDate DATE null,expiredStatus VARCHAR(75) null,dossierId LONG,dossierIdCTN VARCHAR(75) null,dossierNo VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_copreportrepository (id LONG not null primary key,mtCore LONG,applicantProfileId LONG,applicantCode VARCHAR(75) null,applicantName VARCHAR(75) null,applicantAddress VARCHAR(75) null,overseasManufacturerCode VARCHAR(75) null,overseasManufacturerName VARCHAR(75) null,overseasManufacturerAddress VARCHAR(75) null,productionPlantId LONG,productionPlantCode VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,copReportNo VARCHAR(75) null,copReportStatus VARCHAR(75) null,copReportType VARCHAR(75) null,copReportMetadata VARCHAR(75) null,copReportSignName VARCHAR(75) null,copReportSignTitle VARCHAR(75) null,copReportSignPlace VARCHAR(75) null,copReportDate DATE null,copReportApprovedDate DATE null,copReportExpiredDate DATE null,COPFileEntryId LONG,modifyDate DATE null,syncDate DATE null,importerManufacturerCode VARCHAR(75) null,importerManufacturerName VARCHAR(75) null,importerManufacturerAddress VARCHAR(75) null,markupDomesticsManufacturer VARCHAR(75) null,markupImporter VARCHAR(75) null,copClassification VARCHAR(75) null,productClassificationDescription VARCHAR(75) null,totalPointA INTEGER,totalPointB INTEGER,totalPointC INTEGER,copNonConformity VARCHAR(75) null,inspectionRecordNo VARCHAR(75) null,inspectionRecordDate DATE null,corporationId LONG,inspectorId LONG,inspectionSite VARCHAR(75) null,inspectionDateFrom DATE null,inspectionDateTo DATE null,subInspector VARCHAR(75) null,description VARCHAR(75) null,applicantRepresentative VARCHAR(75) null,applicantRepresentativeTitle VARCHAR(75) null,inspectionRecordFileEntryId LONG,copReportRefNo VARCHAR(75) null,copReportRefDate DATE null,copReportPreviousNo VARCHAR(75) null,copReportPreviousDate DATE null,expiredStatus VARCHAR(75) null,dossierId LONG,dossierIdCTN VARCHAR(75) null,dossierNo VARCHAR(75) null,applicantEmail VARCHAR(75) null,applicantPhone VARCHAR(75) null,applicantTelNo VARCHAR(75) null,applicantFax VARCHAR(75) null,applicantContactName VARCHAR(75) null,applicantContactEmail VARCHAR(75) null,applicantContactPhone VARCHAR(75) null,applicantContactTelNo VARCHAR(75) null,applicantBusinessType VARCHAR(75) null,markupDesigner VARCHAR(75) null,markupOverseasManufacturer VARCHAR(75) null,markupMaintainer VARCHAR(75) null,importerDomesticSite VARCHAR(75) null,siteOfNationality VARCHAR(75) null,siteOfNationalityCode VARCHAR(75) null,siteOfRegion VARCHAR(75) null,siteOfRegionCode VARCHAR(75) null,siteOfCity VARCHAR(75) null,siteOfCityCode VARCHAR(75) null,manufacturerRepresentative VARCHAR(75) null,manufacturerRepresentativeTitle VARCHAR(75) null,manufacturerEmail VARCHAR(75) null,manufacturerPhone VARCHAR(75) null,manufacturerFax VARCHAR(75) null,productionPlantEmail VARCHAR(75) null,productionPlantWebsite VARCHAR(75) null,productionPlantRepresentative VARCHAR(75) null,productionPlantRepresentativeTitle VARCHAR(75) null,corporationName VARCHAR(75) null,inspectorContactCode VARCHAR(75) null,inspectorName VARCHAR(75) null,inspectoRendorSementDate DATE null,inspectorDeadline DATE null,resolvedStatus VARCHAR(75) null,numberOfNonConformity INTEGER,numberOfResolved INTEGER,observationDescription VARCHAR(75) null,inspectionAuditCycle VARCHAR(75) null,inspectionNote VARCHAR(75) null,productionConformityChecking VARCHAR(75) null,productionStampChecking VARCHAR(75) null,testingEquipmentChecking VARCHAR(75) null,productionPlantClassification VARCHAR(75) null,actualCapacity VARCHAR(75) null,maxCapacity VARCHAR(75) null,averageCapacity VARCHAR(75) null,totalEmployee VARCHAR(75) null,totalWorker VARCHAR(75) null,totalManager VARCHAR(75) null,totalTechnical VARCHAR(75) null,totalQaEmployee VARCHAR(75) null,totalSquareMeter VARCHAR(75) null,wareHouseSquare VARCHAR(75) null,officeSquare VARCHAR(75) null,productionSquare VARCHAR(75) null,machiningArea VARCHAR(75) null,weldingArea VARCHAR(75) null,paintingArea VARCHAR(75) null,productionAssembleArea VARCHAR(75) null,finishProductArea VARCHAR(75) null,testingArea VARCHAR(75) null,selfEquipment VARCHAR(75) null,contractEquipment VARCHAR(75) null,circularNo VARCHAR(75) null,circularDate DATE null,circularNo2 VARCHAR(75) null,circularDate2 DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_copreportrepository";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrcopReportRepository.modifyDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_copreportrepository.modifyDate DESC";
@@ -200,14 +335,15 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 				"value.object.column.bitmask.enabled.com.fds.vr.business.model.VRCOPReportRepository"),
 			true);
 	public static final long APPLICANTPROFILEID_COLUMN_BITMASK = 1L;
-	public static final long COPREPORTNO_COLUMN_BITMASK = 2L;
-	public static final long COPREPORTSTATUS_COLUMN_BITMASK = 4L;
-	public static final long DOSSIERID_COLUMN_BITMASK = 8L;
-	public static final long MTCORE_COLUMN_BITMASK = 16L;
-	public static final long PRODUCTIONPLANTADDRESS_COLUMN_BITMASK = 32L;
-	public static final long PRODUCTIONPLANTCODE_COLUMN_BITMASK = 64L;
-	public static final long PRODUCTIONPLANTNAME_COLUMN_BITMASK = 128L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
+	public static final long COPCLASSIFICATION_COLUMN_BITMASK = 2L;
+	public static final long COPREPORTNO_COLUMN_BITMASK = 4L;
+	public static final long COPREPORTSTATUS_COLUMN_BITMASK = 8L;
+	public static final long DOSSIERID_COLUMN_BITMASK = 16L;
+	public static final long MTCORE_COLUMN_BITMASK = 32L;
+	public static final long PRODUCTIONPLANTADDRESS_COLUMN_BITMASK = 64L;
+	public static final long PRODUCTIONPLANTCODE_COLUMN_BITMASK = 128L;
+	public static final long PRODUCTIONPLANTNAME_COLUMN_BITMASK = 256L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 512L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRCOPReportRepository"));
 
@@ -311,6 +447,80 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 		attributes.put("dossierId", getDossierId());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("dossierNo", getDossierNo());
+		attributes.put("applicantEmail", getApplicantEmail());
+		attributes.put("applicantPhone", getApplicantPhone());
+		attributes.put("applicantTelNo", getApplicantTelNo());
+		attributes.put("applicantFax", getApplicantFax());
+		attributes.put("applicantContactName", getApplicantContactName());
+		attributes.put("applicantContactEmail", getApplicantContactEmail());
+		attributes.put("applicantContactPhone", getApplicantContactPhone());
+		attributes.put("applicantContactTelNo", getApplicantContactTelNo());
+		attributes.put("applicantBusinessType", getApplicantBusinessType());
+		attributes.put("markupDesigner", getMarkupDesigner());
+		attributes.put("markupOverseasManufacturer",
+			getMarkupOverseasManufacturer());
+		attributes.put("markupMaintainer", getMarkupMaintainer());
+		attributes.put("importerDomesticSite", getImporterDomesticSite());
+		attributes.put("siteOfNationality", getSiteOfNationality());
+		attributes.put("siteOfNationalityCode", getSiteOfNationalityCode());
+		attributes.put("siteOfRegion", getSiteOfRegion());
+		attributes.put("siteOfRegionCode", getSiteOfRegionCode());
+		attributes.put("siteOfCity", getSiteOfCity());
+		attributes.put("siteOfCityCode", getSiteOfCityCode());
+		attributes.put("manufacturerRepresentative",
+			getManufacturerRepresentative());
+		attributes.put("manufacturerRepresentativeTitle",
+			getManufacturerRepresentativeTitle());
+		attributes.put("manufacturerEmail", getManufacturerEmail());
+		attributes.put("manufacturerPhone", getManufacturerPhone());
+		attributes.put("manufacturerFax", getManufacturerFax());
+		attributes.put("productionPlantEmail", getProductionPlantEmail());
+		attributes.put("productionPlantWebsite", getProductionPlantWebsite());
+		attributes.put("productionPlantRepresentative",
+			getProductionPlantRepresentative());
+		attributes.put("productionPlantRepresentativeTitle",
+			getProductionPlantRepresentativeTitle());
+		attributes.put("corporationName", getCorporationName());
+		attributes.put("inspectorContactCode", getInspectorContactCode());
+		attributes.put("inspectorName", getInspectorName());
+		attributes.put("inspectoRendorSementDate", getInspectoRendorSementDate());
+		attributes.put("inspectorDeadline", getInspectorDeadline());
+		attributes.put("resolvedStatus", getResolvedStatus());
+		attributes.put("numberOfNonConformity", getNumberOfNonConformity());
+		attributes.put("numberOfResolved", getNumberOfResolved());
+		attributes.put("observationDescription", getObservationDescription());
+		attributes.put("inspectionAuditCycle", getInspectionAuditCycle());
+		attributes.put("inspectionNote", getInspectionNote());
+		attributes.put("productionConformityChecking",
+			getProductionConformityChecking());
+		attributes.put("productionStampChecking", getProductionStampChecking());
+		attributes.put("testingEquipmentChecking", getTestingEquipmentChecking());
+		attributes.put("productionPlantClassification",
+			getProductionPlantClassification());
+		attributes.put("actualCapacity", getActualCapacity());
+		attributes.put("maxCapacity", getMaxCapacity());
+		attributes.put("averageCapacity", getAverageCapacity());
+		attributes.put("totalEmployee", getTotalEmployee());
+		attributes.put("totalWorker", getTotalWorker());
+		attributes.put("totalManager", getTotalManager());
+		attributes.put("totalTechnical", getTotalTechnical());
+		attributes.put("totalQaEmployee", getTotalQaEmployee());
+		attributes.put("totalSquareMeter", getTotalSquareMeter());
+		attributes.put("wareHouseSquare", getWareHouseSquare());
+		attributes.put("officeSquare", getOfficeSquare());
+		attributes.put("productionSquare", getProductionSquare());
+		attributes.put("machiningArea", getMachiningArea());
+		attributes.put("weldingArea", getWeldingArea());
+		attributes.put("paintingArea", getPaintingArea());
+		attributes.put("productionAssembleArea", getProductionAssembleArea());
+		attributes.put("finishProductArea", getFinishProductArea());
+		attributes.put("testingArea", getTestingArea());
+		attributes.put("selfEquipment", getSelfEquipment());
+		attributes.put("contractEquipment", getContractEquipment());
+		attributes.put("circularNo", getCircularNo());
+		attributes.put("circularDate", getCircularDate());
+		attributes.put("circularNo2", getCircularNo2());
+		attributes.put("circularDate2", getCircularDate2());
 
 		attributes.put("entityCacheEnabled", isEntityCacheEnabled());
 		attributes.put("finderCacheEnabled", isFinderCacheEnabled());
@@ -677,6 +887,432 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 
 		if (dossierNo != null) {
 			setDossierNo(dossierNo);
+		}
+
+		String applicantEmail = (String)attributes.get("applicantEmail");
+
+		if (applicantEmail != null) {
+			setApplicantEmail(applicantEmail);
+		}
+
+		String applicantPhone = (String)attributes.get("applicantPhone");
+
+		if (applicantPhone != null) {
+			setApplicantPhone(applicantPhone);
+		}
+
+		String applicantTelNo = (String)attributes.get("applicantTelNo");
+
+		if (applicantTelNo != null) {
+			setApplicantTelNo(applicantTelNo);
+		}
+
+		String applicantFax = (String)attributes.get("applicantFax");
+
+		if (applicantFax != null) {
+			setApplicantFax(applicantFax);
+		}
+
+		String applicantContactName = (String)attributes.get(
+				"applicantContactName");
+
+		if (applicantContactName != null) {
+			setApplicantContactName(applicantContactName);
+		}
+
+		String applicantContactEmail = (String)attributes.get(
+				"applicantContactEmail");
+
+		if (applicantContactEmail != null) {
+			setApplicantContactEmail(applicantContactEmail);
+		}
+
+		String applicantContactPhone = (String)attributes.get(
+				"applicantContactPhone");
+
+		if (applicantContactPhone != null) {
+			setApplicantContactPhone(applicantContactPhone);
+		}
+
+		String applicantContactTelNo = (String)attributes.get(
+				"applicantContactTelNo");
+
+		if (applicantContactTelNo != null) {
+			setApplicantContactTelNo(applicantContactTelNo);
+		}
+
+		String applicantBusinessType = (String)attributes.get(
+				"applicantBusinessType");
+
+		if (applicantBusinessType != null) {
+			setApplicantBusinessType(applicantBusinessType);
+		}
+
+		String markupDesigner = (String)attributes.get("markupDesigner");
+
+		if (markupDesigner != null) {
+			setMarkupDesigner(markupDesigner);
+		}
+
+		String markupOverseasManufacturer = (String)attributes.get(
+				"markupOverseasManufacturer");
+
+		if (markupOverseasManufacturer != null) {
+			setMarkupOverseasManufacturer(markupOverseasManufacturer);
+		}
+
+		String markupMaintainer = (String)attributes.get("markupMaintainer");
+
+		if (markupMaintainer != null) {
+			setMarkupMaintainer(markupMaintainer);
+		}
+
+		String importerDomesticSite = (String)attributes.get(
+				"importerDomesticSite");
+
+		if (importerDomesticSite != null) {
+			setImporterDomesticSite(importerDomesticSite);
+		}
+
+		String siteOfNationality = (String)attributes.get("siteOfNationality");
+
+		if (siteOfNationality != null) {
+			setSiteOfNationality(siteOfNationality);
+		}
+
+		String siteOfNationalityCode = (String)attributes.get(
+				"siteOfNationalityCode");
+
+		if (siteOfNationalityCode != null) {
+			setSiteOfNationalityCode(siteOfNationalityCode);
+		}
+
+		String siteOfRegion = (String)attributes.get("siteOfRegion");
+
+		if (siteOfRegion != null) {
+			setSiteOfRegion(siteOfRegion);
+		}
+
+		String siteOfRegionCode = (String)attributes.get("siteOfRegionCode");
+
+		if (siteOfRegionCode != null) {
+			setSiteOfRegionCode(siteOfRegionCode);
+		}
+
+		String siteOfCity = (String)attributes.get("siteOfCity");
+
+		if (siteOfCity != null) {
+			setSiteOfCity(siteOfCity);
+		}
+
+		String siteOfCityCode = (String)attributes.get("siteOfCityCode");
+
+		if (siteOfCityCode != null) {
+			setSiteOfCityCode(siteOfCityCode);
+		}
+
+		String manufacturerRepresentative = (String)attributes.get(
+				"manufacturerRepresentative");
+
+		if (manufacturerRepresentative != null) {
+			setManufacturerRepresentative(manufacturerRepresentative);
+		}
+
+		String manufacturerRepresentativeTitle = (String)attributes.get(
+				"manufacturerRepresentativeTitle");
+
+		if (manufacturerRepresentativeTitle != null) {
+			setManufacturerRepresentativeTitle(manufacturerRepresentativeTitle);
+		}
+
+		String manufacturerEmail = (String)attributes.get("manufacturerEmail");
+
+		if (manufacturerEmail != null) {
+			setManufacturerEmail(manufacturerEmail);
+		}
+
+		String manufacturerPhone = (String)attributes.get("manufacturerPhone");
+
+		if (manufacturerPhone != null) {
+			setManufacturerPhone(manufacturerPhone);
+		}
+
+		String manufacturerFax = (String)attributes.get("manufacturerFax");
+
+		if (manufacturerFax != null) {
+			setManufacturerFax(manufacturerFax);
+		}
+
+		String productionPlantEmail = (String)attributes.get(
+				"productionPlantEmail");
+
+		if (productionPlantEmail != null) {
+			setProductionPlantEmail(productionPlantEmail);
+		}
+
+		String productionPlantWebsite = (String)attributes.get(
+				"productionPlantWebsite");
+
+		if (productionPlantWebsite != null) {
+			setProductionPlantWebsite(productionPlantWebsite);
+		}
+
+		String productionPlantRepresentative = (String)attributes.get(
+				"productionPlantRepresentative");
+
+		if (productionPlantRepresentative != null) {
+			setProductionPlantRepresentative(productionPlantRepresentative);
+		}
+
+		String productionPlantRepresentativeTitle = (String)attributes.get(
+				"productionPlantRepresentativeTitle");
+
+		if (productionPlantRepresentativeTitle != null) {
+			setProductionPlantRepresentativeTitle(productionPlantRepresentativeTitle);
+		}
+
+		String corporationName = (String)attributes.get("corporationName");
+
+		if (corporationName != null) {
+			setCorporationName(corporationName);
+		}
+
+		String inspectorContactCode = (String)attributes.get(
+				"inspectorContactCode");
+
+		if (inspectorContactCode != null) {
+			setInspectorContactCode(inspectorContactCode);
+		}
+
+		String inspectorName = (String)attributes.get("inspectorName");
+
+		if (inspectorName != null) {
+			setInspectorName(inspectorName);
+		}
+
+		Date inspectoRendorSementDate = (Date)attributes.get(
+				"inspectoRendorSementDate");
+
+		if (inspectoRendorSementDate != null) {
+			setInspectoRendorSementDate(inspectoRendorSementDate);
+		}
+
+		Date inspectorDeadline = (Date)attributes.get("inspectorDeadline");
+
+		if (inspectorDeadline != null) {
+			setInspectorDeadline(inspectorDeadline);
+		}
+
+		String resolvedStatus = (String)attributes.get("resolvedStatus");
+
+		if (resolvedStatus != null) {
+			setResolvedStatus(resolvedStatus);
+		}
+
+		Integer numberOfNonConformity = (Integer)attributes.get(
+				"numberOfNonConformity");
+
+		if (numberOfNonConformity != null) {
+			setNumberOfNonConformity(numberOfNonConformity);
+		}
+
+		Integer numberOfResolved = (Integer)attributes.get("numberOfResolved");
+
+		if (numberOfResolved != null) {
+			setNumberOfResolved(numberOfResolved);
+		}
+
+		String observationDescription = (String)attributes.get(
+				"observationDescription");
+
+		if (observationDescription != null) {
+			setObservationDescription(observationDescription);
+		}
+
+		String inspectionAuditCycle = (String)attributes.get(
+				"inspectionAuditCycle");
+
+		if (inspectionAuditCycle != null) {
+			setInspectionAuditCycle(inspectionAuditCycle);
+		}
+
+		String inspectionNote = (String)attributes.get("inspectionNote");
+
+		if (inspectionNote != null) {
+			setInspectionNote(inspectionNote);
+		}
+
+		String productionConformityChecking = (String)attributes.get(
+				"productionConformityChecking");
+
+		if (productionConformityChecking != null) {
+			setProductionConformityChecking(productionConformityChecking);
+		}
+
+		String productionStampChecking = (String)attributes.get(
+				"productionStampChecking");
+
+		if (productionStampChecking != null) {
+			setProductionStampChecking(productionStampChecking);
+		}
+
+		String testingEquipmentChecking = (String)attributes.get(
+				"testingEquipmentChecking");
+
+		if (testingEquipmentChecking != null) {
+			setTestingEquipmentChecking(testingEquipmentChecking);
+		}
+
+		String productionPlantClassification = (String)attributes.get(
+				"productionPlantClassification");
+
+		if (productionPlantClassification != null) {
+			setProductionPlantClassification(productionPlantClassification);
+		}
+
+		String actualCapacity = (String)attributes.get("actualCapacity");
+
+		if (actualCapacity != null) {
+			setActualCapacity(actualCapacity);
+		}
+
+		String maxCapacity = (String)attributes.get("maxCapacity");
+
+		if (maxCapacity != null) {
+			setMaxCapacity(maxCapacity);
+		}
+
+		String averageCapacity = (String)attributes.get("averageCapacity");
+
+		if (averageCapacity != null) {
+			setAverageCapacity(averageCapacity);
+		}
+
+		String totalEmployee = (String)attributes.get("totalEmployee");
+
+		if (totalEmployee != null) {
+			setTotalEmployee(totalEmployee);
+		}
+
+		String totalWorker = (String)attributes.get("totalWorker");
+
+		if (totalWorker != null) {
+			setTotalWorker(totalWorker);
+		}
+
+		String totalManager = (String)attributes.get("totalManager");
+
+		if (totalManager != null) {
+			setTotalManager(totalManager);
+		}
+
+		String totalTechnical = (String)attributes.get("totalTechnical");
+
+		if (totalTechnical != null) {
+			setTotalTechnical(totalTechnical);
+		}
+
+		String totalQaEmployee = (String)attributes.get("totalQaEmployee");
+
+		if (totalQaEmployee != null) {
+			setTotalQaEmployee(totalQaEmployee);
+		}
+
+		String totalSquareMeter = (String)attributes.get("totalSquareMeter");
+
+		if (totalSquareMeter != null) {
+			setTotalSquareMeter(totalSquareMeter);
+		}
+
+		String wareHouseSquare = (String)attributes.get("wareHouseSquare");
+
+		if (wareHouseSquare != null) {
+			setWareHouseSquare(wareHouseSquare);
+		}
+
+		String officeSquare = (String)attributes.get("officeSquare");
+
+		if (officeSquare != null) {
+			setOfficeSquare(officeSquare);
+		}
+
+		String productionSquare = (String)attributes.get("productionSquare");
+
+		if (productionSquare != null) {
+			setProductionSquare(productionSquare);
+		}
+
+		String machiningArea = (String)attributes.get("machiningArea");
+
+		if (machiningArea != null) {
+			setMachiningArea(machiningArea);
+		}
+
+		String weldingArea = (String)attributes.get("weldingArea");
+
+		if (weldingArea != null) {
+			setWeldingArea(weldingArea);
+		}
+
+		String paintingArea = (String)attributes.get("paintingArea");
+
+		if (paintingArea != null) {
+			setPaintingArea(paintingArea);
+		}
+
+		String productionAssembleArea = (String)attributes.get(
+				"productionAssembleArea");
+
+		if (productionAssembleArea != null) {
+			setProductionAssembleArea(productionAssembleArea);
+		}
+
+		String finishProductArea = (String)attributes.get("finishProductArea");
+
+		if (finishProductArea != null) {
+			setFinishProductArea(finishProductArea);
+		}
+
+		String testingArea = (String)attributes.get("testingArea");
+
+		if (testingArea != null) {
+			setTestingArea(testingArea);
+		}
+
+		String selfEquipment = (String)attributes.get("selfEquipment");
+
+		if (selfEquipment != null) {
+			setSelfEquipment(selfEquipment);
+		}
+
+		String contractEquipment = (String)attributes.get("contractEquipment");
+
+		if (contractEquipment != null) {
+			setContractEquipment(contractEquipment);
+		}
+
+		String circularNo = (String)attributes.get("circularNo");
+
+		if (circularNo != null) {
+			setCircularNo(circularNo);
+		}
+
+		Date circularDate = (Date)attributes.get("circularDate");
+
+		if (circularDate != null) {
+			setCircularDate(circularDate);
+		}
+
+		String circularNo2 = (String)attributes.get("circularNo2");
+
+		if (circularNo2 != null) {
+			setCircularNo2(circularNo2);
+		}
+
+		Date circularDate2 = (Date)attributes.get("circularDate2");
+
+		if (circularDate2 != null) {
+			setCircularDate2(circularDate2);
 		}
 	}
 
@@ -1186,7 +1822,17 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 
 	@Override
 	public void setCopClassification(String copClassification) {
+		_columnBitmask |= COPCLASSIFICATION_COLUMN_BITMASK;
+
+		if (_originalCopClassification == null) {
+			_originalCopClassification = _copClassification;
+		}
+
 		_copClassification = copClassification;
+	}
+
+	public String getOriginalCopClassification() {
+		return GetterUtil.getString(_originalCopClassification);
 	}
 
 	@Override
@@ -1518,6 +2164,986 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 		_dossierNo = dossierNo;
 	}
 
+	@Override
+	public String getApplicantEmail() {
+		if (_applicantEmail == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantEmail;
+		}
+	}
+
+	@Override
+	public void setApplicantEmail(String applicantEmail) {
+		_applicantEmail = applicantEmail;
+	}
+
+	@Override
+	public String getApplicantPhone() {
+		if (_applicantPhone == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantPhone;
+		}
+	}
+
+	@Override
+	public void setApplicantPhone(String applicantPhone) {
+		_applicantPhone = applicantPhone;
+	}
+
+	@Override
+	public String getApplicantTelNo() {
+		if (_applicantTelNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantTelNo;
+		}
+	}
+
+	@Override
+	public void setApplicantTelNo(String applicantTelNo) {
+		_applicantTelNo = applicantTelNo;
+	}
+
+	@Override
+	public String getApplicantFax() {
+		if (_applicantFax == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantFax;
+		}
+	}
+
+	@Override
+	public void setApplicantFax(String applicantFax) {
+		_applicantFax = applicantFax;
+	}
+
+	@Override
+	public String getApplicantContactName() {
+		if (_applicantContactName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantContactName;
+		}
+	}
+
+	@Override
+	public void setApplicantContactName(String applicantContactName) {
+		_applicantContactName = applicantContactName;
+	}
+
+	@Override
+	public String getApplicantContactEmail() {
+		if (_applicantContactEmail == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantContactEmail;
+		}
+	}
+
+	@Override
+	public void setApplicantContactEmail(String applicantContactEmail) {
+		_applicantContactEmail = applicantContactEmail;
+	}
+
+	@Override
+	public String getApplicantContactPhone() {
+		if (_applicantContactPhone == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantContactPhone;
+		}
+	}
+
+	@Override
+	public void setApplicantContactPhone(String applicantContactPhone) {
+		_applicantContactPhone = applicantContactPhone;
+	}
+
+	@Override
+	public String getApplicantContactTelNo() {
+		if (_applicantContactTelNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantContactTelNo;
+		}
+	}
+
+	@Override
+	public void setApplicantContactTelNo(String applicantContactTelNo) {
+		_applicantContactTelNo = applicantContactTelNo;
+	}
+
+	@Override
+	public String getApplicantBusinessType() {
+		if (_applicantBusinessType == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantBusinessType;
+		}
+	}
+
+	@Override
+	public void setApplicantBusinessType(String applicantBusinessType) {
+		_applicantBusinessType = applicantBusinessType;
+	}
+
+	@Override
+	public String getMarkupDesigner() {
+		if (_markupDesigner == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _markupDesigner;
+		}
+	}
+
+	@Override
+	public void setMarkupDesigner(String markupDesigner) {
+		_markupDesigner = markupDesigner;
+	}
+
+	@Override
+	public String getMarkupOverseasManufacturer() {
+		if (_markupOverseasManufacturer == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _markupOverseasManufacturer;
+		}
+	}
+
+	@Override
+	public void setMarkupOverseasManufacturer(String markupOverseasManufacturer) {
+		_markupOverseasManufacturer = markupOverseasManufacturer;
+	}
+
+	@Override
+	public String getMarkupMaintainer() {
+		if (_markupMaintainer == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _markupMaintainer;
+		}
+	}
+
+	@Override
+	public void setMarkupMaintainer(String markupMaintainer) {
+		_markupMaintainer = markupMaintainer;
+	}
+
+	@Override
+	public String getImporterDomesticSite() {
+		if (_importerDomesticSite == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _importerDomesticSite;
+		}
+	}
+
+	@Override
+	public void setImporterDomesticSite(String importerDomesticSite) {
+		_importerDomesticSite = importerDomesticSite;
+	}
+
+	@Override
+	public String getSiteOfNationality() {
+		if (_siteOfNationality == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _siteOfNationality;
+		}
+	}
+
+	@Override
+	public void setSiteOfNationality(String siteOfNationality) {
+		_siteOfNationality = siteOfNationality;
+	}
+
+	@Override
+	public String getSiteOfNationalityCode() {
+		if (_siteOfNationalityCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _siteOfNationalityCode;
+		}
+	}
+
+	@Override
+	public void setSiteOfNationalityCode(String siteOfNationalityCode) {
+		_siteOfNationalityCode = siteOfNationalityCode;
+	}
+
+	@Override
+	public String getSiteOfRegion() {
+		if (_siteOfRegion == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _siteOfRegion;
+		}
+	}
+
+	@Override
+	public void setSiteOfRegion(String siteOfRegion) {
+		_siteOfRegion = siteOfRegion;
+	}
+
+	@Override
+	public String getSiteOfRegionCode() {
+		if (_siteOfRegionCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _siteOfRegionCode;
+		}
+	}
+
+	@Override
+	public void setSiteOfRegionCode(String siteOfRegionCode) {
+		_siteOfRegionCode = siteOfRegionCode;
+	}
+
+	@Override
+	public String getSiteOfCity() {
+		if (_siteOfCity == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _siteOfCity;
+		}
+	}
+
+	@Override
+	public void setSiteOfCity(String siteOfCity) {
+		_siteOfCity = siteOfCity;
+	}
+
+	@Override
+	public String getSiteOfCityCode() {
+		if (_siteOfCityCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _siteOfCityCode;
+		}
+	}
+
+	@Override
+	public void setSiteOfCityCode(String siteOfCityCode) {
+		_siteOfCityCode = siteOfCityCode;
+	}
+
+	@Override
+	public String getManufacturerRepresentative() {
+		if (_manufacturerRepresentative == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerRepresentative;
+		}
+	}
+
+	@Override
+	public void setManufacturerRepresentative(String manufacturerRepresentative) {
+		_manufacturerRepresentative = manufacturerRepresentative;
+	}
+
+	@Override
+	public String getManufacturerRepresentativeTitle() {
+		if (_manufacturerRepresentativeTitle == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerRepresentativeTitle;
+		}
+	}
+
+	@Override
+	public void setManufacturerRepresentativeTitle(
+		String manufacturerRepresentativeTitle) {
+		_manufacturerRepresentativeTitle = manufacturerRepresentativeTitle;
+	}
+
+	@Override
+	public String getManufacturerEmail() {
+		if (_manufacturerEmail == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerEmail;
+		}
+	}
+
+	@Override
+	public void setManufacturerEmail(String manufacturerEmail) {
+		_manufacturerEmail = manufacturerEmail;
+	}
+
+	@Override
+	public String getManufacturerPhone() {
+		if (_manufacturerPhone == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerPhone;
+		}
+	}
+
+	@Override
+	public void setManufacturerPhone(String manufacturerPhone) {
+		_manufacturerPhone = manufacturerPhone;
+	}
+
+	@Override
+	public String getManufacturerFax() {
+		if (_manufacturerFax == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _manufacturerFax;
+		}
+	}
+
+	@Override
+	public void setManufacturerFax(String manufacturerFax) {
+		_manufacturerFax = manufacturerFax;
+	}
+
+	@Override
+	public String getProductionPlantEmail() {
+		if (_productionPlantEmail == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionPlantEmail;
+		}
+	}
+
+	@Override
+	public void setProductionPlantEmail(String productionPlantEmail) {
+		_productionPlantEmail = productionPlantEmail;
+	}
+
+	@Override
+	public String getProductionPlantWebsite() {
+		if (_productionPlantWebsite == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionPlantWebsite;
+		}
+	}
+
+	@Override
+	public void setProductionPlantWebsite(String productionPlantWebsite) {
+		_productionPlantWebsite = productionPlantWebsite;
+	}
+
+	@Override
+	public String getProductionPlantRepresentative() {
+		if (_productionPlantRepresentative == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionPlantRepresentative;
+		}
+	}
+
+	@Override
+	public void setProductionPlantRepresentative(
+		String productionPlantRepresentative) {
+		_productionPlantRepresentative = productionPlantRepresentative;
+	}
+
+	@Override
+	public String getProductionPlantRepresentativeTitle() {
+		if (_productionPlantRepresentativeTitle == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionPlantRepresentativeTitle;
+		}
+	}
+
+	@Override
+	public void setProductionPlantRepresentativeTitle(
+		String productionPlantRepresentativeTitle) {
+		_productionPlantRepresentativeTitle = productionPlantRepresentativeTitle;
+	}
+
+	@Override
+	public String getCorporationName() {
+		if (_corporationName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _corporationName;
+		}
+	}
+
+	@Override
+	public void setCorporationName(String corporationName) {
+		_corporationName = corporationName;
+	}
+
+	@Override
+	public String getInspectorContactCode() {
+		if (_inspectorContactCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _inspectorContactCode;
+		}
+	}
+
+	@Override
+	public void setInspectorContactCode(String inspectorContactCode) {
+		_inspectorContactCode = inspectorContactCode;
+	}
+
+	@Override
+	public String getInspectorName() {
+		if (_inspectorName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _inspectorName;
+		}
+	}
+
+	@Override
+	public void setInspectorName(String inspectorName) {
+		_inspectorName = inspectorName;
+	}
+
+	@Override
+	public Date getInspectoRendorSementDate() {
+		return _inspectoRendorSementDate;
+	}
+
+	@Override
+	public void setInspectoRendorSementDate(Date inspectoRendorSementDate) {
+		_inspectoRendorSementDate = inspectoRendorSementDate;
+	}
+
+	@Override
+	public Date getInspectorDeadline() {
+		return _inspectorDeadline;
+	}
+
+	@Override
+	public void setInspectorDeadline(Date inspectorDeadline) {
+		_inspectorDeadline = inspectorDeadline;
+	}
+
+	@Override
+	public String getResolvedStatus() {
+		if (_resolvedStatus == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _resolvedStatus;
+		}
+	}
+
+	@Override
+	public void setResolvedStatus(String resolvedStatus) {
+		_resolvedStatus = resolvedStatus;
+	}
+
+	@Override
+	public int getNumberOfNonConformity() {
+		return _numberOfNonConformity;
+	}
+
+	@Override
+	public void setNumberOfNonConformity(int numberOfNonConformity) {
+		_numberOfNonConformity = numberOfNonConformity;
+	}
+
+	@Override
+	public int getNumberOfResolved() {
+		return _numberOfResolved;
+	}
+
+	@Override
+	public void setNumberOfResolved(int numberOfResolved) {
+		_numberOfResolved = numberOfResolved;
+	}
+
+	@Override
+	public String getObservationDescription() {
+		if (_observationDescription == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _observationDescription;
+		}
+	}
+
+	@Override
+	public void setObservationDescription(String observationDescription) {
+		_observationDescription = observationDescription;
+	}
+
+	@Override
+	public String getInspectionAuditCycle() {
+		if (_inspectionAuditCycle == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _inspectionAuditCycle;
+		}
+	}
+
+	@Override
+	public void setInspectionAuditCycle(String inspectionAuditCycle) {
+		_inspectionAuditCycle = inspectionAuditCycle;
+	}
+
+	@Override
+	public String getInspectionNote() {
+		if (_inspectionNote == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _inspectionNote;
+		}
+	}
+
+	@Override
+	public void setInspectionNote(String inspectionNote) {
+		_inspectionNote = inspectionNote;
+	}
+
+	@Override
+	public String getProductionConformityChecking() {
+		if (_productionConformityChecking == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionConformityChecking;
+		}
+	}
+
+	@Override
+	public void setProductionConformityChecking(
+		String productionConformityChecking) {
+		_productionConformityChecking = productionConformityChecking;
+	}
+
+	@Override
+	public String getProductionStampChecking() {
+		if (_productionStampChecking == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionStampChecking;
+		}
+	}
+
+	@Override
+	public void setProductionStampChecking(String productionStampChecking) {
+		_productionStampChecking = productionStampChecking;
+	}
+
+	@Override
+	public String getTestingEquipmentChecking() {
+		if (_testingEquipmentChecking == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _testingEquipmentChecking;
+		}
+	}
+
+	@Override
+	public void setTestingEquipmentChecking(String testingEquipmentChecking) {
+		_testingEquipmentChecking = testingEquipmentChecking;
+	}
+
+	@Override
+	public String getProductionPlantClassification() {
+		if (_productionPlantClassification == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionPlantClassification;
+		}
+	}
+
+	@Override
+	public void setProductionPlantClassification(
+		String productionPlantClassification) {
+		_productionPlantClassification = productionPlantClassification;
+	}
+
+	@Override
+	public String getActualCapacity() {
+		if (_actualCapacity == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _actualCapacity;
+		}
+	}
+
+	@Override
+	public void setActualCapacity(String actualCapacity) {
+		_actualCapacity = actualCapacity;
+	}
+
+	@Override
+	public String getMaxCapacity() {
+		if (_maxCapacity == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _maxCapacity;
+		}
+	}
+
+	@Override
+	public void setMaxCapacity(String maxCapacity) {
+		_maxCapacity = maxCapacity;
+	}
+
+	@Override
+	public String getAverageCapacity() {
+		if (_averageCapacity == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _averageCapacity;
+		}
+	}
+
+	@Override
+	public void setAverageCapacity(String averageCapacity) {
+		_averageCapacity = averageCapacity;
+	}
+
+	@Override
+	public String getTotalEmployee() {
+		if (_totalEmployee == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _totalEmployee;
+		}
+	}
+
+	@Override
+	public void setTotalEmployee(String totalEmployee) {
+		_totalEmployee = totalEmployee;
+	}
+
+	@Override
+	public String getTotalWorker() {
+		if (_totalWorker == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _totalWorker;
+		}
+	}
+
+	@Override
+	public void setTotalWorker(String totalWorker) {
+		_totalWorker = totalWorker;
+	}
+
+	@Override
+	public String getTotalManager() {
+		if (_totalManager == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _totalManager;
+		}
+	}
+
+	@Override
+	public void setTotalManager(String totalManager) {
+		_totalManager = totalManager;
+	}
+
+	@Override
+	public String getTotalTechnical() {
+		if (_totalTechnical == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _totalTechnical;
+		}
+	}
+
+	@Override
+	public void setTotalTechnical(String totalTechnical) {
+		_totalTechnical = totalTechnical;
+	}
+
+	@Override
+	public String getTotalQaEmployee() {
+		if (_totalQaEmployee == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _totalQaEmployee;
+		}
+	}
+
+	@Override
+	public void setTotalQaEmployee(String totalQaEmployee) {
+		_totalQaEmployee = totalQaEmployee;
+	}
+
+	@Override
+	public String getTotalSquareMeter() {
+		if (_totalSquareMeter == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _totalSquareMeter;
+		}
+	}
+
+	@Override
+	public void setTotalSquareMeter(String totalSquareMeter) {
+		_totalSquareMeter = totalSquareMeter;
+	}
+
+	@Override
+	public String getWareHouseSquare() {
+		if (_wareHouseSquare == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _wareHouseSquare;
+		}
+	}
+
+	@Override
+	public void setWareHouseSquare(String wareHouseSquare) {
+		_wareHouseSquare = wareHouseSquare;
+	}
+
+	@Override
+	public String getOfficeSquare() {
+		if (_officeSquare == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _officeSquare;
+		}
+	}
+
+	@Override
+	public void setOfficeSquare(String officeSquare) {
+		_officeSquare = officeSquare;
+	}
+
+	@Override
+	public String getProductionSquare() {
+		if (_productionSquare == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionSquare;
+		}
+	}
+
+	@Override
+	public void setProductionSquare(String productionSquare) {
+		_productionSquare = productionSquare;
+	}
+
+	@Override
+	public String getMachiningArea() {
+		if (_machiningArea == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _machiningArea;
+		}
+	}
+
+	@Override
+	public void setMachiningArea(String machiningArea) {
+		_machiningArea = machiningArea;
+	}
+
+	@Override
+	public String getWeldingArea() {
+		if (_weldingArea == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _weldingArea;
+		}
+	}
+
+	@Override
+	public void setWeldingArea(String weldingArea) {
+		_weldingArea = weldingArea;
+	}
+
+	@Override
+	public String getPaintingArea() {
+		if (_paintingArea == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _paintingArea;
+		}
+	}
+
+	@Override
+	public void setPaintingArea(String paintingArea) {
+		_paintingArea = paintingArea;
+	}
+
+	@Override
+	public String getProductionAssembleArea() {
+		if (_productionAssembleArea == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _productionAssembleArea;
+		}
+	}
+
+	@Override
+	public void setProductionAssembleArea(String productionAssembleArea) {
+		_productionAssembleArea = productionAssembleArea;
+	}
+
+	@Override
+	public String getFinishProductArea() {
+		if (_finishProductArea == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _finishProductArea;
+		}
+	}
+
+	@Override
+	public void setFinishProductArea(String finishProductArea) {
+		_finishProductArea = finishProductArea;
+	}
+
+	@Override
+	public String getTestingArea() {
+		if (_testingArea == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _testingArea;
+		}
+	}
+
+	@Override
+	public void setTestingArea(String testingArea) {
+		_testingArea = testingArea;
+	}
+
+	@Override
+	public String getSelfEquipment() {
+		if (_selfEquipment == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _selfEquipment;
+		}
+	}
+
+	@Override
+	public void setSelfEquipment(String selfEquipment) {
+		_selfEquipment = selfEquipment;
+	}
+
+	@Override
+	public String getContractEquipment() {
+		if (_contractEquipment == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _contractEquipment;
+		}
+	}
+
+	@Override
+	public void setContractEquipment(String contractEquipment) {
+		_contractEquipment = contractEquipment;
+	}
+
+	@Override
+	public String getCircularNo() {
+		if (_circularNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _circularNo;
+		}
+	}
+
+	@Override
+	public void setCircularNo(String circularNo) {
+		_circularNo = circularNo;
+	}
+
+	@Override
+	public Date getCircularDate() {
+		return _circularDate;
+	}
+
+	@Override
+	public void setCircularDate(Date circularDate) {
+		_circularDate = circularDate;
+	}
+
+	@Override
+	public String getCircularNo2() {
+		if (_circularNo2 == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _circularNo2;
+		}
+	}
+
+	@Override
+	public void setCircularNo2(String circularNo2) {
+		_circularNo2 = circularNo2;
+	}
+
+	@Override
+	public Date getCircularDate2() {
+		return _circularDate2;
+	}
+
+	@Override
+	public void setCircularDate2(Date circularDate2) {
+		_circularDate2 = circularDate2;
+	}
+
 	public long getColumnBitmask() {
 		return _columnBitmask;
 	}
@@ -1606,6 +3232,73 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 		vrcopReportRepositoryImpl.setDossierId(getDossierId());
 		vrcopReportRepositoryImpl.setDossierIdCTN(getDossierIdCTN());
 		vrcopReportRepositoryImpl.setDossierNo(getDossierNo());
+		vrcopReportRepositoryImpl.setApplicantEmail(getApplicantEmail());
+		vrcopReportRepositoryImpl.setApplicantPhone(getApplicantPhone());
+		vrcopReportRepositoryImpl.setApplicantTelNo(getApplicantTelNo());
+		vrcopReportRepositoryImpl.setApplicantFax(getApplicantFax());
+		vrcopReportRepositoryImpl.setApplicantContactName(getApplicantContactName());
+		vrcopReportRepositoryImpl.setApplicantContactEmail(getApplicantContactEmail());
+		vrcopReportRepositoryImpl.setApplicantContactPhone(getApplicantContactPhone());
+		vrcopReportRepositoryImpl.setApplicantContactTelNo(getApplicantContactTelNo());
+		vrcopReportRepositoryImpl.setApplicantBusinessType(getApplicantBusinessType());
+		vrcopReportRepositoryImpl.setMarkupDesigner(getMarkupDesigner());
+		vrcopReportRepositoryImpl.setMarkupOverseasManufacturer(getMarkupOverseasManufacturer());
+		vrcopReportRepositoryImpl.setMarkupMaintainer(getMarkupMaintainer());
+		vrcopReportRepositoryImpl.setImporterDomesticSite(getImporterDomesticSite());
+		vrcopReportRepositoryImpl.setSiteOfNationality(getSiteOfNationality());
+		vrcopReportRepositoryImpl.setSiteOfNationalityCode(getSiteOfNationalityCode());
+		vrcopReportRepositoryImpl.setSiteOfRegion(getSiteOfRegion());
+		vrcopReportRepositoryImpl.setSiteOfRegionCode(getSiteOfRegionCode());
+		vrcopReportRepositoryImpl.setSiteOfCity(getSiteOfCity());
+		vrcopReportRepositoryImpl.setSiteOfCityCode(getSiteOfCityCode());
+		vrcopReportRepositoryImpl.setManufacturerRepresentative(getManufacturerRepresentative());
+		vrcopReportRepositoryImpl.setManufacturerRepresentativeTitle(getManufacturerRepresentativeTitle());
+		vrcopReportRepositoryImpl.setManufacturerEmail(getManufacturerEmail());
+		vrcopReportRepositoryImpl.setManufacturerPhone(getManufacturerPhone());
+		vrcopReportRepositoryImpl.setManufacturerFax(getManufacturerFax());
+		vrcopReportRepositoryImpl.setProductionPlantEmail(getProductionPlantEmail());
+		vrcopReportRepositoryImpl.setProductionPlantWebsite(getProductionPlantWebsite());
+		vrcopReportRepositoryImpl.setProductionPlantRepresentative(getProductionPlantRepresentative());
+		vrcopReportRepositoryImpl.setProductionPlantRepresentativeTitle(getProductionPlantRepresentativeTitle());
+		vrcopReportRepositoryImpl.setCorporationName(getCorporationName());
+		vrcopReportRepositoryImpl.setInspectorContactCode(getInspectorContactCode());
+		vrcopReportRepositoryImpl.setInspectorName(getInspectorName());
+		vrcopReportRepositoryImpl.setInspectoRendorSementDate(getInspectoRendorSementDate());
+		vrcopReportRepositoryImpl.setInspectorDeadline(getInspectorDeadline());
+		vrcopReportRepositoryImpl.setResolvedStatus(getResolvedStatus());
+		vrcopReportRepositoryImpl.setNumberOfNonConformity(getNumberOfNonConformity());
+		vrcopReportRepositoryImpl.setNumberOfResolved(getNumberOfResolved());
+		vrcopReportRepositoryImpl.setObservationDescription(getObservationDescription());
+		vrcopReportRepositoryImpl.setInspectionAuditCycle(getInspectionAuditCycle());
+		vrcopReportRepositoryImpl.setInspectionNote(getInspectionNote());
+		vrcopReportRepositoryImpl.setProductionConformityChecking(getProductionConformityChecking());
+		vrcopReportRepositoryImpl.setProductionStampChecking(getProductionStampChecking());
+		vrcopReportRepositoryImpl.setTestingEquipmentChecking(getTestingEquipmentChecking());
+		vrcopReportRepositoryImpl.setProductionPlantClassification(getProductionPlantClassification());
+		vrcopReportRepositoryImpl.setActualCapacity(getActualCapacity());
+		vrcopReportRepositoryImpl.setMaxCapacity(getMaxCapacity());
+		vrcopReportRepositoryImpl.setAverageCapacity(getAverageCapacity());
+		vrcopReportRepositoryImpl.setTotalEmployee(getTotalEmployee());
+		vrcopReportRepositoryImpl.setTotalWorker(getTotalWorker());
+		vrcopReportRepositoryImpl.setTotalManager(getTotalManager());
+		vrcopReportRepositoryImpl.setTotalTechnical(getTotalTechnical());
+		vrcopReportRepositoryImpl.setTotalQaEmployee(getTotalQaEmployee());
+		vrcopReportRepositoryImpl.setTotalSquareMeter(getTotalSquareMeter());
+		vrcopReportRepositoryImpl.setWareHouseSquare(getWareHouseSquare());
+		vrcopReportRepositoryImpl.setOfficeSquare(getOfficeSquare());
+		vrcopReportRepositoryImpl.setProductionSquare(getProductionSquare());
+		vrcopReportRepositoryImpl.setMachiningArea(getMachiningArea());
+		vrcopReportRepositoryImpl.setWeldingArea(getWeldingArea());
+		vrcopReportRepositoryImpl.setPaintingArea(getPaintingArea());
+		vrcopReportRepositoryImpl.setProductionAssembleArea(getProductionAssembleArea());
+		vrcopReportRepositoryImpl.setFinishProductArea(getFinishProductArea());
+		vrcopReportRepositoryImpl.setTestingArea(getTestingArea());
+		vrcopReportRepositoryImpl.setSelfEquipment(getSelfEquipment());
+		vrcopReportRepositoryImpl.setContractEquipment(getContractEquipment());
+		vrcopReportRepositoryImpl.setCircularNo(getCircularNo());
+		vrcopReportRepositoryImpl.setCircularDate(getCircularDate());
+		vrcopReportRepositoryImpl.setCircularNo2(getCircularNo2());
+		vrcopReportRepositoryImpl.setCircularDate2(getCircularDate2());
 
 		vrcopReportRepositoryImpl.resetOriginalValues();
 
@@ -1686,6 +3379,8 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 		vrcopReportRepositoryModelImpl._originalCopReportNo = vrcopReportRepositoryModelImpl._copReportNo;
 
 		vrcopReportRepositoryModelImpl._originalCopReportStatus = vrcopReportRepositoryModelImpl._copReportStatus;
+
+		vrcopReportRepositoryModelImpl._originalCopClassification = vrcopReportRepositoryModelImpl._copClassification;
 
 		vrcopReportRepositoryModelImpl._originalDossierId = vrcopReportRepositoryModelImpl._dossierId;
 
@@ -2106,12 +3801,562 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 			vrcopReportRepositoryCacheModel.dossierNo = null;
 		}
 
+		vrcopReportRepositoryCacheModel.applicantEmail = getApplicantEmail();
+
+		String applicantEmail = vrcopReportRepositoryCacheModel.applicantEmail;
+
+		if ((applicantEmail != null) && (applicantEmail.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantEmail = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantPhone = getApplicantPhone();
+
+		String applicantPhone = vrcopReportRepositoryCacheModel.applicantPhone;
+
+		if ((applicantPhone != null) && (applicantPhone.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantPhone = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantTelNo = getApplicantTelNo();
+
+		String applicantTelNo = vrcopReportRepositoryCacheModel.applicantTelNo;
+
+		if ((applicantTelNo != null) && (applicantTelNo.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantTelNo = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantFax = getApplicantFax();
+
+		String applicantFax = vrcopReportRepositoryCacheModel.applicantFax;
+
+		if ((applicantFax != null) && (applicantFax.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantFax = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantContactName = getApplicantContactName();
+
+		String applicantContactName = vrcopReportRepositoryCacheModel.applicantContactName;
+
+		if ((applicantContactName != null) &&
+				(applicantContactName.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantContactName = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantContactEmail = getApplicantContactEmail();
+
+		String applicantContactEmail = vrcopReportRepositoryCacheModel.applicantContactEmail;
+
+		if ((applicantContactEmail != null) &&
+				(applicantContactEmail.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantContactEmail = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantContactPhone = getApplicantContactPhone();
+
+		String applicantContactPhone = vrcopReportRepositoryCacheModel.applicantContactPhone;
+
+		if ((applicantContactPhone != null) &&
+				(applicantContactPhone.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantContactPhone = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantContactTelNo = getApplicantContactTelNo();
+
+		String applicantContactTelNo = vrcopReportRepositoryCacheModel.applicantContactTelNo;
+
+		if ((applicantContactTelNo != null) &&
+				(applicantContactTelNo.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantContactTelNo = null;
+		}
+
+		vrcopReportRepositoryCacheModel.applicantBusinessType = getApplicantBusinessType();
+
+		String applicantBusinessType = vrcopReportRepositoryCacheModel.applicantBusinessType;
+
+		if ((applicantBusinessType != null) &&
+				(applicantBusinessType.length() == 0)) {
+			vrcopReportRepositoryCacheModel.applicantBusinessType = null;
+		}
+
+		vrcopReportRepositoryCacheModel.markupDesigner = getMarkupDesigner();
+
+		String markupDesigner = vrcopReportRepositoryCacheModel.markupDesigner;
+
+		if ((markupDesigner != null) && (markupDesigner.length() == 0)) {
+			vrcopReportRepositoryCacheModel.markupDesigner = null;
+		}
+
+		vrcopReportRepositoryCacheModel.markupOverseasManufacturer = getMarkupOverseasManufacturer();
+
+		String markupOverseasManufacturer = vrcopReportRepositoryCacheModel.markupOverseasManufacturer;
+
+		if ((markupOverseasManufacturer != null) &&
+				(markupOverseasManufacturer.length() == 0)) {
+			vrcopReportRepositoryCacheModel.markupOverseasManufacturer = null;
+		}
+
+		vrcopReportRepositoryCacheModel.markupMaintainer = getMarkupMaintainer();
+
+		String markupMaintainer = vrcopReportRepositoryCacheModel.markupMaintainer;
+
+		if ((markupMaintainer != null) && (markupMaintainer.length() == 0)) {
+			vrcopReportRepositoryCacheModel.markupMaintainer = null;
+		}
+
+		vrcopReportRepositoryCacheModel.importerDomesticSite = getImporterDomesticSite();
+
+		String importerDomesticSite = vrcopReportRepositoryCacheModel.importerDomesticSite;
+
+		if ((importerDomesticSite != null) &&
+				(importerDomesticSite.length() == 0)) {
+			vrcopReportRepositoryCacheModel.importerDomesticSite = null;
+		}
+
+		vrcopReportRepositoryCacheModel.siteOfNationality = getSiteOfNationality();
+
+		String siteOfNationality = vrcopReportRepositoryCacheModel.siteOfNationality;
+
+		if ((siteOfNationality != null) && (siteOfNationality.length() == 0)) {
+			vrcopReportRepositoryCacheModel.siteOfNationality = null;
+		}
+
+		vrcopReportRepositoryCacheModel.siteOfNationalityCode = getSiteOfNationalityCode();
+
+		String siteOfNationalityCode = vrcopReportRepositoryCacheModel.siteOfNationalityCode;
+
+		if ((siteOfNationalityCode != null) &&
+				(siteOfNationalityCode.length() == 0)) {
+			vrcopReportRepositoryCacheModel.siteOfNationalityCode = null;
+		}
+
+		vrcopReportRepositoryCacheModel.siteOfRegion = getSiteOfRegion();
+
+		String siteOfRegion = vrcopReportRepositoryCacheModel.siteOfRegion;
+
+		if ((siteOfRegion != null) && (siteOfRegion.length() == 0)) {
+			vrcopReportRepositoryCacheModel.siteOfRegion = null;
+		}
+
+		vrcopReportRepositoryCacheModel.siteOfRegionCode = getSiteOfRegionCode();
+
+		String siteOfRegionCode = vrcopReportRepositoryCacheModel.siteOfRegionCode;
+
+		if ((siteOfRegionCode != null) && (siteOfRegionCode.length() == 0)) {
+			vrcopReportRepositoryCacheModel.siteOfRegionCode = null;
+		}
+
+		vrcopReportRepositoryCacheModel.siteOfCity = getSiteOfCity();
+
+		String siteOfCity = vrcopReportRepositoryCacheModel.siteOfCity;
+
+		if ((siteOfCity != null) && (siteOfCity.length() == 0)) {
+			vrcopReportRepositoryCacheModel.siteOfCity = null;
+		}
+
+		vrcopReportRepositoryCacheModel.siteOfCityCode = getSiteOfCityCode();
+
+		String siteOfCityCode = vrcopReportRepositoryCacheModel.siteOfCityCode;
+
+		if ((siteOfCityCode != null) && (siteOfCityCode.length() == 0)) {
+			vrcopReportRepositoryCacheModel.siteOfCityCode = null;
+		}
+
+		vrcopReportRepositoryCacheModel.manufacturerRepresentative = getManufacturerRepresentative();
+
+		String manufacturerRepresentative = vrcopReportRepositoryCacheModel.manufacturerRepresentative;
+
+		if ((manufacturerRepresentative != null) &&
+				(manufacturerRepresentative.length() == 0)) {
+			vrcopReportRepositoryCacheModel.manufacturerRepresentative = null;
+		}
+
+		vrcopReportRepositoryCacheModel.manufacturerRepresentativeTitle = getManufacturerRepresentativeTitle();
+
+		String manufacturerRepresentativeTitle = vrcopReportRepositoryCacheModel.manufacturerRepresentativeTitle;
+
+		if ((manufacturerRepresentativeTitle != null) &&
+				(manufacturerRepresentativeTitle.length() == 0)) {
+			vrcopReportRepositoryCacheModel.manufacturerRepresentativeTitle = null;
+		}
+
+		vrcopReportRepositoryCacheModel.manufacturerEmail = getManufacturerEmail();
+
+		String manufacturerEmail = vrcopReportRepositoryCacheModel.manufacturerEmail;
+
+		if ((manufacturerEmail != null) && (manufacturerEmail.length() == 0)) {
+			vrcopReportRepositoryCacheModel.manufacturerEmail = null;
+		}
+
+		vrcopReportRepositoryCacheModel.manufacturerPhone = getManufacturerPhone();
+
+		String manufacturerPhone = vrcopReportRepositoryCacheModel.manufacturerPhone;
+
+		if ((manufacturerPhone != null) && (manufacturerPhone.length() == 0)) {
+			vrcopReportRepositoryCacheModel.manufacturerPhone = null;
+		}
+
+		vrcopReportRepositoryCacheModel.manufacturerFax = getManufacturerFax();
+
+		String manufacturerFax = vrcopReportRepositoryCacheModel.manufacturerFax;
+
+		if ((manufacturerFax != null) && (manufacturerFax.length() == 0)) {
+			vrcopReportRepositoryCacheModel.manufacturerFax = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionPlantEmail = getProductionPlantEmail();
+
+		String productionPlantEmail = vrcopReportRepositoryCacheModel.productionPlantEmail;
+
+		if ((productionPlantEmail != null) &&
+				(productionPlantEmail.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionPlantEmail = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionPlantWebsite = getProductionPlantWebsite();
+
+		String productionPlantWebsite = vrcopReportRepositoryCacheModel.productionPlantWebsite;
+
+		if ((productionPlantWebsite != null) &&
+				(productionPlantWebsite.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionPlantWebsite = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionPlantRepresentative = getProductionPlantRepresentative();
+
+		String productionPlantRepresentative = vrcopReportRepositoryCacheModel.productionPlantRepresentative;
+
+		if ((productionPlantRepresentative != null) &&
+				(productionPlantRepresentative.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionPlantRepresentative = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionPlantRepresentativeTitle = getProductionPlantRepresentativeTitle();
+
+		String productionPlantRepresentativeTitle = vrcopReportRepositoryCacheModel.productionPlantRepresentativeTitle;
+
+		if ((productionPlantRepresentativeTitle != null) &&
+				(productionPlantRepresentativeTitle.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionPlantRepresentativeTitle = null;
+		}
+
+		vrcopReportRepositoryCacheModel.corporationName = getCorporationName();
+
+		String corporationName = vrcopReportRepositoryCacheModel.corporationName;
+
+		if ((corporationName != null) && (corporationName.length() == 0)) {
+			vrcopReportRepositoryCacheModel.corporationName = null;
+		}
+
+		vrcopReportRepositoryCacheModel.inspectorContactCode = getInspectorContactCode();
+
+		String inspectorContactCode = vrcopReportRepositoryCacheModel.inspectorContactCode;
+
+		if ((inspectorContactCode != null) &&
+				(inspectorContactCode.length() == 0)) {
+			vrcopReportRepositoryCacheModel.inspectorContactCode = null;
+		}
+
+		vrcopReportRepositoryCacheModel.inspectorName = getInspectorName();
+
+		String inspectorName = vrcopReportRepositoryCacheModel.inspectorName;
+
+		if ((inspectorName != null) && (inspectorName.length() == 0)) {
+			vrcopReportRepositoryCacheModel.inspectorName = null;
+		}
+
+		Date inspectoRendorSementDate = getInspectoRendorSementDate();
+
+		if (inspectoRendorSementDate != null) {
+			vrcopReportRepositoryCacheModel.inspectoRendorSementDate = inspectoRendorSementDate.getTime();
+		}
+		else {
+			vrcopReportRepositoryCacheModel.inspectoRendorSementDate = Long.MIN_VALUE;
+		}
+
+		Date inspectorDeadline = getInspectorDeadline();
+
+		if (inspectorDeadline != null) {
+			vrcopReportRepositoryCacheModel.inspectorDeadline = inspectorDeadline.getTime();
+		}
+		else {
+			vrcopReportRepositoryCacheModel.inspectorDeadline = Long.MIN_VALUE;
+		}
+
+		vrcopReportRepositoryCacheModel.resolvedStatus = getResolvedStatus();
+
+		String resolvedStatus = vrcopReportRepositoryCacheModel.resolvedStatus;
+
+		if ((resolvedStatus != null) && (resolvedStatus.length() == 0)) {
+			vrcopReportRepositoryCacheModel.resolvedStatus = null;
+		}
+
+		vrcopReportRepositoryCacheModel.numberOfNonConformity = getNumberOfNonConformity();
+
+		vrcopReportRepositoryCacheModel.numberOfResolved = getNumberOfResolved();
+
+		vrcopReportRepositoryCacheModel.observationDescription = getObservationDescription();
+
+		String observationDescription = vrcopReportRepositoryCacheModel.observationDescription;
+
+		if ((observationDescription != null) &&
+				(observationDescription.length() == 0)) {
+			vrcopReportRepositoryCacheModel.observationDescription = null;
+		}
+
+		vrcopReportRepositoryCacheModel.inspectionAuditCycle = getInspectionAuditCycle();
+
+		String inspectionAuditCycle = vrcopReportRepositoryCacheModel.inspectionAuditCycle;
+
+		if ((inspectionAuditCycle != null) &&
+				(inspectionAuditCycle.length() == 0)) {
+			vrcopReportRepositoryCacheModel.inspectionAuditCycle = null;
+		}
+
+		vrcopReportRepositoryCacheModel.inspectionNote = getInspectionNote();
+
+		String inspectionNote = vrcopReportRepositoryCacheModel.inspectionNote;
+
+		if ((inspectionNote != null) && (inspectionNote.length() == 0)) {
+			vrcopReportRepositoryCacheModel.inspectionNote = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionConformityChecking = getProductionConformityChecking();
+
+		String productionConformityChecking = vrcopReportRepositoryCacheModel.productionConformityChecking;
+
+		if ((productionConformityChecking != null) &&
+				(productionConformityChecking.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionConformityChecking = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionStampChecking = getProductionStampChecking();
+
+		String productionStampChecking = vrcopReportRepositoryCacheModel.productionStampChecking;
+
+		if ((productionStampChecking != null) &&
+				(productionStampChecking.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionStampChecking = null;
+		}
+
+		vrcopReportRepositoryCacheModel.testingEquipmentChecking = getTestingEquipmentChecking();
+
+		String testingEquipmentChecking = vrcopReportRepositoryCacheModel.testingEquipmentChecking;
+
+		if ((testingEquipmentChecking != null) &&
+				(testingEquipmentChecking.length() == 0)) {
+			vrcopReportRepositoryCacheModel.testingEquipmentChecking = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionPlantClassification = getProductionPlantClassification();
+
+		String productionPlantClassification = vrcopReportRepositoryCacheModel.productionPlantClassification;
+
+		if ((productionPlantClassification != null) &&
+				(productionPlantClassification.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionPlantClassification = null;
+		}
+
+		vrcopReportRepositoryCacheModel.actualCapacity = getActualCapacity();
+
+		String actualCapacity = vrcopReportRepositoryCacheModel.actualCapacity;
+
+		if ((actualCapacity != null) && (actualCapacity.length() == 0)) {
+			vrcopReportRepositoryCacheModel.actualCapacity = null;
+		}
+
+		vrcopReportRepositoryCacheModel.maxCapacity = getMaxCapacity();
+
+		String maxCapacity = vrcopReportRepositoryCacheModel.maxCapacity;
+
+		if ((maxCapacity != null) && (maxCapacity.length() == 0)) {
+			vrcopReportRepositoryCacheModel.maxCapacity = null;
+		}
+
+		vrcopReportRepositoryCacheModel.averageCapacity = getAverageCapacity();
+
+		String averageCapacity = vrcopReportRepositoryCacheModel.averageCapacity;
+
+		if ((averageCapacity != null) && (averageCapacity.length() == 0)) {
+			vrcopReportRepositoryCacheModel.averageCapacity = null;
+		}
+
+		vrcopReportRepositoryCacheModel.totalEmployee = getTotalEmployee();
+
+		String totalEmployee = vrcopReportRepositoryCacheModel.totalEmployee;
+
+		if ((totalEmployee != null) && (totalEmployee.length() == 0)) {
+			vrcopReportRepositoryCacheModel.totalEmployee = null;
+		}
+
+		vrcopReportRepositoryCacheModel.totalWorker = getTotalWorker();
+
+		String totalWorker = vrcopReportRepositoryCacheModel.totalWorker;
+
+		if ((totalWorker != null) && (totalWorker.length() == 0)) {
+			vrcopReportRepositoryCacheModel.totalWorker = null;
+		}
+
+		vrcopReportRepositoryCacheModel.totalManager = getTotalManager();
+
+		String totalManager = vrcopReportRepositoryCacheModel.totalManager;
+
+		if ((totalManager != null) && (totalManager.length() == 0)) {
+			vrcopReportRepositoryCacheModel.totalManager = null;
+		}
+
+		vrcopReportRepositoryCacheModel.totalTechnical = getTotalTechnical();
+
+		String totalTechnical = vrcopReportRepositoryCacheModel.totalTechnical;
+
+		if ((totalTechnical != null) && (totalTechnical.length() == 0)) {
+			vrcopReportRepositoryCacheModel.totalTechnical = null;
+		}
+
+		vrcopReportRepositoryCacheModel.totalQaEmployee = getTotalQaEmployee();
+
+		String totalQaEmployee = vrcopReportRepositoryCacheModel.totalQaEmployee;
+
+		if ((totalQaEmployee != null) && (totalQaEmployee.length() == 0)) {
+			vrcopReportRepositoryCacheModel.totalQaEmployee = null;
+		}
+
+		vrcopReportRepositoryCacheModel.totalSquareMeter = getTotalSquareMeter();
+
+		String totalSquareMeter = vrcopReportRepositoryCacheModel.totalSquareMeter;
+
+		if ((totalSquareMeter != null) && (totalSquareMeter.length() == 0)) {
+			vrcopReportRepositoryCacheModel.totalSquareMeter = null;
+		}
+
+		vrcopReportRepositoryCacheModel.wareHouseSquare = getWareHouseSquare();
+
+		String wareHouseSquare = vrcopReportRepositoryCacheModel.wareHouseSquare;
+
+		if ((wareHouseSquare != null) && (wareHouseSquare.length() == 0)) {
+			vrcopReportRepositoryCacheModel.wareHouseSquare = null;
+		}
+
+		vrcopReportRepositoryCacheModel.officeSquare = getOfficeSquare();
+
+		String officeSquare = vrcopReportRepositoryCacheModel.officeSquare;
+
+		if ((officeSquare != null) && (officeSquare.length() == 0)) {
+			vrcopReportRepositoryCacheModel.officeSquare = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionSquare = getProductionSquare();
+
+		String productionSquare = vrcopReportRepositoryCacheModel.productionSquare;
+
+		if ((productionSquare != null) && (productionSquare.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionSquare = null;
+		}
+
+		vrcopReportRepositoryCacheModel.machiningArea = getMachiningArea();
+
+		String machiningArea = vrcopReportRepositoryCacheModel.machiningArea;
+
+		if ((machiningArea != null) && (machiningArea.length() == 0)) {
+			vrcopReportRepositoryCacheModel.machiningArea = null;
+		}
+
+		vrcopReportRepositoryCacheModel.weldingArea = getWeldingArea();
+
+		String weldingArea = vrcopReportRepositoryCacheModel.weldingArea;
+
+		if ((weldingArea != null) && (weldingArea.length() == 0)) {
+			vrcopReportRepositoryCacheModel.weldingArea = null;
+		}
+
+		vrcopReportRepositoryCacheModel.paintingArea = getPaintingArea();
+
+		String paintingArea = vrcopReportRepositoryCacheModel.paintingArea;
+
+		if ((paintingArea != null) && (paintingArea.length() == 0)) {
+			vrcopReportRepositoryCacheModel.paintingArea = null;
+		}
+
+		vrcopReportRepositoryCacheModel.productionAssembleArea = getProductionAssembleArea();
+
+		String productionAssembleArea = vrcopReportRepositoryCacheModel.productionAssembleArea;
+
+		if ((productionAssembleArea != null) &&
+				(productionAssembleArea.length() == 0)) {
+			vrcopReportRepositoryCacheModel.productionAssembleArea = null;
+		}
+
+		vrcopReportRepositoryCacheModel.finishProductArea = getFinishProductArea();
+
+		String finishProductArea = vrcopReportRepositoryCacheModel.finishProductArea;
+
+		if ((finishProductArea != null) && (finishProductArea.length() == 0)) {
+			vrcopReportRepositoryCacheModel.finishProductArea = null;
+		}
+
+		vrcopReportRepositoryCacheModel.testingArea = getTestingArea();
+
+		String testingArea = vrcopReportRepositoryCacheModel.testingArea;
+
+		if ((testingArea != null) && (testingArea.length() == 0)) {
+			vrcopReportRepositoryCacheModel.testingArea = null;
+		}
+
+		vrcopReportRepositoryCacheModel.selfEquipment = getSelfEquipment();
+
+		String selfEquipment = vrcopReportRepositoryCacheModel.selfEquipment;
+
+		if ((selfEquipment != null) && (selfEquipment.length() == 0)) {
+			vrcopReportRepositoryCacheModel.selfEquipment = null;
+		}
+
+		vrcopReportRepositoryCacheModel.contractEquipment = getContractEquipment();
+
+		String contractEquipment = vrcopReportRepositoryCacheModel.contractEquipment;
+
+		if ((contractEquipment != null) && (contractEquipment.length() == 0)) {
+			vrcopReportRepositoryCacheModel.contractEquipment = null;
+		}
+
+		vrcopReportRepositoryCacheModel.circularNo = getCircularNo();
+
+		String circularNo = vrcopReportRepositoryCacheModel.circularNo;
+
+		if ((circularNo != null) && (circularNo.length() == 0)) {
+			vrcopReportRepositoryCacheModel.circularNo = null;
+		}
+
+		Date circularDate = getCircularDate();
+
+		if (circularDate != null) {
+			vrcopReportRepositoryCacheModel.circularDate = circularDate.getTime();
+		}
+		else {
+			vrcopReportRepositoryCacheModel.circularDate = Long.MIN_VALUE;
+		}
+
+		vrcopReportRepositoryCacheModel.circularNo2 = getCircularNo2();
+
+		String circularNo2 = vrcopReportRepositoryCacheModel.circularNo2;
+
+		if ((circularNo2 != null) && (circularNo2.length() == 0)) {
+			vrcopReportRepositoryCacheModel.circularNo2 = null;
+		}
+
+		Date circularDate2 = getCircularDate2();
+
+		if (circularDate2 != null) {
+			vrcopReportRepositoryCacheModel.circularDate2 = circularDate2.getTime();
+		}
+		else {
+			vrcopReportRepositoryCacheModel.circularDate2 = Long.MIN_VALUE;
+		}
+
 		return vrcopReportRepositoryCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(115);
+		StringBundler sb = new StringBundler(249);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -2227,6 +4472,140 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 		sb.append(getDossierIdCTN());
 		sb.append(", dossierNo=");
 		sb.append(getDossierNo());
+		sb.append(", applicantEmail=");
+		sb.append(getApplicantEmail());
+		sb.append(", applicantPhone=");
+		sb.append(getApplicantPhone());
+		sb.append(", applicantTelNo=");
+		sb.append(getApplicantTelNo());
+		sb.append(", applicantFax=");
+		sb.append(getApplicantFax());
+		sb.append(", applicantContactName=");
+		sb.append(getApplicantContactName());
+		sb.append(", applicantContactEmail=");
+		sb.append(getApplicantContactEmail());
+		sb.append(", applicantContactPhone=");
+		sb.append(getApplicantContactPhone());
+		sb.append(", applicantContactTelNo=");
+		sb.append(getApplicantContactTelNo());
+		sb.append(", applicantBusinessType=");
+		sb.append(getApplicantBusinessType());
+		sb.append(", markupDesigner=");
+		sb.append(getMarkupDesigner());
+		sb.append(", markupOverseasManufacturer=");
+		sb.append(getMarkupOverseasManufacturer());
+		sb.append(", markupMaintainer=");
+		sb.append(getMarkupMaintainer());
+		sb.append(", importerDomesticSite=");
+		sb.append(getImporterDomesticSite());
+		sb.append(", siteOfNationality=");
+		sb.append(getSiteOfNationality());
+		sb.append(", siteOfNationalityCode=");
+		sb.append(getSiteOfNationalityCode());
+		sb.append(", siteOfRegion=");
+		sb.append(getSiteOfRegion());
+		sb.append(", siteOfRegionCode=");
+		sb.append(getSiteOfRegionCode());
+		sb.append(", siteOfCity=");
+		sb.append(getSiteOfCity());
+		sb.append(", siteOfCityCode=");
+		sb.append(getSiteOfCityCode());
+		sb.append(", manufacturerRepresentative=");
+		sb.append(getManufacturerRepresentative());
+		sb.append(", manufacturerRepresentativeTitle=");
+		sb.append(getManufacturerRepresentativeTitle());
+		sb.append(", manufacturerEmail=");
+		sb.append(getManufacturerEmail());
+		sb.append(", manufacturerPhone=");
+		sb.append(getManufacturerPhone());
+		sb.append(", manufacturerFax=");
+		sb.append(getManufacturerFax());
+		sb.append(", productionPlantEmail=");
+		sb.append(getProductionPlantEmail());
+		sb.append(", productionPlantWebsite=");
+		sb.append(getProductionPlantWebsite());
+		sb.append(", productionPlantRepresentative=");
+		sb.append(getProductionPlantRepresentative());
+		sb.append(", productionPlantRepresentativeTitle=");
+		sb.append(getProductionPlantRepresentativeTitle());
+		sb.append(", corporationName=");
+		sb.append(getCorporationName());
+		sb.append(", inspectorContactCode=");
+		sb.append(getInspectorContactCode());
+		sb.append(", inspectorName=");
+		sb.append(getInspectorName());
+		sb.append(", inspectoRendorSementDate=");
+		sb.append(getInspectoRendorSementDate());
+		sb.append(", inspectorDeadline=");
+		sb.append(getInspectorDeadline());
+		sb.append(", resolvedStatus=");
+		sb.append(getResolvedStatus());
+		sb.append(", numberOfNonConformity=");
+		sb.append(getNumberOfNonConformity());
+		sb.append(", numberOfResolved=");
+		sb.append(getNumberOfResolved());
+		sb.append(", observationDescription=");
+		sb.append(getObservationDescription());
+		sb.append(", inspectionAuditCycle=");
+		sb.append(getInspectionAuditCycle());
+		sb.append(", inspectionNote=");
+		sb.append(getInspectionNote());
+		sb.append(", productionConformityChecking=");
+		sb.append(getProductionConformityChecking());
+		sb.append(", productionStampChecking=");
+		sb.append(getProductionStampChecking());
+		sb.append(", testingEquipmentChecking=");
+		sb.append(getTestingEquipmentChecking());
+		sb.append(", productionPlantClassification=");
+		sb.append(getProductionPlantClassification());
+		sb.append(", actualCapacity=");
+		sb.append(getActualCapacity());
+		sb.append(", maxCapacity=");
+		sb.append(getMaxCapacity());
+		sb.append(", averageCapacity=");
+		sb.append(getAverageCapacity());
+		sb.append(", totalEmployee=");
+		sb.append(getTotalEmployee());
+		sb.append(", totalWorker=");
+		sb.append(getTotalWorker());
+		sb.append(", totalManager=");
+		sb.append(getTotalManager());
+		sb.append(", totalTechnical=");
+		sb.append(getTotalTechnical());
+		sb.append(", totalQaEmployee=");
+		sb.append(getTotalQaEmployee());
+		sb.append(", totalSquareMeter=");
+		sb.append(getTotalSquareMeter());
+		sb.append(", wareHouseSquare=");
+		sb.append(getWareHouseSquare());
+		sb.append(", officeSquare=");
+		sb.append(getOfficeSquare());
+		sb.append(", productionSquare=");
+		sb.append(getProductionSquare());
+		sb.append(", machiningArea=");
+		sb.append(getMachiningArea());
+		sb.append(", weldingArea=");
+		sb.append(getWeldingArea());
+		sb.append(", paintingArea=");
+		sb.append(getPaintingArea());
+		sb.append(", productionAssembleArea=");
+		sb.append(getProductionAssembleArea());
+		sb.append(", finishProductArea=");
+		sb.append(getFinishProductArea());
+		sb.append(", testingArea=");
+		sb.append(getTestingArea());
+		sb.append(", selfEquipment=");
+		sb.append(getSelfEquipment());
+		sb.append(", contractEquipment=");
+		sb.append(getContractEquipment());
+		sb.append(", circularNo=");
+		sb.append(getCircularNo());
+		sb.append(", circularDate=");
+		sb.append(getCircularDate());
+		sb.append(", circularNo2=");
+		sb.append(getCircularNo2());
+		sb.append(", circularDate2=");
+		sb.append(getCircularDate2());
 		sb.append("}");
 
 		return sb.toString();
@@ -2234,7 +4613,7 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(175);
+		StringBundler sb = new StringBundler(376);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRCOPReportRepository");
@@ -2468,6 +4847,274 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 			"<column><column-name>dossierNo</column-name><column-value><![CDATA[");
 		sb.append(getDossierNo());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantEmail</column-name><column-value><![CDATA[");
+		sb.append(getApplicantEmail());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantPhone</column-name><column-value><![CDATA[");
+		sb.append(getApplicantPhone());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantTelNo</column-name><column-value><![CDATA[");
+		sb.append(getApplicantTelNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantFax</column-name><column-value><![CDATA[");
+		sb.append(getApplicantFax());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantContactName</column-name><column-value><![CDATA[");
+		sb.append(getApplicantContactName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantContactEmail</column-name><column-value><![CDATA[");
+		sb.append(getApplicantContactEmail());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantContactPhone</column-name><column-value><![CDATA[");
+		sb.append(getApplicantContactPhone());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantContactTelNo</column-name><column-value><![CDATA[");
+		sb.append(getApplicantContactTelNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantBusinessType</column-name><column-value><![CDATA[");
+		sb.append(getApplicantBusinessType());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>markupDesigner</column-name><column-value><![CDATA[");
+		sb.append(getMarkupDesigner());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>markupOverseasManufacturer</column-name><column-value><![CDATA[");
+		sb.append(getMarkupOverseasManufacturer());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>markupMaintainer</column-name><column-value><![CDATA[");
+		sb.append(getMarkupMaintainer());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>importerDomesticSite</column-name><column-value><![CDATA[");
+		sb.append(getImporterDomesticSite());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>siteOfNationality</column-name><column-value><![CDATA[");
+		sb.append(getSiteOfNationality());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>siteOfNationalityCode</column-name><column-value><![CDATA[");
+		sb.append(getSiteOfNationalityCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>siteOfRegion</column-name><column-value><![CDATA[");
+		sb.append(getSiteOfRegion());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>siteOfRegionCode</column-name><column-value><![CDATA[");
+		sb.append(getSiteOfRegionCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>siteOfCity</column-name><column-value><![CDATA[");
+		sb.append(getSiteOfCity());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>siteOfCityCode</column-name><column-value><![CDATA[");
+		sb.append(getSiteOfCityCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerRepresentative</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerRepresentative());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerRepresentativeTitle</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerRepresentativeTitle());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerEmail</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerEmail());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerPhone</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerPhone());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>manufacturerFax</column-name><column-value><![CDATA[");
+		sb.append(getManufacturerFax());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionPlantEmail</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantEmail());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionPlantWebsite</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantWebsite());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionPlantRepresentative</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantRepresentative());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionPlantRepresentativeTitle</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantRepresentativeTitle());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>corporationName</column-name><column-value><![CDATA[");
+		sb.append(getCorporationName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>inspectorContactCode</column-name><column-value><![CDATA[");
+		sb.append(getInspectorContactCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>inspectorName</column-name><column-value><![CDATA[");
+		sb.append(getInspectorName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>inspectoRendorSementDate</column-name><column-value><![CDATA[");
+		sb.append(getInspectoRendorSementDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>inspectorDeadline</column-name><column-value><![CDATA[");
+		sb.append(getInspectorDeadline());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>resolvedStatus</column-name><column-value><![CDATA[");
+		sb.append(getResolvedStatus());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>numberOfNonConformity</column-name><column-value><![CDATA[");
+		sb.append(getNumberOfNonConformity());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>numberOfResolved</column-name><column-value><![CDATA[");
+		sb.append(getNumberOfResolved());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>observationDescription</column-name><column-value><![CDATA[");
+		sb.append(getObservationDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>inspectionAuditCycle</column-name><column-value><![CDATA[");
+		sb.append(getInspectionAuditCycle());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>inspectionNote</column-name><column-value><![CDATA[");
+		sb.append(getInspectionNote());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionConformityChecking</column-name><column-value><![CDATA[");
+		sb.append(getProductionConformityChecking());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionStampChecking</column-name><column-value><![CDATA[");
+		sb.append(getProductionStampChecking());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>testingEquipmentChecking</column-name><column-value><![CDATA[");
+		sb.append(getTestingEquipmentChecking());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionPlantClassification</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantClassification());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>actualCapacity</column-name><column-value><![CDATA[");
+		sb.append(getActualCapacity());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>maxCapacity</column-name><column-value><![CDATA[");
+		sb.append(getMaxCapacity());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>averageCapacity</column-name><column-value><![CDATA[");
+		sb.append(getAverageCapacity());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>totalEmployee</column-name><column-value><![CDATA[");
+		sb.append(getTotalEmployee());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>totalWorker</column-name><column-value><![CDATA[");
+		sb.append(getTotalWorker());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>totalManager</column-name><column-value><![CDATA[");
+		sb.append(getTotalManager());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>totalTechnical</column-name><column-value><![CDATA[");
+		sb.append(getTotalTechnical());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>totalQaEmployee</column-name><column-value><![CDATA[");
+		sb.append(getTotalQaEmployee());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>totalSquareMeter</column-name><column-value><![CDATA[");
+		sb.append(getTotalSquareMeter());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>wareHouseSquare</column-name><column-value><![CDATA[");
+		sb.append(getWareHouseSquare());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>officeSquare</column-name><column-value><![CDATA[");
+		sb.append(getOfficeSquare());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionSquare</column-name><column-value><![CDATA[");
+		sb.append(getProductionSquare());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>machiningArea</column-name><column-value><![CDATA[");
+		sb.append(getMachiningArea());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>weldingArea</column-name><column-value><![CDATA[");
+		sb.append(getWeldingArea());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>paintingArea</column-name><column-value><![CDATA[");
+		sb.append(getPaintingArea());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>productionAssembleArea</column-name><column-value><![CDATA[");
+		sb.append(getProductionAssembleArea());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>finishProductArea</column-name><column-value><![CDATA[");
+		sb.append(getFinishProductArea());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>testingArea</column-name><column-value><![CDATA[");
+		sb.append(getTestingArea());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>selfEquipment</column-name><column-value><![CDATA[");
+		sb.append(getSelfEquipment());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>contractEquipment</column-name><column-value><![CDATA[");
+		sb.append(getContractEquipment());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>circularNo</column-name><column-value><![CDATA[");
+		sb.append(getCircularNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>circularDate</column-name><column-value><![CDATA[");
+		sb.append(getCircularDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>circularNo2</column-name><column-value><![CDATA[");
+		sb.append(getCircularNo2());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>circularDate2</column-name><column-value><![CDATA[");
+		sb.append(getCircularDate2());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -2519,6 +5166,7 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 	private String _markupDomesticsManufacturer;
 	private String _markupImporter;
 	private String _copClassification;
+	private String _originalCopClassification;
 	private String _productClassificationDescription;
 	private int _totalPointA;
 	private int _totalPointB;
@@ -2546,6 +5194,73 @@ public class VRCOPReportRepositoryModelImpl extends BaseModelImpl<VRCOPReportRep
 	private boolean _setOriginalDossierId;
 	private String _dossierIdCTN;
 	private String _dossierNo;
+	private String _applicantEmail;
+	private String _applicantPhone;
+	private String _applicantTelNo;
+	private String _applicantFax;
+	private String _applicantContactName;
+	private String _applicantContactEmail;
+	private String _applicantContactPhone;
+	private String _applicantContactTelNo;
+	private String _applicantBusinessType;
+	private String _markupDesigner;
+	private String _markupOverseasManufacturer;
+	private String _markupMaintainer;
+	private String _importerDomesticSite;
+	private String _siteOfNationality;
+	private String _siteOfNationalityCode;
+	private String _siteOfRegion;
+	private String _siteOfRegionCode;
+	private String _siteOfCity;
+	private String _siteOfCityCode;
+	private String _manufacturerRepresentative;
+	private String _manufacturerRepresentativeTitle;
+	private String _manufacturerEmail;
+	private String _manufacturerPhone;
+	private String _manufacturerFax;
+	private String _productionPlantEmail;
+	private String _productionPlantWebsite;
+	private String _productionPlantRepresentative;
+	private String _productionPlantRepresentativeTitle;
+	private String _corporationName;
+	private String _inspectorContactCode;
+	private String _inspectorName;
+	private Date _inspectoRendorSementDate;
+	private Date _inspectorDeadline;
+	private String _resolvedStatus;
+	private int _numberOfNonConformity;
+	private int _numberOfResolved;
+	private String _observationDescription;
+	private String _inspectionAuditCycle;
+	private String _inspectionNote;
+	private String _productionConformityChecking;
+	private String _productionStampChecking;
+	private String _testingEquipmentChecking;
+	private String _productionPlantClassification;
+	private String _actualCapacity;
+	private String _maxCapacity;
+	private String _averageCapacity;
+	private String _totalEmployee;
+	private String _totalWorker;
+	private String _totalManager;
+	private String _totalTechnical;
+	private String _totalQaEmployee;
+	private String _totalSquareMeter;
+	private String _wareHouseSquare;
+	private String _officeSquare;
+	private String _productionSquare;
+	private String _machiningArea;
+	private String _weldingArea;
+	private String _paintingArea;
+	private String _productionAssembleArea;
+	private String _finishProductArea;
+	private String _testingArea;
+	private String _selfEquipment;
+	private String _contractEquipment;
+	private String _circularNo;
+	private Date _circularDate;
+	private String _circularNo2;
+	private Date _circularDate2;
 	private long _columnBitmask;
 	private VRCOPReportRepository _escapedModel;
 }

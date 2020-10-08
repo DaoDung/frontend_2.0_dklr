@@ -662,6 +662,191 @@ public class VRCOPProductionPlantEmployeeUtil {
 	}
 
 	/**
+	* Returns all the vrcop production plant employees where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @return the matching vrcop production plant employees
+	*/
+	public static List<VRCOPProductionPlantEmployee> findByDossierId_MtCore(
+		long dossierId, long mtCore) {
+		return getPersistence().findByDossierId_MtCore(dossierId, mtCore);
+	}
+
+	/**
+	* Returns a range of all the vrcop production plant employees where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPProductionPlantEmployeeModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vrcop production plant employees
+	* @param end the upper bound of the range of vrcop production plant employees (not inclusive)
+	* @return the range of matching vrcop production plant employees
+	*/
+	public static List<VRCOPProductionPlantEmployee> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end) {
+		return getPersistence()
+				   .findByDossierId_MtCore(dossierId, mtCore, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vrcop production plant employees where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPProductionPlantEmployeeModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vrcop production plant employees
+	* @param end the upper bound of the range of vrcop production plant employees (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vrcop production plant employees
+	*/
+	public static List<VRCOPProductionPlantEmployee> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator) {
+		return getPersistence()
+				   .findByDossierId_MtCore(dossierId, mtCore, start, end,
+			orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vrcop production plant employees where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPProductionPlantEmployeeModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vrcop production plant employees
+	* @param end the upper bound of the range of vrcop production plant employees (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vrcop production plant employees
+	*/
+	public static List<VRCOPProductionPlantEmployee> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByDossierId_MtCore(dossierId, mtCore, start, end,
+			orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vrcop production plant employee in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vrcop production plant employee
+	* @throws NoSuchVRCOPProductionPlantEmployeeException if a matching vrcop production plant employee could not be found
+	*/
+	public static VRCOPProductionPlantEmployee findByDossierId_MtCore_First(
+		long dossierId, long mtCore,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRCOPProductionPlantEmployeeException {
+		return getPersistence()
+				   .findByDossierId_MtCore_First(dossierId, mtCore,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the first vrcop production plant employee in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vrcop production plant employee, or <code>null</code> if a matching vrcop production plant employee could not be found
+	*/
+	public static VRCOPProductionPlantEmployee fetchByDossierId_MtCore_First(
+		long dossierId, long mtCore,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator) {
+		return getPersistence()
+				   .fetchByDossierId_MtCore_First(dossierId, mtCore,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last vrcop production plant employee in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vrcop production plant employee
+	* @throws NoSuchVRCOPProductionPlantEmployeeException if a matching vrcop production plant employee could not be found
+	*/
+	public static VRCOPProductionPlantEmployee findByDossierId_MtCore_Last(
+		long dossierId, long mtCore,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRCOPProductionPlantEmployeeException {
+		return getPersistence()
+				   .findByDossierId_MtCore_Last(dossierId, mtCore,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last vrcop production plant employee in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vrcop production plant employee, or <code>null</code> if a matching vrcop production plant employee could not be found
+	*/
+	public static VRCOPProductionPlantEmployee fetchByDossierId_MtCore_Last(
+		long dossierId, long mtCore,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator) {
+		return getPersistence()
+				   .fetchByDossierId_MtCore_Last(dossierId, mtCore,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the vrcop production plant employees before and after the current vrcop production plant employee in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param id the primary key of the current vrcop production plant employee
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vrcop production plant employee
+	* @throws NoSuchVRCOPProductionPlantEmployeeException if a vrcop production plant employee with the primary key could not be found
+	*/
+	public static VRCOPProductionPlantEmployee[] findByDossierId_MtCore_PrevAndNext(
+		long id, long dossierId, long mtCore,
+		OrderByComparator<VRCOPProductionPlantEmployee> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRCOPProductionPlantEmployeeException {
+		return getPersistence()
+				   .findByDossierId_MtCore_PrevAndNext(id, dossierId, mtCore,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the vrcop production plant employees where dossierId = &#63; and mtCore = &#63; from the database.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	*/
+	public static void removeByDossierId_MtCore(long dossierId, long mtCore) {
+		getPersistence().removeByDossierId_MtCore(dossierId, mtCore);
+	}
+
+	/**
+	* Returns the number of vrcop production plant employees where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @return the number of matching vrcop production plant employees
+	*/
+	public static int countByDossierId_MtCore(long dossierId, long mtCore) {
+		return getPersistence().countByDossierId_MtCore(dossierId, mtCore);
+	}
+
+	/**
 	* Caches the vrcop production plant employee in the entity cache if it is enabled.
 	*
 	* @param vrcopProductionPlantEmployee the vrcop production plant employee

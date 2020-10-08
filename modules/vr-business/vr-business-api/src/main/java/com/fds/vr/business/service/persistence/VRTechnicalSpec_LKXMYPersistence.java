@@ -612,6 +612,139 @@ public interface VRTechnicalSpec_LKXMYPersistence extends BasePersistence<VRTech
 	public int countByDossierId(long dossierId, long mtCore);
 
 	/**
+	* Returns all the vr technical spec_lkxmies where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @return the matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findBy_DossierId(
+		long dossierId);
+
+	/**
+	* Returns a range of all the vr technical spec_lkxmies where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_LKXMYModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_lkxmies
+	* @param end the upper bound of the range of vr technical spec_lkxmies (not inclusive)
+	* @return the range of matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findBy_DossierId(
+		long dossierId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_lkxmies where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_LKXMYModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_lkxmies
+	* @param end the upper bound of the range of vr technical spec_lkxmies (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findBy_DossierId(
+		long dossierId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_lkxmies where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_LKXMYModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_lkxmies
+	* @param end the upper bound of the range of vr technical spec_lkxmies (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findBy_DossierId(
+		long dossierId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr technical spec_lkxmy in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_lkxmy
+	* @throws NoSuchVRTechnicalSpec_LKXMYException if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY findBy_DossierId_First(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator)
+		throws NoSuchVRTechnicalSpec_LKXMYException;
+
+	/**
+	* Returns the first vr technical spec_lkxmy in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_lkxmy, or <code>null</code> if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY fetchBy_DossierId_First(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator);
+
+	/**
+	* Returns the last vr technical spec_lkxmy in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_lkxmy
+	* @throws NoSuchVRTechnicalSpec_LKXMYException if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY findBy_DossierId_Last(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator)
+		throws NoSuchVRTechnicalSpec_LKXMYException;
+
+	/**
+	* Returns the last vr technical spec_lkxmy in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_lkxmy, or <code>null</code> if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY fetchBy_DossierId_Last(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator);
+
+	/**
+	* Returns the vr technical spec_lkxmies before and after the current vr technical spec_lkxmy in the ordered set where dossierId = &#63;.
+	*
+	* @param id the primary key of the current vr technical spec_lkxmy
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr technical spec_lkxmy
+	* @throws NoSuchVRTechnicalSpec_LKXMYException if a vr technical spec_lkxmy with the primary key could not be found
+	*/
+	public VRTechnicalSpec_LKXMY[] findBy_DossierId_PrevAndNext(long id,
+		long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator)
+		throws NoSuchVRTechnicalSpec_LKXMYException;
+
+	/**
+	* Removes all the vr technical spec_lkxmies where dossierId = &#63; from the database.
+	*
+	* @param dossierId the dossier ID
+	*/
+	public void removeBy_DossierId(long dossierId);
+
+	/**
+	* Returns the number of vr technical spec_lkxmies where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @return the number of matching vr technical spec_lkxmies
+	*/
+	public int countBy_DossierId(long dossierId);
+
+	/**
 	* Returns all the vr technical spec_lkxmies where convertAssembleId = &#63;.
 	*
 	* @param convertAssembleId the convert assemble ID
@@ -884,6 +1017,143 @@ public interface VRTechnicalSpec_LKXMYPersistence extends BasePersistence<VRTech
 	* @return the number of matching vr technical spec_lkxmies
 	*/
 	public int countByReferenceUid(java.lang.String referenceUid);
+
+	/**
+	* Returns all the vr technical spec_lkxmies where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @return the matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId);
+
+	/**
+	* Returns a range of all the vr technical spec_lkxmies where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_LKXMYModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_lkxmies
+	* @param end the upper bound of the range of vr technical spec_lkxmies (not inclusive)
+	* @return the range of matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_lkxmies where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_LKXMYModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_lkxmies
+	* @param end the upper bound of the range of vr technical spec_lkxmies (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_lkxmies where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_LKXMYModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_lkxmies
+	* @param end the upper bound of the range of vr technical spec_lkxmies (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr technical spec_lkxmies
+	*/
+	public java.util.List<VRTechnicalSpec_LKXMY> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr technical spec_lkxmy in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_lkxmy
+	* @throws NoSuchVRTechnicalSpec_LKXMYException if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY findByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator)
+		throws NoSuchVRTechnicalSpec_LKXMYException;
+
+	/**
+	* Returns the first vr technical spec_lkxmy in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_lkxmy, or <code>null</code> if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY fetchByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator);
+
+	/**
+	* Returns the last vr technical spec_lkxmy in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_lkxmy
+	* @throws NoSuchVRTechnicalSpec_LKXMYException if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY findByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator)
+		throws NoSuchVRTechnicalSpec_LKXMYException;
+
+	/**
+	* Returns the last vr technical spec_lkxmy in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_lkxmy, or <code>null</code> if a matching vr technical spec_lkxmy could not be found
+	*/
+	public VRTechnicalSpec_LKXMY fetchByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator);
+
+	/**
+	* Returns the vr technical spec_lkxmies before and after the current vr technical spec_lkxmy in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param id the primary key of the current vr technical spec_lkxmy
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr technical spec_lkxmy
+	* @throws NoSuchVRTechnicalSpec_LKXMYException if a vr technical spec_lkxmy with the primary key could not be found
+	*/
+	public VRTechnicalSpec_LKXMY[] findByvehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_LKXMY> orderByComparator)
+		throws NoSuchVRTechnicalSpec_LKXMYException;
+
+	/**
+	* Removes all the vr technical spec_lkxmies where vehicleTypeCertificateId = &#63; from the database.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	*/
+	public void removeByvehicleTypeCertificateId(long vehicleTypeCertificateId);
+
+	/**
+	* Returns the number of vr technical spec_lkxmies where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @return the number of matching vr technical spec_lkxmies
+	*/
+	public int countByvehicleTypeCertificateId(long vehicleTypeCertificateId);
 
 	/**
 	* Caches the vr technical spec_lkxmy in the entity cache if it is enabled.

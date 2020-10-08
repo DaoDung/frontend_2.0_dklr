@@ -269,20 +269,18 @@ public class VRCOPProductionPlantEquipmentCacheModel implements CacheModel<VRCOP
 			vrcopProductionPlantEquipmentImpl.setEquipmentSerialNo(equipmentSerialNo);
 		}
 
-		if (productionYear == Long.MIN_VALUE) {
-			vrcopProductionPlantEquipmentImpl.setProductionYear(null);
+		if (productionYear == null) {
+			vrcopProductionPlantEquipmentImpl.setProductionYear(StringPool.BLANK);
 		}
 		else {
-			vrcopProductionPlantEquipmentImpl.setProductionYear(new Date(
-					productionYear));
+			vrcopProductionPlantEquipmentImpl.setProductionYear(productionYear);
 		}
 
-		if (registrationYear == Long.MIN_VALUE) {
-			vrcopProductionPlantEquipmentImpl.setRegistrationYear(null);
+		if (registrationYear == null) {
+			vrcopProductionPlantEquipmentImpl.setRegistrationYear(StringPool.BLANK);
 		}
 		else {
-			vrcopProductionPlantEquipmentImpl.setRegistrationYear(new Date(
-					registrationYear));
+			vrcopProductionPlantEquipmentImpl.setRegistrationYear(registrationYear);
 		}
 
 		vrcopProductionPlantEquipmentImpl.setMarkupXCG(markupXCG);
@@ -387,8 +385,8 @@ public class VRCOPProductionPlantEquipmentCacheModel implements CacheModel<VRCOP
 		modifyDate = objectInput.readLong();
 		syncDate = objectInput.readLong();
 		equipmentSerialNo = objectInput.readUTF();
-		productionYear = objectInput.readLong();
-		registrationYear = objectInput.readLong();
+		productionYear = objectInput.readUTF();
+		registrationYear = objectInput.readUTF();
 
 		markupXCG = objectInput.readLong();
 
@@ -521,8 +519,19 @@ public class VRCOPProductionPlantEquipmentCacheModel implements CacheModel<VRCOP
 			objectOutput.writeUTF(equipmentSerialNo);
 		}
 
-		objectOutput.writeLong(productionYear);
-		objectOutput.writeLong(registrationYear);
+		if (productionYear == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionYear);
+		}
+
+		if (registrationYear == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(registrationYear);
+		}
 
 		objectOutput.writeLong(markupXCG);
 
@@ -611,8 +620,8 @@ public class VRCOPProductionPlantEquipmentCacheModel implements CacheModel<VRCOP
 	public long modifyDate;
 	public long syncDate;
 	public String equipmentSerialNo;
-	public long productionYear;
-	public long registrationYear;
+	public String productionYear;
+	public String registrationYear;
 	public long markupXCG;
 	public long markupXCGNK;
 	public long markupSMRM;

@@ -66,7 +66,7 @@ public class VRIssueVehiclecertificateCacheModel implements CacheModel<VRIssueVe
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -86,10 +86,12 @@ public class VRIssueVehiclecertificateCacheModel implements CacheModel<VRIssueVe
 		sb.append(unitPrice);
 		sb.append(", totalProduct=");
 		sb.append(totalProduct);
-		sb.append(", certificaterecordno=");
-		sb.append(certificaterecordno);
-		sb.append(", productionexamreportno=");
-		sb.append(productionexamreportno);
+		sb.append(", certificateRecordNo=");
+		sb.append(certificateRecordNo);
+		sb.append(", productionExamReportNo=");
+		sb.append(productionExamReportNo);
+		sb.append(", certificateRecordDate=");
+		sb.append(certificateRecordDate);
 		sb.append(", modifyDate=");
 		sb.append(modifyDate);
 		sb.append(", syncDate=");
@@ -113,18 +115,26 @@ public class VRIssueVehiclecertificateCacheModel implements CacheModel<VRIssueVe
 		vrIssueVehiclecertificateImpl.setUnitPrice(unitPrice);
 		vrIssueVehiclecertificateImpl.setTotalProduct(totalProduct);
 
-		if (certificaterecordno == null) {
-			vrIssueVehiclecertificateImpl.setCertificaterecordno(StringPool.BLANK);
+		if (certificateRecordNo == null) {
+			vrIssueVehiclecertificateImpl.setCertificateRecordNo(StringPool.BLANK);
 		}
 		else {
-			vrIssueVehiclecertificateImpl.setCertificaterecordno(certificaterecordno);
+			vrIssueVehiclecertificateImpl.setCertificateRecordNo(certificateRecordNo);
 		}
 
-		if (productionexamreportno == null) {
-			vrIssueVehiclecertificateImpl.setProductionexamreportno(StringPool.BLANK);
+		if (productionExamReportNo == null) {
+			vrIssueVehiclecertificateImpl.setProductionExamReportNo(StringPool.BLANK);
 		}
 		else {
-			vrIssueVehiclecertificateImpl.setProductionexamreportno(productionexamreportno);
+			vrIssueVehiclecertificateImpl.setProductionExamReportNo(productionExamReportNo);
+		}
+
+		if (certificateRecordDate == Long.MIN_VALUE) {
+			vrIssueVehiclecertificateImpl.setCertificateRecordDate(null);
+		}
+		else {
+			vrIssueVehiclecertificateImpl.setCertificateRecordDate(new Date(
+					certificateRecordDate));
 		}
 
 		if (modifyDate == Long.MIN_VALUE) {
@@ -165,8 +175,9 @@ public class VRIssueVehiclecertificateCacheModel implements CacheModel<VRIssueVe
 		unitPrice = objectInput.readLong();
 
 		totalProduct = objectInput.readInt();
-		certificaterecordno = objectInput.readUTF();
-		productionexamreportno = objectInput.readUTF();
+		certificateRecordNo = objectInput.readUTF();
+		productionExamReportNo = objectInput.readUTF();
+		certificateRecordDate = objectInput.readLong();
 		modifyDate = objectInput.readLong();
 		syncDate = objectInput.readLong();
 	}
@@ -192,20 +203,21 @@ public class VRIssueVehiclecertificateCacheModel implements CacheModel<VRIssueVe
 
 		objectOutput.writeInt(totalProduct);
 
-		if (certificaterecordno == null) {
+		if (certificateRecordNo == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(certificaterecordno);
+			objectOutput.writeUTF(certificateRecordNo);
 		}
 
-		if (productionexamreportno == null) {
+		if (productionExamReportNo == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(productionexamreportno);
+			objectOutput.writeUTF(productionExamReportNo);
 		}
 
+		objectOutput.writeLong(certificateRecordDate);
 		objectOutput.writeLong(modifyDate);
 		objectOutput.writeLong(syncDate);
 	}
@@ -219,8 +231,9 @@ public class VRIssueVehiclecertificateCacheModel implements CacheModel<VRIssueVe
 	public long totalQuantity;
 	public long unitPrice;
 	public int totalProduct;
-	public String certificaterecordno;
-	public String productionexamreportno;
+	public String certificateRecordNo;
+	public String productionExamReportNo;
+	public long certificateRecordDate;
 	public long modifyDate;
 	public long syncDate;
 }

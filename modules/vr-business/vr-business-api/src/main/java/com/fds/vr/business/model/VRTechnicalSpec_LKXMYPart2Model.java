@@ -179,6 +179,20 @@ public interface VRTechnicalSpec_LKXMYPart2Model extends BaseModel<VRTechnicalSp
 	public void setDeliverableCode(String deliverableCode);
 
 	/**
+	 * Returns the vehicle type certificate ID of this vr technical spec_lkxmy part2.
+	 *
+	 * @return the vehicle type certificate ID of this vr technical spec_lkxmy part2
+	 */
+	public long getVehicleTypeCertificateId();
+
+	/**
+	 * Sets the vehicle type certificate ID of this vr technical spec_lkxmy part2.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID of this vr technical spec_lkxmy part2
+	 */
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId);
+
+	/**
 	 * Returns the lkxmy0507 of this vr technical spec_lkxmy part2.
 	 *
 	 * @return the lkxmy0507 of this vr technical spec_lkxmy part2

@@ -71,6 +71,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 			{ "referenceUid", Types.VARCHAR },
 			{ "dossierIdCTN", Types.VARCHAR },
 			{ "deliverableCode", Types.VARCHAR },
+			{ "vehicleTypeCertificateId", Types.BIGINT },
 			{ "XCG01598", Types.VARCHAR },
 			{ "XCG01599", Types.VARCHAR },
 			{ "XCG01600", Types.VARCHAR },
@@ -264,6 +265,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		TABLE_COLUMNS_MAP.put("referenceUid", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("dossierIdCTN", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("deliverableCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("vehicleTypeCertificateId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("XCG01598", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("XCG01599", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("XCG01600", Types.VARCHAR);
@@ -447,7 +449,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_technicalspec_xcg (id LONG not null primary key,mtCore LONG,convertassembleId LONG,dossierId LONG,dossierNo VARCHAR(75) null,referenceUid VARCHAR(75) null,dossierIdCTN VARCHAR(75) null,deliverableCode VARCHAR(75) null,XCG01598 VARCHAR(75) null,XCG01599 VARCHAR(75) null,XCG01600 VARCHAR(75) null,XCG01601 VARCHAR(75) null,XCG01602 VARCHAR(75) null,XCG01603 VARCHAR(75) null,XCG01923 VARCHAR(75) null,XCG01604 VARCHAR(75) null,XCG01924 VARCHAR(75) null,XCG01605 VARCHAR(75) null,XCG01606 VARCHAR(75) null,XCG01607 VARCHAR(75) null,XCG01608 VARCHAR(75) null,XCG01609 VARCHAR(75) null,XCG01925 VARCHAR(75) null,XCG01610 VARCHAR(75) null,XCG01926 VARCHAR(75) null,XCG01611 VARCHAR(75) null,XCG01612 VARCHAR(75) null,XCG01928 VARCHAR(75) null,XCG01613 VARCHAR(75) null,XCG01929 VARCHAR(75) null,XCG01614 VARCHAR(75) null,XCG01930 VARCHAR(75) null,XCG01615 VARCHAR(75) null,XCG01931 VARCHAR(75) null,XCG01616 VARCHAR(75) null,XCG01932 VARCHAR(75) null,XCG01617 VARCHAR(75) null,XCG01933 VARCHAR(75) null,XCG01618 VARCHAR(75) null,XCG01934 VARCHAR(75) null,XCG01619 VARCHAR(75) null,XCG01935 VARCHAR(75) null,XCG01620 VARCHAR(75) null,XCG01936 VARCHAR(75) null,XCG01621 VARCHAR(75) null,XCG01937 VARCHAR(75) null,XCG01622 VARCHAR(75) null,XCG01938 VARCHAR(75) null,XCG01623 VARCHAR(75) null,XCG01939 VARCHAR(75) null,XCG01624 VARCHAR(75) null,XCG01940 VARCHAR(75) null,XCG01625 VARCHAR(75) null,XCG01941 VARCHAR(75) null,XCG01626 VARCHAR(75) null,XCG01942 VARCHAR(75) null,XCG01627 VARCHAR(75) null,XCG01943 VARCHAR(75) null,XCG01628 VARCHAR(75) null,XCG01944 VARCHAR(75) null,XCG01630 VARCHAR(75) null,XCG01631 VARCHAR(75) null,XCG01632 VARCHAR(75) null,XCG01633 VARCHAR(75) null,XCG01634 VARCHAR(75) null,XCG01635 VARCHAR(75) null,XCG01636 VARCHAR(75) null,XCG01637 VARCHAR(75) null,XCG01638 VARCHAR(75) null,XCG01639 VARCHAR(75) null,XCG01640 VARCHAR(75) null,XCG01641 VARCHAR(75) null,XCG01642 VARCHAR(75) null,XCG01643 VARCHAR(75) null,XCG01644 VARCHAR(75) null,XCG01645 VARCHAR(75) null,XCG01646 VARCHAR(75) null,XCG01647 VARCHAR(75) null,XCG01648 VARCHAR(75) null,XCG01649 VARCHAR(75) null,XCG01650 VARCHAR(75) null,XCG01651 VARCHAR(75) null,XCG01652 VARCHAR(75) null,XCG01653 VARCHAR(75) null,XCG01654 VARCHAR(75) null,XCG01655 VARCHAR(75) null,XCG01656 VARCHAR(75) null,XCG01657 VARCHAR(75) null,XCG01658 VARCHAR(75) null,XCG01659 VARCHAR(75) null,XCG01660 VARCHAR(75) null,XCG01661 VARCHAR(75) null,XCG01662 VARCHAR(75) null,XCG01663 VARCHAR(75) null,XCG01664 VARCHAR(75) null,XCG01665 VARCHAR(75) null,XCG01666 VARCHAR(75) null,XCG01667 VARCHAR(75) null,XCG01668 VARCHAR(75) null,XCG01669 VARCHAR(75) null,XCG01670 VARCHAR(75) null,XCG01671 VARCHAR(75) null,XCG01672 VARCHAR(75) null,XCG01673 VARCHAR(75) null,XCG01674 VARCHAR(75) null,XCG01675 VARCHAR(75) null,XCG01676 VARCHAR(75) null,XCG01677 VARCHAR(75) null,XCG01678 VARCHAR(75) null,XCG01679 VARCHAR(75) null,XCG01680 VARCHAR(75) null,XCG01681 VARCHAR(75) null,XCG01682 VARCHAR(75) null,XCG01683 VARCHAR(75) null,XCG01684 VARCHAR(75) null,XCG01685 VARCHAR(75) null,XCG01686 VARCHAR(75) null,XCG01687 VARCHAR(75) null,XCG01688 VARCHAR(75) null,XCG01689 VARCHAR(75) null,XCG01690 VARCHAR(75) null,XCG01691 VARCHAR(75) null,XCG01692 VARCHAR(75) null,XCG01693 VARCHAR(75) null,XCG01694 VARCHAR(75) null,XCG01695 VARCHAR(75) null,XCG01696 VARCHAR(75) null,XCG01697 VARCHAR(75) null,XCG01698 VARCHAR(75) null,XCG01699 VARCHAR(75) null,XCG01700 VARCHAR(75) null,XCG01701 VARCHAR(75) null,XCG01702 VARCHAR(75) null,XCG01703 VARCHAR(75) null,XCG01704 VARCHAR(75) null,XCG01705 VARCHAR(75) null,XCG01706 VARCHAR(75) null,XCG01707 VARCHAR(75) null,XCG01708 VARCHAR(75) null,XCG01709 VARCHAR(75) null,XCG01710 VARCHAR(75) null,XCG01711 VARCHAR(75) null,XCG01712 VARCHAR(75) null,XCG01713 VARCHAR(75) null,XCG01714 VARCHAR(75) null,XCG01715 VARCHAR(75) null,XCG01716 VARCHAR(75) null,XCG01717 VARCHAR(75) null,XCG01718 VARCHAR(75) null,XCG01719 VARCHAR(75) null,XCG01720 VARCHAR(75) null,XCG01721 VARCHAR(75) null,XCG01722 VARCHAR(75) null,XCG01723 VARCHAR(75) null,XCG01724 VARCHAR(75) null,XCG01725 VARCHAR(75) null,XCG01726 VARCHAR(75) null,XCG01727 VARCHAR(75) null,XCG01728 VARCHAR(75) null,XCG01729 VARCHAR(75) null,XCG01730 VARCHAR(75) null,XCG01731 VARCHAR(75) null,XCG01732 VARCHAR(75) null,XCG01733 VARCHAR(75) null,XCG01734 VARCHAR(75) null,XCG01735 VARCHAR(75) null,XCG01736 VARCHAR(75) null,XCG01737 VARCHAR(75) null,XCG01738 VARCHAR(75) null,XCG01739 VARCHAR(75) null,XCG01740 VARCHAR(75) null,XCG01741 VARCHAR(75) null,XCG01742 VARCHAR(75) null,XCG01744 VARCHAR(75) null,XCG01745 VARCHAR(75) null,XCG01746 VARCHAR(75) null,XCG01747 VARCHAR(75) null,XCG01748 VARCHAR(75) null,XCG01749 VARCHAR(75) null,XCG01945 VARCHAR(75) null,XCG01750 VARCHAR(75) null,XCG01946 VARCHAR(75) null,XCG01751 VARCHAR(75) null,XCG01752 VARCHAR(75) null,XCG01753 VARCHAR(75) null,XCG01754 VARCHAR(75) null,XCG01756 VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_technicalspec_xcg (id LONG not null primary key,mtCore LONG,convertassembleId LONG,dossierId LONG,dossierNo VARCHAR(75) null,referenceUid VARCHAR(75) null,dossierIdCTN VARCHAR(75) null,deliverableCode VARCHAR(75) null,vehicleTypeCertificateId LONG,XCG01598 VARCHAR(75) null,XCG01599 VARCHAR(75) null,XCG01600 VARCHAR(75) null,XCG01601 VARCHAR(75) null,XCG01602 VARCHAR(75) null,XCG01603 VARCHAR(75) null,XCG01923 VARCHAR(75) null,XCG01604 VARCHAR(75) null,XCG01924 VARCHAR(75) null,XCG01605 VARCHAR(75) null,XCG01606 VARCHAR(75) null,XCG01607 VARCHAR(75) null,XCG01608 VARCHAR(75) null,XCG01609 VARCHAR(75) null,XCG01925 VARCHAR(75) null,XCG01610 VARCHAR(75) null,XCG01926 VARCHAR(75) null,XCG01611 VARCHAR(75) null,XCG01612 VARCHAR(75) null,XCG01928 VARCHAR(75) null,XCG01613 VARCHAR(75) null,XCG01929 VARCHAR(75) null,XCG01614 VARCHAR(75) null,XCG01930 VARCHAR(75) null,XCG01615 VARCHAR(75) null,XCG01931 VARCHAR(75) null,XCG01616 VARCHAR(75) null,XCG01932 VARCHAR(75) null,XCG01617 VARCHAR(75) null,XCG01933 VARCHAR(75) null,XCG01618 VARCHAR(75) null,XCG01934 VARCHAR(75) null,XCG01619 VARCHAR(75) null,XCG01935 VARCHAR(75) null,XCG01620 VARCHAR(75) null,XCG01936 VARCHAR(75) null,XCG01621 VARCHAR(75) null,XCG01937 VARCHAR(75) null,XCG01622 VARCHAR(75) null,XCG01938 VARCHAR(75) null,XCG01623 VARCHAR(75) null,XCG01939 VARCHAR(75) null,XCG01624 VARCHAR(75) null,XCG01940 VARCHAR(75) null,XCG01625 VARCHAR(75) null,XCG01941 VARCHAR(75) null,XCG01626 VARCHAR(75) null,XCG01942 VARCHAR(75) null,XCG01627 VARCHAR(75) null,XCG01943 VARCHAR(75) null,XCG01628 VARCHAR(75) null,XCG01944 VARCHAR(75) null,XCG01630 VARCHAR(75) null,XCG01631 VARCHAR(75) null,XCG01632 VARCHAR(75) null,XCG01633 VARCHAR(75) null,XCG01634 VARCHAR(75) null,XCG01635 VARCHAR(75) null,XCG01636 VARCHAR(75) null,XCG01637 VARCHAR(75) null,XCG01638 VARCHAR(75) null,XCG01639 VARCHAR(75) null,XCG01640 VARCHAR(75) null,XCG01641 VARCHAR(75) null,XCG01642 VARCHAR(75) null,XCG01643 VARCHAR(75) null,XCG01644 VARCHAR(75) null,XCG01645 VARCHAR(75) null,XCG01646 VARCHAR(75) null,XCG01647 VARCHAR(75) null,XCG01648 VARCHAR(75) null,XCG01649 VARCHAR(75) null,XCG01650 VARCHAR(75) null,XCG01651 VARCHAR(75) null,XCG01652 VARCHAR(75) null,XCG01653 VARCHAR(75) null,XCG01654 VARCHAR(75) null,XCG01655 VARCHAR(75) null,XCG01656 VARCHAR(75) null,XCG01657 VARCHAR(75) null,XCG01658 VARCHAR(75) null,XCG01659 VARCHAR(75) null,XCG01660 VARCHAR(75) null,XCG01661 VARCHAR(75) null,XCG01662 VARCHAR(75) null,XCG01663 VARCHAR(75) null,XCG01664 VARCHAR(75) null,XCG01665 VARCHAR(75) null,XCG01666 VARCHAR(75) null,XCG01667 VARCHAR(75) null,XCG01668 VARCHAR(75) null,XCG01669 VARCHAR(75) null,XCG01670 VARCHAR(75) null,XCG01671 VARCHAR(75) null,XCG01672 VARCHAR(75) null,XCG01673 VARCHAR(75) null,XCG01674 VARCHAR(75) null,XCG01675 VARCHAR(75) null,XCG01676 VARCHAR(75) null,XCG01677 VARCHAR(75) null,XCG01678 VARCHAR(75) null,XCG01679 VARCHAR(75) null,XCG01680 VARCHAR(75) null,XCG01681 VARCHAR(75) null,XCG01682 VARCHAR(75) null,XCG01683 VARCHAR(75) null,XCG01684 VARCHAR(75) null,XCG01685 VARCHAR(75) null,XCG01686 VARCHAR(75) null,XCG01687 VARCHAR(75) null,XCG01688 VARCHAR(75) null,XCG01689 VARCHAR(75) null,XCG01690 VARCHAR(75) null,XCG01691 VARCHAR(75) null,XCG01692 VARCHAR(75) null,XCG01693 VARCHAR(75) null,XCG01694 VARCHAR(75) null,XCG01695 VARCHAR(75) null,XCG01696 VARCHAR(75) null,XCG01697 VARCHAR(75) null,XCG01698 VARCHAR(75) null,XCG01699 VARCHAR(75) null,XCG01700 VARCHAR(75) null,XCG01701 VARCHAR(75) null,XCG01702 VARCHAR(75) null,XCG01703 VARCHAR(75) null,XCG01704 VARCHAR(75) null,XCG01705 VARCHAR(75) null,XCG01706 VARCHAR(75) null,XCG01707 VARCHAR(75) null,XCG01708 VARCHAR(75) null,XCG01709 VARCHAR(75) null,XCG01710 VARCHAR(75) null,XCG01711 VARCHAR(75) null,XCG01712 VARCHAR(75) null,XCG01713 VARCHAR(75) null,XCG01714 VARCHAR(75) null,XCG01715 VARCHAR(75) null,XCG01716 VARCHAR(75) null,XCG01717 VARCHAR(75) null,XCG01718 VARCHAR(75) null,XCG01719 VARCHAR(75) null,XCG01720 VARCHAR(75) null,XCG01721 VARCHAR(75) null,XCG01722 VARCHAR(75) null,XCG01723 VARCHAR(75) null,XCG01724 VARCHAR(75) null,XCG01725 VARCHAR(75) null,XCG01726 VARCHAR(75) null,XCG01727 VARCHAR(75) null,XCG01728 VARCHAR(75) null,XCG01729 VARCHAR(75) null,XCG01730 VARCHAR(75) null,XCG01731 VARCHAR(75) null,XCG01732 VARCHAR(75) null,XCG01733 VARCHAR(75) null,XCG01734 VARCHAR(75) null,XCG01735 VARCHAR(75) null,XCG01736 VARCHAR(75) null,XCG01737 VARCHAR(75) null,XCG01738 VARCHAR(75) null,XCG01739 VARCHAR(75) null,XCG01740 VARCHAR(75) null,XCG01741 VARCHAR(75) null,XCG01742 VARCHAR(75) null,XCG01744 VARCHAR(75) null,XCG01745 VARCHAR(75) null,XCG01746 VARCHAR(75) null,XCG01747 VARCHAR(75) null,XCG01748 VARCHAR(75) null,XCG01749 VARCHAR(75) null,XCG01945 VARCHAR(75) null,XCG01750 VARCHAR(75) null,XCG01946 VARCHAR(75) null,XCG01751 VARCHAR(75) null,XCG01752 VARCHAR(75) null,XCG01753 VARCHAR(75) null,XCG01754 VARCHAR(75) null,XCG01756 VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_technicalspec_xcg";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrTechnicalSpec_XCGPart5.modifyDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_technicalspec_xcg.modifyDate DESC";
@@ -470,7 +472,8 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 	public static final long DOSSIERNO_COLUMN_BITMASK = 16L;
 	public static final long MTCORE_COLUMN_BITMASK = 32L;
 	public static final long REFERENCEUID_COLUMN_BITMASK = 64L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 128L;
+	public static final long VEHICLETYPECERTIFICATEID_COLUMN_BITMASK = 128L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRTechnicalSpec_XCGPart5"));
 
@@ -519,6 +522,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		attributes.put("referenceUid", getReferenceUid());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("vehicleTypeCertificateId", getVehicleTypeCertificateId());
 		attributes.put("XCG01598", getXCG01598());
 		attributes.put("XCG01599", getXCG01599());
 		attributes.put("XCG01600", getXCG01600());
@@ -755,6 +759,13 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 
 		if (deliverableCode != null) {
 			setDeliverableCode(deliverableCode);
+		}
+
+		Long vehicleTypeCertificateId = (Long)attributes.get(
+				"vehicleTypeCertificateId");
+
+		if (vehicleTypeCertificateId != null) {
+			setVehicleTypeCertificateId(vehicleTypeCertificateId);
 		}
 
 		String XCG01598 = (String)attributes.get("XCG01598");
@@ -2018,6 +2029,28 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 
 	public String getOriginalDeliverableCode() {
 		return GetterUtil.getString(_originalDeliverableCode);
+	}
+
+	@Override
+	public long getVehicleTypeCertificateId() {
+		return _vehicleTypeCertificateId;
+	}
+
+	@Override
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_columnBitmask |= VEHICLETYPECERTIFICATEID_COLUMN_BITMASK;
+
+		if (!_setOriginalVehicleTypeCertificateId) {
+			_setOriginalVehicleTypeCertificateId = true;
+
+			_originalVehicleTypeCertificateId = _vehicleTypeCertificateId;
+		}
+
+		_vehicleTypeCertificateId = vehicleTypeCertificateId;
+	}
+
+	public long getOriginalVehicleTypeCertificateId() {
+		return _originalVehicleTypeCertificateId;
 	}
 
 	@Override
@@ -4766,6 +4799,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		vrTechnicalSpec_XCGPart5Impl.setReferenceUid(getReferenceUid());
 		vrTechnicalSpec_XCGPart5Impl.setDossierIdCTN(getDossierIdCTN());
 		vrTechnicalSpec_XCGPart5Impl.setDeliverableCode(getDeliverableCode());
+		vrTechnicalSpec_XCGPart5Impl.setVehicleTypeCertificateId(getVehicleTypeCertificateId());
 		vrTechnicalSpec_XCGPart5Impl.setXCG01598(getXCG01598());
 		vrTechnicalSpec_XCGPart5Impl.setXCG01599(getXCG01599());
 		vrTechnicalSpec_XCGPart5Impl.setXCG01600(getXCG01600());
@@ -5030,6 +5064,10 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 
 		vrTechnicalSpec_XCGPart5ModelImpl._originalDeliverableCode = vrTechnicalSpec_XCGPart5ModelImpl._deliverableCode;
 
+		vrTechnicalSpec_XCGPart5ModelImpl._originalVehicleTypeCertificateId = vrTechnicalSpec_XCGPart5ModelImpl._vehicleTypeCertificateId;
+
+		vrTechnicalSpec_XCGPart5ModelImpl._setOriginalVehicleTypeCertificateId = false;
+
 		vrTechnicalSpec_XCGPart5ModelImpl._columnBitmask = 0;
 	}
 
@@ -5076,6 +5114,8 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		if ((deliverableCode != null) && (deliverableCode.length() == 0)) {
 			vrTechnicalSpec_XCGPart5CacheModel.deliverableCode = null;
 		}
+
+		vrTechnicalSpec_XCGPart5CacheModel.vehicleTypeCertificateId = getVehicleTypeCertificateId();
 
 		vrTechnicalSpec_XCGPart5CacheModel.XCG01598 = getXCG01598();
 
@@ -6532,7 +6572,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(379);
+		StringBundler sb = new StringBundler(381);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -6550,6 +6590,8 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		sb.append(getDossierIdCTN());
 		sb.append(", deliverableCode=");
 		sb.append(getDeliverableCode());
+		sb.append(", vehicleTypeCertificateId=");
+		sb.append(getVehicleTypeCertificateId());
 		sb.append(", XCG01598=");
 		sb.append(getXCG01598());
 		sb.append(", XCG01599=");
@@ -6919,7 +6961,7 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(571);
+		StringBundler sb = new StringBundler(574);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRTechnicalSpec_XCGPart5");
@@ -6956,6 +6998,10 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 		sb.append(
 			"<column><column-name>deliverableCode</column-name><column-value><![CDATA[");
 		sb.append(getDeliverableCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>vehicleTypeCertificateId</column-name><column-value><![CDATA[");
+		sb.append(getVehicleTypeCertificateId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>XCG01598</column-name><column-value><![CDATA[");
@@ -7709,6 +7755,9 @@ public class VRTechnicalSpec_XCGPart5ModelImpl extends BaseModelImpl<VRTechnical
 	private String _originalDossierIdCTN;
 	private String _deliverableCode;
 	private String _originalDeliverableCode;
+	private long _vehicleTypeCertificateId;
+	private long _originalVehicleTypeCertificateId;
+	private boolean _setOriginalVehicleTypeCertificateId;
 	private String _XCG01598;
 	private String _XCG01599;
 	private String _XCG01600;

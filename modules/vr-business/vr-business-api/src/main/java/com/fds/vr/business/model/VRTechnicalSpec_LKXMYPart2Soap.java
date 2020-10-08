@@ -42,6 +42,7 @@ public class VRTechnicalSpec_LKXMYPart2Soap implements Serializable {
 		soapModel.setReferenceUid(model.getReferenceUid());
 		soapModel.setDossierIdCTN(model.getDossierIdCTN());
 		soapModel.setDeliverableCode(model.getDeliverableCode());
+		soapModel.setVehicleTypeCertificateId(model.getVehicleTypeCertificateId());
 		soapModel.setLKXMY0507(model.getLKXMY0507());
 		soapModel.setLKXMY0508(model.getLKXMY0508());
 		soapModel.setLKXMY0509(model.getLKXMY0509());
@@ -265,6 +266,14 @@ public class VRTechnicalSpec_LKXMYPart2Soap implements Serializable {
 
 	public void setDeliverableCode(String deliverableCode) {
 		_deliverableCode = deliverableCode;
+	}
+
+	public long getVehicleTypeCertificateId() {
+		return _vehicleTypeCertificateId;
+	}
+
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_vehicleTypeCertificateId = vehicleTypeCertificateId;
 	}
 
 	public String getLKXMY0507() {
@@ -1123,6 +1132,7 @@ public class VRTechnicalSpec_LKXMYPart2Soap implements Serializable {
 	private String _referenceUid;
 	private String _dossierIdCTN;
 	private String _deliverableCode;
+	private long _vehicleTypeCertificateId;
 	private String _LKXMY0507;
 	private String _LKXMY0508;
 	private String _LKXMY0509;

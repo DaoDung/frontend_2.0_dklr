@@ -67,18 +67,20 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(47);
+		StringBundler sb = new StringBundler(49);
 
 		sb.append("{id=");
 		sb.append(id);
-		sb.append(", mtcore=");
-		sb.append(mtcore);
+		sb.append(", mtCore=");
+		sb.append(mtCore);
+		sb.append(", dossierId=");
+		sb.append(dossierId);
 		sb.append(", issueId=");
 		sb.append(issueId);
 		sb.append(", issueVehicleCertificateId=");
 		sb.append(issueVehicleCertificateId);
-		sb.append(", vehiclecertificaterecordno=");
-		sb.append(vehiclecertificaterecordno);
+		sb.append(", vehicleCertificateRecordNo=");
+		sb.append(vehicleCertificateRecordNo);
 		sb.append(", equipmentName=");
 		sb.append(equipmentName);
 		sb.append(", equipmentType=");
@@ -103,14 +105,14 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 		sb.append(TotalNotUsed);
 		sb.append(", applicantNo=");
 		sb.append(applicantNo);
-		sb.append(", applicantname=");
-		sb.append(applicantname);
-		sb.append(", applicantaddress=");
-		sb.append(applicantaddress);
-		sb.append(", productionplantname=");
-		sb.append(productionplantname);
-		sb.append(", productionplantaddress=");
-		sb.append(productionplantaddress);
+		sb.append(", applicantName=");
+		sb.append(applicantName);
+		sb.append(", applicantAddress=");
+		sb.append(applicantAddress);
+		sb.append(", productionPlantName=");
+		sb.append(productionPlantName);
+		sb.append(", productionPlantAddress=");
+		sb.append(productionPlantAddress);
 		sb.append(", modifyDate=");
 		sb.append(modifyDate);
 		sb.append(", syncDate=");
@@ -125,15 +127,16 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 		VRIssueEquipmentCertificateImpl vrIssueEquipmentCertificateImpl = new VRIssueEquipmentCertificateImpl();
 
 		vrIssueEquipmentCertificateImpl.setId(id);
-		vrIssueEquipmentCertificateImpl.setMtcore(mtcore);
+		vrIssueEquipmentCertificateImpl.setMtCore(mtCore);
+		vrIssueEquipmentCertificateImpl.setDossierId(dossierId);
 		vrIssueEquipmentCertificateImpl.setIssueId(issueId);
 		vrIssueEquipmentCertificateImpl.setIssueVehicleCertificateId(issueVehicleCertificateId);
 
-		if (vehiclecertificaterecordno == null) {
-			vrIssueEquipmentCertificateImpl.setVehiclecertificaterecordno(StringPool.BLANK);
+		if (vehicleCertificateRecordNo == null) {
+			vrIssueEquipmentCertificateImpl.setVehicleCertificateRecordNo(StringPool.BLANK);
 		}
 		else {
-			vrIssueEquipmentCertificateImpl.setVehiclecertificaterecordno(vehiclecertificaterecordno);
+			vrIssueEquipmentCertificateImpl.setVehicleCertificateRecordNo(vehicleCertificateRecordNo);
 		}
 
 		if (equipmentName == null) {
@@ -191,32 +194,32 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 			vrIssueEquipmentCertificateImpl.setApplicantNo(applicantNo);
 		}
 
-		if (applicantname == null) {
-			vrIssueEquipmentCertificateImpl.setApplicantname(StringPool.BLANK);
+		if (applicantName == null) {
+			vrIssueEquipmentCertificateImpl.setApplicantName(StringPool.BLANK);
 		}
 		else {
-			vrIssueEquipmentCertificateImpl.setApplicantname(applicantname);
+			vrIssueEquipmentCertificateImpl.setApplicantName(applicantName);
 		}
 
-		if (applicantaddress == null) {
-			vrIssueEquipmentCertificateImpl.setApplicantaddress(StringPool.BLANK);
+		if (applicantAddress == null) {
+			vrIssueEquipmentCertificateImpl.setApplicantAddress(StringPool.BLANK);
 		}
 		else {
-			vrIssueEquipmentCertificateImpl.setApplicantaddress(applicantaddress);
+			vrIssueEquipmentCertificateImpl.setApplicantAddress(applicantAddress);
 		}
 
-		if (productionplantname == null) {
-			vrIssueEquipmentCertificateImpl.setProductionplantname(StringPool.BLANK);
+		if (productionPlantName == null) {
+			vrIssueEquipmentCertificateImpl.setProductionPlantName(StringPool.BLANK);
 		}
 		else {
-			vrIssueEquipmentCertificateImpl.setProductionplantname(productionplantname);
+			vrIssueEquipmentCertificateImpl.setProductionPlantName(productionPlantName);
 		}
 
-		if (productionplantaddress == null) {
-			vrIssueEquipmentCertificateImpl.setProductionplantaddress(StringPool.BLANK);
+		if (productionPlantAddress == null) {
+			vrIssueEquipmentCertificateImpl.setProductionPlantAddress(StringPool.BLANK);
 		}
 		else {
-			vrIssueEquipmentCertificateImpl.setProductionplantaddress(productionplantaddress);
+			vrIssueEquipmentCertificateImpl.setProductionPlantAddress(productionPlantAddress);
 		}
 
 		if (modifyDate == Long.MIN_VALUE) {
@@ -242,12 +245,14 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		id = objectInput.readLong();
 
-		mtcore = objectInput.readInt();
+		mtCore = objectInput.readLong();
+
+		dossierId = objectInput.readLong();
 
 		issueId = objectInput.readLong();
 
 		issueVehicleCertificateId = objectInput.readLong();
-		vehiclecertificaterecordno = objectInput.readUTF();
+		vehicleCertificateRecordNo = objectInput.readUTF();
 		equipmentName = objectInput.readUTF();
 		equipmentType = objectInput.readUTF();
 		equipmentCertificateType = objectInput.readUTF();
@@ -265,10 +270,10 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 
 		TotalNotUsed = objectInput.readInt();
 		applicantNo = objectInput.readUTF();
-		applicantname = objectInput.readUTF();
-		applicantaddress = objectInput.readUTF();
-		productionplantname = objectInput.readUTF();
-		productionplantaddress = objectInput.readUTF();
+		applicantName = objectInput.readUTF();
+		applicantAddress = objectInput.readUTF();
+		productionPlantName = objectInput.readUTF();
+		productionPlantAddress = objectInput.readUTF();
 		modifyDate = objectInput.readLong();
 		syncDate = objectInput.readLong();
 	}
@@ -278,17 +283,19 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 		throws IOException {
 		objectOutput.writeLong(id);
 
-		objectOutput.writeInt(mtcore);
+		objectOutput.writeLong(mtCore);
+
+		objectOutput.writeLong(dossierId);
 
 		objectOutput.writeLong(issueId);
 
 		objectOutput.writeLong(issueVehicleCertificateId);
 
-		if (vehiclecertificaterecordno == null) {
+		if (vehicleCertificateRecordNo == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(vehiclecertificaterecordno);
+			objectOutput.writeUTF(vehicleCertificateRecordNo);
 		}
 
 		if (equipmentName == null) {
@@ -350,32 +357,32 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 			objectOutput.writeUTF(applicantNo);
 		}
 
-		if (applicantname == null) {
+		if (applicantName == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(applicantname);
+			objectOutput.writeUTF(applicantName);
 		}
 
-		if (applicantaddress == null) {
+		if (applicantAddress == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(applicantaddress);
+			objectOutput.writeUTF(applicantAddress);
 		}
 
-		if (productionplantname == null) {
+		if (productionPlantName == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(productionplantname);
+			objectOutput.writeUTF(productionPlantName);
 		}
 
-		if (productionplantaddress == null) {
+		if (productionPlantAddress == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(productionplantaddress);
+			objectOutput.writeUTF(productionPlantAddress);
 		}
 
 		objectOutput.writeLong(modifyDate);
@@ -383,10 +390,11 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 	}
 
 	public long id;
-	public int mtcore;
+	public long mtCore;
+	public long dossierId;
 	public long issueId;
 	public long issueVehicleCertificateId;
-	public String vehiclecertificaterecordno;
+	public String vehicleCertificateRecordNo;
 	public String equipmentName;
 	public String equipmentType;
 	public String equipmentCertificateType;
@@ -399,10 +407,10 @@ public class VRIssueEquipmentCertificateCacheModel implements CacheModel<VRIssue
 	public int TotalInUse;
 	public int TotalNotUsed;
 	public String applicantNo;
-	public String applicantname;
-	public String applicantaddress;
-	public String productionplantname;
-	public String productionplantaddress;
+	public String applicantName;
+	public String applicantAddress;
+	public String productionPlantName;
+	public String productionPlantAddress;
 	public long modifyDate;
 	public long syncDate;
 }

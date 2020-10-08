@@ -35,10 +35,11 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 		VRIssueEquipmentCertificateSoap soapModel = new VRIssueEquipmentCertificateSoap();
 
 		soapModel.setId(model.getId());
-		soapModel.setMtcore(model.getMtcore());
+		soapModel.setMtCore(model.getMtCore());
+		soapModel.setDossierId(model.getDossierId());
 		soapModel.setIssueId(model.getIssueId());
 		soapModel.setIssueVehicleCertificateId(model.getIssueVehicleCertificateId());
-		soapModel.setVehiclecertificaterecordno(model.getVehiclecertificaterecordno());
+		soapModel.setVehicleCertificateRecordNo(model.getVehicleCertificateRecordNo());
 		soapModel.setEquipmentName(model.getEquipmentName());
 		soapModel.setEquipmentType(model.getEquipmentType());
 		soapModel.setEquipmentCertificateType(model.getEquipmentCertificateType());
@@ -51,10 +52,10 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 		soapModel.setTotalInUse(model.getTotalInUse());
 		soapModel.setTotalNotUsed(model.getTotalNotUsed());
 		soapModel.setApplicantNo(model.getApplicantNo());
-		soapModel.setApplicantname(model.getApplicantname());
-		soapModel.setApplicantaddress(model.getApplicantaddress());
-		soapModel.setProductionplantname(model.getProductionplantname());
-		soapModel.setProductionplantaddress(model.getProductionplantaddress());
+		soapModel.setApplicantName(model.getApplicantName());
+		soapModel.setApplicantAddress(model.getApplicantAddress());
+		soapModel.setProductionPlantName(model.getProductionPlantName());
+		soapModel.setProductionPlantAddress(model.getProductionPlantAddress());
 		soapModel.setModifyDate(model.getModifyDate());
 		soapModel.setSyncDate(model.getSyncDate());
 
@@ -120,12 +121,20 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 		_id = id;
 	}
 
-	public int getMtcore() {
-		return _mtcore;
+	public long getMtCore() {
+		return _mtCore;
 	}
 
-	public void setMtcore(int mtcore) {
-		_mtcore = mtcore;
+	public void setMtCore(long mtCore) {
+		_mtCore = mtCore;
+	}
+
+	public long getDossierId() {
+		return _dossierId;
+	}
+
+	public void setDossierId(long dossierId) {
+		_dossierId = dossierId;
 	}
 
 	public long getIssueId() {
@@ -144,12 +153,12 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 		_issueVehicleCertificateId = issueVehicleCertificateId;
 	}
 
-	public String getVehiclecertificaterecordno() {
-		return _vehiclecertificaterecordno;
+	public String getVehicleCertificateRecordNo() {
+		return _vehicleCertificateRecordNo;
 	}
 
-	public void setVehiclecertificaterecordno(String vehiclecertificaterecordno) {
-		_vehiclecertificaterecordno = vehiclecertificaterecordno;
+	public void setVehicleCertificateRecordNo(String vehicleCertificateRecordNo) {
+		_vehicleCertificateRecordNo = vehicleCertificateRecordNo;
 	}
 
 	public String getEquipmentName() {
@@ -250,36 +259,36 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 		_applicantNo = applicantNo;
 	}
 
-	public String getApplicantname() {
-		return _applicantname;
+	public String getApplicantName() {
+		return _applicantName;
 	}
 
-	public void setApplicantname(String applicantname) {
-		_applicantname = applicantname;
+	public void setApplicantName(String applicantName) {
+		_applicantName = applicantName;
 	}
 
-	public String getApplicantaddress() {
-		return _applicantaddress;
+	public String getApplicantAddress() {
+		return _applicantAddress;
 	}
 
-	public void setApplicantaddress(String applicantaddress) {
-		_applicantaddress = applicantaddress;
+	public void setApplicantAddress(String applicantAddress) {
+		_applicantAddress = applicantAddress;
 	}
 
-	public String getProductionplantname() {
-		return _productionplantname;
+	public String getProductionPlantName() {
+		return _productionPlantName;
 	}
 
-	public void setProductionplantname(String productionplantname) {
-		_productionplantname = productionplantname;
+	public void setProductionPlantName(String productionPlantName) {
+		_productionPlantName = productionPlantName;
 	}
 
-	public String getProductionplantaddress() {
-		return _productionplantaddress;
+	public String getProductionPlantAddress() {
+		return _productionPlantAddress;
 	}
 
-	public void setProductionplantaddress(String productionplantaddress) {
-		_productionplantaddress = productionplantaddress;
+	public void setProductionPlantAddress(String productionPlantAddress) {
+		_productionPlantAddress = productionPlantAddress;
 	}
 
 	public Date getModifyDate() {
@@ -299,10 +308,11 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 	}
 
 	private long _id;
-	private int _mtcore;
+	private long _mtCore;
+	private long _dossierId;
 	private long _issueId;
 	private long _issueVehicleCertificateId;
-	private String _vehiclecertificaterecordno;
+	private String _vehicleCertificateRecordNo;
 	private String _equipmentName;
 	private String _equipmentType;
 	private String _equipmentCertificateType;
@@ -315,10 +325,10 @@ public class VRIssueEquipmentCertificateSoap implements Serializable {
 	private int _TotalInUse;
 	private int _TotalNotUsed;
 	private String _applicantNo;
-	private String _applicantname;
-	private String _applicantaddress;
-	private String _productionplantname;
-	private String _productionplantaddress;
+	private String _applicantName;
+	private String _applicantAddress;
+	private String _productionPlantName;
+	private String _productionPlantAddress;
 	private Date _modifyDate;
 	private Date _syncDate;
 }

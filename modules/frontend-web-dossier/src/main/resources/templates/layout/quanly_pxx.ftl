@@ -106,51 +106,50 @@
               {{ pagePxx * 15 - 15 + props.index + 1 }}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              <v-chip label outline color="primary" small style="cursor: pointer;" @click="kiemKeAction(props.item)">{{props.item.btnText}}</v-chip>
+              <v-chip label outline color="primary" small style="cursor: pointer;" @click="kiemKeAction(props.item)">Kiểm kê</v-chip>
               <!-- <v-btn color="primary" small @click="kiemKeAction(props.item)">{{props.item.btnText}}</v-btn> -->
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.nam}}
+              {{props.item['nam'] || '---'}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.mauPhoi}}
+              {{props.item['stampType']}}
             </td>
             <td style="padding: 8px;;" class="text-xs-center">
-              {{props.item.soSerial}}
+              {{props.item['stampShortNo']}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.tuSo}}
+              {{props.item['serialStartNo']}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.denSo}}
+              {{props.item['serialEndNo']}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.nhapKho}}
+              {{props.item['subTotalInDocument']}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.xuatKho}}
+              {{parseInt(props.item['sum1']) + parseInt(props.item['sum2'])}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.tonTrenSo}}
+              {{props.item['sum3']}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.kiemKe}}
+              {{props.item['sum3']}}
             </td>
             <td style="padding: 8px;" class="text-xs-center">
-              <span v-if="props.item.chenhLechTang">
-                {{props.item.chenhLechTang}} <i class="material-icons" style="color: #8cea20; font-size: x-large;">arrow_drop_up</i>
+              <span v-if="tonTrenSo(props.item) >= 0">
+                {{tonTrenSo(props.item)}} <i class="material-icons" style="color: #8cea20; font-size: x-large;">arrow_drop_up</i>
               </span>
               <span v-else>
-                {{props.item.chenhLechGiam}} <i class="material-icons" style="color: #f13737; font-size: x-large;">arrow_drop_down</i>
+                {{Math.abs(tonTrenSo(props.item))}} <i class="material-icons" style="color: #f13737; font-size: x-large;">arrow_drop_down</i>
               </span>
             </td>
             <!-- <td style="padding: 8px;" class="text-xs-center">
               {{props.item.chenhLechGiam}}
             </td> -->
             <td style="padding: 8px;" class="text-xs-center">
-              {{props.item.ngayKiemKe}}
-              <br v-if="props.item.lyDo" />
-              {{props.item.lyDo}}
+              <#-- <br v-if="props.item.lyDo" />
+              {{props.item['remark']}} -->
             </td>
           </template>
         </v-data-table>

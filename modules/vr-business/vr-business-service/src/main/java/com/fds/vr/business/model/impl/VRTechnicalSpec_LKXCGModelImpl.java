@@ -440,7 +440,8 @@ public class VRTechnicalSpec_LKXCGModelImpl extends BaseModelImpl<VRTechnicalSpe
 	public static final long DOSSIERNO_COLUMN_BITMASK = 16L;
 	public static final long MTCORE_COLUMN_BITMASK = 32L;
 	public static final long REFERENCEUID_COLUMN_BITMASK = 64L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 128L;
+	public static final long VEHICLETYPECERTIFICATEID_COLUMN_BITMASK = 128L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRTechnicalSpec_LKXCG"));
 
@@ -1893,7 +1894,19 @@ public class VRTechnicalSpec_LKXCGModelImpl extends BaseModelImpl<VRTechnicalSpe
 
 	@Override
 	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_columnBitmask |= VEHICLETYPECERTIFICATEID_COLUMN_BITMASK;
+
+		if (!_setOriginalVehicleTypeCertificateId) {
+			_setOriginalVehicleTypeCertificateId = true;
+
+			_originalVehicleTypeCertificateId = _vehicleTypeCertificateId;
+		}
+
 		_vehicleTypeCertificateId = vehicleTypeCertificateId;
+	}
+
+	public long getOriginalVehicleTypeCertificateId() {
+		return _originalVehicleTypeCertificateId;
 	}
 
 	@Override
@@ -4651,6 +4664,10 @@ public class VRTechnicalSpec_LKXCGModelImpl extends BaseModelImpl<VRTechnicalSpe
 
 		vrTechnicalSpec_LKXCGModelImpl._originalDeliverableCode = vrTechnicalSpec_LKXCGModelImpl._deliverableCode;
 
+		vrTechnicalSpec_LKXCGModelImpl._originalVehicleTypeCertificateId = vrTechnicalSpec_LKXCGModelImpl._vehicleTypeCertificateId;
+
+		vrTechnicalSpec_LKXCGModelImpl._setOriginalVehicleTypeCertificateId = false;
+
 		vrTechnicalSpec_LKXCGModelImpl._columnBitmask = 0;
 	}
 
@@ -7115,6 +7132,8 @@ public class VRTechnicalSpec_LKXCGModelImpl extends BaseModelImpl<VRTechnicalSpe
 	private String _deliverableCode;
 	private String _originalDeliverableCode;
 	private long _vehicleTypeCertificateId;
+	private long _originalVehicleTypeCertificateId;
+	private boolean _setOriginalVehicleTypeCertificateId;
 	private String _XCG01001;
 	private String _XCG01002;
 	private String _XCG01003;

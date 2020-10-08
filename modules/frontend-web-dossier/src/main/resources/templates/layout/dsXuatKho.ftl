@@ -39,20 +39,20 @@
   		  	</template>
   	  		<template slot="items" slot-scope="props">
   	  		  	<td style="padding: 8px; padding-left: 0px;width: 3%; " class="text-xs-center">
-  	  		  		{{ pageDSPXK * 15 - 15 + props.index + 1 }}
-  	  		  	</td>
-  	  		  	<td style="padding: 8px;" class="text-xs-center">
-  	  		  		{{props.item.soPhieu}}
-  	  		  	</td>
-  	  		  	<td style="padding: 8px;;" class="text-xs-center">
-  	  		  		{{props.item.ngayXuat}}
-  	  		  	</td>
-  	  		  	<td style="padding: 8px;" class="text-xs-center">
-  	  		  		{{props.item.doiTuong}}
-  	  		  	</td>
-  	  		  	<td style="padding: 8px;" class="text-xs-center">
-  	  		  		{{props.item.trangThai}}
-  	  		  	</td>
+                {{ pageDSPXK * 15 - 15 + props.index + 1 }}
+              </td>
+              <td style="padding: 8px;" class="text-xs-center">
+                {{props.item['outputSheetNo']}}
+              </td>
+              <td style="padding: 8px;;" class="text-xs-center">
+                {{props.item['outputSheetDate']}}
+              </td>
+              <td style="padding: 8px;" class="text-xs-center">
+                {{props.item['vehicleClass']}}
+              </td>
+              <td style="padding: 8px;" class="text-xs-center">
+                {{(props.item['isApproval'] === 1 || props.item['isApproval'] === '1') ? 'Đã duyệt' : 'Chưa duyệt'}}
+              </td>
   	  		</template>
   			</v-data-table>
   			<v-pagination :length="lengthDSPXK" v-model="pageDSPXK" class="mt-3"></v-pagination>

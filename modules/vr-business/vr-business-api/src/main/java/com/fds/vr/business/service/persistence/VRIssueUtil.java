@@ -1416,255 +1416,255 @@ public class VRIssueUtil {
 	}
 
 	/**
-	* Returns all the vr issues where mtCore = &#63; and copreportno = &#63;.
+	* Returns all the vr issues where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @return the matching vr issues
 	*/
-	public static List<VRIssue> findBycopreportno(long mtCore,
-		java.lang.String copreportno) {
-		return getPersistence().findBycopreportno(mtCore, copreportno);
+	public static List<VRIssue> findBycopReportNo(long mtCore,
+		java.lang.String copReportNo) {
+		return getPersistence().findBycopReportNo(mtCore, copReportNo);
 	}
 
 	/**
-	* Returns a range of all the vr issues where mtCore = &#63; and copreportno = &#63;.
+	* Returns a range of all the vr issues where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param start the lower bound of the range of vr issues
 	* @param end the upper bound of the range of vr issues (not inclusive)
 	* @return the range of matching vr issues
 	*/
-	public static List<VRIssue> findBycopreportno(long mtCore,
-		java.lang.String copreportno, int start, int end) {
+	public static List<VRIssue> findBycopReportNo(long mtCore,
+		java.lang.String copReportNo, int start, int end) {
 		return getPersistence()
-				   .findBycopreportno(mtCore, copreportno, start, end);
+				   .findBycopReportNo(mtCore, copReportNo, start, end);
 	}
 
 	/**
-	* Returns an ordered range of all the vr issues where mtCore = &#63; and copreportno = &#63;.
+	* Returns an ordered range of all the vr issues where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param start the lower bound of the range of vr issues
 	* @param end the upper bound of the range of vr issues (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching vr issues
 	*/
-	public static List<VRIssue> findBycopreportno(long mtCore,
-		java.lang.String copreportno, int start, int end,
+	public static List<VRIssue> findBycopReportNo(long mtCore,
+		java.lang.String copReportNo, int start, int end,
 		OrderByComparator<VRIssue> orderByComparator) {
 		return getPersistence()
-				   .findBycopreportno(mtCore, copreportno, start, end,
+				   .findBycopReportNo(mtCore, copReportNo, start, end,
 			orderByComparator);
 	}
 
 	/**
-	* Returns an ordered range of all the vr issues where mtCore = &#63; and copreportno = &#63;.
+	* Returns an ordered range of all the vr issues where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param start the lower bound of the range of vr issues
 	* @param end the upper bound of the range of vr issues (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching vr issues
 	*/
-	public static List<VRIssue> findBycopreportno(long mtCore,
-		java.lang.String copreportno, int start, int end,
+	public static List<VRIssue> findBycopReportNo(long mtCore,
+		java.lang.String copReportNo, int start, int end,
 		OrderByComparator<VRIssue> orderByComparator, boolean retrieveFromCache) {
 		return getPersistence()
-				   .findBycopreportno(mtCore, copreportno, start, end,
+				   .findBycopReportNo(mtCore, copReportNo, start, end,
 			orderByComparator, retrieveFromCache);
 	}
 
 	/**
-	* Returns the first vr issue in the ordered set where mtCore = &#63; and copreportno = &#63;.
+	* Returns the first vr issue in the ordered set where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue
 	* @throws NoSuchVRIssueException if a matching vr issue could not be found
 	*/
-	public static VRIssue findBycopreportno_First(long mtCore,
-		java.lang.String copreportno,
+	public static VRIssue findBycopReportNo_First(long mtCore,
+		java.lang.String copReportNo,
 		OrderByComparator<VRIssue> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRIssueException {
 		return getPersistence()
-				   .findBycopreportno_First(mtCore, copreportno,
+				   .findBycopReportNo_First(mtCore, copReportNo,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the first vr issue in the ordered set where mtCore = &#63; and copreportno = &#63;.
+	* Returns the first vr issue in the ordered set where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue, or <code>null</code> if a matching vr issue could not be found
 	*/
-	public static VRIssue fetchBycopreportno_First(long mtCore,
-		java.lang.String copreportno,
+	public static VRIssue fetchBycopReportNo_First(long mtCore,
+		java.lang.String copReportNo,
 		OrderByComparator<VRIssue> orderByComparator) {
 		return getPersistence()
-				   .fetchBycopreportno_First(mtCore, copreportno,
+				   .fetchBycopReportNo_First(mtCore, copReportNo,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr issue in the ordered set where mtCore = &#63; and copreportno = &#63;.
+	* Returns the last vr issue in the ordered set where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue
 	* @throws NoSuchVRIssueException if a matching vr issue could not be found
 	*/
-	public static VRIssue findBycopreportno_Last(long mtCore,
-		java.lang.String copreportno,
+	public static VRIssue findBycopReportNo_Last(long mtCore,
+		java.lang.String copReportNo,
 		OrderByComparator<VRIssue> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRIssueException {
 		return getPersistence()
-				   .findBycopreportno_Last(mtCore, copreportno,
+				   .findBycopReportNo_Last(mtCore, copReportNo,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr issue in the ordered set where mtCore = &#63; and copreportno = &#63;.
+	* Returns the last vr issue in the ordered set where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue, or <code>null</code> if a matching vr issue could not be found
 	*/
-	public static VRIssue fetchBycopreportno_Last(long mtCore,
-		java.lang.String copreportno,
+	public static VRIssue fetchBycopReportNo_Last(long mtCore,
+		java.lang.String copReportNo,
 		OrderByComparator<VRIssue> orderByComparator) {
 		return getPersistence()
-				   .fetchBycopreportno_Last(mtCore, copreportno,
+				   .fetchBycopReportNo_Last(mtCore, copReportNo,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the vr issues before and after the current vr issue in the ordered set where mtCore = &#63; and copreportno = &#63;.
+	* Returns the vr issues before and after the current vr issue in the ordered set where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param id the primary key of the current vr issue
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr issue
 	* @throws NoSuchVRIssueException if a vr issue with the primary key could not be found
 	*/
-	public static VRIssue[] findBycopreportno_PrevAndNext(long id, long mtCore,
-		java.lang.String copreportno,
+	public static VRIssue[] findBycopReportNo_PrevAndNext(long id, long mtCore,
+		java.lang.String copReportNo,
 		OrderByComparator<VRIssue> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRIssueException {
 		return getPersistence()
-				   .findBycopreportno_PrevAndNext(id, mtCore, copreportno,
+				   .findBycopReportNo_PrevAndNext(id, mtCore, copReportNo,
 			orderByComparator);
 	}
 
 	/**
-	* Removes all the vr issues where mtCore = &#63; and copreportno = &#63; from the database.
+	* Removes all the vr issues where mtCore = &#63; and copReportNo = &#63; from the database.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	*/
-	public static void removeBycopreportno(long mtCore,
-		java.lang.String copreportno) {
-		getPersistence().removeBycopreportno(mtCore, copreportno);
+	public static void removeBycopReportNo(long mtCore,
+		java.lang.String copReportNo) {
+		getPersistence().removeBycopReportNo(mtCore, copReportNo);
 	}
 
 	/**
-	* Returns the number of vr issues where mtCore = &#63; and copreportno = &#63;.
+	* Returns the number of vr issues where mtCore = &#63; and copReportNo = &#63;.
 	*
 	* @param mtCore the mt core
-	* @param copreportno the copreportno
+	* @param copReportNo the cop report no
 	* @return the number of matching vr issues
 	*/
-	public static int countBycopreportno(long mtCore,
-		java.lang.String copreportno) {
-		return getPersistence().countBycopreportno(mtCore, copreportno);
+	public static int countBycopReportNo(long mtCore,
+		java.lang.String copReportNo) {
+		return getPersistence().countBycopReportNo(mtCore, copReportNo);
 	}
 
 	/**
-	* Returns all the vr issues where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns all the vr issues where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @return the matching vr issues
 	*/
 	public static List<VRIssue> findByIC_IS(long issueCorporationId,
-		int digitalissuestatus) {
+		int digitalIssueStatus) {
 		return getPersistence()
-				   .findByIC_IS(issueCorporationId, digitalissuestatus);
+				   .findByIC_IS(issueCorporationId, digitalIssueStatus);
 	}
 
 	/**
-	* Returns a range of all the vr issues where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns a range of all the vr issues where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param start the lower bound of the range of vr issues
 	* @param end the upper bound of the range of vr issues (not inclusive)
 	* @return the range of matching vr issues
 	*/
 	public static List<VRIssue> findByIC_IS(long issueCorporationId,
-		int digitalissuestatus, int start, int end) {
+		int digitalIssueStatus, int start, int end) {
 		return getPersistence()
-				   .findByIC_IS(issueCorporationId, digitalissuestatus, start,
+				   .findByIC_IS(issueCorporationId, digitalIssueStatus, start,
 			end);
 	}
 
 	/**
-	* Returns an ordered range of all the vr issues where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns an ordered range of all the vr issues where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param start the lower bound of the range of vr issues
 	* @param end the upper bound of the range of vr issues (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching vr issues
 	*/
 	public static List<VRIssue> findByIC_IS(long issueCorporationId,
-		int digitalissuestatus, int start, int end,
+		int digitalIssueStatus, int start, int end,
 		OrderByComparator<VRIssue> orderByComparator) {
 		return getPersistence()
-				   .findByIC_IS(issueCorporationId, digitalissuestatus, start,
+				   .findByIC_IS(issueCorporationId, digitalIssueStatus, start,
 			end, orderByComparator);
 	}
 
 	/**
-	* Returns an ordered range of all the vr issues where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns an ordered range of all the vr issues where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param start the lower bound of the range of vr issues
 	* @param end the upper bound of the range of vr issues (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -1672,118 +1672,118 @@ public class VRIssueUtil {
 	* @return the ordered range of matching vr issues
 	*/
 	public static List<VRIssue> findByIC_IS(long issueCorporationId,
-		int digitalissuestatus, int start, int end,
+		int digitalIssueStatus, int start, int end,
 		OrderByComparator<VRIssue> orderByComparator, boolean retrieveFromCache) {
 		return getPersistence()
-				   .findByIC_IS(issueCorporationId, digitalissuestatus, start,
+				   .findByIC_IS(issueCorporationId, digitalIssueStatus, start,
 			end, orderByComparator, retrieveFromCache);
 	}
 
 	/**
-	* Returns the first vr issue in the ordered set where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns the first vr issue in the ordered set where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue
 	* @throws NoSuchVRIssueException if a matching vr issue could not be found
 	*/
 	public static VRIssue findByIC_IS_First(long issueCorporationId,
-		int digitalissuestatus, OrderByComparator<VRIssue> orderByComparator)
+		int digitalIssueStatus, OrderByComparator<VRIssue> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRIssueException {
 		return getPersistence()
-				   .findByIC_IS_First(issueCorporationId, digitalissuestatus,
+				   .findByIC_IS_First(issueCorporationId, digitalIssueStatus,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the first vr issue in the ordered set where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns the first vr issue in the ordered set where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue, or <code>null</code> if a matching vr issue could not be found
 	*/
 	public static VRIssue fetchByIC_IS_First(long issueCorporationId,
-		int digitalissuestatus, OrderByComparator<VRIssue> orderByComparator) {
+		int digitalIssueStatus, OrderByComparator<VRIssue> orderByComparator) {
 		return getPersistence()
-				   .fetchByIC_IS_First(issueCorporationId, digitalissuestatus,
+				   .fetchByIC_IS_First(issueCorporationId, digitalIssueStatus,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr issue in the ordered set where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns the last vr issue in the ordered set where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue
 	* @throws NoSuchVRIssueException if a matching vr issue could not be found
 	*/
 	public static VRIssue findByIC_IS_Last(long issueCorporationId,
-		int digitalissuestatus, OrderByComparator<VRIssue> orderByComparator)
+		int digitalIssueStatus, OrderByComparator<VRIssue> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRIssueException {
 		return getPersistence()
-				   .findByIC_IS_Last(issueCorporationId, digitalissuestatus,
+				   .findByIC_IS_Last(issueCorporationId, digitalIssueStatus,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr issue in the ordered set where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns the last vr issue in the ordered set where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue, or <code>null</code> if a matching vr issue could not be found
 	*/
 	public static VRIssue fetchByIC_IS_Last(long issueCorporationId,
-		int digitalissuestatus, OrderByComparator<VRIssue> orderByComparator) {
+		int digitalIssueStatus, OrderByComparator<VRIssue> orderByComparator) {
 		return getPersistence()
-				   .fetchByIC_IS_Last(issueCorporationId, digitalissuestatus,
+				   .fetchByIC_IS_Last(issueCorporationId, digitalIssueStatus,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the vr issues before and after the current vr issue in the ordered set where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns the vr issues before and after the current vr issue in the ordered set where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param id the primary key of the current vr issue
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr issue
 	* @throws NoSuchVRIssueException if a vr issue with the primary key could not be found
 	*/
 	public static VRIssue[] findByIC_IS_PrevAndNext(long id,
-		long issueCorporationId, int digitalissuestatus,
+		long issueCorporationId, int digitalIssueStatus,
 		OrderByComparator<VRIssue> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRIssueException {
 		return getPersistence()
 				   .findByIC_IS_PrevAndNext(id, issueCorporationId,
-			digitalissuestatus, orderByComparator);
+			digitalIssueStatus, orderByComparator);
 	}
 
 	/**
-	* Removes all the vr issues where issueCorporationId = &#63; and digitalissuestatus = &#63; from the database.
+	* Removes all the vr issues where issueCorporationId = &#63; and digitalIssueStatus = &#63; from the database.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	*/
 	public static void removeByIC_IS(long issueCorporationId,
-		int digitalissuestatus) {
-		getPersistence().removeByIC_IS(issueCorporationId, digitalissuestatus);
+		int digitalIssueStatus) {
+		getPersistence().removeByIC_IS(issueCorporationId, digitalIssueStatus);
 	}
 
 	/**
-	* Returns the number of vr issues where issueCorporationId = &#63; and digitalissuestatus = &#63;.
+	* Returns the number of vr issues where issueCorporationId = &#63; and digitalIssueStatus = &#63;.
 	*
 	* @param issueCorporationId the issue corporation ID
-	* @param digitalissuestatus the digitalissuestatus
+	* @param digitalIssueStatus the digital issue status
 	* @return the number of matching vr issues
 	*/
 	public static int countByIC_IS(long issueCorporationId,
-		int digitalissuestatus) {
+		int digitalIssueStatus) {
 		return getPersistence()
-				   .countByIC_IS(issueCorporationId, digitalissuestatus);
+				   .countByIC_IS(issueCorporationId, digitalIssueStatus);
 	}
 
 	/**

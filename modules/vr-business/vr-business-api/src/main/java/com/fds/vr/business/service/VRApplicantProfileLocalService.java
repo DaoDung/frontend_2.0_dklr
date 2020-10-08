@@ -38,7 +38,6 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -77,9 +76,6 @@ public interface VRApplicantProfileLocalService extends BaseLocalService,
 	public VRApplicantProfile adminProcessData(JSONObject objectData,
 		long mtCore, java.lang.String applicantCode);
 
-	public VRApplicantProfile createVRApplicantProfile(
-		VRApplicantProfile object) throws SystemException;
-
 	/**
 	* Creates a new vr applicant profile with the primary key. Does not add the vr applicant profile to the database.
 	*
@@ -112,7 +108,7 @@ public interface VRApplicantProfileLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRApplicantProfile fetchVRApplicantProfile(long id);
 
-	public VRApplicantProfile findByMT_APP_CODE(long mtCore,
+	public VRApplicantProfile findByApplicantCode(
 		java.lang.String applicantCode);
 
 	/**
@@ -126,19 +122,15 @@ public interface VRApplicantProfileLocalService extends BaseLocalService,
 	public VRApplicantProfile getVRApplicantProfile(long id)
 		throws PortalException;
 
-	public VRApplicantProfile updateApplicantProfile(
-		LinkedHashMap<java.lang.String, java.lang.String> mapValues);
-
 	/**
 	* Updates the vr applicant profile in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param vrApplicantProfile the vr applicant profile
 	* @return the vr applicant profile that was updated
-	* @throws SystemException
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public VRApplicantProfile updateVRApplicantProfile(
-		VRApplicantProfile vrApplicantProfile) throws SystemException;
+		VRApplicantProfile vrApplicantProfile);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -218,27 +210,6 @@ public interface VRApplicantProfileLocalService extends BaseLocalService,
 	*/
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
-
-	public List<VRApplicantProfile> findByapplicantCity(long mtCore,
-		java.lang.String applicantCity) throws SystemException;
-
-	public List<VRApplicantProfile> findByapplicantCode(long mtCore,
-		java.lang.String applicantCode) throws SystemException;
-
-	public List<VRApplicantProfile> findByapplicantRegion(long mtCore,
-		java.lang.String applicantRegion) throws SystemException;
-
-	public List<VRApplicantProfile> findByapplicantStatus(long mtCore,
-		java.lang.String applicantStatus) throws SystemException;
-
-	public List<VRApplicantProfile> findBymappingMA_CTY(long mtCore,
-		java.lang.String mappingMA_CTY) throws SystemException;
-
-	public List<VRApplicantProfile> findBymappingStatus(long mtCore,
-		java.lang.String mappingStatus) throws SystemException;
-
-	public List<VRApplicantProfile> findBymappingTEN_CTY(long mtCore,
-		java.lang.String mappingTEN_CTY) throws SystemException;
 
 	/**
 	* Returns a range of all the vr applicant profiles.

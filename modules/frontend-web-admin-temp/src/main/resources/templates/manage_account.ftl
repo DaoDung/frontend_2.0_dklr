@@ -145,7 +145,14 @@
 						order: true
 					},
 					success : function (result) {
-						options.success(result);
+						if (result.data) {
+							options.success(result);
+						} else {
+							options.success({
+								data: [],
+								total: 0
+							});
+						}
 					},
 					error : function(xhr){
 						options.error(xhr);
@@ -177,7 +184,14 @@
 						lock : options.data.lock
 					},
 					success : function (result) {
-						options.success(result);
+						if (result.data) {
+							options.success(result);
+						} else {
+							options.success({
+								data: [],
+								total: 0
+							});
+						}
 					},
 					error : function(xhr){
 						options.error(xhr);

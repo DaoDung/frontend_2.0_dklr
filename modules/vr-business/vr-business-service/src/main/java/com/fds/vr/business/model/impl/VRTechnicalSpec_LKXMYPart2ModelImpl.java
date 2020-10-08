@@ -71,6 +71,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 			{ "referenceUid", Types.VARCHAR },
 			{ "dossierIdCTN", Types.VARCHAR },
 			{ "deliverableCode", Types.VARCHAR },
+			{ "vehicleTypeCertificateId", Types.BIGINT },
 			{ "LKXMY0507", Types.VARCHAR },
 			{ "LKXMY0508", Types.VARCHAR },
 			{ "LKXMY0509", Types.VARCHAR },
@@ -189,6 +190,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		TABLE_COLUMNS_MAP.put("referenceUid", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("dossierIdCTN", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("deliverableCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("vehicleTypeCertificateId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("LKXMY0507", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("LKXMY0508", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("LKXMY0509", Types.VARCHAR);
@@ -297,7 +299,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_technicalspec_lkxmy (id LONG not null primary key,mtCore LONG,convertassembleId LONG,dossierId LONG,dossierNo VARCHAR(75) null,referenceUid VARCHAR(75) null,dossierIdCTN VARCHAR(75) null,deliverableCode VARCHAR(75) null,LKXMY0507 VARCHAR(75) null,LKXMY0508 VARCHAR(75) null,LKXMY0509 VARCHAR(75) null,LKXMY0510 VARCHAR(75) null,LKXMY0511 VARCHAR(75) null,LKXMY0512 VARCHAR(75) null,LKXMY0513 VARCHAR(75) null,LKXMY0514 VARCHAR(75) null,LKXMY0515 VARCHAR(75) null,LKXMY0301 VARCHAR(75) null,LKXMY0302 VARCHAR(75) null,LKXMY0303 VARCHAR(75) null,LKXMY0304 VARCHAR(75) null,LKXMY0305 VARCHAR(75) null,LKXMY0306 VARCHAR(75) null,LKXMY0307 VARCHAR(75) null,LKXMY0308 VARCHAR(75) null,LKXMY0309 VARCHAR(75) null,LKXMY0310 VARCHAR(75) null,LKXMY0311 VARCHAR(75) null,LKXMY0312 VARCHAR(75) null,LKXMY0313 VARCHAR(75) null,LKXMY0314 VARCHAR(75) null,LKXMY0607 VARCHAR(75) null,LKXMY0608 VARCHAR(75) null,LKXMY0609 VARCHAR(75) null,LKXMY0610 VARCHAR(75) null,LKXMY0611 VARCHAR(75) null,LKXMY0612 VARCHAR(75) null,LKXMY0613 VARCHAR(75) null,LKXMY0614 VARCHAR(75) null,LKXMY0615 VARCHAR(75) null,LKXMY0616 VARCHAR(75) null,LKXMY0617 VARCHAR(75) null,LKXMY0618 VARCHAR(75) null,LKXMY0619 VARCHAR(75) null,LKXMY0906 VARCHAR(75) null,LKXMY0907 VARCHAR(75) null,LKXMY0908 VARCHAR(75) null,LKXMY0909 VARCHAR(75) null,LKXMY0910 VARCHAR(75) null,LKXMY0911 VARCHAR(75) null,LKXMY0912 VARCHAR(75) null,LKXMY0913 VARCHAR(75) null,LKXMY0914 VARCHAR(75) null,LKXMY0915 VARCHAR(75) null,LKXMY0916 VARCHAR(75) null,LKXMY0917 VARCHAR(75) null,LKXMY0918 VARCHAR(75) null,LKXMY1007 VARCHAR(75) null,LKXMY1008 VARCHAR(75) null,LKXMY1009 VARCHAR(75) null,LKXMY1010 VARCHAR(75) null,LKXMY1011 VARCHAR(75) null,LKXMY1012 VARCHAR(75) null,LKXMY1013 VARCHAR(75) null,LKXMY1014 VARCHAR(75) null,LKXMY1015 VARCHAR(75) null,LKXMY0807 VARCHAR(75) null,LKXMY0808 VARCHAR(75) null,LKXMY0809 VARCHAR(75) null,LKXMY0810 VARCHAR(75) null,LKXMY0811 VARCHAR(75) null,LKXMY0812 VARCHAR(75) null,LKXMY0813 VARCHAR(75) null,LKXMY0801 VARCHAR(75) null,LKXMY0802 VARCHAR(75) null,LKXMY0803 VARCHAR(75) null,LKXMY0804 VARCHAR(75) null,LKXMY0805 VARCHAR(75) null,BBLKXMY001 VARCHAR(75) null,BBLKXMY002 VARCHAR(75) null,BBLKXMY003 VARCHAR(75) null,BBLKXMY004 VARCHAR(75) null,BBLKXMY005 VARCHAR(75) null,BBLKXMY006 VARCHAR(75) null,BBLKXMY007 VARCHAR(75) null,BBLKXMY008 VARCHAR(75) null,BBLKXMY009 VARCHAR(75) null,BBLKXMY010 VARCHAR(75) null,BBLKXMY011 VARCHAR(75) null,BBLKXMY012 VARCHAR(75) null,BBLKXMY013 VARCHAR(75) null,BBLKXMY014 VARCHAR(75) null,BBLKXMY015 VARCHAR(75) null,BBLKXMY016 VARCHAR(75) null,BBLKXMY017 VARCHAR(75) null,BBLKXMY018 VARCHAR(75) null,BBLKXMY019 VARCHAR(75) null,BBLKXMY020 VARCHAR(75) null,BBLKXMY021 VARCHAR(75) null,BBLKXMY022 VARCHAR(75) null,BBLKXMY023 VARCHAR(75) null,BBLKXMY024 VARCHAR(75) null,BBLKXMY025 VARCHAR(75) null,BBLKXMY026 VARCHAR(75) null,BBLKXMY027 VARCHAR(75) null,BBLKXMY028 VARCHAR(75) null,BBLKXMY029 VARCHAR(75) null,BBLKXMY030 VARCHAR(75) null,BBLKXMY031 VARCHAR(75) null,BBLKXMY032 VARCHAR(75) null,BBLKXMY033 VARCHAR(75) null,BBLKXMY034 VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_technicalspec_lkxmy (id LONG not null primary key,mtCore LONG,convertassembleId LONG,dossierId LONG,dossierNo VARCHAR(75) null,referenceUid VARCHAR(75) null,dossierIdCTN VARCHAR(75) null,deliverableCode VARCHAR(75) null,vehicleTypeCertificateId LONG,LKXMY0507 VARCHAR(75) null,LKXMY0508 VARCHAR(75) null,LKXMY0509 VARCHAR(75) null,LKXMY0510 VARCHAR(75) null,LKXMY0511 VARCHAR(75) null,LKXMY0512 VARCHAR(75) null,LKXMY0513 VARCHAR(75) null,LKXMY0514 VARCHAR(75) null,LKXMY0515 VARCHAR(75) null,LKXMY0301 VARCHAR(75) null,LKXMY0302 VARCHAR(75) null,LKXMY0303 VARCHAR(75) null,LKXMY0304 VARCHAR(75) null,LKXMY0305 VARCHAR(75) null,LKXMY0306 VARCHAR(75) null,LKXMY0307 VARCHAR(75) null,LKXMY0308 VARCHAR(75) null,LKXMY0309 VARCHAR(75) null,LKXMY0310 VARCHAR(75) null,LKXMY0311 VARCHAR(75) null,LKXMY0312 VARCHAR(75) null,LKXMY0313 VARCHAR(75) null,LKXMY0314 VARCHAR(75) null,LKXMY0607 VARCHAR(75) null,LKXMY0608 VARCHAR(75) null,LKXMY0609 VARCHAR(75) null,LKXMY0610 VARCHAR(75) null,LKXMY0611 VARCHAR(75) null,LKXMY0612 VARCHAR(75) null,LKXMY0613 VARCHAR(75) null,LKXMY0614 VARCHAR(75) null,LKXMY0615 VARCHAR(75) null,LKXMY0616 VARCHAR(75) null,LKXMY0617 VARCHAR(75) null,LKXMY0618 VARCHAR(75) null,LKXMY0619 VARCHAR(75) null,LKXMY0906 VARCHAR(75) null,LKXMY0907 VARCHAR(75) null,LKXMY0908 VARCHAR(75) null,LKXMY0909 VARCHAR(75) null,LKXMY0910 VARCHAR(75) null,LKXMY0911 VARCHAR(75) null,LKXMY0912 VARCHAR(75) null,LKXMY0913 VARCHAR(75) null,LKXMY0914 VARCHAR(75) null,LKXMY0915 VARCHAR(75) null,LKXMY0916 VARCHAR(75) null,LKXMY0917 VARCHAR(75) null,LKXMY0918 VARCHAR(75) null,LKXMY1007 VARCHAR(75) null,LKXMY1008 VARCHAR(75) null,LKXMY1009 VARCHAR(75) null,LKXMY1010 VARCHAR(75) null,LKXMY1011 VARCHAR(75) null,LKXMY1012 VARCHAR(75) null,LKXMY1013 VARCHAR(75) null,LKXMY1014 VARCHAR(75) null,LKXMY1015 VARCHAR(75) null,LKXMY0807 VARCHAR(75) null,LKXMY0808 VARCHAR(75) null,LKXMY0809 VARCHAR(75) null,LKXMY0810 VARCHAR(75) null,LKXMY0811 VARCHAR(75) null,LKXMY0812 VARCHAR(75) null,LKXMY0813 VARCHAR(75) null,LKXMY0801 VARCHAR(75) null,LKXMY0802 VARCHAR(75) null,LKXMY0803 VARCHAR(75) null,LKXMY0804 VARCHAR(75) null,LKXMY0805 VARCHAR(75) null,BBLKXMY001 VARCHAR(75) null,BBLKXMY002 VARCHAR(75) null,BBLKXMY003 VARCHAR(75) null,BBLKXMY004 VARCHAR(75) null,BBLKXMY005 VARCHAR(75) null,BBLKXMY006 VARCHAR(75) null,BBLKXMY007 VARCHAR(75) null,BBLKXMY008 VARCHAR(75) null,BBLKXMY009 VARCHAR(75) null,BBLKXMY010 VARCHAR(75) null,BBLKXMY011 VARCHAR(75) null,BBLKXMY012 VARCHAR(75) null,BBLKXMY013 VARCHAR(75) null,BBLKXMY014 VARCHAR(75) null,BBLKXMY015 VARCHAR(75) null,BBLKXMY016 VARCHAR(75) null,BBLKXMY017 VARCHAR(75) null,BBLKXMY018 VARCHAR(75) null,BBLKXMY019 VARCHAR(75) null,BBLKXMY020 VARCHAR(75) null,BBLKXMY021 VARCHAR(75) null,BBLKXMY022 VARCHAR(75) null,BBLKXMY023 VARCHAR(75) null,BBLKXMY024 VARCHAR(75) null,BBLKXMY025 VARCHAR(75) null,BBLKXMY026 VARCHAR(75) null,BBLKXMY027 VARCHAR(75) null,BBLKXMY028 VARCHAR(75) null,BBLKXMY029 VARCHAR(75) null,BBLKXMY030 VARCHAR(75) null,BBLKXMY031 VARCHAR(75) null,BBLKXMY032 VARCHAR(75) null,BBLKXMY033 VARCHAR(75) null,BBLKXMY034 VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_technicalspec_lkxmy";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrTechnicalSpec_LKXMYPart2.modifyDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_technicalspec_lkxmy.modifyDate DESC";
@@ -320,7 +322,8 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 	public static final long DOSSIERNO_COLUMN_BITMASK = 16L;
 	public static final long MTCORE_COLUMN_BITMASK = 32L;
 	public static final long REFERENCEUID_COLUMN_BITMASK = 64L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 128L;
+	public static final long VEHICLETYPECERTIFICATEID_COLUMN_BITMASK = 128L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRTechnicalSpec_LKXMYPart2"));
 
@@ -369,6 +372,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		attributes.put("referenceUid", getReferenceUid());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("vehicleTypeCertificateId", getVehicleTypeCertificateId());
 		attributes.put("LKXMY0507", getLKXMY0507());
 		attributes.put("LKXMY0508", getLKXMY0508());
 		attributes.put("LKXMY0509", getLKXMY0509());
@@ -530,6 +534,13 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 
 		if (deliverableCode != null) {
 			setDeliverableCode(deliverableCode);
+		}
+
+		Long vehicleTypeCertificateId = (Long)attributes.get(
+				"vehicleTypeCertificateId");
+
+		if (vehicleTypeCertificateId != null) {
+			setVehicleTypeCertificateId(vehicleTypeCertificateId);
 		}
 
 		String LKXMY0507 = (String)attributes.get("LKXMY0507");
@@ -1343,6 +1354,28 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 
 	public String getOriginalDeliverableCode() {
 		return GetterUtil.getString(_originalDeliverableCode);
+	}
+
+	@Override
+	public long getVehicleTypeCertificateId() {
+		return _vehicleTypeCertificateId;
+	}
+
+	@Override
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_columnBitmask |= VEHICLETYPECERTIFICATEID_COLUMN_BITMASK;
+
+		if (!_setOriginalVehicleTypeCertificateId) {
+			_setOriginalVehicleTypeCertificateId = true;
+
+			_originalVehicleTypeCertificateId = _vehicleTypeCertificateId;
+		}
+
+		_vehicleTypeCertificateId = vehicleTypeCertificateId;
+	}
+
+	public long getOriginalVehicleTypeCertificateId() {
+		return _originalVehicleTypeCertificateId;
 	}
 
 	@Override
@@ -2966,6 +2999,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		vrTechnicalSpec_LKXMYPart2Impl.setReferenceUid(getReferenceUid());
 		vrTechnicalSpec_LKXMYPart2Impl.setDossierIdCTN(getDossierIdCTN());
 		vrTechnicalSpec_LKXMYPart2Impl.setDeliverableCode(getDeliverableCode());
+		vrTechnicalSpec_LKXMYPart2Impl.setVehicleTypeCertificateId(getVehicleTypeCertificateId());
 		vrTechnicalSpec_LKXMYPart2Impl.setLKXMY0507(getLKXMY0507());
 		vrTechnicalSpec_LKXMYPart2Impl.setLKXMY0508(getLKXMY0508());
 		vrTechnicalSpec_LKXMYPart2Impl.setLKXMY0509(getLKXMY0509());
@@ -3155,6 +3189,10 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 
 		vrTechnicalSpec_LKXMYPart2ModelImpl._originalDeliverableCode = vrTechnicalSpec_LKXMYPart2ModelImpl._deliverableCode;
 
+		vrTechnicalSpec_LKXMYPart2ModelImpl._originalVehicleTypeCertificateId = vrTechnicalSpec_LKXMYPart2ModelImpl._vehicleTypeCertificateId;
+
+		vrTechnicalSpec_LKXMYPart2ModelImpl._setOriginalVehicleTypeCertificateId = false;
+
 		vrTechnicalSpec_LKXMYPart2ModelImpl._columnBitmask = 0;
 	}
 
@@ -3202,6 +3240,8 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		if ((deliverableCode != null) && (deliverableCode.length() == 0)) {
 			vrTechnicalSpec_LKXMYPart2CacheModel.deliverableCode = null;
 		}
+
+		vrTechnicalSpec_LKXMYPart2CacheModel.vehicleTypeCertificateId = getVehicleTypeCertificateId();
 
 		vrTechnicalSpec_LKXMYPart2CacheModel.LKXMY0507 = getLKXMY0507();
 
@@ -4058,7 +4098,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(229);
+		StringBundler sb = new StringBundler(231);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -4076,6 +4116,8 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		sb.append(getDossierIdCTN());
 		sb.append(", deliverableCode=");
 		sb.append(getDeliverableCode());
+		sb.append(", vehicleTypeCertificateId=");
+		sb.append(getVehicleTypeCertificateId());
 		sb.append(", LKXMY0507=");
 		sb.append(getLKXMY0507());
 		sb.append(", LKXMY0508=");
@@ -4295,7 +4337,7 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(346);
+		StringBundler sb = new StringBundler(349);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRTechnicalSpec_LKXMYPart2");
@@ -4332,6 +4374,10 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 		sb.append(
 			"<column><column-name>deliverableCode</column-name><column-value><![CDATA[");
 		sb.append(getDeliverableCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>vehicleTypeCertificateId</column-name><column-value><![CDATA[");
+		sb.append(getVehicleTypeCertificateId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>LKXMY0507</column-name><column-value><![CDATA[");
@@ -4785,6 +4831,9 @@ public class VRTechnicalSpec_LKXMYPart2ModelImpl extends BaseModelImpl<VRTechnic
 	private String _originalDossierIdCTN;
 	private String _deliverableCode;
 	private String _originalDeliverableCode;
+	private long _vehicleTypeCertificateId;
+	private long _originalVehicleTypeCertificateId;
+	private boolean _setOriginalVehicleTypeCertificateId;
 	private String _LKXMY0507;
 	private String _LKXMY0508;
 	private String _LKXMY0509;

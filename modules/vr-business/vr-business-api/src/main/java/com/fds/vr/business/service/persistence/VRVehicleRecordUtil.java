@@ -1270,6 +1270,161 @@ public class VRVehicleRecordUtil {
 	}
 
 	/**
+	* Returns all the vr vehicle records where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @return the matching vr vehicle records
+	*/
+	public static List<VRVehicleRecord> findByissueId(long issueId) {
+		return getPersistence().findByissueId(issueId);
+	}
+
+	/**
+	* Returns a range of all the vr vehicle records where issueId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param issueId the issue ID
+	* @param start the lower bound of the range of vr vehicle records
+	* @param end the upper bound of the range of vr vehicle records (not inclusive)
+	* @return the range of matching vr vehicle records
+	*/
+	public static List<VRVehicleRecord> findByissueId(long issueId, int start,
+		int end) {
+		return getPersistence().findByissueId(issueId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vr vehicle records where issueId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param issueId the issue ID
+	* @param start the lower bound of the range of vr vehicle records
+	* @param end the upper bound of the range of vr vehicle records (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr vehicle records
+	*/
+	public static List<VRVehicleRecord> findByissueId(long issueId, int start,
+		int end, OrderByComparator<VRVehicleRecord> orderByComparator) {
+		return getPersistence()
+				   .findByissueId(issueId, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vr vehicle records where issueId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param issueId the issue ID
+	* @param start the lower bound of the range of vr vehicle records
+	* @param end the upper bound of the range of vr vehicle records (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr vehicle records
+	*/
+	public static List<VRVehicleRecord> findByissueId(long issueId, int start,
+		int end, OrderByComparator<VRVehicleRecord> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByissueId(issueId, start, end, orderByComparator,
+			retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vr vehicle record in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr vehicle record
+	* @throws NoSuchVRVehicleRecordException if a matching vr vehicle record could not be found
+	*/
+	public static VRVehicleRecord findByissueId_First(long issueId,
+		OrderByComparator<VRVehicleRecord> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleRecordException {
+		return getPersistence().findByissueId_First(issueId, orderByComparator);
+	}
+
+	/**
+	* Returns the first vr vehicle record in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr vehicle record, or <code>null</code> if a matching vr vehicle record could not be found
+	*/
+	public static VRVehicleRecord fetchByissueId_First(long issueId,
+		OrderByComparator<VRVehicleRecord> orderByComparator) {
+		return getPersistence().fetchByissueId_First(issueId, orderByComparator);
+	}
+
+	/**
+	* Returns the last vr vehicle record in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr vehicle record
+	* @throws NoSuchVRVehicleRecordException if a matching vr vehicle record could not be found
+	*/
+	public static VRVehicleRecord findByissueId_Last(long issueId,
+		OrderByComparator<VRVehicleRecord> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleRecordException {
+		return getPersistence().findByissueId_Last(issueId, orderByComparator);
+	}
+
+	/**
+	* Returns the last vr vehicle record in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr vehicle record, or <code>null</code> if a matching vr vehicle record could not be found
+	*/
+	public static VRVehicleRecord fetchByissueId_Last(long issueId,
+		OrderByComparator<VRVehicleRecord> orderByComparator) {
+		return getPersistence().fetchByissueId_Last(issueId, orderByComparator);
+	}
+
+	/**
+	* Returns the vr vehicle records before and after the current vr vehicle record in the ordered set where issueId = &#63;.
+	*
+	* @param id the primary key of the current vr vehicle record
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr vehicle record
+	* @throws NoSuchVRVehicleRecordException if a vr vehicle record with the primary key could not be found
+	*/
+	public static VRVehicleRecord[] findByissueId_PrevAndNext(long id,
+		long issueId, OrderByComparator<VRVehicleRecord> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleRecordException {
+		return getPersistence()
+				   .findByissueId_PrevAndNext(id, issueId, orderByComparator);
+	}
+
+	/**
+	* Removes all the vr vehicle records where issueId = &#63; from the database.
+	*
+	* @param issueId the issue ID
+	*/
+	public static void removeByissueId(long issueId) {
+		getPersistence().removeByissueId(issueId);
+	}
+
+	/**
+	* Returns the number of vr vehicle records where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @return the number of matching vr vehicle records
+	*/
+	public static int countByissueId(long issueId) {
+		return getPersistence().countByissueId(issueId);
+	}
+
+	/**
 	* Caches the vr vehicle record in the entity cache if it is enabled.
 	*
 	* @param vrVehicleRecord the vr vehicle record

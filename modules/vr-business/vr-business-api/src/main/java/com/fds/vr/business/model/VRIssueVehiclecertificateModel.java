@@ -189,34 +189,48 @@ public interface VRIssueVehiclecertificateModel extends BaseModel<VRIssueVehicle
 	public void setTotalProduct(int totalProduct);
 
 	/**
-	 * Returns the certificaterecordno of this vr issue vehiclecertificate.
+	 * Returns the certificate record no of this vr issue vehiclecertificate.
 	 *
-	 * @return the certificaterecordno of this vr issue vehiclecertificate
+	 * @return the certificate record no of this vr issue vehiclecertificate
 	 */
 	@AutoEscape
-	public String getCertificaterecordno();
+	public String getCertificateRecordNo();
 
 	/**
-	 * Sets the certificaterecordno of this vr issue vehiclecertificate.
+	 * Sets the certificate record no of this vr issue vehiclecertificate.
 	 *
-	 * @param certificaterecordno the certificaterecordno of this vr issue vehiclecertificate
+	 * @param certificateRecordNo the certificate record no of this vr issue vehiclecertificate
 	 */
-	public void setCertificaterecordno(String certificaterecordno);
+	public void setCertificateRecordNo(String certificateRecordNo);
 
 	/**
-	 * Returns the productionexamreportno of this vr issue vehiclecertificate.
+	 * Returns the production exam report no of this vr issue vehiclecertificate.
 	 *
-	 * @return the productionexamreportno of this vr issue vehiclecertificate
+	 * @return the production exam report no of this vr issue vehiclecertificate
 	 */
 	@AutoEscape
-	public String getProductionexamreportno();
+	public String getProductionExamReportNo();
 
 	/**
-	 * Sets the productionexamreportno of this vr issue vehiclecertificate.
+	 * Sets the production exam report no of this vr issue vehiclecertificate.
 	 *
-	 * @param productionexamreportno the productionexamreportno of this vr issue vehiclecertificate
+	 * @param productionExamReportNo the production exam report no of this vr issue vehiclecertificate
 	 */
-	public void setProductionexamreportno(String productionexamreportno);
+	public void setProductionExamReportNo(String productionExamReportNo);
+
+	/**
+	 * Returns the certificate record date of this vr issue vehiclecertificate.
+	 *
+	 * @return the certificate record date of this vr issue vehiclecertificate
+	 */
+	public Date getCertificateRecordDate();
+
+	/**
+	 * Sets the certificate record date of this vr issue vehiclecertificate.
+	 *
+	 * @param certificateRecordDate the certificate record date of this vr issue vehiclecertificate
+	 */
+	public void setCertificateRecordDate(Date certificateRecordDate);
 
 	/**
 	 * Returns the modify date of this vr issue vehiclecertificate.

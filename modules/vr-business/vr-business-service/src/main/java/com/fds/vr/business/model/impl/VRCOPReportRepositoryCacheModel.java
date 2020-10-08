@@ -66,7 +66,7 @@ public class VRCOPReportRepositoryCacheModel implements CacheModel<VRCOPReportRe
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(115);
+		StringBundler sb = new StringBundler(249);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -182,6 +182,140 @@ public class VRCOPReportRepositoryCacheModel implements CacheModel<VRCOPReportRe
 		sb.append(dossierIdCTN);
 		sb.append(", dossierNo=");
 		sb.append(dossierNo);
+		sb.append(", applicantEmail=");
+		sb.append(applicantEmail);
+		sb.append(", applicantPhone=");
+		sb.append(applicantPhone);
+		sb.append(", applicantTelNo=");
+		sb.append(applicantTelNo);
+		sb.append(", applicantFax=");
+		sb.append(applicantFax);
+		sb.append(", applicantContactName=");
+		sb.append(applicantContactName);
+		sb.append(", applicantContactEmail=");
+		sb.append(applicantContactEmail);
+		sb.append(", applicantContactPhone=");
+		sb.append(applicantContactPhone);
+		sb.append(", applicantContactTelNo=");
+		sb.append(applicantContactTelNo);
+		sb.append(", applicantBusinessType=");
+		sb.append(applicantBusinessType);
+		sb.append(", markupDesigner=");
+		sb.append(markupDesigner);
+		sb.append(", markupOverseasManufacturer=");
+		sb.append(markupOverseasManufacturer);
+		sb.append(", markupMaintainer=");
+		sb.append(markupMaintainer);
+		sb.append(", importerDomesticSite=");
+		sb.append(importerDomesticSite);
+		sb.append(", siteOfNationality=");
+		sb.append(siteOfNationality);
+		sb.append(", siteOfNationalityCode=");
+		sb.append(siteOfNationalityCode);
+		sb.append(", siteOfRegion=");
+		sb.append(siteOfRegion);
+		sb.append(", siteOfRegionCode=");
+		sb.append(siteOfRegionCode);
+		sb.append(", siteOfCity=");
+		sb.append(siteOfCity);
+		sb.append(", siteOfCityCode=");
+		sb.append(siteOfCityCode);
+		sb.append(", manufacturerRepresentative=");
+		sb.append(manufacturerRepresentative);
+		sb.append(", manufacturerRepresentativeTitle=");
+		sb.append(manufacturerRepresentativeTitle);
+		sb.append(", manufacturerEmail=");
+		sb.append(manufacturerEmail);
+		sb.append(", manufacturerPhone=");
+		sb.append(manufacturerPhone);
+		sb.append(", manufacturerFax=");
+		sb.append(manufacturerFax);
+		sb.append(", productionPlantEmail=");
+		sb.append(productionPlantEmail);
+		sb.append(", productionPlantWebsite=");
+		sb.append(productionPlantWebsite);
+		sb.append(", productionPlantRepresentative=");
+		sb.append(productionPlantRepresentative);
+		sb.append(", productionPlantRepresentativeTitle=");
+		sb.append(productionPlantRepresentativeTitle);
+		sb.append(", corporationName=");
+		sb.append(corporationName);
+		sb.append(", inspectorContactCode=");
+		sb.append(inspectorContactCode);
+		sb.append(", inspectorName=");
+		sb.append(inspectorName);
+		sb.append(", inspectoRendorSementDate=");
+		sb.append(inspectoRendorSementDate);
+		sb.append(", inspectorDeadline=");
+		sb.append(inspectorDeadline);
+		sb.append(", resolvedStatus=");
+		sb.append(resolvedStatus);
+		sb.append(", numberOfNonConformity=");
+		sb.append(numberOfNonConformity);
+		sb.append(", numberOfResolved=");
+		sb.append(numberOfResolved);
+		sb.append(", observationDescription=");
+		sb.append(observationDescription);
+		sb.append(", inspectionAuditCycle=");
+		sb.append(inspectionAuditCycle);
+		sb.append(", inspectionNote=");
+		sb.append(inspectionNote);
+		sb.append(", productionConformityChecking=");
+		sb.append(productionConformityChecking);
+		sb.append(", productionStampChecking=");
+		sb.append(productionStampChecking);
+		sb.append(", testingEquipmentChecking=");
+		sb.append(testingEquipmentChecking);
+		sb.append(", productionPlantClassification=");
+		sb.append(productionPlantClassification);
+		sb.append(", actualCapacity=");
+		sb.append(actualCapacity);
+		sb.append(", maxCapacity=");
+		sb.append(maxCapacity);
+		sb.append(", averageCapacity=");
+		sb.append(averageCapacity);
+		sb.append(", totalEmployee=");
+		sb.append(totalEmployee);
+		sb.append(", totalWorker=");
+		sb.append(totalWorker);
+		sb.append(", totalManager=");
+		sb.append(totalManager);
+		sb.append(", totalTechnical=");
+		sb.append(totalTechnical);
+		sb.append(", totalQaEmployee=");
+		sb.append(totalQaEmployee);
+		sb.append(", totalSquareMeter=");
+		sb.append(totalSquareMeter);
+		sb.append(", wareHouseSquare=");
+		sb.append(wareHouseSquare);
+		sb.append(", officeSquare=");
+		sb.append(officeSquare);
+		sb.append(", productionSquare=");
+		sb.append(productionSquare);
+		sb.append(", machiningArea=");
+		sb.append(machiningArea);
+		sb.append(", weldingArea=");
+		sb.append(weldingArea);
+		sb.append(", paintingArea=");
+		sb.append(paintingArea);
+		sb.append(", productionAssembleArea=");
+		sb.append(productionAssembleArea);
+		sb.append(", finishProductArea=");
+		sb.append(finishProductArea);
+		sb.append(", testingArea=");
+		sb.append(testingArea);
+		sb.append(", selfEquipment=");
+		sb.append(selfEquipment);
+		sb.append(", contractEquipment=");
+		sb.append(contractEquipment);
+		sb.append(", circularNo=");
+		sb.append(circularNo);
+		sb.append(", circularDate=");
+		sb.append(circularDate);
+		sb.append(", circularNo2=");
+		sb.append(circularNo2);
+		sb.append(", circularDate2=");
+		sb.append(circularDate2);
 		sb.append("}");
 
 		return sb.toString();
@@ -532,6 +666,466 @@ public class VRCOPReportRepositoryCacheModel implements CacheModel<VRCOPReportRe
 			vrcopReportRepositoryImpl.setDossierNo(dossierNo);
 		}
 
+		if (applicantEmail == null) {
+			vrcopReportRepositoryImpl.setApplicantEmail(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantEmail(applicantEmail);
+		}
+
+		if (applicantPhone == null) {
+			vrcopReportRepositoryImpl.setApplicantPhone(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantPhone(applicantPhone);
+		}
+
+		if (applicantTelNo == null) {
+			vrcopReportRepositoryImpl.setApplicantTelNo(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantTelNo(applicantTelNo);
+		}
+
+		if (applicantFax == null) {
+			vrcopReportRepositoryImpl.setApplicantFax(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantFax(applicantFax);
+		}
+
+		if (applicantContactName == null) {
+			vrcopReportRepositoryImpl.setApplicantContactName(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantContactName(applicantContactName);
+		}
+
+		if (applicantContactEmail == null) {
+			vrcopReportRepositoryImpl.setApplicantContactEmail(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantContactEmail(applicantContactEmail);
+		}
+
+		if (applicantContactPhone == null) {
+			vrcopReportRepositoryImpl.setApplicantContactPhone(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantContactPhone(applicantContactPhone);
+		}
+
+		if (applicantContactTelNo == null) {
+			vrcopReportRepositoryImpl.setApplicantContactTelNo(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantContactTelNo(applicantContactTelNo);
+		}
+
+		if (applicantBusinessType == null) {
+			vrcopReportRepositoryImpl.setApplicantBusinessType(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setApplicantBusinessType(applicantBusinessType);
+		}
+
+		if (markupDesigner == null) {
+			vrcopReportRepositoryImpl.setMarkupDesigner(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setMarkupDesigner(markupDesigner);
+		}
+
+		if (markupOverseasManufacturer == null) {
+			vrcopReportRepositoryImpl.setMarkupOverseasManufacturer(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setMarkupOverseasManufacturer(markupOverseasManufacturer);
+		}
+
+		if (markupMaintainer == null) {
+			vrcopReportRepositoryImpl.setMarkupMaintainer(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setMarkupMaintainer(markupMaintainer);
+		}
+
+		if (importerDomesticSite == null) {
+			vrcopReportRepositoryImpl.setImporterDomesticSite(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setImporterDomesticSite(importerDomesticSite);
+		}
+
+		if (siteOfNationality == null) {
+			vrcopReportRepositoryImpl.setSiteOfNationality(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSiteOfNationality(siteOfNationality);
+		}
+
+		if (siteOfNationalityCode == null) {
+			vrcopReportRepositoryImpl.setSiteOfNationalityCode(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSiteOfNationalityCode(siteOfNationalityCode);
+		}
+
+		if (siteOfRegion == null) {
+			vrcopReportRepositoryImpl.setSiteOfRegion(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSiteOfRegion(siteOfRegion);
+		}
+
+		if (siteOfRegionCode == null) {
+			vrcopReportRepositoryImpl.setSiteOfRegionCode(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSiteOfRegionCode(siteOfRegionCode);
+		}
+
+		if (siteOfCity == null) {
+			vrcopReportRepositoryImpl.setSiteOfCity(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSiteOfCity(siteOfCity);
+		}
+
+		if (siteOfCityCode == null) {
+			vrcopReportRepositoryImpl.setSiteOfCityCode(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSiteOfCityCode(siteOfCityCode);
+		}
+
+		if (manufacturerRepresentative == null) {
+			vrcopReportRepositoryImpl.setManufacturerRepresentative(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setManufacturerRepresentative(manufacturerRepresentative);
+		}
+
+		if (manufacturerRepresentativeTitle == null) {
+			vrcopReportRepositoryImpl.setManufacturerRepresentativeTitle(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setManufacturerRepresentativeTitle(manufacturerRepresentativeTitle);
+		}
+
+		if (manufacturerEmail == null) {
+			vrcopReportRepositoryImpl.setManufacturerEmail(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setManufacturerEmail(manufacturerEmail);
+		}
+
+		if (manufacturerPhone == null) {
+			vrcopReportRepositoryImpl.setManufacturerPhone(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setManufacturerPhone(manufacturerPhone);
+		}
+
+		if (manufacturerFax == null) {
+			vrcopReportRepositoryImpl.setManufacturerFax(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setManufacturerFax(manufacturerFax);
+		}
+
+		if (productionPlantEmail == null) {
+			vrcopReportRepositoryImpl.setProductionPlantEmail(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionPlantEmail(productionPlantEmail);
+		}
+
+		if (productionPlantWebsite == null) {
+			vrcopReportRepositoryImpl.setProductionPlantWebsite(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionPlantWebsite(productionPlantWebsite);
+		}
+
+		if (productionPlantRepresentative == null) {
+			vrcopReportRepositoryImpl.setProductionPlantRepresentative(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionPlantRepresentative(productionPlantRepresentative);
+		}
+
+		if (productionPlantRepresentativeTitle == null) {
+			vrcopReportRepositoryImpl.setProductionPlantRepresentativeTitle(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionPlantRepresentativeTitle(productionPlantRepresentativeTitle);
+		}
+
+		if (corporationName == null) {
+			vrcopReportRepositoryImpl.setCorporationName(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setCorporationName(corporationName);
+		}
+
+		if (inspectorContactCode == null) {
+			vrcopReportRepositoryImpl.setInspectorContactCode(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setInspectorContactCode(inspectorContactCode);
+		}
+
+		if (inspectorName == null) {
+			vrcopReportRepositoryImpl.setInspectorName(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setInspectorName(inspectorName);
+		}
+
+		if (inspectoRendorSementDate == Long.MIN_VALUE) {
+			vrcopReportRepositoryImpl.setInspectoRendorSementDate(null);
+		}
+		else {
+			vrcopReportRepositoryImpl.setInspectoRendorSementDate(new Date(
+					inspectoRendorSementDate));
+		}
+
+		if (inspectorDeadline == Long.MIN_VALUE) {
+			vrcopReportRepositoryImpl.setInspectorDeadline(null);
+		}
+		else {
+			vrcopReportRepositoryImpl.setInspectorDeadline(new Date(
+					inspectorDeadline));
+		}
+
+		if (resolvedStatus == null) {
+			vrcopReportRepositoryImpl.setResolvedStatus(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setResolvedStatus(resolvedStatus);
+		}
+
+		vrcopReportRepositoryImpl.setNumberOfNonConformity(numberOfNonConformity);
+		vrcopReportRepositoryImpl.setNumberOfResolved(numberOfResolved);
+
+		if (observationDescription == null) {
+			vrcopReportRepositoryImpl.setObservationDescription(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setObservationDescription(observationDescription);
+		}
+
+		if (inspectionAuditCycle == null) {
+			vrcopReportRepositoryImpl.setInspectionAuditCycle(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setInspectionAuditCycle(inspectionAuditCycle);
+		}
+
+		if (inspectionNote == null) {
+			vrcopReportRepositoryImpl.setInspectionNote(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setInspectionNote(inspectionNote);
+		}
+
+		if (productionConformityChecking == null) {
+			vrcopReportRepositoryImpl.setProductionConformityChecking(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionConformityChecking(productionConformityChecking);
+		}
+
+		if (productionStampChecking == null) {
+			vrcopReportRepositoryImpl.setProductionStampChecking(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionStampChecking(productionStampChecking);
+		}
+
+		if (testingEquipmentChecking == null) {
+			vrcopReportRepositoryImpl.setTestingEquipmentChecking(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTestingEquipmentChecking(testingEquipmentChecking);
+		}
+
+		if (productionPlantClassification == null) {
+			vrcopReportRepositoryImpl.setProductionPlantClassification(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionPlantClassification(productionPlantClassification);
+		}
+
+		if (actualCapacity == null) {
+			vrcopReportRepositoryImpl.setActualCapacity(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setActualCapacity(actualCapacity);
+		}
+
+		if (maxCapacity == null) {
+			vrcopReportRepositoryImpl.setMaxCapacity(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setMaxCapacity(maxCapacity);
+		}
+
+		if (averageCapacity == null) {
+			vrcopReportRepositoryImpl.setAverageCapacity(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setAverageCapacity(averageCapacity);
+		}
+
+		if (totalEmployee == null) {
+			vrcopReportRepositoryImpl.setTotalEmployee(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTotalEmployee(totalEmployee);
+		}
+
+		if (totalWorker == null) {
+			vrcopReportRepositoryImpl.setTotalWorker(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTotalWorker(totalWorker);
+		}
+
+		if (totalManager == null) {
+			vrcopReportRepositoryImpl.setTotalManager(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTotalManager(totalManager);
+		}
+
+		if (totalTechnical == null) {
+			vrcopReportRepositoryImpl.setTotalTechnical(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTotalTechnical(totalTechnical);
+		}
+
+		if (totalQaEmployee == null) {
+			vrcopReportRepositoryImpl.setTotalQaEmployee(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTotalQaEmployee(totalQaEmployee);
+		}
+
+		if (totalSquareMeter == null) {
+			vrcopReportRepositoryImpl.setTotalSquareMeter(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTotalSquareMeter(totalSquareMeter);
+		}
+
+		if (wareHouseSquare == null) {
+			vrcopReportRepositoryImpl.setWareHouseSquare(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setWareHouseSquare(wareHouseSquare);
+		}
+
+		if (officeSquare == null) {
+			vrcopReportRepositoryImpl.setOfficeSquare(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setOfficeSquare(officeSquare);
+		}
+
+		if (productionSquare == null) {
+			vrcopReportRepositoryImpl.setProductionSquare(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionSquare(productionSquare);
+		}
+
+		if (machiningArea == null) {
+			vrcopReportRepositoryImpl.setMachiningArea(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setMachiningArea(machiningArea);
+		}
+
+		if (weldingArea == null) {
+			vrcopReportRepositoryImpl.setWeldingArea(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setWeldingArea(weldingArea);
+		}
+
+		if (paintingArea == null) {
+			vrcopReportRepositoryImpl.setPaintingArea(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setPaintingArea(paintingArea);
+		}
+
+		if (productionAssembleArea == null) {
+			vrcopReportRepositoryImpl.setProductionAssembleArea(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setProductionAssembleArea(productionAssembleArea);
+		}
+
+		if (finishProductArea == null) {
+			vrcopReportRepositoryImpl.setFinishProductArea(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setFinishProductArea(finishProductArea);
+		}
+
+		if (testingArea == null) {
+			vrcopReportRepositoryImpl.setTestingArea(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setTestingArea(testingArea);
+		}
+
+		if (selfEquipment == null) {
+			vrcopReportRepositoryImpl.setSelfEquipment(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setSelfEquipment(selfEquipment);
+		}
+
+		if (contractEquipment == null) {
+			vrcopReportRepositoryImpl.setContractEquipment(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setContractEquipment(contractEquipment);
+		}
+
+		if (circularNo == null) {
+			vrcopReportRepositoryImpl.setCircularNo(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setCircularNo(circularNo);
+		}
+
+		if (circularDate == Long.MIN_VALUE) {
+			vrcopReportRepositoryImpl.setCircularDate(null);
+		}
+		else {
+			vrcopReportRepositoryImpl.setCircularDate(new Date(circularDate));
+		}
+
+		if (circularNo2 == null) {
+			vrcopReportRepositoryImpl.setCircularNo2(StringPool.BLANK);
+		}
+		else {
+			vrcopReportRepositoryImpl.setCircularNo2(circularNo2);
+		}
+
+		if (circularDate2 == Long.MIN_VALUE) {
+			vrcopReportRepositoryImpl.setCircularDate2(null);
+		}
+		else {
+			vrcopReportRepositoryImpl.setCircularDate2(new Date(circularDate2));
+		}
+
 		vrcopReportRepositoryImpl.resetOriginalValues();
 
 		return vrcopReportRepositoryImpl;
@@ -607,6 +1201,75 @@ public class VRCOPReportRepositoryCacheModel implements CacheModel<VRCOPReportRe
 		dossierId = objectInput.readLong();
 		dossierIdCTN = objectInput.readUTF();
 		dossierNo = objectInput.readUTF();
+		applicantEmail = objectInput.readUTF();
+		applicantPhone = objectInput.readUTF();
+		applicantTelNo = objectInput.readUTF();
+		applicantFax = objectInput.readUTF();
+		applicantContactName = objectInput.readUTF();
+		applicantContactEmail = objectInput.readUTF();
+		applicantContactPhone = objectInput.readUTF();
+		applicantContactTelNo = objectInput.readUTF();
+		applicantBusinessType = objectInput.readUTF();
+		markupDesigner = objectInput.readUTF();
+		markupOverseasManufacturer = objectInput.readUTF();
+		markupMaintainer = objectInput.readUTF();
+		importerDomesticSite = objectInput.readUTF();
+		siteOfNationality = objectInput.readUTF();
+		siteOfNationalityCode = objectInput.readUTF();
+		siteOfRegion = objectInput.readUTF();
+		siteOfRegionCode = objectInput.readUTF();
+		siteOfCity = objectInput.readUTF();
+		siteOfCityCode = objectInput.readUTF();
+		manufacturerRepresentative = objectInput.readUTF();
+		manufacturerRepresentativeTitle = objectInput.readUTF();
+		manufacturerEmail = objectInput.readUTF();
+		manufacturerPhone = objectInput.readUTF();
+		manufacturerFax = objectInput.readUTF();
+		productionPlantEmail = objectInput.readUTF();
+		productionPlantWebsite = objectInput.readUTF();
+		productionPlantRepresentative = objectInput.readUTF();
+		productionPlantRepresentativeTitle = objectInput.readUTF();
+		corporationName = objectInput.readUTF();
+		inspectorContactCode = objectInput.readUTF();
+		inspectorName = objectInput.readUTF();
+		inspectoRendorSementDate = objectInput.readLong();
+		inspectorDeadline = objectInput.readLong();
+		resolvedStatus = objectInput.readUTF();
+
+		numberOfNonConformity = objectInput.readInt();
+
+		numberOfResolved = objectInput.readInt();
+		observationDescription = objectInput.readUTF();
+		inspectionAuditCycle = objectInput.readUTF();
+		inspectionNote = objectInput.readUTF();
+		productionConformityChecking = objectInput.readUTF();
+		productionStampChecking = objectInput.readUTF();
+		testingEquipmentChecking = objectInput.readUTF();
+		productionPlantClassification = objectInput.readUTF();
+		actualCapacity = objectInput.readUTF();
+		maxCapacity = objectInput.readUTF();
+		averageCapacity = objectInput.readUTF();
+		totalEmployee = objectInput.readUTF();
+		totalWorker = objectInput.readUTF();
+		totalManager = objectInput.readUTF();
+		totalTechnical = objectInput.readUTF();
+		totalQaEmployee = objectInput.readUTF();
+		totalSquareMeter = objectInput.readUTF();
+		wareHouseSquare = objectInput.readUTF();
+		officeSquare = objectInput.readUTF();
+		productionSquare = objectInput.readUTF();
+		machiningArea = objectInput.readUTF();
+		weldingArea = objectInput.readUTF();
+		paintingArea = objectInput.readUTF();
+		productionAssembleArea = objectInput.readUTF();
+		finishProductArea = objectInput.readUTF();
+		testingArea = objectInput.readUTF();
+		selfEquipment = objectInput.readUTF();
+		contractEquipment = objectInput.readUTF();
+		circularNo = objectInput.readUTF();
+		circularDate = objectInput.readLong();
+		circularNo2 = objectInput.readUTF();
+		circularDate2 = objectInput.readLong();
 	}
 
 	@Override
@@ -895,6 +1558,444 @@ public class VRCOPReportRepositoryCacheModel implements CacheModel<VRCOPReportRe
 		else {
 			objectOutput.writeUTF(dossierNo);
 		}
+
+		if (applicantEmail == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantEmail);
+		}
+
+		if (applicantPhone == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantPhone);
+		}
+
+		if (applicantTelNo == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantTelNo);
+		}
+
+		if (applicantFax == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantFax);
+		}
+
+		if (applicantContactName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantContactName);
+		}
+
+		if (applicantContactEmail == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantContactEmail);
+		}
+
+		if (applicantContactPhone == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantContactPhone);
+		}
+
+		if (applicantContactTelNo == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantContactTelNo);
+		}
+
+		if (applicantBusinessType == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantBusinessType);
+		}
+
+		if (markupDesigner == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(markupDesigner);
+		}
+
+		if (markupOverseasManufacturer == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(markupOverseasManufacturer);
+		}
+
+		if (markupMaintainer == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(markupMaintainer);
+		}
+
+		if (importerDomesticSite == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(importerDomesticSite);
+		}
+
+		if (siteOfNationality == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(siteOfNationality);
+		}
+
+		if (siteOfNationalityCode == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(siteOfNationalityCode);
+		}
+
+		if (siteOfRegion == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(siteOfRegion);
+		}
+
+		if (siteOfRegionCode == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(siteOfRegionCode);
+		}
+
+		if (siteOfCity == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(siteOfCity);
+		}
+
+		if (siteOfCityCode == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(siteOfCityCode);
+		}
+
+		if (manufacturerRepresentative == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(manufacturerRepresentative);
+		}
+
+		if (manufacturerRepresentativeTitle == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(manufacturerRepresentativeTitle);
+		}
+
+		if (manufacturerEmail == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(manufacturerEmail);
+		}
+
+		if (manufacturerPhone == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(manufacturerPhone);
+		}
+
+		if (manufacturerFax == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(manufacturerFax);
+		}
+
+		if (productionPlantEmail == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionPlantEmail);
+		}
+
+		if (productionPlantWebsite == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionPlantWebsite);
+		}
+
+		if (productionPlantRepresentative == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionPlantRepresentative);
+		}
+
+		if (productionPlantRepresentativeTitle == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionPlantRepresentativeTitle);
+		}
+
+		if (corporationName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(corporationName);
+		}
+
+		if (inspectorContactCode == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(inspectorContactCode);
+		}
+
+		if (inspectorName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(inspectorName);
+		}
+
+		objectOutput.writeLong(inspectoRendorSementDate);
+		objectOutput.writeLong(inspectorDeadline);
+
+		if (resolvedStatus == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(resolvedStatus);
+		}
+
+		objectOutput.writeInt(numberOfNonConformity);
+
+		objectOutput.writeInt(numberOfResolved);
+
+		if (observationDescription == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(observationDescription);
+		}
+
+		if (inspectionAuditCycle == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(inspectionAuditCycle);
+		}
+
+		if (inspectionNote == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(inspectionNote);
+		}
+
+		if (productionConformityChecking == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionConformityChecking);
+		}
+
+		if (productionStampChecking == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionStampChecking);
+		}
+
+		if (testingEquipmentChecking == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(testingEquipmentChecking);
+		}
+
+		if (productionPlantClassification == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionPlantClassification);
+		}
+
+		if (actualCapacity == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(actualCapacity);
+		}
+
+		if (maxCapacity == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(maxCapacity);
+		}
+
+		if (averageCapacity == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(averageCapacity);
+		}
+
+		if (totalEmployee == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(totalEmployee);
+		}
+
+		if (totalWorker == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(totalWorker);
+		}
+
+		if (totalManager == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(totalManager);
+		}
+
+		if (totalTechnical == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(totalTechnical);
+		}
+
+		if (totalQaEmployee == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(totalQaEmployee);
+		}
+
+		if (totalSquareMeter == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(totalSquareMeter);
+		}
+
+		if (wareHouseSquare == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(wareHouseSquare);
+		}
+
+		if (officeSquare == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(officeSquare);
+		}
+
+		if (productionSquare == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionSquare);
+		}
+
+		if (machiningArea == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(machiningArea);
+		}
+
+		if (weldingArea == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(weldingArea);
+		}
+
+		if (paintingArea == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(paintingArea);
+		}
+
+		if (productionAssembleArea == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(productionAssembleArea);
+		}
+
+		if (finishProductArea == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(finishProductArea);
+		}
+
+		if (testingArea == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(testingArea);
+		}
+
+		if (selfEquipment == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(selfEquipment);
+		}
+
+		if (contractEquipment == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(contractEquipment);
+		}
+
+		if (circularNo == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(circularNo);
+		}
+
+		objectOutput.writeLong(circularDate);
+
+		if (circularNo2 == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(circularNo2);
+		}
+
+		objectOutput.writeLong(circularDate2);
 	}
 
 	public long id;
@@ -954,4 +2055,71 @@ public class VRCOPReportRepositoryCacheModel implements CacheModel<VRCOPReportRe
 	public long dossierId;
 	public String dossierIdCTN;
 	public String dossierNo;
+	public String applicantEmail;
+	public String applicantPhone;
+	public String applicantTelNo;
+	public String applicantFax;
+	public String applicantContactName;
+	public String applicantContactEmail;
+	public String applicantContactPhone;
+	public String applicantContactTelNo;
+	public String applicantBusinessType;
+	public String markupDesigner;
+	public String markupOverseasManufacturer;
+	public String markupMaintainer;
+	public String importerDomesticSite;
+	public String siteOfNationality;
+	public String siteOfNationalityCode;
+	public String siteOfRegion;
+	public String siteOfRegionCode;
+	public String siteOfCity;
+	public String siteOfCityCode;
+	public String manufacturerRepresentative;
+	public String manufacturerRepresentativeTitle;
+	public String manufacturerEmail;
+	public String manufacturerPhone;
+	public String manufacturerFax;
+	public String productionPlantEmail;
+	public String productionPlantWebsite;
+	public String productionPlantRepresentative;
+	public String productionPlantRepresentativeTitle;
+	public String corporationName;
+	public String inspectorContactCode;
+	public String inspectorName;
+	public long inspectoRendorSementDate;
+	public long inspectorDeadline;
+	public String resolvedStatus;
+	public int numberOfNonConformity;
+	public int numberOfResolved;
+	public String observationDescription;
+	public String inspectionAuditCycle;
+	public String inspectionNote;
+	public String productionConformityChecking;
+	public String productionStampChecking;
+	public String testingEquipmentChecking;
+	public String productionPlantClassification;
+	public String actualCapacity;
+	public String maxCapacity;
+	public String averageCapacity;
+	public String totalEmployee;
+	public String totalWorker;
+	public String totalManager;
+	public String totalTechnical;
+	public String totalQaEmployee;
+	public String totalSquareMeter;
+	public String wareHouseSquare;
+	public String officeSquare;
+	public String productionSquare;
+	public String machiningArea;
+	public String weldingArea;
+	public String paintingArea;
+	public String productionAssembleArea;
+	public String finishProductArea;
+	public String testingArea;
+	public String selfEquipment;
+	public String contractEquipment;
+	public String circularNo;
+	public long circularDate;
+	public String circularNo2;
+	public long circularDate2;
 }

@@ -146,11 +146,12 @@ public class VRVehicleRecordModelImpl extends BaseModelImpl<VRVehicleRecord>
 	public static final long APPLICANTPROFILEID_COLUMN_BITMASK = 1L;
 	public static final long CERTIFICATEID_COLUMN_BITMASK = 2L;
 	public static final long DOSSIERID_COLUMN_BITMASK = 4L;
-	public static final long ISSUEVEHICLECERTIFICATEID_COLUMN_BITMASK = 8L;
-	public static final long MTCORE_COLUMN_BITMASK = 16L;
-	public static final long PRINTINGSTATUS_COLUMN_BITMASK = 32L;
-	public static final long VEHICLERECORDSTATUS_COLUMN_BITMASK = 64L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 128L;
+	public static final long ISSUEID_COLUMN_BITMASK = 8L;
+	public static final long ISSUEVEHICLECERTIFICATEID_COLUMN_BITMASK = 16L;
+	public static final long MTCORE_COLUMN_BITMASK = 32L;
+	public static final long PRINTINGSTATUS_COLUMN_BITMASK = 64L;
+	public static final long VEHICLERECORDSTATUS_COLUMN_BITMASK = 128L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRVehicleRecord"));
 
@@ -447,7 +448,19 @@ public class VRVehicleRecordModelImpl extends BaseModelImpl<VRVehicleRecord>
 
 	@Override
 	public void setIssueId(long issueId) {
+		_columnBitmask |= ISSUEID_COLUMN_BITMASK;
+
+		if (!_setOriginalIssueId) {
+			_setOriginalIssueId = true;
+
+			_originalIssueId = _issueId;
+		}
+
 		_issueId = issueId;
+	}
+
+	public long getOriginalIssueId() {
+		return _originalIssueId;
 	}
 
 	@Override
@@ -981,6 +994,10 @@ public class VRVehicleRecordModelImpl extends BaseModelImpl<VRVehicleRecord>
 
 		vrVehicleRecordModelImpl._setOriginalMtCore = false;
 
+		vrVehicleRecordModelImpl._originalIssueId = vrVehicleRecordModelImpl._issueId;
+
+		vrVehicleRecordModelImpl._setOriginalIssueId = false;
+
 		vrVehicleRecordModelImpl._originalIssueVehicleCertificateId = vrVehicleRecordModelImpl._issueVehicleCertificateId;
 
 		vrVehicleRecordModelImpl._setOriginalIssueVehicleCertificateId = false;
@@ -1392,6 +1409,8 @@ public class VRVehicleRecordModelImpl extends BaseModelImpl<VRVehicleRecord>
 	private long _originalMtCore;
 	private boolean _setOriginalMtCore;
 	private long _issueId;
+	private long _originalIssueId;
+	private boolean _setOriginalIssueId;
 	private long _issueVehicleCertificateId;
 	private long _originalIssueVehicleCertificateId;
 	private boolean _setOriginalIssueVehicleCertificateId;

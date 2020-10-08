@@ -222,13 +222,13 @@ public class VRCOPProductionPlantEquipmentWrapper
 			setEquipmentSerialNo(equipmentSerialNo);
 		}
 
-		Date productionYear = (Date)attributes.get("productionYear");
+		String productionYear = (String)attributes.get("productionYear");
 
 		if (productionYear != null) {
 			setProductionYear(productionYear);
 		}
 
-		Date registrationYear = (Date)attributes.get("registrationYear");
+		String registrationYear = (String)attributes.get("registrationYear");
 
 		if (registrationYear != null) {
 			setRegistrationYear(registrationYear);
@@ -578,6 +578,26 @@ public class VRCOPProductionPlantEquipmentWrapper
 	}
 
 	/**
+	* Returns the production year of this vrcop production plant equipment.
+	*
+	* @return the production year of this vrcop production plant equipment
+	*/
+	@Override
+	public java.lang.String getProductionYear() {
+		return _vrcopProductionPlantEquipment.getProductionYear();
+	}
+
+	/**
+	* Returns the registration year of this vrcop production plant equipment.
+	*
+	* @return the registration year of this vrcop production plant equipment
+	*/
+	@Override
+	public java.lang.String getRegistrationYear() {
+		return _vrcopProductionPlantEquipment.getRegistrationYear();
+	}
+
+	/**
 	* Returns the stamp testing no of this vrcop production plant equipment.
 	*
 	* @return the stamp testing no of this vrcop production plant equipment
@@ -655,26 +675,6 @@ public class VRCOPProductionPlantEquipmentWrapper
 	@Override
 	public Date getModifyDate() {
 		return _vrcopProductionPlantEquipment.getModifyDate();
-	}
-
-	/**
-	* Returns the production year of this vrcop production plant equipment.
-	*
-	* @return the production year of this vrcop production plant equipment
-	*/
-	@Override
-	public Date getProductionYear() {
-		return _vrcopProductionPlantEquipment.getProductionYear();
-	}
-
-	/**
-	* Returns the registration year of this vrcop production plant equipment.
-	*
-	* @return the registration year of this vrcop production plant equipment
-	*/
-	@Override
-	public Date getRegistrationYear() {
-		return _vrcopProductionPlantEquipment.getRegistrationYear();
 	}
 
 	/**
@@ -1200,7 +1200,7 @@ public class VRCOPProductionPlantEquipmentWrapper
 	* @param productionYear the production year of this vrcop production plant equipment
 	*/
 	@Override
-	public void setProductionYear(Date productionYear) {
+	public void setProductionYear(java.lang.String productionYear) {
 		_vrcopProductionPlantEquipment.setProductionYear(productionYear);
 	}
 
@@ -1210,7 +1210,7 @@ public class VRCOPProductionPlantEquipmentWrapper
 	* @param registrationYear the registration year of this vrcop production plant equipment
 	*/
 	@Override
-	public void setRegistrationYear(Date registrationYear) {
+	public void setRegistrationYear(java.lang.String registrationYear) {
 		_vrcopProductionPlantEquipment.setRegistrationYear(registrationYear);
 	}
 

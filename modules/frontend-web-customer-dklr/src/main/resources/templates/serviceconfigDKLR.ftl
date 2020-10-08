@@ -197,7 +197,7 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Đăng ký chứng nhận mức tiêu thụ nhiên liệu đối với xe ô tô nhập khẩu
 					</span>
-					<button data-TTHC="432014TTLTBGTVTBCTTTNLNK" data-CQTH="BGTVTCDKVN" data-MMHS="432014TTLTBGTVTBCTTTNLNK" class="btn btn-reset chooseService pull-right P0">Chọn</button>
+					<button data-TTHC="432014TTLTBGTVTBCTTTNLNK" data-CQTH="BGTVTCDKVN" data-MMHS="432014TTLTBGTVTBCTTTNLNK" id="btn432014TTLTBGTVTBCTTTNLNK" class="btn btn-reset chooseService pull-right P0">Chọn</button>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -228,7 +228,7 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Triệu hồi sản phẩm xe cơ giới nhập khẩu linh kiện sử dụng để lắp ráp xe
 					</span>
-					<button data-TTHC="TT302011BGTVTTHSPNK" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTTHSPNK" class="btn btn-reset chooseService pull-right P0">Chọn</button>
+					<button data-TTHC="TT302011BGTVTTHSPNK" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTTHSPNK" id="btnTT302011BGTVTTHSPNK" class="btn btn-reset chooseService pull-right P0">Chọn</button>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -279,7 +279,7 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Kiểm tra, đánh giá cơ sở bảo hành, bảo dưỡng 
 					</span>
-					<button data-TTHC="TT192012TTBGTVTDGLD" data-CQTH="BGTVTCDKVN" data-MMHS="TT192012TTBGTVTDGLD" class="btn btn-reset chooseService pull-right P0">Chọn</button>
+					<button data-TTHC="TT192012TTBGTVTDGLD" data-CQTH="BGTVTCDKVN" data-MMHS="TT192012TTBGTVTDGLD" class="btn btn-reset chooseService pull-right P0" id="btnTT192012TTBGTVTDGLD">Chọn</button>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -305,11 +305,11 @@
 	var govAgencyCode;
 	var selector;
 	
-	var createDossier = function(dossierTemplateNo,serviceCode,govAgencyCode,selector){
+	var createDossier = function(dossierTemplateNo, serviceCode, govAgencyCode, selector){
 
 		
 
-		if("${(registration.registrationId)!}"){
+		if("${(registration.id)!}"){
 			/*if("${(registration.registrationState)!}" == "2"){
 				
 			}else {
@@ -360,9 +360,21 @@
 	} 
 
 	$(function () {
+
+		if ("${(registration.markupDesigner)!}" === "1") {
+			$("#btn1Lv31G1").attr( "disabled")
+		}
+		if ("${(registration.markupMaintainer)!}" === "4") {
+			$("#btnTT192012TTBGTVTDGLD").attr( "disabled")
+		}
+		if ("${(registration.markupImporter)!}" === "3") {
+			$("#btn432014TTLTBGTVTBCTTTNLNK").attr( "disabled")
+		}
+
 		$(".chooseService").click(function(){
 			$(this).button('loading');
 			selector = $(this);
+
 			dossierTemplateNo = $(this).attr("data-MMHS");
 			serviceCode = $(this).attr("data-TTHC");
 			govAgencyCode = $(this).attr("data-CQTH");
@@ -372,11 +384,12 @@
 		$("label").css("font-family","Roboto-Regular");
 		$(".clear").css("clear","both");
 		//
+		dossierIdBanKhaiHoSoXNHL = 0
 	})
 
 	var fnGetStatusSelectTDTK = function(key){
 		$.ajax({
-			url : "${api.server}/registrations/${registration.registrationId}/forms",
+			url : "${api.server}/registrations/${(registration.registrationId)!}/forms",
 			dataType : "json",
 			type : "GET",
 			headers : {"groupId": ${groupId}},
@@ -398,7 +411,7 @@
 		var isSelect = "";
 		if(referenceUid){
 			$.ajax({
-				url : "${api.server}/registrations/${registration.registrationId}/forms/"+referenceUid+"/formdata",
+				url : "${api.server}/registrations/${(registration.registrationId)!}/forms/"+referenceUid+"/formdata",
 				dataType : "json",
 				type : "GET",
 				headers : {"groupId": ${groupId}},

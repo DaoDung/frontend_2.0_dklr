@@ -59,12 +59,6 @@ public class VRApplicantProfileLocalServiceUtil {
 		return getService().adminProcessData(objectData, mtCore, applicantCode);
 	}
 
-	public static com.fds.vr.business.model.VRApplicantProfile createVRApplicantProfile(
-		com.fds.vr.business.model.VRApplicantProfile object)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().createVRApplicantProfile(object);
-	}
-
 	/**
 	* Creates a new vr applicant profile with the primary key. Does not add the vr applicant profile to the database.
 	*
@@ -104,9 +98,9 @@ public class VRApplicantProfileLocalServiceUtil {
 		return getService().fetchVRApplicantProfile(id);
 	}
 
-	public static com.fds.vr.business.model.VRApplicantProfile findByMT_APP_CODE(
-		long mtCore, java.lang.String applicantCode) {
-		return getService().findByMT_APP_CODE(mtCore, applicantCode);
+	public static com.fds.vr.business.model.VRApplicantProfile findByApplicantCode(
+		java.lang.String applicantCode) {
+		return getService().findByApplicantCode(applicantCode);
 	}
 
 	/**
@@ -121,21 +115,14 @@ public class VRApplicantProfileLocalServiceUtil {
 		return getService().getVRApplicantProfile(id);
 	}
 
-	public static com.fds.vr.business.model.VRApplicantProfile updateApplicantProfile(
-		java.util.LinkedHashMap<java.lang.String, java.lang.String> mapValues) {
-		return getService().updateApplicantProfile(mapValues);
-	}
-
 	/**
 	* Updates the vr applicant profile in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param vrApplicantProfile the vr applicant profile
 	* @return the vr applicant profile that was updated
-	* @throws SystemException
 	*/
 	public static com.fds.vr.business.model.VRApplicantProfile updateVRApplicantProfile(
-		com.fds.vr.business.model.VRApplicantProfile vrApplicantProfile)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.fds.vr.business.model.VRApplicantProfile vrApplicantProfile) {
 		return getService().updateVRApplicantProfile(vrApplicantProfile);
 	}
 
@@ -243,48 +230,6 @@ public class VRApplicantProfileLocalServiceUtil {
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantCity(
-		long mtCore, java.lang.String applicantCity)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByapplicantCity(mtCore, applicantCity);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantCode(
-		long mtCore, java.lang.String applicantCode)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByapplicantCode(mtCore, applicantCode);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantRegion(
-		long mtCore, java.lang.String applicantRegion)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByapplicantRegion(mtCore, applicantRegion);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findByapplicantStatus(
-		long mtCore, java.lang.String applicantStatus)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByapplicantStatus(mtCore, applicantStatus);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findBymappingMA_CTY(
-		long mtCore, java.lang.String mappingMA_CTY)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findBymappingMA_CTY(mtCore, mappingMA_CTY);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findBymappingStatus(
-		long mtCore, java.lang.String mappingStatus)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findBymappingStatus(mtCore, mappingStatus);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRApplicantProfile> findBymappingTEN_CTY(
-		long mtCore, java.lang.String mappingTEN_CTY)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findBymappingTEN_CTY(mtCore, mappingTEN_CTY);
 	}
 
 	/**

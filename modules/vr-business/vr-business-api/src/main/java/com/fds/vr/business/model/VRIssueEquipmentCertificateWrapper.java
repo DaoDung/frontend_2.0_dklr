@@ -61,12 +61,13 @@ public class VRIssueEquipmentCertificateWrapper
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("id", getId());
-		attributes.put("mtcore", getMtcore());
+		attributes.put("mtCore", getMtCore());
+		attributes.put("dossierId", getDossierId());
 		attributes.put("issueId", getIssueId());
 		attributes.put("issueVehicleCertificateId",
 			getIssueVehicleCertificateId());
-		attributes.put("vehiclecertificaterecordno",
-			getVehiclecertificaterecordno());
+		attributes.put("vehicleCertificateRecordNo",
+			getVehicleCertificateRecordNo());
 		attributes.put("equipmentName", getEquipmentName());
 		attributes.put("equipmentType", getEquipmentType());
 		attributes.put("equipmentCertificateType", getEquipmentCertificateType());
@@ -81,10 +82,10 @@ public class VRIssueEquipmentCertificateWrapper
 		attributes.put("TotalInUse", getTotalInUse());
 		attributes.put("TotalNotUsed", getTotalNotUsed());
 		attributes.put("applicantNo", getApplicantNo());
-		attributes.put("applicantname", getApplicantname());
-		attributes.put("applicantaddress", getApplicantaddress());
-		attributes.put("productionplantname", getProductionplantname());
-		attributes.put("productionplantaddress", getProductionplantaddress());
+		attributes.put("applicantName", getApplicantName());
+		attributes.put("applicantAddress", getApplicantAddress());
+		attributes.put("productionPlantName", getProductionPlantName());
+		attributes.put("productionPlantAddress", getProductionPlantAddress());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -99,10 +100,16 @@ public class VRIssueEquipmentCertificateWrapper
 			setId(id);
 		}
 
-		Integer mtcore = (Integer)attributes.get("mtcore");
+		Long mtCore = (Long)attributes.get("mtCore");
 
-		if (mtcore != null) {
-			setMtcore(mtcore);
+		if (mtCore != null) {
+			setMtCore(mtCore);
+		}
+
+		Long dossierId = (Long)attributes.get("dossierId");
+
+		if (dossierId != null) {
+			setDossierId(dossierId);
 		}
 
 		Long issueId = (Long)attributes.get("issueId");
@@ -118,11 +125,11 @@ public class VRIssueEquipmentCertificateWrapper
 			setIssueVehicleCertificateId(issueVehicleCertificateId);
 		}
 
-		String vehiclecertificaterecordno = (String)attributes.get(
-				"vehiclecertificaterecordno");
+		String vehicleCertificateRecordNo = (String)attributes.get(
+				"vehicleCertificateRecordNo");
 
-		if (vehiclecertificaterecordno != null) {
-			setVehiclecertificaterecordno(vehiclecertificaterecordno);
+		if (vehicleCertificateRecordNo != null) {
+			setVehicleCertificateRecordNo(vehicleCertificateRecordNo);
 		}
 
 		String equipmentName = (String)attributes.get("equipmentName");
@@ -202,30 +209,30 @@ public class VRIssueEquipmentCertificateWrapper
 			setApplicantNo(applicantNo);
 		}
 
-		String applicantname = (String)attributes.get("applicantname");
+		String applicantName = (String)attributes.get("applicantName");
 
-		if (applicantname != null) {
-			setApplicantname(applicantname);
+		if (applicantName != null) {
+			setApplicantName(applicantName);
 		}
 
-		String applicantaddress = (String)attributes.get("applicantaddress");
+		String applicantAddress = (String)attributes.get("applicantAddress");
 
-		if (applicantaddress != null) {
-			setApplicantaddress(applicantaddress);
+		if (applicantAddress != null) {
+			setApplicantAddress(applicantAddress);
 		}
 
-		String productionplantname = (String)attributes.get(
-				"productionplantname");
+		String productionPlantName = (String)attributes.get(
+				"productionPlantName");
 
-		if (productionplantname != null) {
-			setProductionplantname(productionplantname);
+		if (productionPlantName != null) {
+			setProductionPlantName(productionPlantName);
 		}
 
-		String productionplantaddress = (String)attributes.get(
-				"productionplantaddress");
+		String productionPlantAddress = (String)attributes.get(
+				"productionPlantAddress");
 
-		if (productionplantaddress != null) {
-			setProductionplantaddress(productionplantaddress);
+		if (productionPlantAddress != null) {
+			setProductionPlantAddress(productionPlantAddress);
 		}
 
 		Date modifyDate = (Date)attributes.get("modifyDate");
@@ -293,16 +300,6 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
-	* Returns the mtcore of this vr issue equipment certificate.
-	*
-	* @return the mtcore of this vr issue equipment certificate
-	*/
-	@Override
-	public int getMtcore() {
-		return _vrIssueEquipmentCertificate.getMtcore();
-	}
-
-	/**
 	* Returns the total in use of this vr issue equipment certificate.
 	*
 	* @return the total in use of this vr issue equipment certificate
@@ -358,6 +355,26 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
+	* Returns the applicant address of this vr issue equipment certificate.
+	*
+	* @return the applicant address of this vr issue equipment certificate
+	*/
+	@Override
+	public java.lang.String getApplicantAddress() {
+		return _vrIssueEquipmentCertificate.getApplicantAddress();
+	}
+
+	/**
+	* Returns the applicant name of this vr issue equipment certificate.
+	*
+	* @return the applicant name of this vr issue equipment certificate
+	*/
+	@Override
+	public java.lang.String getApplicantName() {
+		return _vrIssueEquipmentCertificate.getApplicantName();
+	}
+
+	/**
 	* Returns the applicant no of this vr issue equipment certificate.
 	*
 	* @return the applicant no of this vr issue equipment certificate
@@ -365,26 +382,6 @@ public class VRIssueEquipmentCertificateWrapper
 	@Override
 	public java.lang.String getApplicantNo() {
 		return _vrIssueEquipmentCertificate.getApplicantNo();
-	}
-
-	/**
-	* Returns the applicantaddress of this vr issue equipment certificate.
-	*
-	* @return the applicantaddress of this vr issue equipment certificate
-	*/
-	@Override
-	public java.lang.String getApplicantaddress() {
-		return _vrIssueEquipmentCertificate.getApplicantaddress();
-	}
-
-	/**
-	* Returns the applicantname of this vr issue equipment certificate.
-	*
-	* @return the applicantname of this vr issue equipment certificate
-	*/
-	@Override
-	public java.lang.String getApplicantname() {
-		return _vrIssueEquipmentCertificate.getApplicantname();
 	}
 
 	/**
@@ -448,33 +445,33 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
-	* Returns the productionplantaddress of this vr issue equipment certificate.
+	* Returns the production plant address of this vr issue equipment certificate.
 	*
-	* @return the productionplantaddress of this vr issue equipment certificate
+	* @return the production plant address of this vr issue equipment certificate
 	*/
 	@Override
-	public java.lang.String getProductionplantaddress() {
-		return _vrIssueEquipmentCertificate.getProductionplantaddress();
+	public java.lang.String getProductionPlantAddress() {
+		return _vrIssueEquipmentCertificate.getProductionPlantAddress();
 	}
 
 	/**
-	* Returns the productionplantname of this vr issue equipment certificate.
+	* Returns the production plant name of this vr issue equipment certificate.
 	*
-	* @return the productionplantname of this vr issue equipment certificate
+	* @return the production plant name of this vr issue equipment certificate
 	*/
 	@Override
-	public java.lang.String getProductionplantname() {
-		return _vrIssueEquipmentCertificate.getProductionplantname();
+	public java.lang.String getProductionPlantName() {
+		return _vrIssueEquipmentCertificate.getProductionPlantName();
 	}
 
 	/**
-	* Returns the vehiclecertificaterecordno of this vr issue equipment certificate.
+	* Returns the vehicle certificate record no of this vr issue equipment certificate.
 	*
-	* @return the vehiclecertificaterecordno of this vr issue equipment certificate
+	* @return the vehicle certificate record no of this vr issue equipment certificate
 	*/
 	@Override
-	public java.lang.String getVehiclecertificaterecordno() {
-		return _vrIssueEquipmentCertificate.getVehiclecertificaterecordno();
+	public java.lang.String getVehicleCertificateRecordNo() {
+		return _vrIssueEquipmentCertificate.getVehicleCertificateRecordNo();
 	}
 
 	@Override
@@ -508,6 +505,16 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
+	* Returns the dossier ID of this vr issue equipment certificate.
+	*
+	* @return the dossier ID of this vr issue equipment certificate
+	*/
+	@Override
+	public long getDossierId() {
+		return _vrIssueEquipmentCertificate.getDossierId();
+	}
+
+	/**
 	* Returns the ID of this vr issue equipment certificate.
 	*
 	* @return the ID of this vr issue equipment certificate
@@ -538,6 +545,16 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
+	* Returns the mt core of this vr issue equipment certificate.
+	*
+	* @return the mt core of this vr issue equipment certificate
+	*/
+	@Override
+	public long getMtCore() {
+		return _vrIssueEquipmentCertificate.getMtCore();
+	}
+
+	/**
 	* Returns the primary key of this vr issue equipment certificate.
 	*
 	* @return the primary key of this vr issue equipment certificate
@@ -553,6 +570,26 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
+	* Sets the applicant address of this vr issue equipment certificate.
+	*
+	* @param applicantAddress the applicant address of this vr issue equipment certificate
+	*/
+	@Override
+	public void setApplicantAddress(java.lang.String applicantAddress) {
+		_vrIssueEquipmentCertificate.setApplicantAddress(applicantAddress);
+	}
+
+	/**
+	* Sets the applicant name of this vr issue equipment certificate.
+	*
+	* @param applicantName the applicant name of this vr issue equipment certificate
+	*/
+	@Override
+	public void setApplicantName(java.lang.String applicantName) {
+		_vrIssueEquipmentCertificate.setApplicantName(applicantName);
+	}
+
+	/**
 	* Sets the applicant no of this vr issue equipment certificate.
 	*
 	* @param applicantNo the applicant no of this vr issue equipment certificate
@@ -562,29 +599,19 @@ public class VRIssueEquipmentCertificateWrapper
 		_vrIssueEquipmentCertificate.setApplicantNo(applicantNo);
 	}
 
-	/**
-	* Sets the applicantaddress of this vr issue equipment certificate.
-	*
-	* @param applicantaddress the applicantaddress of this vr issue equipment certificate
-	*/
-	@Override
-	public void setApplicantaddress(java.lang.String applicantaddress) {
-		_vrIssueEquipmentCertificate.setApplicantaddress(applicantaddress);
-	}
-
-	/**
-	* Sets the applicantname of this vr issue equipment certificate.
-	*
-	* @param applicantname the applicantname of this vr issue equipment certificate
-	*/
-	@Override
-	public void setApplicantname(java.lang.String applicantname) {
-		_vrIssueEquipmentCertificate.setApplicantname(applicantname);
-	}
-
 	@Override
 	public void setCachedModel(boolean cachedModel) {
 		_vrIssueEquipmentCertificate.setCachedModel(cachedModel);
+	}
+
+	/**
+	* Sets the dossier ID of this vr issue equipment certificate.
+	*
+	* @param dossierId the dossier ID of this vr issue equipment certificate
+	*/
+	@Override
+	public void setDossierId(long dossierId) {
+		_vrIssueEquipmentCertificate.setDossierId(dossierId);
 	}
 
 	/**
@@ -717,13 +744,13 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
-	* Sets the mtcore of this vr issue equipment certificate.
+	* Sets the mt core of this vr issue equipment certificate.
 	*
-	* @param mtcore the mtcore of this vr issue equipment certificate
+	* @param mtCore the mt core of this vr issue equipment certificate
 	*/
 	@Override
-	public void setMtcore(int mtcore) {
-		_vrIssueEquipmentCertificate.setMtcore(mtcore);
+	public void setMtCore(long mtCore) {
+		_vrIssueEquipmentCertificate.setMtCore(mtCore);
 	}
 
 	@Override
@@ -747,24 +774,24 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
-	* Sets the productionplantaddress of this vr issue equipment certificate.
+	* Sets the production plant address of this vr issue equipment certificate.
 	*
-	* @param productionplantaddress the productionplantaddress of this vr issue equipment certificate
+	* @param productionPlantAddress the production plant address of this vr issue equipment certificate
 	*/
 	@Override
-	public void setProductionplantaddress(
-		java.lang.String productionplantaddress) {
-		_vrIssueEquipmentCertificate.setProductionplantaddress(productionplantaddress);
+	public void setProductionPlantAddress(
+		java.lang.String productionPlantAddress) {
+		_vrIssueEquipmentCertificate.setProductionPlantAddress(productionPlantAddress);
 	}
 
 	/**
-	* Sets the productionplantname of this vr issue equipment certificate.
+	* Sets the production plant name of this vr issue equipment certificate.
 	*
-	* @param productionplantname the productionplantname of this vr issue equipment certificate
+	* @param productionPlantName the production plant name of this vr issue equipment certificate
 	*/
 	@Override
-	public void setProductionplantname(java.lang.String productionplantname) {
-		_vrIssueEquipmentCertificate.setProductionplantname(productionplantname);
+	public void setProductionPlantName(java.lang.String productionPlantName) {
+		_vrIssueEquipmentCertificate.setProductionPlantName(productionPlantName);
 	}
 
 	/**
@@ -818,14 +845,14 @@ public class VRIssueEquipmentCertificateWrapper
 	}
 
 	/**
-	* Sets the vehiclecertificaterecordno of this vr issue equipment certificate.
+	* Sets the vehicle certificate record no of this vr issue equipment certificate.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno of this vr issue equipment certificate
+	* @param vehicleCertificateRecordNo the vehicle certificate record no of this vr issue equipment certificate
 	*/
 	@Override
-	public void setVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno) {
-		_vrIssueEquipmentCertificate.setVehiclecertificaterecordno(vehiclecertificaterecordno);
+	public void setVehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo) {
+		_vrIssueEquipmentCertificate.setVehicleCertificateRecordNo(vehicleCertificateRecordNo);
 	}
 
 	@Override

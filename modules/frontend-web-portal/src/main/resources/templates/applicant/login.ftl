@@ -60,6 +60,6 @@
 
 <script type="text/javascript">
 	$("#btn-register-applicant").click(function () {
-		window.location.href = "http://dangkiemlaprap.mt.gov.vn/web/cong-tiep-nhan/register";
+		window.location.href = "/web/cong-tiep-nhan/register";
 	});
 </script>

@@ -49,6 +49,13 @@
 		</div>
 	</div>
 	<div class="col-sm-12">
+		<div class="form-group">
+			<label class="control-label">Chi tiết mẫu biên lai  
+			</label> 
+			<textarea class="form-control" rows="3" id="invoiceDetailForm" name="invoiceDetailForm" data-bind="text:invoiceDetailForm" ></textarea>
+		</div>
+	</div>
+	<div class="col-sm-12">
 		<label>Thông tin tài khoản ngân hàng</label>
 		<div class="form-group">
 			<input type="text" name="bankInfo" id="bankInfo" class="form-control" placeholder="Số hiệu" data-bind="value:bankInfo" required="required" validationMessage="Bạn phải điền thông tin tài khoản ngân hàng">
@@ -134,6 +141,7 @@
 										invoiceIssueNo : dataObj.invoiceIssueNo,
 										invoiceLastNo : dataObj.invoiceLastNo,
 										bankInfo : dataObj.bankInfo,
+										invoiceDetailForm: dataObj.invoiceDetailForm
 									});
 
 									kendo.bind($("#frmPaymentConfig"), viewModel);
@@ -156,6 +164,7 @@
 									invoiceIssueNo : dataObj.invoiceIssueNo,
 									invoiceLastNo : dataObj.invoiceLastNo,
 									bankInfo : dataObj.bankInfo,
+									invoiceDetailForm: dataObj.invoiceDetailForm
 								});
 
 								kendo.bind($("#frmPaymentConfig"), viewModel);
@@ -177,7 +186,8 @@
 							invoiceLastNo : "",
 							bankInfo : "",
 							invoiceForm: "",
-							epaymentConfig: ""
+							epaymentConfig: "",
+							invoiceDetailForm: ""
 						});
 
 						kendo.bind($("#frmPaymentConfig"), viewModel);
@@ -238,6 +248,7 @@
 					invoiceIssueNo : $("#invoiceIssueNo").val(),
 					invoiceLastNo : $("#invoiceLastNo").val(),
 					bankInfo : $("#bankInfo").val(),
+					invoiceDetailForm: $("textarea#invoiceDetailForm").val()
 				},
 				success : function(result){
 					notification.show({
@@ -296,6 +307,7 @@
 					invoiceIssueNo : $("#invoiceIssueNo").val(),
 					invoiceLastNo : $("#invoiceLastNo").val(),
 					bankInfo : $("#bankInfo").val(),
+					invoiceDetailForm: $("textarea#invoiceDetailForm").val()
 				},
 				success : function(result){
 					$.ajax({

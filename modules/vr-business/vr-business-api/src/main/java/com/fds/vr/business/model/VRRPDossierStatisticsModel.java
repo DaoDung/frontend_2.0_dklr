@@ -1301,6 +1301,35 @@ public interface VRRPDossierStatisticsModel extends BaseModel<VRRPDossierStatist
 	public void setMen2violated(String men2violated);
 
 	/**
+	 * Returns the dossier payment date of this vrrp dossier statistics.
+	 *
+	 * @return the dossier payment date of this vrrp dossier statistics
+	 */
+	public Date getDossierPaymentDate();
+
+	/**
+	 * Sets the dossier payment date of this vrrp dossier statistics.
+	 *
+	 * @param dossierPaymentDate the dossier payment date of this vrrp dossier statistics
+	 */
+	public void setDossierPaymentDate(Date dossierPaymentDate);
+
+	/**
+	 * Returns the men2 payment approval of this vrrp dossier statistics.
+	 *
+	 * @return the men2 payment approval of this vrrp dossier statistics
+	 */
+	@AutoEscape
+	public String getMen2PaymentApproval();
+
+	/**
+	 * Sets the men2 payment approval of this vrrp dossier statistics.
+	 *
+	 * @param men2PaymentApproval the men2 payment approval of this vrrp dossier statistics
+	 */
+	public void setMen2PaymentApproval(String men2PaymentApproval);
+
+	/**
 	 * Returns the modify date of this vrrp dossier statistics.
 	 *
 	 * @return the modify date of this vrrp dossier statistics

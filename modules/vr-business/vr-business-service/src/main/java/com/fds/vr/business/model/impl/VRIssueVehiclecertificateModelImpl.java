@@ -71,9 +71,10 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 			{ "vehiclePrice", Types.BIGINT },
 			{ "totalQuantity", Types.BIGINT },
 			{ "unitPrice", Types.BIGINT },
-			{ "totalproduct", Types.INTEGER },
-			{ "certificaterecordno", Types.VARCHAR },
-			{ "productionexamreportno", Types.VARCHAR },
+			{ "totalProduct", Types.INTEGER },
+			{ "certificateRecordNo", Types.VARCHAR },
+			{ "productionExamReportNo", Types.VARCHAR },
+			{ "certificateRecordDate", Types.TIMESTAMP },
 			{ "modifyDate", Types.TIMESTAMP },
 			{ "syncDate", Types.TIMESTAMP }
 		};
@@ -88,14 +89,15 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 		TABLE_COLUMNS_MAP.put("vehiclePrice", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("totalQuantity", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("unitPrice", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("totalproduct", Types.INTEGER);
-		TABLE_COLUMNS_MAP.put("certificaterecordno", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("productionexamreportno", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("totalProduct", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("certificateRecordNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionExamReportNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certificateRecordDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifyDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_issue_vehiclecertificate (id LONG not null primary key,mtCore LONG,issueId LONG,dossierId LONG,certificateId LONG,vehiclePrice LONG,totalQuantity LONG,unitPrice LONG,totalproduct INTEGER,certificaterecordno VARCHAR(75) null,productionexamreportno VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_issue_vehiclecertificate (id LONG not null primary key,mtCore LONG,issueId LONG,dossierId LONG,certificateId LONG,vehiclePrice LONG,totalQuantity LONG,unitPrice LONG,totalProduct INTEGER,certificateRecordNo VARCHAR(75) null,productionExamReportNo VARCHAR(75) null,certificateRecordDate DATE null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_issue_vehiclecertificate";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrIssueVehiclecertificate.modifyDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_issue_vehiclecertificate.modifyDate DESC";
@@ -165,8 +167,9 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 		attributes.put("totalQuantity", getTotalQuantity());
 		attributes.put("unitPrice", getUnitPrice());
 		attributes.put("totalProduct", getTotalProduct());
-		attributes.put("certificaterecordno", getCertificaterecordno());
-		attributes.put("productionexamreportno", getProductionexamreportno());
+		attributes.put("certificateRecordNo", getCertificateRecordNo());
+		attributes.put("productionExamReportNo", getProductionExamReportNo());
+		attributes.put("certificateRecordDate", getCertificateRecordDate());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -232,18 +235,25 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 			setTotalProduct(totalProduct);
 		}
 
-		String certificaterecordno = (String)attributes.get(
-				"certificaterecordno");
+		String certificateRecordNo = (String)attributes.get(
+				"certificateRecordNo");
 
-		if (certificaterecordno != null) {
-			setCertificaterecordno(certificaterecordno);
+		if (certificateRecordNo != null) {
+			setCertificateRecordNo(certificateRecordNo);
 		}
 
-		String productionexamreportno = (String)attributes.get(
-				"productionexamreportno");
+		String productionExamReportNo = (String)attributes.get(
+				"productionExamReportNo");
 
-		if (productionexamreportno != null) {
-			setProductionexamreportno(productionexamreportno);
+		if (productionExamReportNo != null) {
+			setProductionExamReportNo(productionExamReportNo);
+		}
+
+		Date certificateRecordDate = (Date)attributes.get(
+				"certificateRecordDate");
+
+		if (certificateRecordDate != null) {
+			setCertificateRecordDate(certificateRecordDate);
 		}
 
 		Date modifyDate = (Date)attributes.get("modifyDate");
@@ -398,33 +408,43 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 	}
 
 	@Override
-	public String getCertificaterecordno() {
-		if (_certificaterecordno == null) {
+	public String getCertificateRecordNo() {
+		if (_certificateRecordNo == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _certificaterecordno;
+			return _certificateRecordNo;
 		}
 	}
 
 	@Override
-	public void setCertificaterecordno(String certificaterecordno) {
-		_certificaterecordno = certificaterecordno;
+	public void setCertificateRecordNo(String certificateRecordNo) {
+		_certificateRecordNo = certificateRecordNo;
 	}
 
 	@Override
-	public String getProductionexamreportno() {
-		if (_productionexamreportno == null) {
+	public String getProductionExamReportNo() {
+		if (_productionExamReportNo == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _productionexamreportno;
+			return _productionExamReportNo;
 		}
 	}
 
 	@Override
-	public void setProductionexamreportno(String productionexamreportno) {
-		_productionexamreportno = productionexamreportno;
+	public void setProductionExamReportNo(String productionExamReportNo) {
+		_productionExamReportNo = productionExamReportNo;
+	}
+
+	@Override
+	public Date getCertificateRecordDate() {
+		return _certificateRecordDate;
+	}
+
+	@Override
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_certificateRecordDate = certificateRecordDate;
 	}
 
 	@Override
@@ -489,8 +509,9 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 		vrIssueVehiclecertificateImpl.setTotalQuantity(getTotalQuantity());
 		vrIssueVehiclecertificateImpl.setUnitPrice(getUnitPrice());
 		vrIssueVehiclecertificateImpl.setTotalProduct(getTotalProduct());
-		vrIssueVehiclecertificateImpl.setCertificaterecordno(getCertificaterecordno());
-		vrIssueVehiclecertificateImpl.setProductionexamreportno(getProductionexamreportno());
+		vrIssueVehiclecertificateImpl.setCertificateRecordNo(getCertificateRecordNo());
+		vrIssueVehiclecertificateImpl.setProductionExamReportNo(getProductionExamReportNo());
+		vrIssueVehiclecertificateImpl.setCertificateRecordDate(getCertificateRecordDate());
 		vrIssueVehiclecertificateImpl.setModifyDate(getModifyDate());
 		vrIssueVehiclecertificateImpl.setSyncDate(getSyncDate());
 
@@ -597,22 +618,31 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 
 		vrIssueVehiclecertificateCacheModel.totalProduct = getTotalProduct();
 
-		vrIssueVehiclecertificateCacheModel.certificaterecordno = getCertificaterecordno();
+		vrIssueVehiclecertificateCacheModel.certificateRecordNo = getCertificateRecordNo();
 
-		String certificaterecordno = vrIssueVehiclecertificateCacheModel.certificaterecordno;
+		String certificateRecordNo = vrIssueVehiclecertificateCacheModel.certificateRecordNo;
 
-		if ((certificaterecordno != null) &&
-				(certificaterecordno.length() == 0)) {
-			vrIssueVehiclecertificateCacheModel.certificaterecordno = null;
+		if ((certificateRecordNo != null) &&
+				(certificateRecordNo.length() == 0)) {
+			vrIssueVehiclecertificateCacheModel.certificateRecordNo = null;
 		}
 
-		vrIssueVehiclecertificateCacheModel.productionexamreportno = getProductionexamreportno();
+		vrIssueVehiclecertificateCacheModel.productionExamReportNo = getProductionExamReportNo();
 
-		String productionexamreportno = vrIssueVehiclecertificateCacheModel.productionexamreportno;
+		String productionExamReportNo = vrIssueVehiclecertificateCacheModel.productionExamReportNo;
 
-		if ((productionexamreportno != null) &&
-				(productionexamreportno.length() == 0)) {
-			vrIssueVehiclecertificateCacheModel.productionexamreportno = null;
+		if ((productionExamReportNo != null) &&
+				(productionExamReportNo.length() == 0)) {
+			vrIssueVehiclecertificateCacheModel.productionExamReportNo = null;
+		}
+
+		Date certificateRecordDate = getCertificateRecordDate();
+
+		if (certificateRecordDate != null) {
+			vrIssueVehiclecertificateCacheModel.certificateRecordDate = certificateRecordDate.getTime();
+		}
+		else {
+			vrIssueVehiclecertificateCacheModel.certificateRecordDate = Long.MIN_VALUE;
 		}
 
 		Date modifyDate = getModifyDate();
@@ -638,7 +668,7 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -658,10 +688,12 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 		sb.append(getUnitPrice());
 		sb.append(", totalProduct=");
 		sb.append(getTotalProduct());
-		sb.append(", certificaterecordno=");
-		sb.append(getCertificaterecordno());
-		sb.append(", productionexamreportno=");
-		sb.append(getProductionexamreportno());
+		sb.append(", certificateRecordNo=");
+		sb.append(getCertificateRecordNo());
+		sb.append(", productionExamReportNo=");
+		sb.append(getProductionExamReportNo());
+		sb.append(", certificateRecordDate=");
+		sb.append(getCertificateRecordDate());
 		sb.append(", modifyDate=");
 		sb.append(getModifyDate());
 		sb.append(", syncDate=");
@@ -673,7 +705,7 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(46);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRIssueVehiclecertificate");
@@ -716,12 +748,16 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 		sb.append(getTotalProduct());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>certificaterecordno</column-name><column-value><![CDATA[");
-		sb.append(getCertificaterecordno());
+			"<column><column-name>certificateRecordNo</column-name><column-value><![CDATA[");
+		sb.append(getCertificateRecordNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>productionexamreportno</column-name><column-value><![CDATA[");
-		sb.append(getProductionexamreportno());
+			"<column><column-name>productionExamReportNo</column-name><column-value><![CDATA[");
+		sb.append(getProductionExamReportNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certificateRecordDate</column-name><column-value><![CDATA[");
+		sb.append(getCertificateRecordDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>modifyDate</column-name><column-value><![CDATA[");
@@ -758,8 +794,9 @@ public class VRIssueVehiclecertificateModelImpl extends BaseModelImpl<VRIssueVeh
 	private long _totalQuantity;
 	private long _unitPrice;
 	private int _totalProduct;
-	private String _certificaterecordno;
-	private String _productionexamreportno;
+	private String _certificateRecordNo;
+	private String _productionExamReportNo;
+	private Date _certificateRecordDate;
 	private Date _modifyDate;
 	private Date _syncDate;
 	private long _columnBitmask;

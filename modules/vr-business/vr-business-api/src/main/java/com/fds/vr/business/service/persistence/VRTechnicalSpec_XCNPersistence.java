@@ -886,6 +886,275 @@ public interface VRTechnicalSpec_XCNPersistence extends BasePersistence<VRTechni
 	public int countByReferenceUid(java.lang.String referenceUid);
 
 	/**
+	* Returns all the vr technical spec_xcns where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @return the matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findBy_DossierId(long dossierId);
+
+	/**
+	* Returns a range of all the vr technical spec_xcns where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCNModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_xcns
+	* @param end the upper bound of the range of vr technical spec_xcns (not inclusive)
+	* @return the range of matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findBy_DossierId(
+		long dossierId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xcns where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCNModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_xcns
+	* @param end the upper bound of the range of vr technical spec_xcns (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findBy_DossierId(
+		long dossierId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xcns where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCNModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_xcns
+	* @param end the upper bound of the range of vr technical spec_xcns (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findBy_DossierId(
+		long dossierId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr technical spec_xcn in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xcn
+	* @throws NoSuchVRTechnicalSpec_XCNException if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN findBy_DossierId_First(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCNException;
+
+	/**
+	* Returns the first vr technical spec_xcn in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xcn, or <code>null</code> if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN fetchBy_DossierId_First(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator);
+
+	/**
+	* Returns the last vr technical spec_xcn in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xcn
+	* @throws NoSuchVRTechnicalSpec_XCNException if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN findBy_DossierId_Last(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCNException;
+
+	/**
+	* Returns the last vr technical spec_xcn in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xcn, or <code>null</code> if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN fetchBy_DossierId_Last(long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator);
+
+	/**
+	* Returns the vr technical spec_xcns before and after the current vr technical spec_xcn in the ordered set where dossierId = &#63;.
+	*
+	* @param id the primary key of the current vr technical spec_xcn
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr technical spec_xcn
+	* @throws NoSuchVRTechnicalSpec_XCNException if a vr technical spec_xcn with the primary key could not be found
+	*/
+	public VRTechnicalSpec_XCN[] findBy_DossierId_PrevAndNext(long id,
+		long dossierId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCNException;
+
+	/**
+	* Removes all the vr technical spec_xcns where dossierId = &#63; from the database.
+	*
+	* @param dossierId the dossier ID
+	*/
+	public void removeBy_DossierId(long dossierId);
+
+	/**
+	* Returns the number of vr technical spec_xcns where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @return the number of matching vr technical spec_xcns
+	*/
+	public int countBy_DossierId(long dossierId);
+
+	/**
+	* Returns all the vr technical spec_xcns where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @return the matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId);
+
+	/**
+	* Returns a range of all the vr technical spec_xcns where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCNModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_xcns
+	* @param end the upper bound of the range of vr technical spec_xcns (not inclusive)
+	* @return the range of matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xcns where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCNModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_xcns
+	* @param end the upper bound of the range of vr technical spec_xcns (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xcns where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCNModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_xcns
+	* @param end the upper bound of the range of vr technical spec_xcns (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr technical spec_xcns
+	*/
+	public java.util.List<VRTechnicalSpec_XCN> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr technical spec_xcn in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xcn
+	* @throws NoSuchVRTechnicalSpec_XCNException if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN findByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCNException;
+
+	/**
+	* Returns the first vr technical spec_xcn in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xcn, or <code>null</code> if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN fetchByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator);
+
+	/**
+	* Returns the last vr technical spec_xcn in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xcn
+	* @throws NoSuchVRTechnicalSpec_XCNException if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN findByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCNException;
+
+	/**
+	* Returns the last vr technical spec_xcn in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xcn, or <code>null</code> if a matching vr technical spec_xcn could not be found
+	*/
+	public VRTechnicalSpec_XCN fetchByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator);
+
+	/**
+	* Returns the vr technical spec_xcns before and after the current vr technical spec_xcn in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param id the primary key of the current vr technical spec_xcn
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr technical spec_xcn
+	* @throws NoSuchVRTechnicalSpec_XCNException if a vr technical spec_xcn with the primary key could not be found
+	*/
+	public VRTechnicalSpec_XCN[] findByvehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRTechnicalSpec_XCN> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCNException;
+
+	/**
+	* Removes all the vr technical spec_xcns where vehicleTypeCertificateId = &#63; from the database.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	*/
+	public void removeByvehicleTypeCertificateId(long vehicleTypeCertificateId);
+
+	/**
+	* Returns the number of vr technical spec_xcns where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @return the number of matching vr technical spec_xcns
+	*/
+	public int countByvehicleTypeCertificateId(long vehicleTypeCertificateId);
+
+	/**
 	* Caches the vr technical spec_xcn in the entity cache if it is enabled.
 	*
 	* @param vrTechnicalSpec_XCN the vr technical spec_xcn

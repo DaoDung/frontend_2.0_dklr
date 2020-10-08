@@ -147,6 +147,8 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 			{ "men2cancelled", Types.VARCHAR },
 			{ "men2expired", Types.VARCHAR },
 			{ "men2violated", Types.VARCHAR },
+			{ "dossierpaymentdate", Types.TIMESTAMP },
+			{ "men2paymentapproval", Types.VARCHAR },
 			{ "modifyDate", Types.TIMESTAMP },
 			{ "syncDate", Types.TIMESTAMP }
 		};
@@ -237,11 +239,13 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 		TABLE_COLUMNS_MAP.put("men2cancelled", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("men2expired", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("men2violated", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("dossierpaymentdate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("men2paymentapproval", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("modifyDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_rp_dossierstatistics (id LONG not null primary key,dossierid LONG,dossierIdCTN VARCHAR(75) null,dossierno VARCHAR(75) null,dossiersendingdate DATE null,dossierreceivingdate DATE null,dossierfirstupdatingdate DATE null,dossierlastupdatingdate DATE null,dossierendorsementdate DATE null,dossiersubmittingdate DATE null,dossierfirstcertificatesigndate DATE null,dossierfirstassignmentdate DATE null,dossierfirstreviewdate DATE null,dossiernexttreviewdate DATE null,dossierlastassignmentdate DATE null,dossierreviewadjustdate DATE null,dossierlastreviewadjustdate DATE null,dossierlastcertificatesigndate DATE null,dossierdeadline DATE null,dossierfinisheddate DATE null,dossiercancellingdate DATE null,dossierexpiredate DATE null,dossierviolatingdate DATE null,dossierviolatingfromdate DATE null,dossierviolatingtodate DATE null,dossiertype VARCHAR(75) null,dossiertype_endorsed VARCHAR(75) null,dossiertype_expired VARCHAR(75) null,dossiertype_updated VARCHAR(75) null,dossiertype_delayed VARCHAR(75) null,dossierdelayday INTEGER,dossierdelayreason VARCHAR(75) null,dossierstatus_processing VARCHAR(75) null,dossiersubstatus VARCHAR(75) null,dossierresult VARCHAR(75) null,remarkToUpdate VARCHAR(75) null,remarkToResult VARCHAR(75) null,resultdescription1 VARCHAR(75) null,resultdescription2 VARCHAR(75) null,resultdescription3 VARCHAR(75) null,applicantNo VARCHAR(75) null,applicantname VARCHAR(75) null,applicantaddress VARCHAR(75) null,productionplantname VARCHAR(75) null,productionplantaddress VARCHAR(75) null,domesticFDI VARCHAR(75) null,vehicleclass VARCHAR(75) null,certifiedvehicletype VARCHAR(75) null,certifiedvehicletypedescription VARCHAR(75) null,certifiedtrademark VARCHAR(75) null,certifiedtrademarkname VARCHAR(75) null,certifiedcommercialname VARCHAR(75) null,certifiedmodelcode VARCHAR(75) null,certifiedassemblytype VARCHAR(75) null,certifiedassemblytypedescription VARCHAR(75) null,equipmentimportquantity INTEGER,SeatNumber VARCHAR(75) null,EngineType VARCHAR(75) null,EngineTypeDescription VARCHAR(75) null,certificaterecordno_new VARCHAR(75) null,certificaterecordno_renew VARCHAR(75) null,certificateyear VARCHAR(75) null,certificatemonth INTEGER,corporationId VARCHAR(75) null,inspectorcode VARCHAR(75) null,inspectorname VARCHAR(75) null,leadername VARCHAR(75) null,men2receiving VARCHAR(75) null,men2firstupdating VARCHAR(75) null,men2lastupdating VARCHAR(75) null,men2endorsement VARCHAR(75) null,men2submitting VARCHAR(75) null,men2firstcertificate VARCHAR(75) null,men2firstassignment VARCHAR(75) null,men2firstreview VARCHAR(75) null,men2nexttreview VARCHAR(75) null,men2lastassignment VARCHAR(75) null,men2reviewadjust VARCHAR(75) null,men2lastreviewadjust VARCHAR(75) null,men2lastcertificatesign VARCHAR(75) null,men2finished VARCHAR(75) null,men2cancelled VARCHAR(75) null,men2expired VARCHAR(75) null,men2violated VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_rp_dossierstatistics (id LONG not null primary key,dossierid LONG,dossierIdCTN VARCHAR(75) null,dossierno VARCHAR(75) null,dossiersendingdate DATE null,dossierreceivingdate DATE null,dossierfirstupdatingdate DATE null,dossierlastupdatingdate DATE null,dossierendorsementdate DATE null,dossiersubmittingdate DATE null,dossierfirstcertificatesigndate DATE null,dossierfirstassignmentdate DATE null,dossierfirstreviewdate DATE null,dossiernexttreviewdate DATE null,dossierlastassignmentdate DATE null,dossierreviewadjustdate DATE null,dossierlastreviewadjustdate DATE null,dossierlastcertificatesigndate DATE null,dossierdeadline DATE null,dossierfinisheddate DATE null,dossiercancellingdate DATE null,dossierexpiredate DATE null,dossierviolatingdate DATE null,dossierviolatingfromdate DATE null,dossierviolatingtodate DATE null,dossiertype VARCHAR(75) null,dossiertype_endorsed VARCHAR(75) null,dossiertype_expired VARCHAR(75) null,dossiertype_updated VARCHAR(75) null,dossiertype_delayed VARCHAR(75) null,dossierdelayday INTEGER,dossierdelayreason VARCHAR(75) null,dossierstatus_processing VARCHAR(75) null,dossiersubstatus VARCHAR(75) null,dossierresult VARCHAR(75) null,remarkToUpdate VARCHAR(75) null,remarkToResult VARCHAR(75) null,resultdescription1 VARCHAR(75) null,resultdescription2 VARCHAR(75) null,resultdescription3 VARCHAR(75) null,applicantNo VARCHAR(75) null,applicantname VARCHAR(75) null,applicantaddress VARCHAR(75) null,productionplantname VARCHAR(75) null,productionplantaddress VARCHAR(75) null,domesticFDI VARCHAR(75) null,vehicleclass VARCHAR(75) null,certifiedvehicletype VARCHAR(75) null,certifiedvehicletypedescription VARCHAR(75) null,certifiedtrademark VARCHAR(75) null,certifiedtrademarkname VARCHAR(75) null,certifiedcommercialname VARCHAR(75) null,certifiedmodelcode VARCHAR(75) null,certifiedassemblytype VARCHAR(75) null,certifiedassemblytypedescription VARCHAR(75) null,equipmentimportquantity INTEGER,SeatNumber VARCHAR(75) null,EngineType VARCHAR(75) null,EngineTypeDescription VARCHAR(75) null,certificaterecordno_new VARCHAR(75) null,certificaterecordno_renew VARCHAR(75) null,certificateyear VARCHAR(75) null,certificatemonth INTEGER,corporationId VARCHAR(75) null,inspectorcode VARCHAR(75) null,inspectorname VARCHAR(75) null,leadername VARCHAR(75) null,men2receiving VARCHAR(75) null,men2firstupdating VARCHAR(75) null,men2lastupdating VARCHAR(75) null,men2endorsement VARCHAR(75) null,men2submitting VARCHAR(75) null,men2firstcertificate VARCHAR(75) null,men2firstassignment VARCHAR(75) null,men2firstreview VARCHAR(75) null,men2nexttreview VARCHAR(75) null,men2lastassignment VARCHAR(75) null,men2reviewadjust VARCHAR(75) null,men2lastreviewadjust VARCHAR(75) null,men2lastcertificatesign VARCHAR(75) null,men2finished VARCHAR(75) null,men2cancelled VARCHAR(75) null,men2expired VARCHAR(75) null,men2violated VARCHAR(75) null,dossierpaymentdate DATE null,men2paymentapproval VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_rp_dossierstatistics";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrrpDossierStatistics.syncDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_rp_dossierstatistics.syncDate DESC";
@@ -396,6 +400,8 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 		attributes.put("men2cancelled", getMen2cancelled());
 		attributes.put("men2expired", getMen2expired());
 		attributes.put("men2violated", getMen2violated());
+		attributes.put("dossierPaymentDate", getDossierPaymentDate());
+		attributes.put("men2PaymentApproval", getMen2PaymentApproval());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -945,6 +951,19 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 
 		if (men2violated != null) {
 			setMen2violated(men2violated);
+		}
+
+		Date dossierPaymentDate = (Date)attributes.get("dossierPaymentDate");
+
+		if (dossierPaymentDate != null) {
+			setDossierPaymentDate(dossierPaymentDate);
+		}
+
+		String men2PaymentApproval = (String)attributes.get(
+				"men2PaymentApproval");
+
+		if (men2PaymentApproval != null) {
+			setMen2PaymentApproval(men2PaymentApproval);
 		}
 
 		Date modifyDate = (Date)attributes.get("modifyDate");
@@ -2157,6 +2176,31 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 	}
 
 	@Override
+	public Date getDossierPaymentDate() {
+		return _dossierPaymentDate;
+	}
+
+	@Override
+	public void setDossierPaymentDate(Date dossierPaymentDate) {
+		_dossierPaymentDate = dossierPaymentDate;
+	}
+
+	@Override
+	public String getMen2PaymentApproval() {
+		if (_men2PaymentApproval == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _men2PaymentApproval;
+		}
+	}
+
+	@Override
+	public void setMen2PaymentApproval(String men2PaymentApproval) {
+		_men2PaymentApproval = men2PaymentApproval;
+	}
+
+	@Override
 	public Date getModifyDate() {
 		return _modifyDate;
 	}
@@ -2293,6 +2337,8 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 		vrrpDossierStatisticsImpl.setMen2cancelled(getMen2cancelled());
 		vrrpDossierStatisticsImpl.setMen2expired(getMen2expired());
 		vrrpDossierStatisticsImpl.setMen2violated(getMen2violated());
+		vrrpDossierStatisticsImpl.setDossierPaymentDate(getDossierPaymentDate());
+		vrrpDossierStatisticsImpl.setMen2PaymentApproval(getMen2PaymentApproval());
 		vrrpDossierStatisticsImpl.setModifyDate(getModifyDate());
 		vrrpDossierStatisticsImpl.setSyncDate(getSyncDate());
 
@@ -3062,6 +3108,24 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 			vrrpDossierStatisticsCacheModel.men2violated = null;
 		}
 
+		Date dossierPaymentDate = getDossierPaymentDate();
+
+		if (dossierPaymentDate != null) {
+			vrrpDossierStatisticsCacheModel.dossierPaymentDate = dossierPaymentDate.getTime();
+		}
+		else {
+			vrrpDossierStatisticsCacheModel.dossierPaymentDate = Long.MIN_VALUE;
+		}
+
+		vrrpDossierStatisticsCacheModel.men2PaymentApproval = getMen2PaymentApproval();
+
+		String men2PaymentApproval = vrrpDossierStatisticsCacheModel.men2PaymentApproval;
+
+		if ((men2PaymentApproval != null) &&
+				(men2PaymentApproval.length() == 0)) {
+			vrrpDossierStatisticsCacheModel.men2PaymentApproval = null;
+		}
+
 		Date modifyDate = getModifyDate();
 
 		if (modifyDate != null) {
@@ -3085,7 +3149,7 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(173);
+		StringBundler sb = new StringBundler(177);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -3255,6 +3319,10 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 		sb.append(getMen2expired());
 		sb.append(", men2violated=");
 		sb.append(getMen2violated());
+		sb.append(", dossierPaymentDate=");
+		sb.append(getDossierPaymentDate());
+		sb.append(", men2PaymentApproval=");
+		sb.append(getMen2PaymentApproval());
 		sb.append(", modifyDate=");
 		sb.append(getModifyDate());
 		sb.append(", syncDate=");
@@ -3266,7 +3334,7 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(262);
+		StringBundler sb = new StringBundler(268);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRRPDossierStatistics");
@@ -3609,6 +3677,14 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 		sb.append(getMen2violated());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>dossierPaymentDate</column-name><column-value><![CDATA[");
+		sb.append(getDossierPaymentDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>men2PaymentApproval</column-name><column-value><![CDATA[");
+		sb.append(getMen2PaymentApproval());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>modifyDate</column-name><column-value><![CDATA[");
 		sb.append(getModifyDate());
 		sb.append("]]></column-value></column>");
@@ -3717,6 +3793,8 @@ public class VRRPDossierStatisticsModelImpl extends BaseModelImpl<VRRPDossierSta
 	private String _men2cancelled;
 	private String _men2expired;
 	private String _men2violated;
+	private Date _dossierPaymentDate;
+	private String _men2PaymentApproval;
 	private Date _modifyDate;
 	private Date _syncDate;
 	private long _columnBitmask;

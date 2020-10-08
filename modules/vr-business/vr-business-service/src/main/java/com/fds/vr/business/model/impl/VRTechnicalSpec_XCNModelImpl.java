@@ -414,7 +414,8 @@ public class VRTechnicalSpec_XCNModelImpl extends BaseModelImpl<VRTechnicalSpec_
 	public static final long DOSSIERNO_COLUMN_BITMASK = 16L;
 	public static final long MTCORE_COLUMN_BITMASK = 32L;
 	public static final long REFERENCEUID_COLUMN_BITMASK = 64L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 128L;
+	public static final long VEHICLETYPECERTIFICATEID_COLUMN_BITMASK = 128L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRTechnicalSpec_XCN"));
 
@@ -1776,7 +1777,19 @@ public class VRTechnicalSpec_XCNModelImpl extends BaseModelImpl<VRTechnicalSpec_
 
 	@Override
 	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_columnBitmask |= VEHICLETYPECERTIFICATEID_COLUMN_BITMASK;
+
+		if (!_setOriginalVehicleTypeCertificateId) {
+			_setOriginalVehicleTypeCertificateId = true;
+
+			_originalVehicleTypeCertificateId = _vehicleTypeCertificateId;
+		}
+
 		_vehicleTypeCertificateId = vehicleTypeCertificateId;
+	}
+
+	public long getOriginalVehicleTypeCertificateId() {
+		return _originalVehicleTypeCertificateId;
 	}
 
 	@Override
@@ -4326,6 +4339,10 @@ public class VRTechnicalSpec_XCNModelImpl extends BaseModelImpl<VRTechnicalSpec_
 
 		vrTechnicalSpec_XCNModelImpl._originalDeliverableCode = vrTechnicalSpec_XCNModelImpl._deliverableCode;
 
+		vrTechnicalSpec_XCNModelImpl._originalVehicleTypeCertificateId = vrTechnicalSpec_XCNModelImpl._vehicleTypeCertificateId;
+
+		vrTechnicalSpec_XCNModelImpl._setOriginalVehicleTypeCertificateId = false;
+
 		vrTechnicalSpec_XCNModelImpl._columnBitmask = 0;
 	}
 
@@ -6608,6 +6625,8 @@ public class VRTechnicalSpec_XCNModelImpl extends BaseModelImpl<VRTechnicalSpec_
 	private String _deliverableCode;
 	private String _originalDeliverableCode;
 	private long _vehicleTypeCertificateId;
+	private long _originalVehicleTypeCertificateId;
+	private boolean _setOriginalVehicleTypeCertificateId;
 	private String _loai_dong_co;
 	private String _XCN01001;
 	private String _XCN01002;

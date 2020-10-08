@@ -151,6 +151,8 @@ public class VRRPDossierStatisticsWrapper implements VRRPDossierStatistics,
 		attributes.put("men2cancelled", getMen2cancelled());
 		attributes.put("men2expired", getMen2expired());
 		attributes.put("men2violated", getMen2violated());
+		attributes.put("dossierPaymentDate", getDossierPaymentDate());
+		attributes.put("men2PaymentApproval", getMen2PaymentApproval());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -699,6 +701,19 @@ public class VRRPDossierStatisticsWrapper implements VRRPDossierStatistics,
 			setMen2violated(men2violated);
 		}
 
+		Date dossierPaymentDate = (Date)attributes.get("dossierPaymentDate");
+
+		if (dossierPaymentDate != null) {
+			setDossierPaymentDate(dossierPaymentDate);
+		}
+
+		String men2PaymentApproval = (String)attributes.get(
+				"men2PaymentApproval");
+
+		if (men2PaymentApproval != null) {
+			setMen2PaymentApproval(men2PaymentApproval);
+		}
+
 		Date modifyDate = (Date)attributes.get("modifyDate");
 
 		if (modifyDate != null) {
@@ -1118,6 +1133,16 @@ public class VRRPDossierStatisticsWrapper implements VRRPDossierStatistics,
 	}
 
 	/**
+	* Returns the men2 payment approval of this vrrp dossier statistics.
+	*
+	* @return the men2 payment approval of this vrrp dossier statistics
+	*/
+	@Override
+	public java.lang.String getMen2PaymentApproval() {
+		return _vrrpDossierStatistics.getMen2PaymentApproval();
+	}
+
+	/**
 	* Returns the men2cancelled of this vrrp dossier statistics.
 	*
 	* @return the men2cancelled of this vrrp dossier statistics
@@ -1385,6 +1410,16 @@ public class VRRPDossierStatisticsWrapper implements VRRPDossierStatistics,
 	@Override
 	public java.lang.String toXmlString() {
 		return _vrrpDossierStatistics.toXmlString();
+	}
+
+	/**
+	* Returns the dossier payment date of this vrrp dossier statistics.
+	*
+	* @return the dossier payment date of this vrrp dossier statistics
+	*/
+	@Override
+	public Date getDossierPaymentDate() {
+		return _vrrpDossierStatistics.getDossierPaymentDate();
 	}
 
 	/**
@@ -1844,6 +1879,16 @@ public class VRRPDossierStatisticsWrapper implements VRRPDossierStatistics,
 	}
 
 	/**
+	* Sets the dossier payment date of this vrrp dossier statistics.
+	*
+	* @param dossierPaymentDate the dossier payment date of this vrrp dossier statistics
+	*/
+	@Override
+	public void setDossierPaymentDate(Date dossierPaymentDate) {
+		_vrrpDossierStatistics.setDossierPaymentDate(dossierPaymentDate);
+	}
+
+	/**
 	* Sets the dossiercancellingdate of this vrrp dossier statistics.
 	*
 	* @param dossiercancellingdate the dossiercancellingdate of this vrrp dossier statistics
@@ -2260,6 +2305,16 @@ public class VRRPDossierStatisticsWrapper implements VRRPDossierStatistics,
 	@Override
 	public void setLeadername(java.lang.String leadername) {
 		_vrrpDossierStatistics.setLeadername(leadername);
+	}
+
+	/**
+	* Sets the men2 payment approval of this vrrp dossier statistics.
+	*
+	* @param men2PaymentApproval the men2 payment approval of this vrrp dossier statistics
+	*/
+	@Override
+	public void setMen2PaymentApproval(java.lang.String men2PaymentApproval) {
+		_vrrpDossierStatistics.setMen2PaymentApproval(men2PaymentApproval);
 	}
 
 	/**

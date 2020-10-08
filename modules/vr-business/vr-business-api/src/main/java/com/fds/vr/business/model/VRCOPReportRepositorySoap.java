@@ -91,6 +91,73 @@ public class VRCOPReportRepositorySoap implements Serializable {
 		soapModel.setDossierId(model.getDossierId());
 		soapModel.setDossierIdCTN(model.getDossierIdCTN());
 		soapModel.setDossierNo(model.getDossierNo());
+		soapModel.setApplicantEmail(model.getApplicantEmail());
+		soapModel.setApplicantPhone(model.getApplicantPhone());
+		soapModel.setApplicantTelNo(model.getApplicantTelNo());
+		soapModel.setApplicantFax(model.getApplicantFax());
+		soapModel.setApplicantContactName(model.getApplicantContactName());
+		soapModel.setApplicantContactEmail(model.getApplicantContactEmail());
+		soapModel.setApplicantContactPhone(model.getApplicantContactPhone());
+		soapModel.setApplicantContactTelNo(model.getApplicantContactTelNo());
+		soapModel.setApplicantBusinessType(model.getApplicantBusinessType());
+		soapModel.setMarkupDesigner(model.getMarkupDesigner());
+		soapModel.setMarkupOverseasManufacturer(model.getMarkupOverseasManufacturer());
+		soapModel.setMarkupMaintainer(model.getMarkupMaintainer());
+		soapModel.setImporterDomesticSite(model.getImporterDomesticSite());
+		soapModel.setSiteOfNationality(model.getSiteOfNationality());
+		soapModel.setSiteOfNationalityCode(model.getSiteOfNationalityCode());
+		soapModel.setSiteOfRegion(model.getSiteOfRegion());
+		soapModel.setSiteOfRegionCode(model.getSiteOfRegionCode());
+		soapModel.setSiteOfCity(model.getSiteOfCity());
+		soapModel.setSiteOfCityCode(model.getSiteOfCityCode());
+		soapModel.setManufacturerRepresentative(model.getManufacturerRepresentative());
+		soapModel.setManufacturerRepresentativeTitle(model.getManufacturerRepresentativeTitle());
+		soapModel.setManufacturerEmail(model.getManufacturerEmail());
+		soapModel.setManufacturerPhone(model.getManufacturerPhone());
+		soapModel.setManufacturerFax(model.getManufacturerFax());
+		soapModel.setProductionPlantEmail(model.getProductionPlantEmail());
+		soapModel.setProductionPlantWebsite(model.getProductionPlantWebsite());
+		soapModel.setProductionPlantRepresentative(model.getProductionPlantRepresentative());
+		soapModel.setProductionPlantRepresentativeTitle(model.getProductionPlantRepresentativeTitle());
+		soapModel.setCorporationName(model.getCorporationName());
+		soapModel.setInspectorContactCode(model.getInspectorContactCode());
+		soapModel.setInspectorName(model.getInspectorName());
+		soapModel.setInspectoRendorSementDate(model.getInspectoRendorSementDate());
+		soapModel.setInspectorDeadline(model.getInspectorDeadline());
+		soapModel.setResolvedStatus(model.getResolvedStatus());
+		soapModel.setNumberOfNonConformity(model.getNumberOfNonConformity());
+		soapModel.setNumberOfResolved(model.getNumberOfResolved());
+		soapModel.setObservationDescription(model.getObservationDescription());
+		soapModel.setInspectionAuditCycle(model.getInspectionAuditCycle());
+		soapModel.setInspectionNote(model.getInspectionNote());
+		soapModel.setProductionConformityChecking(model.getProductionConformityChecking());
+		soapModel.setProductionStampChecking(model.getProductionStampChecking());
+		soapModel.setTestingEquipmentChecking(model.getTestingEquipmentChecking());
+		soapModel.setProductionPlantClassification(model.getProductionPlantClassification());
+		soapModel.setActualCapacity(model.getActualCapacity());
+		soapModel.setMaxCapacity(model.getMaxCapacity());
+		soapModel.setAverageCapacity(model.getAverageCapacity());
+		soapModel.setTotalEmployee(model.getTotalEmployee());
+		soapModel.setTotalWorker(model.getTotalWorker());
+		soapModel.setTotalManager(model.getTotalManager());
+		soapModel.setTotalTechnical(model.getTotalTechnical());
+		soapModel.setTotalQaEmployee(model.getTotalQaEmployee());
+		soapModel.setTotalSquareMeter(model.getTotalSquareMeter());
+		soapModel.setWareHouseSquare(model.getWareHouseSquare());
+		soapModel.setOfficeSquare(model.getOfficeSquare());
+		soapModel.setProductionSquare(model.getProductionSquare());
+		soapModel.setMachiningArea(model.getMachiningArea());
+		soapModel.setWeldingArea(model.getWeldingArea());
+		soapModel.setPaintingArea(model.getPaintingArea());
+		soapModel.setProductionAssembleArea(model.getProductionAssembleArea());
+		soapModel.setFinishProductArea(model.getFinishProductArea());
+		soapModel.setTestingArea(model.getTestingArea());
+		soapModel.setSelfEquipment(model.getSelfEquipment());
+		soapModel.setContractEquipment(model.getContractEquipment());
+		soapModel.setCircularNo(model.getCircularNo());
+		soapModel.setCircularDate(model.getCircularDate());
+		soapModel.setCircularNo2(model.getCircularNo2());
+		soapModel.setCircularDate2(model.getCircularDate2());
 
 		return soapModel;
 	}
@@ -607,6 +674,547 @@ public class VRCOPReportRepositorySoap implements Serializable {
 		_dossierNo = dossierNo;
 	}
 
+	public String getApplicantEmail() {
+		return _applicantEmail;
+	}
+
+	public void setApplicantEmail(String applicantEmail) {
+		_applicantEmail = applicantEmail;
+	}
+
+	public String getApplicantPhone() {
+		return _applicantPhone;
+	}
+
+	public void setApplicantPhone(String applicantPhone) {
+		_applicantPhone = applicantPhone;
+	}
+
+	public String getApplicantTelNo() {
+		return _applicantTelNo;
+	}
+
+	public void setApplicantTelNo(String applicantTelNo) {
+		_applicantTelNo = applicantTelNo;
+	}
+
+	public String getApplicantFax() {
+		return _applicantFax;
+	}
+
+	public void setApplicantFax(String applicantFax) {
+		_applicantFax = applicantFax;
+	}
+
+	public String getApplicantContactName() {
+		return _applicantContactName;
+	}
+
+	public void setApplicantContactName(String applicantContactName) {
+		_applicantContactName = applicantContactName;
+	}
+
+	public String getApplicantContactEmail() {
+		return _applicantContactEmail;
+	}
+
+	public void setApplicantContactEmail(String applicantContactEmail) {
+		_applicantContactEmail = applicantContactEmail;
+	}
+
+	public String getApplicantContactPhone() {
+		return _applicantContactPhone;
+	}
+
+	public void setApplicantContactPhone(String applicantContactPhone) {
+		_applicantContactPhone = applicantContactPhone;
+	}
+
+	public String getApplicantContactTelNo() {
+		return _applicantContactTelNo;
+	}
+
+	public void setApplicantContactTelNo(String applicantContactTelNo) {
+		_applicantContactTelNo = applicantContactTelNo;
+	}
+
+	public String getApplicantBusinessType() {
+		return _applicantBusinessType;
+	}
+
+	public void setApplicantBusinessType(String applicantBusinessType) {
+		_applicantBusinessType = applicantBusinessType;
+	}
+
+	public String getMarkupDesigner() {
+		return _markupDesigner;
+	}
+
+	public void setMarkupDesigner(String markupDesigner) {
+		_markupDesigner = markupDesigner;
+	}
+
+	public String getMarkupOverseasManufacturer() {
+		return _markupOverseasManufacturer;
+	}
+
+	public void setMarkupOverseasManufacturer(String markupOverseasManufacturer) {
+		_markupOverseasManufacturer = markupOverseasManufacturer;
+	}
+
+	public String getMarkupMaintainer() {
+		return _markupMaintainer;
+	}
+
+	public void setMarkupMaintainer(String markupMaintainer) {
+		_markupMaintainer = markupMaintainer;
+	}
+
+	public String getImporterDomesticSite() {
+		return _importerDomesticSite;
+	}
+
+	public void setImporterDomesticSite(String importerDomesticSite) {
+		_importerDomesticSite = importerDomesticSite;
+	}
+
+	public String getSiteOfNationality() {
+		return _siteOfNationality;
+	}
+
+	public void setSiteOfNationality(String siteOfNationality) {
+		_siteOfNationality = siteOfNationality;
+	}
+
+	public String getSiteOfNationalityCode() {
+		return _siteOfNationalityCode;
+	}
+
+	public void setSiteOfNationalityCode(String siteOfNationalityCode) {
+		_siteOfNationalityCode = siteOfNationalityCode;
+	}
+
+	public String getSiteOfRegion() {
+		return _siteOfRegion;
+	}
+
+	public void setSiteOfRegion(String siteOfRegion) {
+		_siteOfRegion = siteOfRegion;
+	}
+
+	public String getSiteOfRegionCode() {
+		return _siteOfRegionCode;
+	}
+
+	public void setSiteOfRegionCode(String siteOfRegionCode) {
+		_siteOfRegionCode = siteOfRegionCode;
+	}
+
+	public String getSiteOfCity() {
+		return _siteOfCity;
+	}
+
+	public void setSiteOfCity(String siteOfCity) {
+		_siteOfCity = siteOfCity;
+	}
+
+	public String getSiteOfCityCode() {
+		return _siteOfCityCode;
+	}
+
+	public void setSiteOfCityCode(String siteOfCityCode) {
+		_siteOfCityCode = siteOfCityCode;
+	}
+
+	public String getManufacturerRepresentative() {
+		return _manufacturerRepresentative;
+	}
+
+	public void setManufacturerRepresentative(String manufacturerRepresentative) {
+		_manufacturerRepresentative = manufacturerRepresentative;
+	}
+
+	public String getManufacturerRepresentativeTitle() {
+		return _manufacturerRepresentativeTitle;
+	}
+
+	public void setManufacturerRepresentativeTitle(
+		String manufacturerRepresentativeTitle) {
+		_manufacturerRepresentativeTitle = manufacturerRepresentativeTitle;
+	}
+
+	public String getManufacturerEmail() {
+		return _manufacturerEmail;
+	}
+
+	public void setManufacturerEmail(String manufacturerEmail) {
+		_manufacturerEmail = manufacturerEmail;
+	}
+
+	public String getManufacturerPhone() {
+		return _manufacturerPhone;
+	}
+
+	public void setManufacturerPhone(String manufacturerPhone) {
+		_manufacturerPhone = manufacturerPhone;
+	}
+
+	public String getManufacturerFax() {
+		return _manufacturerFax;
+	}
+
+	public void setManufacturerFax(String manufacturerFax) {
+		_manufacturerFax = manufacturerFax;
+	}
+
+	public String getProductionPlantEmail() {
+		return _productionPlantEmail;
+	}
+
+	public void setProductionPlantEmail(String productionPlantEmail) {
+		_productionPlantEmail = productionPlantEmail;
+	}
+
+	public String getProductionPlantWebsite() {
+		return _productionPlantWebsite;
+	}
+
+	public void setProductionPlantWebsite(String productionPlantWebsite) {
+		_productionPlantWebsite = productionPlantWebsite;
+	}
+
+	public String getProductionPlantRepresentative() {
+		return _productionPlantRepresentative;
+	}
+
+	public void setProductionPlantRepresentative(
+		String productionPlantRepresentative) {
+		_productionPlantRepresentative = productionPlantRepresentative;
+	}
+
+	public String getProductionPlantRepresentativeTitle() {
+		return _productionPlantRepresentativeTitle;
+	}
+
+	public void setProductionPlantRepresentativeTitle(
+		String productionPlantRepresentativeTitle) {
+		_productionPlantRepresentativeTitle = productionPlantRepresentativeTitle;
+	}
+
+	public String getCorporationName() {
+		return _corporationName;
+	}
+
+	public void setCorporationName(String corporationName) {
+		_corporationName = corporationName;
+	}
+
+	public String getInspectorContactCode() {
+		return _inspectorContactCode;
+	}
+
+	public void setInspectorContactCode(String inspectorContactCode) {
+		_inspectorContactCode = inspectorContactCode;
+	}
+
+	public String getInspectorName() {
+		return _inspectorName;
+	}
+
+	public void setInspectorName(String inspectorName) {
+		_inspectorName = inspectorName;
+	}
+
+	public Date getInspectoRendorSementDate() {
+		return _inspectoRendorSementDate;
+	}
+
+	public void setInspectoRendorSementDate(Date inspectoRendorSementDate) {
+		_inspectoRendorSementDate = inspectoRendorSementDate;
+	}
+
+	public Date getInspectorDeadline() {
+		return _inspectorDeadline;
+	}
+
+	public void setInspectorDeadline(Date inspectorDeadline) {
+		_inspectorDeadline = inspectorDeadline;
+	}
+
+	public String getResolvedStatus() {
+		return _resolvedStatus;
+	}
+
+	public void setResolvedStatus(String resolvedStatus) {
+		_resolvedStatus = resolvedStatus;
+	}
+
+	public int getNumberOfNonConformity() {
+		return _numberOfNonConformity;
+	}
+
+	public void setNumberOfNonConformity(int numberOfNonConformity) {
+		_numberOfNonConformity = numberOfNonConformity;
+	}
+
+	public int getNumberOfResolved() {
+		return _numberOfResolved;
+	}
+
+	public void setNumberOfResolved(int numberOfResolved) {
+		_numberOfResolved = numberOfResolved;
+	}
+
+	public String getObservationDescription() {
+		return _observationDescription;
+	}
+
+	public void setObservationDescription(String observationDescription) {
+		_observationDescription = observationDescription;
+	}
+
+	public String getInspectionAuditCycle() {
+		return _inspectionAuditCycle;
+	}
+
+	public void setInspectionAuditCycle(String inspectionAuditCycle) {
+		_inspectionAuditCycle = inspectionAuditCycle;
+	}
+
+	public String getInspectionNote() {
+		return _inspectionNote;
+	}
+
+	public void setInspectionNote(String inspectionNote) {
+		_inspectionNote = inspectionNote;
+	}
+
+	public String getProductionConformityChecking() {
+		return _productionConformityChecking;
+	}
+
+	public void setProductionConformityChecking(
+		String productionConformityChecking) {
+		_productionConformityChecking = productionConformityChecking;
+	}
+
+	public String getProductionStampChecking() {
+		return _productionStampChecking;
+	}
+
+	public void setProductionStampChecking(String productionStampChecking) {
+		_productionStampChecking = productionStampChecking;
+	}
+
+	public String getTestingEquipmentChecking() {
+		return _testingEquipmentChecking;
+	}
+
+	public void setTestingEquipmentChecking(String testingEquipmentChecking) {
+		_testingEquipmentChecking = testingEquipmentChecking;
+	}
+
+	public String getProductionPlantClassification() {
+		return _productionPlantClassification;
+	}
+
+	public void setProductionPlantClassification(
+		String productionPlantClassification) {
+		_productionPlantClassification = productionPlantClassification;
+	}
+
+	public String getActualCapacity() {
+		return _actualCapacity;
+	}
+
+	public void setActualCapacity(String actualCapacity) {
+		_actualCapacity = actualCapacity;
+	}
+
+	public String getMaxCapacity() {
+		return _maxCapacity;
+	}
+
+	public void setMaxCapacity(String maxCapacity) {
+		_maxCapacity = maxCapacity;
+	}
+
+	public String getAverageCapacity() {
+		return _averageCapacity;
+	}
+
+	public void setAverageCapacity(String averageCapacity) {
+		_averageCapacity = averageCapacity;
+	}
+
+	public String getTotalEmployee() {
+		return _totalEmployee;
+	}
+
+	public void setTotalEmployee(String totalEmployee) {
+		_totalEmployee = totalEmployee;
+	}
+
+	public String getTotalWorker() {
+		return _totalWorker;
+	}
+
+	public void setTotalWorker(String totalWorker) {
+		_totalWorker = totalWorker;
+	}
+
+	public String getTotalManager() {
+		return _totalManager;
+	}
+
+	public void setTotalManager(String totalManager) {
+		_totalManager = totalManager;
+	}
+
+	public String getTotalTechnical() {
+		return _totalTechnical;
+	}
+
+	public void setTotalTechnical(String totalTechnical) {
+		_totalTechnical = totalTechnical;
+	}
+
+	public String getTotalQaEmployee() {
+		return _totalQaEmployee;
+	}
+
+	public void setTotalQaEmployee(String totalQaEmployee) {
+		_totalQaEmployee = totalQaEmployee;
+	}
+
+	public String getTotalSquareMeter() {
+		return _totalSquareMeter;
+	}
+
+	public void setTotalSquareMeter(String totalSquareMeter) {
+		_totalSquareMeter = totalSquareMeter;
+	}
+
+	public String getWareHouseSquare() {
+		return _wareHouseSquare;
+	}
+
+	public void setWareHouseSquare(String wareHouseSquare) {
+		_wareHouseSquare = wareHouseSquare;
+	}
+
+	public String getOfficeSquare() {
+		return _officeSquare;
+	}
+
+	public void setOfficeSquare(String officeSquare) {
+		_officeSquare = officeSquare;
+	}
+
+	public String getProductionSquare() {
+		return _productionSquare;
+	}
+
+	public void setProductionSquare(String productionSquare) {
+		_productionSquare = productionSquare;
+	}
+
+	public String getMachiningArea() {
+		return _machiningArea;
+	}
+
+	public void setMachiningArea(String machiningArea) {
+		_machiningArea = machiningArea;
+	}
+
+	public String getWeldingArea() {
+		return _weldingArea;
+	}
+
+	public void setWeldingArea(String weldingArea) {
+		_weldingArea = weldingArea;
+	}
+
+	public String getPaintingArea() {
+		return _paintingArea;
+	}
+
+	public void setPaintingArea(String paintingArea) {
+		_paintingArea = paintingArea;
+	}
+
+	public String getProductionAssembleArea() {
+		return _productionAssembleArea;
+	}
+
+	public void setProductionAssembleArea(String productionAssembleArea) {
+		_productionAssembleArea = productionAssembleArea;
+	}
+
+	public String getFinishProductArea() {
+		return _finishProductArea;
+	}
+
+	public void setFinishProductArea(String finishProductArea) {
+		_finishProductArea = finishProductArea;
+	}
+
+	public String getTestingArea() {
+		return _testingArea;
+	}
+
+	public void setTestingArea(String testingArea) {
+		_testingArea = testingArea;
+	}
+
+	public String getSelfEquipment() {
+		return _selfEquipment;
+	}
+
+	public void setSelfEquipment(String selfEquipment) {
+		_selfEquipment = selfEquipment;
+	}
+
+	public String getContractEquipment() {
+		return _contractEquipment;
+	}
+
+	public void setContractEquipment(String contractEquipment) {
+		_contractEquipment = contractEquipment;
+	}
+
+	public String getCircularNo() {
+		return _circularNo;
+	}
+
+	public void setCircularNo(String circularNo) {
+		_circularNo = circularNo;
+	}
+
+	public Date getCircularDate() {
+		return _circularDate;
+	}
+
+	public void setCircularDate(Date circularDate) {
+		_circularDate = circularDate;
+	}
+
+	public String getCircularNo2() {
+		return _circularNo2;
+	}
+
+	public void setCircularNo2(String circularNo2) {
+		_circularNo2 = circularNo2;
+	}
+
+	public Date getCircularDate2() {
+		return _circularDate2;
+	}
+
+	public void setCircularDate2(Date circularDate2) {
+		_circularDate2 = circularDate2;
+	}
+
 	private long _id;
 	private long _mtCore;
 	private long _applicantProfileId;
@@ -664,4 +1272,71 @@ public class VRCOPReportRepositorySoap implements Serializable {
 	private long _dossierId;
 	private String _dossierIdCTN;
 	private String _dossierNo;
+	private String _applicantEmail;
+	private String _applicantPhone;
+	private String _applicantTelNo;
+	private String _applicantFax;
+	private String _applicantContactName;
+	private String _applicantContactEmail;
+	private String _applicantContactPhone;
+	private String _applicantContactTelNo;
+	private String _applicantBusinessType;
+	private String _markupDesigner;
+	private String _markupOverseasManufacturer;
+	private String _markupMaintainer;
+	private String _importerDomesticSite;
+	private String _siteOfNationality;
+	private String _siteOfNationalityCode;
+	private String _siteOfRegion;
+	private String _siteOfRegionCode;
+	private String _siteOfCity;
+	private String _siteOfCityCode;
+	private String _manufacturerRepresentative;
+	private String _manufacturerRepresentativeTitle;
+	private String _manufacturerEmail;
+	private String _manufacturerPhone;
+	private String _manufacturerFax;
+	private String _productionPlantEmail;
+	private String _productionPlantWebsite;
+	private String _productionPlantRepresentative;
+	private String _productionPlantRepresentativeTitle;
+	private String _corporationName;
+	private String _inspectorContactCode;
+	private String _inspectorName;
+	private Date _inspectoRendorSementDate;
+	private Date _inspectorDeadline;
+	private String _resolvedStatus;
+	private int _numberOfNonConformity;
+	private int _numberOfResolved;
+	private String _observationDescription;
+	private String _inspectionAuditCycle;
+	private String _inspectionNote;
+	private String _productionConformityChecking;
+	private String _productionStampChecking;
+	private String _testingEquipmentChecking;
+	private String _productionPlantClassification;
+	private String _actualCapacity;
+	private String _maxCapacity;
+	private String _averageCapacity;
+	private String _totalEmployee;
+	private String _totalWorker;
+	private String _totalManager;
+	private String _totalTechnical;
+	private String _totalQaEmployee;
+	private String _totalSquareMeter;
+	private String _wareHouseSquare;
+	private String _officeSquare;
+	private String _productionSquare;
+	private String _machiningArea;
+	private String _weldingArea;
+	private String _paintingArea;
+	private String _productionAssembleArea;
+	private String _finishProductArea;
+	private String _testingArea;
+	private String _selfEquipment;
+	private String _contractEquipment;
+	private String _circularNo;
+	private Date _circularDate;
+	private String _circularNo2;
+	private Date _circularDate2;
 }

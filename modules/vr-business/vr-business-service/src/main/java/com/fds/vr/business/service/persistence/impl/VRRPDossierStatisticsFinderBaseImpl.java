@@ -20,11 +20,18 @@ import com.fds.vr.business.service.persistence.VRRPDossierStatisticsPersistence;
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 
+import java.util.Set;
+
 /**
  * @author LamTV
  * @generated
  */
 public class VRRPDossierStatisticsFinderBaseImpl extends BasePersistenceImpl<VRRPDossierStatistics> {
+	@Override
+	public Set<String> getBadColumnNames() {
+		return getVRRPDossierStatisticsPersistence().getBadColumnNames();
+	}
+
 	/**
 	 * Returns the vrrp dossier statistics persistence.
 	 *

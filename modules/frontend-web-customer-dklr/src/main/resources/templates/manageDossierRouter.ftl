@@ -132,15 +132,45 @@
 			$("#noInput").hide();
 			$(".filterField").show();
 			$("#mainType2").hide();
-
 			if(firstLoadDataSource === true){
-
 				if (id == "all") {
 					dataSourceProfile.read({
 						"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
 						"serviceInfo":$("#serviceInfo").val(),
 						"govAgencyCode":$("#govAgency").val(),
 						"status": "new,receiving,processing,waiting,paying,done,cancelling,cancelled,expired",
+					});
+				} else if(id == "HSDHXNHL"){
+					dataSourceProfile.read({
+						"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+						"serviceInfo" : $("#serviceInfo").val(),
+						"govAgencyCode" : $("#govAgency").val(),
+						"dossierStatus": "new",
+						"id": "HSDHXNHL"
+					});
+				} else if(id == "DNXNHL"){
+					dataSourceProfile.read({
+						"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+						"serviceInfo" : $("#serviceInfo").val(),
+						"govAgencyCode" : $("#govAgency").val(),
+						"dossierStatus": "processing",
+						"id": "DNXNHL"
+					});
+				} else if(id == "XNHL"){
+					dataSourceProfile.read({
+						"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+						"serviceInfo" : $("#serviceInfo").val(),
+						"govAgencyCode" : $("#govAgency").val(),
+						"dossierStatus": "DONE_4",
+						"id": "XNHL"
+					});
+				} else if(id == "TBDSX"){
+					dataSourceProfile.read({
+						"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
+						"serviceInfo" : $("#serviceInfo").val(),
+						"govAgencyCode" : $("#govAgency").val(),
+						"dossierStatus": "---",
+						"id": "TBDSX"
 					});
 				} else if (id == "cancelling") {
 					dataSourceProfile.read({
@@ -159,7 +189,7 @@
 						"statusReg" : 3
 
 					});
-				}else if (id == "endorsement") {
+				} else if (id == "endorsement") {
 					dataSourceProfile.read({
 						"dossierNo" : $("#dossier-emp-nav-selectbox-by-dossierNo").val(),
 						"serviceInfo" : $("#serviceInfo").val(),
@@ -184,6 +214,9 @@
 
 					});
 				};
+			}
+
+			if(firstLoadDataSource === true){
 				getTotal();
 			}
 

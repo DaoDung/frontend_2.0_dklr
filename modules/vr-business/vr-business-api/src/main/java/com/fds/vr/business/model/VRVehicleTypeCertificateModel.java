@@ -105,6 +105,21 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	public void setDossierId(long dossierId);
 
 	/**
+	 * Returns the dossier ID ctn of this vr vehicle type certificate.
+	 *
+	 * @return the dossier ID ctn of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getDossierIdCTN();
+
+	/**
+	 * Sets the dossier ID ctn of this vr vehicle type certificate.
+	 *
+	 * @param dossierIdCTN the dossier ID ctn of this vr vehicle type certificate
+	 */
+	public void setDossierIdCTN(String dossierIdCTN);
+
+	/**
 	 * Returns the dossier type of this vr vehicle type certificate.
 	 *
 	 * @return the dossier type of this vr vehicle type certificate
@@ -207,6 +222,21 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	 * @param applicantIdNo the applicant ID no of this vr vehicle type certificate
 	 */
 	public void setApplicantIdNo(String applicantIdNo);
+
+	/**
+	 * Returns the applicant tel no of this vr vehicle type certificate.
+	 *
+	 * @return the applicant tel no of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getApplicantTelNo();
+
+	/**
+	 * Sets the applicant tel no of this vr vehicle type certificate.
+	 *
+	 * @param applicantTelNo the applicant tel no of this vr vehicle type certificate
+	 */
+	public void setApplicantTelNo(String applicantTelNo);
 
 	/**
 	 * Returns the applicant name of this vr vehicle type certificate.
@@ -374,6 +404,21 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	public void setApplicantcontactPhone(String applicantcontactPhone);
 
 	/**
+	 * Returns the applicantcontact tel no of this vr vehicle type certificate.
+	 *
+	 * @return the applicantcontact tel no of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getApplicantcontactTelNo();
+
+	/**
+	 * Sets the applicantcontact tel no of this vr vehicle type certificate.
+	 *
+	 * @param applicantcontactTelNo the applicantcontact tel no of this vr vehicle type certificate
+	 */
+	public void setApplicantcontactTelNo(String applicantcontactTelNo);
+
+	/**
 	 * Returns the city code of this vr vehicle type certificate.
 	 *
 	 * @return the city code of this vr vehicle type certificate
@@ -387,6 +432,81 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	 * @param cityCode the city code of this vr vehicle type certificate
 	 */
 	public void setCityCode(String cityCode);
+
+	/**
+	 * Returns the city name of this vr vehicle type certificate.
+	 *
+	 * @return the city name of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getCityName();
+
+	/**
+	 * Sets the city name of this vr vehicle type certificate.
+	 *
+	 * @param cityName the city name of this vr vehicle type certificate
+	 */
+	public void setCityName(String cityName);
+
+	/**
+	 * Returns the district code of this vr vehicle type certificate.
+	 *
+	 * @return the district code of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getDistrictCode();
+
+	/**
+	 * Sets the district code of this vr vehicle type certificate.
+	 *
+	 * @param districtCode the district code of this vr vehicle type certificate
+	 */
+	public void setDistrictCode(String districtCode);
+
+	/**
+	 * Returns the district name of this vr vehicle type certificate.
+	 *
+	 * @return the district name of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getDistrictName();
+
+	/**
+	 * Sets the district name of this vr vehicle type certificate.
+	 *
+	 * @param districtName the district name of this vr vehicle type certificate
+	 */
+	public void setDistrictName(String districtName);
+
+	/**
+	 * Returns the ward code of this vr vehicle type certificate.
+	 *
+	 * @return the ward code of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getWardCode();
+
+	/**
+	 * Sets the ward code of this vr vehicle type certificate.
+	 *
+	 * @param wardCode the ward code of this vr vehicle type certificate
+	 */
+	public void setWardCode(String wardCode);
+
+	/**
+	 * Returns the ward name of this vr vehicle type certificate.
+	 *
+	 * @return the ward name of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getWardName();
+
+	/**
+	 * Sets the ward name of this vr vehicle type certificate.
+	 *
+	 * @param wardName the ward name of this vr vehicle type certificate
+	 */
+	public void setWardName(String wardName);
 
 	/**
 	 * Returns the manufacturer foreign code of this vr vehicle type certificate.
@@ -1564,21 +1684,6 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	public void setCommonSafetyStandard(String commonSafetyStandard);
 
 	/**
-	 * Returns the emission standard of this vr vehicle type certificate.
-	 *
-	 * @return the emission standard of this vr vehicle type certificate
-	 */
-	@AutoEscape
-	public String getEmissionStandard();
-
-	/**
-	 * Sets the emission standard of this vr vehicle type certificate.
-	 *
-	 * @param emissionStandard the emission standard of this vr vehicle type certificate
-	 */
-	public void setEmissionStandard(String emissionStandard);
-
-	/**
 	 * Returns the common safety description of this vr vehicle type certificate.
 	 *
 	 * @return the common safety description of this vr vehicle type certificate
@@ -1592,6 +1697,21 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	 * @param commonSafetyDescription the common safety description of this vr vehicle type certificate
 	 */
 	public void setCommonSafetyDescription(String commonSafetyDescription);
+
+	/**
+	 * Returns the emission standard of this vr vehicle type certificate.
+	 *
+	 * @return the emission standard of this vr vehicle type certificate
+	 */
+	@AutoEscape
+	public String getEmissionStandard();
+
+	/**
+	 * Sets the emission standard of this vr vehicle type certificate.
+	 *
+	 * @param emissionStandard the emission standard of this vr vehicle type certificate
+	 */
+	public void setEmissionStandard(String emissionStandard);
 
 	/**
 	 * Returns the emission description of this vr vehicle type certificate.
@@ -2023,6 +2143,20 @@ public interface VRVehicleTypeCertificateModel extends BaseModel<VRVehicleTypeCe
 	 * @param deliverableCode the deliverable code of this vr vehicle type certificate
 	 */
 	public void setDeliverableCode(String deliverableCode);
+
+	/**
+	 * Returns the deliverable file entryid of this vr vehicle type certificate.
+	 *
+	 * @return the deliverable file entryid of this vr vehicle type certificate
+	 */
+	public long getDeliverableFileEntryid();
+
+	/**
+	 * Sets the deliverable file entryid of this vr vehicle type certificate.
+	 *
+	 * @param deliverableFileEntryid the deliverable file entryid of this vr vehicle type certificate
+	 */
+	public void setDeliverableFileEntryid(long deliverableFileEntryid);
 
 	/**
 	 * Returns the module of this vr vehicle type certificate.

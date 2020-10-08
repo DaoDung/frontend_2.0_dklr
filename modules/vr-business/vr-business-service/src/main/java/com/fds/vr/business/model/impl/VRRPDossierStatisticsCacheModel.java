@@ -66,7 +66,7 @@ public class VRRPDossierStatisticsCacheModel implements CacheModel<VRRPDossierSt
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(173);
+		StringBundler sb = new StringBundler(177);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -236,6 +236,10 @@ public class VRRPDossierStatisticsCacheModel implements CacheModel<VRRPDossierSt
 		sb.append(men2expired);
 		sb.append(", men2violated=");
 		sb.append(men2violated);
+		sb.append(", dossierPaymentDate=");
+		sb.append(dossierPaymentDate);
+		sb.append(", men2PaymentApproval=");
+		sb.append(men2PaymentApproval);
 		sb.append(", modifyDate=");
 		sb.append(modifyDate);
 		sb.append(", syncDate=");
@@ -832,6 +836,21 @@ public class VRRPDossierStatisticsCacheModel implements CacheModel<VRRPDossierSt
 			vrrpDossierStatisticsImpl.setMen2violated(men2violated);
 		}
 
+		if (dossierPaymentDate == Long.MIN_VALUE) {
+			vrrpDossierStatisticsImpl.setDossierPaymentDate(null);
+		}
+		else {
+			vrrpDossierStatisticsImpl.setDossierPaymentDate(new Date(
+					dossierPaymentDate));
+		}
+
+		if (men2PaymentApproval == null) {
+			vrrpDossierStatisticsImpl.setMen2PaymentApproval(StringPool.BLANK);
+		}
+		else {
+			vrrpDossierStatisticsImpl.setMen2PaymentApproval(men2PaymentApproval);
+		}
+
 		if (modifyDate == Long.MIN_VALUE) {
 			vrrpDossierStatisticsImpl.setModifyDate(null);
 		}
@@ -941,6 +960,8 @@ public class VRRPDossierStatisticsCacheModel implements CacheModel<VRRPDossierSt
 		men2cancelled = objectInput.readUTF();
 		men2expired = objectInput.readUTF();
 		men2violated = objectInput.readUTF();
+		dossierPaymentDate = objectInput.readLong();
+		men2PaymentApproval = objectInput.readUTF();
 		modifyDate = objectInput.readLong();
 		syncDate = objectInput.readLong();
 	}
@@ -1386,6 +1407,15 @@ public class VRRPDossierStatisticsCacheModel implements CacheModel<VRRPDossierSt
 			objectOutput.writeUTF(men2violated);
 		}
 
+		objectOutput.writeLong(dossierPaymentDate);
+
+		if (men2PaymentApproval == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(men2PaymentApproval);
+		}
+
 		objectOutput.writeLong(modifyDate);
 		objectOutput.writeLong(syncDate);
 	}
@@ -1474,6 +1504,8 @@ public class VRRPDossierStatisticsCacheModel implements CacheModel<VRRPDossierSt
 	public String men2cancelled;
 	public String men2expired;
 	public String men2violated;
+	public long dossierPaymentDate;
+	public String men2PaymentApproval;
 	public long modifyDate;
 	public long syncDate;
 }

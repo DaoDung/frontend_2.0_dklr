@@ -25,3 +25,25 @@
 	});
 	
 </script>
+
+<style>
+	.chip .chip__content {
+	min-height: 17px !important;
+	font-size: 12px !important;
+}
+.datatable thead th {
+    -webkit-transform: none;
+    transform: none;
+    background: #14BEF0;
+    color: #fff !important;
+}
+.container-fluid {
+	padding: 0 !important;
+	padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+li.active {
+    background: #e1e1e1;
+}
+</style>

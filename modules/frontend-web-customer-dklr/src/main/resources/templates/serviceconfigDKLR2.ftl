@@ -91,7 +91,7 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Chứng nhận Chất lượng kiểu loại
 					</span>
-					<button class="btn btn-reset pull-right P0" id="btn1item61">Chọn</button>
+					<button class="btn btn-reset chooseService pull-right P0" id="btn1item61" data-TTHC="TT302011BGTVTCNCLKLXMCD" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTCNCLKLXMCD">Chọn</button>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -145,7 +145,7 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Chứng nhận Chất lượng kiểu loại LK xe đạp điện
 					</span>
-					<button class="btn btn-reset chooseService pull-right P0" id="btn1item73">Chọn</button>
+					<button data-TTHC="TT302011BGTVTCNCLKLLKXDD" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTCNCLKLLKXDD" class="btn btn-reset chooseService pull-right P0" id="btn1item73">Chọn</button>
 				</div>
 				<div class="clear"></div>
 				
@@ -156,7 +156,18 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Chứng nhận Chất lượng kiểu loại LK xe máy chuyên dùng
 					</span>
-					<button class="btn btn-reset chooseService pull-right P0" id="btn1item74">Chọn</button>
+					<button data-TTHC="TT302011BGTVTCNCLKLLKXCD" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTCNCLKLLKXCD" class="btn btn-reset chooseService pull-right P0" id="btn1item74">Chọn</button>
+				</div>
+				<div class="clear"></div>
+				
+			</div>
+			<#--  -->
+			<div class="PT5 PB5">
+				<div class="ML40 col-sm-6 P5 PL0">
+					<span> 
+						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Chứng nhận Chất lượng kiểu loại LK xe chở hàng bốn bánh
+					</span>
+					<button data-TTHC="TT302011BGTVTCNCLKLLKXCH" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTCNCLKLLKXCH" class="btn btn-reset chooseService pull-right P0" id="btn1item75">Chọn</button>
 				</div>
 				<div class="clear"></div>
 				
@@ -167,18 +178,7 @@
 					<span> 
 						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Chứng nhận Chất lượng kiểu loại LK xe chở người bốn bánh
 					</span>
-					<button class="btn btn-reset chooseService pull-right P0" id="btn1item75">Chọn</button>
-				</div>
-				<div class="clear"></div>
-				
-			</div>
-			<#--  -->
-			<div class="PT5 PB5">
-				<div class="ML40 col-sm-6 P5 PL0">
-					<span> 
-						<i class="fa fa-play PR5 text-light-gray" aria-hidden="true"></i>Chứng nhận Chất lượng kiểu loại LK xe chở người bốn bánh
-					</span>
-					<button class="btn btn-reset chooseService pull-right P0" id="btn1item76">Chọn</button>
+					<button data-TTHC="TT302011BGTVTCNCLKLLKXCN" data-CQTH="BGTVTCDKVN" data-MMHS="TT302011BGTVTCNCLKLLKXCN" class="btn btn-reset chooseService pull-right P0" id="btn1item76">Chọn</button>
 				</div>
 				<div class="clear"></div>
 				

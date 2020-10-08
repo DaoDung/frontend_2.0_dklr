@@ -556,6 +556,224 @@ public class VRCOPReportRepositoryUtil {
 	}
 
 	/**
+	* Returns all the vrcop report repositories where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @return the matching vrcop report repositories
+	*/
+	public static List<VRCOPReportRepository> findByproductionPlantCode_copClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification) {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification(mtCore,
+			productionPlantCode, copClassification);
+	}
+
+	/**
+	* Returns a range of all the vrcop report repositories where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPReportRepositoryModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param start the lower bound of the range of vrcop report repositories
+	* @param end the upper bound of the range of vrcop report repositories (not inclusive)
+	* @return the range of matching vrcop report repositories
+	*/
+	public static List<VRCOPReportRepository> findByproductionPlantCode_copClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification, int start, int end) {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification(mtCore,
+			productionPlantCode, copClassification, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vrcop report repositories where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPReportRepositoryModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param start the lower bound of the range of vrcop report repositories
+	* @param end the upper bound of the range of vrcop report repositories (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vrcop report repositories
+	*/
+	public static List<VRCOPReportRepository> findByproductionPlantCode_copClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification, int start, int end,
+		OrderByComparator<VRCOPReportRepository> orderByComparator) {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification(mtCore,
+			productionPlantCode, copClassification, start, end,
+			orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vrcop report repositories where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPReportRepositoryModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param start the lower bound of the range of vrcop report repositories
+	* @param end the upper bound of the range of vrcop report repositories (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vrcop report repositories
+	*/
+	public static List<VRCOPReportRepository> findByproductionPlantCode_copClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification, int start, int end,
+		OrderByComparator<VRCOPReportRepository> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification(mtCore,
+			productionPlantCode, copClassification, start, end,
+			orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vrcop report repository in the ordered set where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vrcop report repository
+	* @throws NoSuchVRCOPReportRepositoryException if a matching vrcop report repository could not be found
+	*/
+	public static VRCOPReportRepository findByproductionPlantCode_copClassification_First(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification,
+		OrderByComparator<VRCOPReportRepository> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification_First(mtCore,
+			productionPlantCode, copClassification, orderByComparator);
+	}
+
+	/**
+	* Returns the first vrcop report repository in the ordered set where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vrcop report repository, or <code>null</code> if a matching vrcop report repository could not be found
+	*/
+	public static VRCOPReportRepository fetchByproductionPlantCode_copClassification_First(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification,
+		OrderByComparator<VRCOPReportRepository> orderByComparator) {
+		return getPersistence()
+				   .fetchByproductionPlantCode_copClassification_First(mtCore,
+			productionPlantCode, copClassification, orderByComparator);
+	}
+
+	/**
+	* Returns the last vrcop report repository in the ordered set where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vrcop report repository
+	* @throws NoSuchVRCOPReportRepositoryException if a matching vrcop report repository could not be found
+	*/
+	public static VRCOPReportRepository findByproductionPlantCode_copClassification_Last(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification,
+		OrderByComparator<VRCOPReportRepository> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification_Last(mtCore,
+			productionPlantCode, copClassification, orderByComparator);
+	}
+
+	/**
+	* Returns the last vrcop report repository in the ordered set where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vrcop report repository, or <code>null</code> if a matching vrcop report repository could not be found
+	*/
+	public static VRCOPReportRepository fetchByproductionPlantCode_copClassification_Last(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification,
+		OrderByComparator<VRCOPReportRepository> orderByComparator) {
+		return getPersistence()
+				   .fetchByproductionPlantCode_copClassification_Last(mtCore,
+			productionPlantCode, copClassification, orderByComparator);
+	}
+
+	/**
+	* Returns the vrcop report repositories before and after the current vrcop report repository in the ordered set where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param id the primary key of the current vrcop report repository
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vrcop report repository
+	* @throws NoSuchVRCOPReportRepositoryException if a vrcop report repository with the primary key could not be found
+	*/
+	public static VRCOPReportRepository[] findByproductionPlantCode_copClassification_PrevAndNext(
+		long id, long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification,
+		OrderByComparator<VRCOPReportRepository> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
+		return getPersistence()
+				   .findByproductionPlantCode_copClassification_PrevAndNext(id,
+			mtCore, productionPlantCode, copClassification, orderByComparator);
+	}
+
+	/**
+	* Removes all the vrcop report repositories where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63; from the database.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	*/
+	public static void removeByproductionPlantCode_copClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification) {
+		getPersistence()
+			.removeByproductionPlantCode_copClassification(mtCore,
+			productionPlantCode, copClassification);
+	}
+
+	/**
+	* Returns the number of vrcop report repositories where mtCore = &#63; and productionPlantCode = &#63; and copClassification = &#63;.
+	*
+	* @param mtCore the mt core
+	* @param productionPlantCode the production plant code
+	* @param copClassification the cop classification
+	* @return the number of matching vrcop report repositories
+	*/
+	public static int countByproductionPlantCode_copClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification) {
+		return getPersistence()
+				   .countByproductionPlantCode_copClassification(mtCore,
+			productionPlantCode, copClassification);
+	}
+
+	/**
 	* Returns all the vrcop report repositories where mtCore = &#63; and applicantProfileId = &#63; and productionPlantCode = &#63;.
 	*
 	* @param mtCore the mt core
@@ -1229,170 +1447,67 @@ public class VRCOPReportRepositoryUtil {
 	}
 
 	/**
-	* Returns all the vrcop report repositories where dossierId = &#63;.
+	* Returns the vrcop report repository where dossierId = &#63; and mtCore = &#63; or throws a {@link NoSuchVRCOPReportRepositoryException} if it could not be found.
 	*
 	* @param dossierId the dossier ID
-	* @return the matching vrcop report repositories
+	* @param mtCore the mt core
+	* @return the matching vrcop report repository
+	* @throws NoSuchVRCOPReportRepositoryException if a matching vrcop report repository could not be found
 	*/
-	public static List<VRCOPReportRepository> findBycopDossierId(long dossierId) {
-		return getPersistence().findBycopDossierId(dossierId);
+	public static VRCOPReportRepository findByDosierId_MtCore(long dossierId,
+		long mtCore)
+		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
+		return getPersistence().findByDosierId_MtCore(dossierId, mtCore);
 	}
 
 	/**
-	* Returns a range of all the vrcop report repositories where dossierId = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPReportRepositoryModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
+	* Returns the vrcop report repository where dossierId = &#63; and mtCore = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	*
 	* @param dossierId the dossier ID
-	* @param start the lower bound of the range of vrcop report repositories
-	* @param end the upper bound of the range of vrcop report repositories (not inclusive)
-	* @return the range of matching vrcop report repositories
+	* @param mtCore the mt core
+	* @return the matching vrcop report repository, or <code>null</code> if a matching vrcop report repository could not be found
 	*/
-	public static List<VRCOPReportRepository> findBycopDossierId(
-		long dossierId, int start, int end) {
-		return getPersistence().findBycopDossierId(dossierId, start, end);
+	public static VRCOPReportRepository fetchByDosierId_MtCore(long dossierId,
+		long mtCore) {
+		return getPersistence().fetchByDosierId_MtCore(dossierId, mtCore);
 	}
 
 	/**
-	* Returns an ordered range of all the vrcop report repositories where dossierId = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPReportRepositoryModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
+	* Returns the vrcop report repository where dossierId = &#63; and mtCore = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
 	*
 	* @param dossierId the dossier ID
-	* @param start the lower bound of the range of vrcop report repositories
-	* @param end the upper bound of the range of vrcop report repositories (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching vrcop report repositories
-	*/
-	public static List<VRCOPReportRepository> findBycopDossierId(
-		long dossierId, int start, int end,
-		OrderByComparator<VRCOPReportRepository> orderByComparator) {
-		return getPersistence()
-				   .findBycopDossierId(dossierId, start, end, orderByComparator);
-	}
-
-	/**
-	* Returns an ordered range of all the vrcop report repositories where dossierId = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRCOPReportRepositoryModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dossierId the dossier ID
-	* @param start the lower bound of the range of vrcop report repositories
-	* @param end the upper bound of the range of vrcop report repositories (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param mtCore the mt core
 	* @param retrieveFromCache whether to retrieve from the finder cache
-	* @return the ordered range of matching vrcop report repositories
+	* @return the matching vrcop report repository, or <code>null</code> if a matching vrcop report repository could not be found
 	*/
-	public static List<VRCOPReportRepository> findBycopDossierId(
-		long dossierId, int start, int end,
-		OrderByComparator<VRCOPReportRepository> orderByComparator,
-		boolean retrieveFromCache) {
+	public static VRCOPReportRepository fetchByDosierId_MtCore(long dossierId,
+		long mtCore, boolean retrieveFromCache) {
 		return getPersistence()
-				   .findBycopDossierId(dossierId, start, end,
-			orderByComparator, retrieveFromCache);
+				   .fetchByDosierId_MtCore(dossierId, mtCore, retrieveFromCache);
 	}
 
 	/**
-	* Returns the first vrcop report repository in the ordered set where dossierId = &#63;.
+	* Removes the vrcop report repository where dossierId = &#63; and mtCore = &#63; from the database.
 	*
 	* @param dossierId the dossier ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching vrcop report repository
-	* @throws NoSuchVRCOPReportRepositoryException if a matching vrcop report repository could not be found
+	* @param mtCore the mt core
+	* @return the vrcop report repository that was removed
 	*/
-	public static VRCOPReportRepository findBycopDossierId_First(
-		long dossierId,
-		OrderByComparator<VRCOPReportRepository> orderByComparator)
+	public static VRCOPReportRepository removeByDosierId_MtCore(
+		long dossierId, long mtCore)
 		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
-		return getPersistence()
-				   .findBycopDossierId_First(dossierId, orderByComparator);
+		return getPersistence().removeByDosierId_MtCore(dossierId, mtCore);
 	}
 
 	/**
-	* Returns the first vrcop report repository in the ordered set where dossierId = &#63;.
+	* Returns the number of vrcop report repositories where dossierId = &#63; and mtCore = &#63;.
 	*
 	* @param dossierId the dossier ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching vrcop report repository, or <code>null</code> if a matching vrcop report repository could not be found
-	*/
-	public static VRCOPReportRepository fetchBycopDossierId_First(
-		long dossierId,
-		OrderByComparator<VRCOPReportRepository> orderByComparator) {
-		return getPersistence()
-				   .fetchBycopDossierId_First(dossierId, orderByComparator);
-	}
-
-	/**
-	* Returns the last vrcop report repository in the ordered set where dossierId = &#63;.
-	*
-	* @param dossierId the dossier ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching vrcop report repository
-	* @throws NoSuchVRCOPReportRepositoryException if a matching vrcop report repository could not be found
-	*/
-	public static VRCOPReportRepository findBycopDossierId_Last(
-		long dossierId,
-		OrderByComparator<VRCOPReportRepository> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
-		return getPersistence()
-				   .findBycopDossierId_Last(dossierId, orderByComparator);
-	}
-
-	/**
-	* Returns the last vrcop report repository in the ordered set where dossierId = &#63;.
-	*
-	* @param dossierId the dossier ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching vrcop report repository, or <code>null</code> if a matching vrcop report repository could not be found
-	*/
-	public static VRCOPReportRepository fetchBycopDossierId_Last(
-		long dossierId,
-		OrderByComparator<VRCOPReportRepository> orderByComparator) {
-		return getPersistence()
-				   .fetchBycopDossierId_Last(dossierId, orderByComparator);
-	}
-
-	/**
-	* Returns the vrcop report repositories before and after the current vrcop report repository in the ordered set where dossierId = &#63;.
-	*
-	* @param id the primary key of the current vrcop report repository
-	* @param dossierId the dossier ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the previous, current, and next vrcop report repository
-	* @throws NoSuchVRCOPReportRepositoryException if a vrcop report repository with the primary key could not be found
-	*/
-	public static VRCOPReportRepository[] findBycopDossierId_PrevAndNext(
-		long id, long dossierId,
-		OrderByComparator<VRCOPReportRepository> orderByComparator)
-		throws com.fds.vr.business.exception.NoSuchVRCOPReportRepositoryException {
-		return getPersistence()
-				   .findBycopDossierId_PrevAndNext(id, dossierId,
-			orderByComparator);
-	}
-
-	/**
-	* Removes all the vrcop report repositories where dossierId = &#63; from the database.
-	*
-	* @param dossierId the dossier ID
-	*/
-	public static void removeBycopDossierId(long dossierId) {
-		getPersistence().removeBycopDossierId(dossierId);
-	}
-
-	/**
-	* Returns the number of vrcop report repositories where dossierId = &#63;.
-	*
-	* @param dossierId the dossier ID
+	* @param mtCore the mt core
 	* @return the number of matching vrcop report repositories
 	*/
-	public static int countBycopDossierId(long dossierId) {
-		return getPersistence().countBycopDossierId(dossierId);
+	public static int countByDosierId_MtCore(long dossierId, long mtCore) {
+		return getPersistence().countByDosierId_MtCore(dossierId, mtCore);
 	}
 
 	/**

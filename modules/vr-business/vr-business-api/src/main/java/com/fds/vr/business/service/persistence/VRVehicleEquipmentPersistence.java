@@ -42,141 +42,279 @@ public interface VRVehicleEquipmentPersistence extends BasePersistence<VRVehicle
 	 */
 
 	/**
-	* Returns all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @return the matching vr vehicle equipments
 	*/
-	public java.util.List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId);
+	public java.util.List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId);
 
 	/**
-	* Returns a range of all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns a range of all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param start the lower bound of the range of vr vehicle equipments
 	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
 	* @return the range of matching vr vehicle equipments
 	*/
-	public java.util.List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId, int start, int end);
+	public java.util.List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end);
 
 	/**
-	* Returns an ordered range of all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns an ordered range of all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param start the lower bound of the range of vr vehicle equipments
 	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching vr vehicle equipments
 	*/
-	public java.util.List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId, int start, int end,
+	public java.util.List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator);
 
 	/**
-	* Returns an ordered range of all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns an ordered range of all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param start the lower bound of the range of vr vehicle equipments
 	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching vr vehicle equipments
 	*/
-	public java.util.List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId, int start, int end,
+	public java.util.List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator,
 		boolean retrieveFromCache);
 
 	/**
-	* Returns the first vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the first vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr vehicle equipment
 	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
 	*/
-	public VRVehicleEquipment findByF_vehicleCertificateId_First(
-		long vehicleCertificateId,
+	public VRVehicleEquipment findByF_vehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator)
 		throws NoSuchVRVehicleEquipmentException;
 
 	/**
-	* Returns the first vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the first vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
 	*/
-	public VRVehicleEquipment fetchByF_vehicleCertificateId_First(
-		long vehicleCertificateId,
+	public VRVehicleEquipment fetchByF_vehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator);
 
 	/**
-	* Returns the last vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the last vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr vehicle equipment
 	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
 	*/
-	public VRVehicleEquipment findByF_vehicleCertificateId_Last(
-		long vehicleCertificateId,
+	public VRVehicleEquipment findByF_vehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator)
 		throws NoSuchVRVehicleEquipmentException;
 
 	/**
-	* Returns the last vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the last vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
 	*/
-	public VRVehicleEquipment fetchByF_vehicleCertificateId_Last(
-		long vehicleCertificateId,
+	public VRVehicleEquipment fetchByF_vehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator);
 
 	/**
-	* Returns the vr vehicle equipments before and after the current vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the vr vehicle equipments before and after the current vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
 	* @param id the primary key of the current vr vehicle equipment
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr vehicle equipment
 	* @throws NoSuchVRVehicleEquipmentException if a vr vehicle equipment with the primary key could not be found
 	*/
-	public VRVehicleEquipment[] findByF_vehicleCertificateId_PrevAndNext(
-		long id, long vehicleCertificateId,
+	public VRVehicleEquipment[] findByF_vehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
 		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator)
 		throws NoSuchVRVehicleEquipmentException;
 
 	/**
-	* Removes all the vr vehicle equipments where vehicleCertificateId = &#63; from the database.
+	* Removes all the vr vehicle equipments where vehicleTypeCertificateId = &#63; from the database.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	*/
-	public void removeByF_vehicleCertificateId(long vehicleCertificateId);
+	public void removeByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId);
 
 	/**
-	* Returns the number of vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns the number of vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @return the number of matching vr vehicle equipments
 	*/
-	public int countByF_vehicleCertificateId(long vehicleCertificateId);
+	public int countByF_vehicleTypeCertificateId(long vehicleTypeCertificateId);
+
+	/**
+	* Returns all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @return the matching vr vehicle equipments
+	*/
+	public java.util.List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId);
+
+	/**
+	* Returns a range of all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param start the lower bound of the range of vr vehicle equipments
+	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
+	* @return the range of matching vr vehicle equipments
+	*/
+	public java.util.List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param start the lower bound of the range of vr vehicle equipments
+	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr vehicle equipments
+	*/
+	public java.util.List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param start the lower bound of the range of vr vehicle equipments
+	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr vehicle equipments
+	*/
+	public java.util.List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr vehicle equipment
+	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
+	*/
+	public VRVehicleEquipment findByF_certificateRecordId_First(
+		long certificateRecordId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator)
+		throws NoSuchVRVehicleEquipmentException;
+
+	/**
+	* Returns the first vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
+	*/
+	public VRVehicleEquipment fetchByF_certificateRecordId_First(
+		long certificateRecordId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator);
+
+	/**
+	* Returns the last vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr vehicle equipment
+	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
+	*/
+	public VRVehicleEquipment findByF_certificateRecordId_Last(
+		long certificateRecordId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator)
+		throws NoSuchVRVehicleEquipmentException;
+
+	/**
+	* Returns the last vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
+	*/
+	public VRVehicleEquipment fetchByF_certificateRecordId_Last(
+		long certificateRecordId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator);
+
+	/**
+	* Returns the vr vehicle equipments before and after the current vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param id the primary key of the current vr vehicle equipment
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr vehicle equipment
+	* @throws NoSuchVRVehicleEquipmentException if a vr vehicle equipment with the primary key could not be found
+	*/
+	public VRVehicleEquipment[] findByF_certificateRecordId_PrevAndNext(
+		long id, long certificateRecordId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRVehicleEquipment> orderByComparator)
+		throws NoSuchVRVehicleEquipmentException;
+
+	/**
+	* Removes all the vr vehicle equipments where certificateRecordId = &#63; from the database.
+	*
+	* @param certificateRecordId the certificate record ID
+	*/
+	public void removeByF_certificateRecordId(long certificateRecordId);
+
+	/**
+	* Returns the number of vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @return the number of matching vr vehicle equipments
+	*/
+	public int countByF_certificateRecordId(long certificateRecordId);
 
 	/**
 	* Returns all the vr vehicle equipments where dossierId = &#63;.

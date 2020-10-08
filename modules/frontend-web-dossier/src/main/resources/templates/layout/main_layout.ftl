@@ -1,7 +1,7 @@
   <!-- TODO paymentViewJX template one page -->
   <div id="dossierViewJX_form_template" class="hidden">
     <div class="jx-content-wrap">
-      <v-layout row justify-center>
+  
 			<v-dialog v-model="popUpChiTietKiemKe" persistent max-width="800px">
 				<v-card>
 					<v-toolbar dark color="primary" height="50">
@@ -80,19 +80,19 @@
 				</v-card>
 			</v-dialog>
 
-      <v-dialog v-model="popUpDieuCHuyen" persistent fullscreen transition="dialog-bottom-transition" :overlay=false>
+      <v-dialog v-model="popUpNhap_Xuat_DieuChuyen" persistent fullscreen transition="dialog-bottom-transition" :overlay=false>
         <v-card>
           <!-- <v-toolbar dark color="primary" height="50">
             <div class="text-bold">Chi tiết kiểm kê</div>
             <v-spacer></v-spacer>
             <v-toolbar-items>
-              <v-btn icon dark @click.native="popUpDieuCHuyen = false">
+              <v-btn icon dark @click.native="popUpNhap_Xuat_DieuChuyen = false">
                 <v-icon>close</v-icon>
               </v-btn>
             </v-toolbar-items>
           </v-toolbar> -->
           <v-toolbar dark color="primary" height="50" class="mb-0">
-            <v-btn icon @click.native="popUpDieuCHuyen = false" dark>
+            <v-btn icon @click.native="popUpNhap_Xuat_DieuChuyen = false" dark>
               <v-icon>close</v-icon>
             </v-btn>
             <v-toolbar-title style="font-size: 117%;">
@@ -102,326 +102,168 @@
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
-              <v-btn dark flat @click.native="popUpDieuCHuyen = false">Thoát</v-btn>
+              <v-btn dark flat @click.native="popUpNhap_Xuat_DieuChuyen = false">Thoát</v-btn>
               <!-- <v-btn dark flat @click.native="luuPhieu()">Lưu phiếu</v-btn> -->
             </v-toolbar-items>
           </v-toolbar>
           <v-card-text class="pt-0">
             <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm2 class="mb-2">
-                </v-flex>
-                <v-flex xs12 sm2>
-                  <v-select
-                    v-if="stateAddPhieu === 'xuat_kho'"
-                    :items="hoSoItems"
-                    v-model="hoSo"
-                    clearable
-                    placeholder="Chọn hồ sơ"
-                    class="pt-0"
-                  ></v-select>
-                  <v-select
-                    v-if="stateAddPhieu === 'dieu_chuyen'"
-                    :items="coSoInItems"
-                    v-model="coSoIn"
-                    clearable
-                    placeholder="Chọn tổ tổng hợp, đơn vị khai thác"
-                    placeholder
-                    class="pt-0"
-                  ></v-select>
-                </v-flex>
-                <v-flex xs12 sm2>
-                  <v-btn color="primary" @click="chonChungTu()" v-if="stateAddPhieu === 'dieu_chuyen'" small>Chọn chứng từ</v-btn>
-                  <v-btn color="primary" @click="chonHoSo(hoSo)" v-else-if="stateAddPhieu === 'xuat_kho'" small>Chọn hồ sơ</v-btn>
-                  <!-- <v-btn color="primary" @click="" v-else small>Chọn hồ sơ...</v-btn> -->
-                </v-flex>
-                <v-flex xs12 sm6>
-                  
-                </v-flex>
-                <v-flex xs12 sm8 style="border: 1px solid #ccc; position: relative;" class="mb-2">
-                  <span class="text-bold" style="position: absolute; top: -13px; padding: 0 10px; background-color: #fff;">Thông tin chung</span> <br />
-                  <v-layout row wrap>
-                    <v-flex xs12 sm2 class="text-xs-right py-0">
-                      <label class="pt-2">Đối tượng</label>
-                    </v-flex>
-                    <v-flex xs12 sm4 class="py-0">
-                      <v-select
-                        :items="doiTuongItems"
-                        item-text="itemName"
-                        item-value="itemCode"
-                        clearable
-                        v-model="thongTinPhieu.doiTuong"
-                        class="pt-0"
-                      ></v-select>
-                    </v-flex>
-                    <v-flex xs12 sm2 class="text-xs-right py-0">
-                      <label class="pt-2">Cơ sở sản xuất</label>
-                    </v-flex>
-                    <v-flex xs12 sm4 class="py-0">
-                      <!-- <v-text-field
-                        v-model="thongTinPhieu.coSoSanXuat"
-                        clearable
-                        class="pt-0"
-                      ></v-text-field> -->
-                      <v-select
-                        :items="coSoSanXuatItems"
-                        item-text="itemName"
-                        item-value="itemCode"
-                        clearable
-                        v-model="thongTinPhieu.coSoSanXuat"
-                        class="pt-0"
-                      ></v-select>
-                    </v-flex>
-                    <v-flex xs12 sm2 class="text-xs-right py-0" v-if="stateAddPhieu === 'xuat_kho'">
-                      <label class="pt-2">Địa chỉ</label>
-                    </v-flex>
-                    <v-flex xs12 sm10 class="py-0" v-if="stateAddPhieu === 'xuat_kho'">
-                      <v-text-field
-                      v-model="thongTinPhieu.diaChi"
-                      clearable
-                      class="pt-0"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12 sm2 class="text-xs-right py-0" v-if="stateAddPhieu === 'xuat_kho'">
-                      <label class="pt-2">Địa chỉ xưởng</label>
-                    </v-flex>
-                    <v-flex xs12 sm10 class="py-0" v-if="stateAddPhieu === 'xuat_kho'">
-                      <v-text-field
-                      v-model="thongTinPhieu.diaChiXuong"
-                      clearable
-                      class="pt-0"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12 sm2 class="text-xs-right py-0" v-if="stateAddPhieu === 'dieu_chuyen' || stateAddPhieu === 'nhap_kho'">
-                      <label class="pt-2">Người giao</label>
-                    </v-flex>
-                    <v-flex xs12 sm10 class="py-0" v-if="stateAddPhieu === 'dieu_chuyen' || stateAddPhieu === 'nhap_kho'">
-                      <v-text-field
-                      v-model="thongTinPhieu.nguoiGiao"
-                      clearable
-                      class="pt-0"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12 sm2 class="text-xs-right py-0">
-                      <label class="pt-2">Diễn giải</label>
-                    </v-flex>
-                    <v-flex xs12 sm10 class="py-0">
-                      <v-text-field
-                      v-model="thongTinPhieu.dienGiai"
-                      clearable
-                      class="pt-0"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12 sm2 class="text-xs-right py-0">
-                      <label class="pt-2">Tham chiếu</label>
-                    </v-flex>
-                    <v-flex xs12 sm10 class="mb-2 py-0">
-                      <label class="pt-2">{{thongTinPhieu.maThamChieu}}</label>
-                    </v-flex>
-                  </v-layout>
-                </v-flex>
-                <v-flex xs12 sm4 style="border: 1px solid #ccc; position: relative;" class="mb-2">
-                  <span class="text-bold" style="position: absolute; top: -13px; padding: 0 10px; background-color: #fff;">Chứng từ</span>
-                  <v-layout row wrap class="mt-2">
-                    <v-flex xs12 sm5 class="text-xs-right py-0">
-                      <label class="pt-2">Số phiếu nhập</label>
-                    </v-flex>
-                    <v-flex xs12 sm7 class="mb-2 py-0">
-                      <v-text-field
-                        v-model="thongTinPhieu.soPhieuNhap"
-                        clearable
-                        class="pt-0"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12 sm5 class="text-xs-right py-0">
-                      <label class="pt-2">Ngày nhập</label>
-                    </v-flex>
-                    <v-flex xs12 sm7 class="py-0">
-                      <v-menu
-                        ref="menuNN"
-                        :close-on-content-click="false"
-                        v-model="menuNgayNhap"
-                        :nudge-right="40"
-                        :return-value.sync="date"
-                        lazy
-                        transition="scale-transition"
-                        offset-y
-                        full-width
-                        min-width="290px"
-                        >
-                        <v-text-field
-                        slot="activator"
-                        v-model="thongTinPhieu.ngayNhap"
-                        prepend-icon="event"
-                        clearable
-                        class="pt-0"
-                        readonly
-                        ></v-text-field>
-                        <v-date-picker v-model="dateNgayNhap" @input="parseNgayNhap()"></v-date-picker>
-                      </v-menu>
-                    </v-flex>
-                    
-                    <v-flex xs12 sm5>
-                      <v-btn color="primary" @click="chonChungTu()" v-if="stateAddPhieu === 'dieu_chuyen'" small>Chọn chứng từ</v-btn>
-                      <v-btn color="primary" @click="chonHoSo(hoSo)" v-else-if="stateAddPhieu === 'xuat_kho'" small>Chọn hồ sơ</v-btn>
-                    </v-flex>
-                    <v-flex xs12 sm7>
-                      <v-select
-                      v-if="stateAddPhieu === 'xuat_kho'"
-                      :items="hoSoItems"
-                      v-model="hoSo"
-                      clearable
-                      placeholder="Chọn hồ sơ"
-                      class="pt-0"
-                      ></v-select>
-                      <v-select
-                      v-if="stateAddPhieu === 'dieu_chuyen'"
-                      :items="coSoInItems"
-                      v-model="coSoIn"
-                      clearable
-                      placeholder="Chọn tổ tổng hợp, đơn vị khai thác"
-                      placeholder
-                      class="pt-0"
-                      ></v-select>
-                    </v-flex>
-                  </v-layout>
-                </v-flex>
-                <v-flex xs12 sm12 class="mt-3 px-0">
-                  <v-data-table
-                    v-bind:headers="headersDSSP"
-                    v-bind:items="dsGCNItems"
-                    v-model="selected"
-                    item-key="name"
-                    no-data-text="Không có dữ liệu"
-                    select-all
-                    class="table__overflow"
-                    hide-actions
-                    v-if="stateAddPhieu === 'dieu_chuyen' || stateAddPhieu === 'nhap_kho'"
-                  >
-                    <template slot="headers" slot-scope="props">
-                      <tr>
-                        <th style="width: 25px;" class="my-0 py-0">
-                          <v-checkbox
-                          primary
-                          hide-details
-                          @click.native="toggleAll"
-                          :input-value="props.all"
-                          :indeterminate="props.indeterminate"
-                          class="my-0 py-0"
-                          ></v-checkbox>
-                        </th>
-                        <th v-for="header in props.headers" :key="header.text"
-                        :class="['column text-xs-center']"
-                        >
-                        {{ header.text }}
-                        </th>
-                      </tr>
-                    </template>
-                    <template slot="items" slot-scope="props">
-                      <td>
-                        <v-checkbox
-                          primary
-                          hide-details
-                          v-model="props.selected"
-                        ></v-checkbox>
-                      </td>
-                      <td @click="suaVatTu(props.item)" class="pt-2">{{ props.item.soSerial }}</td>
-                      <td class="text-xs-center pt-2">{{ props.item.tuSo }}</td>
-                      <td class="text-xs-left pt-2">{{ props.item.denSo }}</td>
-                      <td class="text-xs-center pt-2">{{ props.item.soLuong }}</td>
-                      <!-- <td class="text-xs-right pt-2">{{ props.item.soLuong }}</td>
-                      <td class="text-xs-right pt-2">{{ props.item.donGia }}</td>
-                      <td class="text-xs-right pt-2">{{ props.item.thanhtien }}</td>
-                      <td class="text-xs-center pt-2">{{ props.item.ngayXuatXuong }}</td>
-                      <td class="text-xs-center pt-2"><span @click="chiTietGCN(props.item)">Chi tiết</span></td> -->
-                    </template>
-                    <template slot="footer">
-                      <tr style="height: 35px;">
-                        <td colspan="2"></td>
-                        <td class="text-xs-center"></td>
-                        <td class="text-xs-left"></td>
-                        <!-- <td class="text-xs-right"></td>
-                        <td class="text-xs-right"></td>
-                        <td class="text-xs-center"></td>
-                        <td class="text-xs-right" class="pt-2">{{ tongTien }}</td>
-                        <td class="text-xs-center"></td>
-                        <td class="text-xs-center"></td> -->
-                      </tr>
-                    </template>
-                  </v-data-table>
+              <v-layout row wrap v-if="stateAddPhieu === 'nhap_kho'">
+                <#include "popUpNhapKho.ftl">
+              </v-layout>
 
-                  <v-data-table
-                    v-bind:headers="headersXuatKhoDSSP"
-                    v-bind:items="dsGCNXuatKhoItems"
-                    v-model="selected"
-                    item-key="name"
-                    no-data-text="Không có dữ liệu"
-                    select-all
-                    class="table__overflow"
-                    hide-actions
-                    v-else
-                  >
-                    <template slot="headers" slot-scope="props">
-                      <tr>
-                        <th style="width: 25px;" class="my-0 py-0">
-                          <v-checkbox
-                          primary
-                          hide-details
-                          @click.native="toggleAll"
-                          :input-value="props.all"
-                          :indeterminate="props.indeterminate"
-                          class="my-0 py-0"
-                          ></v-checkbox>
-                        </th>
-                        <th v-for="header in props.headers" :key="header.text"
-                        :class="['column text-xs-center']"
-                        >
-                        {{ header.text }}
-                        </th>
-                      </tr>
-                    </template>
-                    <template slot="items" slot-scope="props">
-                      <td>
-                        <v-checkbox
-                          primary
-                          hide-details
-                          v-model="props.selected"
-                        ></v-checkbox>
-                      </td>
-                      <td @click="suaVatTu(props.item)" class="pt-2">{{ props.item.soGCN }}</td>
-                      <td class="text-xs-center pt-2">{{ props.item.nhanHieu }}</td>
-                      <td class="text-xs-left pt-2">{{ props.item.soLoai }}</td>
-                      <td class="text-xs-center pt-2">{{ props.item.loaiPhuongTien }}</td>
-                      <td class="text-xs-right pt-2">{{ props.item.soLuong }}</td>
-                      <td class="text-xs-right pt-2">{{ props.item.donGia }}</td>
-                      <td class="text-xs-right pt-2">{{ props.item.thanhtien }}</td>
-                      <td class="text-xs-center pt-2">{{ props.item.ngayXuatXuong }}</td>
-                      <td class="text-xs-center pt-2"><span @click="chiTietGCN(props.item)">Chi tiết</span></td>
-                    </template>
-                    <template slot="footer">
-                      <tr style="height: 35px;">
-                        <td colspan="2"></td>
-                        <td class="text-xs-center"></td>
-                        <td class="text-xs-left"></td>
-                        <td class="text-xs-right"></td>
-                        <td class="text-xs-right"></td>
-                        <td class="text-xs-center"></td>
-                        <td class="text-xs-right" class="pt-2">{{ tongTien }}</td>
-                        <td class="text-xs-center"></td>
-                        <td class="text-xs-center"></td>
-                      </tr>
-                    </template>
-                  </v-data-table>
+              <v-layout row wrap v-else-if="stateAddPhieu === 'xuat_kho'">
+                <#include "popUpXuatKho.ftl">
+              </v-layout>
+
+              <v-layout row wrap v-else>
+                <#include "popUpDieuChuyen.ftl">
+              </v-layout>
+            </v-container>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="popUpHistoryDossierPart" persistent max-width="850px;">
+        <v-card>
+          <v-toolbar dark color="primary" height="50">
+            <div class="text-bold">{{titleHistory}}</div>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn icon dark @click.native="popUpHistoryDossierPart = false">
+                <v-icon>close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <v-container grid-list-md>
+              <v-layout wrap>
+                <v-flex xs12 sm12 class="text-cs-right">
+                  <div id="formHistory">
+                    
+                  </div>
+                  <div>
+                    <object :data="urlPdfHistory" type="application/pdf" style="width:100%; height:500px;">
+                      <embed :src="urlPdfHistory" type="application/pdf" />
+                    </object>
+                  </div>
                 </v-flex>
                 <v-flex xs12 sm12>
-                  <v-btn color="primary" small @click="addGCN()" v-if="stateAddPhieu === 'dieu_chuyen' || stateAddPhieu === 'nhap_kho'"><v-icon>add</v-icon> Thêm dòng</v-btn>
-                  <v-btn color="primary" small @click="deleteVatTuSelect()" v-if="stateAddPhieu === 'dieu_chuyen' || stateAddPhieu === 'nhap_kho'"><v-icon>delete</v-icon> Xóa dòng</v-btn>
-                  <v-btn color="primary" small @click="luuPhieu(1)"><v-icon>save</v-icon> Lưu phiếu</v-btn>
-                  <v-btn color="primary" small @click="luuPhieu(2)"><v-icon>done</v-icon> Xác nhận</v-btn>
-                  <v-btn color="primary" small @click="popUpDieuCHuyen = false"><v-icon>save</v-icon> Thoát</v-btn>
+                  <v-btn small color="success" @click="popUpHistoryDossierPart = false">Quay lại</v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="popUpkieuLoaiXe" persistent max-width="850px;">
+        <v-card>
+          <v-toolbar dark color="primary" height="50">
+            <div class="text-bold">Biên bản kiểm tra</div>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn icon dark @click.native="popUpkieuLoaiXe = false">
+                <v-icon>close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <v-container grid-list-md>
+              <v-layout wrap>
+                <v-flex xs12 sm12 class="text-cs-right">
+                  <#include "kieuLoaiXe.ftl">
+                </v-flex>
+                <v-flex xs12 sm12>
+                  <v-btn small color="success" @click="xacNhanKieuLoaiXe()">Đồng ý</v-btn>
+                  <v-btn small color="success" @click="popUpkieuLoaiXe = false">Quay lại</v-btn>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="popUpThietBiCOP" persistent max-width="850px;">
+        <v-card>
+          <v-toolbar dark color="primary" height="50">
+            <div class="text-bold">Biên bản {{labelMauCOP}}</div>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn icon dark @click.native="popUpThietBiCOP = false">
+                <v-icon>close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <div>
+              <v-layout wrap>
+                <v-flex xs12 sm12 class="text-cs-right" v-if="statePopupCOP === 'MAU_1'">
+                  <#include "thietBiCOP_Mau1.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_2'">
+                  <#include "thietBiCOP_Mau2.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_3'">
+                  <#include "thietBiCOP_Mau3.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_4'">
+                  <#include "thietBiCOP_Mau4.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_5'">
+                  <#include "thietBiCOP_Mau5.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_6'">
+                  <#include "thietBiCOP_Mau6.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_7'">
+                  <#include "thietBiCOP_Mau7.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_8'">
+                  <#include "thietBiCOP_Mau8.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else-if="statePopupCOP === 'MAU_9'">
+                  <#include "thietBiCOP_Mau9.ftl">
+                </v-flex>
+                <v-flex xs12 sm12>
+                  <v-btn small color="primary" @click="xacNhanCOP()">Đồng ý</v-btn>
+                  <v-btn small @click="popUpThietBiCOP = false">Quay lại</v-btn>
+                </v-flex>
+              </v-layout>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="popUpBienBanKiemTraGS" persistent max-width="850px;">
+        <v-card>
+          <v-toolbar dark color="primary" height="50">
+            <div class="text-bold">
+              <label v-if="stateKiemTraDotXuat === -1"> Biên bản kiểm tra giám sát</label>
+              <label v-else> Biên bản kiểm tra đột xuất</label>
+            </div>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn icon dark @click.native="popUpBienBanKiemTraGS = false">
+                <v-icon>close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <div>
+              <v-layout wrap>
+                <v-flex xs12 sm12 class="text-cs-right" v-if="stateKiemTraDotXuat === -1">
+                  <#include "popupBienBanKiemTraGS.ftl">
+                </v-flex>
+                <v-flex xs12 sm12 class="text-cs-right" v-else>
+                  <#include "popupBienBanKiemTraDotXuat.ftl">
+                </v-flex>
+                <v-flex xs12 sm12>
+                  <v-btn small color="primary" @click="xacNhanBBKiemTraGSKT()">Đồng ý</v-btn>
+                  <v-btn small @click="popUpBienBanKiemTraGS = false">Quay lại</v-btn>
+                </v-flex>
+              </v-layout>
+            </div>
           </v-card-text>
         </v-card>
       </v-dialog>
@@ -512,13 +354,13 @@
         </v-card>
       </v-dialog>
 
-      <v-dialog v-model="popUpAddGCN" persistent max-width="800px">
+      <v-dialog v-model="popUpAddPhieu" persistent max-width="800px">
 				<v-card>
 					<v-toolbar dark color="primary" height="50">
-						<div class="text-bold">Thêm giấy chứng nhận</div>
+						<div class="text-bold">Kê khai phiếu</div>
 						<v-spacer></v-spacer>
 						<v-toolbar-items>
-							<v-btn icon dark @click.native="popUpAddGCN = false">
+							<v-btn icon dark @click.native="popUpAddPhieu = false">
 								<v-icon>close</v-icon>
 							</v-btn>
 						</v-toolbar-items>
@@ -531,17 +373,32 @@
 								</v-flex>
                 <v-flex xs12 sm4 class="py-0">
                   <v-text-field
-                    v-model="detailGCN.soSerial_add"
+                    v-if="stateAddPhieu === 'nhap_kho'"
+                    v-model="detailAnChi['stampShortNo']"
                     class="pt-0"
                     clearable
                   ></v-text-field>
+
+                  <v-select
+                    v-else
+                    @input="bindStamp()"
+                    :items="phieuConItems"
+                    item-text="stampShortNo"
+                    item-value="stampShortNo"
+                    clearable
+                    return-object
+                    autocomplete
+                    v-model="stampBook"
+                    class="pt-0"
+                  ></v-select>
 								</v-flex>
                 <v-flex xs12 sm2 class="text-xs-right py-0">
                   <label class="pt-2">Từ số</label>
 								</v-flex>
                 <v-flex xs12 sm4 class="py-0">
                   <v-text-field
-                    v-model="detailGCN.tuSo_add"
+                    @keyup.enter="autoFillSerial()"
+                    v-model="detailAnChi['serialStartNo']"
                     class="pt-0"
                     clearable
                   ></v-text-field>
@@ -551,7 +408,8 @@
 								</v-flex>
                 <v-flex xs12 sm4 class="py-0">
                   <v-text-field
-                    v-model="detailGCN.denSo_add"
+                    @keyup.enter="autoFillSerial()"
+                    v-model="detailAnChi['serialEndNo']"
                     class="pt-0"
                     clearable
                   ></v-text-field>
@@ -561,70 +419,101 @@
 								</v-flex>
                 <v-flex xs12 sm4 class="py-0">
                   <v-text-field
-                    v-model="detailGCN.soLuong_add"
+                    @keyup.enter="autoFillSerial()"
+                    v-model="detailAnChi['subTotalInDocument']"
                     clearable
                     class="pt-0"
                   ></v-text-field>
                 </v-flex>
-                <!-- <v-flex xs12 sm2 class="text-xs-right py-0">
-                  <label class="pt-2">Số lượng</label>
-                </v-flex>
-                <v-flex xs12 sm4>
-                  <v-text-field
-                    v-model="detailGCN.soLuong_add"
-                    class="pt-0"
-                    clearable
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm2 class="text-xs-right py-0">
-                  <label class="pt-2">Đơn giá</label>
-                </v-flex>
-                <v-flex xs12 sm4 class="py-0">
-                  <v-text-field
-                    v-model="detailGCN.donGia_add"
-                    clearable
-                    class="pt-0"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm2 class="text-xs-right py-0">
-                  <label class="pt-2">Ngày xuất xưởng</label>
-                </v-flex>
-                <v-flex xs12 sm4 class="py-0">
-                  <v-menu
-                    ref="menuNC"
-                    :close-on-content-click="false"
-                    v-model="menuNgayXuatXuong_add"
-                    :nudge-right="40"
-                    :return-value.sync="date"
-                    lazy
-                    transition="scale-transition"
-                    offset-y
-                    full-width
-                    min-width="290px"
-                    >
-                      <v-text-field
-                        slot="activator"
-                        v-model="detailGCN.ngayXuatXuong_add"
-                        prepend-icon="event"
-                        class="pt-0"
-                        clearable
-                        readonly
-                      ></v-text-field>
-                      <v-date-picker v-model="dateNgayXuatXuong_add" @input="parseNgayXuatXuong_add()"></v-date-picker>
-                  </v-menu>
-                </v-flex>
-                <v-flex xs12 sm6 class="mb-2">
-
-                </v-flex> -->
                 <v-flex xs12 sm12 class="mt-3 text-xs-center mb-2">
-                  <v-btn color="primary" small @click="addRowVatTu()"><v-icon>add</v-icon> Thêm</v-btn>
-                  <v-btn color="primary" small @click="popUpAddGCN = false"> Hủy bỏ</v-btn>
+                  <v-btn color="primary" small @click="addPhieu()"><v-icon>add</v-icon> Thêm</v-btn>
+
+                  <#-- <v-btn color="primary" small @click="addPhieuXuat()" v-if="stateAddPhieu === 'xuat_kho'"><v-icon>add</v-icon> Thêm</v-btn>
+
+                  <v-btn color="primary" small @click="addPhieuDieuChuyen()" v-if="stateAddPhieu === 'dieu_chuyen'"><v-icon>add</v-icon> Thêm</v-btn> -->
+                  <v-btn color="primary" small @click="popUpAddPhieu = false"> Hủy bỏ</v-btn>
                 </v-flex>
 							</v-layout>
 						</v-container>
 					</v-card-text>
 				</v-card>
 			</v-dialog>
+
+      <v-dialog v-model="popUpPhieuXX" persistent max-width="800px">
+        <v-card>
+          <v-toolbar dark color="primary" height="50">
+						<div class="text-bold">Phiếu xuất xưởng</div>
+						<v-spacer></v-spacer>
+						<v-toolbar-items>
+							<v-btn icon dark @click.native="popUpPhieuXX = false">
+								<v-icon>close</v-icon>
+							</v-btn>
+						</v-toolbar-items>
+					</v-toolbar>
+          <v-card-text class="py-0">
+            <object data="https://www.w3docs.com/uploads/media/default/0001/01/540cb75550adf33f281f29132dddd14fded85bfc.pdf" type="application/pdf" style="width:100%; height:500px;">
+              <embed src="https://www.w3docs.com/uploads/media/default/0001/01/540cb75550adf33f281f29132dddd14fded85bfc.pdf" type="application/pdf" />
+            </object>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+
+
+      <v-dialog v-model="popUpDsXeCapPhieu" persistent max-width="900px">
+        <v-card>
+          <v-toolbar dark color="primary" height="50">
+            <div class="text-bold">Danh sách xe</div>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn icon dark @click.native="popUpDsXeCapPhieu = false">
+                <v-icon>close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text class="py-0">
+            <div id="dsXePopUpCapPhieu" class="pb-2">
+              
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="popUpPhoiXCG" persistent>
+        <div id="dialog-cauhinh" oncontextmenu="return false;" style="width: 100%;background: #fff;position: relative;">
+          <div id="nav-filter" style="position: absolute;top: 64px;right: 0; width: 280px;height: calc(100% - 64px); background-color: #fff; box-shadow: -3px 6px 16px #888888;">
+            <div style="width: 87%;padding: 10px;">
+              <input id="input-label" style="width: 100%;height: 30px; border-radius: 5px;border: 1px solid;padding: 2px 10px;" type="" name="">
+
+            </div>
+            <hr>
+            <div id="list-label" style="width: 100%; box-sizing: border-box;">
+              <div v-for="(item, index) in listLabelTemp" v-bind:key="index" style="width: 100%; height: 30px; padding: 5px;display: flex;align-items: center;justify-content: space-between;border-bottom: 1px solid;box-sizing: border-box;">
+                <span>{{item.name}}</span>
+                <i class="fa fa-plus" aria-hidden="true" style="color: #2196f3;" @click="addLabel(item.name)"></i>
+              </div>
+            </div>
+          </div>
+          <div style="width: 100%;">
+            <div style="width: 100%;background: #2196f3;color: #fff; height: 64px; line-height: 64px; display: flex; justify-content: space-between; box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12); padding: 0 15px;">
+              <div>
+                <button id="btn-close-cauhinh" style="width: 36px; height: 36px; color: #fff; font-weight: bold; background: none; border: none; cursor: pointer;"  @click="popUpPhoiXCG = false">X</button>
+                <strong style="font-size: 25px; margin-left: 20px;font-family: 'Roboto', sans-serif;">Cấu hình phôi</strong>
+              </div>
+              
+              <div style="padding-right: 61px;">
+                <v-btn color="primary">Lưu lại</v-btn>
+              </div>
+            </div>
+            <div style="width: 100%;height: 700px;overflow: auto;" >
+              <div id="page" style="width: 21cm;min-height: 29.7cm;margin: 1cm auto;border: 1px #D3D3D3 solid;">
+                <div id="printTraCuu" style="background-size: cover;height: 297mm;width: 210mm;margin-left: auto;margin-right: auto;position: relative;">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </v-dialog>
       <v-slide-x-transition>
         <div class="layout wrap" v-if="stageFilterView === 'tra_cuu_hoso' && !detailPage">
 
@@ -635,6 +524,18 @@
         <div class="layout wrap" v-else-if="stageFilterView === 'tra_cuu_phuong_tien' && !detailPage">
 
           <#include "tra_cuu_phuong_tien.ftl">
+
+        </div>
+
+        <div class="layout wrap" v-else-if="stageFilterView === 'tra_cuu_thongke' && !detailPage">
+
+          <#include "tra_cuu_thong_ke.ftl">
+
+        </div>
+
+        <div class="layout wrap" v-else-if="stageFilterView === 'thong_ke_chuyen_doi_du_lieu' && !detailPage">
+
+          <#include "thong_ke_chuyen_doi_du_lieu.ftl">
 
         </div>
 
@@ -668,19 +569,19 @@
 
         </div>
 
-        <div class="layout wrap" v-else-if="!detailPage">
+        <div class="layout wrap" v-else-if="!detailPage && stageFilterView !== 'danh_sach_xe_da_xuat_xuong'  && stageFilterView !== 'thong_so_ky_thuat'  && stageFilterView !== 'danh_sach_an_chi_da_cap_phat'   && stageFilterView !== 'chi_tiet_an_chi_da_cap_phat'  && stageFilterView !== 'danh_xe_cho_in_phieu'">
 
           <#include "danh_sach_hoso.ftl">
 
         </div>
       </v-slide-x-transition>
 
-	  <v-slide-x-transition>
-        <div class="layout wrap" v-if="detailPage && stageFilterView === 'doanh_nghiep_trong_nuoc'">
+      <v-slide-x-transition>
+          <div class="layout wrap" v-if="detailPage && stageFilterView === 'doanh_nghiep_trong_nuoc'">
 
-          <#include "regist_detail.ftl">
+            <#include "regist_detail.ftl">
 
-        </div>
+          </div>
       </v-slide-x-transition>
 
       <v-slide-x-transition>
@@ -690,9 +591,49 @@
       </v-slide-x-transition>
 
       <v-slide-x-transition>
-        <div class="layout wrap" v-if="detailPage && stageFilterView !== 'doanh_nghiep_trong_nuoc' && stageFilterView !== 'co_so_nuoc_ngoai' && stageFilterView !== 'quan_ly_pxx' && stageFilterView !== 'ds_nhap_kho' && stageFilterView !== 'ds_xuat_kho'">
+        <div class="layout wrap" v-if="detailPage && stageFilterView !== 'doanh_nghiep_trong_nuoc' && stageFilterView !== 'co_so_nuoc_ngoai' && stageFilterView !== 'quan_ly_pxx' && stageFilterView !== 'ds_nhap_kho' && stageFilterView !== 'ds_xuat_kho' && stageFilterView !== 'danh_sach_xe_da_xuat_xuong'  && stageFilterView !== 'thong_so_ky_thuat'  && stageFilterView !== 'danh_sach_an_chi_da_cap_phat'  && stageFilterView !== 'chi_tiet_an_chi_da_cap_phat' && stageFilterView !== 'danh_xe_cho_in_phieu'">
 
           <#include "dossier_detail.ftl">
+
+        </div>
+      </v-slide-x-transition>
+
+      <v-slide-x-transition>
+        <div class="layout wrap" v-if="stageFilterView === 'danh_sach_xe_da_xuat_xuong'">
+
+          <#include "danh_sach_xe_da_xuat_xuong.ftl">
+
+        </div>
+      </v-slide-x-transition>
+
+      <v-slide-x-transition>
+        <div class="layout wrap" v-if="stageFilterView === 'thong_so_ky_thuat'">
+
+          <#include "thong_so_ky_thuat.ftl">
+
+        </div>
+      </v-slide-x-transition>
+
+      <v-slide-x-transition>
+        <div class="layout wrap" v-if="stageFilterView === 'danh_sach_an_chi_da_cap_phat'">
+
+          <#include "danh_sach_an_chi_cap_phat.ftl">
+
+        </div>
+      </v-slide-x-transition>
+
+      <v-slide-x-transition>
+        <div class="layout wrap" v-if="stageFilterView === 'chi_tiet_an_chi_da_cap_phat'">
+
+          <#include "chi_tiet_an_chi_da_cap_phat.ftl">
+
+        </div>
+      </v-slide-x-transition>
+
+      <v-slide-x-transition>
+        <div class="layout wrap" v-if="stageFilterView === 'danh_xe_cho_in_phieu'">
+
+          <#include "danh_sach_xe_cho_in_phieu.ftl">
 
         </div>
       </v-slide-x-transition>

@@ -900,6 +900,1010 @@ public interface VRCOPReportRepositoryModel extends BaseModel<VRCOPReportReposit
 	 */
 	public void setDossierNo(String dossierNo);
 
+	/**
+	 * Returns the applicant email of this vrcop report repository.
+	 *
+	 * @return the applicant email of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantEmail();
+
+	/**
+	 * Sets the applicant email of this vrcop report repository.
+	 *
+	 * @param applicantEmail the applicant email of this vrcop report repository
+	 */
+	public void setApplicantEmail(String applicantEmail);
+
+	/**
+	 * Returns the applicant phone of this vrcop report repository.
+	 *
+	 * @return the applicant phone of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantPhone();
+
+	/**
+	 * Sets the applicant phone of this vrcop report repository.
+	 *
+	 * @param applicantPhone the applicant phone of this vrcop report repository
+	 */
+	public void setApplicantPhone(String applicantPhone);
+
+	/**
+	 * Returns the applicant tel no of this vrcop report repository.
+	 *
+	 * @return the applicant tel no of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantTelNo();
+
+	/**
+	 * Sets the applicant tel no of this vrcop report repository.
+	 *
+	 * @param applicantTelNo the applicant tel no of this vrcop report repository
+	 */
+	public void setApplicantTelNo(String applicantTelNo);
+
+	/**
+	 * Returns the applicant fax of this vrcop report repository.
+	 *
+	 * @return the applicant fax of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantFax();
+
+	/**
+	 * Sets the applicant fax of this vrcop report repository.
+	 *
+	 * @param applicantFax the applicant fax of this vrcop report repository
+	 */
+	public void setApplicantFax(String applicantFax);
+
+	/**
+	 * Returns the applicant contact name of this vrcop report repository.
+	 *
+	 * @return the applicant contact name of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantContactName();
+
+	/**
+	 * Sets the applicant contact name of this vrcop report repository.
+	 *
+	 * @param applicantContactName the applicant contact name of this vrcop report repository
+	 */
+	public void setApplicantContactName(String applicantContactName);
+
+	/**
+	 * Returns the applicant contact email of this vrcop report repository.
+	 *
+	 * @return the applicant contact email of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantContactEmail();
+
+	/**
+	 * Sets the applicant contact email of this vrcop report repository.
+	 *
+	 * @param applicantContactEmail the applicant contact email of this vrcop report repository
+	 */
+	public void setApplicantContactEmail(String applicantContactEmail);
+
+	/**
+	 * Returns the applicant contact phone of this vrcop report repository.
+	 *
+	 * @return the applicant contact phone of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantContactPhone();
+
+	/**
+	 * Sets the applicant contact phone of this vrcop report repository.
+	 *
+	 * @param applicantContactPhone the applicant contact phone of this vrcop report repository
+	 */
+	public void setApplicantContactPhone(String applicantContactPhone);
+
+	/**
+	 * Returns the applicant contact tel no of this vrcop report repository.
+	 *
+	 * @return the applicant contact tel no of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantContactTelNo();
+
+	/**
+	 * Sets the applicant contact tel no of this vrcop report repository.
+	 *
+	 * @param applicantContactTelNo the applicant contact tel no of this vrcop report repository
+	 */
+	public void setApplicantContactTelNo(String applicantContactTelNo);
+
+	/**
+	 * Returns the applicant business type of this vrcop report repository.
+	 *
+	 * @return the applicant business type of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getApplicantBusinessType();
+
+	/**
+	 * Sets the applicant business type of this vrcop report repository.
+	 *
+	 * @param applicantBusinessType the applicant business type of this vrcop report repository
+	 */
+	public void setApplicantBusinessType(String applicantBusinessType);
+
+	/**
+	 * Returns the markup designer of this vrcop report repository.
+	 *
+	 * @return the markup designer of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getMarkupDesigner();
+
+	/**
+	 * Sets the markup designer of this vrcop report repository.
+	 *
+	 * @param markupDesigner the markup designer of this vrcop report repository
+	 */
+	public void setMarkupDesigner(String markupDesigner);
+
+	/**
+	 * Returns the markup overseas manufacturer of this vrcop report repository.
+	 *
+	 * @return the markup overseas manufacturer of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getMarkupOverseasManufacturer();
+
+	/**
+	 * Sets the markup overseas manufacturer of this vrcop report repository.
+	 *
+	 * @param markupOverseasManufacturer the markup overseas manufacturer of this vrcop report repository
+	 */
+	public void setMarkupOverseasManufacturer(String markupOverseasManufacturer);
+
+	/**
+	 * Returns the markup maintainer of this vrcop report repository.
+	 *
+	 * @return the markup maintainer of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getMarkupMaintainer();
+
+	/**
+	 * Sets the markup maintainer of this vrcop report repository.
+	 *
+	 * @param markupMaintainer the markup maintainer of this vrcop report repository
+	 */
+	public void setMarkupMaintainer(String markupMaintainer);
+
+	/**
+	 * Returns the importer domestic site of this vrcop report repository.
+	 *
+	 * @return the importer domestic site of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getImporterDomesticSite();
+
+	/**
+	 * Sets the importer domestic site of this vrcop report repository.
+	 *
+	 * @param importerDomesticSite the importer domestic site of this vrcop report repository
+	 */
+	public void setImporterDomesticSite(String importerDomesticSite);
+
+	/**
+	 * Returns the site of nationality of this vrcop report repository.
+	 *
+	 * @return the site of nationality of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSiteOfNationality();
+
+	/**
+	 * Sets the site of nationality of this vrcop report repository.
+	 *
+	 * @param siteOfNationality the site of nationality of this vrcop report repository
+	 */
+	public void setSiteOfNationality(String siteOfNationality);
+
+	/**
+	 * Returns the site of nationality code of this vrcop report repository.
+	 *
+	 * @return the site of nationality code of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSiteOfNationalityCode();
+
+	/**
+	 * Sets the site of nationality code of this vrcop report repository.
+	 *
+	 * @param siteOfNationalityCode the site of nationality code of this vrcop report repository
+	 */
+	public void setSiteOfNationalityCode(String siteOfNationalityCode);
+
+	/**
+	 * Returns the site of region of this vrcop report repository.
+	 *
+	 * @return the site of region of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSiteOfRegion();
+
+	/**
+	 * Sets the site of region of this vrcop report repository.
+	 *
+	 * @param siteOfRegion the site of region of this vrcop report repository
+	 */
+	public void setSiteOfRegion(String siteOfRegion);
+
+	/**
+	 * Returns the site of region code of this vrcop report repository.
+	 *
+	 * @return the site of region code of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSiteOfRegionCode();
+
+	/**
+	 * Sets the site of region code of this vrcop report repository.
+	 *
+	 * @param siteOfRegionCode the site of region code of this vrcop report repository
+	 */
+	public void setSiteOfRegionCode(String siteOfRegionCode);
+
+	/**
+	 * Returns the site of city of this vrcop report repository.
+	 *
+	 * @return the site of city of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSiteOfCity();
+
+	/**
+	 * Sets the site of city of this vrcop report repository.
+	 *
+	 * @param siteOfCity the site of city of this vrcop report repository
+	 */
+	public void setSiteOfCity(String siteOfCity);
+
+	/**
+	 * Returns the site of city code of this vrcop report repository.
+	 *
+	 * @return the site of city code of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSiteOfCityCode();
+
+	/**
+	 * Sets the site of city code of this vrcop report repository.
+	 *
+	 * @param siteOfCityCode the site of city code of this vrcop report repository
+	 */
+	public void setSiteOfCityCode(String siteOfCityCode);
+
+	/**
+	 * Returns the manufacturer representative of this vrcop report repository.
+	 *
+	 * @return the manufacturer representative of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getManufacturerRepresentative();
+
+	/**
+	 * Sets the manufacturer representative of this vrcop report repository.
+	 *
+	 * @param manufacturerRepresentative the manufacturer representative of this vrcop report repository
+	 */
+	public void setManufacturerRepresentative(String manufacturerRepresentative);
+
+	/**
+	 * Returns the manufacturer representative title of this vrcop report repository.
+	 *
+	 * @return the manufacturer representative title of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getManufacturerRepresentativeTitle();
+
+	/**
+	 * Sets the manufacturer representative title of this vrcop report repository.
+	 *
+	 * @param manufacturerRepresentativeTitle the manufacturer representative title of this vrcop report repository
+	 */
+	public void setManufacturerRepresentativeTitle(
+		String manufacturerRepresentativeTitle);
+
+	/**
+	 * Returns the manufacturer email of this vrcop report repository.
+	 *
+	 * @return the manufacturer email of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getManufacturerEmail();
+
+	/**
+	 * Sets the manufacturer email of this vrcop report repository.
+	 *
+	 * @param manufacturerEmail the manufacturer email of this vrcop report repository
+	 */
+	public void setManufacturerEmail(String manufacturerEmail);
+
+	/**
+	 * Returns the manufacturer phone of this vrcop report repository.
+	 *
+	 * @return the manufacturer phone of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getManufacturerPhone();
+
+	/**
+	 * Sets the manufacturer phone of this vrcop report repository.
+	 *
+	 * @param manufacturerPhone the manufacturer phone of this vrcop report repository
+	 */
+	public void setManufacturerPhone(String manufacturerPhone);
+
+	/**
+	 * Returns the manufacturer fax of this vrcop report repository.
+	 *
+	 * @return the manufacturer fax of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getManufacturerFax();
+
+	/**
+	 * Sets the manufacturer fax of this vrcop report repository.
+	 *
+	 * @param manufacturerFax the manufacturer fax of this vrcop report repository
+	 */
+	public void setManufacturerFax(String manufacturerFax);
+
+	/**
+	 * Returns the production plant email of this vrcop report repository.
+	 *
+	 * @return the production plant email of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionPlantEmail();
+
+	/**
+	 * Sets the production plant email of this vrcop report repository.
+	 *
+	 * @param productionPlantEmail the production plant email of this vrcop report repository
+	 */
+	public void setProductionPlantEmail(String productionPlantEmail);
+
+	/**
+	 * Returns the production plant website of this vrcop report repository.
+	 *
+	 * @return the production plant website of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionPlantWebsite();
+
+	/**
+	 * Sets the production plant website of this vrcop report repository.
+	 *
+	 * @param productionPlantWebsite the production plant website of this vrcop report repository
+	 */
+	public void setProductionPlantWebsite(String productionPlantWebsite);
+
+	/**
+	 * Returns the production plant representative of this vrcop report repository.
+	 *
+	 * @return the production plant representative of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionPlantRepresentative();
+
+	/**
+	 * Sets the production plant representative of this vrcop report repository.
+	 *
+	 * @param productionPlantRepresentative the production plant representative of this vrcop report repository
+	 */
+	public void setProductionPlantRepresentative(
+		String productionPlantRepresentative);
+
+	/**
+	 * Returns the production plant representative title of this vrcop report repository.
+	 *
+	 * @return the production plant representative title of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionPlantRepresentativeTitle();
+
+	/**
+	 * Sets the production plant representative title of this vrcop report repository.
+	 *
+	 * @param productionPlantRepresentativeTitle the production plant representative title of this vrcop report repository
+	 */
+	public void setProductionPlantRepresentativeTitle(
+		String productionPlantRepresentativeTitle);
+
+	/**
+	 * Returns the corporation name of this vrcop report repository.
+	 *
+	 * @return the corporation name of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getCorporationName();
+
+	/**
+	 * Sets the corporation name of this vrcop report repository.
+	 *
+	 * @param corporationName the corporation name of this vrcop report repository
+	 */
+	public void setCorporationName(String corporationName);
+
+	/**
+	 * Returns the inspector contact code of this vrcop report repository.
+	 *
+	 * @return the inspector contact code of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getInspectorContactCode();
+
+	/**
+	 * Sets the inspector contact code of this vrcop report repository.
+	 *
+	 * @param inspectorContactCode the inspector contact code of this vrcop report repository
+	 */
+	public void setInspectorContactCode(String inspectorContactCode);
+
+	/**
+	 * Returns the inspector name of this vrcop report repository.
+	 *
+	 * @return the inspector name of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getInspectorName();
+
+	/**
+	 * Sets the inspector name of this vrcop report repository.
+	 *
+	 * @param inspectorName the inspector name of this vrcop report repository
+	 */
+	public void setInspectorName(String inspectorName);
+
+	/**
+	 * Returns the inspecto rendor sement date of this vrcop report repository.
+	 *
+	 * @return the inspecto rendor sement date of this vrcop report repository
+	 */
+	public Date getInspectoRendorSementDate();
+
+	/**
+	 * Sets the inspecto rendor sement date of this vrcop report repository.
+	 *
+	 * @param inspectoRendorSementDate the inspecto rendor sement date of this vrcop report repository
+	 */
+	public void setInspectoRendorSementDate(Date inspectoRendorSementDate);
+
+	/**
+	 * Returns the inspector deadline of this vrcop report repository.
+	 *
+	 * @return the inspector deadline of this vrcop report repository
+	 */
+	public Date getInspectorDeadline();
+
+	/**
+	 * Sets the inspector deadline of this vrcop report repository.
+	 *
+	 * @param inspectorDeadline the inspector deadline of this vrcop report repository
+	 */
+	public void setInspectorDeadline(Date inspectorDeadline);
+
+	/**
+	 * Returns the resolved status of this vrcop report repository.
+	 *
+	 * @return the resolved status of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getResolvedStatus();
+
+	/**
+	 * Sets the resolved status of this vrcop report repository.
+	 *
+	 * @param resolvedStatus the resolved status of this vrcop report repository
+	 */
+	public void setResolvedStatus(String resolvedStatus);
+
+	/**
+	 * Returns the number of non conformity of this vrcop report repository.
+	 *
+	 * @return the number of non conformity of this vrcop report repository
+	 */
+	public int getNumberOfNonConformity();
+
+	/**
+	 * Sets the number of non conformity of this vrcop report repository.
+	 *
+	 * @param numberOfNonConformity the number of non conformity of this vrcop report repository
+	 */
+	public void setNumberOfNonConformity(int numberOfNonConformity);
+
+	/**
+	 * Returns the number of resolved of this vrcop report repository.
+	 *
+	 * @return the number of resolved of this vrcop report repository
+	 */
+	public int getNumberOfResolved();
+
+	/**
+	 * Sets the number of resolved of this vrcop report repository.
+	 *
+	 * @param numberOfResolved the number of resolved of this vrcop report repository
+	 */
+	public void setNumberOfResolved(int numberOfResolved);
+
+	/**
+	 * Returns the observation description of this vrcop report repository.
+	 *
+	 * @return the observation description of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getObservationDescription();
+
+	/**
+	 * Sets the observation description of this vrcop report repository.
+	 *
+	 * @param observationDescription the observation description of this vrcop report repository
+	 */
+	public void setObservationDescription(String observationDescription);
+
+	/**
+	 * Returns the inspection audit cycle of this vrcop report repository.
+	 *
+	 * @return the inspection audit cycle of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getInspectionAuditCycle();
+
+	/**
+	 * Sets the inspection audit cycle of this vrcop report repository.
+	 *
+	 * @param inspectionAuditCycle the inspection audit cycle of this vrcop report repository
+	 */
+	public void setInspectionAuditCycle(String inspectionAuditCycle);
+
+	/**
+	 * Returns the inspection note of this vrcop report repository.
+	 *
+	 * @return the inspection note of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getInspectionNote();
+
+	/**
+	 * Sets the inspection note of this vrcop report repository.
+	 *
+	 * @param inspectionNote the inspection note of this vrcop report repository
+	 */
+	public void setInspectionNote(String inspectionNote);
+
+	/**
+	 * Returns the production conformity checking of this vrcop report repository.
+	 *
+	 * @return the production conformity checking of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionConformityChecking();
+
+	/**
+	 * Sets the production conformity checking of this vrcop report repository.
+	 *
+	 * @param productionConformityChecking the production conformity checking of this vrcop report repository
+	 */
+	public void setProductionConformityChecking(
+		String productionConformityChecking);
+
+	/**
+	 * Returns the production stamp checking of this vrcop report repository.
+	 *
+	 * @return the production stamp checking of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionStampChecking();
+
+	/**
+	 * Sets the production stamp checking of this vrcop report repository.
+	 *
+	 * @param productionStampChecking the production stamp checking of this vrcop report repository
+	 */
+	public void setProductionStampChecking(String productionStampChecking);
+
+	/**
+	 * Returns the testing equipment checking of this vrcop report repository.
+	 *
+	 * @return the testing equipment checking of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTestingEquipmentChecking();
+
+	/**
+	 * Sets the testing equipment checking of this vrcop report repository.
+	 *
+	 * @param testingEquipmentChecking the testing equipment checking of this vrcop report repository
+	 */
+	public void setTestingEquipmentChecking(String testingEquipmentChecking);
+
+	/**
+	 * Returns the production plant classification of this vrcop report repository.
+	 *
+	 * @return the production plant classification of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionPlantClassification();
+
+	/**
+	 * Sets the production plant classification of this vrcop report repository.
+	 *
+	 * @param productionPlantClassification the production plant classification of this vrcop report repository
+	 */
+	public void setProductionPlantClassification(
+		String productionPlantClassification);
+
+	/**
+	 * Returns the actual capacity of this vrcop report repository.
+	 *
+	 * @return the actual capacity of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getActualCapacity();
+
+	/**
+	 * Sets the actual capacity of this vrcop report repository.
+	 *
+	 * @param actualCapacity the actual capacity of this vrcop report repository
+	 */
+	public void setActualCapacity(String actualCapacity);
+
+	/**
+	 * Returns the max capacity of this vrcop report repository.
+	 *
+	 * @return the max capacity of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getMaxCapacity();
+
+	/**
+	 * Sets the max capacity of this vrcop report repository.
+	 *
+	 * @param maxCapacity the max capacity of this vrcop report repository
+	 */
+	public void setMaxCapacity(String maxCapacity);
+
+	/**
+	 * Returns the average capacity of this vrcop report repository.
+	 *
+	 * @return the average capacity of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getAverageCapacity();
+
+	/**
+	 * Sets the average capacity of this vrcop report repository.
+	 *
+	 * @param averageCapacity the average capacity of this vrcop report repository
+	 */
+	public void setAverageCapacity(String averageCapacity);
+
+	/**
+	 * Returns the total employee of this vrcop report repository.
+	 *
+	 * @return the total employee of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTotalEmployee();
+
+	/**
+	 * Sets the total employee of this vrcop report repository.
+	 *
+	 * @param totalEmployee the total employee of this vrcop report repository
+	 */
+	public void setTotalEmployee(String totalEmployee);
+
+	/**
+	 * Returns the total worker of this vrcop report repository.
+	 *
+	 * @return the total worker of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTotalWorker();
+
+	/**
+	 * Sets the total worker of this vrcop report repository.
+	 *
+	 * @param totalWorker the total worker of this vrcop report repository
+	 */
+	public void setTotalWorker(String totalWorker);
+
+	/**
+	 * Returns the total manager of this vrcop report repository.
+	 *
+	 * @return the total manager of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTotalManager();
+
+	/**
+	 * Sets the total manager of this vrcop report repository.
+	 *
+	 * @param totalManager the total manager of this vrcop report repository
+	 */
+	public void setTotalManager(String totalManager);
+
+	/**
+	 * Returns the total technical of this vrcop report repository.
+	 *
+	 * @return the total technical of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTotalTechnical();
+
+	/**
+	 * Sets the total technical of this vrcop report repository.
+	 *
+	 * @param totalTechnical the total technical of this vrcop report repository
+	 */
+	public void setTotalTechnical(String totalTechnical);
+
+	/**
+	 * Returns the total qa employee of this vrcop report repository.
+	 *
+	 * @return the total qa employee of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTotalQaEmployee();
+
+	/**
+	 * Sets the total qa employee of this vrcop report repository.
+	 *
+	 * @param totalQaEmployee the total qa employee of this vrcop report repository
+	 */
+	public void setTotalQaEmployee(String totalQaEmployee);
+
+	/**
+	 * Returns the total square meter of this vrcop report repository.
+	 *
+	 * @return the total square meter of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTotalSquareMeter();
+
+	/**
+	 * Sets the total square meter of this vrcop report repository.
+	 *
+	 * @param totalSquareMeter the total square meter of this vrcop report repository
+	 */
+	public void setTotalSquareMeter(String totalSquareMeter);
+
+	/**
+	 * Returns the ware house square of this vrcop report repository.
+	 *
+	 * @return the ware house square of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getWareHouseSquare();
+
+	/**
+	 * Sets the ware house square of this vrcop report repository.
+	 *
+	 * @param wareHouseSquare the ware house square of this vrcop report repository
+	 */
+	public void setWareHouseSquare(String wareHouseSquare);
+
+	/**
+	 * Returns the office square of this vrcop report repository.
+	 *
+	 * @return the office square of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getOfficeSquare();
+
+	/**
+	 * Sets the office square of this vrcop report repository.
+	 *
+	 * @param officeSquare the office square of this vrcop report repository
+	 */
+	public void setOfficeSquare(String officeSquare);
+
+	/**
+	 * Returns the production square of this vrcop report repository.
+	 *
+	 * @return the production square of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionSquare();
+
+	/**
+	 * Sets the production square of this vrcop report repository.
+	 *
+	 * @param productionSquare the production square of this vrcop report repository
+	 */
+	public void setProductionSquare(String productionSquare);
+
+	/**
+	 * Returns the machining area of this vrcop report repository.
+	 *
+	 * @return the machining area of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getMachiningArea();
+
+	/**
+	 * Sets the machining area of this vrcop report repository.
+	 *
+	 * @param machiningArea the machining area of this vrcop report repository
+	 */
+	public void setMachiningArea(String machiningArea);
+
+	/**
+	 * Returns the welding area of this vrcop report repository.
+	 *
+	 * @return the welding area of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getWeldingArea();
+
+	/**
+	 * Sets the welding area of this vrcop report repository.
+	 *
+	 * @param weldingArea the welding area of this vrcop report repository
+	 */
+	public void setWeldingArea(String weldingArea);
+
+	/**
+	 * Returns the painting area of this vrcop report repository.
+	 *
+	 * @return the painting area of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getPaintingArea();
+
+	/**
+	 * Sets the painting area of this vrcop report repository.
+	 *
+	 * @param paintingArea the painting area of this vrcop report repository
+	 */
+	public void setPaintingArea(String paintingArea);
+
+	/**
+	 * Returns the production assemble area of this vrcop report repository.
+	 *
+	 * @return the production assemble area of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getProductionAssembleArea();
+
+	/**
+	 * Sets the production assemble area of this vrcop report repository.
+	 *
+	 * @param productionAssembleArea the production assemble area of this vrcop report repository
+	 */
+	public void setProductionAssembleArea(String productionAssembleArea);
+
+	/**
+	 * Returns the finish product area of this vrcop report repository.
+	 *
+	 * @return the finish product area of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getFinishProductArea();
+
+	/**
+	 * Sets the finish product area of this vrcop report repository.
+	 *
+	 * @param finishProductArea the finish product area of this vrcop report repository
+	 */
+	public void setFinishProductArea(String finishProductArea);
+
+	/**
+	 * Returns the testing area of this vrcop report repository.
+	 *
+	 * @return the testing area of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getTestingArea();
+
+	/**
+	 * Sets the testing area of this vrcop report repository.
+	 *
+	 * @param testingArea the testing area of this vrcop report repository
+	 */
+	public void setTestingArea(String testingArea);
+
+	/**
+	 * Returns the self equipment of this vrcop report repository.
+	 *
+	 * @return the self equipment of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getSelfEquipment();
+
+	/**
+	 * Sets the self equipment of this vrcop report repository.
+	 *
+	 * @param selfEquipment the self equipment of this vrcop report repository
+	 */
+	public void setSelfEquipment(String selfEquipment);
+
+	/**
+	 * Returns the contract equipment of this vrcop report repository.
+	 *
+	 * @return the contract equipment of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getContractEquipment();
+
+	/**
+	 * Sets the contract equipment of this vrcop report repository.
+	 *
+	 * @param contractEquipment the contract equipment of this vrcop report repository
+	 */
+	public void setContractEquipment(String contractEquipment);
+
+	/**
+	 * Returns the circular no of this vrcop report repository.
+	 *
+	 * @return the circular no of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getCircularNo();
+
+	/**
+	 * Sets the circular no of this vrcop report repository.
+	 *
+	 * @param circularNo the circular no of this vrcop report repository
+	 */
+	public void setCircularNo(String circularNo);
+
+	/**
+	 * Returns the circular date of this vrcop report repository.
+	 *
+	 * @return the circular date of this vrcop report repository
+	 */
+	public Date getCircularDate();
+
+	/**
+	 * Sets the circular date of this vrcop report repository.
+	 *
+	 * @param circularDate the circular date of this vrcop report repository
+	 */
+	public void setCircularDate(Date circularDate);
+
+	/**
+	 * Returns the circular no2 of this vrcop report repository.
+	 *
+	 * @return the circular no2 of this vrcop report repository
+	 */
+	@AutoEscape
+	public String getCircularNo2();
+
+	/**
+	 * Sets the circular no2 of this vrcop report repository.
+	 *
+	 * @param circularNo2 the circular no2 of this vrcop report repository
+	 */
+	public void setCircularNo2(String circularNo2);
+
+	/**
+	 * Returns the circular date2 of this vrcop report repository.
+	 *
+	 * @return the circular date2 of this vrcop report repository
+	 */
+	public Date getCircularDate2();
+
+	/**
+	 * Sets the circular date2 of this vrcop report repository.
+	 *
+	 * @param circularDate2 the circular date2 of this vrcop report repository
+	 */
+	public void setCircularDate2(Date circularDate2);
+
 	@Override
 	public boolean isNew();
 

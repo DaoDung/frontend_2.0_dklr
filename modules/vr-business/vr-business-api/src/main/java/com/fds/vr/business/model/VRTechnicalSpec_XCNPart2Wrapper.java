@@ -67,6 +67,7 @@ public class VRTechnicalSpec_XCNPart2Wrapper implements VRTechnicalSpec_XCNPart2
 		attributes.put("referenceUid", getReferenceUid());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("vehicleTypeCertificateId", getVehicleTypeCertificateId());
 		attributes.put("XCN01186", getXCN01186());
 		attributes.put("XCN01187", getXCN01187());
 		attributes.put("XCN01188", getXCN01188());
@@ -271,6 +272,13 @@ public class VRTechnicalSpec_XCNPart2Wrapper implements VRTechnicalSpec_XCNPart2
 
 		if (deliverableCode != null) {
 			setDeliverableCode(deliverableCode);
+		}
+
+		Long vehicleTypeCertificateId = (Long)attributes.get(
+				"vehicleTypeCertificateId");
+
+		if (vehicleTypeCertificateId != null) {
+			setVehicleTypeCertificateId(vehicleTypeCertificateId);
 		}
 
 		String XCN01186 = (String)attributes.get("XCN01186");
@@ -2861,6 +2869,16 @@ public class VRTechnicalSpec_XCNPart2Wrapper implements VRTechnicalSpec_XCNPart2
 		return _vrTechnicalSpec_XCNPart2.getPrimaryKey();
 	}
 
+	/**
+	* Returns the vehicle type certificate ID of this vr technical spec_xcn part2.
+	*
+	* @return the vehicle type certificate ID of this vr technical spec_xcn part2
+	*/
+	@Override
+	public long getVehicleTypeCertificateId() {
+		return _vrTechnicalSpec_XCNPart2.getVehicleTypeCertificateId();
+	}
+
 	@Override
 	public void persist() {
 		_vrTechnicalSpec_XCNPart2.persist();
@@ -3005,6 +3023,16 @@ public class VRTechnicalSpec_XCNPart2Wrapper implements VRTechnicalSpec_XCNPart2
 	@Override
 	public void setSyncDate(Date syncDate) {
 		_vrTechnicalSpec_XCNPart2.setSyncDate(syncDate);
+	}
+
+	/**
+	* Sets the vehicle type certificate ID of this vr technical spec_xcn part2.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID of this vr technical spec_xcn part2
+	*/
+	@Override
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_vrTechnicalSpec_XCNPart2.setVehicleTypeCertificateId(vehicleTypeCertificateId);
 	}
 
 	/**

@@ -293,6 +293,12 @@ import backend.utils.ObjectConverterUtil;
 			certNumberURL.setParameter(
 				"mvcPath", "/templates/certNumber.ftl");
 			
+			PortletURL indexSyncURL = PortletURLFactoryUtil.create(renderRequest, portletId, themeDisplay.getPlid(),
+					PortletRequest.RENDER_PHASE);
+			indexSyncURL.setPortletMode(PortletMode.VIEW);
+			indexSyncURL.setWindowState(LiferayWindowState.EXCLUSIVE);
+			indexSyncURL.setParameter("mvcPath", "/templates/indexSync.ftl");
+			
 			
 			urlObject.put("registrationtemplates", registrationTemplatesURL.toString());
 			urlObject.put("serviceinfo_list", serviceInfoListURL.toString());
@@ -323,6 +329,7 @@ import backend.utils.ObjectConverterUtil;
 			urlObject.put("dictcollectiontemp_index", dataTempMgtURL.toString());
 			urlObject.put("serverconfigs", serverConfigsURL.toString());
 			urlObject.put("certnumber", certNumberURL.toString());
+			urlObject.put("indexSync", indexSyncURL.toString());
 			
 			// set object edit
 			long serviceInfoId = ParamUtil.getLong(renderRequest, "serviceInfoId");
@@ -1542,6 +1549,7 @@ import backend.utils.ObjectConverterUtil;
 					jobPos = jobposActions.create(
 						userId, groupId, title, description, leader,
 						serviceContext);
+					_log.info("-----------jobPos+++++++++" + jobPos );
 				}
 
 				// if (Validator.isNotNull(permissions)) {

@@ -64,10 +64,11 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 	public static final String TABLE_NAME = "vr_issue_equipmentcertificate";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "id", Types.BIGINT },
-			{ "mtcore", Types.INTEGER },
+			{ "mtCore", Types.BIGINT },
+			{ "dossierId", Types.BIGINT },
 			{ "issueId", Types.BIGINT },
 			{ "issueVehicleCertificateId", Types.BIGINT },
-			{ "vehiclecertificaterecordno", Types.VARCHAR },
+			{ "vehicleCertificateRecordNo", Types.VARCHAR },
 			{ "equipmentName", Types.VARCHAR },
 			{ "equipmentType", Types.VARCHAR },
 			{ "equipmentCertificateType", Types.VARCHAR },
@@ -80,10 +81,10 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 			{ "TotalInUse", Types.INTEGER },
 			{ "TotalNotUsed", Types.INTEGER },
 			{ "applicantNo", Types.VARCHAR },
-			{ "applicantname", Types.VARCHAR },
-			{ "applicantaddress", Types.VARCHAR },
-			{ "productionplantname", Types.VARCHAR },
-			{ "productionplantaddress", Types.VARCHAR },
+			{ "applicantName", Types.VARCHAR },
+			{ "applicantAddress", Types.VARCHAR },
+			{ "productionPlantName", Types.VARCHAR },
+			{ "productionPlantAddress", Types.VARCHAR },
 			{ "modifyDate", Types.TIMESTAMP },
 			{ "syncDate", Types.TIMESTAMP }
 		};
@@ -91,10 +92,11 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 
 	static {
 		TABLE_COLUMNS_MAP.put("id", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("mtcore", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("mtCore", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("dossierId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("issueId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("issueVehicleCertificateId", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("vehiclecertificaterecordno", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("vehicleCertificateRecordNo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("equipmentName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("equipmentType", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("equipmentCertificateType", Types.VARCHAR);
@@ -107,15 +109,15 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		TABLE_COLUMNS_MAP.put("TotalInUse", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("TotalNotUsed", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("applicantNo", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("applicantname", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("applicantaddress", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("productionplantname", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("productionplantaddress", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantAddress", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productionPlantAddress", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("modifyDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_issue_equipmentcertificate (id LONG not null primary key,mtcore INTEGER,issueId LONG,issueVehicleCertificateId LONG,vehiclecertificaterecordno VARCHAR(75) null,equipmentName VARCHAR(75) null,equipmentType VARCHAR(75) null,equipmentCertificateType VARCHAR(75) null,equipmentDocumentNo VARCHAR(75) null,equipmentCertificateRecordNo VARCHAR(75) null,equipmentExamRecordNo VARCHAR(75) null,EquipmentCertificateRecordId INTEGER,TotalQuantity INTEGER,TotalProductUsed INTEGER,TotalInUse INTEGER,TotalNotUsed INTEGER,applicantNo VARCHAR(75) null,applicantname VARCHAR(75) null,applicantaddress VARCHAR(75) null,productionplantname VARCHAR(75) null,productionplantaddress VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_issue_equipmentcertificate (id LONG not null primary key,mtCore LONG,dossierId LONG,issueId LONG,issueVehicleCertificateId LONG,vehicleCertificateRecordNo VARCHAR(75) null,equipmentName VARCHAR(75) null,equipmentType VARCHAR(75) null,equipmentCertificateType VARCHAR(75) null,equipmentDocumentNo VARCHAR(75) null,equipmentCertificateRecordNo VARCHAR(75) null,equipmentExamRecordNo VARCHAR(75) null,EquipmentCertificateRecordId INTEGER,TotalQuantity INTEGER,TotalProductUsed INTEGER,TotalInUse INTEGER,TotalNotUsed INTEGER,applicantNo VARCHAR(75) null,applicantName VARCHAR(75) null,applicantAddress VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_issue_equipmentcertificate";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrIssueEquipmentCertificate.syncDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_issue_equipmentcertificate.syncDate DESC";
@@ -132,9 +134,12 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 				"value.object.column.bitmask.enabled.com.fds.vr.business.model.VRIssueEquipmentCertificate"),
 			true);
 	public static final long APPLICANTNO_COLUMN_BITMASK = 1L;
-	public static final long ISSUEVEHICLECERTIFICATEID_COLUMN_BITMASK = 2L;
-	public static final long VEHICLECERTIFICATERECORDNO_COLUMN_BITMASK = 4L;
-	public static final long SYNCDATE_COLUMN_BITMASK = 8L;
+	public static final long DOSSIERID_COLUMN_BITMASK = 2L;
+	public static final long ISSUEID_COLUMN_BITMASK = 4L;
+	public static final long ISSUEVEHICLECERTIFICATEID_COLUMN_BITMASK = 8L;
+	public static final long MTCORE_COLUMN_BITMASK = 16L;
+	public static final long VEHICLECERTIFICATERECORDNO_COLUMN_BITMASK = 32L;
+	public static final long SYNCDATE_COLUMN_BITMASK = 64L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRIssueEquipmentCertificate"));
 
@@ -176,12 +181,13 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("id", getId());
-		attributes.put("mtcore", getMtcore());
+		attributes.put("mtCore", getMtCore());
+		attributes.put("dossierId", getDossierId());
 		attributes.put("issueId", getIssueId());
 		attributes.put("issueVehicleCertificateId",
 			getIssueVehicleCertificateId());
-		attributes.put("vehiclecertificaterecordno",
-			getVehiclecertificaterecordno());
+		attributes.put("vehicleCertificateRecordNo",
+			getVehicleCertificateRecordNo());
 		attributes.put("equipmentName", getEquipmentName());
 		attributes.put("equipmentType", getEquipmentType());
 		attributes.put("equipmentCertificateType", getEquipmentCertificateType());
@@ -196,10 +202,10 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		attributes.put("TotalInUse", getTotalInUse());
 		attributes.put("TotalNotUsed", getTotalNotUsed());
 		attributes.put("applicantNo", getApplicantNo());
-		attributes.put("applicantname", getApplicantname());
-		attributes.put("applicantaddress", getApplicantaddress());
-		attributes.put("productionplantname", getProductionplantname());
-		attributes.put("productionplantaddress", getProductionplantaddress());
+		attributes.put("applicantName", getApplicantName());
+		attributes.put("applicantAddress", getApplicantAddress());
+		attributes.put("productionPlantName", getProductionPlantName());
+		attributes.put("productionPlantAddress", getProductionPlantAddress());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
 
@@ -217,10 +223,16 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 			setId(id);
 		}
 
-		Integer mtcore = (Integer)attributes.get("mtcore");
+		Long mtCore = (Long)attributes.get("mtCore");
 
-		if (mtcore != null) {
-			setMtcore(mtcore);
+		if (mtCore != null) {
+			setMtCore(mtCore);
+		}
+
+		Long dossierId = (Long)attributes.get("dossierId");
+
+		if (dossierId != null) {
+			setDossierId(dossierId);
 		}
 
 		Long issueId = (Long)attributes.get("issueId");
@@ -236,11 +248,11 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 			setIssueVehicleCertificateId(issueVehicleCertificateId);
 		}
 
-		String vehiclecertificaterecordno = (String)attributes.get(
-				"vehiclecertificaterecordno");
+		String vehicleCertificateRecordNo = (String)attributes.get(
+				"vehicleCertificateRecordNo");
 
-		if (vehiclecertificaterecordno != null) {
-			setVehiclecertificaterecordno(vehiclecertificaterecordno);
+		if (vehicleCertificateRecordNo != null) {
+			setVehicleCertificateRecordNo(vehicleCertificateRecordNo);
 		}
 
 		String equipmentName = (String)attributes.get("equipmentName");
@@ -320,30 +332,30 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 			setApplicantNo(applicantNo);
 		}
 
-		String applicantname = (String)attributes.get("applicantname");
+		String applicantName = (String)attributes.get("applicantName");
 
-		if (applicantname != null) {
-			setApplicantname(applicantname);
+		if (applicantName != null) {
+			setApplicantName(applicantName);
 		}
 
-		String applicantaddress = (String)attributes.get("applicantaddress");
+		String applicantAddress = (String)attributes.get("applicantAddress");
 
-		if (applicantaddress != null) {
-			setApplicantaddress(applicantaddress);
+		if (applicantAddress != null) {
+			setApplicantAddress(applicantAddress);
 		}
 
-		String productionplantname = (String)attributes.get(
-				"productionplantname");
+		String productionPlantName = (String)attributes.get(
+				"productionPlantName");
 
-		if (productionplantname != null) {
-			setProductionplantname(productionplantname);
+		if (productionPlantName != null) {
+			setProductionPlantName(productionPlantName);
 		}
 
-		String productionplantaddress = (String)attributes.get(
-				"productionplantaddress");
+		String productionPlantAddress = (String)attributes.get(
+				"productionPlantAddress");
 
-		if (productionplantaddress != null) {
-			setProductionplantaddress(productionplantaddress);
+		if (productionPlantAddress != null) {
+			setProductionPlantAddress(productionPlantAddress);
 		}
 
 		Date modifyDate = (Date)attributes.get("modifyDate");
@@ -370,13 +382,47 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 	}
 
 	@Override
-	public int getMtcore() {
-		return _mtcore;
+	public long getMtCore() {
+		return _mtCore;
 	}
 
 	@Override
-	public void setMtcore(int mtcore) {
-		_mtcore = mtcore;
+	public void setMtCore(long mtCore) {
+		_columnBitmask |= MTCORE_COLUMN_BITMASK;
+
+		if (!_setOriginalMtCore) {
+			_setOriginalMtCore = true;
+
+			_originalMtCore = _mtCore;
+		}
+
+		_mtCore = mtCore;
+	}
+
+	public long getOriginalMtCore() {
+		return _originalMtCore;
+	}
+
+	@Override
+	public long getDossierId() {
+		return _dossierId;
+	}
+
+	@Override
+	public void setDossierId(long dossierId) {
+		_columnBitmask |= DOSSIERID_COLUMN_BITMASK;
+
+		if (!_setOriginalDossierId) {
+			_setOriginalDossierId = true;
+
+			_originalDossierId = _dossierId;
+		}
+
+		_dossierId = dossierId;
+	}
+
+	public long getOriginalDossierId() {
+		return _originalDossierId;
 	}
 
 	@Override
@@ -386,7 +432,19 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 
 	@Override
 	public void setIssueId(long issueId) {
+		_columnBitmask |= ISSUEID_COLUMN_BITMASK;
+
+		if (!_setOriginalIssueId) {
+			_setOriginalIssueId = true;
+
+			_originalIssueId = _issueId;
+		}
+
 		_issueId = issueId;
+	}
+
+	public long getOriginalIssueId() {
+		return _originalIssueId;
 	}
 
 	@Override
@@ -412,28 +470,28 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 	}
 
 	@Override
-	public String getVehiclecertificaterecordno() {
-		if (_vehiclecertificaterecordno == null) {
+	public String getVehicleCertificateRecordNo() {
+		if (_vehicleCertificateRecordNo == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _vehiclecertificaterecordno;
+			return _vehicleCertificateRecordNo;
 		}
 	}
 
 	@Override
-	public void setVehiclecertificaterecordno(String vehiclecertificaterecordno) {
+	public void setVehicleCertificateRecordNo(String vehicleCertificateRecordNo) {
 		_columnBitmask |= VEHICLECERTIFICATERECORDNO_COLUMN_BITMASK;
 
-		if (_originalVehiclecertificaterecordno == null) {
-			_originalVehiclecertificaterecordno = _vehiclecertificaterecordno;
+		if (_originalVehicleCertificateRecordNo == null) {
+			_originalVehicleCertificateRecordNo = _vehicleCertificateRecordNo;
 		}
 
-		_vehiclecertificaterecordno = vehiclecertificaterecordno;
+		_vehicleCertificateRecordNo = vehicleCertificateRecordNo;
 	}
 
-	public String getOriginalVehiclecertificaterecordno() {
-		return GetterUtil.getString(_originalVehiclecertificaterecordno);
+	public String getOriginalVehicleCertificateRecordNo() {
+		return GetterUtil.getString(_originalVehicleCertificateRecordNo);
 	}
 
 	@Override
@@ -604,63 +662,63 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 	}
 
 	@Override
-	public String getApplicantname() {
-		if (_applicantname == null) {
+	public String getApplicantName() {
+		if (_applicantName == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _applicantname;
+			return _applicantName;
 		}
 	}
 
 	@Override
-	public void setApplicantname(String applicantname) {
-		_applicantname = applicantname;
+	public void setApplicantName(String applicantName) {
+		_applicantName = applicantName;
 	}
 
 	@Override
-	public String getApplicantaddress() {
-		if (_applicantaddress == null) {
+	public String getApplicantAddress() {
+		if (_applicantAddress == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _applicantaddress;
+			return _applicantAddress;
 		}
 	}
 
 	@Override
-	public void setApplicantaddress(String applicantaddress) {
-		_applicantaddress = applicantaddress;
+	public void setApplicantAddress(String applicantAddress) {
+		_applicantAddress = applicantAddress;
 	}
 
 	@Override
-	public String getProductionplantname() {
-		if (_productionplantname == null) {
+	public String getProductionPlantName() {
+		if (_productionPlantName == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _productionplantname;
+			return _productionPlantName;
 		}
 	}
 
 	@Override
-	public void setProductionplantname(String productionplantname) {
-		_productionplantname = productionplantname;
+	public void setProductionPlantName(String productionPlantName) {
+		_productionPlantName = productionPlantName;
 	}
 
 	@Override
-	public String getProductionplantaddress() {
-		if (_productionplantaddress == null) {
+	public String getProductionPlantAddress() {
+		if (_productionPlantAddress == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _productionplantaddress;
+			return _productionPlantAddress;
 		}
 	}
 
 	@Override
-	public void setProductionplantaddress(String productionplantaddress) {
-		_productionplantaddress = productionplantaddress;
+	public void setProductionPlantAddress(String productionPlantAddress) {
+		_productionPlantAddress = productionPlantAddress;
 	}
 
 	@Override
@@ -717,10 +775,11 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		VRIssueEquipmentCertificateImpl vrIssueEquipmentCertificateImpl = new VRIssueEquipmentCertificateImpl();
 
 		vrIssueEquipmentCertificateImpl.setId(getId());
-		vrIssueEquipmentCertificateImpl.setMtcore(getMtcore());
+		vrIssueEquipmentCertificateImpl.setMtCore(getMtCore());
+		vrIssueEquipmentCertificateImpl.setDossierId(getDossierId());
 		vrIssueEquipmentCertificateImpl.setIssueId(getIssueId());
 		vrIssueEquipmentCertificateImpl.setIssueVehicleCertificateId(getIssueVehicleCertificateId());
-		vrIssueEquipmentCertificateImpl.setVehiclecertificaterecordno(getVehiclecertificaterecordno());
+		vrIssueEquipmentCertificateImpl.setVehicleCertificateRecordNo(getVehicleCertificateRecordNo());
 		vrIssueEquipmentCertificateImpl.setEquipmentName(getEquipmentName());
 		vrIssueEquipmentCertificateImpl.setEquipmentType(getEquipmentType());
 		vrIssueEquipmentCertificateImpl.setEquipmentCertificateType(getEquipmentCertificateType());
@@ -733,10 +792,10 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		vrIssueEquipmentCertificateImpl.setTotalInUse(getTotalInUse());
 		vrIssueEquipmentCertificateImpl.setTotalNotUsed(getTotalNotUsed());
 		vrIssueEquipmentCertificateImpl.setApplicantNo(getApplicantNo());
-		vrIssueEquipmentCertificateImpl.setApplicantname(getApplicantname());
-		vrIssueEquipmentCertificateImpl.setApplicantaddress(getApplicantaddress());
-		vrIssueEquipmentCertificateImpl.setProductionplantname(getProductionplantname());
-		vrIssueEquipmentCertificateImpl.setProductionplantaddress(getProductionplantaddress());
+		vrIssueEquipmentCertificateImpl.setApplicantName(getApplicantName());
+		vrIssueEquipmentCertificateImpl.setApplicantAddress(getApplicantAddress());
+		vrIssueEquipmentCertificateImpl.setProductionPlantName(getProductionPlantName());
+		vrIssueEquipmentCertificateImpl.setProductionPlantAddress(getProductionPlantAddress());
 		vrIssueEquipmentCertificateImpl.setModifyDate(getModifyDate());
 		vrIssueEquipmentCertificateImpl.setSyncDate(getSyncDate());
 
@@ -804,11 +863,23 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		VRIssueEquipmentCertificateModelImpl vrIssueEquipmentCertificateModelImpl =
 			this;
 
+		vrIssueEquipmentCertificateModelImpl._originalMtCore = vrIssueEquipmentCertificateModelImpl._mtCore;
+
+		vrIssueEquipmentCertificateModelImpl._setOriginalMtCore = false;
+
+		vrIssueEquipmentCertificateModelImpl._originalDossierId = vrIssueEquipmentCertificateModelImpl._dossierId;
+
+		vrIssueEquipmentCertificateModelImpl._setOriginalDossierId = false;
+
+		vrIssueEquipmentCertificateModelImpl._originalIssueId = vrIssueEquipmentCertificateModelImpl._issueId;
+
+		vrIssueEquipmentCertificateModelImpl._setOriginalIssueId = false;
+
 		vrIssueEquipmentCertificateModelImpl._originalIssueVehicleCertificateId = vrIssueEquipmentCertificateModelImpl._issueVehicleCertificateId;
 
 		vrIssueEquipmentCertificateModelImpl._setOriginalIssueVehicleCertificateId = false;
 
-		vrIssueEquipmentCertificateModelImpl._originalVehiclecertificaterecordno = vrIssueEquipmentCertificateModelImpl._vehiclecertificaterecordno;
+		vrIssueEquipmentCertificateModelImpl._originalVehicleCertificateRecordNo = vrIssueEquipmentCertificateModelImpl._vehicleCertificateRecordNo;
 
 		vrIssueEquipmentCertificateModelImpl._originalApplicantNo = vrIssueEquipmentCertificateModelImpl._applicantNo;
 
@@ -822,19 +893,21 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 
 		vrIssueEquipmentCertificateCacheModel.id = getId();
 
-		vrIssueEquipmentCertificateCacheModel.mtcore = getMtcore();
+		vrIssueEquipmentCertificateCacheModel.mtCore = getMtCore();
+
+		vrIssueEquipmentCertificateCacheModel.dossierId = getDossierId();
 
 		vrIssueEquipmentCertificateCacheModel.issueId = getIssueId();
 
 		vrIssueEquipmentCertificateCacheModel.issueVehicleCertificateId = getIssueVehicleCertificateId();
 
-		vrIssueEquipmentCertificateCacheModel.vehiclecertificaterecordno = getVehiclecertificaterecordno();
+		vrIssueEquipmentCertificateCacheModel.vehicleCertificateRecordNo = getVehicleCertificateRecordNo();
 
-		String vehiclecertificaterecordno = vrIssueEquipmentCertificateCacheModel.vehiclecertificaterecordno;
+		String vehicleCertificateRecordNo = vrIssueEquipmentCertificateCacheModel.vehicleCertificateRecordNo;
 
-		if ((vehiclecertificaterecordno != null) &&
-				(vehiclecertificaterecordno.length() == 0)) {
-			vrIssueEquipmentCertificateCacheModel.vehiclecertificaterecordno = null;
+		if ((vehicleCertificateRecordNo != null) &&
+				(vehicleCertificateRecordNo.length() == 0)) {
+			vrIssueEquipmentCertificateCacheModel.vehicleCertificateRecordNo = null;
 		}
 
 		vrIssueEquipmentCertificateCacheModel.equipmentName = getEquipmentName();
@@ -907,38 +980,38 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 			vrIssueEquipmentCertificateCacheModel.applicantNo = null;
 		}
 
-		vrIssueEquipmentCertificateCacheModel.applicantname = getApplicantname();
+		vrIssueEquipmentCertificateCacheModel.applicantName = getApplicantName();
 
-		String applicantname = vrIssueEquipmentCertificateCacheModel.applicantname;
+		String applicantName = vrIssueEquipmentCertificateCacheModel.applicantName;
 
-		if ((applicantname != null) && (applicantname.length() == 0)) {
-			vrIssueEquipmentCertificateCacheModel.applicantname = null;
+		if ((applicantName != null) && (applicantName.length() == 0)) {
+			vrIssueEquipmentCertificateCacheModel.applicantName = null;
 		}
 
-		vrIssueEquipmentCertificateCacheModel.applicantaddress = getApplicantaddress();
+		vrIssueEquipmentCertificateCacheModel.applicantAddress = getApplicantAddress();
 
-		String applicantaddress = vrIssueEquipmentCertificateCacheModel.applicantaddress;
+		String applicantAddress = vrIssueEquipmentCertificateCacheModel.applicantAddress;
 
-		if ((applicantaddress != null) && (applicantaddress.length() == 0)) {
-			vrIssueEquipmentCertificateCacheModel.applicantaddress = null;
+		if ((applicantAddress != null) && (applicantAddress.length() == 0)) {
+			vrIssueEquipmentCertificateCacheModel.applicantAddress = null;
 		}
 
-		vrIssueEquipmentCertificateCacheModel.productionplantname = getProductionplantname();
+		vrIssueEquipmentCertificateCacheModel.productionPlantName = getProductionPlantName();
 
-		String productionplantname = vrIssueEquipmentCertificateCacheModel.productionplantname;
+		String productionPlantName = vrIssueEquipmentCertificateCacheModel.productionPlantName;
 
-		if ((productionplantname != null) &&
-				(productionplantname.length() == 0)) {
-			vrIssueEquipmentCertificateCacheModel.productionplantname = null;
+		if ((productionPlantName != null) &&
+				(productionPlantName.length() == 0)) {
+			vrIssueEquipmentCertificateCacheModel.productionPlantName = null;
 		}
 
-		vrIssueEquipmentCertificateCacheModel.productionplantaddress = getProductionplantaddress();
+		vrIssueEquipmentCertificateCacheModel.productionPlantAddress = getProductionPlantAddress();
 
-		String productionplantaddress = vrIssueEquipmentCertificateCacheModel.productionplantaddress;
+		String productionPlantAddress = vrIssueEquipmentCertificateCacheModel.productionPlantAddress;
 
-		if ((productionplantaddress != null) &&
-				(productionplantaddress.length() == 0)) {
-			vrIssueEquipmentCertificateCacheModel.productionplantaddress = null;
+		if ((productionPlantAddress != null) &&
+				(productionPlantAddress.length() == 0)) {
+			vrIssueEquipmentCertificateCacheModel.productionPlantAddress = null;
 		}
 
 		Date modifyDate = getModifyDate();
@@ -964,18 +1037,20 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(47);
+		StringBundler sb = new StringBundler(49);
 
 		sb.append("{id=");
 		sb.append(getId());
-		sb.append(", mtcore=");
-		sb.append(getMtcore());
+		sb.append(", mtCore=");
+		sb.append(getMtCore());
+		sb.append(", dossierId=");
+		sb.append(getDossierId());
 		sb.append(", issueId=");
 		sb.append(getIssueId());
 		sb.append(", issueVehicleCertificateId=");
 		sb.append(getIssueVehicleCertificateId());
-		sb.append(", vehiclecertificaterecordno=");
-		sb.append(getVehiclecertificaterecordno());
+		sb.append(", vehicleCertificateRecordNo=");
+		sb.append(getVehicleCertificateRecordNo());
 		sb.append(", equipmentName=");
 		sb.append(getEquipmentName());
 		sb.append(", equipmentType=");
@@ -1000,14 +1075,14 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		sb.append(getTotalNotUsed());
 		sb.append(", applicantNo=");
 		sb.append(getApplicantNo());
-		sb.append(", applicantname=");
-		sb.append(getApplicantname());
-		sb.append(", applicantaddress=");
-		sb.append(getApplicantaddress());
-		sb.append(", productionplantname=");
-		sb.append(getProductionplantname());
-		sb.append(", productionplantaddress=");
-		sb.append(getProductionplantaddress());
+		sb.append(", applicantName=");
+		sb.append(getApplicantName());
+		sb.append(", applicantAddress=");
+		sb.append(getApplicantAddress());
+		sb.append(", productionPlantName=");
+		sb.append(getProductionPlantName());
+		sb.append(", productionPlantAddress=");
+		sb.append(getProductionPlantAddress());
 		sb.append(", modifyDate=");
 		sb.append(getModifyDate());
 		sb.append(", syncDate=");
@@ -1019,7 +1094,7 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(73);
+		StringBundler sb = new StringBundler(76);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRIssueEquipmentCertificate");
@@ -1030,8 +1105,12 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		sb.append(getId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>mtcore</column-name><column-value><![CDATA[");
-		sb.append(getMtcore());
+			"<column><column-name>mtCore</column-name><column-value><![CDATA[");
+		sb.append(getMtCore());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>dossierId</column-name><column-value><![CDATA[");
+		sb.append(getDossierId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>issueId</column-name><column-value><![CDATA[");
@@ -1042,8 +1121,8 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		sb.append(getIssueVehicleCertificateId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>vehiclecertificaterecordno</column-name><column-value><![CDATA[");
-		sb.append(getVehiclecertificaterecordno());
+			"<column><column-name>vehicleCertificateRecordNo</column-name><column-value><![CDATA[");
+		sb.append(getVehicleCertificateRecordNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>equipmentName</column-name><column-value><![CDATA[");
@@ -1094,20 +1173,20 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 		sb.append(getApplicantNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>applicantname</column-name><column-value><![CDATA[");
-		sb.append(getApplicantname());
+			"<column><column-name>applicantName</column-name><column-value><![CDATA[");
+		sb.append(getApplicantName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>applicantaddress</column-name><column-value><![CDATA[");
-		sb.append(getApplicantaddress());
+			"<column><column-name>applicantAddress</column-name><column-value><![CDATA[");
+		sb.append(getApplicantAddress());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>productionplantname</column-name><column-value><![CDATA[");
-		sb.append(getProductionplantname());
+			"<column><column-name>productionPlantName</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>productionplantaddress</column-name><column-value><![CDATA[");
-		sb.append(getProductionplantaddress());
+			"<column><column-name>productionPlantAddress</column-name><column-value><![CDATA[");
+		sb.append(getProductionPlantAddress());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>modifyDate</column-name><column-value><![CDATA[");
@@ -1128,13 +1207,20 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 			VRIssueEquipmentCertificate.class
 		};
 	private long _id;
-	private int _mtcore;
+	private long _mtCore;
+	private long _originalMtCore;
+	private boolean _setOriginalMtCore;
+	private long _dossierId;
+	private long _originalDossierId;
+	private boolean _setOriginalDossierId;
 	private long _issueId;
+	private long _originalIssueId;
+	private boolean _setOriginalIssueId;
 	private long _issueVehicleCertificateId;
 	private long _originalIssueVehicleCertificateId;
 	private boolean _setOriginalIssueVehicleCertificateId;
-	private String _vehiclecertificaterecordno;
-	private String _originalVehiclecertificaterecordno;
+	private String _vehicleCertificateRecordNo;
+	private String _originalVehicleCertificateRecordNo;
 	private String _equipmentName;
 	private String _equipmentType;
 	private String _equipmentCertificateType;
@@ -1148,10 +1234,10 @@ public class VRIssueEquipmentCertificateModelImpl extends BaseModelImpl<VRIssueE
 	private int _TotalNotUsed;
 	private String _applicantNo;
 	private String _originalApplicantNo;
-	private String _applicantname;
-	private String _applicantaddress;
-	private String _productionplantname;
-	private String _productionplantaddress;
+	private String _applicantName;
+	private String _applicantAddress;
+	private String _productionPlantName;
+	private String _productionPlantAddress;
 	private Date _modifyDate;
 	private Date _syncDate;
 	private long _columnBitmask;

@@ -134,7 +134,8 @@ public class VRInputStampbookModelImpl extends BaseModelImpl<VRInputStampbook>
 	public static final long MTCORE_COLUMN_BITMASK = 4L;
 	public static final long STAMPTYPE_COLUMN_BITMASK = 8L;
 	public static final long SUM3_COLUMN_BITMASK = 16L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 32L;
+	public static final long VEHICLECLASS_COLUMN_BITMASK = 32L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 64L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRInputStampbook"));
 
@@ -427,7 +428,17 @@ public class VRInputStampbookModelImpl extends BaseModelImpl<VRInputStampbook>
 
 	@Override
 	public void setVehicleClass(String vehicleClass) {
+		_columnBitmask |= VEHICLECLASS_COLUMN_BITMASK;
+
+		if (_originalVehicleClass == null) {
+			_originalVehicleClass = _vehicleClass;
+		}
+
 		_vehicleClass = vehicleClass;
+	}
+
+	public String getOriginalVehicleClass() {
+		return GetterUtil.getString(_originalVehicleClass);
 	}
 
 	@Override
@@ -767,6 +778,8 @@ public class VRInputStampbookModelImpl extends BaseModelImpl<VRInputStampbook>
 
 		vrInputStampbookModelImpl._setOriginalBookId = false;
 
+		vrInputStampbookModelImpl._originalVehicleClass = vrInputStampbookModelImpl._vehicleClass;
+
 		vrInputStampbookModelImpl._originalStampType = vrInputStampbookModelImpl._stampType;
 
 		vrInputStampbookModelImpl._originalSum3 = vrInputStampbookModelImpl._sum3;
@@ -1035,6 +1048,7 @@ public class VRInputStampbookModelImpl extends BaseModelImpl<VRInputStampbook>
 	private long _originalBookId;
 	private boolean _setOriginalBookId;
 	private String _vehicleClass;
+	private String _originalVehicleClass;
 	private String _stampType;
 	private String _originalStampType;
 	private String _stampShortNo;

@@ -50,6 +50,7 @@ import com.fds.vr.business.service.persistence.VRCorporationViewPersistence;
 import com.fds.vr.business.service.persistence.VRDossierFilePersistence;
 import com.fds.vr.business.service.persistence.VRDossierPersistence;
 import com.fds.vr.business.service.persistence.VRESPersistence;
+import com.fds.vr.business.service.persistence.VRExpireCertificatePersistence;
 import com.fds.vr.business.service.persistence.VRHistoryProfileFinder;
 import com.fds.vr.business.service.persistence.VRHistoryProfilePersistence;
 import com.fds.vr.business.service.persistence.VRInputSheetFinder;
@@ -65,10 +66,14 @@ import com.fds.vr.business.service.persistence.VRInventoryPersistence;
 import com.fds.vr.business.service.persistence.VRIssueEquipmentCertificateFinder;
 import com.fds.vr.business.service.persistence.VRIssueEquipmentCertificatePersistence;
 import com.fds.vr.business.service.persistence.VRIssueFinder;
+import com.fds.vr.business.service.persistence.VRIssueInspectionRecordPersistence;
 import com.fds.vr.business.service.persistence.VRIssuePersistence;
 import com.fds.vr.business.service.persistence.VRIssueVehiclecertificateFinder;
 import com.fds.vr.business.service.persistence.VRIssueVehiclecertificatePersistence;
 import com.fds.vr.business.service.persistence.VRLimitConfigTechSpecPersistence;
+import com.fds.vr.business.service.persistence.VRMigrateMappingsPersistence;
+import com.fds.vr.business.service.persistence.VRMigrateReviewPersistence;
+import com.fds.vr.business.service.persistence.VRMigrateTaskPersistence;
 import com.fds.vr.business.service.persistence.VROutputSheetDetailsFinder;
 import com.fds.vr.business.service.persistence.VROutputSheetDetailsPersistence;
 import com.fds.vr.business.service.persistence.VROutputSheetFinder;
@@ -90,6 +95,7 @@ import com.fds.vr.business.service.persistence.VRProductionPlantSupplierPersiste
 import com.fds.vr.business.service.persistence.VRRPDossierStatisticsFinder;
 import com.fds.vr.business.service.persistence.VRRPDossierStatisticsPersistence;
 import com.fds.vr.business.service.persistence.VRRegistrationPersistence;
+import com.fds.vr.business.service.persistence.VRReportCategoryPersistence;
 import com.fds.vr.business.service.persistence.VRReportPersistence;
 import com.fds.vr.business.service.persistence.VRSyncDatePersistence;
 import com.fds.vr.business.service.persistence.VRTechnicalSpec_LKXCGPersistence;
@@ -1407,6 +1413,44 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the vr expire certificate local service.
+	 *
+	 * @return the vr expire certificate local service
+	 */
+	public com.fds.vr.business.service.VRExpireCertificateLocalService getVRExpireCertificateLocalService() {
+		return vrExpireCertificateLocalService;
+	}
+
+	/**
+	 * Sets the vr expire certificate local service.
+	 *
+	 * @param vrExpireCertificateLocalService the vr expire certificate local service
+	 */
+	public void setVRExpireCertificateLocalService(
+		com.fds.vr.business.service.VRExpireCertificateLocalService vrExpireCertificateLocalService) {
+		this.vrExpireCertificateLocalService = vrExpireCertificateLocalService;
+	}
+
+	/**
+	 * Returns the vr expire certificate persistence.
+	 *
+	 * @return the vr expire certificate persistence
+	 */
+	public VRExpireCertificatePersistence getVRExpireCertificatePersistence() {
+		return vrExpireCertificatePersistence;
+	}
+
+	/**
+	 * Sets the vr expire certificate persistence.
+	 *
+	 * @param vrExpireCertificatePersistence the vr expire certificate persistence
+	 */
+	public void setVRExpireCertificatePersistence(
+		VRExpireCertificatePersistence vrExpireCertificatePersistence) {
+		this.vrExpireCertificatePersistence = vrExpireCertificatePersistence;
+	}
+
+	/**
 	 * Returns the vr history profile local service.
 	 *
 	 * @return the vr history profile local service
@@ -1859,6 +1903,44 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the vr issue inspection record local service.
+	 *
+	 * @return the vr issue inspection record local service
+	 */
+	public com.fds.vr.business.service.VRIssueInspectionRecordLocalService getVRIssueInspectionRecordLocalService() {
+		return vrIssueInspectionRecordLocalService;
+	}
+
+	/**
+	 * Sets the vr issue inspection record local service.
+	 *
+	 * @param vrIssueInspectionRecordLocalService the vr issue inspection record local service
+	 */
+	public void setVRIssueInspectionRecordLocalService(
+		com.fds.vr.business.service.VRIssueInspectionRecordLocalService vrIssueInspectionRecordLocalService) {
+		this.vrIssueInspectionRecordLocalService = vrIssueInspectionRecordLocalService;
+	}
+
+	/**
+	 * Returns the vr issue inspection record persistence.
+	 *
+	 * @return the vr issue inspection record persistence
+	 */
+	public VRIssueInspectionRecordPersistence getVRIssueInspectionRecordPersistence() {
+		return vrIssueInspectionRecordPersistence;
+	}
+
+	/**
+	 * Sets the vr issue inspection record persistence.
+	 *
+	 * @param vrIssueInspectionRecordPersistence the vr issue inspection record persistence
+	 */
+	public void setVRIssueInspectionRecordPersistence(
+		VRIssueInspectionRecordPersistence vrIssueInspectionRecordPersistence) {
+		this.vrIssueInspectionRecordPersistence = vrIssueInspectionRecordPersistence;
+	}
+
+	/**
 	 * Returns the vr issue vehiclecertificate local service.
 	 *
 	 * @return the vr issue vehiclecertificate local service
@@ -1951,6 +2033,120 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	public void setVRLimitConfigTechSpecPersistence(
 		VRLimitConfigTechSpecPersistence vrLimitConfigTechSpecPersistence) {
 		this.vrLimitConfigTechSpecPersistence = vrLimitConfigTechSpecPersistence;
+	}
+
+	/**
+	 * Returns the vr migrate mappings local service.
+	 *
+	 * @return the vr migrate mappings local service
+	 */
+	public com.fds.vr.business.service.VRMigrateMappingsLocalService getVRMigrateMappingsLocalService() {
+		return vrMigrateMappingsLocalService;
+	}
+
+	/**
+	 * Sets the vr migrate mappings local service.
+	 *
+	 * @param vrMigrateMappingsLocalService the vr migrate mappings local service
+	 */
+	public void setVRMigrateMappingsLocalService(
+		com.fds.vr.business.service.VRMigrateMappingsLocalService vrMigrateMappingsLocalService) {
+		this.vrMigrateMappingsLocalService = vrMigrateMappingsLocalService;
+	}
+
+	/**
+	 * Returns the vr migrate mappings persistence.
+	 *
+	 * @return the vr migrate mappings persistence
+	 */
+	public VRMigrateMappingsPersistence getVRMigrateMappingsPersistence() {
+		return vrMigrateMappingsPersistence;
+	}
+
+	/**
+	 * Sets the vr migrate mappings persistence.
+	 *
+	 * @param vrMigrateMappingsPersistence the vr migrate mappings persistence
+	 */
+	public void setVRMigrateMappingsPersistence(
+		VRMigrateMappingsPersistence vrMigrateMappingsPersistence) {
+		this.vrMigrateMappingsPersistence = vrMigrateMappingsPersistence;
+	}
+
+	/**
+	 * Returns the vr migrate review local service.
+	 *
+	 * @return the vr migrate review local service
+	 */
+	public com.fds.vr.business.service.VRMigrateReviewLocalService getVRMigrateReviewLocalService() {
+		return vrMigrateReviewLocalService;
+	}
+
+	/**
+	 * Sets the vr migrate review local service.
+	 *
+	 * @param vrMigrateReviewLocalService the vr migrate review local service
+	 */
+	public void setVRMigrateReviewLocalService(
+		com.fds.vr.business.service.VRMigrateReviewLocalService vrMigrateReviewLocalService) {
+		this.vrMigrateReviewLocalService = vrMigrateReviewLocalService;
+	}
+
+	/**
+	 * Returns the vr migrate review persistence.
+	 *
+	 * @return the vr migrate review persistence
+	 */
+	public VRMigrateReviewPersistence getVRMigrateReviewPersistence() {
+		return vrMigrateReviewPersistence;
+	}
+
+	/**
+	 * Sets the vr migrate review persistence.
+	 *
+	 * @param vrMigrateReviewPersistence the vr migrate review persistence
+	 */
+	public void setVRMigrateReviewPersistence(
+		VRMigrateReviewPersistence vrMigrateReviewPersistence) {
+		this.vrMigrateReviewPersistence = vrMigrateReviewPersistence;
+	}
+
+	/**
+	 * Returns the vr migrate task local service.
+	 *
+	 * @return the vr migrate task local service
+	 */
+	public com.fds.vr.business.service.VRMigrateTaskLocalService getVRMigrateTaskLocalService() {
+		return vrMigrateTaskLocalService;
+	}
+
+	/**
+	 * Sets the vr migrate task local service.
+	 *
+	 * @param vrMigrateTaskLocalService the vr migrate task local service
+	 */
+	public void setVRMigrateTaskLocalService(
+		com.fds.vr.business.service.VRMigrateTaskLocalService vrMigrateTaskLocalService) {
+		this.vrMigrateTaskLocalService = vrMigrateTaskLocalService;
+	}
+
+	/**
+	 * Returns the vr migrate task persistence.
+	 *
+	 * @return the vr migrate task persistence
+	 */
+	public VRMigrateTaskPersistence getVRMigrateTaskPersistence() {
+		return vrMigrateTaskPersistence;
+	}
+
+	/**
+	 * Sets the vr migrate task persistence.
+	 *
+	 * @param vrMigrateTaskPersistence the vr migrate task persistence
+	 */
+	public void setVRMigrateTaskPersistence(
+		VRMigrateTaskPersistence vrMigrateTaskPersistence) {
+		this.vrMigrateTaskPersistence = vrMigrateTaskPersistence;
 	}
 
 	/**
@@ -2557,6 +2753,44 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	 */
 	public void setVRReportPersistence(VRReportPersistence vrReportPersistence) {
 		this.vrReportPersistence = vrReportPersistence;
+	}
+
+	/**
+	 * Returns the vr report category local service.
+	 *
+	 * @return the vr report category local service
+	 */
+	public com.fds.vr.business.service.VRReportCategoryLocalService getVRReportCategoryLocalService() {
+		return vrReportCategoryLocalService;
+	}
+
+	/**
+	 * Sets the vr report category local service.
+	 *
+	 * @param vrReportCategoryLocalService the vr report category local service
+	 */
+	public void setVRReportCategoryLocalService(
+		com.fds.vr.business.service.VRReportCategoryLocalService vrReportCategoryLocalService) {
+		this.vrReportCategoryLocalService = vrReportCategoryLocalService;
+	}
+
+	/**
+	 * Returns the vr report category persistence.
+	 *
+	 * @return the vr report category persistence
+	 */
+	public VRReportCategoryPersistence getVRReportCategoryPersistence() {
+		return vrReportCategoryPersistence;
+	}
+
+	/**
+	 * Sets the vr report category persistence.
+	 *
+	 * @param vrReportCategoryPersistence the vr report category persistence
+	 */
+	public void setVRReportCategoryPersistence(
+		VRReportCategoryPersistence vrReportCategoryPersistence) {
+		this.vrReportCategoryPersistence = vrReportCategoryPersistence;
 	}
 
 	/**
@@ -3949,6 +4183,10 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	protected com.fds.vr.business.service.VRESLocalService vresLocalService;
 	@BeanReference(type = VRESPersistence.class)
 	protected VRESPersistence vresPersistence;
+	@BeanReference(type = com.fds.vr.business.service.VRExpireCertificateLocalService.class)
+	protected com.fds.vr.business.service.VRExpireCertificateLocalService vrExpireCertificateLocalService;
+	@BeanReference(type = VRExpireCertificatePersistence.class)
+	protected VRExpireCertificatePersistence vrExpireCertificatePersistence;
 	@BeanReference(type = com.fds.vr.business.service.VRHistoryProfileLocalService.class)
 	protected com.fds.vr.business.service.VRHistoryProfileLocalService vrHistoryProfileLocalService;
 	@BeanReference(type = VRHistoryProfilePersistence.class)
@@ -3997,6 +4235,10 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	protected VRIssueEquipmentCertificatePersistence vrIssueEquipmentCertificatePersistence;
 	@BeanReference(type = VRIssueEquipmentCertificateFinder.class)
 	protected VRIssueEquipmentCertificateFinder vrIssueEquipmentCertificateFinder;
+	@BeanReference(type = com.fds.vr.business.service.VRIssueInspectionRecordLocalService.class)
+	protected com.fds.vr.business.service.VRIssueInspectionRecordLocalService vrIssueInspectionRecordLocalService;
+	@BeanReference(type = VRIssueInspectionRecordPersistence.class)
+	protected VRIssueInspectionRecordPersistence vrIssueInspectionRecordPersistence;
 	@BeanReference(type = com.fds.vr.business.service.VRIssueVehiclecertificateLocalService.class)
 	protected com.fds.vr.business.service.VRIssueVehiclecertificateLocalService vrIssueVehiclecertificateLocalService;
 	@BeanReference(type = VRIssueVehiclecertificatePersistence.class)
@@ -4007,6 +4249,18 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	protected com.fds.vr.business.service.VRLimitConfigTechSpecLocalService vrLimitConfigTechSpecLocalService;
 	@BeanReference(type = VRLimitConfigTechSpecPersistence.class)
 	protected VRLimitConfigTechSpecPersistence vrLimitConfigTechSpecPersistence;
+	@BeanReference(type = com.fds.vr.business.service.VRMigrateMappingsLocalService.class)
+	protected com.fds.vr.business.service.VRMigrateMappingsLocalService vrMigrateMappingsLocalService;
+	@BeanReference(type = VRMigrateMappingsPersistence.class)
+	protected VRMigrateMappingsPersistence vrMigrateMappingsPersistence;
+	@BeanReference(type = com.fds.vr.business.service.VRMigrateReviewLocalService.class)
+	protected com.fds.vr.business.service.VRMigrateReviewLocalService vrMigrateReviewLocalService;
+	@BeanReference(type = VRMigrateReviewPersistence.class)
+	protected VRMigrateReviewPersistence vrMigrateReviewPersistence;
+	@BeanReference(type = com.fds.vr.business.service.VRMigrateTaskLocalService.class)
+	protected com.fds.vr.business.service.VRMigrateTaskLocalService vrMigrateTaskLocalService;
+	@BeanReference(type = VRMigrateTaskPersistence.class)
+	protected VRMigrateTaskPersistence vrMigrateTaskPersistence;
 	@BeanReference(type = com.fds.vr.business.service.VROutputSheetLocalService.class)
 	protected com.fds.vr.business.service.VROutputSheetLocalService vrOutputSheetLocalService;
 	@BeanReference(type = VROutputSheetPersistence.class)
@@ -4071,6 +4325,10 @@ public abstract class VRCertificateProgressLocalServiceBaseImpl
 	protected com.fds.vr.business.service.VRReportLocalService vrReportLocalService;
 	@BeanReference(type = VRReportPersistence.class)
 	protected VRReportPersistence vrReportPersistence;
+	@BeanReference(type = com.fds.vr.business.service.VRReportCategoryLocalService.class)
+	protected com.fds.vr.business.service.VRReportCategoryLocalService vrReportCategoryLocalService;
+	@BeanReference(type = VRReportCategoryPersistence.class)
+	protected VRReportCategoryPersistence vrReportCategoryPersistence;
 	@BeanReference(type = com.fds.vr.business.service.VRRPDossierStatisticsLocalService.class)
 	protected com.fds.vr.business.service.VRRPDossierStatisticsLocalService vrrpDossierStatisticsLocalService;
 	@BeanReference(type = VRRPDossierStatisticsPersistence.class)

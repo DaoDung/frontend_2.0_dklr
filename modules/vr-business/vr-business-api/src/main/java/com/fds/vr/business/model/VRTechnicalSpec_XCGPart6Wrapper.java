@@ -67,6 +67,7 @@ public class VRTechnicalSpec_XCGPart6Wrapper implements VRTechnicalSpec_XCGPart6
 		attributes.put("referenceUid", getReferenceUid());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("vehicleTypeCertificateId", getVehicleTypeCertificateId());
 		attributes.put("XCG01757", getXCG01757());
 		attributes.put("XCG01758", getXCG01758());
 		attributes.put("XCG01759", getXCG01759());
@@ -299,6 +300,13 @@ public class VRTechnicalSpec_XCGPart6Wrapper implements VRTechnicalSpec_XCGPart6
 
 		if (deliverableCode != null) {
 			setDeliverableCode(deliverableCode);
+		}
+
+		Long vehicleTypeCertificateId = (Long)attributes.get(
+				"vehicleTypeCertificateId");
+
+		if (vehicleTypeCertificateId != null) {
+			setVehicleTypeCertificateId(vehicleTypeCertificateId);
 		}
 
 		String XCG01757 = (String)attributes.get("XCG01757");
@@ -3337,6 +3345,16 @@ public class VRTechnicalSpec_XCGPart6Wrapper implements VRTechnicalSpec_XCGPart6
 		return _vrTechnicalSpec_XCGPart6.getPrimaryKey();
 	}
 
+	/**
+	* Returns the vehicle type certificate ID of this vr technical spec_xcg part6.
+	*
+	* @return the vehicle type certificate ID of this vr technical spec_xcg part6
+	*/
+	@Override
+	public long getVehicleTypeCertificateId() {
+		return _vrTechnicalSpec_XCGPart6.getVehicleTypeCertificateId();
+	}
+
 	@Override
 	public void persist() {
 		_vrTechnicalSpec_XCGPart6.persist();
@@ -4591,6 +4609,16 @@ public class VRTechnicalSpec_XCGPart6Wrapper implements VRTechnicalSpec_XCGPart6
 	@Override
 	public void setTDTKXCG036(java.lang.String TDTKXCG036) {
 		_vrTechnicalSpec_XCGPart6.setTDTKXCG036(TDTKXCG036);
+	}
+
+	/**
+	* Sets the vehicle type certificate ID of this vr technical spec_xcg part6.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID of this vr technical spec_xcg part6
+	*/
+	@Override
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_vrTechnicalSpec_XCGPart6.setVehicleTypeCertificateId(vehicleTypeCertificateId);
 	}
 
 	/**

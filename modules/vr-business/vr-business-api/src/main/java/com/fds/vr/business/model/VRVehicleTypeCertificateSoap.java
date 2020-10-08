@@ -37,6 +37,7 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		soapModel.setId(model.getId());
 		soapModel.setMtCore(model.getMtCore());
 		soapModel.setDossierId(model.getDossierId());
+		soapModel.setDossierIdCTN(model.getDossierIdCTN());
 		soapModel.setDossierType(model.getDossierType());
 		soapModel.setDossierNo(model.getDossierNo());
 		soapModel.setReferenceUid(model.getReferenceUid());
@@ -44,6 +45,7 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		soapModel.setServiceName(model.getServiceName());
 		soapModel.setConvertassembleId(model.getConvertassembleId());
 		soapModel.setApplicantIdNo(model.getApplicantIdNo());
+		soapModel.setApplicantTelNo(model.getApplicantTelNo());
 		soapModel.setApplicantName(model.getApplicantName());
 		soapModel.setApplicantIdDate(model.getApplicantIdDate());
 		soapModel.setApplicantAddress(model.getApplicantAddress());
@@ -55,7 +57,13 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		soapModel.setApplicantContactName(model.getApplicantContactName());
 		soapModel.setApplicantContactEmail(model.getApplicantContactEmail());
 		soapModel.setApplicantcontactPhone(model.getApplicantcontactPhone());
+		soapModel.setApplicantcontactTelNo(model.getApplicantcontactTelNo());
 		soapModel.setCityCode(model.getCityCode());
+		soapModel.setCityName(model.getCityName());
+		soapModel.setDistrictCode(model.getDistrictCode());
+		soapModel.setDistrictName(model.getDistrictName());
+		soapModel.setWardCode(model.getWardCode());
+		soapModel.setWardName(model.getWardName());
 		soapModel.setManufacturerForeignCode(model.getManufacturerForeignCode());
 		soapModel.setManufacturerName(model.getManufacturerName());
 		soapModel.setManufacturerAddress(model.getManufacturerAddress());
@@ -135,8 +143,8 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		soapModel.setEmissionTestReportNo(model.getEmissionTestReportNo());
 		soapModel.setEmissionTestReportDate(model.getEmissionTestReportDate());
 		soapModel.setCommonSafetyStandard(model.getCommonSafetyStandard());
-		soapModel.setEmissionStandard(model.getEmissionStandard());
 		soapModel.setCommonSafetyDescription(model.getCommonSafetyDescription());
+		soapModel.setEmissionStandard(model.getEmissionStandard());
 		soapModel.setEmissionDescription(model.getEmissionDescription());
 		soapModel.setOtherTestReportNo(model.getOtherTestReportNo());
 		soapModel.setOtherTestReportDate(model.getOtherTestReportDate());
@@ -166,6 +174,7 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		soapModel.setInspectionNote(model.getInspectionNote());
 		soapModel.setCertificateNote(model.getCertificateNote());
 		soapModel.setDeliverableCode(model.getDeliverableCode());
+		soapModel.setDeliverableFileEntryid(model.getDeliverableFileEntryid());
 		soapModel.setModule(model.getModule());
 		soapModel.setModifyDate(model.getModifyDate());
 		soapModel.setSyncDate(model.getSyncDate());
@@ -248,6 +257,14 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		_dossierId = dossierId;
 	}
 
+	public String getDossierIdCTN() {
+		return _dossierIdCTN;
+	}
+
+	public void setDossierIdCTN(String dossierIdCTN) {
+		_dossierIdCTN = dossierIdCTN;
+	}
+
 	public String getDossierType() {
 		return _dossierType;
 	}
@@ -302,6 +319,14 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 
 	public void setApplicantIdNo(String applicantIdNo) {
 		_applicantIdNo = applicantIdNo;
+	}
+
+	public String getApplicantTelNo() {
+		return _applicantTelNo;
+	}
+
+	public void setApplicantTelNo(String applicantTelNo) {
+		_applicantTelNo = applicantTelNo;
 	}
 
 	public String getApplicantName() {
@@ -393,12 +418,60 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		_applicantcontactPhone = applicantcontactPhone;
 	}
 
+	public String getApplicantcontactTelNo() {
+		return _applicantcontactTelNo;
+	}
+
+	public void setApplicantcontactTelNo(String applicantcontactTelNo) {
+		_applicantcontactTelNo = applicantcontactTelNo;
+	}
+
 	public String getCityCode() {
 		return _cityCode;
 	}
 
 	public void setCityCode(String cityCode) {
 		_cityCode = cityCode;
+	}
+
+	public String getCityName() {
+		return _cityName;
+	}
+
+	public void setCityName(String cityName) {
+		_cityName = cityName;
+	}
+
+	public String getDistrictCode() {
+		return _districtCode;
+	}
+
+	public void setDistrictCode(String districtCode) {
+		_districtCode = districtCode;
+	}
+
+	public String getDistrictName() {
+		return _districtName;
+	}
+
+	public void setDistrictName(String districtName) {
+		_districtName = districtName;
+	}
+
+	public String getWardCode() {
+		return _wardCode;
+	}
+
+	public void setWardCode(String wardCode) {
+		_wardCode = wardCode;
+	}
+
+	public String getWardName() {
+		return _wardName;
+	}
+
+	public void setWardName(String wardName) {
+		_wardName = wardName;
 	}
 
 	public String getManufacturerForeignCode() {
@@ -1039,20 +1112,20 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		_commonSafetyStandard = commonSafetyStandard;
 	}
 
-	public String getEmissionStandard() {
-		return _emissionStandard;
-	}
-
-	public void setEmissionStandard(String emissionStandard) {
-		_emissionStandard = emissionStandard;
-	}
-
 	public String getCommonSafetyDescription() {
 		return _commonSafetyDescription;
 	}
 
 	public void setCommonSafetyDescription(String commonSafetyDescription) {
 		_commonSafetyDescription = commonSafetyDescription;
+	}
+
+	public String getEmissionStandard() {
+		return _emissionStandard;
+	}
+
+	public void setEmissionStandard(String emissionStandard) {
+		_emissionStandard = emissionStandard;
 	}
 
 	public String getEmissionDescription() {
@@ -1288,6 +1361,14 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 		_deliverableCode = deliverableCode;
 	}
 
+	public long getDeliverableFileEntryid() {
+		return _deliverableFileEntryid;
+	}
+
+	public void setDeliverableFileEntryid(long deliverableFileEntryid) {
+		_deliverableFileEntryid = deliverableFileEntryid;
+	}
+
 	public String getModule() {
 		return _module;
 	}
@@ -1315,6 +1396,7 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 	private long _id;
 	private long _mtCore;
 	private long _dossierId;
+	private String _dossierIdCTN;
 	private String _dossierType;
 	private String _dossierNo;
 	private String _referenceUid;
@@ -1322,6 +1404,7 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 	private String _serviceName;
 	private long _convertassembleId;
 	private String _applicantIdNo;
+	private String _applicantTelNo;
 	private String _applicantName;
 	private Date _applicantIdDate;
 	private String _applicantAddress;
@@ -1333,7 +1416,13 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 	private String _applicantContactName;
 	private String _applicantContactEmail;
 	private String _applicantcontactPhone;
+	private String _applicantcontactTelNo;
 	private String _cityCode;
+	private String _cityName;
+	private String _districtCode;
+	private String _districtName;
+	private String _wardCode;
+	private String _wardName;
 	private String _manufacturerForeignCode;
 	private String _manufacturerName;
 	private String _manufacturerAddress;
@@ -1413,8 +1502,8 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 	private String _emissionTestReportNo;
 	private Date _emissionTestReportDate;
 	private String _commonSafetyStandard;
-	private String _emissionStandard;
 	private String _commonSafetyDescription;
+	private String _emissionStandard;
 	private String _emissionDescription;
 	private String _otherTestReportNo;
 	private Date _otherTestReportDate;
@@ -1444,6 +1533,7 @@ public class VRVehicleTypeCertificateSoap implements Serializable {
 	private String _inspectionNote;
 	private String _certificateNote;
 	private String _deliverableCode;
+	private long _deliverableFileEntryid;
 	private String _module;
 	private Date _modifyDate;
 	private Date _syncDate;

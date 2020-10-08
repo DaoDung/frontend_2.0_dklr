@@ -66,6 +66,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			{ "id", Types.BIGINT },
 			{ "mtCore", Types.BIGINT },
 			{ "dossierId", Types.BIGINT },
+			{ "dossierIdCTN", Types.VARCHAR },
 			{ "dossierType", Types.VARCHAR },
 			{ "dossierNo", Types.VARCHAR },
 			{ "referenceUid", Types.VARCHAR },
@@ -73,6 +74,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			{ "serviceName", Types.VARCHAR },
 			{ "convertassembleId", Types.BIGINT },
 			{ "applicantIdNo", Types.VARCHAR },
+			{ "applicantTelNo", Types.VARCHAR },
 			{ "applicantName", Types.VARCHAR },
 			{ "applicantIdDate", Types.TIMESTAMP },
 			{ "applicantAddress", Types.VARCHAR },
@@ -84,7 +86,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			{ "applicantContactName", Types.VARCHAR },
 			{ "applicantContactEmail", Types.VARCHAR },
 			{ "applicantcontactPhone", Types.VARCHAR },
+			{ "applicantcontactTelNo", Types.VARCHAR },
 			{ "cityCode", Types.VARCHAR },
+			{ "cityName", Types.VARCHAR },
+			{ "districtCode", Types.VARCHAR },
+			{ "districtName", Types.VARCHAR },
+			{ "wardCode", Types.VARCHAR },
+			{ "wardName", Types.VARCHAR },
 			{ "manufacturerForeignCode", Types.VARCHAR },
 			{ "manufacturerName", Types.VARCHAR },
 			{ "manufacturerAddress", Types.VARCHAR },
@@ -164,9 +172,9 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			{ "emissionTestReportNo", Types.VARCHAR },
 			{ "emissionTestReportDate", Types.TIMESTAMP },
 			{ "commonSafetyStandard", Types.VARCHAR },
+			{ "commonSafetyDescription", Types.VARCHAR },
 			{ "emissionStandard", Types.VARCHAR },
-			{ "commonsafetydescription", Types.VARCHAR },
-			{ "emissiondescription", Types.VARCHAR },
+			{ "emissionDescription", Types.VARCHAR },
 			{ "otherTestReportNo", Types.VARCHAR },
 			{ "otherTestReportDate", Types.TIMESTAMP },
 			{ "sampleFrameNo", Types.VARCHAR },
@@ -195,6 +203,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			{ "inspectionNote", Types.VARCHAR },
 			{ "certificateNote", Types.VARCHAR },
 			{ "deliverableCode", Types.VARCHAR },
+			{ "deliverableFileEntryid", Types.BIGINT },
 			{ "module", Types.VARCHAR },
 			{ "modifyDate", Types.TIMESTAMP },
 			{ "syncDate", Types.TIMESTAMP }
@@ -205,6 +214,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		TABLE_COLUMNS_MAP.put("id", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("mtCore", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("dossierId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("dossierIdCTN", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("dossierType", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("dossierNo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("referenceUid", Types.VARCHAR);
@@ -212,6 +222,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		TABLE_COLUMNS_MAP.put("serviceName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("convertassembleId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("applicantIdNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantTelNo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("applicantName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("applicantIdDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("applicantAddress", Types.VARCHAR);
@@ -223,7 +234,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		TABLE_COLUMNS_MAP.put("applicantContactName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("applicantContactEmail", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("applicantcontactPhone", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantcontactTelNo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("cityCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("cityName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("districtCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("districtName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("wardCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("wardName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("manufacturerForeignCode", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("manufacturerName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("manufacturerAddress", Types.VARCHAR);
@@ -304,9 +321,9 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		TABLE_COLUMNS_MAP.put("emissionTestReportNo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("emissionTestReportDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("commonSafetyStandard", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("commonSafetyDescription", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("emissionStandard", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("commonsafetydescription", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("emissiondescription", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("emissionDescription", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("otherTestReportNo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("otherTestReportDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("sampleFrameNo", Types.VARCHAR);
@@ -335,12 +352,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		TABLE_COLUMNS_MAP.put("inspectionNote", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("certificateNote", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("deliverableCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("deliverableFileEntryid", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("module", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("modifyDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_vehicletypecertificate (id LONG not null primary key,mtCore LONG,dossierId LONG,dossierType VARCHAR(75) null,dossierNo VARCHAR(75) null,referenceUid VARCHAR(75) null,serviceCode VARCHAR(75) null,serviceName VARCHAR(75) null,convertassembleId LONG,applicantIdNo VARCHAR(75) null,applicantName VARCHAR(75) null,applicantIdDate DATE null,applicantAddress VARCHAR(75) null,applicantRepresentative VARCHAR(75) null,applicantRepresentativeTitle VARCHAR(75) null,applicantEmail VARCHAR(75) null,applicantPhone VARCHAR(75) null,applicantFax VARCHAR(75) null,applicantContactName VARCHAR(75) null,applicantContactEmail VARCHAR(75) null,applicantcontactPhone VARCHAR(75) null,cityCode VARCHAR(75) null,manufacturerForeignCode VARCHAR(75) null,manufacturerName VARCHAR(75) null,manufacturerAddress VARCHAR(75) null,manufacturerRepresentative VARCHAR(75) null,manufacturerRepresentativeTitle VARCHAR(75) null,manufacturerEmail VARCHAR(75) null,manufacturerPhone VARCHAR(75) null,manufacturerFax VARCHAR(75) null,productionPlantCode VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,productionPlantRepresentative VARCHAR(75) null,productionPlantRepresentativeTitle VARCHAR(75) null,copReportNo VARCHAR(75) null,copReportDate DATE null,copReportExpireDate DATE null,designerCode VARCHAR(75) null,designerName VARCHAR(75) null,designerAddress VARCHAR(75) null,designerRepresentative VARCHAR(75) null,designerRepresentativeTitle VARCHAR(75) null,designerEmail VARCHAR(75) null,designerPhone VARCHAR(75) null,designerFax VARCHAR(75) null,verificationCertificateNo VARCHAR(75) null,verificationCertificateDate DATE null,verificationRefNo VARCHAR(75) null,verificationRefDate DATE null,typeApprovalCertificateNo VARCHAR(75) null,typeApprovalCertificateDate DATE null,designModelCode VARCHAR(75) null,designModelDescription VARCHAR(75) null,designSymbol VARCHAR(75) null,registeredNumber VARCHAR(75) null,inspectorReceiveDate DATE null,inspectorSubmitDate DATE null,inspectorendorSementDate DATE null,inspectorDeadline DATE null,inspectorFinishDate DATE null,inspectorCancelDate DATE null,inspectorOrganization VARCHAR(75) null,inspectorDivision VARCHAR(75) null,inspectorSignName VARCHAR(75) null,inspectorSignTitle VARCHAR(75) null,inspectorSignPlace VARCHAR(75) null,certificateType VARCHAR(75) null,referenceCertificateNo VARCHAR(75) null,referenceCertificateDate DATE null,certificateRecordNo VARCHAR(75) null,certificateSignName VARCHAR(75) null,certificateSignTitle VARCHAR(75) null,certificateSignPlace VARCHAR(75) null,certificateRecordDate DATE null,certificateRecordExpireDate DATE null,expiredStatus VARCHAR(75) null,certificateRecordStatus VARCHAR(75) null,digitalIssueStatus VARCHAR(75) null,vehicleClass VARCHAR(75) null,certifiedVehicleType VARCHAR(75) null,certifiedVehicleTypeDescription VARCHAR(75) null,certifiedTrademark VARCHAR(75) null,certifiedTrademarkName VARCHAR(75) null,certifiedCommercialName VARCHAR(75) null,certifiedModelCode VARCHAR(75) null,certifiedAssemblyType VARCHAR(75) null,certifiedAssemblyTypeDescription VARCHAR(75) null,certifiedVINNo VARCHAR(75) null,certifiedVINPosition VARCHAR(75) null,certifiedFrameNo VARCHAR(75) null,certifiedFrameAttachPlace VARCHAR(75) null,certifiedFramePosition VARCHAR(75) null,certifiedEngineNo VARCHAR(75) null,certifiedEngineAttachPlace VARCHAR(75) null,certifiedEnginePosition VARCHAR(75) null,safetyTestReportNo VARCHAR(75) null,safetyTestReportDate DATE null,emissionTestReportNo VARCHAR(75) null,emissionTestReportDate DATE null,commonSafetyStandard VARCHAR(75) null,emissionStandard VARCHAR(75) null,commonsafetydescription VARCHAR(75) null,emissiondescription VARCHAR(75) null,otherTestReportNo VARCHAR(75) null,otherTestReportDate DATE null,sampleFrameNo VARCHAR(75) null,sampleVINNo VARCHAR(75) null,sampleEngineNo VARCHAR(75) null,sampleVehicleType VARCHAR(75) null,sampleVehicleTypeDescription VARCHAR(75) null,sampleTrademark VARCHAR(75) null,sampleTrademarkName VARCHAR(75) null,sampleCommercialName VARCHAR(75) null,sampleModelCode VARCHAR(75) null,customsDeclarationNo VARCHAR(75) null,customsDeclarationDate DATE null,productionCountry VARCHAR(75) null,importerQuantity LONG,inspectionRecordNo VARCHAR(75) null,inspectionDate DATE null,inspectionSite VARCHAR(75) null,inspectionDistrictCode VARCHAR(75) null,inspectionDistrictName VARCHAR(75) null,inspectionProvinceCode VARCHAR(75) null,inspectionProvinceName VARCHAR(75) null,corporationId VARCHAR(75) null,inspectorId LONG,remarks VARCHAR(75) null,inspectionNote VARCHAR(75) null,certificateNote VARCHAR(75) null,deliverableCode VARCHAR(75) null,module VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_vehicletypecertificate (id LONG not null primary key,mtCore LONG,dossierId LONG,dossierIdCTN VARCHAR(75) null,dossierType VARCHAR(75) null,dossierNo VARCHAR(75) null,referenceUid VARCHAR(75) null,serviceCode VARCHAR(75) null,serviceName VARCHAR(75) null,convertassembleId LONG,applicantIdNo VARCHAR(75) null,applicantTelNo VARCHAR(75) null,applicantName VARCHAR(75) null,applicantIdDate DATE null,applicantAddress VARCHAR(75) null,applicantRepresentative VARCHAR(75) null,applicantRepresentativeTitle VARCHAR(75) null,applicantEmail VARCHAR(75) null,applicantPhone VARCHAR(75) null,applicantFax VARCHAR(75) null,applicantContactName VARCHAR(75) null,applicantContactEmail VARCHAR(75) null,applicantcontactPhone VARCHAR(75) null,applicantcontactTelNo VARCHAR(75) null,cityCode VARCHAR(75) null,cityName VARCHAR(75) null,districtCode VARCHAR(75) null,districtName VARCHAR(75) null,wardCode VARCHAR(75) null,wardName VARCHAR(75) null,manufacturerForeignCode VARCHAR(75) null,manufacturerName VARCHAR(75) null,manufacturerAddress VARCHAR(75) null,manufacturerRepresentative VARCHAR(75) null,manufacturerRepresentativeTitle VARCHAR(75) null,manufacturerEmail VARCHAR(75) null,manufacturerPhone VARCHAR(75) null,manufacturerFax VARCHAR(75) null,productionPlantCode VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,productionPlantRepresentative VARCHAR(75) null,productionPlantRepresentativeTitle VARCHAR(75) null,copReportNo VARCHAR(75) null,copReportDate DATE null,copReportExpireDate DATE null,designerCode VARCHAR(75) null,designerName VARCHAR(75) null,designerAddress VARCHAR(75) null,designerRepresentative VARCHAR(75) null,designerRepresentativeTitle VARCHAR(75) null,designerEmail VARCHAR(75) null,designerPhone VARCHAR(75) null,designerFax VARCHAR(75) null,verificationCertificateNo VARCHAR(75) null,verificationCertificateDate DATE null,verificationRefNo VARCHAR(75) null,verificationRefDate DATE null,typeApprovalCertificateNo VARCHAR(75) null,typeApprovalCertificateDate DATE null,designModelCode VARCHAR(75) null,designModelDescription VARCHAR(75) null,designSymbol VARCHAR(75) null,registeredNumber VARCHAR(75) null,inspectorReceiveDate DATE null,inspectorSubmitDate DATE null,inspectorendorSementDate DATE null,inspectorDeadline DATE null,inspectorFinishDate DATE null,inspectorCancelDate DATE null,inspectorOrganization VARCHAR(75) null,inspectorDivision VARCHAR(75) null,inspectorSignName VARCHAR(75) null,inspectorSignTitle VARCHAR(75) null,inspectorSignPlace VARCHAR(75) null,certificateType VARCHAR(75) null,referenceCertificateNo VARCHAR(75) null,referenceCertificateDate DATE null,certificateRecordNo VARCHAR(75) null,certificateSignName VARCHAR(75) null,certificateSignTitle VARCHAR(75) null,certificateSignPlace VARCHAR(75) null,certificateRecordDate DATE null,certificateRecordExpireDate DATE null,expiredStatus VARCHAR(75) null,certificateRecordStatus VARCHAR(75) null,digitalIssueStatus VARCHAR(75) null,vehicleClass VARCHAR(75) null,certifiedVehicleType VARCHAR(75) null,certifiedVehicleTypeDescription VARCHAR(75) null,certifiedTrademark VARCHAR(75) null,certifiedTrademarkName VARCHAR(75) null,certifiedCommercialName VARCHAR(75) null,certifiedModelCode VARCHAR(75) null,certifiedAssemblyType VARCHAR(75) null,certifiedAssemblyTypeDescription VARCHAR(75) null,certifiedVINNo VARCHAR(75) null,certifiedVINPosition VARCHAR(75) null,certifiedFrameNo VARCHAR(75) null,certifiedFrameAttachPlace VARCHAR(75) null,certifiedFramePosition VARCHAR(75) null,certifiedEngineNo VARCHAR(75) null,certifiedEngineAttachPlace VARCHAR(75) null,certifiedEnginePosition VARCHAR(75) null,safetyTestReportNo VARCHAR(75) null,safetyTestReportDate DATE null,emissionTestReportNo VARCHAR(75) null,emissionTestReportDate DATE null,commonSafetyStandard VARCHAR(75) null,commonSafetyDescription VARCHAR(75) null,emissionStandard VARCHAR(75) null,emissionDescription VARCHAR(75) null,otherTestReportNo VARCHAR(75) null,otherTestReportDate DATE null,sampleFrameNo VARCHAR(75) null,sampleVINNo VARCHAR(75) null,sampleEngineNo VARCHAR(75) null,sampleVehicleType VARCHAR(75) null,sampleVehicleTypeDescription VARCHAR(75) null,sampleTrademark VARCHAR(75) null,sampleTrademarkName VARCHAR(75) null,sampleCommercialName VARCHAR(75) null,sampleModelCode VARCHAR(75) null,customsDeclarationNo VARCHAR(75) null,customsDeclarationDate DATE null,productionCountry VARCHAR(75) null,importerQuantity LONG,inspectionRecordNo VARCHAR(75) null,inspectionDate DATE null,inspectionSite VARCHAR(75) null,inspectionDistrictCode VARCHAR(75) null,inspectionDistrictName VARCHAR(75) null,inspectionProvinceCode VARCHAR(75) null,inspectionProvinceName VARCHAR(75) null,corporationId VARCHAR(75) null,inspectorId LONG,remarks VARCHAR(75) null,inspectionNote VARCHAR(75) null,certificateNote VARCHAR(75) null,deliverableCode VARCHAR(75) null,deliverableFileEntryid LONG,module VARCHAR(75) null,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_vehicletypecertificate";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrVehicleTypeCertificate.modifyDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_vehicletypecertificate.modifyDate DESC";
@@ -426,6 +444,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		attributes.put("id", getId());
 		attributes.put("mtCore", getMtCore());
 		attributes.put("dossierId", getDossierId());
+		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("dossierType", getDossierType());
 		attributes.put("dossierNo", getDossierNo());
 		attributes.put("referenceUid", getReferenceUid());
@@ -433,6 +452,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		attributes.put("serviceName", getServiceName());
 		attributes.put("convertassembleId", getConvertassembleId());
 		attributes.put("applicantIdNo", getApplicantIdNo());
+		attributes.put("applicantTelNo", getApplicantTelNo());
 		attributes.put("applicantName", getApplicantName());
 		attributes.put("applicantIdDate", getApplicantIdDate());
 		attributes.put("applicantAddress", getApplicantAddress());
@@ -445,7 +465,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		attributes.put("applicantContactName", getApplicantContactName());
 		attributes.put("applicantContactEmail", getApplicantContactEmail());
 		attributes.put("applicantcontactPhone", getApplicantcontactPhone());
+		attributes.put("applicantcontactTelNo", getApplicantcontactTelNo());
 		attributes.put("cityCode", getCityCode());
+		attributes.put("cityName", getCityName());
+		attributes.put("districtCode", getDistrictCode());
+		attributes.put("districtName", getDistrictName());
+		attributes.put("wardCode", getWardCode());
+		attributes.put("wardName", getWardName());
 		attributes.put("manufacturerForeignCode", getManufacturerForeignCode());
 		attributes.put("manufacturerName", getManufacturerName());
 		attributes.put("manufacturerAddress", getManufacturerAddress());
@@ -539,8 +565,8 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		attributes.put("emissionTestReportNo", getEmissionTestReportNo());
 		attributes.put("emissionTestReportDate", getEmissionTestReportDate());
 		attributes.put("commonSafetyStandard", getCommonSafetyStandard());
-		attributes.put("emissionStandard", getEmissionStandard());
 		attributes.put("commonSafetyDescription", getCommonSafetyDescription());
+		attributes.put("emissionStandard", getEmissionStandard());
 		attributes.put("emissionDescription", getEmissionDescription());
 		attributes.put("otherTestReportNo", getOtherTestReportNo());
 		attributes.put("otherTestReportDate", getOtherTestReportDate());
@@ -571,6 +597,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		attributes.put("inspectionNote", getInspectionNote());
 		attributes.put("certificateNote", getCertificateNote());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("deliverableFileEntryid", getDeliverableFileEntryid());
 		attributes.put("module", getModule());
 		attributes.put("modifyDate", getModifyDate());
 		attributes.put("syncDate", getSyncDate());
@@ -599,6 +626,12 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 		if (dossierId != null) {
 			setDossierId(dossierId);
+		}
+
+		String dossierIdCTN = (String)attributes.get("dossierIdCTN");
+
+		if (dossierIdCTN != null) {
+			setDossierIdCTN(dossierIdCTN);
 		}
 
 		String dossierType = (String)attributes.get("dossierType");
@@ -641,6 +674,12 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 		if (applicantIdNo != null) {
 			setApplicantIdNo(applicantIdNo);
+		}
+
+		String applicantTelNo = (String)attributes.get("applicantTelNo");
+
+		if (applicantTelNo != null) {
+			setApplicantTelNo(applicantTelNo);
 		}
 
 		String applicantName = (String)attributes.get("applicantName");
@@ -714,10 +753,47 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			setApplicantcontactPhone(applicantcontactPhone);
 		}
 
+		String applicantcontactTelNo = (String)attributes.get(
+				"applicantcontactTelNo");
+
+		if (applicantcontactTelNo != null) {
+			setApplicantcontactTelNo(applicantcontactTelNo);
+		}
+
 		String cityCode = (String)attributes.get("cityCode");
 
 		if (cityCode != null) {
 			setCityCode(cityCode);
+		}
+
+		String cityName = (String)attributes.get("cityName");
+
+		if (cityName != null) {
+			setCityName(cityName);
+		}
+
+		String districtCode = (String)attributes.get("districtCode");
+
+		if (districtCode != null) {
+			setDistrictCode(districtCode);
+		}
+
+		String districtName = (String)attributes.get("districtName");
+
+		if (districtName != null) {
+			setDistrictName(districtName);
+		}
+
+		String wardCode = (String)attributes.get("wardCode");
+
+		if (wardCode != null) {
+			setWardCode(wardCode);
+		}
+
+		String wardName = (String)attributes.get("wardName");
+
+		if (wardName != null) {
+			setWardName(wardName);
 		}
 
 		String manufacturerForeignCode = (String)attributes.get(
@@ -1235,17 +1311,17 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			setCommonSafetyStandard(commonSafetyStandard);
 		}
 
-		String emissionStandard = (String)attributes.get("emissionStandard");
-
-		if (emissionStandard != null) {
-			setEmissionStandard(emissionStandard);
-		}
-
 		String commonSafetyDescription = (String)attributes.get(
 				"commonSafetyDescription");
 
 		if (commonSafetyDescription != null) {
 			setCommonSafetyDescription(commonSafetyDescription);
+		}
+
+		String emissionStandard = (String)attributes.get("emissionStandard");
+
+		if (emissionStandard != null) {
+			setEmissionStandard(emissionStandard);
 		}
 
 		String emissionDescription = (String)attributes.get(
@@ -1432,6 +1508,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			setDeliverableCode(deliverableCode);
 		}
 
+		Long deliverableFileEntryid = (Long)attributes.get(
+				"deliverableFileEntryid");
+
+		if (deliverableFileEntryid != null) {
+			setDeliverableFileEntryid(deliverableFileEntryid);
+		}
+
 		String module = (String)attributes.get("module");
 
 		if (module != null) {
@@ -1503,6 +1586,21 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 	public long getOriginalDossierId() {
 		return _originalDossierId;
+	}
+
+	@Override
+	public String getDossierIdCTN() {
+		if (_dossierIdCTN == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _dossierIdCTN;
+		}
+	}
+
+	@Override
+	public void setDossierIdCTN(String dossierIdCTN) {
+		_dossierIdCTN = dossierIdCTN;
 	}
 
 	@Override
@@ -1633,6 +1731,21 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 	public String getOriginalApplicantIdNo() {
 		return GetterUtil.getString(_originalApplicantIdNo);
+	}
+
+	@Override
+	public String getApplicantTelNo() {
+		if (_applicantTelNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantTelNo;
+		}
+	}
+
+	@Override
+	public void setApplicantTelNo(String applicantTelNo) {
+		_applicantTelNo = applicantTelNo;
 	}
 
 	@Override
@@ -1797,6 +1910,21 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	}
 
 	@Override
+	public String getApplicantcontactTelNo() {
+		if (_applicantcontactTelNo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _applicantcontactTelNo;
+		}
+	}
+
+	@Override
+	public void setApplicantcontactTelNo(String applicantcontactTelNo) {
+		_applicantcontactTelNo = applicantcontactTelNo;
+	}
+
+	@Override
 	public String getCityCode() {
 		if (_cityCode == null) {
 			return StringPool.BLANK;
@@ -1809,6 +1937,81 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	@Override
 	public void setCityCode(String cityCode) {
 		_cityCode = cityCode;
+	}
+
+	@Override
+	public String getCityName() {
+		if (_cityName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _cityName;
+		}
+	}
+
+	@Override
+	public void setCityName(String cityName) {
+		_cityName = cityName;
+	}
+
+	@Override
+	public String getDistrictCode() {
+		if (_districtCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _districtCode;
+		}
+	}
+
+	@Override
+	public void setDistrictCode(String districtCode) {
+		_districtCode = districtCode;
+	}
+
+	@Override
+	public String getDistrictName() {
+		if (_districtName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _districtName;
+		}
+	}
+
+	@Override
+	public void setDistrictName(String districtName) {
+		_districtName = districtName;
+	}
+
+	@Override
+	public String getWardCode() {
+		if (_wardCode == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _wardCode;
+		}
+	}
+
+	@Override
+	public void setWardCode(String wardCode) {
+		_wardCode = wardCode;
+	}
+
+	@Override
+	public String getWardName() {
+		if (_wardName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _wardName;
+		}
+	}
+
+	@Override
+	public void setWardName(String wardName) {
+		_wardName = wardName;
 	}
 
 	@Override
@@ -3083,6 +3286,21 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	}
 
 	@Override
+	public String getCommonSafetyDescription() {
+		if (_commonSafetyDescription == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _commonSafetyDescription;
+		}
+	}
+
+	@Override
+	public void setCommonSafetyDescription(String commonSafetyDescription) {
+		_commonSafetyDescription = commonSafetyDescription;
+	}
+
+	@Override
 	public String getEmissionStandard() {
 		if (_emissionStandard == null) {
 			return StringPool.BLANK;
@@ -3105,21 +3323,6 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 	public String getOriginalEmissionStandard() {
 		return GetterUtil.getString(_originalEmissionStandard);
-	}
-
-	@Override
-	public String getCommonSafetyDescription() {
-		if (_commonSafetyDescription == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _commonSafetyDescription;
-		}
-	}
-
-	@Override
-	public void setCommonSafetyDescription(String commonSafetyDescription) {
-		_commonSafetyDescription = commonSafetyDescription;
 	}
 
 	@Override
@@ -3576,6 +3779,16 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	}
 
 	@Override
+	public long getDeliverableFileEntryid() {
+		return _deliverableFileEntryid;
+	}
+
+	@Override
+	public void setDeliverableFileEntryid(long deliverableFileEntryid) {
+		_deliverableFileEntryid = deliverableFileEntryid;
+	}
+
+	@Override
 	public String getModule() {
 		if (_module == null) {
 			return StringPool.BLANK;
@@ -3646,6 +3859,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		vrVehicleTypeCertificateImpl.setId(getId());
 		vrVehicleTypeCertificateImpl.setMtCore(getMtCore());
 		vrVehicleTypeCertificateImpl.setDossierId(getDossierId());
+		vrVehicleTypeCertificateImpl.setDossierIdCTN(getDossierIdCTN());
 		vrVehicleTypeCertificateImpl.setDossierType(getDossierType());
 		vrVehicleTypeCertificateImpl.setDossierNo(getDossierNo());
 		vrVehicleTypeCertificateImpl.setReferenceUid(getReferenceUid());
@@ -3653,6 +3867,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		vrVehicleTypeCertificateImpl.setServiceName(getServiceName());
 		vrVehicleTypeCertificateImpl.setConvertassembleId(getConvertassembleId());
 		vrVehicleTypeCertificateImpl.setApplicantIdNo(getApplicantIdNo());
+		vrVehicleTypeCertificateImpl.setApplicantTelNo(getApplicantTelNo());
 		vrVehicleTypeCertificateImpl.setApplicantName(getApplicantName());
 		vrVehicleTypeCertificateImpl.setApplicantIdDate(getApplicantIdDate());
 		vrVehicleTypeCertificateImpl.setApplicantAddress(getApplicantAddress());
@@ -3664,7 +3879,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		vrVehicleTypeCertificateImpl.setApplicantContactName(getApplicantContactName());
 		vrVehicleTypeCertificateImpl.setApplicantContactEmail(getApplicantContactEmail());
 		vrVehicleTypeCertificateImpl.setApplicantcontactPhone(getApplicantcontactPhone());
+		vrVehicleTypeCertificateImpl.setApplicantcontactTelNo(getApplicantcontactTelNo());
 		vrVehicleTypeCertificateImpl.setCityCode(getCityCode());
+		vrVehicleTypeCertificateImpl.setCityName(getCityName());
+		vrVehicleTypeCertificateImpl.setDistrictCode(getDistrictCode());
+		vrVehicleTypeCertificateImpl.setDistrictName(getDistrictName());
+		vrVehicleTypeCertificateImpl.setWardCode(getWardCode());
+		vrVehicleTypeCertificateImpl.setWardName(getWardName());
 		vrVehicleTypeCertificateImpl.setManufacturerForeignCode(getManufacturerForeignCode());
 		vrVehicleTypeCertificateImpl.setManufacturerName(getManufacturerName());
 		vrVehicleTypeCertificateImpl.setManufacturerAddress(getManufacturerAddress());
@@ -3744,8 +3965,8 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		vrVehicleTypeCertificateImpl.setEmissionTestReportNo(getEmissionTestReportNo());
 		vrVehicleTypeCertificateImpl.setEmissionTestReportDate(getEmissionTestReportDate());
 		vrVehicleTypeCertificateImpl.setCommonSafetyStandard(getCommonSafetyStandard());
-		vrVehicleTypeCertificateImpl.setEmissionStandard(getEmissionStandard());
 		vrVehicleTypeCertificateImpl.setCommonSafetyDescription(getCommonSafetyDescription());
+		vrVehicleTypeCertificateImpl.setEmissionStandard(getEmissionStandard());
 		vrVehicleTypeCertificateImpl.setEmissionDescription(getEmissionDescription());
 		vrVehicleTypeCertificateImpl.setOtherTestReportNo(getOtherTestReportNo());
 		vrVehicleTypeCertificateImpl.setOtherTestReportDate(getOtherTestReportDate());
@@ -3775,6 +3996,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		vrVehicleTypeCertificateImpl.setInspectionNote(getInspectionNote());
 		vrVehicleTypeCertificateImpl.setCertificateNote(getCertificateNote());
 		vrVehicleTypeCertificateImpl.setDeliverableCode(getDeliverableCode());
+		vrVehicleTypeCertificateImpl.setDeliverableFileEntryid(getDeliverableFileEntryid());
 		vrVehicleTypeCertificateImpl.setModule(getModule());
 		vrVehicleTypeCertificateImpl.setModifyDate(getModifyDate());
 		vrVehicleTypeCertificateImpl.setSyncDate(getSyncDate());
@@ -3912,6 +4134,14 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 		vrVehicleTypeCertificateCacheModel.dossierId = getDossierId();
 
+		vrVehicleTypeCertificateCacheModel.dossierIdCTN = getDossierIdCTN();
+
+		String dossierIdCTN = vrVehicleTypeCertificateCacheModel.dossierIdCTN;
+
+		if ((dossierIdCTN != null) && (dossierIdCTN.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.dossierIdCTN = null;
+		}
+
 		vrVehicleTypeCertificateCacheModel.dossierType = getDossierType();
 
 		String dossierType = vrVehicleTypeCertificateCacheModel.dossierType;
@@ -3960,6 +4190,14 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 		if ((applicantIdNo != null) && (applicantIdNo.length() == 0)) {
 			vrVehicleTypeCertificateCacheModel.applicantIdNo = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.applicantTelNo = getApplicantTelNo();
+
+		String applicantTelNo = vrVehicleTypeCertificateCacheModel.applicantTelNo;
+
+		if ((applicantTelNo != null) && (applicantTelNo.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.applicantTelNo = null;
 		}
 
 		vrVehicleTypeCertificateCacheModel.applicantName = getApplicantName();
@@ -4056,12 +4294,61 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			vrVehicleTypeCertificateCacheModel.applicantcontactPhone = null;
 		}
 
+		vrVehicleTypeCertificateCacheModel.applicantcontactTelNo = getApplicantcontactTelNo();
+
+		String applicantcontactTelNo = vrVehicleTypeCertificateCacheModel.applicantcontactTelNo;
+
+		if ((applicantcontactTelNo != null) &&
+				(applicantcontactTelNo.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.applicantcontactTelNo = null;
+		}
+
 		vrVehicleTypeCertificateCacheModel.cityCode = getCityCode();
 
 		String cityCode = vrVehicleTypeCertificateCacheModel.cityCode;
 
 		if ((cityCode != null) && (cityCode.length() == 0)) {
 			vrVehicleTypeCertificateCacheModel.cityCode = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.cityName = getCityName();
+
+		String cityName = vrVehicleTypeCertificateCacheModel.cityName;
+
+		if ((cityName != null) && (cityName.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.cityName = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.districtCode = getDistrictCode();
+
+		String districtCode = vrVehicleTypeCertificateCacheModel.districtCode;
+
+		if ((districtCode != null) && (districtCode.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.districtCode = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.districtName = getDistrictName();
+
+		String districtName = vrVehicleTypeCertificateCacheModel.districtName;
+
+		if ((districtName != null) && (districtName.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.districtName = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.wardCode = getWardCode();
+
+		String wardCode = vrVehicleTypeCertificateCacheModel.wardCode;
+
+		if ((wardCode != null) && (wardCode.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.wardCode = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.wardName = getWardName();
+
+		String wardName = vrVehicleTypeCertificateCacheModel.wardName;
+
+		if ((wardName != null) && (wardName.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.wardName = null;
 		}
 
 		vrVehicleTypeCertificateCacheModel.manufacturerForeignCode = getManufacturerForeignCode();
@@ -4746,14 +5033,6 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			vrVehicleTypeCertificateCacheModel.commonSafetyStandard = null;
 		}
 
-		vrVehicleTypeCertificateCacheModel.emissionStandard = getEmissionStandard();
-
-		String emissionStandard = vrVehicleTypeCertificateCacheModel.emissionStandard;
-
-		if ((emissionStandard != null) && (emissionStandard.length() == 0)) {
-			vrVehicleTypeCertificateCacheModel.emissionStandard = null;
-		}
-
 		vrVehicleTypeCertificateCacheModel.commonSafetyDescription = getCommonSafetyDescription();
 
 		String commonSafetyDescription = vrVehicleTypeCertificateCacheModel.commonSafetyDescription;
@@ -4761,6 +5040,14 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		if ((commonSafetyDescription != null) &&
 				(commonSafetyDescription.length() == 0)) {
 			vrVehicleTypeCertificateCacheModel.commonSafetyDescription = null;
+		}
+
+		vrVehicleTypeCertificateCacheModel.emissionStandard = getEmissionStandard();
+
+		String emissionStandard = vrVehicleTypeCertificateCacheModel.emissionStandard;
+
+		if ((emissionStandard != null) && (emissionStandard.length() == 0)) {
+			vrVehicleTypeCertificateCacheModel.emissionStandard = null;
 		}
 
 		vrVehicleTypeCertificateCacheModel.emissionDescription = getEmissionDescription();
@@ -4995,6 +5282,8 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 			vrVehicleTypeCertificateCacheModel.deliverableCode = null;
 		}
 
+		vrVehicleTypeCertificateCacheModel.deliverableFileEntryid = getDeliverableFileEntryid();
+
 		vrVehicleTypeCertificateCacheModel.module = getModule();
 
 		String module = vrVehicleTypeCertificateCacheModel.module;
@@ -5026,7 +5315,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(271);
+		StringBundler sb = new StringBundler(289);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -5034,6 +5323,8 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getMtCore());
 		sb.append(", dossierId=");
 		sb.append(getDossierId());
+		sb.append(", dossierIdCTN=");
+		sb.append(getDossierIdCTN());
 		sb.append(", dossierType=");
 		sb.append(getDossierType());
 		sb.append(", dossierNo=");
@@ -5048,6 +5339,8 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getConvertassembleId());
 		sb.append(", applicantIdNo=");
 		sb.append(getApplicantIdNo());
+		sb.append(", applicantTelNo=");
+		sb.append(getApplicantTelNo());
 		sb.append(", applicantName=");
 		sb.append(getApplicantName());
 		sb.append(", applicantIdDate=");
@@ -5070,8 +5363,20 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getApplicantContactEmail());
 		sb.append(", applicantcontactPhone=");
 		sb.append(getApplicantcontactPhone());
+		sb.append(", applicantcontactTelNo=");
+		sb.append(getApplicantcontactTelNo());
 		sb.append(", cityCode=");
 		sb.append(getCityCode());
+		sb.append(", cityName=");
+		sb.append(getCityName());
+		sb.append(", districtCode=");
+		sb.append(getDistrictCode());
+		sb.append(", districtName=");
+		sb.append(getDistrictName());
+		sb.append(", wardCode=");
+		sb.append(getWardCode());
+		sb.append(", wardName=");
+		sb.append(getWardName());
 		sb.append(", manufacturerForeignCode=");
 		sb.append(getManufacturerForeignCode());
 		sb.append(", manufacturerName=");
@@ -5230,10 +5535,10 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getEmissionTestReportDate());
 		sb.append(", commonSafetyStandard=");
 		sb.append(getCommonSafetyStandard());
-		sb.append(", emissionStandard=");
-		sb.append(getEmissionStandard());
 		sb.append(", commonSafetyDescription=");
 		sb.append(getCommonSafetyDescription());
+		sb.append(", emissionStandard=");
+		sb.append(getEmissionStandard());
 		sb.append(", emissionDescription=");
 		sb.append(getEmissionDescription());
 		sb.append(", otherTestReportNo=");
@@ -5292,6 +5597,8 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getCertificateNote());
 		sb.append(", deliverableCode=");
 		sb.append(getDeliverableCode());
+		sb.append(", deliverableFileEntryid=");
+		sb.append(getDeliverableFileEntryid());
 		sb.append(", module=");
 		sb.append(getModule());
 		sb.append(", modifyDate=");
@@ -5305,7 +5612,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(409);
+		StringBundler sb = new StringBundler(436);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRVehicleTypeCertificate");
@@ -5322,6 +5629,10 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(
 			"<column><column-name>dossierId</column-name><column-value><![CDATA[");
 		sb.append(getDossierId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>dossierIdCTN</column-name><column-value><![CDATA[");
+		sb.append(getDossierIdCTN());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>dossierType</column-name><column-value><![CDATA[");
@@ -5350,6 +5661,10 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(
 			"<column><column-name>applicantIdNo</column-name><column-value><![CDATA[");
 		sb.append(getApplicantIdNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>applicantTelNo</column-name><column-value><![CDATA[");
+		sb.append(getApplicantTelNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>applicantName</column-name><column-value><![CDATA[");
@@ -5396,8 +5711,32 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getApplicantcontactPhone());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>applicantcontactTelNo</column-name><column-value><![CDATA[");
+		sb.append(getApplicantcontactTelNo());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>cityCode</column-name><column-value><![CDATA[");
 		sb.append(getCityCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>cityName</column-name><column-value><![CDATA[");
+		sb.append(getCityName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>districtCode</column-name><column-value><![CDATA[");
+		sb.append(getDistrictCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>districtName</column-name><column-value><![CDATA[");
+		sb.append(getDistrictName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>wardCode</column-name><column-value><![CDATA[");
+		sb.append(getWardCode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>wardName</column-name><column-value><![CDATA[");
+		sb.append(getWardName());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>manufacturerForeignCode</column-name><column-value><![CDATA[");
@@ -5716,12 +6055,12 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getCommonSafetyStandard());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>emissionStandard</column-name><column-value><![CDATA[");
-		sb.append(getEmissionStandard());
-		sb.append("]]></column-value></column>");
-		sb.append(
 			"<column><column-name>commonSafetyDescription</column-name><column-value><![CDATA[");
 		sb.append(getCommonSafetyDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>emissionStandard</column-name><column-value><![CDATA[");
+		sb.append(getEmissionStandard());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>emissionDescription</column-name><column-value><![CDATA[");
@@ -5840,6 +6179,10 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 		sb.append(getDeliverableCode());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>deliverableFileEntryid</column-name><column-value><![CDATA[");
+		sb.append(getDeliverableFileEntryid());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>module</column-name><column-value><![CDATA[");
 		sb.append(getModule());
 		sb.append("]]></column-value></column>");
@@ -5868,6 +6211,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	private long _dossierId;
 	private long _originalDossierId;
 	private boolean _setOriginalDossierId;
+	private String _dossierIdCTN;
 	private String _dossierType;
 	private String _dossierNo;
 	private String _originalDossierNo;
@@ -5878,6 +6222,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	private long _convertassembleId;
 	private String _applicantIdNo;
 	private String _originalApplicantIdNo;
+	private String _applicantTelNo;
 	private String _applicantName;
 	private Date _applicantIdDate;
 	private String _applicantAddress;
@@ -5889,7 +6234,13 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	private String _applicantContactName;
 	private String _applicantContactEmail;
 	private String _applicantcontactPhone;
+	private String _applicantcontactTelNo;
 	private String _cityCode;
+	private String _cityName;
+	private String _districtCode;
+	private String _districtName;
+	private String _wardCode;
+	private String _wardName;
 	private String _manufacturerForeignCode;
 	private String _originalManufacturerForeignCode;
 	private String _manufacturerName;
@@ -5985,9 +6336,9 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	private Date _emissionTestReportDate;
 	private String _commonSafetyStandard;
 	private String _originalCommonSafetyStandard;
+	private String _commonSafetyDescription;
 	private String _emissionStandard;
 	private String _originalEmissionStandard;
-	private String _commonSafetyDescription;
 	private String _emissionDescription;
 	private String _otherTestReportNo;
 	private Date _otherTestReportDate;
@@ -6022,6 +6373,7 @@ public class VRVehicleTypeCertificateModelImpl extends BaseModelImpl<VRVehicleTy
 	private String _certificateNote;
 	private String _deliverableCode;
 	private String _originalDeliverableCode;
+	private long _deliverableFileEntryid;
 	private String _module;
 	private Date _modifyDate;
 	private Date _syncDate;

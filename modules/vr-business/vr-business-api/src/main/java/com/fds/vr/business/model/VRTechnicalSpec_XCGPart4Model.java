@@ -179,6 +179,20 @@ public interface VRTechnicalSpec_XCGPart4Model extends BaseModel<VRTechnicalSpec
 	public void setDeliverableCode(String deliverableCode);
 
 	/**
+	 * Returns the vehicle type certificate ID of this vr technical spec_xcg part4.
+	 *
+	 * @return the vehicle type certificate ID of this vr technical spec_xcg part4
+	 */
+	public long getVehicleTypeCertificateId();
+
+	/**
+	 * Sets the vehicle type certificate ID of this vr technical spec_xcg part4.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID of this vr technical spec_xcg part4
+	 */
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId);
+
+	/**
 	 * Returns the xcg01496 of this vr technical spec_xcg part4.
 	 *
 	 * @return the xcg01496 of this vr technical spec_xcg part4

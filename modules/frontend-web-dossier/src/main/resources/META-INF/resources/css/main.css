@@ -193,3 +193,58 @@ table.table tbody td, table.table tbody th {
 table.table tfoot tr {
     height: 35px !important;
 }
+/* ----------------- */
+#danhSachXeDaXuatXuongFilter .input-group{
+	padding: 0px!important;
+}
+.span-thaotac{
+	color: #0b72ba; 
+	font-weight: bold;
+	cursor: pointer;
+	margin: 0 5px;
+}
+.table-xuatxuong td{
+	line-height: 35px;
+	padding: 0px!important;
+}
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-left: 21px solid #4e839d;
+	border-bottom: 6px solid transparent;
+}
+
+.xuatXuong .input-group{
+	padding: 0px!important;
+}
+
+.table-simple {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-simple td, .table-simple th {
+  border: 1px solid #ddd;
+  padding: 3px;
+}
+
+.table-simple tr:nth-child(even){
+  background-color: #f1efef;
+}
+
+.table-simple tr:hover {background-color: #ddd;}
+
+.table-simple th {
+  text-align: left;
+  font-weight: 450;
+  font-size: 12px;
+  background-color: #47a0ed;
+  color: white;
+}
+
+.chip .chip__content {
+	min-height: 17px !important;
+	font-size: 12px !important;
+}

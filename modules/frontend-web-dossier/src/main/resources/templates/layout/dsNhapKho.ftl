@@ -42,16 +42,16 @@
 		  		  		{{ pageDSPNK * 15 - 15 + props.index + 1 }}
 		  		  	</td>
 		  		  	<td style="padding: 8px;" class="text-xs-center">
-		  		  		{{props.item.soPhieu}}
+		  		  		{{props.item['inputSheetNo']}}
 		  		  	</td>
 		  		  	<td style="padding: 8px;;" class="text-xs-center">
-		  		  		{{props.item.ngayNhap}}
+		  		  		{{props.item['inputSheetDate']}}
 		  		  	</td>
 		  		  	<td style="padding: 8px;" class="text-xs-center">
-		  		  		{{props.item.doiTuong}}
+		  		  		{{props.item['vehicleClass']}}
 		  		  	</td>
 		  		  	<td style="padding: 8px;" class="text-xs-center">
-		  		  		{{props.item.trangThai}}
+		  		  		{{(props.item['isApproval'] === 1 || props.item['isApproval'] === '1') ? 'Đã duyệt' : 'Chưa duyệt'}}
 		  		  	</td>
 		  		</template>
   			</v-data-table>

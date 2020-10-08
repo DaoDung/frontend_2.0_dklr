@@ -67,6 +67,7 @@ public class VRTechnicalSpec_XMYPart2Wrapper implements VRTechnicalSpec_XMYPart2
 		attributes.put("referenceUid", getReferenceUid());
 		attributes.put("dossierIdCTN", getDossierIdCTN());
 		attributes.put("deliverableCode", getDeliverableCode());
+		attributes.put("vehicleTypeCertificateId", getVehicleTypeCertificateId());
 		attributes.put("XMY0010", getXMY0010());
 		attributes.put("XMY0011", getXMY0011());
 		attributes.put("XMY0012", getXMY0012());
@@ -257,6 +258,13 @@ public class VRTechnicalSpec_XMYPart2Wrapper implements VRTechnicalSpec_XMYPart2
 
 		if (deliverableCode != null) {
 			setDeliverableCode(deliverableCode);
+		}
+
+		Long vehicleTypeCertificateId = (Long)attributes.get(
+				"vehicleTypeCertificateId");
+
+		if (vehicleTypeCertificateId != null) {
+			setVehicleTypeCertificateId(vehicleTypeCertificateId);
 		}
 
 		String XMY0010 = (String)attributes.get("XMY0010");
@@ -2623,6 +2631,16 @@ public class VRTechnicalSpec_XMYPart2Wrapper implements VRTechnicalSpec_XMYPart2
 		return _vrTechnicalSpec_XMYPart2.getPrimaryKey();
 	}
 
+	/**
+	* Returns the vehicle type certificate ID of this vr technical spec_xmy part2.
+	*
+	* @return the vehicle type certificate ID of this vr technical spec_xmy part2
+	*/
+	@Override
+	public long getVehicleTypeCertificateId() {
+		return _vrTechnicalSpec_XMYPart2.getVehicleTypeCertificateId();
+	}
+
 	@Override
 	public void persist() {
 		_vrTechnicalSpec_XMYPart2.persist();
@@ -2767,6 +2785,16 @@ public class VRTechnicalSpec_XMYPart2Wrapper implements VRTechnicalSpec_XMYPart2
 	@Override
 	public void setSyncDate(Date syncDate) {
 		_vrTechnicalSpec_XMYPart2.setSyncDate(syncDate);
+	}
+
+	/**
+	* Sets the vehicle type certificate ID of this vr technical spec_xmy part2.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID of this vr technical spec_xmy part2
+	*/
+	@Override
+	public void setVehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		_vrTechnicalSpec_XMYPart2.setVehicleTypeCertificateId(vehicleTypeCertificateId);
 	}
 
 	/**

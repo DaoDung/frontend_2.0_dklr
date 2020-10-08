@@ -66,7 +66,7 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(271);
+		StringBundler sb = new StringBundler(289);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -74,6 +74,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		sb.append(mtCore);
 		sb.append(", dossierId=");
 		sb.append(dossierId);
+		sb.append(", dossierIdCTN=");
+		sb.append(dossierIdCTN);
 		sb.append(", dossierType=");
 		sb.append(dossierType);
 		sb.append(", dossierNo=");
@@ -88,6 +90,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		sb.append(convertassembleId);
 		sb.append(", applicantIdNo=");
 		sb.append(applicantIdNo);
+		sb.append(", applicantTelNo=");
+		sb.append(applicantTelNo);
 		sb.append(", applicantName=");
 		sb.append(applicantName);
 		sb.append(", applicantIdDate=");
@@ -110,8 +114,20 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		sb.append(applicantContactEmail);
 		sb.append(", applicantcontactPhone=");
 		sb.append(applicantcontactPhone);
+		sb.append(", applicantcontactTelNo=");
+		sb.append(applicantcontactTelNo);
 		sb.append(", cityCode=");
 		sb.append(cityCode);
+		sb.append(", cityName=");
+		sb.append(cityName);
+		sb.append(", districtCode=");
+		sb.append(districtCode);
+		sb.append(", districtName=");
+		sb.append(districtName);
+		sb.append(", wardCode=");
+		sb.append(wardCode);
+		sb.append(", wardName=");
+		sb.append(wardName);
 		sb.append(", manufacturerForeignCode=");
 		sb.append(manufacturerForeignCode);
 		sb.append(", manufacturerName=");
@@ -270,10 +286,10 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		sb.append(emissionTestReportDate);
 		sb.append(", commonSafetyStandard=");
 		sb.append(commonSafetyStandard);
-		sb.append(", emissionStandard=");
-		sb.append(emissionStandard);
 		sb.append(", commonSafetyDescription=");
 		sb.append(commonSafetyDescription);
+		sb.append(", emissionStandard=");
+		sb.append(emissionStandard);
 		sb.append(", emissionDescription=");
 		sb.append(emissionDescription);
 		sb.append(", otherTestReportNo=");
@@ -332,6 +348,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		sb.append(certificateNote);
 		sb.append(", deliverableCode=");
 		sb.append(deliverableCode);
+		sb.append(", deliverableFileEntryid=");
+		sb.append(deliverableFileEntryid);
 		sb.append(", module=");
 		sb.append(module);
 		sb.append(", modifyDate=");
@@ -350,6 +368,13 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		vrVehicleTypeCertificateImpl.setId(id);
 		vrVehicleTypeCertificateImpl.setMtCore(mtCore);
 		vrVehicleTypeCertificateImpl.setDossierId(dossierId);
+
+		if (dossierIdCTN == null) {
+			vrVehicleTypeCertificateImpl.setDossierIdCTN(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setDossierIdCTN(dossierIdCTN);
+		}
 
 		if (dossierType == null) {
 			vrVehicleTypeCertificateImpl.setDossierType(StringPool.BLANK);
@@ -393,6 +418,13 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		}
 		else {
 			vrVehicleTypeCertificateImpl.setApplicantIdNo(applicantIdNo);
+		}
+
+		if (applicantTelNo == null) {
+			vrVehicleTypeCertificateImpl.setApplicantTelNo(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setApplicantTelNo(applicantTelNo);
 		}
 
 		if (applicantName == null) {
@@ -473,11 +505,53 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 			vrVehicleTypeCertificateImpl.setApplicantcontactPhone(applicantcontactPhone);
 		}
 
+		if (applicantcontactTelNo == null) {
+			vrVehicleTypeCertificateImpl.setApplicantcontactTelNo(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setApplicantcontactTelNo(applicantcontactTelNo);
+		}
+
 		if (cityCode == null) {
 			vrVehicleTypeCertificateImpl.setCityCode(StringPool.BLANK);
 		}
 		else {
 			vrVehicleTypeCertificateImpl.setCityCode(cityCode);
+		}
+
+		if (cityName == null) {
+			vrVehicleTypeCertificateImpl.setCityName(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setCityName(cityName);
+		}
+
+		if (districtCode == null) {
+			vrVehicleTypeCertificateImpl.setDistrictCode(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setDistrictCode(districtCode);
+		}
+
+		if (districtName == null) {
+			vrVehicleTypeCertificateImpl.setDistrictName(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setDistrictName(districtName);
+		}
+
+		if (wardCode == null) {
+			vrVehicleTypeCertificateImpl.setWardCode(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setWardCode(wardCode);
+		}
+
+		if (wardName == null) {
+			vrVehicleTypeCertificateImpl.setWardName(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setWardName(wardName);
 		}
 
 		if (manufacturerForeignCode == null) {
@@ -1049,18 +1123,18 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 			vrVehicleTypeCertificateImpl.setCommonSafetyStandard(commonSafetyStandard);
 		}
 
-		if (emissionStandard == null) {
-			vrVehicleTypeCertificateImpl.setEmissionStandard(StringPool.BLANK);
-		}
-		else {
-			vrVehicleTypeCertificateImpl.setEmissionStandard(emissionStandard);
-		}
-
 		if (commonSafetyDescription == null) {
 			vrVehicleTypeCertificateImpl.setCommonSafetyDescription(StringPool.BLANK);
 		}
 		else {
 			vrVehicleTypeCertificateImpl.setCommonSafetyDescription(commonSafetyDescription);
+		}
+
+		if (emissionStandard == null) {
+			vrVehicleTypeCertificateImpl.setEmissionStandard(StringPool.BLANK);
+		}
+		else {
+			vrVehicleTypeCertificateImpl.setEmissionStandard(emissionStandard);
 		}
 
 		if (emissionDescription == null) {
@@ -1259,6 +1333,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 			vrVehicleTypeCertificateImpl.setDeliverableCode(deliverableCode);
 		}
 
+		vrVehicleTypeCertificateImpl.setDeliverableFileEntryid(deliverableFileEntryid);
+
 		if (module == null) {
 			vrVehicleTypeCertificateImpl.setModule(StringPool.BLANK);
 		}
@@ -1292,6 +1368,7 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		mtCore = objectInput.readLong();
 
 		dossierId = objectInput.readLong();
+		dossierIdCTN = objectInput.readUTF();
 		dossierType = objectInput.readUTF();
 		dossierNo = objectInput.readUTF();
 		referenceUid = objectInput.readUTF();
@@ -1300,6 +1377,7 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 
 		convertassembleId = objectInput.readLong();
 		applicantIdNo = objectInput.readUTF();
+		applicantTelNo = objectInput.readUTF();
 		applicantName = objectInput.readUTF();
 		applicantIdDate = objectInput.readLong();
 		applicantAddress = objectInput.readUTF();
@@ -1311,7 +1389,13 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		applicantContactName = objectInput.readUTF();
 		applicantContactEmail = objectInput.readUTF();
 		applicantcontactPhone = objectInput.readUTF();
+		applicantcontactTelNo = objectInput.readUTF();
 		cityCode = objectInput.readUTF();
+		cityName = objectInput.readUTF();
+		districtCode = objectInput.readUTF();
+		districtName = objectInput.readUTF();
+		wardCode = objectInput.readUTF();
+		wardName = objectInput.readUTF();
 		manufacturerForeignCode = objectInput.readUTF();
 		manufacturerName = objectInput.readUTF();
 		manufacturerAddress = objectInput.readUTF();
@@ -1391,8 +1475,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		emissionTestReportNo = objectInput.readUTF();
 		emissionTestReportDate = objectInput.readLong();
 		commonSafetyStandard = objectInput.readUTF();
-		emissionStandard = objectInput.readUTF();
 		commonSafetyDescription = objectInput.readUTF();
+		emissionStandard = objectInput.readUTF();
 		emissionDescription = objectInput.readUTF();
 		otherTestReportNo = objectInput.readUTF();
 		otherTestReportDate = objectInput.readLong();
@@ -1424,6 +1508,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		inspectionNote = objectInput.readUTF();
 		certificateNote = objectInput.readUTF();
 		deliverableCode = objectInput.readUTF();
+
+		deliverableFileEntryid = objectInput.readLong();
 		module = objectInput.readUTF();
 		modifyDate = objectInput.readLong();
 		syncDate = objectInput.readLong();
@@ -1437,6 +1523,13 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		objectOutput.writeLong(mtCore);
 
 		objectOutput.writeLong(dossierId);
+
+		if (dossierIdCTN == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(dossierIdCTN);
+		}
 
 		if (dossierType == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -1480,6 +1573,13 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 		}
 		else {
 			objectOutput.writeUTF(applicantIdNo);
+		}
+
+		if (applicantTelNo == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantTelNo);
 		}
 
 		if (applicantName == null) {
@@ -1554,11 +1654,53 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 			objectOutput.writeUTF(applicantcontactPhone);
 		}
 
+		if (applicantcontactTelNo == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(applicantcontactTelNo);
+		}
+
 		if (cityCode == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
 			objectOutput.writeUTF(cityCode);
+		}
+
+		if (cityName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(cityName);
+		}
+
+		if (districtCode == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(districtCode);
+		}
+
+		if (districtName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(districtName);
+		}
+
+		if (wardCode == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(wardCode);
+		}
+
+		if (wardName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(wardName);
 		}
 
 		if (manufacturerForeignCode == null) {
@@ -2027,18 +2169,18 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 			objectOutput.writeUTF(commonSafetyStandard);
 		}
 
-		if (emissionStandard == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(emissionStandard);
-		}
-
 		if (commonSafetyDescription == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
 			objectOutput.writeUTF(commonSafetyDescription);
+		}
+
+		if (emissionStandard == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(emissionStandard);
 		}
 
 		if (emissionDescription == null) {
@@ -2219,6 +2361,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 			objectOutput.writeUTF(deliverableCode);
 		}
 
+		objectOutput.writeLong(deliverableFileEntryid);
+
 		if (module == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
@@ -2233,6 +2377,7 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 	public long id;
 	public long mtCore;
 	public long dossierId;
+	public String dossierIdCTN;
 	public String dossierType;
 	public String dossierNo;
 	public String referenceUid;
@@ -2240,6 +2385,7 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 	public String serviceName;
 	public long convertassembleId;
 	public String applicantIdNo;
+	public String applicantTelNo;
 	public String applicantName;
 	public long applicantIdDate;
 	public String applicantAddress;
@@ -2251,7 +2397,13 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 	public String applicantContactName;
 	public String applicantContactEmail;
 	public String applicantcontactPhone;
+	public String applicantcontactTelNo;
 	public String cityCode;
+	public String cityName;
+	public String districtCode;
+	public String districtName;
+	public String wardCode;
+	public String wardName;
 	public String manufacturerForeignCode;
 	public String manufacturerName;
 	public String manufacturerAddress;
@@ -2331,8 +2483,8 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 	public String emissionTestReportNo;
 	public long emissionTestReportDate;
 	public String commonSafetyStandard;
-	public String emissionStandard;
 	public String commonSafetyDescription;
+	public String emissionStandard;
 	public String emissionDescription;
 	public String otherTestReportNo;
 	public long otherTestReportDate;
@@ -2362,6 +2514,7 @@ public class VRVehicleTypeCertificateCacheModel implements CacheModel<VRVehicleT
 	public String inspectionNote;
 	public String certificateNote;
 	public String deliverableCode;
+	public long deliverableFileEntryid;
 	public String module;
 	public long modifyDate;
 	public long syncDate;

@@ -11,11 +11,11 @@
 	<div id="contentMain" class="row panel M0" style="border: none;box-shadow: none">
 		<div class="panel-heading P0">
 			<div class="row PL15 PR15">
-				<div class="row-header align-middle-lg">
+				<div class="row-header align-middle-lg" style="background: #C6E1F1 !important;">
 					<div class="background-triangle-big">
 						<i class="fa fa-file-text"></i>
 					</div>
-					<span class="text-bold" id="statusName" style="text-transform:uppercase;"></span> &nbsp;&nbsp;&nbsp;
+					<span class="text-bold" id="statusName" style="text-transform:uppercase; color: #005F8F !important;"></span> &nbsp;&nbsp;&nbsp;
 					<#if registration?has_content>
 						
 					<#else>
@@ -26,12 +26,12 @@
 						<input type="text" class="form-control" id="noInput" placeholder="Nhập số chứng chỉ" 
 						data-bind="events: { keyup: filterInvestigationNo}" >
 
-						<input type="text" class="form-control" id="keyInput" placeholder="Nhập từ khóa"
+						<input type="text" class="form-control" id="keyInput" placeholder="Nhập số hồ sơ"
 						data-bind="events: { keyup: filterKey}" style="width: 290px;">
 
 					</div>
 					
-					<a class="PL5 PR5 hover-pointer no-icon" href="#searchAdvancedCollapse1" data-toggle="collapse">Nâng cao</a>
+					<a class="PL5 PR5 hover-pointer no-icon" href="#searchAdvancedCollapse1" data-toggle="collapse" id="btnSearchAdvancedCollapse1" style="color: #005F8F !important;">Nâng cao</a>
 
 					<span id="fullScreen" data-bind="events: { click: fullScreen}">
 						<i class="fa fa-expand fs20 toggle-collapse MR10 ML10" aria-hidden="true"></i>
@@ -45,8 +45,8 @@
 		<div id="wrapMain" class="table-responsive">
 			<div class="row collapse toggle-hide M0" id="searchAdvancedCollapse1">
 
-				<div class="col-sm-12">
-					<div class="row PT10">
+				<div class="col-sm-11 PR0 PB5">
+					<div class="row PT5">
 						<#-- <div class="col-sm-3">
 							<label>Thủ tục</label>
 							<input name="advanced_serviceName_search" id="advanced_serviceName_search"
@@ -61,141 +61,175 @@
 							>
 						</div> -->
 						<div class="col-sm-4">
-							<label>Số hồ sơ</label>
-							<input class="form-control input-sm" name="advanced_dossierNo_search" id="advanced_dossierNo_search"
-							placeholder="Số hồ sơ">
-						</div>
-						<div class="col-sm-4">
-							<label>Từ ngày (Ngày tiếp nhận)</label>
-							<input name="fromReceiveDate" id="fromReceiveDate"
-							data-role="datepicker"
-							data-placeholder="Từ ngày"
-							data-format="dd/MM/yyyy"
-							> 
-						</div>
-						<div class="col-sm-4">
-							<label>Đến ngày (Ngày tiếp nhận)</label>
-							<input name="toReceiveDate" id="toReceiveDate"
-							data-role="datepicker"
-							data-placeholder="Đến ngày"
-							data-format="dd/MM/yyyy"
-							>
-							<!-- <div class="input-group date" data-date-format="dd.mm.yyyy">
-								<input  type="text" class="form-control" placeholder="dd.mm.yyyy">
-								<div class="input-group-addon" >
-									<span class="glyphicon glyphicon-th"></span>
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Số hồ sơ</label>
 								</div>
-							</div> -->
+								<div class="col-sm-8">
+									<input class="form-control input-sm" name="advanced_dossierNo_search" id="advanced_dossierNo_search"
+									placeholder="Số hồ sơ">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0 PL0" style="text-align: right;">
+									<label>Ngày tiếp nhận (Từ)</label>
+								</div>
+								<div class="col-sm-8">
+									<input name="fromReceiveDate" id="fromReceiveDate"
+									data-role="datepicker"
+									data-placeholder="Từ ngày"
+									data-format="dd/MM/yyyy"
+									> 
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Đến</label>
+								</div>
+								<div class="col-sm-8">
+									<input name="toReceiveDate" id="toReceiveDate"
+										data-role="datepicker"
+										data-placeholder="Đến ngày"
+										data-format="dd/MM/yyyy"
+									>
+								</div>
+							</div>
 						</div>
 					</div>
 
-					<div class="row PT10">
+					<div class="row PT5">
 						<div class="col-sm-4">
-							<label>Mã hồ sơ</label>
-							<input class="form-control input-sm" name="dossierIdCTNAdvanced" id="dossierIdCTNAdvanced" placeholder="Mã hồ sơ" >
-						</div>
-						<div class="col-sm-4">
-							<label>Từ ngày (Ngày gửi)</label>
-							<input name="fromSubmitDate" id="fromSubmitDate"
-							data-role="datepicker"
-							data-placeholder="Từ ngày"
-							data-format="dd/MM/yyyy"
-							> 
-						</div>
-						<div class="col-sm-4">
-							<label>Đến ngày (Ngày gửi)</label>
-							<input name="toSubmitDate" id="toSubmitDate"
-							data-role="datepicker"
-							data-placeholder="Đến ngày"
-							data-format="dd/MM/yyyy"
-							>
-							<!-- <div class="input-group date" data-date-format="dd.mm.yyyy">
-								<input  type="text" class="form-control" placeholder="dd.mm.yyyy">
-								<div class="input-group-addon" >
-									<span class="glyphicon glyphicon-th"></span>
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Mã hồ sơ</label>
 								</div>
-							</div> -->
+								<div class="col-sm-8">
+									<input class="form-control input-sm" name="dossierIdCTNAdvanced" id="dossierIdCTNAdvanced" placeholder="Mã hồ sơ" >
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Ngày gửi (Từ)</label>
+								</div>
+								<div class="col-sm-8">
+									<input name="fromSubmitDate" id="fromSubmitDate"
+									data-role="datepicker"
+									data-placeholder="Từ ngày"
+									data-format="dd/MM/yyyy"
+									> 
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Đến</label>
+								</div>
+								<div class="col-sm-8">
+									<input name="toSubmitDate" id="toSubmitDate"
+									data-role="datepicker"
+									data-placeholder="Đến ngày"
+									data-format="dd/MM/yyyy"
+									>
+								</div>
+							</div>							
 						</div>
 						
 					</div>
 
-					<div class="row PT10">
+					<div class="row PT5">
 						<div class="col-sm-4">
-							<label>Số chứng chỉ</label>
-							<input class="form-control input-sm" name="so_chung_chi" id="so_chung_chi" placeholder="Số chứng chỉ" >
-						</div>
-						<div class="col-sm-4">
-							<label>Từ ngày (Ngày ký)</label>
-							<input name="tu_ngay_ky_cc" id="tu_ngay_ky_cc"
-							data-role="datepicker"
-							data-placeholder="Từ ngày"
-							data-format="dd/MM/yyyy"
-							> 
-						</div>
-						<div class="col-sm-4">
-							<label>Đến ngày (Ngày ký)</label>
-							<input name="den_ngay_ky_cc" id="den_ngay_ky_cc"
-							data-role="datepicker"
-							data-placeholder="Đến ngày"
-							data-format="dd/MM/yyyy"
-							>
-							<!-- <div class="input-group date" data-date-format="dd.mm.yyyy">
-								<input  type="text" class="form-control" placeholder="dd.mm.yyyy">
-								<div class="input-group-addon" >
-									<span class="glyphicon glyphicon-th"></span>
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Số chứng chỉ</label>
 								</div>
-							</div> -->
+								<div class="col-sm-8">
+									<input class="form-control input-sm" name="so_chung_chi" id="so_chung_chi" placeholder="Số chứng chỉ" >
+								</div>
+							</div>	
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Ngày ký (Từ)</label>
+								</div>
+								<div class="col-sm-8">
+									<input name="tu_ngay_ky_cc" id="tu_ngay_ky_cc"
+									data-role="datepicker"
+									data-placeholder="Từ ngày"
+									data-format="dd/MM/yyyy"
+									> 
+								</div>
+							</div>								
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-4 PT5 PR0" style="text-align: right;">
+									<label>Đến</label>
+								</div>
+								<div class="col-sm-8">
+									<input name="den_ngay_ky_cc" id="den_ngay_ky_cc"
+									data-role="datepicker"
+									data-placeholder="Đến ngày"
+									data-format="dd/MM/yyyy"
+									>
+								</div>
+							</div>								
 						</div>
 						
-					</div>
-					<div class="row PT15 PB10 border-bottom ">
-						<div class="col-sm-12">
-							<button class="btn btn-active" data-bind="events: {
-							click: searchAdvanced}">Tìm kiếm</button>
-						</div>
 					</div>
 				</div>
-
+				
+				<div class="col-sm-1 PL0 PR0" style="height: 100px; display: flex; align-items: flex-end;">
+					<button class="btn btn-active" data-bind="events: {
+						click: searchAdvanced}">Tìm kiếm</button>
+				</div>
 			</div> 
 			<table class="table table-bordered M0">
 				<#-- Table header -->
-				<thead>
+				<thead style="background: #316BB6; color: #fff;font-weight: normal;">
 					<tr>
 						<th class="text-center hover-pointer">
-							<span>STT</span>
+							<span style="font-weight: normal;">STT</span>
 						</th>
 						<th class="fieldDossier text-center hover-pointer" sort="serviceName" sort-type="desc">
-							<span>Tên thủ tục</span>
-							<span class="pull-right align-middle PT5 text-light-gray">
+							<span style="font-weight: normal;">Tên thủ tục</span>
+							<span class="pull-right align-middle PT5">
 								<i class="fa fa-sort" aria-hidden="true"></i>
 							</span>		
 						</th>
 						<th class="fieldDossier text-center hover-pointer PL0 PR5" sort="dossierId" sort-type="desc">
-							<span>Mã hồ sơ </span>
-							<span class="pull-right align-middle PT5 text-light-gray">
+							<span style="font-weight: normal;">Mã hồ sơ </span>
+							<span class="pull-right align-middle PT5">
 								<i class="fa fa-sort" aria-hidden="true"></i>
 							</span></br>
-							<span class="PR10">Số hồ sơ</span>
+							<span style="font-weight: normal;" class="PR10">Số hồ sơ</span>
 						</th>
 						<th class="fieldDossier text-center hover-pointer" sort="submitDate" sort-type="desc">
-							<strong>Ngày gửi</strong>
-							<span class="pull-right align-middle PT5 text-light-gray">
+							<span style="font-weight: normal;">Ngày gửi</span>
+							<span class="pull-right align-middle PT5">
 								<i class="fa fa-sort" aria-hidden="true"></i>
 							</span></br>
-							<strong>Ngày tiếp nhận</strong>
+							<span style="font-weight: normal;">Ngày tiếp nhận</span>
 						</th>
 						<th class="text-center hover-pointer">
-							<strong>Số chứng chỉ</strong></br>
-							<strong>Ngày ký</strong>
+							<span style="font-weight: normal;">Số chứng chỉ</span></br>
+							<span style="font-weight: normal;">Ngày ký</span>
 						</th>
 						<th class="text-center hover-pointer">
-							<strong>Nội dung</strong>
+							<span style="font-weight: normal;">Nội dung</span>
 						</th>
 						<th class="text-center hover-pointer">
-							<strong>Ghi chú</strong>
+							<span style="font-weight: normal;">Ghi chú</span>
 						</th>
 						<th class="text-center">
-							<strong>Hành động</strong>
+							<span style="font-weight: normal;">Hành động</span>
 						</th>
 					</tr>
 				</thead>
@@ -208,7 +242,7 @@
 		</div>
 		<div class="footerListProfile row-header col-sm-12 PT20 PR0" style="background: #f6f6f6">
 			<div class="clearfix align-middle" style="float: right">
-				<span class="text-light-gray MR15"><i>Tổng số <span id="totalItem_dossierList" class="red"></span> kết quả được tìm thấy</i></span>
+				<span class="MR15"><i>Tổng số <span id="totalItem_dossierList" class="red"></span> kết quả được tìm thấy</i></span>
 				<span class="show-per-page MT0">Hiển thị
 					<span class="select-wrapper">
 						<select class="ML5" id="itemPpage" data-bind="events:{change: changePageSize}" style="background-color: #ffffff">
@@ -225,8 +259,9 @@
 <#-- <#include "notificationPaying.ftl"> -->
 <#-- for listview dossier-->
 <script type="text/x-kendo-template" id="proFileTemplate">
+
 	<tr class="rowTable">
-		<td class="text-center count" style="width: 1%">
+		<td class="text-center count" style="width: 1%; text-align: center;">
 			#:count#
 		</td>
 
@@ -250,7 +285,7 @@
 			<p title="Số hồ sơ">#=dossierNo#</p>
 		</td>
 
-		<td class="text-center" style="width: 8%">
+		<td class="text-center" style="width: 14%">
 			#if (submitDate) {#
 			<p title="Ngày gửi">
 				#:submitDate#
@@ -276,8 +311,8 @@
 			<p>#=certDate#</p>
 		</td>
 
-		<td class="" style="width: 23%">
-			<i class="text-light-gray">#=briefNote#</i>
+		<td class="" style="width: 16%">
+			<span class="">#=briefNote#</span>
 		</td>
 
 		<td class="" style="width: 23%">
@@ -327,6 +362,22 @@
 			}
 			#
 
+			#
+			if(isExpiredCertificates){
+			#
+				<button type="button" class="btn-link no-border PT10 deNghiXNHH" data-pk="#:dossierId#">
+					<i class="fa fa-paper-plane" aria-hidden="true"></i>
+					Đề nghị XNHN
+				</button>
+				<button type="button" class="btn-link no-border PT10 dungSX" data-pk="#:dossierId#">
+					<i class="fa fa-times" aria-hidden="true"/>
+					Dừng SX
+				</button>
+
+			#
+			}
+			#
+
 
 			#
 			if(dossierStatus == "waiting" && !cancellingDate && !endorsementDate && !correctingDate){
@@ -355,3 +406,66 @@
 	</tr>
 </script>
 
+
+<style>
+	.table>tr>td:first-child, .table>tr>th:first-child {
+		padding-left: 8px;
+	}
+	.ul-with-left-icon.icon-folder .icon-left {
+		left: 0 !important;
+	}
+	.ul-with-left-icon.icon-folder li {
+		padding-left:  26px !important;
+	}
+	ul#profileStatus {
+		height: 300px !important;
+		overflow: auto;
+	}
+
+	.table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+		border: 1px solid #979696;
+	}
+
+	/*ul#profileStatus::-webkit-scrollbar-track
+	{
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		border-radius: 10px;
+		background-color: #F5F5F5;
+	}
+
+	ul#profileStatus::-webkit-scrollbar
+	{
+		width: 12px;
+		background-color: #F5F5F5;
+	}
+
+	ul#profileStatus::-webkit-scrollbar-thumb
+	{
+		border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		background-color: #D62929;
+	}*/
+
+	tbody#listViewDossier>tr:hover {
+		background: #e9e8e8;
+	}
+
+	tbody#listViewDossier tr:nth-child(even){
+		background-color: #f1efef;
+	}
+
+	#banner > .container-fluid, #navigation > .container-fluid, #main-content > .container-fluid, #footer > .container-fluid {
+		padding-left:  5px;
+		padding-right:  5px;
+	}
+	body section#main-content {
+		padding-top: 0;
+	}
+
+	.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+		padding: 2px !important;
+	}
+	span, i, b, p, strong, button {
+		font-size: 12px;
+	}
+</style>

@@ -64,7 +64,14 @@
 							
 						},
 						success: function(result) {
-							options.success(result);
+							if (result.data) {
+								options.success(result);
+							} else {
+								options.success({
+									data: [],
+									total: 0
+								});
+							}
 							$("#serverconfigs_pager .k-link").css({"border-radius":"0","border-color":"#ddd","height":"27px","margin-right":"0px"})
 						}
 					});
@@ -105,16 +112,10 @@
 					$("#serverconfigs_pager .k-link").css({"border-radius":"0","border-color":"#ddd","height":"27px","margin-right":"0px"})
 			},
 			change: function() {
-				var serverconfigId, serverconfigsMaserver, serverconfigsTenserver, serverconfigsGiaothuc;
 				var index = this.select().index();
 				var dataItem = this.dataSource.view()[index];
-				serverconfigId = this.select().attr("data-serverconfigs");
-				serverconfigsMaserver = this.select().attr("data-maserver");
-				serverconfigsTenserver = this.select().attr("data-tenserver");
-				// registrationThamso = this.select().attr("data-thamso");
-				registrationGiaothuc = this.select().attr("data-giaothuc");
 				$("#btn_save_serverconfigs").attr("data-pk", dataItem.id);
-				loadserverconfigsDetail(serverconfigId, serverconfigsMaserver, serverconfigsTenserver, serverconfigsGiaothuc);
+				loadserverconfigsDetail(dataItem.serverName, dataItem.serverNo, dataItem.protocol, dataItem.configs);
 				deleteServerconfigs();
 				$("#serverconfigs_pager .k-link").css({"border-radius":"0","border-color":"#ddd","height":"27px","margin-right":"0px"})
 			}
@@ -193,34 +194,19 @@
 				serverNo : "",
 				serverName : "",
 				protocol: "",
-				lastSync: ""
+				configs: ""
 			});
 			kendo.bind($("#serverconfigs_part_model"), viewModel);
 			$("#btn_save_serverconfigs_part").attr("data-pk", "");
 		});
 // ---------------------
 	  var loadserverconfigsDetail = function(serverconfigId, serverconfigsMaserver, serverconfigsTenserver, serverconfigsGiaothuc){
-	    
-	    var lastSync;
-	    $.ajax({
-	      // url: "${api.server}" + "/registrationtemplates/" + registrationTemplateId+"/formscript",
-	      // url: "http://localhost:3000/registrationformscript",
-	      url:"${api.server}/serverconfigs/"+serverconfigId+"/configs",
-	      type: "GET",
-	      dataType: "text",
-	      headers: {"groupId": ${groupId}},
-	      async: false,
-	      success: function(result) {
-	      	lastSync=result;
-	      }
-	    });
-	    
-
+	  
 	    var viewModel = kendo.observable({
-	      serverName: serverconfigsTenserver,
+	      serverName: serverconfigId,
 	      serverNo: serverconfigsMaserver,
-	      protocol: serverconfigsGiaothuc,
-	      lastSync: lastSync
+	      protocol: serverconfigsTenserver,
+	      configs: serverconfigsGiaothuc
 	    });
 
 	    kendo.bind($("#serverconfigs_part_model"), viewModel);

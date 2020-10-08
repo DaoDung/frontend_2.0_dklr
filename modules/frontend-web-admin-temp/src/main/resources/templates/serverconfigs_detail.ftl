@@ -53,12 +53,12 @@
       <div class="col-xs-12 col-sm-12">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
-            Tham số cofigs
+            Tham số configs
           </div>
         </div>
         <div class="row MT5">
           <div class="col-xs-12 col-sm-12">
-            <textarea id="lastSync" rows="5" name="lastSync" class="k-textbox form-control" data-bind="value:lastSync"></textarea>
+            <textarea id="configs" rows="5" name="configs" class="k-textbox form-control" data-bind="value:configs"></textarea>
           </div>
         </div>
       </div>
@@ -165,38 +165,12 @@
         serverNo: $("#serverNo").val(),
         serverName: $("#serverName").val(),
         protocol: $("#protocol").val(),
+        configs: $("#configs").val()
       },
       success: function(result) {
-        
-         var h = result.serverConfigId;
-
-        var upFormscriptSuccess = false, upFormReportSuccess = false, upSampleDataSuccess = false;
-        $.ajax({
-          // url: "${api.server}" + "/registrationtemplates/" + registrationTemplatePartDataPk +"/formscript",
-          url:"${api.server}/serverconfigs/"+h+"/configs",
-          type: "PUT",
-          dataType: "json",
-          headers: {"groupId": ${groupId}},
-          async: false,
-          data: {
-            lastSync: $("#lastSync").val()
-          },
-          success: function(result) {
-            upFormscriptSuccess = true;
-          }
-        });
-        if (upFormscriptSuccess && upFormReportSuccess && upSampleDataSuccess){
-          notification.show({
-            message: "Yêu cầu được thực hiện thành công"
-          }, "success");
-
-          $("#serverconfigs_list_view").getKendoListView().dataSource.read();
-          
-        } else {
-          notification.show({
-            message: "Xảy ra lỗi, vui lòng thử lại"
-          }, "error");
-        }
+        notification.show({
+          message: "Yêu cầu được thực hiện thành công"
+        }, "success");
       },
       error: function(result) {
         notification.show({

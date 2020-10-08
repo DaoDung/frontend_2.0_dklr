@@ -49,7 +49,7 @@ import org.osgi.service.component.annotations.Component;
 	property = {
 		"com.liferay.portlet.css-class-wrapper=portlet-freemarker",
 		"com.liferay.portlet.display-category=category.opencps.register",
-		"com.liferay.portlet.header-portlet-css=/css/app.c312040036bb3450be3110418f41da25.css",
+		"com.liferay.portlet.header-portlet-css=/css/app.a88bb928d39902245a09d6cb2d0664be.css",
 		"com.liferay.portlet.instanceable=true",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/templates/view.ftl",

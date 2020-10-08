@@ -223,15 +223,8 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.fds.vr.service.util.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.fds.vr.business.model.VRApplicantProfile"),
 			true);
-	public static final long APPLICANTCITY_COLUMN_BITMASK = 1L;
-	public static final long APPLICANTCODE_COLUMN_BITMASK = 2L;
-	public static final long APPLICANTREGION_COLUMN_BITMASK = 4L;
-	public static final long APPLICANTSTATUS_COLUMN_BITMASK = 8L;
-	public static final long MAPPINGMA_CTY_COLUMN_BITMASK = 16L;
-	public static final long MAPPINGSTATUS_COLUMN_BITMASK = 32L;
-	public static final long MAPPINGTEN_CTY_COLUMN_BITMASK = 64L;
-	public static final long MTCORE_COLUMN_BITMASK = 128L;
-	public static final long MODIFYDATE_COLUMN_BITMASK = 256L;
+	public static final long APPLICANTCODE_COLUMN_BITMASK = 1L;
+	public static final long MODIFYDATE_COLUMN_BITMASK = 2L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.fds.vr.service.util.ServiceProps.get(
 				"lock.expiration.time.com.fds.vr.business.model.VRApplicantProfile"));
 
@@ -812,19 +805,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setMtCore(long mtCore) {
-		_columnBitmask |= MTCORE_COLUMN_BITMASK;
-
-		if (!_setOriginalMtCore) {
-			_setOriginalMtCore = true;
-
-			_originalMtCore = _mtCore;
-		}
-
 		_mtCore = mtCore;
-	}
-
-	public long getOriginalMtCore() {
-		return _originalMtCore;
 	}
 
 	@Override
@@ -839,17 +820,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setMappingMA_CTY(String mappingMA_CTY) {
-		_columnBitmask |= MAPPINGMA_CTY_COLUMN_BITMASK;
-
-		if (_originalMappingMA_CTY == null) {
-			_originalMappingMA_CTY = _mappingMA_CTY;
-		}
-
 		_mappingMA_CTY = mappingMA_CTY;
-	}
-
-	public String getOriginalMappingMA_CTY() {
-		return GetterUtil.getString(_originalMappingMA_CTY);
 	}
 
 	@Override
@@ -864,17 +835,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setMappingTEN_CTY(String mappingTEN_CTY) {
-		_columnBitmask |= MAPPINGTEN_CTY_COLUMN_BITMASK;
-
-		if (_originalMappingTEN_CTY == null) {
-			_originalMappingTEN_CTY = _mappingTEN_CTY;
-		}
-
 		_mappingTEN_CTY = mappingTEN_CTY;
-	}
-
-	public String getOriginalMappingTEN_CTY() {
-		return GetterUtil.getString(_originalMappingTEN_CTY);
 	}
 
 	@Override
@@ -919,17 +880,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setMappingStatus(String mappingStatus) {
-		_columnBitmask |= MAPPINGSTATUS_COLUMN_BITMASK;
-
-		if (_originalMappingStatus == null) {
-			_originalMappingStatus = _mappingStatus;
-		}
-
 		_mappingStatus = mappingStatus;
-	}
-
-	public String getOriginalMappingStatus() {
-		return GetterUtil.getString(_originalMappingStatus);
 	}
 
 	@Override
@@ -1181,17 +1132,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setApplicantRegion(String applicantRegion) {
-		_columnBitmask |= APPLICANTREGION_COLUMN_BITMASK;
-
-		if (_originalApplicantRegion == null) {
-			_originalApplicantRegion = _applicantRegion;
-		}
-
 		_applicantRegion = applicantRegion;
-	}
-
-	public String getOriginalApplicantRegion() {
-		return GetterUtil.getString(_originalApplicantRegion);
 	}
 
 	@Override
@@ -1221,17 +1162,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setApplicantCity(String applicantCity) {
-		_columnBitmask |= APPLICANTCITY_COLUMN_BITMASK;
-
-		if (_originalApplicantCity == null) {
-			_originalApplicantCity = _applicantCity;
-		}
-
 		_applicantCity = applicantCity;
-	}
-
-	public String getOriginalApplicantCity() {
-		return GetterUtil.getString(_originalApplicantCity);
 	}
 
 	@Override
@@ -1854,17 +1785,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 
 	@Override
 	public void setApplicantStatus(String applicantStatus) {
-		_columnBitmask |= APPLICANTSTATUS_COLUMN_BITMASK;
-
-		if (_originalApplicantStatus == null) {
-			_originalApplicantStatus = _applicantStatus;
-		}
-
 		_applicantStatus = applicantStatus;
-	}
-
-	public String getOriginalApplicantStatus() {
-		return GetterUtil.getString(_originalApplicantStatus);
 	}
 
 	@Override
@@ -2052,23 +1973,7 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 	public void resetOriginalValues() {
 		VRApplicantProfileModelImpl vrApplicantProfileModelImpl = this;
 
-		vrApplicantProfileModelImpl._originalMtCore = vrApplicantProfileModelImpl._mtCore;
-
-		vrApplicantProfileModelImpl._setOriginalMtCore = false;
-
-		vrApplicantProfileModelImpl._originalMappingMA_CTY = vrApplicantProfileModelImpl._mappingMA_CTY;
-
-		vrApplicantProfileModelImpl._originalMappingTEN_CTY = vrApplicantProfileModelImpl._mappingTEN_CTY;
-
-		vrApplicantProfileModelImpl._originalMappingStatus = vrApplicantProfileModelImpl._mappingStatus;
-
 		vrApplicantProfileModelImpl._originalApplicantCode = vrApplicantProfileModelImpl._applicantCode;
-
-		vrApplicantProfileModelImpl._originalApplicantRegion = vrApplicantProfileModelImpl._applicantRegion;
-
-		vrApplicantProfileModelImpl._originalApplicantCity = vrApplicantProfileModelImpl._applicantCity;
-
-		vrApplicantProfileModelImpl._originalApplicantStatus = vrApplicantProfileModelImpl._applicantStatus;
 
 		vrApplicantProfileModelImpl._columnBitmask = 0;
 	}
@@ -3074,16 +2979,11 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 		};
 	private long _id;
 	private long _mtCore;
-	private long _originalMtCore;
-	private boolean _setOriginalMtCore;
 	private String _mappingMA_CTY;
-	private String _originalMappingMA_CTY;
 	private String _mappingTEN_CTY;
-	private String _originalMappingTEN_CTY;
 	private String _mappingDIA_CHI_CTY;
 	private String _mappingNote;
 	private String _mappingStatus;
-	private String _originalMappingStatus;
 	private String _applicantCode;
 	private String _originalApplicantCode;
 	private String _applicantName;
@@ -3101,10 +3001,8 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 	private String _applicantNationality;
 	private String _applicantNationalityCode;
 	private String _applicantRegion;
-	private String _originalApplicantRegion;
 	private String _applicantRegionCode;
 	private String _applicantCity;
-	private String _originalApplicantCity;
 	private String _applicantCityCode;
 	private String _applicantDistrictCode;
 	private String _applicantDistrictName;
@@ -3147,7 +3045,6 @@ public class VRApplicantProfileModelImpl extends BaseModelImpl<VRApplicantProfil
 	private long _applicantXcgFileEntryId;
 	private String _applicantMetadata;
 	private String _applicantStatus;
-	private String _originalApplicantStatus;
 	private Date _modifyDate;
 	private Date _syncDate;
 	private long _columnBitmask;

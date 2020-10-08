@@ -2391,6 +2391,521 @@ public class VRTechnicalSpec_XCGPart6PersistenceImpl extends BasePersistenceImpl
 
 	private static final String _FINDER_COLUMN_DOSSIERID_DOSSIERID_2 = "vrTechnicalSpec_XCGPart6.dossierId = ? AND ";
 	private static final String _FINDER_COLUMN_DOSSIERID_MTCORE_2 = "vrTechnicalSpec_XCGPart6.mtCore = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY__DOSSIERID =
+		new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6Impl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBy_DossierId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY__DOSSIERID =
+		new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6Impl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBy_DossierId",
+			new String[] { Long.class.getName() },
+			VRTechnicalSpec_XCGPart6ModelImpl.DOSSIERID_COLUMN_BITMASK |
+			VRTechnicalSpec_XCGPart6ModelImpl.MODIFYDATE_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY__DOSSIERID = new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBy_DossierId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the vr technical spec_xcg part6s where dossierId = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @return the matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findBy_DossierId(long dossierId) {
+		return findBy_DossierId(dossierId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the vr technical spec_xcg part6s where dossierId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCGPart6ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param dossierId the dossier ID
+	 * @param start the lower bound of the range of vr technical spec_xcg part6s
+	 * @param end the upper bound of the range of vr technical spec_xcg part6s (not inclusive)
+	 * @return the range of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findBy_DossierId(long dossierId,
+		int start, int end) {
+		return findBy_DossierId(dossierId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr technical spec_xcg part6s where dossierId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCGPart6ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param dossierId the dossier ID
+	 * @param start the lower bound of the range of vr technical spec_xcg part6s
+	 * @param end the upper bound of the range of vr technical spec_xcg part6s (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findBy_DossierId(long dossierId,
+		int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator) {
+		return findBy_DossierId(dossierId, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr technical spec_xcg part6s where dossierId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCGPart6ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param dossierId the dossier ID
+	 * @param start the lower bound of the range of vr technical spec_xcg part6s
+	 * @param end the upper bound of the range of vr technical spec_xcg part6s (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findBy_DossierId(long dossierId,
+		int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY__DOSSIERID;
+			finderArgs = new Object[] { dossierId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY__DOSSIERID;
+			finderArgs = new Object[] { dossierId, start, end, orderByComparator };
+		}
+
+		List<VRTechnicalSpec_XCGPart6> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<VRTechnicalSpec_XCGPart6>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 : list) {
+					if ((dossierId != vrTechnicalSpec_XCGPart6.getDossierId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_VRTECHNICALSPEC_XCGPART6_WHERE);
+
+			query.append(_FINDER_COLUMN__DOSSIERID_DOSSIERID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(VRTechnicalSpec_XCGPart6ModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(dossierId);
+
+				if (!pagination) {
+					list = (List<VRTechnicalSpec_XCGPart6>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<VRTechnicalSpec_XCGPart6>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first vr technical spec_xcg part6 in the ordered set where dossierId = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr technical spec_xcg part6
+	 * @throws NoSuchVRTechnicalSpec_XCGPart6Exception if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 findBy_DossierId_First(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCGPart6Exception {
+		VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 = fetchBy_DossierId_First(dossierId,
+				orderByComparator);
+
+		if (vrTechnicalSpec_XCGPart6 != null) {
+			return vrTechnicalSpec_XCGPart6;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("dossierId=");
+		msg.append(dossierId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRTechnicalSpec_XCGPart6Exception(msg.toString());
+	}
+
+	/**
+	 * Returns the first vr technical spec_xcg part6 in the ordered set where dossierId = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr technical spec_xcg part6, or <code>null</code> if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 fetchBy_DossierId_First(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator) {
+		List<VRTechnicalSpec_XCGPart6> list = findBy_DossierId(dossierId, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last vr technical spec_xcg part6 in the ordered set where dossierId = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr technical spec_xcg part6
+	 * @throws NoSuchVRTechnicalSpec_XCGPart6Exception if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 findBy_DossierId_Last(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCGPart6Exception {
+		VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 = fetchBy_DossierId_Last(dossierId,
+				orderByComparator);
+
+		if (vrTechnicalSpec_XCGPart6 != null) {
+			return vrTechnicalSpec_XCGPart6;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("dossierId=");
+		msg.append(dossierId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRTechnicalSpec_XCGPart6Exception(msg.toString());
+	}
+
+	/**
+	 * Returns the last vr technical spec_xcg part6 in the ordered set where dossierId = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr technical spec_xcg part6, or <code>null</code> if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 fetchBy_DossierId_Last(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator) {
+		int count = countBy_DossierId(dossierId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<VRTechnicalSpec_XCGPart6> list = findBy_DossierId(dossierId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the vr technical spec_xcg part6s before and after the current vr technical spec_xcg part6 in the ordered set where dossierId = &#63;.
+	 *
+	 * @param id the primary key of the current vr technical spec_xcg part6
+	 * @param dossierId the dossier ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next vr technical spec_xcg part6
+	 * @throws NoSuchVRTechnicalSpec_XCGPart6Exception if a vr technical spec_xcg part6 with the primary key could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6[] findBy_DossierId_PrevAndNext(long id,
+		long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCGPart6Exception {
+		VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 = findByPrimaryKey(id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			VRTechnicalSpec_XCGPart6[] array = new VRTechnicalSpec_XCGPart6Impl[3];
+
+			array[0] = getBy_DossierId_PrevAndNext(session,
+					vrTechnicalSpec_XCGPart6, dossierId, orderByComparator, true);
+
+			array[1] = vrTechnicalSpec_XCGPart6;
+
+			array[2] = getBy_DossierId_PrevAndNext(session,
+					vrTechnicalSpec_XCGPart6, dossierId, orderByComparator,
+					false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected VRTechnicalSpec_XCGPart6 getBy_DossierId_PrevAndNext(
+		Session session, VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6,
+		long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator,
+		boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_VRTECHNICALSPEC_XCGPART6_WHERE);
+
+		query.append(_FINDER_COLUMN__DOSSIERID_DOSSIERID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(VRTechnicalSpec_XCGPart6ModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(dossierId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(vrTechnicalSpec_XCGPart6);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<VRTechnicalSpec_XCGPart6> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the vr technical spec_xcg part6s where dossierId = &#63; from the database.
+	 *
+	 * @param dossierId the dossier ID
+	 */
+	@Override
+	public void removeBy_DossierId(long dossierId) {
+		for (VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 : findBy_DossierId(
+				dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(vrTechnicalSpec_XCGPart6);
+		}
+	}
+
+	/**
+	 * Returns the number of vr technical spec_xcg part6s where dossierId = &#63;.
+	 *
+	 * @param dossierId the dossier ID
+	 * @return the number of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public int countBy_DossierId(long dossierId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY__DOSSIERID;
+
+		Object[] finderArgs = new Object[] { dossierId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_VRTECHNICALSPEC_XCGPART6_WHERE);
+
+			query.append(_FINDER_COLUMN__DOSSIERID_DOSSIERID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(dossierId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN__DOSSIERID_DOSSIERID_2 = "vrTechnicalSpec_XCGPart6.dossierId = ?";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_CONVERTASSEMBLEID =
 		new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
 			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED,
@@ -3489,6 +4004,539 @@ public class VRTechnicalSpec_XCGPart6PersistenceImpl extends BasePersistenceImpl
 	private static final String _FINDER_COLUMN_REFERENCEUID_REFERENCEUID_1 = "vrTechnicalSpec_XCGPart6.referenceUid IS NULL";
 	private static final String _FINDER_COLUMN_REFERENCEUID_REFERENCEUID_2 = "vrTechnicalSpec_XCGPart6.referenceUid = ?";
 	private static final String _FINDER_COLUMN_REFERENCEUID_REFERENCEUID_3 = "(vrTechnicalSpec_XCGPart6.referenceUid IS NULL OR vrTechnicalSpec_XCGPart6.referenceUid = '')";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID =
+		new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6Impl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByvehicleTypeCertificateId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID =
+		new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6Impl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findByvehicleTypeCertificateId",
+			new String[] { Long.class.getName() },
+			VRTechnicalSpec_XCGPart6ModelImpl.VEHICLETYPECERTIFICATEID_COLUMN_BITMASK |
+			VRTechnicalSpec_XCGPart6ModelImpl.MODIFYDATE_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID =
+		new FinderPath(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
+			VRTechnicalSpec_XCGPart6ModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByvehicleTypeCertificateId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the vr technical spec_xcg part6s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @return the matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		return findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the vr technical spec_xcg part6s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCGPart6ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param start the lower bound of the range of vr technical spec_xcg part6s
+	 * @param end the upper bound of the range of vr technical spec_xcg part6s (not inclusive)
+	 * @return the range of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end) {
+		return findByvehicleTypeCertificateId(vehicleTypeCertificateId, start,
+			end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr technical spec_xcg part6s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCGPart6ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param start the lower bound of the range of vr technical spec_xcg part6s
+	 * @param end the upper bound of the range of vr technical spec_xcg part6s (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator) {
+		return findByvehicleTypeCertificateId(vehicleTypeCertificateId, start,
+			end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the vr technical spec_xcg part6s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCGPart6ModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param start the lower bound of the range of vr technical spec_xcg part6s
+	 * @param end the upper bound of the range of vr technical spec_xcg part6s (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public List<VRTechnicalSpec_XCGPart6> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID;
+			finderArgs = new Object[] { vehicleTypeCertificateId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID;
+			finderArgs = new Object[] {
+					vehicleTypeCertificateId,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<VRTechnicalSpec_XCGPart6> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<VRTechnicalSpec_XCGPart6>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 : list) {
+					if ((vehicleTypeCertificateId != vrTechnicalSpec_XCGPart6.getVehicleTypeCertificateId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_VRTECHNICALSPEC_XCGPART6_WHERE);
+
+			query.append(_FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(VRTechnicalSpec_XCGPart6ModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(vehicleTypeCertificateId);
+
+				if (!pagination) {
+					list = (List<VRTechnicalSpec_XCGPart6>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<VRTechnicalSpec_XCGPart6>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first vr technical spec_xcg part6 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr technical spec_xcg part6
+	 * @throws NoSuchVRTechnicalSpec_XCGPart6Exception if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 findByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCGPart6Exception {
+		VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 = fetchByvehicleTypeCertificateId_First(vehicleTypeCertificateId,
+				orderByComparator);
+
+		if (vrTechnicalSpec_XCGPart6 != null) {
+			return vrTechnicalSpec_XCGPart6;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("vehicleTypeCertificateId=");
+		msg.append(vehicleTypeCertificateId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRTechnicalSpec_XCGPart6Exception(msg.toString());
+	}
+
+	/**
+	 * Returns the first vr technical spec_xcg part6 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching vr technical spec_xcg part6, or <code>null</code> if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 fetchByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator) {
+		List<VRTechnicalSpec_XCGPart6> list = findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+				0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last vr technical spec_xcg part6 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr technical spec_xcg part6
+	 * @throws NoSuchVRTechnicalSpec_XCGPart6Exception if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 findByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCGPart6Exception {
+		VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 = fetchByvehicleTypeCertificateId_Last(vehicleTypeCertificateId,
+				orderByComparator);
+
+		if (vrTechnicalSpec_XCGPart6 != null) {
+			return vrTechnicalSpec_XCGPart6;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("vehicleTypeCertificateId=");
+		msg.append(vehicleTypeCertificateId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVRTechnicalSpec_XCGPart6Exception(msg.toString());
+	}
+
+	/**
+	 * Returns the last vr technical spec_xcg part6 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching vr technical spec_xcg part6, or <code>null</code> if a matching vr technical spec_xcg part6 could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6 fetchByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator) {
+		int count = countByvehicleTypeCertificateId(vehicleTypeCertificateId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<VRTechnicalSpec_XCGPart6> list = findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the vr technical spec_xcg part6s before and after the current vr technical spec_xcg part6 in the ordered set where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param id the primary key of the current vr technical spec_xcg part6
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next vr technical spec_xcg part6
+	 * @throws NoSuchVRTechnicalSpec_XCGPart6Exception if a vr technical spec_xcg part6 with the primary key could not be found
+	 */
+	@Override
+	public VRTechnicalSpec_XCGPart6[] findByvehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator)
+		throws NoSuchVRTechnicalSpec_XCGPart6Exception {
+		VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 = findByPrimaryKey(id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			VRTechnicalSpec_XCGPart6[] array = new VRTechnicalSpec_XCGPart6Impl[3];
+
+			array[0] = getByvehicleTypeCertificateId_PrevAndNext(session,
+					vrTechnicalSpec_XCGPart6, vehicleTypeCertificateId,
+					orderByComparator, true);
+
+			array[1] = vrTechnicalSpec_XCGPart6;
+
+			array[2] = getByvehicleTypeCertificateId_PrevAndNext(session,
+					vrTechnicalSpec_XCGPart6, vehicleTypeCertificateId,
+					orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected VRTechnicalSpec_XCGPart6 getByvehicleTypeCertificateId_PrevAndNext(
+		Session session, VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6,
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCGPart6> orderByComparator,
+		boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_VRTECHNICALSPEC_XCGPART6_WHERE);
+
+		query.append(_FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(VRTechnicalSpec_XCGPart6ModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(vehicleTypeCertificateId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(vrTechnicalSpec_XCGPart6);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<VRTechnicalSpec_XCGPart6> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the vr technical spec_xcg part6s where vehicleTypeCertificateId = &#63; from the database.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 */
+	@Override
+	public void removeByvehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		for (VRTechnicalSpec_XCGPart6 vrTechnicalSpec_XCGPart6 : findByvehicleTypeCertificateId(
+				vehicleTypeCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+				null)) {
+			remove(vrTechnicalSpec_XCGPart6);
+		}
+	}
+
+	/**
+	 * Returns the number of vr technical spec_xcg part6s where vehicleTypeCertificateId = &#63;.
+	 *
+	 * @param vehicleTypeCertificateId the vehicle type certificate ID
+	 * @return the number of matching vr technical spec_xcg part6s
+	 */
+	@Override
+	public int countByvehicleTypeCertificateId(long vehicleTypeCertificateId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID;
+
+		Object[] finderArgs = new Object[] { vehicleTypeCertificateId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_VRTECHNICALSPEC_XCGPART6_WHERE);
+
+			query.append(_FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(vehicleTypeCertificateId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_VEHICLETYPECERTIFICATEID_VEHICLETYPECERTIFICATEID_2 =
+		"vrTechnicalSpec_XCGPart6.vehicleTypeCertificateId = ?";
 
 	public VRTechnicalSpec_XCGPart6PersistenceImpl() {
 		setModelClass(VRTechnicalSpec_XCGPart6.class);
@@ -3797,6 +4845,25 @@ public class VRTechnicalSpec_XCGPart6PersistenceImpl extends BasePersistenceImpl
 			}
 
 			if ((vrTechnicalSpec_XCGPart6ModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY__DOSSIERID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						vrTechnicalSpec_XCGPart6ModelImpl.getOriginalDossierId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY__DOSSIERID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY__DOSSIERID,
+					args);
+
+				args = new Object[] {
+						vrTechnicalSpec_XCGPart6ModelImpl.getDossierId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY__DOSSIERID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY__DOSSIERID,
+					args);
+			}
+
+			if ((vrTechnicalSpec_XCGPart6ModelImpl.getColumnBitmask() &
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_CONVERTASSEMBLEID.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						vrTechnicalSpec_XCGPart6ModelImpl.getOriginalConvertAssembleId()
@@ -3835,6 +4902,27 @@ public class VRTechnicalSpec_XCGPart6PersistenceImpl extends BasePersistenceImpl
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_REFERENCEUID,
 					args);
 			}
+
+			if ((vrTechnicalSpec_XCGPart6ModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						vrTechnicalSpec_XCGPart6ModelImpl.getOriginalVehicleTypeCertificateId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID,
+					args);
+
+				args = new Object[] {
+						vrTechnicalSpec_XCGPart6ModelImpl.getVehicleTypeCertificateId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_VEHICLETYPECERTIFICATEID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VEHICLETYPECERTIFICATEID,
+					args);
+			}
 		}
 
 		entityCache.putResult(VRTechnicalSpec_XCGPart6ModelImpl.ENTITY_CACHE_ENABLED,
@@ -3866,6 +4954,7 @@ public class VRTechnicalSpec_XCGPart6PersistenceImpl extends BasePersistenceImpl
 		vrTechnicalSpec_XCGPart6Impl.setReferenceUid(vrTechnicalSpec_XCGPart6.getReferenceUid());
 		vrTechnicalSpec_XCGPart6Impl.setDossierIdCTN(vrTechnicalSpec_XCGPart6.getDossierIdCTN());
 		vrTechnicalSpec_XCGPart6Impl.setDeliverableCode(vrTechnicalSpec_XCGPart6.getDeliverableCode());
+		vrTechnicalSpec_XCGPart6Impl.setVehicleTypeCertificateId(vrTechnicalSpec_XCGPart6.getVehicleTypeCertificateId());
 		vrTechnicalSpec_XCGPart6Impl.setXCG01757(vrTechnicalSpec_XCGPart6.getXCG01757());
 		vrTechnicalSpec_XCGPart6Impl.setXCG01758(vrTechnicalSpec_XCGPart6.getXCG01758());
 		vrTechnicalSpec_XCGPart6Impl.setXCG01759(vrTechnicalSpec_XCGPart6.getXCG01759());

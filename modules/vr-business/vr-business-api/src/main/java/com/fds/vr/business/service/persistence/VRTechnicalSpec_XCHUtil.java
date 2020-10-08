@@ -812,6 +812,168 @@ public class VRTechnicalSpec_XCHUtil {
 	}
 
 	/**
+	* Returns all the vr technical spec_xchs where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @return the matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findBy_DossierId(long dossierId) {
+		return getPersistence().findBy_DossierId(dossierId);
+	}
+
+	/**
+	* Returns a range of all the vr technical spec_xchs where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_xchs
+	* @param end the upper bound of the range of vr technical spec_xchs (not inclusive)
+	* @return the range of matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findBy_DossierId(long dossierId,
+		int start, int end) {
+		return getPersistence().findBy_DossierId(dossierId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xchs where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_xchs
+	* @param end the upper bound of the range of vr technical spec_xchs (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findBy_DossierId(long dossierId,
+		int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator) {
+		return getPersistence()
+				   .findBy_DossierId(dossierId, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xchs where dossierId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param start the lower bound of the range of vr technical spec_xchs
+	* @param end the upper bound of the range of vr technical spec_xchs (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findBy_DossierId(long dossierId,
+		int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findBy_DossierId(dossierId, start, end, orderByComparator,
+			retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vr technical spec_xch in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xch
+	* @throws NoSuchVRTechnicalSpec_XCHException if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH findBy_DossierId_First(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRTechnicalSpec_XCHException {
+		return getPersistence()
+				   .findBy_DossierId_First(dossierId, orderByComparator);
+	}
+
+	/**
+	* Returns the first vr technical spec_xch in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xch, or <code>null</code> if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH fetchBy_DossierId_First(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator) {
+		return getPersistence()
+				   .fetchBy_DossierId_First(dossierId, orderByComparator);
+	}
+
+	/**
+	* Returns the last vr technical spec_xch in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xch
+	* @throws NoSuchVRTechnicalSpec_XCHException if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH findBy_DossierId_Last(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRTechnicalSpec_XCHException {
+		return getPersistence()
+				   .findBy_DossierId_Last(dossierId, orderByComparator);
+	}
+
+	/**
+	* Returns the last vr technical spec_xch in the ordered set where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xch, or <code>null</code> if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH fetchBy_DossierId_Last(long dossierId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator) {
+		return getPersistence()
+				   .fetchBy_DossierId_Last(dossierId, orderByComparator);
+	}
+
+	/**
+	* Returns the vr technical spec_xchs before and after the current vr technical spec_xch in the ordered set where dossierId = &#63;.
+	*
+	* @param id the primary key of the current vr technical spec_xch
+	* @param dossierId the dossier ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr technical spec_xch
+	* @throws NoSuchVRTechnicalSpec_XCHException if a vr technical spec_xch with the primary key could not be found
+	*/
+	public static VRTechnicalSpec_XCH[] findBy_DossierId_PrevAndNext(long id,
+		long dossierId, OrderByComparator<VRTechnicalSpec_XCH> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRTechnicalSpec_XCHException {
+		return getPersistence()
+				   .findBy_DossierId_PrevAndNext(id, dossierId,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the vr technical spec_xchs where dossierId = &#63; from the database.
+	*
+	* @param dossierId the dossier ID
+	*/
+	public static void removeBy_DossierId(long dossierId) {
+		getPersistence().removeBy_DossierId(dossierId);
+	}
+
+	/**
+	* Returns the number of vr technical spec_xchs where dossierId = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @return the number of matching vr technical spec_xchs
+	*/
+	public static int countBy_DossierId(long dossierId) {
+		return getPersistence().countBy_DossierId(dossierId);
+	}
+
+	/**
 	* Returns all the vr technical spec_xchs where convertAssembleId = &#63;.
 	*
 	* @param convertAssembleId the convert assemble ID
@@ -1152,6 +1314,186 @@ public class VRTechnicalSpec_XCHUtil {
 	*/
 	public static int countByReferenceUid(java.lang.String referenceUid) {
 		return getPersistence().countByReferenceUid(referenceUid);
+	}
+
+	/**
+	* Returns all the vr technical spec_xchs where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @return the matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId(vehicleTypeCertificateId);
+	}
+
+	/**
+	* Returns a range of all the vr technical spec_xchs where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_xchs
+	* @param end the upper bound of the range of vr technical spec_xchs (not inclusive)
+	* @return the range of matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end) {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+			start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xchs where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_xchs
+	* @param end the upper bound of the range of vr technical spec_xchs (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator) {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+			start, end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vr technical spec_xchs where vehicleTypeCertificateId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRTechnicalSpec_XCHModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param start the lower bound of the range of vr technical spec_xchs
+	* @param end the upper bound of the range of vr technical spec_xchs (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr technical spec_xchs
+	*/
+	public static List<VRTechnicalSpec_XCH> findByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId(vehicleTypeCertificateId,
+			start, end, orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vr technical spec_xch in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xch
+	* @throws NoSuchVRTechnicalSpec_XCHException if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH findByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRTechnicalSpec_XCHException {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId_First(vehicleTypeCertificateId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the first vr technical spec_xch in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr technical spec_xch, or <code>null</code> if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH fetchByvehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator) {
+		return getPersistence()
+				   .fetchByvehicleTypeCertificateId_First(vehicleTypeCertificateId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last vr technical spec_xch in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xch
+	* @throws NoSuchVRTechnicalSpec_XCHException if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH findByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRTechnicalSpec_XCHException {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId_Last(vehicleTypeCertificateId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last vr technical spec_xch in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr technical spec_xch, or <code>null</code> if a matching vr technical spec_xch could not be found
+	*/
+	public static VRTechnicalSpec_XCH fetchByvehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator) {
+		return getPersistence()
+				   .fetchByvehicleTypeCertificateId_Last(vehicleTypeCertificateId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the vr technical spec_xchs before and after the current vr technical spec_xch in the ordered set where vehicleTypeCertificateId = &#63;.
+	*
+	* @param id the primary key of the current vr technical spec_xch
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr technical spec_xch
+	* @throws NoSuchVRTechnicalSpec_XCHException if a vr technical spec_xch with the primary key could not be found
+	*/
+	public static VRTechnicalSpec_XCH[] findByvehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
+		OrderByComparator<VRTechnicalSpec_XCH> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRTechnicalSpec_XCHException {
+		return getPersistence()
+				   .findByvehicleTypeCertificateId_PrevAndNext(id,
+			vehicleTypeCertificateId, orderByComparator);
+	}
+
+	/**
+	* Removes all the vr technical spec_xchs where vehicleTypeCertificateId = &#63; from the database.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	*/
+	public static void removeByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		getPersistence()
+			.removeByvehicleTypeCertificateId(vehicleTypeCertificateId);
+	}
+
+	/**
+	* Returns the number of vr technical spec_xchs where vehicleTypeCertificateId = &#63;.
+	*
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
+	* @return the number of matching vr technical spec_xchs
+	*/
+	public static int countByvehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		return getPersistence()
+				   .countByvehicleTypeCertificateId(vehicleTypeCertificateId);
 	}
 
 	/**

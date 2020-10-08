@@ -180,181 +180,181 @@ public interface VRIssueEquipmentCertificatePersistence extends BasePersistence<
 	public int countByIssueVehicleCertificateId(long issueVehicleCertificateId);
 
 	/**
-	* Returns all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	* Returns all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @return the matching vr issue equipment certificates
 	*/
-	public java.util.List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno);
+	public java.util.List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo);
 
 	/**
-	* Returns a range of all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	* Returns a range of all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param start the lower bound of the range of vr issue equipment certificates
 	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	* @return the range of matching vr issue equipment certificates
 	*/
-	public java.util.List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno, int start, int end);
+	public java.util.List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo, int start, int end);
 
 	/**
-	* Returns an ordered range of all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	* Returns an ordered range of all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param start the lower bound of the range of vr issue equipment certificates
 	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching vr issue equipment certificates
 	*/
-	public java.util.List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno, int start, int end,
+	public java.util.List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
 
 	/**
-	* Returns an ordered range of all the vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	* Returns an ordered range of all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param start the lower bound of the range of vr issue equipment certificates
 	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching vr issue equipment certificates
 	*/
-	public java.util.List<VRIssueEquipmentCertificate> findByVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno, int start, int end,
+	public java.util.List<VRIssueEquipmentCertificate> findByvehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
 		boolean retrieveFromCache);
 
 	/**
-	* Returns the first vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	* Returns the first vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue equipment certificate
 	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	*/
-	public VRIssueEquipmentCertificate findByVehiclecertificaterecordno_First(
-		java.lang.String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate findByvehicleCertificateRecordNo_First(
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException;
 
 	/**
-	* Returns the first vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	* Returns the first vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	*/
-	public VRIssueEquipmentCertificate fetchByVehiclecertificaterecordno_First(
-		java.lang.String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate fetchByvehicleCertificateRecordNo_First(
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
 
 	/**
-	* Returns the last vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	* Returns the last vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue equipment certificate
 	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	*/
-	public VRIssueEquipmentCertificate findByVehiclecertificaterecordno_Last(
-		java.lang.String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate findByvehicleCertificateRecordNo_Last(
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException;
 
 	/**
-	* Returns the last vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	* Returns the last vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	*/
-	public VRIssueEquipmentCertificate fetchByVehiclecertificaterecordno_Last(
-		java.lang.String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate fetchByvehicleCertificateRecordNo_Last(
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
 
 	/**
-	* Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where vehiclecertificaterecordno = &#63;.
+	* Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where vehicleCertificateRecordNo = &#63;.
 	*
 	* @param id the primary key of the current vr issue equipment certificate
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr issue equipment certificate
 	* @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
 	*/
-	public VRIssueEquipmentCertificate[] findByVehiclecertificaterecordno_PrevAndNext(
-		long id, java.lang.String vehiclecertificaterecordno,
+	public VRIssueEquipmentCertificate[] findByvehicleCertificateRecordNo_PrevAndNext(
+		long id, java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException;
 
 	/**
-	* Removes all the vr issue equipment certificates where vehiclecertificaterecordno = &#63; from the database.
+	* Removes all the vr issue equipment certificates where vehicleCertificateRecordNo = &#63; from the database.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	*/
-	public void removeByVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno);
+	public void removeByvehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo);
 
 	/**
-	* Returns the number of vr issue equipment certificates where vehiclecertificaterecordno = &#63;.
+	* Returns the number of vr issue equipment certificates where vehicleCertificateRecordNo = &#63;.
 	*
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @return the number of matching vr issue equipment certificates
 	*/
-	public int countByVehiclecertificaterecordno(
-		java.lang.String vehiclecertificaterecordno);
+	public int countByvehicleCertificateRecordNo(
+		java.lang.String vehicleCertificateRecordNo);
 
 	/**
-	* Returns all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @return the matching vr issue equipment certificates
 	*/
 	public java.util.List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno);
+		java.lang.String vehicleCertificateRecordNo);
 
 	/**
-	* Returns a range of all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns a range of all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param start the lower bound of the range of vr issue equipment certificates
 	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	* @return the range of matching vr issue equipment certificates
 	*/
 	public java.util.List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno, int start, int end);
+		java.lang.String vehicleCertificateRecordNo, int start, int end);
 
 	/**
-	* Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param start the lower bound of the range of vr issue equipment certificates
 	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -362,18 +362,18 @@ public interface VRIssueEquipmentCertificatePersistence extends BasePersistence<
 	*/
 	public java.util.List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno, int start, int end,
+		java.lang.String vehicleCertificateRecordNo, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
 
 	/**
-	* Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns an ordered range of all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param start the lower bound of the range of vr issue equipment certificates
 	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -382,102 +382,102 @@ public interface VRIssueEquipmentCertificatePersistence extends BasePersistence<
 	*/
 	public java.util.List<VRIssueEquipmentCertificate> findByApplicantNo_CertificateRecordNo(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno, int start, int end,
+		java.lang.String vehicleCertificateRecordNo, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
 		boolean retrieveFromCache);
 
 	/**
-	* Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue equipment certificate
 	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	*/
 	public VRIssueEquipmentCertificate findByApplicantNo_CertificateRecordNo_First(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno,
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException;
 
 	/**
-	* Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns the first vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	*/
 	public VRIssueEquipmentCertificate fetchByApplicantNo_CertificateRecordNo_First(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno,
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
 
 	/**
-	* Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue equipment certificate
 	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
 	*/
 	public VRIssueEquipmentCertificate findByApplicantNo_CertificateRecordNo_Last(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno,
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException;
 
 	/**
-	* Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns the last vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
 	*/
 	public VRIssueEquipmentCertificate fetchByApplicantNo_CertificateRecordNo_Last(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno,
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
 
 	/**
-	* Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param id the primary key of the current vr issue equipment certificate
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr issue equipment certificate
 	* @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
 	*/
 	public VRIssueEquipmentCertificate[] findByApplicantNo_CertificateRecordNo_PrevAndNext(
 		long id, java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno,
+		java.lang.String vehicleCertificateRecordNo,
 		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
 		throws NoSuchVRIssueEquipmentCertificateException;
 
 	/**
-	* Removes all the vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63; from the database.
+	* Removes all the vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63; from the database.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	*/
 	public void removeByApplicantNo_CertificateRecordNo(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno);
+		java.lang.String vehicleCertificateRecordNo);
 
 	/**
-	* Returns the number of vr issue equipment certificates where applicantNo = &#63; and vehiclecertificaterecordno = &#63;.
+	* Returns the number of vr issue equipment certificates where applicantNo = &#63; and vehicleCertificateRecordNo = &#63;.
 	*
 	* @param applicantNo the applicant no
-	* @param vehiclecertificaterecordno the vehiclecertificaterecordno
+	* @param vehicleCertificateRecordNo the vehicle certificate record no
 	* @return the number of matching vr issue equipment certificates
 	*/
 	public int countByApplicantNo_CertificateRecordNo(
 		java.lang.String applicantNo,
-		java.lang.String vehiclecertificaterecordno);
+		java.lang.String vehicleCertificateRecordNo);
 
 	/**
 	* Returns all the vr issue equipment certificates where applicantNo = &#63;.
@@ -615,6 +615,287 @@ public interface VRIssueEquipmentCertificatePersistence extends BasePersistence<
 	* @return the number of matching vr issue equipment certificates
 	*/
 	public int countByApplicantNo(java.lang.String applicantNo);
+
+	/**
+	* Returns all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @return the matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore);
+
+	/**
+	* Returns a range of all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vr issue equipment certificates
+	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	* @return the range of matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vr issue equipment certificates
+	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param start the lower bound of the range of vr issue equipment certificates
+	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findBydossierID_MtCore(
+		long dossierId, long mtCore, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr issue equipment certificate
+	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate findBydossierID_MtCore_First(
+		long dossierId, long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException;
+
+	/**
+	* Returns the first vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate fetchBydossierID_MtCore_First(
+		long dossierId, long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
+
+	/**
+	* Returns the last vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr issue equipment certificate
+	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate findBydossierID_MtCore_Last(
+		long dossierId, long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException;
+
+	/**
+	* Returns the last vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate fetchBydossierID_MtCore_Last(
+		long dossierId, long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
+
+	/**
+	* Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param id the primary key of the current vr issue equipment certificate
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr issue equipment certificate
+	* @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
+	*/
+	public VRIssueEquipmentCertificate[] findBydossierID_MtCore_PrevAndNext(
+		long id, long dossierId, long mtCore,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException;
+
+	/**
+	* Removes all the vr issue equipment certificates where dossierId = &#63; and mtCore = &#63; from the database.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	*/
+	public void removeBydossierID_MtCore(long dossierId, long mtCore);
+
+	/**
+	* Returns the number of vr issue equipment certificates where dossierId = &#63; and mtCore = &#63;.
+	*
+	* @param dossierId the dossier ID
+	* @param mtCore the mt core
+	* @return the number of matching vr issue equipment certificates
+	*/
+	public int countBydossierID_MtCore(long dossierId, long mtCore);
+
+	/**
+	* Returns all the vr issue equipment certificates where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @return the matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findByissueId(
+		long issueId);
+
+	/**
+	* Returns a range of all the vr issue equipment certificates where issueId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param issueId the issue ID
+	* @param start the lower bound of the range of vr issue equipment certificates
+	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	* @return the range of matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findByissueId(
+		long issueId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the vr issue equipment certificates where issueId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param issueId the issue ID
+	* @param start the lower bound of the range of vr issue equipment certificates
+	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findByissueId(
+		long issueId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the vr issue equipment certificates where issueId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRIssueEquipmentCertificateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param issueId the issue ID
+	* @param start the lower bound of the range of vr issue equipment certificates
+	* @param end the upper bound of the range of vr issue equipment certificates (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr issue equipment certificates
+	*/
+	public java.util.List<VRIssueEquipmentCertificate> findByissueId(
+		long issueId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first vr issue equipment certificate in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr issue equipment certificate
+	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate findByissueId_First(long issueId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException;
+
+	/**
+	* Returns the first vr issue equipment certificate in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate fetchByissueId_First(long issueId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
+
+	/**
+	* Returns the last vr issue equipment certificate in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr issue equipment certificate
+	* @throws NoSuchVRIssueEquipmentCertificateException if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate findByissueId_Last(long issueId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException;
+
+	/**
+	* Returns the last vr issue equipment certificate in the ordered set where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr issue equipment certificate, or <code>null</code> if a matching vr issue equipment certificate could not be found
+	*/
+	public VRIssueEquipmentCertificate fetchByissueId_Last(long issueId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator);
+
+	/**
+	* Returns the vr issue equipment certificates before and after the current vr issue equipment certificate in the ordered set where issueId = &#63;.
+	*
+	* @param id the primary key of the current vr issue equipment certificate
+	* @param issueId the issue ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr issue equipment certificate
+	* @throws NoSuchVRIssueEquipmentCertificateException if a vr issue equipment certificate with the primary key could not be found
+	*/
+	public VRIssueEquipmentCertificate[] findByissueId_PrevAndNext(long id,
+		long issueId,
+		com.liferay.portal.kernel.util.OrderByComparator<VRIssueEquipmentCertificate> orderByComparator)
+		throws NoSuchVRIssueEquipmentCertificateException;
+
+	/**
+	* Removes all the vr issue equipment certificates where issueId = &#63; from the database.
+	*
+	* @param issueId the issue ID
+	*/
+	public void removeByissueId(long issueId);
+
+	/**
+	* Returns the number of vr issue equipment certificates where issueId = &#63;.
+	*
+	* @param issueId the issue ID
+	* @return the number of matching vr issue equipment certificates
+	*/
+	public int countByissueId(long issueId);
 
 	/**
 	* Caches the vr issue equipment certificate in the entity cache if it is enabled.

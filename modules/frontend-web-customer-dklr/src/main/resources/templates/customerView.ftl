@@ -4,13 +4,13 @@
 <#------------- Phần VIEW --------------->
 	<#-- WRAPPER ELEMENT -->
 	<div id="appManagerDossier" style="font-size:13px"></div>
-	<div id="confirmSaveForm" style="background-color: #ffffff; color: black" class="MT20">
+	<div id="confirmSaveForm" style="background-color: #ffffff; color: black" class="">
 	
 	</div>
 
 	<#-- layout template -->
 	<script type="text/x-kendo-template" id="layoutTemplate">
-		<div id="panel_list" class="col-sm-2 PL0"></div>
+		<div id="panel_list" class="col-sm-2 PL0 PR0"></div>
 		
 		<div id="mainType1" class="col-sm-10 P0" >
 			<div id="main_section" class="col-sm-12 P0" style="background: #ffffff;">
@@ -25,18 +25,18 @@
 		<div class="dossier-emp-navigator-wrapper">
 			<div class="row">
 				<div class="col-sm-12">
-					<button class="btn btn-active form-control" id="btn_create_new_dossier" data-bind = "click: load_serviceConfig">Tạo hồ sơ mới</button>
+					<button class="btn btn-active form-control" id="btn_create_new_dossier" data-bind = "click: load_serviceConfig" style="background-color: #316BB6;">Tạo hồ sơ mới</button>
 				</div>
 			</div>
 	
-			<div class="row MT15" id="dossier-emp-navigator-filter-wrapper">
+			<div class="row MT5" id="dossier-emp-navigator-filter-wrapper">
 				
 				<div class="col-sm-12 filterField">
-					<div class="MB10">
+					<div class="MB5">
 						<input name="serviceInfo" id="serviceInfo" data-role="combobox" data-placeholder="Chọn thủ tục hành chính" data-text-field="serviceName" data-value-field="serviceCode" data-bind="source:dataServiceInfo, events: { change: eventLookup,dataBound: dataBound}">
 					</div>
 				</div>
-				<div class="col-md-12 MB10 filterField">
+				<div class="col-md-12 MB5 filterField">
 					<input id="dossier-emp-nav-selectbox-by-dossierNo" placeholder="Số hồ sơ" name="dossierNo" class="form-control dossier-emp-nav-selectbox" data-bind="events: { keyup: filterDossierNo}" style="height:30px" />
 				</div>
 				
@@ -57,7 +57,7 @@
 				<div class="col-sm-12 MB10">
 					<div class="accordion">
 						<div class="accordion-group">
-							<div class="accordion-heading" style="background-color: #14bef0;border: none;font-family: 'Roboto-Regular'">
+							<div class="accordion-heading" style="background-color: #316BB6;border: none;font-family: 'Roboto-Regular'">
 								<a class="" style="color: #ffffff" data-toggle="collapse" href="#groupFilterStatus">
 									DANH SÁCH
 								</a>
@@ -84,7 +84,7 @@
 				<div class="col-sm-12">
 					<div class="accordion" style="border: 1px solid #fff;">
 						<div class="accordion-group">
-							<div class="accordion-heading" style="background-color: #14bef0;border: none;font-family: 'Roboto-Regular'">
+							<div class="accordion-heading" style="background-color: #316BB6;border: none;font-family: 'Roboto-Regular'">
 								<a style="color: #ffffff" data-toggle="collapse" href="#groupLookup">
 									TRA CỨU
 								</a>
@@ -114,7 +114,7 @@
 				<div class="col-sm-12">
 					<div class="accordion" style="border: 1px solid #fff;">
 						<div class="accordion-group">
-							<div class="accordion-heading" style="background-color: #14bef0;border: none;font-family: 'Roboto-Regular'">
+							<div class="accordion-heading" style="background-color: #316BB6;border: none;font-family: 'Roboto-Regular'">
 								<a style="color: #ffffff" data-toggle="collapse" href="#xuatXuong">
 									Xuất xưởng
 								</a>

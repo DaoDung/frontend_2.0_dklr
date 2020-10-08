@@ -1039,4 +1039,7 @@ public interface VRRPDossierStatisticsPersistence extends BasePersistence<VRRPDo
 	* @return the number of vrrp dossier statisticses
 	*/
 	public int countAll();
+
+	@Override
+	public java.util.Set<java.lang.String> getBadColumnNames();
 }

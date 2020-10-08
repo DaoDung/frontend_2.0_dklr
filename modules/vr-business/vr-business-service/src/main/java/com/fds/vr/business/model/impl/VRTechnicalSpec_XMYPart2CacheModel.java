@@ -66,7 +66,7 @@ public class VRTechnicalSpec_XMYPart2CacheModel implements CacheModel<VRTechnica
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(293);
+		StringBundler sb = new StringBundler(295);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -84,6 +84,8 @@ public class VRTechnicalSpec_XMYPart2CacheModel implements CacheModel<VRTechnica
 		sb.append(dossierIdCTN);
 		sb.append(", deliverableCode=");
 		sb.append(deliverableCode);
+		sb.append(", vehicleTypeCertificateId=");
+		sb.append(vehicleTypeCertificateId);
 		sb.append(", XMY0010=");
 		sb.append(XMY0010);
 		sb.append(", XMY0011=");
@@ -401,6 +403,8 @@ public class VRTechnicalSpec_XMYPart2CacheModel implements CacheModel<VRTechnica
 		else {
 			vrTechnicalSpec_XMYPart2Impl.setDeliverableCode(deliverableCode);
 		}
+
+		vrTechnicalSpec_XMYPart2Impl.setVehicleTypeCertificateId(vehicleTypeCertificateId);
 
 		if (XMY0010 == null) {
 			vrTechnicalSpec_XMYPart2Impl.setXMY0010(StringPool.BLANK);
@@ -1386,6 +1390,8 @@ public class VRTechnicalSpec_XMYPart2CacheModel implements CacheModel<VRTechnica
 		referenceUid = objectInput.readUTF();
 		dossierIdCTN = objectInput.readUTF();
 		deliverableCode = objectInput.readUTF();
+
+		vehicleTypeCertificateId = objectInput.readLong();
 		XMY0010 = objectInput.readUTF();
 		XMY0011 = objectInput.readUTF();
 		XMY0012 = objectInput.readUTF();
@@ -1564,6 +1570,8 @@ public class VRTechnicalSpec_XMYPart2CacheModel implements CacheModel<VRTechnica
 		else {
 			objectOutput.writeUTF(deliverableCode);
 		}
+
+		objectOutput.writeLong(vehicleTypeCertificateId);
 
 		if (XMY0010 == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -2529,6 +2537,7 @@ public class VRTechnicalSpec_XMYPart2CacheModel implements CacheModel<VRTechnica
 	public String referenceUid;
 	public String dossierIdCTN;
 	public String deliverableCode;
+	public long vehicleTypeCertificateId;
 	public String XMY0010;
 	public String XMY0011;
 	public String XMY0012;

@@ -60,7 +60,7 @@ public class VRIssueSoap implements Serializable {
 		soapModel.setTotalInDocument(model.getTotalInDocument());
 		soapModel.setIssueCorporationId(model.getIssueCorporationId());
 		soapModel.setVerifyCorporationId(model.getVerifyCorporationId());
-		soapModel.setDigitalissuestatus(model.getDigitalissuestatus());
+		soapModel.setDigitalIssueStatus(model.getDigitalIssueStatus());
 		soapModel.setIssueType(model.getIssueType());
 		soapModel.setAverageSTBQuantity(model.getAverageSTBQuantity());
 		soapModel.setMaxMonthQuantity(model.getMaxMonthQuantity());
@@ -75,18 +75,20 @@ public class VRIssueSoap implements Serializable {
 		soapModel.setExaminationRequired(model.getExaminationRequired());
 		soapModel.setExaminationPeriod(model.getExaminationPeriod());
 		soapModel.setExaminationLastTime(model.getExaminationLastTime());
-		soapModel.setCopresult(model.getCopresult());
-		soapModel.setCopreportno(model.getCopreportno());
-		soapModel.setCopreportdate(model.getCopreportdate());
-		soapModel.setPostreview(model.getPostreview());
-		soapModel.setPostreviewrecordno(model.getPostreviewrecordno());
-		soapModel.setPostreviewrecorddate(model.getPostreviewrecorddate());
+		soapModel.setCopResult(model.getCopResult());
+		soapModel.setCopReportNo(model.getCopReportNo());
+		soapModel.setCopReportDate(model.getCopReportDate());
+		soapModel.setPostReview(model.getPostReview());
+		soapModel.setPostReviewRecordNo(model.getPostReviewRecordNo());
+		soapModel.setPostReviewRecordDate(model.getPostReviewRecordDate());
 		soapModel.setCorporationId(model.getCorporationId());
-		soapModel.setInspectorcode(model.getInspectorcode());
-		soapModel.setInspectorname(model.getInspectorname());
-		soapModel.setLeadername(model.getLeadername());
-		soapModel.setApplicantmaker(model.getApplicantmaker());
-		soapModel.setApplicantchecker(model.getApplicantchecker());
+		soapModel.setInspectorCode(model.getInspectorCode());
+		soapModel.setInspectorName(model.getInspectorName());
+		soapModel.setLeaderName(model.getLeaderName());
+		soapModel.setApplicantMaker(model.getApplicantMaker());
+		soapModel.setApplicantChecker(model.getApplicantChecker());
+		soapModel.setCertificateRecordDate(model.getCertificateRecordDate());
+		soapModel.setIssueInspectionRecordId(model.getIssueInspectionRecordId());
 		soapModel.setInspectorId(model.getInspectorId());
 		soapModel.setIssueInspectorId(model.getIssueInspectorId());
 		soapModel.setVerifyInspectorId(model.getVerifyInspectorId());
@@ -361,12 +363,12 @@ public class VRIssueSoap implements Serializable {
 		_verifyCorporationId = verifyCorporationId;
 	}
 
-	public int getDigitalissuestatus() {
-		return _digitalissuestatus;
+	public int getDigitalIssueStatus() {
+		return _digitalIssueStatus;
 	}
 
-	public void setDigitalissuestatus(int digitalissuestatus) {
-		_digitalissuestatus = digitalissuestatus;
+	public void setDigitalIssueStatus(int digitalIssueStatus) {
+		_digitalIssueStatus = digitalIssueStatus;
 	}
 
 	public String getIssueType() {
@@ -481,52 +483,52 @@ public class VRIssueSoap implements Serializable {
 		_examinationLastTime = examinationLastTime;
 	}
 
-	public String getCopresult() {
-		return _copresult;
+	public String getCopResult() {
+		return _copResult;
 	}
 
-	public void setCopresult(String copresult) {
-		_copresult = copresult;
+	public void setCopResult(String copResult) {
+		_copResult = copResult;
 	}
 
-	public String getCopreportno() {
-		return _copreportno;
+	public String getCopReportNo() {
+		return _copReportNo;
 	}
 
-	public void setCopreportno(String copreportno) {
-		_copreportno = copreportno;
+	public void setCopReportNo(String copReportNo) {
+		_copReportNo = copReportNo;
 	}
 
-	public Date getCopreportdate() {
-		return _copreportdate;
+	public Date getCopReportDate() {
+		return _copReportDate;
 	}
 
-	public void setCopreportdate(Date copreportdate) {
-		_copreportdate = copreportdate;
+	public void setCopReportDate(Date copReportDate) {
+		_copReportDate = copReportDate;
 	}
 
-	public String getPostreview() {
-		return _postreview;
+	public String getPostReview() {
+		return _postReview;
 	}
 
-	public void setPostreview(String postreview) {
-		_postreview = postreview;
+	public void setPostReview(String postReview) {
+		_postReview = postReview;
 	}
 
-	public String getPostreviewrecordno() {
-		return _postreviewrecordno;
+	public String getPostReviewRecordNo() {
+		return _postReviewRecordNo;
 	}
 
-	public void setPostreviewrecordno(String postreviewrecordno) {
-		_postreviewrecordno = postreviewrecordno;
+	public void setPostReviewRecordNo(String postReviewRecordNo) {
+		_postReviewRecordNo = postReviewRecordNo;
 	}
 
-	public Date getPostreviewrecorddate() {
-		return _postreviewrecorddate;
+	public Date getPostReviewRecordDate() {
+		return _postReviewRecordDate;
 	}
 
-	public void setPostreviewrecorddate(Date postreviewrecorddate) {
-		_postreviewrecorddate = postreviewrecorddate;
+	public void setPostReviewRecordDate(Date postReviewRecordDate) {
+		_postReviewRecordDate = postReviewRecordDate;
 	}
 
 	public String getCorporationId() {
@@ -537,44 +539,60 @@ public class VRIssueSoap implements Serializable {
 		_corporationId = corporationId;
 	}
 
-	public String getInspectorcode() {
-		return _inspectorcode;
+	public String getInspectorCode() {
+		return _inspectorCode;
 	}
 
-	public void setInspectorcode(String inspectorcode) {
-		_inspectorcode = inspectorcode;
+	public void setInspectorCode(String inspectorCode) {
+		_inspectorCode = inspectorCode;
 	}
 
-	public String getInspectorname() {
-		return _inspectorname;
+	public String getInspectorName() {
+		return _inspectorName;
 	}
 
-	public void setInspectorname(String inspectorname) {
-		_inspectorname = inspectorname;
+	public void setInspectorName(String inspectorName) {
+		_inspectorName = inspectorName;
 	}
 
-	public String getLeadername() {
-		return _leadername;
+	public String getLeaderName() {
+		return _leaderName;
 	}
 
-	public void setLeadername(String leadername) {
-		_leadername = leadername;
+	public void setLeaderName(String leaderName) {
+		_leaderName = leaderName;
 	}
 
-	public String getApplicantmaker() {
-		return _applicantmaker;
+	public String getApplicantMaker() {
+		return _applicantMaker;
 	}
 
-	public void setApplicantmaker(String applicantmaker) {
-		_applicantmaker = applicantmaker;
+	public void setApplicantMaker(String applicantMaker) {
+		_applicantMaker = applicantMaker;
 	}
 
-	public String getApplicantchecker() {
-		return _applicantchecker;
+	public String getApplicantChecker() {
+		return _applicantChecker;
 	}
 
-	public void setApplicantchecker(String applicantchecker) {
-		_applicantchecker = applicantchecker;
+	public void setApplicantChecker(String applicantChecker) {
+		_applicantChecker = applicantChecker;
+	}
+
+	public Date getCertificateRecordDate() {
+		return _certificateRecordDate;
+	}
+
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_certificateRecordDate = certificateRecordDate;
+	}
+
+	public long getIssueInspectionRecordId() {
+		return _issueInspectionRecordId;
+	}
+
+	public void setIssueInspectionRecordId(long issueInspectionRecordId) {
+		_issueInspectionRecordId = issueInspectionRecordId;
 	}
 
 	public long getInspectorId() {
@@ -644,7 +662,7 @@ public class VRIssueSoap implements Serializable {
 	private long _totalInDocument;
 	private long _issueCorporationId;
 	private String _verifyCorporationId;
-	private int _digitalissuestatus;
+	private int _digitalIssueStatus;
 	private String _issueType;
 	private int _averageSTBQuantity;
 	private int _maxMonthQuantity;
@@ -659,18 +677,20 @@ public class VRIssueSoap implements Serializable {
 	private String _examinationRequired;
 	private String _examinationPeriod;
 	private Date _examinationLastTime;
-	private String _copresult;
-	private String _copreportno;
-	private Date _copreportdate;
-	private String _postreview;
-	private String _postreviewrecordno;
-	private Date _postreviewrecorddate;
+	private String _copResult;
+	private String _copReportNo;
+	private Date _copReportDate;
+	private String _postReview;
+	private String _postReviewRecordNo;
+	private Date _postReviewRecordDate;
 	private String _corporationId;
-	private String _inspectorcode;
-	private String _inspectorname;
-	private String _leadername;
-	private String _applicantmaker;
-	private String _applicantchecker;
+	private String _inspectorCode;
+	private String _inspectorName;
+	private String _leaderName;
+	private String _applicantMaker;
+	private String _applicantChecker;
+	private Date _certificateRecordDate;
+	private long _issueInspectionRecordId;
 	private long _inspectorId;
 	private long _issueInspectorId;
 	private long _verifyInspectorId;

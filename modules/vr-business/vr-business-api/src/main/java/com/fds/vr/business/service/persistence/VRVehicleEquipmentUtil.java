@@ -113,180 +113,357 @@ public class VRVehicleEquipmentUtil {
 	}
 
 	/**
-	* Returns all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @return the matching vr vehicle equipments
 	*/
-	public static List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId) {
+	public static List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
 		return getPersistence()
-				   .findByF_vehicleCertificateId(vehicleCertificateId);
+				   .findByF_vehicleTypeCertificateId(vehicleTypeCertificateId);
 	}
 
 	/**
-	* Returns a range of all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns a range of all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param start the lower bound of the range of vr vehicle equipments
 	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
 	* @return the range of matching vr vehicle equipments
 	*/
-	public static List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId, int start, int end) {
+	public static List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end) {
 		return getPersistence()
-				   .findByF_vehicleCertificateId(vehicleCertificateId, start,
-			end);
+				   .findByF_vehicleTypeCertificateId(vehicleTypeCertificateId,
+			start, end);
 	}
 
 	/**
-	* Returns an ordered range of all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns an ordered range of all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param start the lower bound of the range of vr vehicle equipments
 	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching vr vehicle equipments
 	*/
-	public static List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId, int start, int end,
+	public static List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
 		OrderByComparator<VRVehicleEquipment> orderByComparator) {
 		return getPersistence()
-				   .findByF_vehicleCertificateId(vehicleCertificateId, start,
-			end, orderByComparator);
+				   .findByF_vehicleTypeCertificateId(vehicleTypeCertificateId,
+			start, end, orderByComparator);
 	}
 
 	/**
-	* Returns an ordered range of all the vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns an ordered range of all the vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param start the lower bound of the range of vr vehicle equipments
 	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching vr vehicle equipments
 	*/
-	public static List<VRVehicleEquipment> findByF_vehicleCertificateId(
-		long vehicleCertificateId, int start, int end,
+	public static List<VRVehicleEquipment> findByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId, int start, int end,
 		OrderByComparator<VRVehicleEquipment> orderByComparator,
 		boolean retrieveFromCache) {
 		return getPersistence()
-				   .findByF_vehicleCertificateId(vehicleCertificateId, start,
-			end, orderByComparator, retrieveFromCache);
+				   .findByF_vehicleTypeCertificateId(vehicleTypeCertificateId,
+			start, end, orderByComparator, retrieveFromCache);
 	}
 
 	/**
-	* Returns the first vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the first vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr vehicle equipment
 	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
 	*/
-	public static VRVehicleEquipment findByF_vehicleCertificateId_First(
-		long vehicleCertificateId,
+	public static VRVehicleEquipment findByF_vehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
 		OrderByComparator<VRVehicleEquipment> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleEquipmentException {
 		return getPersistence()
-				   .findByF_vehicleCertificateId_First(vehicleCertificateId,
+				   .findByF_vehicleTypeCertificateId_First(vehicleTypeCertificateId,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the first vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the first vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
 	*/
-	public static VRVehicleEquipment fetchByF_vehicleCertificateId_First(
-		long vehicleCertificateId,
+	public static VRVehicleEquipment fetchByF_vehicleTypeCertificateId_First(
+		long vehicleTypeCertificateId,
 		OrderByComparator<VRVehicleEquipment> orderByComparator) {
 		return getPersistence()
-				   .fetchByF_vehicleCertificateId_First(vehicleCertificateId,
+				   .fetchByF_vehicleTypeCertificateId_First(vehicleTypeCertificateId,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the last vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr vehicle equipment
 	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
 	*/
-	public static VRVehicleEquipment findByF_vehicleCertificateId_Last(
-		long vehicleCertificateId,
+	public static VRVehicleEquipment findByF_vehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
 		OrderByComparator<VRVehicleEquipment> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleEquipmentException {
 		return getPersistence()
-				   .findByF_vehicleCertificateId_Last(vehicleCertificateId,
+				   .findByF_vehicleTypeCertificateId_Last(vehicleTypeCertificateId,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the last vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the last vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
 	*/
-	public static VRVehicleEquipment fetchByF_vehicleCertificateId_Last(
-		long vehicleCertificateId,
+	public static VRVehicleEquipment fetchByF_vehicleTypeCertificateId_Last(
+		long vehicleTypeCertificateId,
 		OrderByComparator<VRVehicleEquipment> orderByComparator) {
 		return getPersistence()
-				   .fetchByF_vehicleCertificateId_Last(vehicleCertificateId,
+				   .fetchByF_vehicleTypeCertificateId_Last(vehicleTypeCertificateId,
 			orderByComparator);
 	}
 
 	/**
-	* Returns the vr vehicle equipments before and after the current vr vehicle equipment in the ordered set where vehicleCertificateId = &#63;.
+	* Returns the vr vehicle equipments before and after the current vr vehicle equipment in the ordered set where vehicleTypeCertificateId = &#63;.
 	*
 	* @param id the primary key of the current vr vehicle equipment
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next vr vehicle equipment
 	* @throws NoSuchVRVehicleEquipmentException if a vr vehicle equipment with the primary key could not be found
 	*/
-	public static VRVehicleEquipment[] findByF_vehicleCertificateId_PrevAndNext(
-		long id, long vehicleCertificateId,
+	public static VRVehicleEquipment[] findByF_vehicleTypeCertificateId_PrevAndNext(
+		long id, long vehicleTypeCertificateId,
 		OrderByComparator<VRVehicleEquipment> orderByComparator)
 		throws com.fds.vr.business.exception.NoSuchVRVehicleEquipmentException {
 		return getPersistence()
-				   .findByF_vehicleCertificateId_PrevAndNext(id,
-			vehicleCertificateId, orderByComparator);
+				   .findByF_vehicleTypeCertificateId_PrevAndNext(id,
+			vehicleTypeCertificateId, orderByComparator);
 	}
 
 	/**
-	* Removes all the vr vehicle equipments where vehicleCertificateId = &#63; from the database.
+	* Removes all the vr vehicle equipments where vehicleTypeCertificateId = &#63; from the database.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	*/
-	public static void removeByF_vehicleCertificateId(long vehicleCertificateId) {
-		getPersistence().removeByF_vehicleCertificateId(vehicleCertificateId);
+	public static void removeByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		getPersistence()
+			.removeByF_vehicleTypeCertificateId(vehicleTypeCertificateId);
 	}
 
 	/**
-	* Returns the number of vr vehicle equipments where vehicleCertificateId = &#63;.
+	* Returns the number of vr vehicle equipments where vehicleTypeCertificateId = &#63;.
 	*
-	* @param vehicleCertificateId the vehicle certificate ID
+	* @param vehicleTypeCertificateId the vehicle type certificate ID
 	* @return the number of matching vr vehicle equipments
 	*/
-	public static int countByF_vehicleCertificateId(long vehicleCertificateId) {
+	public static int countByF_vehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
 		return getPersistence()
-				   .countByF_vehicleCertificateId(vehicleCertificateId);
+				   .countByF_vehicleTypeCertificateId(vehicleTypeCertificateId);
+	}
+
+	/**
+	* Returns all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @return the matching vr vehicle equipments
+	*/
+	public static List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId) {
+		return getPersistence().findByF_certificateRecordId(certificateRecordId);
+	}
+
+	/**
+	* Returns a range of all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param start the lower bound of the range of vr vehicle equipments
+	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
+	* @return the range of matching vr vehicle equipments
+	*/
+	public static List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId, int start, int end) {
+		return getPersistence()
+				   .findByF_certificateRecordId(certificateRecordId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param start the lower bound of the range of vr vehicle equipments
+	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching vr vehicle equipments
+	*/
+	public static List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId, int start, int end,
+		OrderByComparator<VRVehicleEquipment> orderByComparator) {
+		return getPersistence()
+				   .findByF_certificateRecordId(certificateRecordId, start,
+			end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link VRVehicleEquipmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param start the lower bound of the range of vr vehicle equipments
+	* @param end the upper bound of the range of vr vehicle equipments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching vr vehicle equipments
+	*/
+	public static List<VRVehicleEquipment> findByF_certificateRecordId(
+		long certificateRecordId, int start, int end,
+		OrderByComparator<VRVehicleEquipment> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByF_certificateRecordId(certificateRecordId, start,
+			end, orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr vehicle equipment
+	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
+	*/
+	public static VRVehicleEquipment findByF_certificateRecordId_First(
+		long certificateRecordId,
+		OrderByComparator<VRVehicleEquipment> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleEquipmentException {
+		return getPersistence()
+				   .findByF_certificateRecordId_First(certificateRecordId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the first vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
+	*/
+	public static VRVehicleEquipment fetchByF_certificateRecordId_First(
+		long certificateRecordId,
+		OrderByComparator<VRVehicleEquipment> orderByComparator) {
+		return getPersistence()
+				   .fetchByF_certificateRecordId_First(certificateRecordId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr vehicle equipment
+	* @throws NoSuchVRVehicleEquipmentException if a matching vr vehicle equipment could not be found
+	*/
+	public static VRVehicleEquipment findByF_certificateRecordId_Last(
+		long certificateRecordId,
+		OrderByComparator<VRVehicleEquipment> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleEquipmentException {
+		return getPersistence()
+				   .findByF_certificateRecordId_Last(certificateRecordId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching vr vehicle equipment, or <code>null</code> if a matching vr vehicle equipment could not be found
+	*/
+	public static VRVehicleEquipment fetchByF_certificateRecordId_Last(
+		long certificateRecordId,
+		OrderByComparator<VRVehicleEquipment> orderByComparator) {
+		return getPersistence()
+				   .fetchByF_certificateRecordId_Last(certificateRecordId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the vr vehicle equipments before and after the current vr vehicle equipment in the ordered set where certificateRecordId = &#63;.
+	*
+	* @param id the primary key of the current vr vehicle equipment
+	* @param certificateRecordId the certificate record ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next vr vehicle equipment
+	* @throws NoSuchVRVehicleEquipmentException if a vr vehicle equipment with the primary key could not be found
+	*/
+	public static VRVehicleEquipment[] findByF_certificateRecordId_PrevAndNext(
+		long id, long certificateRecordId,
+		OrderByComparator<VRVehicleEquipment> orderByComparator)
+		throws com.fds.vr.business.exception.NoSuchVRVehicleEquipmentException {
+		return getPersistence()
+				   .findByF_certificateRecordId_PrevAndNext(id,
+			certificateRecordId, orderByComparator);
+	}
+
+	/**
+	* Removes all the vr vehicle equipments where certificateRecordId = &#63; from the database.
+	*
+	* @param certificateRecordId the certificate record ID
+	*/
+	public static void removeByF_certificateRecordId(long certificateRecordId) {
+		getPersistence().removeByF_certificateRecordId(certificateRecordId);
+	}
+
+	/**
+	* Returns the number of vr vehicle equipments where certificateRecordId = &#63;.
+	*
+	* @param certificateRecordId the certificate record ID
+	* @return the number of matching vr vehicle equipments
+	*/
+	public static int countByF_certificateRecordId(long certificateRecordId) {
+		return getPersistence().countByF_certificateRecordId(certificateRecordId);
 	}
 
 	/**

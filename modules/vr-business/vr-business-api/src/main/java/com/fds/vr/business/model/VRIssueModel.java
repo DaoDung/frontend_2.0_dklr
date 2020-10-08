@@ -460,18 +460,18 @@ public interface VRIssueModel extends BaseModel<VRIssue> {
 	public void setVerifyCorporationId(String verifyCorporationId);
 
 	/**
-	 * Returns the digitalissuestatus of this vr issue.
+	 * Returns the digital issue status of this vr issue.
 	 *
-	 * @return the digitalissuestatus of this vr issue
+	 * @return the digital issue status of this vr issue
 	 */
-	public int getDigitalissuestatus();
+	public int getDigitalIssueStatus();
 
 	/**
-	 * Sets the digitalissuestatus of this vr issue.
+	 * Sets the digital issue status of this vr issue.
 	 *
-	 * @param digitalissuestatus the digitalissuestatus of this vr issue
+	 * @param digitalIssueStatus the digital issue status of this vr issue
 	 */
-	public void setDigitalissuestatus(int digitalissuestatus);
+	public void setDigitalIssueStatus(int digitalIssueStatus);
 
 	/**
 	 * Returns the issue type of this vr issue.
@@ -674,92 +674,92 @@ public interface VRIssueModel extends BaseModel<VRIssue> {
 	public void setExaminationLastTime(Date examinationLastTime);
 
 	/**
-	 * Returns the copresult of this vr issue.
+	 * Returns the cop result of this vr issue.
 	 *
-	 * @return the copresult of this vr issue
+	 * @return the cop result of this vr issue
 	 */
 	@AutoEscape
-	public String getCopresult();
+	public String getCopResult();
 
 	/**
-	 * Sets the copresult of this vr issue.
+	 * Sets the cop result of this vr issue.
 	 *
-	 * @param copresult the copresult of this vr issue
+	 * @param copResult the cop result of this vr issue
 	 */
-	public void setCopresult(String copresult);
+	public void setCopResult(String copResult);
 
 	/**
-	 * Returns the copreportno of this vr issue.
+	 * Returns the cop report no of this vr issue.
 	 *
-	 * @return the copreportno of this vr issue
-	 */
-	@AutoEscape
-	public String getCopreportno();
-
-	/**
-	 * Sets the copreportno of this vr issue.
-	 *
-	 * @param copreportno the copreportno of this vr issue
-	 */
-	public void setCopreportno(String copreportno);
-
-	/**
-	 * Returns the copreportdate of this vr issue.
-	 *
-	 * @return the copreportdate of this vr issue
-	 */
-	public Date getCopreportdate();
-
-	/**
-	 * Sets the copreportdate of this vr issue.
-	 *
-	 * @param copreportdate the copreportdate of this vr issue
-	 */
-	public void setCopreportdate(Date copreportdate);
-
-	/**
-	 * Returns the postreview of this vr issue.
-	 *
-	 * @return the postreview of this vr issue
+	 * @return the cop report no of this vr issue
 	 */
 	@AutoEscape
-	public String getPostreview();
+	public String getCopReportNo();
 
 	/**
-	 * Sets the postreview of this vr issue.
+	 * Sets the cop report no of this vr issue.
 	 *
-	 * @param postreview the postreview of this vr issue
+	 * @param copReportNo the cop report no of this vr issue
 	 */
-	public void setPostreview(String postreview);
+	public void setCopReportNo(String copReportNo);
 
 	/**
-	 * Returns the postreviewrecordno of this vr issue.
+	 * Returns the cop report date of this vr issue.
 	 *
-	 * @return the postreviewrecordno of this vr issue
+	 * @return the cop report date of this vr issue
+	 */
+	public Date getCopReportDate();
+
+	/**
+	 * Sets the cop report date of this vr issue.
+	 *
+	 * @param copReportDate the cop report date of this vr issue
+	 */
+	public void setCopReportDate(Date copReportDate);
+
+	/**
+	 * Returns the post review of this vr issue.
+	 *
+	 * @return the post review of this vr issue
 	 */
 	@AutoEscape
-	public String getPostreviewrecordno();
+	public String getPostReview();
 
 	/**
-	 * Sets the postreviewrecordno of this vr issue.
+	 * Sets the post review of this vr issue.
 	 *
-	 * @param postreviewrecordno the postreviewrecordno of this vr issue
+	 * @param postReview the post review of this vr issue
 	 */
-	public void setPostreviewrecordno(String postreviewrecordno);
+	public void setPostReview(String postReview);
 
 	/**
-	 * Returns the postreviewrecorddate of this vr issue.
+	 * Returns the post review record no of this vr issue.
 	 *
-	 * @return the postreviewrecorddate of this vr issue
+	 * @return the post review record no of this vr issue
 	 */
-	public Date getPostreviewrecorddate();
+	@AutoEscape
+	public String getPostReviewRecordNo();
 
 	/**
-	 * Sets the postreviewrecorddate of this vr issue.
+	 * Sets the post review record no of this vr issue.
 	 *
-	 * @param postreviewrecorddate the postreviewrecorddate of this vr issue
+	 * @param postReviewRecordNo the post review record no of this vr issue
 	 */
-	public void setPostreviewrecorddate(Date postreviewrecorddate);
+	public void setPostReviewRecordNo(String postReviewRecordNo);
+
+	/**
+	 * Returns the post review record date of this vr issue.
+	 *
+	 * @return the post review record date of this vr issue
+	 */
+	public Date getPostReviewRecordDate();
+
+	/**
+	 * Sets the post review record date of this vr issue.
+	 *
+	 * @param postReviewRecordDate the post review record date of this vr issue
+	 */
+	public void setPostReviewRecordDate(Date postReviewRecordDate);
 
 	/**
 	 * Returns the corporation ID of this vr issue.
@@ -777,79 +777,107 @@ public interface VRIssueModel extends BaseModel<VRIssue> {
 	public void setCorporationId(String corporationId);
 
 	/**
-	 * Returns the inspectorcode of this vr issue.
+	 * Returns the inspector code of this vr issue.
 	 *
-	 * @return the inspectorcode of this vr issue
+	 * @return the inspector code of this vr issue
 	 */
 	@AutoEscape
-	public String getInspectorcode();
+	public String getInspectorCode();
 
 	/**
-	 * Sets the inspectorcode of this vr issue.
+	 * Sets the inspector code of this vr issue.
 	 *
-	 * @param inspectorcode the inspectorcode of this vr issue
+	 * @param inspectorCode the inspector code of this vr issue
 	 */
-	public void setInspectorcode(String inspectorcode);
+	public void setInspectorCode(String inspectorCode);
 
 	/**
-	 * Returns the inspectorname of this vr issue.
+	 * Returns the inspector name of this vr issue.
 	 *
-	 * @return the inspectorname of this vr issue
-	 */
-	@AutoEscape
-	public String getInspectorname();
-
-	/**
-	 * Sets the inspectorname of this vr issue.
-	 *
-	 * @param inspectorname the inspectorname of this vr issue
-	 */
-	public void setInspectorname(String inspectorname);
-
-	/**
-	 * Returns the leadername of this vr issue.
-	 *
-	 * @return the leadername of this vr issue
+	 * @return the inspector name of this vr issue
 	 */
 	@AutoEscape
-	public String getLeadername();
+	public String getInspectorName();
 
 	/**
-	 * Sets the leadername of this vr issue.
+	 * Sets the inspector name of this vr issue.
 	 *
-	 * @param leadername the leadername of this vr issue
+	 * @param inspectorName the inspector name of this vr issue
 	 */
-	public void setLeadername(String leadername);
+	public void setInspectorName(String inspectorName);
 
 	/**
-	 * Returns the applicantmaker of this vr issue.
+	 * Returns the leader name of this vr issue.
 	 *
-	 * @return the applicantmaker of this vr issue
-	 */
-	@AutoEscape
-	public String getApplicantmaker();
-
-	/**
-	 * Sets the applicantmaker of this vr issue.
-	 *
-	 * @param applicantmaker the applicantmaker of this vr issue
-	 */
-	public void setApplicantmaker(String applicantmaker);
-
-	/**
-	 * Returns the applicantchecker of this vr issue.
-	 *
-	 * @return the applicantchecker of this vr issue
+	 * @return the leader name of this vr issue
 	 */
 	@AutoEscape
-	public String getApplicantchecker();
+	public String getLeaderName();
 
 	/**
-	 * Sets the applicantchecker of this vr issue.
+	 * Sets the leader name of this vr issue.
 	 *
-	 * @param applicantchecker the applicantchecker of this vr issue
+	 * @param leaderName the leader name of this vr issue
 	 */
-	public void setApplicantchecker(String applicantchecker);
+	public void setLeaderName(String leaderName);
+
+	/**
+	 * Returns the applicant maker of this vr issue.
+	 *
+	 * @return the applicant maker of this vr issue
+	 */
+	@AutoEscape
+	public String getApplicantMaker();
+
+	/**
+	 * Sets the applicant maker of this vr issue.
+	 *
+	 * @param applicantMaker the applicant maker of this vr issue
+	 */
+	public void setApplicantMaker(String applicantMaker);
+
+	/**
+	 * Returns the applicant checker of this vr issue.
+	 *
+	 * @return the applicant checker of this vr issue
+	 */
+	@AutoEscape
+	public String getApplicantChecker();
+
+	/**
+	 * Sets the applicant checker of this vr issue.
+	 *
+	 * @param applicantChecker the applicant checker of this vr issue
+	 */
+	public void setApplicantChecker(String applicantChecker);
+
+	/**
+	 * Returns the certificate record date of this vr issue.
+	 *
+	 * @return the certificate record date of this vr issue
+	 */
+	public Date getCertificateRecordDate();
+
+	/**
+	 * Sets the certificate record date of this vr issue.
+	 *
+	 * @param certificateRecordDate the certificate record date of this vr issue
+	 */
+	public void setCertificateRecordDate(Date certificateRecordDate);
+
+	/**
+	 * Returns the issue inspection record ID of this vr issue.
+	 *
+	 * @return the issue inspection record ID of this vr issue
+	 */
+	public long getIssueInspectionRecordId();
+
+	/**
+	 * Sets the issue inspection record ID of this vr issue.
+	 *
+	 * @param issueInspectionRecordId the issue inspection record ID of this vr issue
+	 */
+	public void setIssueInspectionRecordId(long issueInspectionRecordId);
 
 	/**
 	 * Returns the inspector ID of this vr issue.

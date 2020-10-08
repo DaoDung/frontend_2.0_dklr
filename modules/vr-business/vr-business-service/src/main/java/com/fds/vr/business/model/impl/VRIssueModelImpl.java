@@ -90,7 +90,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			{ "totalInDocument", Types.BIGINT },
 			{ "issueCorporationId", Types.BIGINT },
 			{ "verifyCorporationId", Types.VARCHAR },
-			{ "digitalissuestatus", Types.INTEGER },
+			{ "digitalIssueStatus", Types.INTEGER },
 			{ "issueType", Types.VARCHAR },
 			{ "averageSTBQuantity", Types.INTEGER },
 			{ "maxMonthQuantity", Types.INTEGER },
@@ -105,18 +105,20 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			{ "examinationRequired", Types.VARCHAR },
 			{ "examinationPeriod", Types.VARCHAR },
 			{ "examinationLastTime", Types.TIMESTAMP },
-			{ "copresult", Types.VARCHAR },
-			{ "copreportno", Types.VARCHAR },
-			{ "copreportdate", Types.TIMESTAMP },
-			{ "postreview", Types.VARCHAR },
-			{ "postreviewrecordno", Types.VARCHAR },
-			{ "postreviewrecorddate", Types.TIMESTAMP },
+			{ "copResult", Types.VARCHAR },
+			{ "copReportNo", Types.VARCHAR },
+			{ "copReportDate", Types.TIMESTAMP },
+			{ "postReview", Types.VARCHAR },
+			{ "postReviewRecordNo", Types.VARCHAR },
+			{ "postReviewRecordDate", Types.TIMESTAMP },
 			{ "corporationId", Types.VARCHAR },
-			{ "inspectorcode", Types.VARCHAR },
-			{ "inspectorname", Types.VARCHAR },
-			{ "leadername", Types.VARCHAR },
-			{ "applicantmaker", Types.VARCHAR },
-			{ "applicantchecker", Types.VARCHAR },
+			{ "inspectorCode", Types.VARCHAR },
+			{ "inspectorName", Types.VARCHAR },
+			{ "leaderName", Types.VARCHAR },
+			{ "applicantMaker", Types.VARCHAR },
+			{ "applicantChecker", Types.VARCHAR },
+			{ "certificateRecordDate", Types.TIMESTAMP },
+			{ "issueInspectionRecordId", Types.BIGINT },
 			{ "inspectorId", Types.BIGINT },
 			{ "issueInspectorId", Types.BIGINT },
 			{ "verifyInspectorId", Types.BIGINT },
@@ -153,7 +155,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		TABLE_COLUMNS_MAP.put("totalInDocument", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("issueCorporationId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("verifyCorporationId", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("digitalissuestatus", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("digitalIssueStatus", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("issueType", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("averageSTBQuantity", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("maxMonthQuantity", Types.INTEGER);
@@ -168,18 +170,20 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		TABLE_COLUMNS_MAP.put("examinationRequired", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("examinationPeriod", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("examinationLastTime", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("copresult", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("copreportno", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("copreportdate", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("postreview", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("postreviewrecordno", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("postreviewrecorddate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("copResult", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("copReportNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("copReportDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("postReview", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("postReviewRecordNo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("postReviewRecordDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("corporationId", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("inspectorcode", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("inspectorname", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("leadername", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("applicantmaker", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("applicantchecker", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectorCode", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("inspectorName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("leaderName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantMaker", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("applicantChecker", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("certificateRecordDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("issueInspectionRecordId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("inspectorId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("issueInspectorId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("verifyInspectorId", Types.BIGINT);
@@ -187,7 +191,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		TABLE_COLUMNS_MAP.put("syncDate", Types.TIMESTAMP);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table vr_issue (id LONG not null primary key,mtCore LONG,dossierId LONG,stampIssueNo VARCHAR(75) null,appliedDate DATE null,approvedDate DATE null,vehicleClass VARCHAR(75) null,applicantProfileId LONG,applicantName VARCHAR(75) null,applicantAddress VARCHAR(75) null,applicantRepresentative VARCHAR(75) null,applicantRepresentativeTitle VARCHAR(75) null,applicantEmail VARCHAR(75) null,applicantPhone VARCHAR(75) null,applicantFax VARCHAR(75) null,applicantContactName VARCHAR(75) null,applicantContactEmail VARCHAR(75) null,applicantContactPhone VARCHAR(75) null,productionPlantId LONG,productionPlantCode VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,remarks VARCHAR(75) null,methodOfIssue VARCHAR(75) null,totalInDocument LONG,issueCorporationId LONG,verifyCorporationId VARCHAR(75) null,digitalissuestatus INTEGER,issueType VARCHAR(75) null,averageSTBQuantity INTEGER,maxMonthQuantity INTEGER,averageSTMQuantity INTEGER,accumulatedMonthQuantity INTEGER,totalInUse INTEGER,totalCancelled INTEGER,totalLost INTEGER,totalNotUsed INTEGER,totalReturned INTEGER,flow VARCHAR(75) null,examinationRequired VARCHAR(75) null,examinationPeriod VARCHAR(75) null,examinationLastTime DATE null,copresult VARCHAR(75) null,copreportno VARCHAR(75) null,copreportdate DATE null,postreview VARCHAR(75) null,postreviewrecordno VARCHAR(75) null,postreviewrecorddate DATE null,corporationId VARCHAR(75) null,inspectorcode VARCHAR(75) null,inspectorname VARCHAR(75) null,leadername VARCHAR(75) null,applicantmaker VARCHAR(75) null,applicantchecker VARCHAR(75) null,inspectorId LONG,issueInspectorId LONG,verifyInspectorId LONG,modifyDate DATE null,syncDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table vr_issue (id LONG not null primary key,mtCore LONG,dossierId LONG,stampIssueNo VARCHAR(75) null,appliedDate DATE null,approvedDate DATE null,vehicleClass VARCHAR(75) null,applicantProfileId LONG,applicantName VARCHAR(75) null,applicantAddress VARCHAR(75) null,applicantRepresentative VARCHAR(75) null,applicantRepresentativeTitle VARCHAR(75) null,applicantEmail VARCHAR(75) null,applicantPhone VARCHAR(75) null,applicantFax VARCHAR(75) null,applicantContactName VARCHAR(75) null,applicantContactEmail VARCHAR(75) null,applicantContactPhone VARCHAR(75) null,productionPlantId LONG,productionPlantCode VARCHAR(75) null,productionPlantName VARCHAR(75) null,productionPlantAddress VARCHAR(75) null,remarks VARCHAR(75) null,methodOfIssue VARCHAR(75) null,totalInDocument LONG,issueCorporationId LONG,verifyCorporationId VARCHAR(75) null,digitalIssueStatus INTEGER,issueType VARCHAR(75) null,averageSTBQuantity INTEGER,maxMonthQuantity INTEGER,averageSTMQuantity INTEGER,accumulatedMonthQuantity INTEGER,totalInUse INTEGER,totalCancelled INTEGER,totalLost INTEGER,totalNotUsed INTEGER,totalReturned INTEGER,flow VARCHAR(75) null,examinationRequired VARCHAR(75) null,examinationPeriod VARCHAR(75) null,examinationLastTime DATE null,copResult VARCHAR(75) null,copReportNo VARCHAR(75) null,copReportDate DATE null,postReview VARCHAR(75) null,postReviewRecordNo VARCHAR(75) null,postReviewRecordDate DATE null,corporationId VARCHAR(75) null,inspectorCode VARCHAR(75) null,inspectorName VARCHAR(75) null,leaderName VARCHAR(75) null,applicantMaker VARCHAR(75) null,applicantChecker VARCHAR(75) null,certificateRecordDate DATE null,issueInspectionRecordId LONG,inspectorId LONG,issueInspectorId LONG,verifyInspectorId LONG,modifyDate DATE null,syncDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table vr_issue";
 	public static final String ORDER_BY_JPQL = " ORDER BY vrIssue.modifyDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY vr_issue.modifyDate DESC";
@@ -282,7 +286,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		attributes.put("totalInDocument", getTotalInDocument());
 		attributes.put("issueCorporationId", getIssueCorporationId());
 		attributes.put("verifyCorporationId", getVerifyCorporationId());
-		attributes.put("digitalissuestatus", getDigitalissuestatus());
+		attributes.put("digitalIssueStatus", getDigitalIssueStatus());
 		attributes.put("issueType", getIssueType());
 		attributes.put("averageSTBQuantity", getAverageSTBQuantity());
 		attributes.put("maxMonthQuantity", getMaxMonthQuantity());
@@ -297,18 +301,20 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		attributes.put("examinationRequired", getExaminationRequired());
 		attributes.put("examinationPeriod", getExaminationPeriod());
 		attributes.put("examinationLastTime", getExaminationLastTime());
-		attributes.put("copresult", getCopresult());
-		attributes.put("copreportno", getCopreportno());
-		attributes.put("copreportdate", getCopreportdate());
-		attributes.put("postreview", getPostreview());
-		attributes.put("postreviewrecordno", getPostreviewrecordno());
-		attributes.put("postreviewrecorddate", getPostreviewrecorddate());
+		attributes.put("copResult", getCopResult());
+		attributes.put("copReportNo", getCopReportNo());
+		attributes.put("copReportDate", getCopReportDate());
+		attributes.put("postReview", getPostReview());
+		attributes.put("postReviewRecordNo", getPostReviewRecordNo());
+		attributes.put("postReviewRecordDate", getPostReviewRecordDate());
 		attributes.put("corporationId", getCorporationId());
-		attributes.put("inspectorcode", getInspectorcode());
-		attributes.put("inspectorname", getInspectorname());
-		attributes.put("leadername", getLeadername());
-		attributes.put("applicantmaker", getApplicantmaker());
-		attributes.put("applicantchecker", getApplicantchecker());
+		attributes.put("inspectorCode", getInspectorCode());
+		attributes.put("inspectorName", getInspectorName());
+		attributes.put("leaderName", getLeaderName());
+		attributes.put("applicantMaker", getApplicantMaker());
+		attributes.put("applicantChecker", getApplicantChecker());
+		attributes.put("certificateRecordDate", getCertificateRecordDate());
+		attributes.put("issueInspectionRecordId", getIssueInspectionRecordId());
 		attributes.put("inspectorId", getInspectorId());
 		attributes.put("issueInspectorId", getIssueInspectorId());
 		attributes.put("verifyInspectorId", getVerifyInspectorId());
@@ -494,11 +500,11 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			setVerifyCorporationId(verifyCorporationId);
 		}
 
-		Integer digitalissuestatus = (Integer)attributes.get(
-				"digitalissuestatus");
+		Integer digitalIssueStatus = (Integer)attributes.get(
+				"digitalIssueStatus");
 
-		if (digitalissuestatus != null) {
-			setDigitalissuestatus(digitalissuestatus);
+		if (digitalIssueStatus != null) {
+			setDigitalIssueStatus(digitalIssueStatus);
 		}
 
 		String issueType = (String)attributes.get("issueType");
@@ -589,40 +595,40 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			setExaminationLastTime(examinationLastTime);
 		}
 
-		String copresult = (String)attributes.get("copresult");
+		String copResult = (String)attributes.get("copResult");
 
-		if (copresult != null) {
-			setCopresult(copresult);
+		if (copResult != null) {
+			setCopResult(copResult);
 		}
 
-		String copreportno = (String)attributes.get("copreportno");
+		String copReportNo = (String)attributes.get("copReportNo");
 
-		if (copreportno != null) {
-			setCopreportno(copreportno);
+		if (copReportNo != null) {
+			setCopReportNo(copReportNo);
 		}
 
-		Date copreportdate = (Date)attributes.get("copreportdate");
+		Date copReportDate = (Date)attributes.get("copReportDate");
 
-		if (copreportdate != null) {
-			setCopreportdate(copreportdate);
+		if (copReportDate != null) {
+			setCopReportDate(copReportDate);
 		}
 
-		String postreview = (String)attributes.get("postreview");
+		String postReview = (String)attributes.get("postReview");
 
-		if (postreview != null) {
-			setPostreview(postreview);
+		if (postReview != null) {
+			setPostReview(postReview);
 		}
 
-		String postreviewrecordno = (String)attributes.get("postreviewrecordno");
+		String postReviewRecordNo = (String)attributes.get("postReviewRecordNo");
 
-		if (postreviewrecordno != null) {
-			setPostreviewrecordno(postreviewrecordno);
+		if (postReviewRecordNo != null) {
+			setPostReviewRecordNo(postReviewRecordNo);
 		}
 
-		Date postreviewrecorddate = (Date)attributes.get("postreviewrecorddate");
+		Date postReviewRecordDate = (Date)attributes.get("postReviewRecordDate");
 
-		if (postreviewrecorddate != null) {
-			setPostreviewrecorddate(postreviewrecorddate);
+		if (postReviewRecordDate != null) {
+			setPostReviewRecordDate(postReviewRecordDate);
 		}
 
 		String corporationId = (String)attributes.get("corporationId");
@@ -631,34 +637,48 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			setCorporationId(corporationId);
 		}
 
-		String inspectorcode = (String)attributes.get("inspectorcode");
+		String inspectorCode = (String)attributes.get("inspectorCode");
 
-		if (inspectorcode != null) {
-			setInspectorcode(inspectorcode);
+		if (inspectorCode != null) {
+			setInspectorCode(inspectorCode);
 		}
 
-		String inspectorname = (String)attributes.get("inspectorname");
+		String inspectorName = (String)attributes.get("inspectorName");
 
-		if (inspectorname != null) {
-			setInspectorname(inspectorname);
+		if (inspectorName != null) {
+			setInspectorName(inspectorName);
 		}
 
-		String leadername = (String)attributes.get("leadername");
+		String leaderName = (String)attributes.get("leaderName");
 
-		if (leadername != null) {
-			setLeadername(leadername);
+		if (leaderName != null) {
+			setLeaderName(leaderName);
 		}
 
-		String applicantmaker = (String)attributes.get("applicantmaker");
+		String applicantMaker = (String)attributes.get("applicantMaker");
 
-		if (applicantmaker != null) {
-			setApplicantmaker(applicantmaker);
+		if (applicantMaker != null) {
+			setApplicantMaker(applicantMaker);
 		}
 
-		String applicantchecker = (String)attributes.get("applicantchecker");
+		String applicantChecker = (String)attributes.get("applicantChecker");
 
-		if (applicantchecker != null) {
-			setApplicantchecker(applicantchecker);
+		if (applicantChecker != null) {
+			setApplicantChecker(applicantChecker);
+		}
+
+		Date certificateRecordDate = (Date)attributes.get(
+				"certificateRecordDate");
+
+		if (certificateRecordDate != null) {
+			setCertificateRecordDate(certificateRecordDate);
+		}
+
+		Long issueInspectionRecordId = (Long)attributes.get(
+				"issueInspectionRecordId");
+
+		if (issueInspectionRecordId != null) {
+			setIssueInspectionRecordId(issueInspectionRecordId);
 		}
 
 		Long inspectorId = (Long)attributes.get("inspectorId");
@@ -1134,25 +1154,25 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 	}
 
 	@Override
-	public int getDigitalissuestatus() {
-		return _digitalissuestatus;
+	public int getDigitalIssueStatus() {
+		return _digitalIssueStatus;
 	}
 
 	@Override
-	public void setDigitalissuestatus(int digitalissuestatus) {
+	public void setDigitalIssueStatus(int digitalIssueStatus) {
 		_columnBitmask |= DIGITALISSUESTATUS_COLUMN_BITMASK;
 
-		if (!_setOriginalDigitalissuestatus) {
-			_setOriginalDigitalissuestatus = true;
+		if (!_setOriginalDigitalIssueStatus) {
+			_setOriginalDigitalIssueStatus = true;
 
-			_originalDigitalissuestatus = _digitalissuestatus;
+			_originalDigitalIssueStatus = _digitalIssueStatus;
 		}
 
-		_digitalissuestatus = digitalissuestatus;
+		_digitalIssueStatus = digitalIssueStatus;
 	}
 
-	public int getOriginalDigitalissuestatus() {
-		return _originalDigitalissuestatus;
+	public int getOriginalDigitalIssueStatus() {
+		return _originalDigitalIssueStatus;
 	}
 
 	@Override
@@ -1316,93 +1336,93 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 	}
 
 	@Override
-	public String getCopresult() {
-		if (_copresult == null) {
+	public String getCopResult() {
+		if (_copResult == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _copresult;
+			return _copResult;
 		}
 	}
 
 	@Override
-	public void setCopresult(String copresult) {
-		_copresult = copresult;
+	public void setCopResult(String copResult) {
+		_copResult = copResult;
 	}
 
 	@Override
-	public String getCopreportno() {
-		if (_copreportno == null) {
+	public String getCopReportNo() {
+		if (_copReportNo == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _copreportno;
+			return _copReportNo;
 		}
 	}
 
 	@Override
-	public void setCopreportno(String copreportno) {
+	public void setCopReportNo(String copReportNo) {
 		_columnBitmask |= COPREPORTNO_COLUMN_BITMASK;
 
-		if (_originalCopreportno == null) {
-			_originalCopreportno = _copreportno;
+		if (_originalCopReportNo == null) {
+			_originalCopReportNo = _copReportNo;
 		}
 
-		_copreportno = copreportno;
+		_copReportNo = copReportNo;
 	}
 
-	public String getOriginalCopreportno() {
-		return GetterUtil.getString(_originalCopreportno);
-	}
-
-	@Override
-	public Date getCopreportdate() {
-		return _copreportdate;
+	public String getOriginalCopReportNo() {
+		return GetterUtil.getString(_originalCopReportNo);
 	}
 
 	@Override
-	public void setCopreportdate(Date copreportdate) {
-		_copreportdate = copreportdate;
+	public Date getCopReportDate() {
+		return _copReportDate;
 	}
 
 	@Override
-	public String getPostreview() {
-		if (_postreview == null) {
+	public void setCopReportDate(Date copReportDate) {
+		_copReportDate = copReportDate;
+	}
+
+	@Override
+	public String getPostReview() {
+		if (_postReview == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _postreview;
+			return _postReview;
 		}
 	}
 
 	@Override
-	public void setPostreview(String postreview) {
-		_postreview = postreview;
+	public void setPostReview(String postReview) {
+		_postReview = postReview;
 	}
 
 	@Override
-	public String getPostreviewrecordno() {
-		if (_postreviewrecordno == null) {
+	public String getPostReviewRecordNo() {
+		if (_postReviewRecordNo == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _postreviewrecordno;
+			return _postReviewRecordNo;
 		}
 	}
 
 	@Override
-	public void setPostreviewrecordno(String postreviewrecordno) {
-		_postreviewrecordno = postreviewrecordno;
+	public void setPostReviewRecordNo(String postReviewRecordNo) {
+		_postReviewRecordNo = postReviewRecordNo;
 	}
 
 	@Override
-	public Date getPostreviewrecorddate() {
-		return _postreviewrecorddate;
+	public Date getPostReviewRecordDate() {
+		return _postReviewRecordDate;
 	}
 
 	@Override
-	public void setPostreviewrecorddate(Date postreviewrecorddate) {
-		_postreviewrecorddate = postreviewrecorddate;
+	public void setPostReviewRecordDate(Date postReviewRecordDate) {
+		_postReviewRecordDate = postReviewRecordDate;
 	}
 
 	@Override
@@ -1431,78 +1451,98 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 	}
 
 	@Override
-	public String getInspectorcode() {
-		if (_inspectorcode == null) {
+	public String getInspectorCode() {
+		if (_inspectorCode == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _inspectorcode;
+			return _inspectorCode;
 		}
 	}
 
 	@Override
-	public void setInspectorcode(String inspectorcode) {
-		_inspectorcode = inspectorcode;
+	public void setInspectorCode(String inspectorCode) {
+		_inspectorCode = inspectorCode;
 	}
 
 	@Override
-	public String getInspectorname() {
-		if (_inspectorname == null) {
+	public String getInspectorName() {
+		if (_inspectorName == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _inspectorname;
+			return _inspectorName;
 		}
 	}
 
 	@Override
-	public void setInspectorname(String inspectorname) {
-		_inspectorname = inspectorname;
+	public void setInspectorName(String inspectorName) {
+		_inspectorName = inspectorName;
 	}
 
 	@Override
-	public String getLeadername() {
-		if (_leadername == null) {
+	public String getLeaderName() {
+		if (_leaderName == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _leadername;
+			return _leaderName;
 		}
 	}
 
 	@Override
-	public void setLeadername(String leadername) {
-		_leadername = leadername;
+	public void setLeaderName(String leaderName) {
+		_leaderName = leaderName;
 	}
 
 	@Override
-	public String getApplicantmaker() {
-		if (_applicantmaker == null) {
+	public String getApplicantMaker() {
+		if (_applicantMaker == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _applicantmaker;
+			return _applicantMaker;
 		}
 	}
 
 	@Override
-	public void setApplicantmaker(String applicantmaker) {
-		_applicantmaker = applicantmaker;
+	public void setApplicantMaker(String applicantMaker) {
+		_applicantMaker = applicantMaker;
 	}
 
 	@Override
-	public String getApplicantchecker() {
-		if (_applicantchecker == null) {
+	public String getApplicantChecker() {
+		if (_applicantChecker == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _applicantchecker;
+			return _applicantChecker;
 		}
 	}
 
 	@Override
-	public void setApplicantchecker(String applicantchecker) {
-		_applicantchecker = applicantchecker;
+	public void setApplicantChecker(String applicantChecker) {
+		_applicantChecker = applicantChecker;
+	}
+
+	@Override
+	public Date getCertificateRecordDate() {
+		return _certificateRecordDate;
+	}
+
+	@Override
+	public void setCertificateRecordDate(Date certificateRecordDate) {
+		_certificateRecordDate = certificateRecordDate;
+	}
+
+	@Override
+	public long getIssueInspectionRecordId() {
+		return _issueInspectionRecordId;
+	}
+
+	@Override
+	public void setIssueInspectionRecordId(long issueInspectionRecordId) {
+		_issueInspectionRecordId = issueInspectionRecordId;
 	}
 
 	@Override
@@ -1615,7 +1655,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		vrIssueImpl.setTotalInDocument(getTotalInDocument());
 		vrIssueImpl.setIssueCorporationId(getIssueCorporationId());
 		vrIssueImpl.setVerifyCorporationId(getVerifyCorporationId());
-		vrIssueImpl.setDigitalissuestatus(getDigitalissuestatus());
+		vrIssueImpl.setDigitalIssueStatus(getDigitalIssueStatus());
 		vrIssueImpl.setIssueType(getIssueType());
 		vrIssueImpl.setAverageSTBQuantity(getAverageSTBQuantity());
 		vrIssueImpl.setMaxMonthQuantity(getMaxMonthQuantity());
@@ -1630,18 +1670,20 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		vrIssueImpl.setExaminationRequired(getExaminationRequired());
 		vrIssueImpl.setExaminationPeriod(getExaminationPeriod());
 		vrIssueImpl.setExaminationLastTime(getExaminationLastTime());
-		vrIssueImpl.setCopresult(getCopresult());
-		vrIssueImpl.setCopreportno(getCopreportno());
-		vrIssueImpl.setCopreportdate(getCopreportdate());
-		vrIssueImpl.setPostreview(getPostreview());
-		vrIssueImpl.setPostreviewrecordno(getPostreviewrecordno());
-		vrIssueImpl.setPostreviewrecorddate(getPostreviewrecorddate());
+		vrIssueImpl.setCopResult(getCopResult());
+		vrIssueImpl.setCopReportNo(getCopReportNo());
+		vrIssueImpl.setCopReportDate(getCopReportDate());
+		vrIssueImpl.setPostReview(getPostReview());
+		vrIssueImpl.setPostReviewRecordNo(getPostReviewRecordNo());
+		vrIssueImpl.setPostReviewRecordDate(getPostReviewRecordDate());
 		vrIssueImpl.setCorporationId(getCorporationId());
-		vrIssueImpl.setInspectorcode(getInspectorcode());
-		vrIssueImpl.setInspectorname(getInspectorname());
-		vrIssueImpl.setLeadername(getLeadername());
-		vrIssueImpl.setApplicantmaker(getApplicantmaker());
-		vrIssueImpl.setApplicantchecker(getApplicantchecker());
+		vrIssueImpl.setInspectorCode(getInspectorCode());
+		vrIssueImpl.setInspectorName(getInspectorName());
+		vrIssueImpl.setLeaderName(getLeaderName());
+		vrIssueImpl.setApplicantMaker(getApplicantMaker());
+		vrIssueImpl.setApplicantChecker(getApplicantChecker());
+		vrIssueImpl.setCertificateRecordDate(getCertificateRecordDate());
+		vrIssueImpl.setIssueInspectionRecordId(getIssueInspectionRecordId());
 		vrIssueImpl.setInspectorId(getInspectorId());
 		vrIssueImpl.setIssueInspectorId(getIssueInspectorId());
 		vrIssueImpl.setVerifyInspectorId(getVerifyInspectorId());
@@ -1733,11 +1775,11 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 
 		vrIssueModelImpl._originalVerifyCorporationId = vrIssueModelImpl._verifyCorporationId;
 
-		vrIssueModelImpl._originalDigitalissuestatus = vrIssueModelImpl._digitalissuestatus;
+		vrIssueModelImpl._originalDigitalIssueStatus = vrIssueModelImpl._digitalIssueStatus;
 
-		vrIssueModelImpl._setOriginalDigitalissuestatus = false;
+		vrIssueModelImpl._setOriginalDigitalIssueStatus = false;
 
-		vrIssueModelImpl._originalCopreportno = vrIssueModelImpl._copreportno;
+		vrIssueModelImpl._originalCopReportNo = vrIssueModelImpl._copReportNo;
 
 		vrIssueModelImpl._originalCorporationId = vrIssueModelImpl._corporationId;
 
@@ -1933,7 +1975,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			vrIssueCacheModel.verifyCorporationId = null;
 		}
 
-		vrIssueCacheModel.digitalissuestatus = getDigitalissuestatus();
+		vrIssueCacheModel.digitalIssueStatus = getDigitalIssueStatus();
 
 		vrIssueCacheModel.issueType = getIssueType();
 
@@ -1995,54 +2037,54 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			vrIssueCacheModel.examinationLastTime = Long.MIN_VALUE;
 		}
 
-		vrIssueCacheModel.copresult = getCopresult();
+		vrIssueCacheModel.copResult = getCopResult();
 
-		String copresult = vrIssueCacheModel.copresult;
+		String copResult = vrIssueCacheModel.copResult;
 
-		if ((copresult != null) && (copresult.length() == 0)) {
-			vrIssueCacheModel.copresult = null;
+		if ((copResult != null) && (copResult.length() == 0)) {
+			vrIssueCacheModel.copResult = null;
 		}
 
-		vrIssueCacheModel.copreportno = getCopreportno();
+		vrIssueCacheModel.copReportNo = getCopReportNo();
 
-		String copreportno = vrIssueCacheModel.copreportno;
+		String copReportNo = vrIssueCacheModel.copReportNo;
 
-		if ((copreportno != null) && (copreportno.length() == 0)) {
-			vrIssueCacheModel.copreportno = null;
+		if ((copReportNo != null) && (copReportNo.length() == 0)) {
+			vrIssueCacheModel.copReportNo = null;
 		}
 
-		Date copreportdate = getCopreportdate();
+		Date copReportDate = getCopReportDate();
 
-		if (copreportdate != null) {
-			vrIssueCacheModel.copreportdate = copreportdate.getTime();
-		}
-		else {
-			vrIssueCacheModel.copreportdate = Long.MIN_VALUE;
-		}
-
-		vrIssueCacheModel.postreview = getPostreview();
-
-		String postreview = vrIssueCacheModel.postreview;
-
-		if ((postreview != null) && (postreview.length() == 0)) {
-			vrIssueCacheModel.postreview = null;
-		}
-
-		vrIssueCacheModel.postreviewrecordno = getPostreviewrecordno();
-
-		String postreviewrecordno = vrIssueCacheModel.postreviewrecordno;
-
-		if ((postreviewrecordno != null) && (postreviewrecordno.length() == 0)) {
-			vrIssueCacheModel.postreviewrecordno = null;
-		}
-
-		Date postreviewrecorddate = getPostreviewrecorddate();
-
-		if (postreviewrecorddate != null) {
-			vrIssueCacheModel.postreviewrecorddate = postreviewrecorddate.getTime();
+		if (copReportDate != null) {
+			vrIssueCacheModel.copReportDate = copReportDate.getTime();
 		}
 		else {
-			vrIssueCacheModel.postreviewrecorddate = Long.MIN_VALUE;
+			vrIssueCacheModel.copReportDate = Long.MIN_VALUE;
+		}
+
+		vrIssueCacheModel.postReview = getPostReview();
+
+		String postReview = vrIssueCacheModel.postReview;
+
+		if ((postReview != null) && (postReview.length() == 0)) {
+			vrIssueCacheModel.postReview = null;
+		}
+
+		vrIssueCacheModel.postReviewRecordNo = getPostReviewRecordNo();
+
+		String postReviewRecordNo = vrIssueCacheModel.postReviewRecordNo;
+
+		if ((postReviewRecordNo != null) && (postReviewRecordNo.length() == 0)) {
+			vrIssueCacheModel.postReviewRecordNo = null;
+		}
+
+		Date postReviewRecordDate = getPostReviewRecordDate();
+
+		if (postReviewRecordDate != null) {
+			vrIssueCacheModel.postReviewRecordDate = postReviewRecordDate.getTime();
+		}
+		else {
+			vrIssueCacheModel.postReviewRecordDate = Long.MIN_VALUE;
 		}
 
 		vrIssueCacheModel.corporationId = getCorporationId();
@@ -2053,45 +2095,56 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 			vrIssueCacheModel.corporationId = null;
 		}
 
-		vrIssueCacheModel.inspectorcode = getInspectorcode();
+		vrIssueCacheModel.inspectorCode = getInspectorCode();
 
-		String inspectorcode = vrIssueCacheModel.inspectorcode;
+		String inspectorCode = vrIssueCacheModel.inspectorCode;
 
-		if ((inspectorcode != null) && (inspectorcode.length() == 0)) {
-			vrIssueCacheModel.inspectorcode = null;
+		if ((inspectorCode != null) && (inspectorCode.length() == 0)) {
+			vrIssueCacheModel.inspectorCode = null;
 		}
 
-		vrIssueCacheModel.inspectorname = getInspectorname();
+		vrIssueCacheModel.inspectorName = getInspectorName();
 
-		String inspectorname = vrIssueCacheModel.inspectorname;
+		String inspectorName = vrIssueCacheModel.inspectorName;
 
-		if ((inspectorname != null) && (inspectorname.length() == 0)) {
-			vrIssueCacheModel.inspectorname = null;
+		if ((inspectorName != null) && (inspectorName.length() == 0)) {
+			vrIssueCacheModel.inspectorName = null;
 		}
 
-		vrIssueCacheModel.leadername = getLeadername();
+		vrIssueCacheModel.leaderName = getLeaderName();
 
-		String leadername = vrIssueCacheModel.leadername;
+		String leaderName = vrIssueCacheModel.leaderName;
 
-		if ((leadername != null) && (leadername.length() == 0)) {
-			vrIssueCacheModel.leadername = null;
+		if ((leaderName != null) && (leaderName.length() == 0)) {
+			vrIssueCacheModel.leaderName = null;
 		}
 
-		vrIssueCacheModel.applicantmaker = getApplicantmaker();
+		vrIssueCacheModel.applicantMaker = getApplicantMaker();
 
-		String applicantmaker = vrIssueCacheModel.applicantmaker;
+		String applicantMaker = vrIssueCacheModel.applicantMaker;
 
-		if ((applicantmaker != null) && (applicantmaker.length() == 0)) {
-			vrIssueCacheModel.applicantmaker = null;
+		if ((applicantMaker != null) && (applicantMaker.length() == 0)) {
+			vrIssueCacheModel.applicantMaker = null;
 		}
 
-		vrIssueCacheModel.applicantchecker = getApplicantchecker();
+		vrIssueCacheModel.applicantChecker = getApplicantChecker();
 
-		String applicantchecker = vrIssueCacheModel.applicantchecker;
+		String applicantChecker = vrIssueCacheModel.applicantChecker;
 
-		if ((applicantchecker != null) && (applicantchecker.length() == 0)) {
-			vrIssueCacheModel.applicantchecker = null;
+		if ((applicantChecker != null) && (applicantChecker.length() == 0)) {
+			vrIssueCacheModel.applicantChecker = null;
 		}
+
+		Date certificateRecordDate = getCertificateRecordDate();
+
+		if (certificateRecordDate != null) {
+			vrIssueCacheModel.certificateRecordDate = certificateRecordDate.getTime();
+		}
+		else {
+			vrIssueCacheModel.certificateRecordDate = Long.MIN_VALUE;
+		}
+
+		vrIssueCacheModel.issueInspectionRecordId = getIssueInspectionRecordId();
 
 		vrIssueCacheModel.inspectorId = getInspectorId();
 
@@ -2122,7 +2175,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(119);
+		StringBundler sb = new StringBundler(123);
 
 		sb.append("{id=");
 		sb.append(getId());
@@ -2178,8 +2231,8 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		sb.append(getIssueCorporationId());
 		sb.append(", verifyCorporationId=");
 		sb.append(getVerifyCorporationId());
-		sb.append(", digitalissuestatus=");
-		sb.append(getDigitalissuestatus());
+		sb.append(", digitalIssueStatus=");
+		sb.append(getDigitalIssueStatus());
 		sb.append(", issueType=");
 		sb.append(getIssueType());
 		sb.append(", averageSTBQuantity=");
@@ -2208,30 +2261,34 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		sb.append(getExaminationPeriod());
 		sb.append(", examinationLastTime=");
 		sb.append(getExaminationLastTime());
-		sb.append(", copresult=");
-		sb.append(getCopresult());
-		sb.append(", copreportno=");
-		sb.append(getCopreportno());
-		sb.append(", copreportdate=");
-		sb.append(getCopreportdate());
-		sb.append(", postreview=");
-		sb.append(getPostreview());
-		sb.append(", postreviewrecordno=");
-		sb.append(getPostreviewrecordno());
-		sb.append(", postreviewrecorddate=");
-		sb.append(getPostreviewrecorddate());
+		sb.append(", copResult=");
+		sb.append(getCopResult());
+		sb.append(", copReportNo=");
+		sb.append(getCopReportNo());
+		sb.append(", copReportDate=");
+		sb.append(getCopReportDate());
+		sb.append(", postReview=");
+		sb.append(getPostReview());
+		sb.append(", postReviewRecordNo=");
+		sb.append(getPostReviewRecordNo());
+		sb.append(", postReviewRecordDate=");
+		sb.append(getPostReviewRecordDate());
 		sb.append(", corporationId=");
 		sb.append(getCorporationId());
-		sb.append(", inspectorcode=");
-		sb.append(getInspectorcode());
-		sb.append(", inspectorname=");
-		sb.append(getInspectorname());
-		sb.append(", leadername=");
-		sb.append(getLeadername());
-		sb.append(", applicantmaker=");
-		sb.append(getApplicantmaker());
-		sb.append(", applicantchecker=");
-		sb.append(getApplicantchecker());
+		sb.append(", inspectorCode=");
+		sb.append(getInspectorCode());
+		sb.append(", inspectorName=");
+		sb.append(getInspectorName());
+		sb.append(", leaderName=");
+		sb.append(getLeaderName());
+		sb.append(", applicantMaker=");
+		sb.append(getApplicantMaker());
+		sb.append(", applicantChecker=");
+		sb.append(getApplicantChecker());
+		sb.append(", certificateRecordDate=");
+		sb.append(getCertificateRecordDate());
+		sb.append(", issueInspectionRecordId=");
+		sb.append(getIssueInspectionRecordId());
 		sb.append(", inspectorId=");
 		sb.append(getInspectorId());
 		sb.append(", issueInspectorId=");
@@ -2249,7 +2306,7 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(181);
+		StringBundler sb = new StringBundler(187);
 
 		sb.append("<model><model-name>");
 		sb.append("com.fds.vr.business.model.VRIssue");
@@ -2364,8 +2421,8 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		sb.append(getVerifyCorporationId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>digitalissuestatus</column-name><column-value><![CDATA[");
-		sb.append(getDigitalissuestatus());
+			"<column><column-name>digitalIssueStatus</column-name><column-value><![CDATA[");
+		sb.append(getDigitalIssueStatus());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>issueType</column-name><column-value><![CDATA[");
@@ -2424,52 +2481,60 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 		sb.append(getExaminationLastTime());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>copresult</column-name><column-value><![CDATA[");
-		sb.append(getCopresult());
+			"<column><column-name>copResult</column-name><column-value><![CDATA[");
+		sb.append(getCopResult());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>copreportno</column-name><column-value><![CDATA[");
-		sb.append(getCopreportno());
+			"<column><column-name>copReportNo</column-name><column-value><![CDATA[");
+		sb.append(getCopReportNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>copreportdate</column-name><column-value><![CDATA[");
-		sb.append(getCopreportdate());
+			"<column><column-name>copReportDate</column-name><column-value><![CDATA[");
+		sb.append(getCopReportDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>postreview</column-name><column-value><![CDATA[");
-		sb.append(getPostreview());
+			"<column><column-name>postReview</column-name><column-value><![CDATA[");
+		sb.append(getPostReview());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>postreviewrecordno</column-name><column-value><![CDATA[");
-		sb.append(getPostreviewrecordno());
+			"<column><column-name>postReviewRecordNo</column-name><column-value><![CDATA[");
+		sb.append(getPostReviewRecordNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>postreviewrecorddate</column-name><column-value><![CDATA[");
-		sb.append(getPostreviewrecorddate());
+			"<column><column-name>postReviewRecordDate</column-name><column-value><![CDATA[");
+		sb.append(getPostReviewRecordDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>corporationId</column-name><column-value><![CDATA[");
 		sb.append(getCorporationId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>inspectorcode</column-name><column-value><![CDATA[");
-		sb.append(getInspectorcode());
+			"<column><column-name>inspectorCode</column-name><column-value><![CDATA[");
+		sb.append(getInspectorCode());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>inspectorname</column-name><column-value><![CDATA[");
-		sb.append(getInspectorname());
+			"<column><column-name>inspectorName</column-name><column-value><![CDATA[");
+		sb.append(getInspectorName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>leadername</column-name><column-value><![CDATA[");
-		sb.append(getLeadername());
+			"<column><column-name>leaderName</column-name><column-value><![CDATA[");
+		sb.append(getLeaderName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>applicantmaker</column-name><column-value><![CDATA[");
-		sb.append(getApplicantmaker());
+			"<column><column-name>applicantMaker</column-name><column-value><![CDATA[");
+		sb.append(getApplicantMaker());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>applicantchecker</column-name><column-value><![CDATA[");
-		sb.append(getApplicantchecker());
+			"<column><column-name>applicantChecker</column-name><column-value><![CDATA[");
+		sb.append(getApplicantChecker());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>certificateRecordDate</column-name><column-value><![CDATA[");
+		sb.append(getCertificateRecordDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>issueInspectionRecordId</column-name><column-value><![CDATA[");
+		sb.append(getIssueInspectionRecordId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>inspectorId</column-name><column-value><![CDATA[");
@@ -2540,9 +2605,9 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 	private boolean _setOriginalIssueCorporationId;
 	private String _verifyCorporationId;
 	private String _originalVerifyCorporationId;
-	private int _digitalissuestatus;
-	private int _originalDigitalissuestatus;
-	private boolean _setOriginalDigitalissuestatus;
+	private int _digitalIssueStatus;
+	private int _originalDigitalIssueStatus;
+	private boolean _setOriginalDigitalIssueStatus;
 	private String _issueType;
 	private int _averageSTBQuantity;
 	private int _maxMonthQuantity;
@@ -2557,20 +2622,22 @@ public class VRIssueModelImpl extends BaseModelImpl<VRIssue>
 	private String _examinationRequired;
 	private String _examinationPeriod;
 	private Date _examinationLastTime;
-	private String _copresult;
-	private String _copreportno;
-	private String _originalCopreportno;
-	private Date _copreportdate;
-	private String _postreview;
-	private String _postreviewrecordno;
-	private Date _postreviewrecorddate;
+	private String _copResult;
+	private String _copReportNo;
+	private String _originalCopReportNo;
+	private Date _copReportDate;
+	private String _postReview;
+	private String _postReviewRecordNo;
+	private Date _postReviewRecordDate;
 	private String _corporationId;
 	private String _originalCorporationId;
-	private String _inspectorcode;
-	private String _inspectorname;
-	private String _leadername;
-	private String _applicantmaker;
-	private String _applicantchecker;
+	private String _inspectorCode;
+	private String _inspectorName;
+	private String _leaderName;
+	private String _applicantMaker;
+	private String _applicantChecker;
+	private Date _certificateRecordDate;
+	private long _issueInspectionRecordId;
 	private long _inspectorId;
 	private long _issueInspectorId;
 	private long _verifyInspectorId;
