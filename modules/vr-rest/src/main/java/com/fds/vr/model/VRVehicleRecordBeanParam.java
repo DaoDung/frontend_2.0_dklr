@@ -8,11 +8,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "id", "mtcore", "issueid", "issuevehiclecertificateid", "dossierid",
-		"applicantprofileid", "applicantname", "applicantaddress", "certificateid", "productionnumber",
-		"productiondate", "frameno", "boxno", "engineno", "color", "stampshortno", "serialno", "vehiclerecordstatus",
-		"printingstatus", "attachedfile", "signname", "signtitle", "signplace", "signdate", "modifydate", "syncdate",
-		"certificaterecordno", "keyword", "start", "end", "order_asc", "order_desc", "stampissueno", "vehicleclass" })
+@XmlType(name = "", propOrder = { "id", "mtCore", "issueId", "issueVehiclecertificateId", "dossierId",
+		"applicantProfileId", "applicantName", "applicantAddress", "certificateId", "productionNumber",
+		"productionDate", "frameNo", "boxNo", "engineNo", "color", "stampShortNo", "serialNo", "vehicleRecordStatus",
+		"printingStatus", "attachedFile", "signName", "signTitle", "signPlace", "signDate", "modifyDate", "syncDate",
+		"certificateRecordNo", "keyword", "start", "end", "order_asc", "order_desc", "stampIssueNo", "vehicleClass" })
 @XmlRootElement(name = "VRVehicleRecordBeanParam")
 public class VRVehicleRecordBeanParam {
 	@QueryParam(value = "keyword")
@@ -29,62 +29,62 @@ public class VRVehicleRecordBeanParam {
 	protected String order_desc;
 	@QueryParam(value = "id")
 	protected Long id;
-	@QueryParam(value = "mtcore")
+	@QueryParam(value = "mtCore")
 	protected Long mtCore;
-	@QueryParam(value = "issueid")
+	@QueryParam(value = "issueId")
 	protected Long issueId;
-	@QueryParam(value = "issuevehiclecertificateid")
-	protected Long issueVehicleCertificateId;
-	@QueryParam(value = "dossierid")
+	@QueryParam(value = "issueVehiclecertificateId")
+	protected Long issueVehiclecertificateId;
+	@QueryParam(value = "dossierId")
 	protected Long dossierId;
-	@QueryParam(value = "applicantprofileid")
+	@QueryParam(value = "applicantProfileId")
 	protected Long applicantProfileId;
-	@QueryParam(value = "applicantname")
+	@QueryParam(value = "applicantName")
 	protected String applicantName;
-	@QueryParam(value = "applicantaddress")
+	@QueryParam(value = "applicantAddress")
 	protected String applicantAddress;
-	@QueryParam(value = "certificateid")
+	@QueryParam(value = "certificateId")
 	protected Long certificateId;
-	@QueryParam(value = "productionnumber")
+	@QueryParam(value = "productionNumber")
 	protected String productionNumber;
-	@QueryParam(value = "productiondate")
+	@QueryParam(value = "productionDate")
 	protected String productionDate;
-	@QueryParam(value = "frameno")
+	@QueryParam(value = "frameNo")
 	protected String frameNo;
-	@QueryParam(value = "boxno")
+	@QueryParam(value = "boxNo")
 	protected String boxNo;
-	@QueryParam(value = "engineno")
+	@QueryParam(value = "engineNo")
 	protected String engineNo;
 	@QueryParam(value = "color")
 	protected String color;
-	@QueryParam(value = "stampshortno")
+	@QueryParam(value = "stampShortNo")
 	protected String stampShortNo;
-	@QueryParam(value = "serialno")
+	@QueryParam(value = "serialNo")
 	protected String serialNo;
-	@QueryParam(value = "vehiclerecordstatus")
+	@QueryParam(value = "vehicleRecordStatus")
 	protected Long vehicleRecordStatus;
-	@QueryParam(value = "printingstatus")
+	@QueryParam(value = "printingStatus")
 	protected Long printingStatus;
-	@QueryParam(value = "attachedfile")
+	@QueryParam(value = "attachedFile")
 	protected Long attachedFile;
-	@QueryParam(value = "signname")
+	@QueryParam(value = "signName")
 	protected String signName;
-	@QueryParam(value = "signtitle")
+	@QueryParam(value = "signTitle")
 	protected String signTitle;
-	@QueryParam(value = "signplace")
+	@QueryParam(value = "signPlace")
 	protected String signPlace;
-	@QueryParam(value = "signdate")
+	@QueryParam(value = "signDate")
 	protected String signDate;
-	@QueryParam(value = "modifydate")
+	@QueryParam(value = "modifyDate")
 	protected String modifyDate;
-	@QueryParam(value = "syncdate")
+	@QueryParam(value = "syncDate")
 	protected String syncDate;
-	@QueryParam(value = "certificaterecordno")
-	protected String certificaterecordno;
-	@QueryParam(value = "stampissueno")
-	protected String stampissueno;
-	@QueryParam(value = "vehicleclass")
-	protected String vehicleclass;
+	@QueryParam(value = "certificateRecordNo")
+	protected String certificateRecordNo;
+	@QueryParam(value = "stampIssueNo")
+	protected String stampIssueNo;
+	@QueryParam(value = "vehicleClass")
+	protected String vehicleClass;
 
 	public String getKeyword() {
 		return keyword;
@@ -150,12 +150,12 @@ public class VRVehicleRecordBeanParam {
 		this.issueId = issueId;
 	}
 
-	public Long getIssueVehicleCertificateId() {
-		return issueVehicleCertificateId;
+	public Long getIssueVehiclecertificateId() {
+		return issueVehiclecertificateId;
 	}
 
-	public void setIssueVehicleCertificateId(Long issueVehicleCertificateId) {
-		this.issueVehicleCertificateId = issueVehicleCertificateId;
+	public void setIssueVehiclecertificateId(Long issueVehiclecertificateId) {
+		this.issueVehiclecertificateId = issueVehiclecertificateId;
 	}
 
 	public Long getDossierId() {
@@ -334,28 +334,28 @@ public class VRVehicleRecordBeanParam {
 		this.syncDate = syncDate;
 	}
 
-	public String getCertificaterecordno() {
-		return certificaterecordno;
+	public String getCertificateRecordNo() {
+		return certificateRecordNo;
 	}
 
-	public void setCertificaterecordno(String certificaterecordno) {
-		this.certificaterecordno = certificaterecordno;
+	public void setCertificateRecordNo(String certificateRecordNo) {
+		this.certificateRecordNo = certificateRecordNo;
 	}
 
-	public String getStampissueno() {
-		return stampissueno;
+	public String getStampIssueNo() {
+		return stampIssueNo;
 	}
 
-	public void setStampissueno(String stampissueno) {
-		this.stampissueno = stampissueno;
+	public void setStampIssueNo(String stampIssueNo) {
+		this.stampIssueNo = stampIssueNo;
 	}
 
-	public String getVehicleclass() {
-		return vehicleclass;
+	public String getVehicleClass() {
+		return vehicleClass;
 	}
 
-	public void setVehicleclass(String vehicleclass) {
-		this.vehicleclass = vehicleclass;
+	public void setVehicleClass(String vehicleClass) {
+		this.vehicleClass = vehicleClass;
 	}
 
 }

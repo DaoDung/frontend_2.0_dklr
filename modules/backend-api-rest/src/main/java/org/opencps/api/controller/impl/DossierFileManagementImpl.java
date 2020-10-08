@@ -129,7 +129,10 @@ public class DossierFileManagementImpl implements DossierFileManagement {
 			InputStream inputStream = dataHandler.getInputStream();
 			
 			//String fileName = dataHandler.getName();
-			String fileType = FileUtil.getExtension(dataHandler.getName());
+			//Comment by Dungnv
+			//String fileType = FileUtil.getExtension(dataHandler.getName());
+			//Add by Dungnv
+			String fileType = dataHandler.getContentType();
 			
 			serviceContext.setAddGroupPermissions(true);
 			serviceContext.setAddGuestPermissions(true);
@@ -353,14 +356,12 @@ public class DossierFileManagementImpl implements DossierFileManagement {
 	 * 
 	 * } catch (Exception e) { return processException(e); } }
 	 */
-	public static void main(String[] args) {
-		System.out.println(GetterUtil.getLong("0e7fe00e-d614-4ca8-b0e8-f01649bf5081"));
-	}
+
 	@Override
 	public Response addDossierFileByDossierId(HttpServletRequest request, HttpHeaders header, Company company,
 			Locale locale, User user, ServiceContext serviceContext, Attachment file, String id, String referenceUid,
 			String dossierTemplateNo, String dossierPartNo, String fileTemplateNo, String displayName, String fileType,
-			String isSync, String formData, long formDataDossierFile) {
+			String isSync, String formData, String formDataDossierFile) {
 
 		BackendAuth auth = new BackendAuthImpl();
 
@@ -413,8 +414,8 @@ public class DossierFileManagementImpl implements DossierFileManagement {
 					
 				_log.info("__End add file at:" + new Date());
 				
-				if(formDataDossierFile > 0) {
-					dossierFile.setFormDataDossierFile(formDataDossierFile);
+				if(formDataDossierFile != null && GetterUtil.getLong(formDataDossierFile) > 0) {
+					dossierFile.setFormDataDossierFile(GetterUtil.getLong(formDataDossierFile));
 				} else {
 					if(Validator.isNotNull(formData)) {
 						dossierFile.setFormData(formData);
@@ -447,8 +448,8 @@ public class DossierFileManagementImpl implements DossierFileManagement {
 				
 				_log.info("__End add file at:" + new Date());
 				
-				if(formDataDossierFile > 0) {
-					dossierFile.setFormDataDossierFile(formDataDossierFile);
+				if(formDataDossierFile != null && GetterUtil.getLong(formDataDossierFile) > 0) {
+					dossierFile.setFormDataDossierFile(GetterUtil.getLong(formDataDossierFile));
 				} else {
 					if(Validator.isNotNull(formData)) {
 						dossierFile.setFormData(formData);
@@ -468,6 +469,7 @@ public class DossierFileManagementImpl implements DossierFileManagement {
 			}
 
 		} catch (Exception e) {
+			_log.error(e);
 			return processException(e);
 		}
 	}
@@ -1076,6 +1078,41 @@ public class DossierFileManagementImpl implements DossierFileManagement {
 
 		} catch (Exception e) {
 			_log.error(e);
+			return processException(e);
+		}
+	}
+
+	@Override
+	public Response getFile(HttpServletRequest request, HttpHeaders header, Company company, Locale locale, User user,
+		ServiceContext serviceContext, long fileid) {
+		// TODO: check user is loged or password for access dossier file
+		BackendAuth auth = new BackendAuthImpl();
+		try {
+			if (!auth.isAuth(serviceContext)) {
+				throw new UnauthenticationException();
+			}
+
+			if (fileid > 0) {
+				
+				FileEntry fileEntry = DLAppLocalServiceUtil.getFileEntry(fileid);
+
+				File file = DLFileEntryLocalServiceUtil.getFile(fileEntry.getFileEntryId(), fileEntry.getVersion(),
+						true);
+
+				_log.info("--------> Downloading... fileEntryId: " + fileEntry.getFileEntryId());
+				
+				ResponseBuilder responseBuilder = Response.ok((Object) file);
+
+				responseBuilder.header("Content-Disposition",
+						"attachment; filename=\"" + fileEntry.getFileName() + "\"");
+				responseBuilder.header("Content-Type", fileEntry.getMimeType());
+
+				return responseBuilder.build();
+			} else {
+				return Response.status(HttpURLConnection.HTTP_NO_CONTENT).build();
+			}
+
+		} catch (Exception e) {
 			return processException(e);
 		}
 	}

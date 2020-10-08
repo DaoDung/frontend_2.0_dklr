@@ -123,7 +123,8 @@ public class VROutputSheetLocalServiceUtil {
 		java.lang.Long purchaserCorporationId, java.lang.String bookIDList,
 		java.lang.Long isApproval, java.lang.Long totalQuantities,
 		java.lang.Long totalAmount, java.lang.String amountInWords,
-		java.lang.String remark, java.lang.String details)
+		java.lang.String remark, java.lang.String details,
+		com.liferay.portal.kernel.model.Company company)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService()
@@ -133,7 +134,15 @@ public class VROutputSheetLocalServiceUtil {
 			receiverPlace, receiverRequest, inventoryName, inventoryPlace,
 			inventoryDate, dossierId, issueId, purchaserId,
 			purchaserCorporationId, bookIDList, isApproval, totalQuantities,
-			totalAmount, amountInWords, remark, details);
+			totalAmount, amountInWords, remark, details, company);
+	}
+
+	public static com.fds.vr.business.model.VROutputSheet updateVROutputSheet(
+		com.fds.vr.business.model.VROutputSheet object,
+		com.liferay.portal.kernel.model.Company company)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().updateVROutputSheet(object, company);
 	}
 
 	/**
@@ -141,11 +150,9 @@ public class VROutputSheetLocalServiceUtil {
 	*
 	* @param vrOutputSheet the vr output sheet
 	* @return the vr output sheet that was updated
-	* @throws SystemException
 	*/
 	public static com.fds.vr.business.model.VROutputSheet updateVROutputSheet(
-		com.fds.vr.business.model.VROutputSheet vrOutputSheet)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.fds.vr.business.model.VROutputSheet vrOutputSheet) {
 		return getService().updateVROutputSheet(vrOutputSheet);
 	}
 

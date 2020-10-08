@@ -18,7 +18,7 @@ import com.fds.vr.business.action.util.ActionUtil;
 import com.fds.vr.business.model.VRCOPProductionPlantEmployee;
 import com.fds.vr.business.model.impl.VRCOPProductionPlantEmployeeImpl;
 import com.fds.vr.business.service.base.VRCOPProductionPlantEmployeeLocalServiceBaseImpl;
-import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -29,7 +29,6 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -59,25 +58,13 @@ public class VRCOPProductionPlantEmployeeLocalServiceImpl
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRCOPProductionPlantEmployeeLocalServiceUtil} to access the vrcop production plant employee local service.
 	 */
 	
-	public List<VRCOPProductionPlantEmployee> findBycopReportRepositoryID(long mtCore, long copReportRepositoryID) throws PortalException, SystemException {
-		try {
-			return vrcopProductionPlantEmployeePersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProductionPlantEmployee>();
-		
+	public List<VRCOPProductionPlantEmployee> findBycopReportRepositoryID_MtCore(long mtCore, long copReportRepositoryID, int start, int end){
+		return vrcopProductionPlantEmployeePersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID, start, end);
 	}
 
 
-	public List<VRCOPProductionPlantEmployee> findBycopReportNo(long mtCore, String copReportNo) throws PortalException, SystemException {
-		try {
-			return vrcopProductionPlantEmployeePersistence.findBycopReportNo(mtCore, copReportNo);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProductionPlantEmployee>();
-		
+	public List<VRCOPProductionPlantEmployee> findBycopReportNo_MtCore(long mtCore, String copReportNo, int start, int end){
+		return vrcopProductionPlantEmployeePersistence.findBycopReportNo(mtCore, copReportNo, start, end);
 	}
 
 	public VRCOPProductionPlantEmployee updateCOPProductionPlantEmployee(Map<String, String> mapValues, int mtCore) {
@@ -120,7 +107,7 @@ public class VRCOPProductionPlantEmployeeLocalServiceImpl
 		JSONArray result = JSONFactoryUtil.createJSONArray();
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 		
-		List<VRCOPProductionPlantEmployee> dataList = findBycopReportNo(mtCore,COPReportNo);
+		List<VRCOPProductionPlantEmployee> dataList = findBycopReportNo_MtCore(mtCore,COPReportNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		
 		for(VRCOPProductionPlantEmployee data:dataList) {
 			
@@ -138,7 +125,7 @@ public class VRCOPProductionPlantEmployeeLocalServiceImpl
 	}
 
 
-	public int adminProcessData(JSONArray arrayData, long dossierId) {
+	public int adminProcessData(JSONArray arrayData, long mtCore, long vrcopReportRepositoryId, long dossierId, String dossierIdCTN, String dossierNo) {
 
 		int result = 0;
 		
@@ -155,9 +142,9 @@ public class VRCOPProductionPlantEmployeeLocalServiceImpl
 				object = vrcopProductionPlantEmployeePersistence.create(id);
 
 				object.setModifyDate(new Date());
-				object.setMtCore(objectData.getLong("mtCore"));
+				object.setMtCore(mtCore);
 
-				object.setCopReportRepositoryID(objectData.getLong("copReportRepositoryID"));
+				object.setCopReportRepositoryID(vrcopReportRepositoryId);
 				object.setCopReportNo(objectData.getString("copReportNo"));
 				object.setSequenceNo(objectData.getLong("sequenceNo"));
 				object.setEmployeeName(objectData.getString("employeeName"));
@@ -168,9 +155,9 @@ public class VRCOPProductionPlantEmployeeLocalServiceImpl
 				}
 				object.setWorkingPosition(objectData.getString("workingPosition"));
 				
-				object.setDossierId(objectData.getLong("dossierId"));
-				object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
-				object.setDossierNo(objectData.getString("dossierNo"));
+				object.setDossierId(dossierId);
+				object.setDossierIdCTN(dossierIdCTN);
+				object.setDossierNo(dossierNo);
 
 				vrcopProductionPlantEmployeePersistence.update(object);
 				

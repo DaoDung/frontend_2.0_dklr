@@ -14,21 +14,19 @@
 
 package com.fds.vr.business.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.exception.PortalException;
+import com.fds.vr.business.model.VRTechnicalSpec_XDD;
+import com.fds.vr.business.service.base.VRTechnicalSpec_XDDLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.fds.vr.business.model.VRTechnicalSpec_XDD;
-import com.fds.vr.business.service.base.VRTechnicalSpec_XDDLocalServiceBaseImpl;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import aQute.bnd.annotation.ProviderType;
 
 /**
  * The implementation of the vr technical spec_xdd local service.
@@ -58,6 +56,14 @@ public class VRTechnicalSpec_XDDLocalServiceImpl extends VRTechnicalSpec_XDDLoca
 	 * com.fds.vr.business.service.VRTechnicalSpec_XDDLocalServiceUtil} to access
 	 * the vr technical spec_xdd local service.
 	 */
+	
+	public List<VRTechnicalSpec_XDD> findByVehicleCertificateId(long vehicleCertificateId, int start, int end) {
+		return vrTechnicalSpec_XDDPersistence.findByvehicleTypeCertificateId(vehicleCertificateId, start, end);
+	}
+	
+	public List<VRTechnicalSpec_XDD> findByDossierId(long dossierId, int start, int end) {
+		return vrTechnicalSpec_XDDPersistence.findBy_DossierId(dossierId, start, end);
+	}
 
 	public List<VRTechnicalSpec_XDD> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {

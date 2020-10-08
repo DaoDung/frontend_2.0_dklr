@@ -166,6 +166,10 @@ public interface VRIssueEquipmentCertificateLocalService
 	*/
 	public java.lang.String getOSGiServiceIdentifier();
 
+	public List<VRIssueEquipmentCertificate> adminProcess(JSONArray arrayData,
+		long issueId, long dossierId, long mtCore,
+		long issueVehicleCertificateId);
+
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
 	*
@@ -204,6 +208,12 @@ public interface VRIssueEquipmentCertificateLocalService
 	*/
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
+
+	public List<VRIssueEquipmentCertificate> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end);
+
+	public List<VRIssueEquipmentCertificate> findByIssueId(long issueId,
+		int start, int end);
 
 	/**
 	* Returns a range of all the vr issue equipment certificates.

@@ -70,6 +70,12 @@ public class VRTrackchangesLocalServiceImpl extends VRTrackchangesLocalServiceBa
 			id = counterLocalService.increment(VRTrackchanges.class.getName());
 			vrTrackchanges = vrTrackchangesPersistence.create(id);
 			vrTrackchanges.setCreatedDate(now);
+			vrTrackchanges.setPreviousContentFileEntryId(fileEntryId);
+			vrTrackchanges.setNextContentFileEntryId(fileEntryId);
+		} else {
+			long nextContentFileEntryId = vrTrackchanges.getNextContentFileEntryId();
+			vrTrackchanges.setPreviousContentFileEntryId(nextContentFileEntryId);
+			vrTrackchanges.setNextContentFileEntryId(fileEntryId);
 		}
 		vrTrackchanges.setApplicantCode(applicantCode);
 		vrTrackchanges.setProductionPlantCode(productionPlantCode);
@@ -87,10 +93,6 @@ public class VRTrackchangesLocalServiceImpl extends VRTrackchangesLocalServiceBa
 		vrTrackchanges.setModifyUserId(userId);
 		vrTrackchanges.setModifyDate(now);
 		vrTrackchanges.setContentFileTemplate(contentFileTemplate);
-
-		long nextContentFileEntryId = vrTrackchanges.getNextContentFileEntryId();
-		vrTrackchanges.setPreviousContentFileEntryId(nextContentFileEntryId);
-		vrTrackchanges.setNextContentFileEntryId(fileEntryId);
 
 		vrTrackchanges = vrTrackchangesPersistence.update(vrTrackchanges);
 		return vrTrackchanges;

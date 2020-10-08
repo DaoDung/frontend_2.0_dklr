@@ -1,8 +1,26 @@
 package org.opencps.api.controller.impl;
 
-import java.io.BufferedReader;
+import com.fds.vr.service.util.FileUploadUtils;
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.messaging.Message;
+import com.liferay.portal.kernel.messaging.MessageBusException;
+import com.liferay.portal.kernel.messaging.MessageBusUtil;
+import com.liferay.portal.kernel.model.Company;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
+
 import java.io.File;
-import java.io.FileReader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -36,27 +54,6 @@ import org.opencps.dossiermgt.service.DossierLocalServiceUtil;
 import org.opencps.dossiermgt.service.DossierPartLocalServiceUtil;
 import org.opencps.dossiermgt.service.ProcessPluginLocalServiceUtil;
 import org.opencps.dossiermgt.service.comparator.DossierFileComparator;
-
-import com.fds.vr.service.util.FileUploadUtils;
-import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
-import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
-import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.messaging.Message;
-import com.liferay.portal.kernel.messaging.MessageBusException;
-import com.liferay.portal.kernel.messaging.MessageBusUtil;
-import com.liferay.portal.kernel.model.Company;
-import com.liferay.portal.kernel.model.User;
-import com.liferay.portal.kernel.repository.model.FileEntry;
-import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 
 public class ProcessPluginManagementImpl implements ProcessPluginManagement {
 
@@ -401,7 +398,7 @@ public class ProcessPluginManagementImpl implements ProcessPluginManagement {
 						responseBuilder.header("Content-Disposition",
 								"attachment; filename=\"" + file.getName() + "\"");
 						responseBuilder.header("Content-Type", "application/pdf");
-
+						
 						return responseBuilder.build();
 
 					} catch (MessageBusException e) {
@@ -683,4 +680,129 @@ public class ProcessPluginManagementImpl implements ProcessPluginManagement {
 		}
 	}
 
+	@Override
+	public Response updateFormDataPlugins(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, long dossierId) {
+		BackendAuth auth = new BackendAuthImpl();
+		
+		try {
+			if (!auth.isAuth(serviceContext)) {
+				throw new UnauthenticationException();
+			}
+			
+			Dossier dossier = DossierLocalServiceUtil.fetchDossier(dossierId);
+			DossierAction dossierAction = null;
+			long groupId = GetterUtil.getLong(header.getHeaderString("groupId"));
+			
+			if (dossier != null) {
+				long dossierActionId = dossier.getDossierActionId();
+				_log.info("dossierActionId: "+dossierActionId);
+				if (dossierActionId > 0) {
+					dossierAction = DossierActionLocalServiceUtil.fetchDossierAction(dossierActionId);
+				}
+				
+				long serviceProcessId = dossierAction != null ? dossierAction.getServiceProcessId() : 0;
+				String stepCode = dossierAction != null ? dossierAction.getStepCode() : StringPool.BLANK;
+	
+				DossierActionUser dau = DossierActionUserLocalServiceUtil.getByDID_UID_MOD(dossierActionId, user.getUserId(), 1);
+				if (dau != null) {
+					List<ProcessPlugin> pluginList = ProcessPluginLocalServiceUtil
+							.getBySC_SPID_ARUN(serviceProcessId, stepCode, true);
+		
+					if (pluginList != null && pluginList.size() > 0) {
+						for (ProcessPlugin plg : pluginList) {
+							// do create file
+							String pluginForm = plg.getPluginForm();
+							String fileTemplateNo = StringUtil.replaceFirst(plg.getSampleData(), "#", StringPool.BLANK);
+		
+							if (Validator.isNotNull(pluginForm) && !pluginForm.contains("original")) {
+								long now = System.currentTimeMillis();
+
+								_log.info("@@@@@ START_DOAUTORUN: "
+										+ LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME));
+								
+								try {
+									// Dossier dossier = DossierLocalServiceUtil.getDossier(dossierId);
+
+									DossierFile dossierFile = DossierFileLocalServiceUtil.getDossierFileByDID_FTNO_First(dossierId,
+											fileTemplateNo, false, new DossierFileComparator(false, "createDate", Date.class));
+
+									_log.info("- DOSSIER_FILE 1: "
+											+ (System.currentTimeMillis() - now));
+
+									DossierPart dossierPart = DossierPartLocalServiceUtil.getByFileTemplateNo(groupId, fileTemplateNo);
+									
+									_log.info("- DOSSIER_PART	: "
+											+ (System.currentTimeMillis() - now));
+
+									String formData = AutoFillFormData.sampleDataBinding(dossierPart.getSampleData(), dossierId, serviceContext);
+									
+									_log.info("- FORM_DATA		: "
+											+ (System.currentTimeMillis() - now));
+
+									if (Validator.isNull(dossierFile)) {
+
+										DossierFileActions actions = new DossierFileActionsImpl();
+
+										dossierFile = actions.addDossierFile(groupId, dossierId, PortalUUIDUtil.generate(), dossier.getDossierTemplateNo(),
+												dossierPart.getPartNo(), fileTemplateNo, dossierPart.getPartName(), StringPool.BLANK, 0L, null,
+												StringPool.BLANK, String.valueOf(false), dossierActionId, serviceContext);
+
+										_log.info("- ADD DOSSIER_FL		: "
+												+ (System.currentTimeMillis() - now));
+
+									}
+
+									DossierFileActions actions = new DossierFileActionsImpl();
+									actions.updateDossierFileFormData(groupId, dossierId, dossierActionId, dossierFile.getReferenceUid(), formData, serviceContext);
+									
+									//DossierFileLocalServiceUtil.updateFormDataPlugin(groupId, dossierId,
+									//		dossierFile.getReferenceUid(), formData, context);
+									_log.info("- UPDATE DSR_ACT		: "
+											+ (System.currentTimeMillis() - now));
+
+
+								} catch (Exception e) {
+									_log.info("Cant get formdata with fileTemplateNo_" + fileTemplateNo);
+								}
+
+								_log.info("!!!! END_DOAUTORUN: "
+										+ LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME));
+							}
+						}
+					}
+				}
+			}
+			return Response.status(HttpURLConnection.HTTP_OK).entity("Done").build();
+		} catch (Exception e) {
+			_log.error(e);
+	
+			ErrorMsg error = new ErrorMsg();
+	
+			if (e instanceof UnauthenticationException) {
+				error.setMessage("Non-Authoritative Information.");
+				error.setCode(HttpURLConnection.HTTP_NOT_AUTHORITATIVE);
+				error.setDescription("Non-Authoritative Information.");
+	
+				return Response.status(HttpURLConnection.HTTP_NOT_AUTHORITATIVE).entity(error).build();
+			} else {
+				if (e instanceof UnauthorizationException) {
+					error.setMessage("Unauthorized.");
+					error.setCode(HttpURLConnection.HTTP_NOT_AUTHORITATIVE);
+					error.setDescription("Unauthorized.");
+	
+					return Response.status(HttpURLConnection.HTTP_UNAUTHORIZED).entity(error).build();
+	
+				} else {
+	
+					error.setMessage("Internal Server Error");
+					error.setCode(HttpURLConnection.HTTP_FORBIDDEN);
+					error.setDescription(e.getMessage());
+	
+					return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(error).build();
+	
+				}
+			}
+		}
+	}
 }

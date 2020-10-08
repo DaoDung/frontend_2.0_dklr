@@ -1,17 +1,9 @@
 package org.opencps.dossiermgt.action.impl;
 
-import com.fds.vr.business.action.VRHistoryProfileAction;
-import com.fds.vr.business.action.VRTrackchangesAction;
-import com.fds.vr.business.action.impl.VRHistoryProfileActionImpl;
-import com.fds.vr.business.action.impl.VRTrackchangesActionImpl;
-import com.fds.vr.business.model.VRTrackchanges;
 import com.fds.vr.business.model.VRVehicleTypeCertificate;
-import com.fds.vr.business.service.VRTrackchangesLocalServiceUtil;
 import com.fds.vr.business.service.VRVehicleTypeCertificateLocalServiceUtil;
 import com.fds.vr.service.util.FileUploadUtils;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
-import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
-import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -22,7 +14,6 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.User;
-import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
@@ -39,9 +30,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -788,6 +777,7 @@ public class DossierActionsImpl implements DossierActions {
 						String postStepCode;
 						String autoEvent;
 						String preCondition;
+						boolean eSignature;
 						for (ProcessAction processAction : processActionList) {
 							// _log.info("processAction: "+processAction);
 							data = JSONFactoryUtil.createJSONObject();
@@ -798,6 +788,7 @@ public class DossierActionsImpl implements DossierActions {
 							postStepCode = processAction.getPostStepCode();
 							autoEvent = processAction.getAutoEvent();
 							preCondition = processAction.getPreCondition();
+							eSignature = processAction.getESignature();
 							//
 							String[] preConditionArr = Validator.isNotNull(preCondition)
 									? StringUtil.split(preCondition) : null;
@@ -816,10 +807,11 @@ public class DossierActionsImpl implements DossierActions {
 							data.put(ProcessActionTerm.AUTO_EVENT, autoEvent);
 							data.put(ProcessActionTerm.PRE_CONDITION, preCondition);
 							data.put("pending", pending);
+							data.put(ProcessActionTerm.ESIGNATURE, eSignature);
 							
-							//Comment by Dungnv
-							//results.put(data);
-							//
+//							Comment by Dungnv
+//							results.put(data);
+//							
 							List<ProcessPlugin> pluginList = ProcessPluginLocalServiceUtil.getBySC_SPID_ARUN(serviceProcessId,
 									postStepCode, true);
 
@@ -847,25 +839,25 @@ public class DossierActionsImpl implements DossierActions {
 							results.put(data);
 						}
 					}
-					//
-					DossierActionUser dau = DossierActionUserLocalServiceUtil.getByDID_UID_MOD(dossierActionId, userId, 1);
-					if (dau != null) {
-						List<ProcessPlugin> pluginList = ProcessPluginLocalServiceUtil
-								.getBySC_SPID_ARUN(serviceProcessId, stepCode, true);
-	
-						if (pluginList != null && pluginList.size() > 0) {
-							for (ProcessPlugin plg : pluginList) {
-								// do create file
-								String pluginForm = plg.getPluginForm();
-								String fileTemplateNo = StringUtil.replaceFirst(plg.getSampleData(), "#", StringPool.BLANK);
-	
-								if (Validator.isNotNull(pluginForm) && !pluginForm.contains("original")) {
-									_doAutoRun(groupId, fileTemplateNo, dossierId, dossier.getDossierTemplateNo(),
-											dossierActionId, serviceContext);
-								}
-							}
-						}
-					}
+//					Comment by Dungnv
+//					DossierActionUser dau = DossierActionUserLocalServiceUtil.getByDID_UID_MOD(dossierActionId, userId, 1);
+//					if (dau != null) {
+//						List<ProcessPlugin> pluginList = ProcessPluginLocalServiceUtil
+//								.getBySC_SPID_ARUN(serviceProcessId, stepCode, true);
+//	
+//						if (pluginList != null && pluginList.size() > 0) {
+//							for (ProcessPlugin plg : pluginList) {
+//								// do create file
+//								String pluginForm = plg.getPluginForm();
+//								String fileTemplateNo = StringUtil.replaceFirst(plg.getSampleData(), "#", StringPool.BLANK);
+//	
+//								if (Validator.isNotNull(pluginForm) && !pluginForm.contains("original")) {
+//									_doAutoRun(groupId, fileTemplateNo, dossierId, dossier.getDossierTemplateNo(),
+//											dossierActionId, serviceContext);
+//								}
+//							}
+//						}
+//					}
 				}
 
 			}
@@ -2054,16 +2046,6 @@ public class DossierActionsImpl implements DossierActions {
 					}
 					if(arrayDossierFile.length() > 0) {
 						payloadSync.put(ConstantsUtils.PAYLOAD_SYNC_FILES, arrayDossierFile);
-					}
-				}
-			}
-			//Add by Dungnv - hot fix - co the phai sua lai lan nua
-			if (dossierAction != null){ 
-				List<DossierFile> lsDossierFile = DossierFileLocalServiceUtil.getAllDossierFile(dossierId);
-				if (lsDossierFile != null && lsDossierFile.size() > 0) {
-					for (DossierFile dosserFile : lsDossierFile) {
-						dosserFile.setDossierActionId(dossierAction.getDossierActionId());
-						DossierFileLocalServiceUtil.updateDossierFile(dosserFile);
 					}
 				}
 			}
@@ -3536,7 +3518,51 @@ public class DossierActionsImpl implements DossierActions {
 								if (dossierFilesResult != null && !dossierFilesResult.isEmpty()) {
 									_log.debug("dossierFilesResult: "+dossierFilesResult.size());
 									df: for (DossierFile dossierFile : dossierFilesResult) {
-										if (dossierFile.getDossierPartNo().equals(dossierPart.getPartNo())) {
+										//Add by Dungnv
+										if (ConstantsUtils.LIST_BB.contains(dossierFile.getDossierPartNo()) && ConstantsUtils.LIST_BB.contains(dossierPart.getPartNo())) {
+											DossierFile dossierFile_KQ = dossierFile;
+											List<DossierFile> dossierFile_TPs = DossierFileLocalServiceUtil.getDossierFileByDID_DPNO(dossierId, "TP1", false);
+											DossierFile dossierFile_TP = null;
+											if(!dossierFile_TPs.isEmpty() && dossierFile_TPs != null) {
+												dossierFile_TP = dossierFile_TPs.get(0);
+											}
+											String formData_KQ = StringPool.BLANK;
+											String formData_TP = StringPool.BLANK;
+											File formDataFile_KQ = FileUploadUtils.getFile(dossierFile_KQ.getFormDataDossierFile());
+											if (formDataFile_KQ != null) {
+												formData_KQ = FileUploadUtils.fileToString(formDataFile_KQ);
+											}
+											if(formData_KQ.isEmpty()) {
+												formData_KQ = dossierFile_KQ.getFormData();
+											}
+											
+											File formDataFile_TP = FileUploadUtils.getFile(dossierFile_TP.getFormDataDossierFile());
+											if (formDataFile_TP != null) {
+												formData_TP = FileUploadUtils.fileToString(formDataFile_TP);
+											}
+											if(formData_TP.isEmpty()) {
+												formData_TP = dossierFile_TP.getFormData();
+											}
+											
+											JSONObject jFormData_KQ = JSONFactoryUtil.createJSONObject(formData_KQ);
+											JSONObject jFormData_TP = JSONFactoryUtil.createJSONObject(formData_TP);
+											_log.info("- Dungnv: jFormData_KQ_Id: " + dossierFile_KQ.getFormDataDossierFile());
+											_log.info("- Dungnv: jFormData_TP_Id: " + dossierFile_TP.getFormDataDossierFile());
+											jFormData_TP.keys().forEachRemaining(key -> {
+												if(!key.contains("trackChange")) {
+													jFormData_KQ.put(key, jFormData_TP.getString(key));
+												}
+											});
+											formData = jFormData_KQ.toJSONString();
+											formScript = dossierFile_KQ.getFormScript();
+											docFileReferenceUid = dossierFile_KQ.getReferenceUid();
+											fileEntryId = dossierFile_KQ.getFileEntryId();
+											returned = createFileTempNoList.contains(dossierFile_KQ.getFileTemplateNo())
+													? true : false;
+											dossierFileId = dossierFile_KQ.getDossierFileId();
+											eForm = dossierFile_KQ.getEForm();
+											break df;
+										} else if (dossierFile.getDossierPartNo().equals(dossierPart.getPartNo())) {
 											eForm = dossierFile.getEForm();
 											//Add by Dungnv
 									    	File formDataFile = FileUploadUtils.getFile(dossierFile.getFormDataDossierFile());
@@ -3602,6 +3628,8 @@ public class DossierActionsImpl implements DossierActions {
 								createFile.put("counter", counter);
 								createFile.put("returned", returned);
 								createFile.put(DossierFileTerm.FILE_ENTRY_ID, fileEntryId);
+								createFile.put(DossierFileTerm.DOSSIER_TEMPLATE_NO, dossierTempNo);
+								
 								createFiles.put(createFile);
 
 							}
@@ -3616,21 +3644,21 @@ public class DossierActionsImpl implements DossierActions {
 				//
 				_log.info(">> END-FOR-PROCESS-ACTION: "
 						+ LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME));
-				List<ProcessPlugin> pluginList = ProcessPluginLocalServiceUtil.getBySC_SPID_ARUN(serviceProcessId,
-						postStepCode, true);
-
-				if (pluginList != null && pluginList.size() > 0) {
-					for (ProcessPlugin plg : pluginList) {
-						// do create file
-						String pluginForm = plg.getPluginForm();
-						String fileTemplateNo = StringUtil.replaceFirst(plg.getSampleData(), "#", StringPool.BLANK);
-
-						if (Validator.isNotNull(pluginForm) && !pluginForm.contains("original")) {
-							_doAutoRun(groupId, fileTemplateNo, dossierId, dossier.getDossierTemplateNo(),
-									dossierActionId, serviceContext);
-						}
-					}
-				}
+//				List<ProcessPlugin> pluginList = ProcessPluginLocalServiceUtil.getBySC_SPID_ARUN(serviceProcessId,
+//						postStepCode, true);
+//
+//				if (pluginList != null && pluginList.size() > 0) {
+//					for (ProcessPlugin plg : pluginList) {
+//						// do create file
+//						String pluginForm = plg.getPluginForm();
+//						String fileTemplateNo = StringUtil.replaceFirst(plg.getSampleData(), "#", StringPool.BLANK);
+//
+//						if (Validator.isNotNull(pluginForm) && !pluginForm.contains("original")) {
+//							_doAutoRun(groupId, fileTemplateNo, dossierId, dossier.getDossierTemplateNo(),
+//									dossierActionId, serviceContext);
+//						}
+//					}
+//				}
 			}
 		} catch (Exception e) {
 			_log.error(e);

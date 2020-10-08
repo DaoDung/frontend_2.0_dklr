@@ -263,7 +263,7 @@ public class PaymentFileActionsImpl implements PaymentFileActions {
 				jPaymentStatus.put("method", 3);
 				jPaymentStatus.put("classPK", paymentFile.getPrimaryKey());
 				jPaymentStatus.put("fileReferenceUid", paymentFile.getReferenceUid());
-				jPaymentStatus.put("serverNo", StringPool.BLANK);
+				jPaymentStatus.put("serverNo", "DKLR_CTN");
 				array.put(jPaymentStatus);
 				if(array.length() > 0) {
 					JSONObject payload = JSONFactoryUtil.createJSONObject();

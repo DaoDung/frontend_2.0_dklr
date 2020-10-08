@@ -25,6 +25,7 @@ import com.fds.vr.business.model.VRCOPProductType;
 import com.fds.vr.business.model.impl.VRCOPProductTypeImpl;
 import com.fds.vr.business.service.base.VRCOPProductTypeLocalServiceBaseImpl;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -60,25 +61,13 @@ public class VRCOPProductTypeLocalServiceImpl
 	 *
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRCOPProductTypeLocalServiceUtil} to access the vrcop product type local service.
 	 */
-	public List<VRCOPProductType> findBycopReportRepositoryID(long mtCore, long copReportRepositoryID) throws PortalException, SystemException {
-		try {
-			return vrcopProductTypePersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProductType>();
-		
+	public List<VRCOPProductType> findBycopReportRepositoryID_MtCore(long mtCore, long copReportRepositoryID, int start, int end) {
+		return vrcopProductTypePersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID, start, end);
 	}
 
 
-	public List<VRCOPProductType> findBycopReportNo(long mtCore, String copReportNo) throws PortalException, SystemException {
-		try {
-			return vrcopProductTypePersistence.findBycopReportNo(mtCore, copReportNo);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProductType>();
-		
+	public List<VRCOPProductType> findBycopReportNo_MtCore(long mtCore, String copReportNo, int start, int end) {
+		return vrcopProductTypePersistence.findBycopReportNo(mtCore, copReportNo, start, end);
 	}
 
 	public VRCOPProductType updateCOPProductType(Map<String, String> mapValues, int mtCore) {
@@ -127,7 +116,7 @@ public class VRCOPProductTypeLocalServiceImpl
 		JSONArray result = JSONFactoryUtil.createJSONArray();
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 		
-		List<VRCOPProductType> dataList = findBycopReportNo(mtCore,COPReportNo);
+		List<VRCOPProductType> dataList = findBycopReportNo_MtCore(mtCore,COPReportNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		
 		for(VRCOPProductType data:dataList) {
 			
@@ -143,7 +132,7 @@ public class VRCOPProductTypeLocalServiceImpl
 	}
 
 
-	public int adminProcessData(JSONArray arrayData, long dossierId) {
+	public int adminProcessData(JSONArray arrayData, long mtCore, long vrcopReportRepositoryId, long dossierId, String dossierIdCTN, String dossierNo) {
 
 		int result = 0;
 		
@@ -162,7 +151,7 @@ public class VRCOPProductTypeLocalServiceImpl
 				object.setModifyDate(new Date());
 				object.setMtCore(objectData.getLong("mtCore"));
 
-				object.setCopReportRepositoryID(objectData.getLong("copReportRepositoryID"));
+				object.setCopReportRepositoryID(vrcopReportRepositoryId);
 				object.setCopReportNo(objectData.getString("copReportNo"));
 				object.setSequenceNo(objectData.getLong("sequenceNo"));
 				object.setVehicleClass(objectData.getString("vehicleClass"));
@@ -179,9 +168,9 @@ public class VRCOPProductTypeLocalServiceImpl
 				object.setDesignSymbolNo(objectData.getString("designSymbolNo"));
 				object.setRemarks(objectData.getString("remarks"));
 				
-				object.setDossierId(objectData.getLong("dossierId"));
-				object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
-				object.setDossierNo(objectData.getString("dossierNo"));
+				object.setDossierId(dossierId);
+				object.setDossierIdCTN(dossierIdCTN);
+				object.setDossierNo(dossierNo);
 				
 				vrcopProductTypePersistence.update(object);
 				

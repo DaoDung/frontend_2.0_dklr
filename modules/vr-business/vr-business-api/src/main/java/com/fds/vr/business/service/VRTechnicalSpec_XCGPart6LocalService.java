@@ -205,6 +205,9 @@ public interface VRTechnicalSpec_XCGPart6LocalService extends BaseLocalService,
 		java.lang.String deliverableCode) throws SystemException;
 
 	public List<VRTechnicalSpec_XCGPart6> findByDossierId(long dossierId,
+		int start, int end);
+
+	public List<VRTechnicalSpec_XCGPart6> findByDossierId(long dossierId,
 		long mtCore) throws SystemException;
 
 	public List<VRTechnicalSpec_XCGPart6> findByDossierIdCTN(
@@ -215,6 +218,9 @@ public interface VRTechnicalSpec_XCGPart6LocalService extends BaseLocalService,
 
 	public List<VRTechnicalSpec_XCGPart6> findByReferenceUid(
 		java.lang.String referenceUid) throws SystemException;
+
+	public List<VRTechnicalSpec_XCGPart6> findByVehicleCertificateId(
+		long vehiclerCertificateId, int start, int end);
 
 	/**
 	* Returns a range of all the vr technical spec_xcg part6s.

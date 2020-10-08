@@ -110,7 +110,8 @@ public class VRInputSheetLocalServiceWrapper implements VRInputSheetLocalService
 		java.util.Date inventoryDate, java.lang.String bookIDList,
 		java.lang.Long isApproval, java.lang.Long totalQuantities,
 		java.lang.Long totalAmount, java.lang.String amountInWords,
-		java.lang.String remark, java.lang.String stampbooks)
+		java.lang.String remark, java.lang.String stampbooks,
+		com.liferay.portal.kernel.model.Company company)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _vrInputSheetLocalService.updateInputSheet(id, mtCore,
@@ -118,7 +119,7 @@ public class VRInputSheetLocalServiceWrapper implements VRInputSheetLocalService
 			inputSheetType, maker, checker, approver, deliveryName,
 			inventoryName, inventoryPlace, inventoryDate, bookIDList,
 			isApproval, totalQuantities, totalAmount, amountInWords, remark,
-			stampbooks);
+			stampbooks, company);
 	}
 
 	/**

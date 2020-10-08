@@ -166,8 +166,12 @@ public class VRCOPReportAttachLocalServiceUtil {
 	}
 
 	public static int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
-		return getService().adminProcessData(arrayData, dossierId);
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
+		return getService()
+				   .adminProcessData(arrayData, mtCore,
+			vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -245,12 +249,11 @@ public class VRCOPReportAttachLocalServiceUtil {
 		return getService().findBycopReportNo(mtCore, copReportNo);
 	}
 
-	public static java.util.List<com.fds.vr.business.model.VRCOPReportAttach> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+	public static java.util.List<com.fds.vr.business.model.VRCOPReportAttach> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
 		return getService()
-				   .findBycopReportRepositoryID(mtCore, copReportRepositoryID);
+				   .findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

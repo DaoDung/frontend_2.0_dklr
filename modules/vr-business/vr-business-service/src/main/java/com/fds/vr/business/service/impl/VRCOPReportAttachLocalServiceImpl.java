@@ -61,14 +61,8 @@ public class VRCOPReportAttachLocalServiceImpl
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRCOPReportAttachLocalServiceUtil} to access the vrcop report attach local service.
 	 */
 	
-	public List<VRCOPReportAttach> findBycopReportRepositoryID(long mtCore, long copReportRepositoryID) throws PortalException, SystemException {
-		try {
-			return vrcopReportAttachPersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPReportAttach>();
-		
+	public List<VRCOPReportAttach> findBycopReportRepositoryID_MtCore(long mtCore, long copReportRepositoryID, int start, int end) {
+		return vrcopReportAttachPersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID, start, end);
 	}
 
 
@@ -139,7 +133,7 @@ public class VRCOPReportAttachLocalServiceImpl
 	}
 
 
-	public int adminProcessData(JSONArray arrayData, long dossierId) {
+	public int adminProcessData(JSONArray arrayData, long mtCore, long vrcopReportRepositoryId, long dossierId, String dossierIdCTN, String dossierNo) {
 
 		int result = 0;
 		
@@ -156,9 +150,9 @@ public class VRCOPReportAttachLocalServiceImpl
 				object = vrcopReportAttachPersistence.create(id);
 
 				object.setModifyDate(new Date());
-				object.setMtCore(objectData.getLong("mtCore"));
+				object.setMtCore(mtCore);
 
-				object.setCopReportRepositoryID(objectData.getLong("copReportRepositoryID"));
+				object.setCopReportRepositoryID(vrcopReportRepositoryId);
 				object.setCopReportNo(objectData.getString("copReportNo"));
 				object.setSequenceNo(objectData.getLong("sequenceNo"));
 				object.setDocName(objectData.getString("docName"));
@@ -168,9 +162,9 @@ public class VRCOPReportAttachLocalServiceImpl
 					object.setSyncDate(new Date(objectData.getString("syncDate")));
 				}
 				
-				object.setDossierId(objectData.getLong("dossierId"));
-				object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
-				object.setDossierNo(objectData.getString("dossierNo"));
+				object.setDossierId(dossierId);
+				object.setDossierIdCTN(dossierIdCTN);
+				object.setDossierNo(dossierNo);
 				
 				vrcopReportAttachPersistence.update(object);
 				

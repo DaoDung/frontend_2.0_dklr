@@ -22,6 +22,9 @@ import aQute.bnd.annotation.ProviderType;
  */
 @ProviderType
 public interface VRInputStampbookFinder {
+	public long validateInputStampBook(long mtCore,
+		java.lang.String stampShortNo, long serialStartNo, long serialEndNo);
+
 	public com.liferay.portal.kernel.json.JSONArray findData(
 		java.lang.String sql, java.util.List<java.lang.String> columnNames,
 		java.util.List<java.lang.String> dataTypes,

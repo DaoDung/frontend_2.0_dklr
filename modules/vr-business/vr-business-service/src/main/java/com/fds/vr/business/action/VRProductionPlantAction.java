@@ -28,6 +28,9 @@ public interface VRProductionPlantAction {
 
 	public JSONObject findVRProductionPlant(User user, ServiceContext serviceContext,
 			LinkedHashMap<String, Object> params);
+	
+	public long countVRProductionPlant(User user, ServiceContext serviceContext,
+			LinkedHashMap<String, Object> params);
 
 	public JSONObject updateVRProductionPlant(VRProductionPlant object);
 
@@ -40,7 +43,7 @@ public interface VRProductionPlantAction {
 	public VRProductionPlant adminProcessData(JSONObject objectData, long mtCore, long applicantProfileId,
 			String productionPlantCode);
 	
-	public List<VRProductionPlant> adminProcessData(JSONArray arrayData);
+	public List<VRProductionPlant> adminProcessData(JSONArray arrayData) throws Exception;
 	
 	public JSONObject getVRProductionPlant(String productionplantcode, ServiceContext serviceContext);
 

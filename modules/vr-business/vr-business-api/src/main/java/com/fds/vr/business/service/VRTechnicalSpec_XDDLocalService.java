@@ -208,6 +208,9 @@ public interface VRTechnicalSpec_XDDLocalService extends BaseLocalService,
 	public List<VRTechnicalSpec_XDD> findByDeliverableCode(
 		java.lang.String deliverableCode) throws SystemException;
 
+	public List<VRTechnicalSpec_XDD> findByDossierId(long dossierId, int start,
+		int end);
+
 	public List<VRTechnicalSpec_XDD> findByDossierId(long dossierId, long mtCore)
 		throws SystemException;
 
@@ -219,6 +222,9 @@ public interface VRTechnicalSpec_XDDLocalService extends BaseLocalService,
 
 	public List<VRTechnicalSpec_XDD> findByReferenceUid(
 		java.lang.String referenceUid) throws SystemException;
+
+	public List<VRTechnicalSpec_XDD> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end);
 
 	/**
 	* Returns a range of all the vr technical spec_xdds.

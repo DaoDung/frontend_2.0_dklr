@@ -14,6 +14,8 @@
 
 package com.fds.vr.business.service.impl;
 
+import com.fds.vr.business.action.VROutputSheetAction;
+import com.fds.vr.business.action.impl.VROutputSheetActionImpl;
 import com.fds.vr.business.model.VROutputSheet;
 import com.fds.vr.business.service.base.VROutputSheetLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -21,6 +23,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -56,7 +59,7 @@ public class VROutputSheetLocalServiceImpl extends VROutputSheetLocalServiceBase
 			String approver, String receiverName, String receiverPlace, String receiverRequest, String inventoryName,
 			String inventoryPlace, Date inventoryDate, Long dossierId, Long issueId, Long purchaserId,
 			Long purchaserCorporationId, String bookIDList, Long isApproval, Long totalQuantities, Long totalAmount,
-			String amountInWords, String remark, String details) throws PortalException, SystemException {
+			String amountInWords, String remark, String details, Company company) throws PortalException, SystemException {
 
 		VROutputSheet outputSheet = null;
 
@@ -148,12 +151,16 @@ public class VROutputSheetLocalServiceImpl extends VROutputSheetLocalServiceBase
 			vrOutputSheetDetailsLocalService.updateJSONArray(id, corporationId, outputSheetType, details, isApproval);
 
 			if (outputSheetType == 4 || outputSheetType == 6) {
-				vrIssueLocalService.updateDigitalIssueStatus(issueId, 9);
+				vrIssueLocalService.updateDigitalIssueStatus(issueId, 9, company);
 			}
 		}
 
-		return vrOutputSheetPersistence.update(outputSheet);
-
+		outputSheet = vrOutputSheetPersistence.update(outputSheet);
+		if (outputSheet != null) {
+			VROutputSheetAction action = new VROutputSheetActionImpl();
+			action.indexing(outputSheet, company);
+		}
+		return outputSheet;
 	}
 
 	public List<VROutputSheet> findByinputSheetNo(long mtCore, String outputSheetNo)
@@ -234,13 +241,18 @@ public class VROutputSheetLocalServiceImpl extends VROutputSheetLocalServiceBase
 		return vrOutputSheetPersistence.update(object);
 	}
 
-	public VROutputSheet updateVROutputSheet(VROutputSheet object) throws SystemException {
+	public VROutputSheet updateVROutputSheet(VROutputSheet object, Company company) throws SystemException, PortalException {
 
 		Date now = new Date();
 
 		object.setModifyDate(now);
 
-		return vrOutputSheetPersistence.update(object);
+		object = vrOutputSheetPersistence.update(object);
+		if (object != null) {
+			VROutputSheetAction action = new VROutputSheetActionImpl();
+			action.indexing(object, company);
+		}
+		return object;
 	}
 
 	private Log _log = LogFactoryUtil.getLog(VROutputSheetLocalServiceImpl.class);

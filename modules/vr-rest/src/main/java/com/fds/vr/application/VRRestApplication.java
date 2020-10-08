@@ -10,11 +10,14 @@ import com.fds.vr.business.service.VRReportLocalServiceUtil;
 import com.fds.vr.business.service.VRVehicleTypeCertificateLocalServiceUtil;
 import com.fds.vr.controler.impl.VRApplicantManagementImpl;
 import com.fds.vr.controler.impl.VRCOPManagementImpl;
+import com.fds.vr.controler.impl.VRExpiredCertificateManagementImpl;
 import com.fds.vr.controler.impl.VRHistoryProfileManagementImpl;
 import com.fds.vr.controler.impl.VRIssueManagementImpl;
+import com.fds.vr.controler.impl.VRMigrateManagementImpl;
 import com.fds.vr.controler.impl.VROutputSheetDetailManagementImpl;
 import com.fds.vr.controler.impl.VRProductionManagementImpl;
 import com.fds.vr.controler.impl.VRRPDossierStatisticsManagementImpl;
+import com.fds.vr.controler.impl.VRReportManagementImpl;
 import com.fds.vr.controler.impl.VRTrackchangesManagementImpl;
 import com.fds.vr.controler.impl.VRVehicleManagementImpl;
 import com.fds.vr.model.VRCorporationAttendeeResultModel;
@@ -92,7 +95,16 @@ public class VRRestApplication extends Application {
 		singletons.add(new VRRPDossierStatisticsManagementImpl());
 		singletons.add(new VRTrackchangesManagementImpl());
 		singletons.add(new VRHistoryProfileManagementImpl());
+		singletons.add(new VRReportManagementImpl());
+		singletons.add(new VRMigrateManagementImpl());
+		singletons.add(new VRExpiredCertificateManagementImpl());
 		singletons.add(this);
+		
+		singletons.add(_serviceContextProvider);
+		singletons.add(_companyContextProvider);
+		singletons.add(_localeContextProvider);
+		singletons.add(_userContextProvider);
+		
 		return singletons;
 	}
 
@@ -111,10 +123,11 @@ public class VRRestApplication extends Application {
 		String module = header.getHeaderString("module");
 		long dossierId = GetterUtil.getLong(header.getHeaderString("dossierId"));
 		long dossierFileId = GetterUtil.getLong(header.getHeaderString("dossierFileId"));
+		String flag = header.getHeaderString("flag"); //Co danh dau khi form bien ban goi vao
 
 		try {
 			JSONObject object = actions.getTechSpecByVehicleClass(groupId, module, dossierId, dossierFileId,
-					vehicleClass);
+					vehicleClass, flag);
 
 			return Response.status(object.getInt("status")).entity(object.getString("content")).build();
 
@@ -137,10 +150,10 @@ public class VRRestApplication extends Application {
 		long dossierId = GetterUtil.getLong(header.getHeaderString("dossierId"));
 		long dossierFileId = GetterUtil.getLong(header.getHeaderString("dossierFileId"));
 		String fileTemplateNo = GetterUtil.getString(header.getHeaderString("fileTemplateNo"));
-
+		String flag = header.getHeaderString("flag"); //Co danh dau khi form bien ban goi vao
 		try {
 			JSONObject object = actions.getTechSpecByVehicleClassExt(groupId, module, dossierId, dossierFileId,
-					fileTemplateNo, vehicleClass);
+					fileTemplateNo, vehicleClass, flag);
 
 			return Response.status(object.getInt("status")).entity(object.getString("content")).build();
 
@@ -163,10 +176,11 @@ public class VRRestApplication extends Application {
 		long dossierId = GetterUtil.getLong(header.getHeaderString("dossierId"));
 		long dossierFileId = GetterUtil.getLong(header.getHeaderString("dossierFileId"));
 		String fileTemplateNo = GetterUtil.getString(header.getHeaderString("fileTemplateNo"));
+		String flag = header.getHeaderString("flag"); //Co danh dau khi form bien ban goi vao
 
 		try {
 			JSONObject object = actions.getTechSpecByVehicleType(groupId, module, dossierId, dossierFileId,
-					fileTemplateNo, vehicleClass, vehicleType);
+					fileTemplateNo, vehicleClass, vehicleType, flag);
 
 			return Response.status(object.getInt("status")).entity(object.getString("content")).build();
 
@@ -212,9 +226,11 @@ public class VRRestApplication extends Application {
 		String module = header.getHeaderString("module");
 		long dossierId = GetterUtil.getLong(header.getHeaderString("dossierId"));
 		long dossierFileId = GetterUtil.getLong(header.getHeaderString("dossierFileId"));
+		String flag = header.getHeaderString("flag"); //Co danh dau khi form bien ban goi vao
+
 		try {
 			JSONObject object = actions.getTechSpecByVehicleClassType(groupId, module, dossierId, dossierFileId,
-					vehicleClass, vehicleType);
+					vehicleClass, vehicleType, flag);
 
 			return Response.status(object.getInt("status")).entity(object.getString("content")).build();
 

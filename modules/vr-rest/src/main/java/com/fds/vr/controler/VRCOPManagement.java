@@ -37,10 +37,29 @@ public interface VRCOPManagement {
 			@Context Company company, @Context Locale locale, @Context User user,
 			@Context ServiceContext serviceContext, @BeanParam VRCOPReportRepositoryBeanParam query);
 
+	@GET
+	@Path("/reportrepository/{dossierId}/{mtCore}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response findByDossierId(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("dossierId") long dossierId,
+			@PathParam("mtCore") long mtCore);
+
+	@GET
+	@Path("/reportrepository/count")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response countReportRepositories(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @BeanParam VRCOPReportRepositoryBeanParam query);
+
 	@POST
 	@Path("/reportrepository/{year}")
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN, MediaType.APPLICATION_FORM_URLENCODED })
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN, MediaType.APPLICATION_FORM_URLENCODED })
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN,
+			MediaType.APPLICATION_FORM_URLENCODED })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN,
+			MediaType.APPLICATION_FORM_URLENCODED })
 	public Response findReportRepository(@Context HttpServletRequest request, @Context HttpHeaders header,
 			@Context Company company, @Context Locale locale, @Context User user,
 			@Context ServiceContext serviceContext, @PathParam("year") Integer year,
@@ -51,63 +70,80 @@ public interface VRCOPManagement {
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response getVRCOPReportRepository(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
-	
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
+	@GET
+	@Path("/reportrepository/productionplant")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response findByMtCore_ProductionPlantCode_COPClassification(@Context HttpServletRequest request,
+			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @BeanParam VRCOPReportRepositoryBeanParam query);
+
 	@GET
 	@Path("/roductionplant/employee")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Response getVRCOPProductionPlantEmployeeList(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
-	
+	public Response getVRCOPProductionPlantEmployeeList(@Context HttpServletRequest request,
+			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
 	@GET
 	@Path("/productionplant/equipment")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Response getVRCOPProductionPlantEquipmentList(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
-	
+	public Response getVRCOPProductionPlantEquipmentList(@Context HttpServletRequest request,
+			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
 	@GET
 	@Path("/productionplant/prodequipment")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Response getVRCOPProductionPlantProdEquipmentList(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
-	
+	public Response getVRCOPProductionPlantProdEquipmentList(@Context HttpServletRequest request,
+			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
 	@GET
 	@Path("/producttype")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response getVRCOPProductTypeList(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
 
-	
 	@GET
 	@Path("/reportattach")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response getVRCOPReportAttachList(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
-	
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
 	@GET
 	@Path("/datatemplate")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response getVRCOPDataTemplate(@Context HttpServletRequest request, @Context HttpHeaders header,
-			@Context Company company, @Context Locale locale, @Context User user, @Context ServiceContext serviceContext,
-			@DefaultValue(" ")@QueryParam("mtcore") long mtCore,
-			@DefaultValue(" ")@QueryParam("copreportno") String copReportNo);
-	
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
+			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
+	@GET
+	@Path("/productionplant/prodequipment/{dossierId}/{mtCore}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response findVRCOPProductionPlantProdEquipmentByDossierId(@Context HttpServletRequest request,
+			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("dossierId") long dossierId,
+			@PathParam("mtCore") long mtCore, @DefaultValue("0") @QueryParam("start") int start,
+			@DefaultValue("10") @QueryParam("end") int end);
+
 }

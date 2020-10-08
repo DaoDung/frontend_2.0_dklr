@@ -51,6 +51,14 @@ public class VRTechnicalSpec_XCGPart1LocalServiceImpl
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRTechnicalSpec_XCGPart1LocalServiceUtil} to access the vr technical spec_xcg Part1 local service.
 	 */
 	
+	public List<VRTechnicalSpec_XCGPart1> findByVehicleCertificateId(long vehiclerCertificateId, int start, int end) {
+		return vrTechnicalSpec_XCGPart1Persistence.findByvehicleTypeCertificateId(vehiclerCertificateId, start, end);
+	}
+	
+	public List<VRTechnicalSpec_XCGPart1> findByDossierId(long dossierId, int start, int end) {
+		return vrTechnicalSpec_XCGPart1Persistence.findBy_DossierId(dossierId, start, end);
+	}
+	
 
 	public List<VRTechnicalSpec_XCGPart1> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {

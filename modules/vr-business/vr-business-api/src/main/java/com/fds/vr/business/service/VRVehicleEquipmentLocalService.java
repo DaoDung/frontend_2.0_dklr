@@ -166,7 +166,7 @@ public interface VRVehicleEquipmentLocalService extends BaseLocalService,
 	public java.lang.String getOSGiServiceIdentifier();
 
 	public List<VRVehicleEquipment> adminProcessData(JSONArray arrayData,
-		long dossierId, long vehicleTypeCertificateId);
+		long dossierId, long mtCore);
 
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
@@ -206,6 +206,12 @@ public interface VRVehicleEquipmentLocalService extends BaseLocalService,
 	*/
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
+
+	public List<VRVehicleEquipment> findByDossierId(long dossierId, int start,
+		int end);
+
+	public List<VRVehicleEquipment> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end);
 
 	/**
 	* Returns a range of all the vr vehicle equipments.

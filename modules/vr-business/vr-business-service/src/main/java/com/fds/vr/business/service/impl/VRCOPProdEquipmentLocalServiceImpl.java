@@ -19,7 +19,9 @@ import com.fds.vr.business.model.VRCOPProdEquipment;
 import com.fds.vr.business.model.VRCOPProductionPlantEmployee;
 import com.fds.vr.business.model.impl.VRCOPProdEquipmentImpl;
 import com.fds.vr.business.service.base.VRCOPProdEquipmentLocalServiceBaseImpl;
+import com.fds.vr.service.util.APIDateTimeUtil;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -60,25 +62,13 @@ public class VRCOPProdEquipmentLocalServiceImpl
 	 *
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRCOPProdEquipmentLocalServiceUtil} to access the vrcop prod equipment local service.
 	 */
-	public List<VRCOPProdEquipment> findBycopReportRepositoryID(long mtCore, long copReportRepositoryID) throws PortalException, SystemException {
-		try {
-			return vrcopProdEquipmentPersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProdEquipment>();
-		
+	public List<VRCOPProdEquipment> findBycopReportRepositoryID_MtCore(long mtCore, long copReportRepositoryID, int start, int end){
+		return vrcopProdEquipmentPersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID, start, end);
 	}
 
 
-	public List<VRCOPProdEquipment> findBycopReportNo(long mtCore, String copReportNo)  throws PortalException, SystemException {
-		try {
-			return vrcopProdEquipmentPersistence.findBycopReportNo(mtCore, copReportNo);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProdEquipment>();
-		
+	public List<VRCOPProdEquipment> findBycopReportNo_MtCore(long mtCore, String copReportNo, int start, int end){
+		return vrcopProdEquipmentPersistence.findBycopReportNo(mtCore, copReportNo, start, end);
 	}
 
 	public VRCOPProdEquipment updateCOPProdEquipment(Map<String, String> mapValues, int mtCore) {
@@ -129,7 +119,7 @@ public class VRCOPProdEquipmentLocalServiceImpl
 		JSONArray result = JSONFactoryUtil.createJSONArray();
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
-		List<VRCOPProdEquipment> dataList = findBycopReportNo(mtCore, COPReportNo);
+		List<VRCOPProdEquipment> dataList = findBycopReportNo_MtCore(mtCore, COPReportNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
 		for (VRCOPProdEquipment data : dataList) {
 
@@ -144,7 +134,7 @@ public class VRCOPProdEquipmentLocalServiceImpl
 		return result;
 	}
 
-	public int adminProcessData(JSONArray arrayData, long dossierId) {
+	public int adminProcessData(JSONArray arrayData, long mtCore, long vrcopReportRepositoryId, long dossierId, String dossierIdCTN, String dossierNo) {
 
 		int result = 0;
 		
@@ -161,9 +151,9 @@ public class VRCOPProdEquipmentLocalServiceImpl
 				object = vrcopProdEquipmentPersistence.create(id);
 
 				object.setModifyDate(new Date());
-				object.setMtCore(objectData.getLong("mtCore"));
+				object.setMtCore(mtCore);
 
-				object.setCopReportRepositoryID(objectData.getLong("copReportRepositoryID"));
+				object.setCopReportRepositoryID(vrcopReportRepositoryId);
 				object.setCopReportNo(objectData.getString("copReportNo"));
 				object.setSequenceNo(objectData.getLong("sequenceNo"));
 				object.setEquipmentCode(objectData.getString("equipmentCode"));
@@ -175,16 +165,14 @@ public class VRCOPProdEquipmentLocalServiceImpl
 				object.setModelCode(objectData.getString("modelCode"));
 				object.setProductionCountryCode(objectData.getString("productionCountryCode"));
 				object.setEquipmentStatus(objectData.getString("equipmentStatus"));
-				if (!"".equals(objectData.getString("expireDate"))) {
-					object.setSyncDate(new Date(objectData.getString("expireDate")));
-				}
+				object.setSyncDate(APIDateTimeUtil.parseStringToDate(objectData.getString("expireDate")));
 				object.setNotes(objectData.getString("notes"));
 				object.setDesignSymbolNo(objectData.getString("designSymbolNo"));
 				object.setQuantity(objectData.getInt("quantity"));
 				
-				object.setDossierId(objectData.getLong("dossierId"));
-				object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
-				object.setDossierNo(objectData.getString("dossierNo"));
+				object.setDossierId(dossierId);
+				object.setDossierIdCTN(dossierIdCTN);
+				object.setDossierNo(dossierNo);
 
 				vrcopProdEquipmentPersistence.update(object);
 				

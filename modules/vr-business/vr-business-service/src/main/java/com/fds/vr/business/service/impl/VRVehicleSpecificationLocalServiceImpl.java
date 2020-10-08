@@ -116,18 +116,17 @@ public class VRVehicleSpecificationLocalServiceImpl
 	 *
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRVehicleSpecificationLocalServiceUtil} to access the vr vehicle specification local service.
 	 */
+	
+	public List<VRVehicleSpecification> findByDossierId(long dossierId, int start, int end) {
+		return vrVehicleSpecificationPersistence.findBydossierId(dossierId, start, end);
+	}
+	
 	public VRVehicleSpecification findByCode(long vehiceTypeId, String specificationCode) {
 		return vrVehicleSpecificationPersistence.fetchBySC_VCID(vehiceTypeId, specificationCode);
 	}
 
-	public List<VRVehicleSpecification> findByVehicleCertificateId(long vehicleCertificateId) throws PortalException, SystemException {
-		try {
-			return vrVehicleSpecificationPersistence.findByVehicleCertificateId(vehicleCertificateId);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRVehicleSpecification>();
-		
+	public List<VRVehicleSpecification> findByVehicleCertificateId(long vehicleCertificateId){
+		return vrVehicleSpecificationPersistence.findByVehicleCertificateId(vehicleCertificateId);
 	}
 
 

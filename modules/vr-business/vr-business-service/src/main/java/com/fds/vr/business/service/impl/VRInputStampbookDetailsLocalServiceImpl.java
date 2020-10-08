@@ -14,19 +14,20 @@
 
 package com.fds.vr.business.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import com.fds.vr.business.model.VRInputStampbookDetails;
+import com.fds.vr.business.service.base.VRInputStampbookDetailsLocalServiceBaseImpl;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.fds.vr.business.model.VRInputStampbookDetails;
-import com.fds.vr.business.service.base.VRInputStampbookDetailsLocalServiceBaseImpl;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import aQute.bnd.annotation.ProviderType;
 
 /**
  * The implementation of the vr input stampbook details local service.
@@ -165,6 +166,11 @@ public class VRInputStampbookDetailsLocalServiceImpl
 	
 	public VRInputStampbookDetails updateByOutputSheet(long bookId, long outputSheetType, long sequenceNo, Long purchaserId, Long corporationId, long issuingStatus) throws PortalException, SystemException {
 		VRInputStampbookDetails inputStampbookDetails = vrInputStampbookDetailsPersistence.findByBookIdAndSequenceNo(bookId, sequenceNo);
+		
+		//Validate
+		if (inputStampbookDetails.getIssuingStatus() > 0) {
+			throw new SystemException("Stamp book used");
+		}
 		
 		inputStampbookDetails.setModifyDate(new Date());
 		

@@ -97,6 +97,8 @@ public class SignatureManagementImpl implements SignatureManagement{
 				DLAppLocalServiceUtil.updateFileEntry(user.getUserId(), dlFileEntry.getFileEntryId(), dlFileEntry.getTitle(),
 						dlFileEntry.getMimeType(), dlFileEntry.getTitle(), dlFileEntry.getDescription(),
 						StringPool.BLANK, true, fileSigned, serviceContext);
+				
+				serviceContext.setUserId(user.getUserId());
 			
 				//Next action
 				Dossier dossier = DossierLocalServiceUtil.fetchDossier(dossierId);
@@ -117,7 +119,7 @@ public class SignatureManagementImpl implements SignatureManagement{
 							dossier.getReferenceUid(), input.getActionCode(), option.getServiceProcessId());
 					if (option != null && proAction != null) {
 						actions.doAction(groupId, dossier, option, proAction, actionCode, input.getActionUser(),
-								input.getActionNote(), GetterUtil.getLong(input.getAssignUserId()), 0l,
+								input.getActionNote(), GetterUtil.getLong(input.getAssignUserId()), user.getUserId(),
 								StringPool.BLANK, StringPool.BLANK, serviceContext);
 					}
 					
@@ -215,8 +217,9 @@ public class SignatureManagementImpl implements SignatureManagement{
 						_log.info("fileEntryId: "+fileEntryId);
 
 						try {
+							//Dungnv - Them chuc nang ky so HSM
 							hashComputed = callHashComputedSync(groupId, user, fileEntryId, input.getActionCode(),
-									input.getPostStepCode(), serviceContext);
+									input.getPostStepCode(), input.isUseHSM(), serviceContext);
 							_log.info("hashComputed: "+hashComputed);
 						} catch (Exception e) {
 							_log.info("hashComputed: "+hashComputed);
@@ -264,8 +267,9 @@ public class SignatureManagementImpl implements SignatureManagement{
 		}
 	}
 
+	//Dungnv - Them chuc nang ky so HSM
 	private JSONObject callHashComputedSync(long groupId, User user, long fileEntryId, String actionCode,
-			String postStepCode, ServiceContext serviceContext) throws PortalException {
+			String postStepCode, boolean useHSM, ServiceContext serviceContext) throws PortalException {
 
 		InvokeREST rest = new InvokeREST();
 
@@ -275,7 +279,10 @@ public class SignatureManagementImpl implements SignatureManagement{
 		String httpMethod = HttpMethods.POST;
 
 		String endPoint = "signature/requestsToken";
-
+//		if (useHSM) {
+//			endPoint = "signature/requestsTokenHSM";
+//		}
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("fileEntryId", fileEntryId);
 		params.put("emailUser", user.getEmailAddress());

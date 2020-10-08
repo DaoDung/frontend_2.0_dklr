@@ -1,5 +1,6 @@
 package com.fds.vr.controler.impl;
 
+import com.fds.vr.business.action.VRIssueAction;
 import com.fds.vr.business.action.impl.VRIssueActionImpl;
 import com.fds.vr.controler.VRIssueManagement;
 import com.fds.vr.model.VRIssueBeanParam;
@@ -99,6 +100,23 @@ public class VRIssueManagementImpl implements VRIssueManagement {
 		} catch (Exception e) {
 			_log.error(e);
 			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get vrvehiclerecord").toJSONString())
+					.build();
+		}
+	}
+
+	@Override
+	public Response findByPrimaryKey(HttpServletRequest request, HttpHeaders header, Company company, Locale locale,
+			User user, ServiceContext serviceContext, long issueId) {
+		JSONObject result = JSONFactoryUtil.createJSONObject();
+		try {
+			VRIssueAction action = new VRIssueActionImpl();
+
+			result = action.findByPrimaryKey(user, serviceContext, issueId);
+			
+			return Response.status(200).entity(result.toJSONString()).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get vr_issue").toJSONString())
 					.build();
 		}
 	}

@@ -37,10 +37,32 @@ import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 @Path("/vehicle/")
 public interface VRVehicleManagement {
 	@GET
+	@Path("/equipment/{dossierId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response findVRVehicleEquipmentByDossierId(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("dossierId") long dossierId,
+			@DefaultValue("0") @QueryParam("start") int start, @DefaultValue("10") @QueryParam("end") int end);
+
+	@POST
+	@Path("/equipment/{dossierId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response createVRVehicleEquipment(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("dossierId") long dossierId, String data);
+
+	@GET
 	@Path("/certificate/year")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response findVRVehicleCertificateRecordYear(@Context HttpServletRequest request, @Context HttpHeaders header,
 			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @BeanParam VRVehicleTypeCertificateBeanParam query);
+
+	@GET
+	@Path("/certificate/certificaterecordno")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response findSpecificationByCertificateRecordNo(@Context HttpServletRequest request,
+			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
 			@Context ServiceContext serviceContext, @BeanParam VRVehicleTypeCertificateBeanParam query);
 
 	@GET
@@ -59,6 +81,15 @@ public interface VRVehicleManagement {
 			@Context Company company, @Context Locale locale, @Context User user,
 			@Context ServiceContext serviceContext, @DefaultValue(" ") @QueryParam("mtcore") long mtCore,
 			@DefaultValue(" ") @QueryParam("copreportno") String copReportNo);
+
+	@GET
+	@Path("/certificate/dossier/{dossierId}/mtcore/{mtCore}")
+	@Consumes({ MediaType.APPLICATION_FORM_URLENCODED })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response findByDossierId(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("dossierId") long dossierId,
+			@PathParam("mtCore") long mtCore);
 
 	@POST
 	@Path("/record/import")
@@ -93,13 +124,30 @@ public interface VRVehicleManagement {
 			@Context ServiceContext serviceContext, @BeanParam VRVehicleRecordBeanParam query,
 			String advancesearchParams);
 
+	//================================= Cap phat phoi phieu - Dungnv
+	@GET
+	@Path("/record/{vehicleRecordId}/details")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response findVRVehicleRecordPrintDetails(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("vehicleRecordId") long vehicleRecordId);
+	@PUT
+	@Path("/record/{vehicleRecordId}/print")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response updateStatusAfterPrint(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("vehicleRecordId") long vehicleRecordId);
+
 	@GET
 	@Path("/record/export")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public Response doExportVRVehicleRecord(@Context HttpServletRequest request, @Context HttpServletResponse response,
 			@Context HttpHeaders header, @Context Company company, @Context Locale locale, @Context User user,
-			@Context ServiceContext serviceContext, @BeanParam VRVehicleRecordBeanParam query, @FormParam("headercodes") String headercodes, @FormParam("headerlabels") String headerlabels);
+			@Context ServiceContext serviceContext, @BeanParam VRVehicleRecordBeanParam query,
+			@FormParam("headercodes") String headercodes, @FormParam("headerlabels") String headerlabels);
+	//==
 
 	@GET
 	@Path("/record/count")

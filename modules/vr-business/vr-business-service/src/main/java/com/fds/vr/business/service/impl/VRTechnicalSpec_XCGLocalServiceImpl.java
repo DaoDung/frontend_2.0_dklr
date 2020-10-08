@@ -63,6 +63,13 @@ public class VRTechnicalSpec_XCGLocalServiceImpl extends VRTechnicalSpec_XCGLoca
 	 * com.fds.vr.business.service.VRTechnicalSpec_XCGLocalServiceUtil} to access
 	 * the vr technical spec_xcg local service.
 	 */
+	public List<VRTechnicalSpec_XCG> findByVehicleCertificateId(long vehiclerCertificateId, int start, int end) {
+		return vrTechnicalSpec_XCGPersistence.findByvehicleTypeCertificateId(vehiclerCertificateId, start, end);
+	}
+	
+	public List<VRTechnicalSpec_XCG> findByDossierId(long dossierId, int start, int end) {
+		return vrTechnicalSpec_XCGPersistence.findBy_DossierId(dossierId, start, end);
+	}
 
 	public List<VRTechnicalSpec_XCG> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {

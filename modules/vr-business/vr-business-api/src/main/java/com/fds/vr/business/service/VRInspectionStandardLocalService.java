@@ -220,6 +220,12 @@ public interface VRInspectionStandardLocalService extends BaseLocalService,
 		java.lang.String deliverableCode)
 		throws PortalException, SystemException;
 
+	public List<VRInspectionStandard> findByDossierId(long dossierId,
+		int start, int end);
+
+	public List<VRInspectionStandard> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end);
+
 	public List<VRInspectionStandard> findByvehicleCertificateId(
 		long vehicleCertificateId, long markupstatus)
 		throws PortalException, SystemException;

@@ -40,12 +40,12 @@ public class VRRPDossierStatisticsFinderImpl extends VRRPDossierStatisticsFinder
 
 			if (Validator.isNotNull(modelClassName) && modelClazz != null) {
 				q.addEntity(modelClassName, modelClazz);
-				List<VRRPDossierStatistics> vrrpDossierStatistics = (List<VRRPDossierStatistics>) QueryUtil.list(q, getDialect(),
-						start, end);
+				List<VRRPDossierStatistics> vrrpDossierStatistics = (List<VRRPDossierStatistics>) QueryUtil.list(q,
+						getDialect(), start, end);
 				if (vrrpDossierStatistics != null) {
 					for (VRRPDossierStatistics vrrpDossierStatistic : vrrpDossierStatistics) {
-						JSONObject json = ActionUtil.object2Json(vrrpDossierStatistic, VRRPDossierStatisticsModelImpl.class,
-								"");
+						JSONObject json = ActionUtil.object2Json(vrrpDossierStatistic,
+								VRRPDossierStatisticsModelImpl.class, "");
 						results.put(json);
 					}
 				}
@@ -109,6 +109,28 @@ public class VRRPDossierStatisticsFinderImpl extends VRRPDossierStatisticsFinder
 				}
 			}
 			return 0;
+		} catch (Exception e) {
+			throw new SystemException(e);
+		} finally {
+			closeSession(session);
+		}
+	}
+
+	public Iterator<Object[]> findDataReport(String sqlQuery) throws SystemException {
+
+		Session session = null;
+		try {
+			session = openSession();
+
+			log.info("=========select >>>>>>>>>>>>>>>>>>>>>>>>>>>========" + sqlQuery);
+
+			SQLQuery q = session.createSQLQuery(sqlQuery);
+
+			q.setCacheable(false);
+
+			Iterator<Object[]> itr = (Iterator<Object[]>) QueryUtil.list(q, getDialect(), -1, -1).iterator();
+
+			return itr;
 		} catch (Exception e) {
 			throw new SystemException(e);
 		} finally {

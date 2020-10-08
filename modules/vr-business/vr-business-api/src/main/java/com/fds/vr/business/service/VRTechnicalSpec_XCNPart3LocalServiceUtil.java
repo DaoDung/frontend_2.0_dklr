@@ -248,6 +248,17 @@ public class VRTechnicalSpec_XCNPart3LocalServiceUtil {
 		return getService().findByReferenceUid(referenceUid);
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XCNPart3> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end) {
+		return getService()
+				   .findByVehicleCertificateId(vehicleCertificateId, start, end);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XCNPart3> findBy_DossierId(
+		long dossierId, int start, int end) {
+		return getService().findBy_DossierId(dossierId, start, end);
+	}
+
 	/**
 	* Returns a range of all the vr technical spec_xcn part3s.
 	*

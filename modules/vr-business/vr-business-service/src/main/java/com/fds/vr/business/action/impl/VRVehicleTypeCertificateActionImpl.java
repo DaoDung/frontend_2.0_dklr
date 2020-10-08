@@ -1,28 +1,103 @@
 package com.fds.vr.business.action.impl;
 
+import com.fds.vr.business.action.VRVehicleSpecificationAction;
 import com.fds.vr.business.action.VRVehicleTypeCertificateAction;
 import com.fds.vr.business.action.util.ActionUtil;
 import com.fds.vr.business.engine.SQLQueryBuilder;
 import com.fds.vr.business.engine.SQLQueryInstance;
+import com.fds.vr.business.model.VRES;
+import com.fds.vr.business.model.VRInspectionStandard;
+import com.fds.vr.business.model.VRTechnicalSpec_LKXCG;
+import com.fds.vr.business.model.VRTechnicalSpec_LKXMY;
+import com.fds.vr.business.model.VRTechnicalSpec_LKXMYPart2;
+import com.fds.vr.business.model.VRTechnicalSpec_XCG;
+import com.fds.vr.business.model.VRTechnicalSpec_XCGPart1;
+import com.fds.vr.business.model.VRTechnicalSpec_XCGPart2;
+import com.fds.vr.business.model.VRTechnicalSpec_XCGPart3;
+import com.fds.vr.business.model.VRTechnicalSpec_XCGPart4;
+import com.fds.vr.business.model.VRTechnicalSpec_XCGPart5;
+import com.fds.vr.business.model.VRTechnicalSpec_XCGPart6;
+import com.fds.vr.business.model.VRTechnicalSpec_XCH;
+import com.fds.vr.business.model.VRTechnicalSpec_XCN;
+import com.fds.vr.business.model.VRTechnicalSpec_XCNPart2;
+import com.fds.vr.business.model.VRTechnicalSpec_XCNPart3;
+import com.fds.vr.business.model.VRTechnicalSpec_XDD;
+import com.fds.vr.business.model.VRTechnicalSpec_XMY;
+import com.fds.vr.business.model.VRTechnicalSpec_XMYPart2;
+import com.fds.vr.business.model.VRTechnicalSpec_XMYPart3;
+import com.fds.vr.business.model.VRVehicleEquipment;
+import com.fds.vr.business.model.VRVehicleSpecification;
 import com.fds.vr.business.model.VRVehicleTypeCertificate;
 import com.fds.vr.business.model.impl.VRCOPReportRepositoryImpl;
+import com.fds.vr.business.model.impl.VRInspectionStandardModelImpl;
 import com.fds.vr.business.model.impl.VRProductionPlantEquipmentModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_LKXCGModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_LKXMYModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_LKXMYPart2ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGPart1ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGPart2ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGPart3ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGPart4ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGPart5ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCGPart6ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCHModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCNModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCNPart2ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XCNPart3ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XDDModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XMYModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XMYPart2ModelImpl;
+import com.fds.vr.business.model.impl.VRTechnicalSpec_XMYPart3ModelImpl;
+import com.fds.vr.business.model.impl.VRVehicleEquipmentModelImpl;
+import com.fds.vr.business.model.impl.VRVehicleSpecificationModelImpl;
 import com.fds.vr.business.model.impl.VRVehicleTypeCertificateImpl;
 import com.fds.vr.business.model.impl.VRVehicleTypeCertificateModelImpl;
 import com.fds.vr.business.service.VRCOPReportRepositoryLocalServiceUtil;
+import com.fds.vr.business.service.VRInspectionStandardLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_LKXCGLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_LKXMYLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_LKXMYPart2LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGPart1LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGPart2LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGPart3LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGPart4LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGPart5LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCGPart6LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCHLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCNLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCNPart2LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XCNPart3LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XDDLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XMYLocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XMYPart2LocalServiceUtil;
+import com.fds.vr.business.service.VRTechnicalSpec_XMYPart3LocalServiceUtil;
+import com.fds.vr.business.service.VRVehicleEquipmentLocalServiceUtil;
+import com.fds.vr.business.service.VRVehicleSpecificationLocalServiceUtil;
 import com.fds.vr.business.service.VRVehicleTypeCertificateLocalServiceUtil;
+import com.fds.vr.business.service.indexer.ElasticQueryWrapUtil;
+import com.fds.vr.service.util.BusinessUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.search.Field;
+import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -251,8 +326,8 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 		String certificateNote = null;
 		String deliverableCode = null;
 		String module = null;
-		//String modifyDate = null;
-		//String syncDate = null;
+		// String modifyDate = null;
+		// String syncDate = null;
 		if (params != null) {
 			if (params.containsKey("id")) {
 				id = GetterUtil.getLong(params.get("id"));
@@ -654,19 +729,23 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 			if (params.containsKey("module")) {
 				module = GetterUtil.getString(params.get("module"));
 			}
-			/*if (params.containsKey("modifydate")) {
-				modifyDate = GetterUtil.getString(params.get("modifydate"));
-			}
-			if (params.containsKey("syncdate")) {
-				syncDate = GetterUtil.getString(params.get("syncdate"));
-			}*/
+			/*
+			 * if (params.containsKey("modifydate")) { modifyDate =
+			 * GetterUtil.getString(params.get("modifydate")); } if
+			 * (params.containsKey("syncdate")) { syncDate =
+			 * GetterUtil.getString(params.get("syncdate")); }
+			 */
 		}
 		String _keywordSearchCondition = ActionUtil.buildSQLCondition("dossierType", keyword, "", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("dossierNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("referenceUid", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("serviceCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("dossierNo", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("referenceUid", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("serviceCode", keyword, "OR", StringPool.LIKE,
+				// "")
 				+ ActionUtil.buildSQLCondition("serviceName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("applicantIdNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("applicantIdNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantRepresentative", keyword, "OR", StringPool.LIKE, "")
@@ -677,8 +756,10 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				+ ActionUtil.buildSQLCondition("applicantContactName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantContactEmail", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantcontactPhone", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("cityCode", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("manufacturerForeignCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("cityCode", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("manufacturerForeignCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("manufacturerName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("manufacturerAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("manufacturerRepresentative", keyword, "OR", StringPool.LIKE, "")
@@ -691,8 +772,10 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				+ ActionUtil.buildSQLCondition("productionPlantAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("productionPlantRepresentative", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("productionPlantRepresentativeTitle", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("copReportNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("designerCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("copReportNo", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("designerCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerRepresentative", keyword, "OR", StringPool.LIKE, "")
@@ -700,73 +783,104 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				+ ActionUtil.buildSQLCondition("designerEmail", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerPhone", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerFax", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("verificationCertificateNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("verificationRefNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("typeApprovalCertificateNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("designModelCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("verificationCertificateNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("verificationRefNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("typeApprovalCertificateNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("designModelCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designModelDescription", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("designSymbol", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("registeredNumber", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("designSymbol", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("registeredNumber", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorOrganization", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectorDivision", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectorDivision", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorSignName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorSignTitle", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorSignPlace", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certificateType", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("referenceCertificateNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certificateRecordNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certificateType", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("referenceCertificateNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certificateRecordNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateSignName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateSignTitle", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateSignPlace", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("expiredStatus", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certificateRecordStatus", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("digitalIssueStatus", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("vehicleClass", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedVehicleType", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("expiredStatus", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certificateRecordStatus", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("digitalIssueStatus", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("vehicleClass", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedVehicleType", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedVehicleTypeDescription", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedTrademark", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedTrademarkName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedCommercialName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedModelCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedModelCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedAssemblyType", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedAssemblyTypeDescription", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedVINNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedVINNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedVINPosition", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedFrameNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedFrameNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedFrameAttachPlace", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedFramePosition", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedEngineNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedEngineNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedEngineAttachPlace", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedEnginePosition", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("safetyTestReportNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("emissionTestReportNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("safetyTestReportNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("emissionTestReportNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("commonSafetyStandard", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("emissionStandard", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("commonSafetyDescription", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("emissionDescription", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("otherTestReportNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleFrameNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleVINNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleEngineNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("otherTestReportNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("sampleFrameNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("sampleVINNo", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("sampleEngineNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleVehicleType", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleVehicleTypeDescription", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleTrademark", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleTrademarkName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleCommercialName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleModelCode", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("customsDeclarationNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("sampleModelCode", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("customsDeclarationNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("productionCountry", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectionRecordNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectionRecordNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionSite", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectionDistrictCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectionDistrictCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionDistrictName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectionProvinceCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectionProvinceCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionProvinceName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("corporationId", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("remarks", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionNote", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateNote", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("deliverableCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("deliverableCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("module", keyword, "OR", StringPool.LIKE, "");
 		SQLQueryBuilder builder = new SQLQueryBuilder();
 		builder.selectAll().from("vr_vehicletypecertificate").where("id", id, "AND", StringPool.EQUAL)
@@ -902,8 +1016,8 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				.where("certificatenote", certificateNote, "AND", StringPool.EQUAL)
 				.where("deliverablecode", deliverableCode, "AND", StringPool.EQUAL)
 				.where("module", module, "AND", StringPool.EQUAL)
-				//.where("modifydate", modifyDate, "AND", StringPool.EQUAL)
-				//.where("syncdate", syncDate, "AND", StringPool.EQUAL)
+				// .where("modifydate", modifyDate, "AND", StringPool.EQUAL)
+				// .where("syncdate", syncDate, "AND", StringPool.EQUAL)
 				.where(_keywordSearchCondition, null, "AND", "", true).build();
 		JSONObject result = JSONFactoryUtil.createJSONObject();
 		long total = VRVehicleTypeCertificateLocalServiceUtil.counData(builder.getCountQuery());
@@ -937,7 +1051,8 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 
 	@Override
 	public JSONObject deleteVRVehicleTypeCertificate(long id) {
-		VRVehicleTypeCertificate vrVehicleRecord = VRVehicleTypeCertificateLocalServiceUtil.fetchVRVehicleTypeCertificate(id);
+		VRVehicleTypeCertificate vrVehicleRecord = VRVehicleTypeCertificateLocalServiceUtil
+				.fetchVRVehicleTypeCertificate(id);
 		if (vrVehicleRecord == null) {
 			return ActionUtil.createResponseContent(HttpsURLConnection.HTTP_NOT_FOUND, StringPool.BLANK);
 		}
@@ -1090,8 +1205,8 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 		String certificateNote = null;
 		String deliverableCode = null;
 		String module = null;
-		//String modifyDate = null;
-		//String syncDate = null;
+		// String modifyDate = null;
+		// String syncDate = null;
 		if (params != null) {
 			if (params.containsKey("id")) {
 				id = GetterUtil.getLong(params.get("id"));
@@ -1493,19 +1608,23 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 			if (params.containsKey("module")) {
 				module = GetterUtil.getString(params.get("module"));
 			}
-			/*if (params.containsKey("modifydate")) {
-				modifyDate = GetterUtil.getString(params.get("modifydate"));
-			}
-			if (params.containsKey("syncdate")) {
-				syncDate = GetterUtil.getString(params.get("syncdate"));
-			}*/
+			/*
+			 * if (params.containsKey("modifydate")) { modifyDate =
+			 * GetterUtil.getString(params.get("modifydate")); } if
+			 * (params.containsKey("syncdate")) { syncDate =
+			 * GetterUtil.getString(params.get("syncdate")); }
+			 */
 		}
 		String _keywordSearchCondition = ActionUtil.buildSQLCondition("dossierType", keyword, "", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("dossierNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("referenceUid", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("serviceCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("dossierNo", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("referenceUid", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("serviceCode", keyword, "OR", StringPool.LIKE,
+				// "")
 				+ ActionUtil.buildSQLCondition("serviceName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("applicantIdNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("applicantIdNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantRepresentative", keyword, "OR", StringPool.LIKE, "")
@@ -1516,8 +1635,10 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				+ ActionUtil.buildSQLCondition("applicantContactName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantContactEmail", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("applicantcontactPhone", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("cityCode", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("manufacturerForeignCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("cityCode", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("manufacturerForeignCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("manufacturerName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("manufacturerAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("manufacturerRepresentative", keyword, "OR", StringPool.LIKE, "")
@@ -1530,8 +1651,10 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				+ ActionUtil.buildSQLCondition("productionPlantAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("productionPlantRepresentative", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("productionPlantRepresentativeTitle", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("copReportNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("designerCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("copReportNo", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("designerCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerAddress", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerRepresentative", keyword, "OR", StringPool.LIKE, "")
@@ -1539,73 +1662,104 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				+ ActionUtil.buildSQLCondition("designerEmail", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerPhone", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designerFax", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("verificationCertificateNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("verificationRefNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("typeApprovalCertificateNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("designModelCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("verificationCertificateNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("verificationRefNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("typeApprovalCertificateNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("designModelCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("designModelDescription", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("designSymbol", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("registeredNumber", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("designSymbol", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("registeredNumber", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorOrganization", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectorDivision", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectorDivision", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorSignName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorSignTitle", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectorSignPlace", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certificateType", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("referenceCertificateNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certificateRecordNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certificateType", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("referenceCertificateNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certificateRecordNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateSignName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateSignTitle", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateSignPlace", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("expiredStatus", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certificateRecordStatus", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("digitalIssueStatus", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("vehicleClass", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedVehicleType", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("expiredStatus", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certificateRecordStatus", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("digitalIssueStatus", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("vehicleClass", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedVehicleType", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedVehicleTypeDescription", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedTrademark", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedTrademarkName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedCommercialName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedModelCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedModelCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedAssemblyType", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedAssemblyTypeDescription", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedVINNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedVINNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedVINPosition", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedFrameNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedFrameNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedFrameAttachPlace", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedFramePosition", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("certifiedEngineNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("certifiedEngineNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedEngineAttachPlace", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certifiedEnginePosition", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("safetyTestReportNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("emissionTestReportNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("safetyTestReportNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("emissionTestReportNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("commonSafetyStandard", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("emissionStandard", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("commonSafetyDescription", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("emissionDescription", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("otherTestReportNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleFrameNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleVINNo", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleEngineNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("otherTestReportNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("sampleFrameNo", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("sampleVINNo", keyword, "OR", StringPool.LIKE,
+				// "")
+				// + ActionUtil.buildSQLCondition("sampleEngineNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleVehicleType", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleVehicleTypeDescription", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleTrademark", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleTrademarkName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("sampleCommercialName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("sampleModelCode", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("customsDeclarationNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("sampleModelCode", keyword, "OR",
+				// StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("customsDeclarationNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("productionCountry", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectionRecordNo", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectionRecordNo", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionSite", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectionDistrictCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectionDistrictCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionDistrictName", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("inspectionProvinceCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("inspectionProvinceCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionProvinceName", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("corporationId", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("remarks", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("inspectionNote", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificateNote", keyword, "OR", StringPool.LIKE, "")
-				//+ ActionUtil.buildSQLCondition("deliverableCode", keyword, "OR", StringPool.LIKE, "")
+				// + ActionUtil.buildSQLCondition("deliverableCode", keyword, "OR",
+				// StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("module", keyword, "OR", StringPool.LIKE, "");
 		SQLQueryBuilder builder = new SQLQueryBuilder();
 		builder.selectAll().from("vr_vehicletypecertificate").where("id", id, "AND", StringPool.EQUAL)
@@ -1741,8 +1895,8 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 				.where("certificatenote", certificateNote, "AND", StringPool.EQUAL)
 				.where("deliverablecode", deliverableCode, "AND", StringPool.EQUAL)
 				.where("module", module, "AND", StringPool.EQUAL)
-				//.where("modifydate", modifyDate, "AND", StringPool.EQUAL)
-				//.where("syncdate", syncDate, "AND", StringPool.EQUAL)
+				// .where("modifydate", modifyDate, "AND", StringPool.EQUAL)
+				// .where("syncdate", syncDate, "AND", StringPool.EQUAL)
 				.where(_keywordSearchCondition, null, "AND", "", true).build();
 		JSONObject result = JSONFactoryUtil.createJSONObject();
 		long total = VRVehicleTypeCertificateLocalServiceUtil.counData(builder.getCountQuery());
@@ -1754,7 +1908,7 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 	}
 
 	@Override
-	public JSONObject updateVRVehicleTypeCertificate(VRVehicleTypeCertificate object) {
+	public JSONObject updateVRVehicleTypeCertificate(VRVehicleTypeCertificate object, ServiceContext serviceContext) {
 		// validate
 		if (object == null) {
 			return ActionUtil.createResponseContent(HttpsURLConnection.HTTP_BAD_REQUEST, StringPool.BLANK);
@@ -1765,7 +1919,9 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 
 		try {
 
-			object = VRVehicleTypeCertificateLocalServiceUtil.updateVRVehicleTypeCertificate(object);
+			Company company = CompanyLocalServiceUtil.getCompanyById(serviceContext.getCompanyId());
+
+			object = VRVehicleTypeCertificateLocalServiceUtil.updateVRVehicleTypeCertificate(object, company);
 
 			JSONObject result = ActionUtil.object2Json(object, VRProductionPlantEquipmentModelImpl.class,
 					StringPool.BLANK);
@@ -1780,4 +1936,407 @@ public class VRVehicleTypeCertificateActionImpl implements VRVehicleTypeCertific
 		}
 	}
 
+	@Override
+	public JSONObject findByDossierId_MTCore(long dossierId, long mtCore, ServiceContext serviceContext) {
+		JSONObject result = JSONFactoryUtil.createJSONObject();
+		VRVehicleTypeCertificate vrVehicleTypeCertificate = VRVehicleTypeCertificateLocalServiceUtil
+				.findByDossierId_MtCore(dossierId, mtCore);
+		try {
+			result = BusinessUtil.object2Json_originColumnName(vrVehicleTypeCertificate,
+					VRVehicleTypeCertificateModelImpl.class, StringPool.BLANK);
+		} catch (Exception e) {
+			_log.error(e);
+		}
+		return result;
+	}
+
+	@Override
+	public void indexing(VRVehicleTypeCertificate vrVehicleTypeCertificate, Company company) {
+		final String CLASS_NAME = VRES.class.getName();
+		JSONObject object = JSONFactoryUtil.createJSONObject();
+		JSONObject jVRVehicletypeCertificate = null;
+		try {
+			jVRVehicletypeCertificate = BusinessUtil.object2Json_originValue(vrVehicleTypeCertificate,
+					VRVehicleTypeCertificateModelImpl.class, StringPool.BLANK);
+		} catch (Exception e) {
+			_log.error(e);
+		}
+
+		if (jVRVehicletypeCertificate != null) {
+			object.put("vr_VehicleTypeCertificate", jVRVehicletypeCertificate);
+			Long mtCore = vrVehicleTypeCertificate.getMtCore();
+
+			if (mtCore == 1L) {
+
+				long dossierId = vrVehicleTypeCertificate.getDossierId();
+
+				VRVehicleSpecificationAction vrVehicleSpecificationAction = new VRVehicleSpecificationActionImpl();
+				List<VRVehicleSpecification> vrVehicleSpecifications = vrVehicleSpecificationAction
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrVehicleSpecifications, VRVehicleSpecificationModelImpl.class, object,
+						"vr_VehicleSpecification");
+
+				List<VRVehicleEquipment> vrVehicleEquipments = VRVehicleEquipmentLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrVehicleEquipments, VRVehicleEquipmentModelImpl.class, object,
+						"vr_VehicleEquipment");
+
+				List<VRInspectionStandard> vrInspectionStandards = VRInspectionStandardLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrInspectionStandards, VRInspectionStandardModelImpl.class, object,
+						"vr_InspectionStandard");
+
+				List<VRTechnicalSpec_LKXCG> vrTechnicalSpec_LKXCGs = VRTechnicalSpec_LKXCGLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrTechnicalSpec_LKXCGs, VRTechnicalSpec_LKXCGModelImpl.class, object,
+						"vr_Technicalspec_LKXCG");
+
+				List<VRTechnicalSpec_XCG> vrTechnicalSpec_XCGs = VRTechnicalSpec_XCGLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart1> vrTechnicalSpec_XCGPart1s = VRTechnicalSpec_XCGPart1LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart2> vrTechnicalSpec_XCGPart2s = VRTechnicalSpec_XCGPart2LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart3> vrTechnicalSpec_XCGPart3s = VRTechnicalSpec_XCGPart3LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart4> vrTechnicalSpec_XCGPart4s = VRTechnicalSpec_XCGPart4LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart5> vrTechnicalSpec_XCGPart5s = VRTechnicalSpec_XCGPart5LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart6> vrTechnicalSpec_XCGPart6s = VRTechnicalSpec_XCGPart6LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+				Map<Class<?>, Object> mapVRTechnicalSpec_XCG = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGs)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGModelImpl.class, vrTechnicalSpec_XCGs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart1s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart1ModelImpl.class,
+							vrTechnicalSpec_XCGPart1s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart2s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart2ModelImpl.class,
+							vrTechnicalSpec_XCGPart2s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart3s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart3ModelImpl.class,
+							vrTechnicalSpec_XCGPart3s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart4s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart4ModelImpl.class,
+							vrTechnicalSpec_XCGPart4s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart5s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart5ModelImpl.class,
+							vrTechnicalSpec_XCGPart5s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart6s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart6ModelImpl.class,
+							vrTechnicalSpec_XCGPart6s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapVRTechnicalSpec_XCG, object, "vr_Technicalspec_XCG");
+
+				List<VRTechnicalSpec_LKXMY> vrTechnicalSpec_LKXMYs = VRTechnicalSpec_LKXMYLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_LKXMYPart2> vrTechnicalSpec_LKXMYPart2s = VRTechnicalSpec_LKXMYPart2LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+				Map<Class<?>, Object> mapVRTechnicalSpec_LKXMY = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_LKXMYs)) {
+					mapVRTechnicalSpec_LKXMY.put(VRTechnicalSpec_LKXMYModelImpl.class, vrTechnicalSpec_LKXMYs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_LKXMYPart2s)) {
+					mapVRTechnicalSpec_LKXMY.put(VRTechnicalSpec_LKXMYPart2ModelImpl.class,
+							vrTechnicalSpec_LKXMYPart2s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapVRTechnicalSpec_LKXMY, object, "vr_Technicalspec_LKXMY");
+
+				List<VRTechnicalSpec_XMY> vrTechnicalSpec_XMYs = VRTechnicalSpec_XMYLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XMYPart2> vrTechnicalSpec_XMYPart2s = VRTechnicalSpec_XMYPart2LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XMYPart3> vrTechnicalSpec_XMYPart3s = VRTechnicalSpec_XMYPart3LocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+				Map<Class<?>, Object> mapVRTechnicalSpec_XMY = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XMYs)) {
+					mapVRTechnicalSpec_XMY.put(VRTechnicalSpec_XMYModelImpl.class, vrTechnicalSpec_XMYs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XMYPart2s)) {
+					mapVRTechnicalSpec_XMY.put(VRTechnicalSpec_XMYPart2ModelImpl.class,
+							vrTechnicalSpec_XMYPart2s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XMYPart3s)) {
+					mapVRTechnicalSpec_XMY.put(VRTechnicalSpec_XMYPart3ModelImpl.class,
+							vrTechnicalSpec_XMYPart3s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapVRTechnicalSpec_XMY, object, "vr_Technicalspec_XMY");
+
+				List<VRTechnicalSpec_XCH> vrTechnicalSpec_XCHs = VRTechnicalSpec_XCHLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrTechnicalSpec_XCHs, VRTechnicalSpec_XCHModelImpl.class, object,
+						"vr_Technicalspec_XCHBB");
+
+				List<VRTechnicalSpec_XCN> vrTechnicalSpec_XCNs = VRTechnicalSpec_XCNLocalServiceUtil
+						.findBy_DossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCNPart2> vrTechnicalSpec_XCNPart2s = VRTechnicalSpec_XCNPart2LocalServiceUtil
+						.findBy_DossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCNPart3> vrTechnicalSpec_XCNPart3s = VRTechnicalSpec_XCNPart3LocalServiceUtil
+						.findBy_DossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				Map<Class<?>, Object> mapvrTechnicalSpec_XCN = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCNs)) {
+					mapvrTechnicalSpec_XCN.put(VRTechnicalSpec_XCNModelImpl.class, vrTechnicalSpec_XCNs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCNPart2s)) {
+					mapvrTechnicalSpec_XCN.put(VRTechnicalSpec_XCNPart2ModelImpl.class,
+							vrTechnicalSpec_XCNPart2s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCNPart3s)) {
+					mapvrTechnicalSpec_XCN.put(VRTechnicalSpec_XCNPart3ModelImpl.class,
+							vrTechnicalSpec_XCNPart3s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapvrTechnicalSpec_XCN, object, "vr_Technicalspec_XCNBB");
+
+				List<VRTechnicalSpec_XDD> vrTechnicalSpec_XDDs = VRTechnicalSpec_XDDLocalServiceUtil
+						.findByDossierId(dossierId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrTechnicalSpec_XDDs, VRTechnicalSpec_XDDModelImpl.class, object,
+						"vr_Technicalspec_XDD");
+
+				JSONObject esData = JSONFactoryUtil.createJSONObject();
+				esData.put("dossierId", String.valueOf(vrVehicleTypeCertificate.getDossierId()));
+				esData.put("type_es", "vr_vehicletypecertificate");
+				esData.put(Field.MODIFIED_DATE + "_es", new Date().getTime());
+				esData.put(Field.COMPANY_ID, String.valueOf(company.getCompanyId()));
+				esData.put("id", String.valueOf(vrVehicleTypeCertificate.getId()));
+				esData.put("data", object);
+
+				// Tam thoi logic nay khi du lieu chua chinh xac
+				int deletex = 0;
+				if (dossierId > 0L) {
+					deletex = ElasticQueryWrapUtil.DELETE("dossierId",
+							String.valueOf(vrVehicleTypeCertificate.getDossierId()), company.getCompanyId(),
+							"vr_vehicletypecertificate");
+				}
+				if (deletex == 0) {
+					ElasticQueryWrapUtil.POST(esData.toJSONString(), CLASS_NAME, company.getCompanyId());
+				}
+				_log.info("---> DocumentId - DossierId: " + vrVehicleTypeCertificate.getDossierId());
+			} else if (mtCore == 0L) {
+				long vehicleCertificateId = vrVehicleTypeCertificate.getPrimaryKey();
+
+				try {
+					List<VRVehicleSpecification> vrVehicleSpecifications = VRVehicleSpecificationLocalServiceUtil
+							.findByVehicleCertificateId(vehicleCertificateId);
+					object = BusinessUtil.array2JSON(vrVehicleSpecifications, VRVehicleSpecificationModelImpl.class,
+							object, "vr_VehicleSpecification");
+				} catch (Exception e) {
+					_log.error(e);
+				}
+
+				List<VRVehicleEquipment> vrVehicleEquipments = VRVehicleEquipmentLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrVehicleEquipments, VRVehicleEquipmentModelImpl.class, object,
+						"vr_VehicleEquipment");
+
+				List<VRInspectionStandard> vrInspectionStandards = VRInspectionStandardLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrInspectionStandards, VRInspectionStandardModelImpl.class, object,
+						"vr_InspectionStandard");
+
+				List<VRTechnicalSpec_LKXCG> vrTechnicalSpec_LKXCGs = VRTechnicalSpec_LKXCGLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrTechnicalSpec_LKXCGs, VRTechnicalSpec_LKXCGModelImpl.class, object,
+						"vr_Technicalspec_LKXCG");
+
+				List<VRTechnicalSpec_XCG> vrTechnicalSpec_XCGs = VRTechnicalSpec_XCGLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart1> vrTechnicalSpec_XCGPart1s = VRTechnicalSpec_XCGPart1LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart2> vrTechnicalSpec_XCGPart2s = VRTechnicalSpec_XCGPart2LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart3> vrTechnicalSpec_XCGPart3s = VRTechnicalSpec_XCGPart3LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart4> vrTechnicalSpec_XCGPart4s = VRTechnicalSpec_XCGPart4LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart5> vrTechnicalSpec_XCGPart5s = VRTechnicalSpec_XCGPart5LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCGPart6> vrTechnicalSpec_XCGPart6s = VRTechnicalSpec_XCGPart6LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+				Map<Class<?>, Object> mapVRTechnicalSpec_XCG = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGs)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGModelImpl.class, vrTechnicalSpec_XCGs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart1s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart1ModelImpl.class,
+							vrTechnicalSpec_XCGPart1s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart2s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart2ModelImpl.class,
+							vrTechnicalSpec_XCGPart2s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart3s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart3ModelImpl.class,
+							vrTechnicalSpec_XCGPart3s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart4s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart4ModelImpl.class,
+							vrTechnicalSpec_XCGPart4s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart5s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart5ModelImpl.class,
+							vrTechnicalSpec_XCGPart5s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCGPart6s)) {
+					mapVRTechnicalSpec_XCG.put(VRTechnicalSpec_XCGPart6ModelImpl.class,
+							vrTechnicalSpec_XCGPart6s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapVRTechnicalSpec_XCG, object, "vr_Technicalspec_XCG");
+
+				List<VRTechnicalSpec_LKXMY> vrTechnicalSpec_LKXMYs = VRTechnicalSpec_LKXMYLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_LKXMYPart2> vrTechnicalSpec_LKXMYPart2s = VRTechnicalSpec_LKXMYPart2LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+				Map<Class<?>, Object> mapVRTechnicalSpec_LKXMY = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_LKXMYs)) {
+					mapVRTechnicalSpec_LKXMY.put(VRTechnicalSpec_LKXMYModelImpl.class, vrTechnicalSpec_LKXMYs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_LKXMYPart2s)) {
+					mapVRTechnicalSpec_LKXMY.put(VRTechnicalSpec_LKXMYPart2ModelImpl.class,
+							vrTechnicalSpec_LKXMYPart2s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapVRTechnicalSpec_LKXMY, object, "vr_Technicalspec_LKXMY");
+
+				List<VRTechnicalSpec_XMY> vrTechnicalSpec_XMYs = VRTechnicalSpec_XMYLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XMYPart2> vrTechnicalSpec_XMYPart2s = VRTechnicalSpec_XMYPart2LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XMYPart3> vrTechnicalSpec_XMYPart3s = VRTechnicalSpec_XMYPart3LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+				Map<Class<?>, Object> mapVRTechnicalSpec_XMY = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XMYs)) {
+					mapVRTechnicalSpec_XMY.put(VRTechnicalSpec_XMYModelImpl.class, vrTechnicalSpec_XMYs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XMYPart2s)) {
+					mapVRTechnicalSpec_XMY.put(VRTechnicalSpec_XMYPart2ModelImpl.class,
+							vrTechnicalSpec_XMYPart2s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XMYPart3s)) {
+					mapVRTechnicalSpec_XMY.put(VRTechnicalSpec_XMYPart3ModelImpl.class,
+							vrTechnicalSpec_XMYPart3s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapVRTechnicalSpec_XMY, object, "vr_Technicalspec_XMY");
+
+				List<VRTechnicalSpec_XCH> vrTechnicalSpec_XCHs = VRTechnicalSpec_XCHLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrTechnicalSpec_XCHs, VRTechnicalSpec_XCHModelImpl.class, object,
+						"vr_Technicalspec_XCHBB");
+
+				List<VRTechnicalSpec_XCN> vrTechnicalSpec_XCNs = VRTechnicalSpec_XCNLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCNPart2> vrTechnicalSpec_XCNPart2s = VRTechnicalSpec_XCNPart2LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				List<VRTechnicalSpec_XCNPart3> vrTechnicalSpec_XCNPart3s = VRTechnicalSpec_XCNPart3LocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				Map<Class<?>, Object> mapvrTechnicalSpec_XCN = new HashMap<Class<?>, Object>();
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCNs)) {
+					mapvrTechnicalSpec_XCN.put(VRTechnicalSpec_XCNModelImpl.class, vrTechnicalSpec_XCNs.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCNPart2s)) {
+					mapvrTechnicalSpec_XCN.put(VRTechnicalSpec_XCNPart2ModelImpl.class,
+							vrTechnicalSpec_XCNPart2s.get(0));
+				}
+				if (!BusinessUtil.isNullOrIsEmpty(vrTechnicalSpec_XCNPart3s)) {
+					mapvrTechnicalSpec_XCN.put(VRTechnicalSpec_XCNPart3ModelImpl.class,
+							vrTechnicalSpec_XCNPart3s.get(0));
+				}
+				object = BusinessUtil.mergeJSON(mapvrTechnicalSpec_XCN, object, "vr_Technicalspec_XCNBB");
+
+				List<VRTechnicalSpec_XDD> vrTechnicalSpec_XDDs = VRTechnicalSpec_XDDLocalServiceUtil
+						.findByVehicleCertificateId(vehicleCertificateId, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+				object = BusinessUtil.array2JSON(vrTechnicalSpec_XDDs, VRTechnicalSpec_XDDModelImpl.class, object,
+						"vr_Technicalspec_XDD");
+
+				JSONObject esData = JSONFactoryUtil.createJSONObject();
+				esData.put("dossierId", String.valueOf(vrVehicleTypeCertificate.getDossierId()));
+				esData.put("type_es", "vr_vehicletypecertificate");
+				esData.put(Field.MODIFIED_DATE + "_es", new Date().getTime());
+				esData.put(Field.COMPANY_ID, String.valueOf(company.getCompanyId()));
+				esData.put("id", String.valueOf(vrVehicleTypeCertificate.getId()));
+				esData.put("data", object);
+
+				int deletex = ElasticQueryWrapUtil.DELETE("id",
+						String.valueOf(vrVehicleTypeCertificate.getPrimaryKey()), company.getCompanyId(),
+						"vr_vehicletypecertificate");
+				if (deletex == 0) {
+					ElasticQueryWrapUtil.POST(esData.toJSONString(), CLASS_NAME, company.getCompanyId());
+				}
+				_log.info("---> DocumentId - VRVehicleTypeCertificateId: " + vrVehicleTypeCertificate.getPrimaryKey());
+			}
+		}
+	}
+
+	@Override
+	public JSONObject findSpecificationByCertificateRecordNo(User user, ServiceContext serviceContext,
+			LinkedHashMap<String, Object> params) {
+		JSONObject result = JSONFactoryUtil.createJSONObject();
+		int start = ActionUtil.getStart(params);
+		int end = ActionUtil.getEnd(params);
+		String certificateRecordNo = null;
+		String certificateRecordDate = null;
+		String module = null;
+		if (params != null) {
+			if (params.containsKey("certificaterecordno")) {
+				certificateRecordNo = GetterUtil.getString(params.get("certificaterecordno"));
+			}
+			if (params.containsKey("certificaterecorddate")) {
+				certificateRecordDate = GetterUtil.getString(params.get("certificaterecorddate"));
+			}
+			if (params.containsKey("module")) {
+				module = GetterUtil.getString(params.get("module"));
+			}
+			SQLQueryBuilder builder = new SQLQueryBuilder();
+			builder.selectAll().from("vr_vehicletypecertificate")
+					.where("certificateRecordNo", certificateRecordNo, "AND", StringPool.EQUAL)
+					.where("certificateRecordDate",
+							certificateRecordDate != null
+									? certificateRecordDate.substring(0, 9) + " 00:00:00 AND "
+											+ certificateRecordDate.substring(0, 9) + " 23:59:59"
+									: null,
+							"AND", "BETWEEN")
+					.where("module", module, "AND", StringPool.EQUAL).build();
+
+			long total = VRVehicleTypeCertificateLocalServiceUtil.counData(builder.getCountQuery());
+			JSONArray data = VRVehicleTypeCertificateLocalServiceUtil.findData(builder.getSelectQuery(), null, null,
+					VRVehicleTypeCertificateImpl.class, "VRVehicleTypeCertificate", start, end);
+			if (data.length() > 0) {
+				JSONArray arr = JSONFactoryUtil.createJSONArray();
+				for (int i = 0; i < data.length(); i++) {
+					JSONObject obj1 = data.getJSONObject(i);
+					if (obj1.has("id")) {
+						long vehicleTypeCertificateId = obj1.getLong("id");
+						try {
+							List<VRVehicleSpecification> vrVehicleSpecifications = VRVehicleSpecificationLocalServiceUtil
+									.findByVehicleCertificateId(vehicleTypeCertificateId);
+							JSONObject obj2 = JSONFactoryUtil.createJSONObject();
+							if (vrVehicleSpecifications != null && !vrVehicleSpecifications.isEmpty()) {
+								vrVehicleSpecifications.parallelStream().forEach(vrVehicleSpecification -> {
+									String specificationCode = vrVehicleSpecification.getSpecificationCode();
+									String specificationValue = vrVehicleSpecification.getSpecificationValue();
+									obj2.put(specificationCode, specificationValue);
+								});
+								arr.put(obj2);
+							}
+						} catch (Exception e) {
+						}
+					}
+				}
+				result.put("data", arr);
+				result.put("total", total);
+			}
+		}
+		return result;
+	}
 }

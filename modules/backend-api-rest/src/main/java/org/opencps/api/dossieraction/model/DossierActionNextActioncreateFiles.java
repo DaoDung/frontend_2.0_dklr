@@ -5,18 +5,19 @@
 // Generated on: 2017.12.16 at 03:30:29 PM ICT 
 //
 
-
 package org.opencps.api.dossieraction.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for DossierActionNextActioncreateFiles complex type.
+ * <p>
+ * Java class for DossierActionNextActioncreateFiles complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="DossierActionNextActioncreateFiles">
@@ -41,38 +42,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DossierActionNextActioncreateFiles", propOrder = {
-    "dossierPartId",
-    "referenceUid",
-    "partNo",
-    "partTip",
-    "partName",
-    "templateFileNo",
-    "eform",
-    "multiple",
-    "formScript",
-    "formData",
-    "counter",
-    "returned",
-    "dossierFileId",
-    "required"
-})
+@XmlType(name = "DossierActionNextActioncreateFiles", propOrder = { "dossierPartId", "referenceUid", "partNo",
+		"partTip", "partName", "templateFileNo", "eform", "multiple", "formScript", "formData", "counter", "returned",
+		"dossierFileId", "required", "dossierTemplateNo" })
 public class DossierActionNextActioncreateFiles {
 
-    protected Long dossierPartId;
-    protected String partNo;
-    protected String partTip;
-    protected String partName;
-    protected String templateFileNo;
-    protected Boolean eform;
-    protected Boolean multiple;
-    protected String formScript;
-    protected String formData;
-    protected String referenceUid;
-    protected Integer counter;
-    protected Boolean returned;
-    protected Long dossierFileId;
-    public Boolean getRequired() {
+	protected Long dossierPartId;
+	protected String partNo;
+	protected String partTip;
+	protected String partName;
+	protected String templateFileNo;
+	protected Boolean eform;
+	protected Boolean multiple;
+	protected String formScript;
+	protected String formData;
+	protected String referenceUid;
+	protected Integer counter;
+	protected Boolean returned;
+	protected Long dossierFileId;
+	protected String dossierTemplateNo;
+
+	public String getDossierTemplateNo() {
+		return dossierTemplateNo;
+	}
+
+	public void setDossierTemplateNo(String dossierTemplateNo) {
+		this.dossierTemplateNo = dossierTemplateNo;
+	}
+
+	public Boolean getRequired() {
 		return required;
 	}
 
@@ -81,318 +79,265 @@ public class DossierActionNextActioncreateFiles {
 	}
 
 	protected Boolean required;
-    
-    /**
-     * Gets the value of the dossierFileId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getDossierFileId() {
-        return dossierFileId;
-    }
 
-    /**
-     * Sets the value of the dossierFileId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setDossierFileId(Long value) {
-        this.dossierFileId = value;
-    }
+	/**
+	 * Gets the value of the dossierFileId property.
+	 * 
+	 * @return possible object is {@link Long }
+	 * 
+	 */
+	public Long getDossierFileId() {
+		return dossierFileId;
+	}
 
-    /**
-     * Gets the value of the returned property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isReturned() {
-        return returned;
-    }
+	/**
+	 * Sets the value of the dossierFileId property.
+	 * 
+	 * @param value allowed object is {@link Long }
+	 * 
+	 */
+	public void setDossierFileId(Long value) {
+		this.dossierFileId = value;
+	}
 
-    /**
-     * Sets the value of the returned property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setReturned(Boolean value) {
-        this.returned = value;
-    }
-    
-    
-    /**
-     * Sets the value of the counter property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setCounter(Integer value) {
-        this.counter = value;
-    }
+	/**
+	 * Gets the value of the returned property.
+	 * 
+	 * @return possible object is {@link Boolean }
+	 * 
+	 */
+	public Boolean isReturned() {
+		return returned;
+	}
 
-    /**
-     * Gets the value of the counter property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getCounter() {
-        return counter;
-    }
-    
-    /**
-     * Sets the value of the referenceUid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setReferenceUid(String value) {
-        this.referenceUid = value;
-    }
+	/**
+	 * Sets the value of the returned property.
+	 * 
+	 * @param value allowed object is {@link Boolean }
+	 * 
+	 */
+	public void setReturned(Boolean value) {
+		this.returned = value;
+	}
 
-    /**
-     * Gets the value of the referenceUid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getReferenceUid() {
-        return referenceUid;
-    }
+	/**
+	 * Sets the value of the counter property.
+	 * 
+	 * @param value allowed object is {@link Integer }
+	 * 
+	 */
+	public void setCounter(Integer value) {
+		this.counter = value;
+	}
 
-    /**
-     * Gets the value of the dossierPartId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getDossierPartId() {
-        return dossierPartId;
-    }
+	/**
+	 * Gets the value of the counter property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getCounter() {
+		return counter;
+	}
 
-    /**
-     * Sets the value of the dossierPartId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setDossierPartId(Long value) {
-        this.dossierPartId = value;
-    }
+	/**
+	 * Sets the value of the referenceUid property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setReferenceUid(String value) {
+		this.referenceUid = value;
+	}
 
-    /**
-     * Gets the value of the partNo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPartNo() {
-        return partNo;
-    }
+	/**
+	 * Gets the value of the referenceUid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getReferenceUid() {
+		return referenceUid;
+	}
 
-    /**
-     * Sets the value of the partNo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPartNo(String value) {
-        this.partNo = value;
-    }
+	/**
+	 * Gets the value of the dossierPartId property.
+	 * 
+	 * @return possible object is {@link Long }
+	 * 
+	 */
+	public Long getDossierPartId() {
+		return dossierPartId;
+	}
 
-    /**
-     * Gets the value of the partTip property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPartTip() {
-        return partTip;
-    }
+	/**
+	 * Sets the value of the dossierPartId property.
+	 * 
+	 * @param value allowed object is {@link Long }
+	 * 
+	 */
+	public void setDossierPartId(Long value) {
+		this.dossierPartId = value;
+	}
 
-    /**
-     * Sets the value of the partTip property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPartTip(String value) {
-        this.partTip = value;
-    }
+	/**
+	 * Gets the value of the partNo property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPartNo() {
+		return partNo;
+	}
 
-    /**
-     * Gets the value of the partName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPartName() {
-        return partName;
-    }
+	/**
+	 * Sets the value of the partNo property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setPartNo(String value) {
+		this.partNo = value;
+	}
 
-    /**
-     * Sets the value of the partName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPartName(String value) {
-        this.partName = value;
-    }
+	/**
+	 * Gets the value of the partTip property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPartTip() {
+		return partTip;
+	}
 
-    /**
-     * Gets the value of the templateFileNo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTemplateFileNo() {
-        return templateFileNo;
-    }
+	/**
+	 * Sets the value of the partTip property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setPartTip(String value) {
+		this.partTip = value;
+	}
 
-    /**
-     * Sets the value of the templateFileNo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTemplateFileNo(String value) {
-        this.templateFileNo = value;
-    }
+	/**
+	 * Gets the value of the partName property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPartName() {
+		return partName;
+	}
 
-    /**
-     * Gets the value of the eform property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isEform() {
-        return eform;
-    }
+	/**
+	 * Sets the value of the partName property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setPartName(String value) {
+		this.partName = value;
+	}
 
-    /**
-     * Sets the value of the eform property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setEform(Boolean value) {
-        this.eform = value;
-    }
+	/**
+	 * Gets the value of the templateFileNo property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTemplateFileNo() {
+		return templateFileNo;
+	}
 
-    /**
-     * Gets the value of the multiple property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isMultiple() {
-        return multiple;
-    }
+	/**
+	 * Sets the value of the templateFileNo property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setTemplateFileNo(String value) {
+		this.templateFileNo = value;
+	}
 
-    /**
-     * Sets the value of the multiple property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setMultiple(Boolean value) {
-        this.multiple = value;
-    }
+	/**
+	 * Gets the value of the eform property.
+	 * 
+	 * @return possible object is {@link Boolean }
+	 * 
+	 */
+	public Boolean isEform() {
+		return eform;
+	}
 
-    /**
-     * Gets the value of the formScript property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFormScript() {
-        return formScript;
-    }
+	/**
+	 * Sets the value of the eform property.
+	 * 
+	 * @param value allowed object is {@link Boolean }
+	 * 
+	 */
+	public void setEform(Boolean value) {
+		this.eform = value;
+	}
 
-    /**
-     * Sets the value of the formScript property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFormScript(String value) {
-        this.formScript = value;
-    }
+	/**
+	 * Gets the value of the multiple property.
+	 * 
+	 * @return possible object is {@link Boolean }
+	 * 
+	 */
+	public Boolean isMultiple() {
+		return multiple;
+	}
 
-    /**
-     * Gets the value of the formData property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFormData() {
-        return formData;
-    }
+	/**
+	 * Sets the value of the multiple property.
+	 * 
+	 * @param value allowed object is {@link Boolean }
+	 * 
+	 */
+	public void setMultiple(Boolean value) {
+		this.multiple = value;
+	}
 
-    /**
-     * Sets the value of the formData property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFormData(String value) {
-        this.formData = value;
-    }
+	/**
+	 * Gets the value of the formScript property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getFormScript() {
+		return formScript;
+	}
+
+	/**
+	 * Sets the value of the formScript property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setFormScript(String value) {
+		this.formScript = value;
+	}
+
+	/**
+	 * Gets the value of the formData property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getFormData() {
+		return formData;
+	}
+
+	/**
+	 * Sets the value of the formData property.
+	 * 
+	 * @param value allowed object is {@link String }
+	 * 
+	 */
+	public void setFormData(String value) {
+		this.formData = value;
+	}
 
 }

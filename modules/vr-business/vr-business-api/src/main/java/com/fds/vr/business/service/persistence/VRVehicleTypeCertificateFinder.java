@@ -29,6 +29,9 @@ public interface VRVehicleTypeCertificateFinder {
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
+	public java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findExpiredVRVehicleTypeCertificates(
+		int day, java.lang.String expiredStatus);
+
 	public long countData(java.lang.String sql)
 		throws com.liferay.portal.kernel.exception.SystemException;
 }

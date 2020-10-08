@@ -14,18 +14,29 @@
 
 package com.fds.vr.business.service.impl;
 
+import com.fds.vr.business.action.VRIssueAction;
+import com.fds.vr.business.action.impl.VRIssueActionImpl;
 import com.fds.vr.business.action.util.ConvertFormatDate;
 import com.fds.vr.business.exception.NoSuchVRIssueException;
 import com.fds.vr.business.model.VRIssue;
+import com.fds.vr.business.model.impl.VRIssueModelImpl;
 import com.fds.vr.business.service.base.VRIssueLocalServiceBaseImpl;
+import com.fds.vr.service.util.BusinessUtil;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -137,7 +148,7 @@ public class VRIssueLocalServiceImpl extends VRIssueLocalServiceBaseImpl {
 	
 	public List<VRIssue> findBycopreportno(long mtCore, String copreportno) throws PortalException, SystemException {
 		try {
-			return vrIssuePersistence.findBycopreportno(mtCore, copreportno);
+			return vrIssuePersistence.findBycopReportNo(mtCore, copreportno);
 		} catch (Exception e) {
 			_log.error(e);
 		}
@@ -183,8 +194,8 @@ public class VRIssueLocalServiceImpl extends VRIssueLocalServiceBaseImpl {
 		object.setApplicantFax(mapValue.get("applicantFax"));
 		object.setApplicantRepresentative(mapValue.get("applicantRepresentative"));
 		object.setApplicantRepresentativeTitle(mapValue.get("applicantRepresentativeTitle"));
-		object.setApplicantmaker(mapValue.get("applicantmaker"));
-		object.setApplicantchecker(mapValue.get("applicantchecker"));
+		object.setApplicantMaker(mapValue.get("applicantmaker"));
+		object.setApplicantChecker(mapValue.get("applicantchecker"));
 		object.setApplicantContactName(mapValue.get("applicantContactName"));
 		object.setApplicantContactPhone(mapValue.get("applicantContactPhone"));
 		object.setApplicantContactEmail(mapValue.get("applicantContactEmail"));
@@ -211,33 +222,38 @@ public class VRIssueLocalServiceImpl extends VRIssueLocalServiceBaseImpl {
 		object.setExaminationRequired(mapValue.get("examinationRequired"));
 		object.setExaminationPeriod(mapValue.get("examinationPeriod"));
 		object.setExaminationLastTime(ConvertFormatDate.parseStringToDate(mapValue.get("examinationLastTime")));
-		object.setCopresult(mapValue.get("copresult"));
-		object.setCopreportno(mapValue.get("copreportno"));
-		object.setCopreportdate(ConvertFormatDate.parseStringToDate(mapValue.get("copreportdate")));
-		object.setPostreview(mapValue.get("postreview"));
-		object.setPostreviewrecordno(mapValue.get("postreviewrecordno"));
-		object.setPostreviewrecorddate(ConvertFormatDate.parseStringToDate(mapValue.get("postreviewrecorddate")));
+		object.setCopResult(mapValue.get("copresult"));
+		object.setCopReportNo(mapValue.get("copreportno"));
+		object.setCopReportDate(ConvertFormatDate.parseStringToDate(mapValue.get("copreportdate")));
+		object.setPostReview(mapValue.get("postreview"));
+		object.setPostReviewRecordNo(mapValue.get("postreviewrecordno"));
+		object.setPostReviewRecordDate(ConvertFormatDate.parseStringToDate(mapValue.get("postreviewrecorddate")));
 		object.setCorporationId(mapValue.get("corporationId"));
 		//object.setInspectorId(inspectorId"));
-		object.setInspectorcode(mapValue.get("inspectorcode"));
-		object.setInspectorname(mapValue.get("inspectorname"));
-		object.setLeadername(mapValue.get("leadername"));
+		object.setInspectorCode(mapValue.get("inspectorcode"));
+		object.setInspectorName(mapValue.get("inspectorname"));
+		object.setLeaderName(mapValue.get("leadername"));
 		object.setIssueCorporationId(GetterUtil.getInteger(mapValue.get("issueCorporationId"))); // Don vi cap phat
 		//object.setIssueInspectorId(issueInspectorId"));
 		object.setVerifyCorporationId(mapValue.get("verifyCorporationId"));
 		//object.setVerifyInspectorId(verifyInspectorId"));
-		object.setDigitalissuestatus(GetterUtil.getInteger(mapValue.get("digitalissuestatus")));
+		object.setDigitalIssueStatus(GetterUtil.getInteger(mapValue.get("digitalissuestatus")));
 
 		return vrIssuePersistence.update(object);
 	}
 
-	public VRIssue updateDigitalIssueStatus(long id, int digitalIssueStatus) throws PortalException {
+	public VRIssue updateDigitalIssueStatus(long id, int digitalIssueStatus, Company company) throws PortalException {
 		VRIssue vrIssue = vrIssuePersistence.findByPrimaryKey(id);
 		
-		vrIssue.setDigitalissuestatus(digitalIssueStatus);
+		vrIssue.setDigitalIssueStatus(digitalIssueStatus);
 		vrIssue.setModifyDate(new Date());
 		
-		return vrIssuePersistence.update(vrIssue);
+		vrIssue = vrIssuePersistence.update(vrIssue);
+		if (vrIssue != null) {
+			VRIssueAction action = new VRIssueActionImpl();
+			action.indexing(vrIssue, company);
+		}
+		return vrIssue;
 	}
 	
 	public JSONArray findData(String sql, List<String> columnNames, List<String> dataTypes, Class<?> modelClazz,
@@ -261,6 +277,129 @@ public class VRIssueLocalServiceImpl extends VRIssueLocalServiceBaseImpl {
 	public VRIssue updateVRIssue(VRIssue vrIssue) {
 		vrIssue.setModifyDate(new Date());
 		return vrIssuePersistence.update(vrIssue);
+	}
+	
+	private final String PATTERN_DATE = "dd-MM-yyyy HH:mm:ss";
+	private final String PATTERN_DATE_2 = "dd/MM/yyyy HH:mm:ss";
+	private final String PATTERN_DATE_3 = "dd/MM/yyyy";
+	
+	private Date parseStringToDate(String strDate) {
+
+		try {
+			SimpleDateFormat df = new SimpleDateFormat(PATTERN_DATE);
+			return df.parse(strDate);
+		} catch (ParseException e) {
+
+			try {
+				SimpleDateFormat df = new SimpleDateFormat(PATTERN_DATE_2);
+				return df.parse(strDate);
+			} catch (Exception e2) {
+				try {
+					SimpleDateFormat df = new SimpleDateFormat(PATTERN_DATE_3);
+					return df.parse(strDate);
+				} catch (Exception e3) {
+
+				}
+			}
+
+			// _log.error(e);
+			return null;
+		}
+	}
+	
+	public VRIssue updateVRIssue(VRIssue object, Company company) throws SystemException, PortalException {
+		Date now = new Date();
+
+		object.setModifyDate(now);
+		object = vrIssuePersistence.update(object);
+		if (object != null) {
+			VRIssueAction action = new VRIssueActionImpl();
+			action.indexing(object, company);
+		}
+		return object;
+	}
+	
+	public JSONObject adminProcess(JSONObject objectData, long dossierId, long mtCore) throws JSONException {
+		
+		JSONObject result = JSONFactoryUtil.createJSONObject();
+		
+		VRIssue object = null;
+		
+		object = vrIssuePersistence.fetchByF_MT_DID(mtCore, dossierId);
+		
+		if(object == null) {
+			long issueId = counterLocalService.increment(VRIssue.class.getName());
+			object = vrIssuePersistence.create(issueId);
+		}
+		
+		object.setMtCore(mtCore);
+		object.setDossierId(dossierId);
+		object.setStampIssueNo(objectData.getString("stampIssueNo"));
+		object.setAppliedDate(parseStringToDate(objectData.getString("appliedDate")));
+		object.setApprovedDate(parseStringToDate(objectData.getString("approvedDate")));
+		object.setVehicleClass(objectData.getString("vehicleClass"));
+		object.setApplicantProfileId(objectData.getLong("applicantProfileId"));
+		object.setApplicantName(objectData.getString("applicantName"));
+		object.setApplicantAddress(objectData.getString("applicantAddress"));
+		object.setApplicantRepresentative(objectData.getString("applicantRepresentative"));
+		object.setApplicantRepresentativeTitle(objectData.getString("applicantRepresentativeTitle"));
+		object.setApplicantEmail(objectData.getString("applicantEmail"));
+		object.setApplicantPhone(objectData.getString("applicantPhone"));
+		object.setApplicantFax(objectData.getString("applicantFax"));
+		object.setApplicantContactName(objectData.getString("applicantContactName"));
+		object.setApplicantContactEmail(objectData.getString("applicantContactEmail"));
+		object.setApplicantContactPhone(objectData.getString("applicantContactPhone"));
+		object.setProductionPlantId(objectData.getLong("productionPlantId"));
+		object.setProductionPlantCode(objectData.getString("productionPlantCode"));
+		object.setProductionPlantName(objectData.getString("productionPlantName"));
+		object.setProductionPlantAddress(objectData.getString("productionPlantAddress"));
+		object.setRemarks(objectData.getString("remarks"));
+		object.setMethodOfIssue(objectData.getString("methodOfIssue"));
+		object.setTotalInDocument(objectData.getInt("totalInDocument"));
+		object.setIssueCorporationId(objectData.getLong("issueCorporationId"));
+		object.setVerifyCorporationId(objectData.getString("verifyCorporationId"));
+		object.setDigitalIssueStatus(objectData.getInt("digitalIssueStatus"));
+		object.setIssueType(objectData.getString("issueType"));
+		object.setAverageSTBQuantity(objectData.getInt("averageSTBQuantity"));
+		object.setMaxMonthQuantity(objectData.getInt("maxMonthQuantity"));
+		object.setAverageSTMQuantity(objectData.getInt("averageSTMQuantity"));
+		object.setAccumulatedMonthQuantity(objectData.getInt("accumulatedMonthQuantity"));
+		object.setTotalInUse(objectData.getInt("totalInUse"));
+		object.setTotalCancelled(objectData.getInt("totalCancelled"));
+		object.setTotalLost(objectData.getInt("totalLost"));
+		object.setTotalNotUsed(objectData.getInt("totalNotUsed"));
+		object.setTotalReturned(objectData.getInt("totalReturned"));
+		object.setFlow(objectData.getString("flow"));
+		object.setExaminationRequired(objectData.getString("examinationRequired"));
+		object.setExaminationPeriod(objectData.getString("examinationPeriod"));
+		object.setExaminationLastTime(parseStringToDate(objectData.getString("examinationLastTime")));
+		object.setCopResult(objectData.getString("copResult"));
+		object.setCopReportNo(objectData.getString("copReportNo"));
+		object.setCopReportDate(parseStringToDate(objectData.getString("copReportDate")));
+		object.setPostReview(objectData.getString("postReview"));
+		object.setPostReviewRecordNo(objectData.getString("postReviewRecordNo"));
+		object.setPostReviewRecordDate(parseStringToDate(objectData.getString("postReviewRecordDate")));
+		object.setCorporationId(objectData.getString("corporationId"));
+		object.setInspectorCode(objectData.getString("inspectorCode"));
+		object.setInspectorName(objectData.getString("inspectorName"));
+		object.setLeaderName(objectData.getString("leaderName"));
+		object.setApplicantMaker(objectData.getString("applicantMaker"));
+		object.setApplicantChecker(objectData.getString("applicantChecker"));
+		object.setInspectorId(objectData.getLong("inspectorId"));
+		object.setIssueInspectorId(objectData.getLong("issueInspectorId"));
+		object.setVerifyInspectorId(objectData.getLong("verifyInspectorId"));
+		object.setModifyDate(new Date());
+		object.setSyncDate(parseStringToDate(objectData.getString("syncDate")));
+
+		object = vrIssuePersistence.update(object);
+		JSONArray issueVehiclecertificates = JSONFactoryUtil.createJSONArray(objectData.getString("vr_Issue_VehicleCertificate"));
+		JSONObject jVRIssueVehiclecertificate = vrIssueVehiclecertificateLocalService.adminProcess(issueVehiclecertificates, object.getPrimaryKey(), dossierId, mtCore);
+		
+		JSONObject jVRIssue = BusinessUtil.object2Json_originColumnName(object, VRIssueModelImpl.class, StringPool.BLANK);
+		jVRIssue.put("vr_Issue_VehicleCertificate", jVRIssueVehiclecertificate);
+		result.put("vr_Issue", jVRIssue);
+		
+		return result;
 	}
 
 	private Log _log = LogFactoryUtil.getLog(VRIssueLocalServiceImpl.class);

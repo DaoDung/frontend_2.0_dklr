@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 		"productionplantid", "productionplantcode", "productionplantname", "productionplantaddress", "copreportno",
 		"copreportstatus", "copreporttype", "copreportmetadata", "copreportsignname", "copreportsigntitle",
 		"copreportsignplace", "copreportdate", "copreportapproveddate", "copreportexpireddate", "copfileentryid",
-		"modifydate", "syncdate", "keyword", "start", "end", "order_asc", "order_desc", "advance_search", "module" })
+		"modifydate", "syncdate", "keyword", "start", "end", "order_asc", "order_desc", "advance_search", "module", "copclassification" })
 @XmlRootElement(name = "VRCOPReportRepositoryBeanParam")
 public class VRCOPReportRepositoryBeanParam {
 	@QueryParam(value = "keyword")
@@ -84,6 +84,16 @@ public class VRCOPReportRepositoryBeanParam {
 	protected String advance_search;
 	@QueryParam(value = "module")
 	protected String module;
+	@QueryParam(value = "copclassification")
+	protected String copclassification;
+
+	public String getCopclassification() {
+		return copclassification;
+	}
+
+	public void setCopclassification(String copclassification) {
+		this.copclassification = copclassification;
+	}
 
 	public String getKeyword() {
 		return keyword;

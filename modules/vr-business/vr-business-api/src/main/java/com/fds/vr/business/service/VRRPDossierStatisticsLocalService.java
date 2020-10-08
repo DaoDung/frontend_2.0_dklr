@@ -37,6 +37,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -167,6 +168,9 @@ public interface VRRPDossierStatisticsLocalService extends BaseLocalService,
 	* @return the OSGi service identifier
 	*/
 	public java.lang.String getOSGiServiceIdentifier();
+
+	public Iterator<java.lang.Object[]> findDataReport(
+		java.lang.String sqlQuery) throws SystemException;
 
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.

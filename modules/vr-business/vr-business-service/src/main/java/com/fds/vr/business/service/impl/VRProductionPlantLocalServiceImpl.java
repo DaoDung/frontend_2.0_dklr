@@ -57,6 +57,10 @@ public class VRProductionPlantLocalServiceImpl extends VRProductionPlantLocalSer
 	 * com.fds.vr.business.service.VRProductionPlantLocalServiceUtil} to access the
 	 * vr production plant local service.
 	 */
+	
+	public List<VRProductionPlant> findByApplicantId(long applicantProfileId, int start, int end) {
+		return vrProductionPlantPersistence.findByapplicantProfileId(applicantProfileId, start, end);
+	}
 
 	public VRProductionPlant updateProductionPlant(LinkedHashMap<String, String> mapValues) {
 

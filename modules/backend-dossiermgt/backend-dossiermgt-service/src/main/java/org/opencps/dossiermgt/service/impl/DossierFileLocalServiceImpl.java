@@ -472,7 +472,8 @@ public class DossierFileLocalServiceImpl extends DossierFileLocalServiceBaseImpl
 				userAction = userLocalService.getUser(userActionId);
 			}
 	
-			DossierFile dossierFileAction = dossierFilePersistence.fetchByF_DID_REF_DAID(dossierId, referenceUid, dossierActionId);
+			//DossierFile dossierFileAction = dossierFilePersistence.fetchByF_DID_REF_DAID(dossierId, referenceUid, dossierActionId);
+			DossierFile dossierFileAction = dossierFilePersistence.fetchByDID_REF(dossierId, referenceUid);
 			if (dossierFileAction == null) {
 				long dossierFileId = counterLocalService.increment(DossierFile.class.getName());
 				dossierFileAction = dossierFilePersistence.create(dossierFileId);

@@ -57,6 +57,14 @@ public class VRTechnicalSpec_LKXMYLocalServiceImpl extends VRTechnicalSpec_LKXMY
 	 * com.fds.vr.business.service.VRTechnicalSpec_LKXMYLocalServiceUtil} to access
 	 * the vr technical spec_lkxmy local service.
 	 */
+	
+	public List<VRTechnicalSpec_LKXMY> findByVehicleCertificateId(long vehicleCertificateId, int start, int end) {
+		return vrTechnicalSpec_LKXMYPersistence.findByvehicleTypeCertificateId(vehicleCertificateId, start, end);
+	}
+	
+	public List<VRTechnicalSpec_LKXMY> findByDossierId(long dossierId, int start, int end) {
+		return vrTechnicalSpec_LKXMYPersistence.findBy_DossierId(dossierId, start, end);
+	}
 
 	public List<VRTechnicalSpec_LKXMY> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {

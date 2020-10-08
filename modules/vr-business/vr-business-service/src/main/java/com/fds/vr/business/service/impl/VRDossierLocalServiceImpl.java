@@ -14,9 +14,10 @@
 
 package com.fds.vr.business.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-
+import com.fds.vr.business.model.VRDossier;
 import com.fds.vr.business.service.base.VRDossierLocalServiceBaseImpl;
+
+import aQute.bnd.annotation.ProviderType;
 
 /**
  * The implementation of the vr dossier local service.
@@ -52,4 +53,8 @@ public class VRDossierLocalServiceImpl extends VRDossierLocalServiceBaseImpl {
 		return vrDossierFinder.countData(sql);
 	}
 	*/
+	
+	public VRDossier getByRef(long groupId, String refId) {
+		return vrDossierPersistence.fetchByG_REF(groupId, refId);
+	}
 }

@@ -47,7 +47,8 @@ public class VRCOPManagementImpl implements VRCOPManagement {
 			return Response.status(200).entity(result.toJSONString()).build();
 		} catch (Exception e) {
 			_log.error(e);
-			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get reportrepositoryyear").toJSONString()).build();
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get reportrepositoryyear").toJSONString())
+					.build();
 		}
 	}
 
@@ -58,14 +59,15 @@ public class VRCOPManagementImpl implements VRCOPManagement {
 		_log.info("rest method:findReportRepository");
 		JSONObject result = JSONFactoryUtil.createJSONObject();
 		try {
-			
+
 			LinkedHashMap<String, Object> params = VRRestUtil.getParamMap(query);
 			VRCOPReportRepositoryAction actionImpl = new VRCOPReportRepositoryActionImpl();
 			result = actionImpl.findVRCOPReportRepository(user, serviceContext, year, params, payload);
 			return Response.status(200).entity(result.toJSONString()).build();
 		} catch (Exception e) {
 			_log.error(e);
-			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get reportrepository").toJSONString()).build();
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get reportrepository").toJSONString())
+					.build();
 		}
 	}
 
@@ -208,6 +210,85 @@ public class VRCOPManagementImpl implements VRCOPManagement {
 			_log.error(e);
 
 			return Response.status(500).entity(VRRestUtil.errorMessage(StringPool.BLANK).toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response findByMtCore_ProductionPlantCode_COPClassification(HttpServletRequest request, HttpHeaders header,
+			Company company, Locale locale, User user, ServiceContext serviceContext,
+			VRCOPReportRepositoryBeanParam query) {
+		try {
+
+			VRCOPReportRepositoryAction action = new VRCOPReportRepositoryActionImpl();
+
+			JSONObject result = action.findByMtCore_ProductionPlantCode_COPClassification(query.getMtCore(),
+					query.getProductionPlantCode(), query.getCopclassification(), query.getStart(), query.getEnd());
+
+			return Response.status(200).entity(result.toString()).build();
+
+		} catch (Exception e) {
+
+			_log.error(e);
+
+			return Response.status(500).entity(VRRestUtil.errorMessage(StringPool.BLANK).toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response countReportRepositories(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, VRCOPReportRepositoryBeanParam query) {
+		try {
+
+			VRCOPReportRepositoryAction action = new VRCOPReportRepositoryActionImpl();
+			LinkedHashMap<String, Object> params = VRRestUtil.getParamMap(query);
+			long total = action.countVRCOPReportRepositories(user, serviceContext, params);
+
+			return Response.status(200).entity(total).build();
+
+		} catch (Exception e) {
+
+			_log.error(e);
+
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't count").toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response findByDossierId(HttpServletRequest request, HttpHeaders header, Company company, Locale locale,
+			User user, ServiceContext serviceContext, long dossierId, long mtCore) {
+		try {
+
+			VRCOPReportRepositoryAction action = new VRCOPReportRepositoryActionImpl();
+			JSONObject result = action.findByDossierId(dossierId, mtCore, serviceContext);
+
+			return Response.status(200).entity(result.toJSONString()).build();
+
+		} catch (Exception e) {
+
+			_log.error(e);
+
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't find COP").toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response findVRCOPProductionPlantProdEquipmentByDossierId(HttpServletRequest request, HttpHeaders header,
+			Company company, Locale locale, User user, ServiceContext serviceContext, long dossierId, long mtCore,
+			int start, int end) {
+		try {
+
+			VRCOPReportRepositoryAction action = new VRCOPReportRepositoryActionImpl();
+			JSONObject result = action.findCOPProductionPlantEquipmentByDossierId(user, serviceContext, dossierId,
+					mtCore, start, end);
+
+			return Response.status(200).entity(result.toJSONString()).build();
+
+		} catch (Exception e) {
+
+			_log.error(e);
+
+			return Response.status(500)
+					.entity(VRRestUtil.errorMessage("Can't find VRCOPProductionPlantEquipment").toJSONString()).build();
 		}
 	}
 

@@ -1,5 +1,11 @@
 package backend.kyso.api.rest.application;
 
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.Validator;
+
 import java.net.HttpURLConnection;
 import java.util.Collections;
 import java.util.Set;
@@ -7,7 +13,6 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -19,14 +24,10 @@ import javax.ws.rs.core.Response;
 
 import org.opencps.api.digitalsignature.model.DigitalSignatureInputModel;
 import org.opencps.kyso.action.DigitalSignatureActions;
+import org.opencps.kyso.action.DigitalSignatureHSMActions;
 import org.opencps.kyso.action.impl.DigitalSignatureActionsImpl;
+import org.opencps.kyso.action.impl.DigitalSignatureHSMActionsImpl;
 import org.osgi.service.component.annotations.Component;
-
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.Validator;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -45,6 +46,33 @@ public class BackendKysoApiRestApplication extends Application {
 //		singletons.add(new DigitalSignatureManagementImpl());
 //		return singletons;
 		return Collections.<Object>singleton(this);
+	}
+	
+	@POST
+	@Path("/requestsTokenHSM")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response getByTokensHSM(@Context HttpHeaders header, @BeanParam DigitalSignatureInputModel input) {
+
+		_log.info("START: =========");
+		try {
+			DigitalSignatureHSMActions action = new DigitalSignatureHSMActionsImpl();
+			
+			String emailUser = input.getEmailUser();
+			long fileEntryId = Long.valueOf(input.getFileEntryId());
+			String typeSignature = input.getTypeSignature();
+			String postStepCode = input.getPostStepCode();
+			_log.info("emailUser Id: "+emailUser);
+			_log.info("fileEntryId Id: "+fileEntryId);
+			_log.info("typeSignature: "+typeSignature);
+			
+			JSONObject results = action.createHashSignature(emailUser, fileEntryId, typeSignature, postStepCode);
+			_log.info("results : "+results);
+
+			return Response.status(200).entity(JSONFactoryUtil.looseSerialize(results)).build();
+		} catch (Exception e) {
+			return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(e).build();
+		}
 	}
 
 	@POST

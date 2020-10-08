@@ -250,10 +250,13 @@ public class VRVehicleSpecificationLocalServiceUtil {
 		return getService().findByDeliverableCode(deliverableCode);
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRVehicleSpecification> findByDossierId(
+		long dossierId, int start, int end) {
+		return getService().findByDossierId(dossierId, start, end);
+	}
+
 	public static java.util.List<com.fds.vr.business.model.VRVehicleSpecification> findByVehicleCertificateId(
-		long vehicleCertificateId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		long vehicleCertificateId) {
 		return getService().findByVehicleCertificateId(vehicleCertificateId);
 	}
 

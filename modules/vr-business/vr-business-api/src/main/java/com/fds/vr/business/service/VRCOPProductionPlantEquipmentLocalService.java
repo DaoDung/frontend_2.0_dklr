@@ -37,6 +37,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -131,6 +132,25 @@ public interface VRCOPProductionPlantEquipmentLocalService
 	public VRCOPProductionPlantEquipment updateVRCOPProductionPlantEquipment(
 		VRCOPProductionPlantEquipment vrcopProductionPlantEquipment);
 
+	public VRCOPProductionPlantEquipment updateVRCOPProductionPlantEquipment(
+		long vrcopProductionPlantEquipmentId, long mtCore, Date syncDate,
+		long vrcopReportRepositoryId, java.lang.String copReportNo,
+		int sequenceNo, java.lang.String equipmentCode,
+		java.lang.String equipmentName, java.lang.String equipmentType,
+		java.lang.String trademark, java.lang.String trademarkName,
+		java.lang.String commercialName, java.lang.String modelCode,
+		java.lang.String productionCountryCode,
+		java.lang.String equipmentStatus, Date expireDate,
+		java.lang.String notes, java.lang.String equipmentSerialNo,
+		java.lang.String productionYear, java.lang.String registrationYear,
+		long markupXCG, long markupXCGNK, long markupSMRM, long markupXCH,
+		long markupXCN, long markupXMY, long markupXDD, int testingResult,
+		java.lang.String description, java.lang.String inspectionRecordNumber,
+		Date inspectionRecordDate, Date expiredDate, int expiredStatus,
+		java.lang.String stampTestingNo, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo,
+		long productionPlantId, java.lang.String productionPlantCode);
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
@@ -160,7 +180,9 @@ public interface VRCOPProductionPlantEquipmentLocalService
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
-	public int adminProcessData(JSONArray arrayData, long dossierId);
+	public int adminProcessData(JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo);
 
 	/**
 	* Returns the number of vrcop production plant equipments.
@@ -216,12 +238,14 @@ public interface VRCOPProductionPlantEquipmentLocalService
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
-	public List<VRCOPProductionPlantEquipment> findBycopReportNo(long mtCore,
-		java.lang.String copReportNo) throws PortalException, SystemException;
+	public List<VRCOPProductionPlantEquipment> findByDossierId_MtCore(
+		long mtCore, long dossierId, int start, int end);
 
-	public List<VRCOPProductionPlantEquipment> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws PortalException, SystemException;
+	public List<VRCOPProductionPlantEquipment> findBycopReportNo_MtCore(
+		long mtCore, java.lang.String copReportNo, int start, int end);
+
+	public List<VRCOPProductionPlantEquipment> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end);
 
 	/**
 	* Returns a range of all the vrcop production plant equipments.

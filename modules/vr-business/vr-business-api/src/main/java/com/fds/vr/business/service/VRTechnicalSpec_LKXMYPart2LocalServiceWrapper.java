@@ -236,6 +236,13 @@ public class VRTechnicalSpec_LKXMYPart2LocalServiceWrapper
 
 	@Override
 	public java.util.List<com.fds.vr.business.model.VRTechnicalSpec_LKXMYPart2> findByDossierId(
+		long dossierId, int start, int end) {
+		return _vrTechnicalSpec_LKXMYPart2LocalService.findByDossierId(dossierId,
+			start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRTechnicalSpec_LKXMYPart2> findByDossierId(
 		long dossierId, long mtCore)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _vrTechnicalSpec_LKXMYPart2LocalService.findByDossierId(dossierId,
@@ -262,6 +269,13 @@ public class VRTechnicalSpec_LKXMYPart2LocalServiceWrapper
 		java.lang.String referenceUid)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _vrTechnicalSpec_LKXMYPart2LocalService.findByReferenceUid(referenceUid);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRTechnicalSpec_LKXMYPart2> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end) {
+		return _vrTechnicalSpec_LKXMYPart2LocalService.findByVehicleCertificateId(vehicleCertificateId,
+			start, end);
 	}
 
 	/**

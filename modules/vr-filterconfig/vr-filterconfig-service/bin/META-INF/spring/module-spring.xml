@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.fds.vr.filterconfig.service.impl.DMDataItemLocalServiceImpl" id="com.fds.vr.filterconfig.service.DMDataItemLocalService" />
+	<bean class="com.fds.vr.filterconfig.service.persistence.impl.DMDataItemPersistenceImpl" id="com.fds.vr.filterconfig.service.persistence.DMDataItemPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.filterconfig.service.impl.VRConditionLocalServiceImpl" id="com.fds.vr.filterconfig.service.VRConditionLocalService" />
+	<bean class="com.fds.vr.filterconfig.service.persistence.impl.VRConditionPersistenceImpl" id="com.fds.vr.filterconfig.service.persistence.VRConditionPersistence" parent="basePersistence" />
+</beans>

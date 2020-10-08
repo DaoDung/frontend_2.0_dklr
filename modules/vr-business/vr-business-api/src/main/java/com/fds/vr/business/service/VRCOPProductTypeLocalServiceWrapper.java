@@ -175,9 +175,11 @@ public class VRCOPProductTypeLocalServiceWrapper
 
 	@Override
 	public int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
 		return _vrcopProductTypeLocalService.adminProcessData(arrayData,
-			dossierId);
+			mtCore, vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -255,21 +257,17 @@ public class VRCOPProductTypeLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPProductType> findBycopReportNo(
-		long mtCore, java.lang.String copReportNo)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopProductTypeLocalService.findBycopReportNo(mtCore,
-			copReportNo);
+	public java.util.List<com.fds.vr.business.model.VRCOPProductType> findBycopReportNo_MtCore(
+		long mtCore, java.lang.String copReportNo, int start, int end) {
+		return _vrcopProductTypeLocalService.findBycopReportNo_MtCore(mtCore,
+			copReportNo, start, end);
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPProductType> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopProductTypeLocalService.findBycopReportRepositoryID(mtCore,
-			copReportRepositoryID);
+	public java.util.List<com.fds.vr.business.model.VRCOPProductType> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
+		return _vrcopProductTypeLocalService.findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

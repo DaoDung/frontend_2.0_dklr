@@ -15,15 +15,15 @@
 package com.fds.vr.business.service.impl;
 
 import com.fds.vr.business.action.util.ActionUtil;
-import com.fds.vr.business.model.VRCOPProductionPlantEmployee;
 import com.fds.vr.business.model.VRCOPProductionPlantEquipment;
+import com.fds.vr.business.model.VRCOPReportRepository;
 import com.fds.vr.business.model.impl.VRCOPProductionPlantEquipmentImpl;
 import com.fds.vr.business.service.base.VRCOPProductionPlantEquipmentLocalServiceBaseImpl;
-import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.fds.vr.service.util.APIDateTimeUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -31,7 +31,6 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -42,10 +41,15 @@ import aQute.bnd.annotation.ProviderType;
  * The implementation of the vrcop production plant equipment local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.fds.vr.business.service.VRCOPProductionPlantEquipmentLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.fds.vr.business.service.VRCOPProductionPlantEquipmentLocalService}
+ * interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author khoavd
@@ -53,41 +57,38 @@ import aQute.bnd.annotation.ProviderType;
  * @see com.fds.vr.business.service.VRCOPProductionPlantEquipmentLocalServiceUtil
  */
 @ProviderType
-public class VRCOPProductionPlantEquipmentLocalServiceImpl
-	extends VRCOPProductionPlantEquipmentLocalServiceBaseImpl {
+public class VRCOPProductionPlantEquipmentLocalServiceImpl extends VRCOPProductionPlantEquipmentLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRCOPProductionPlantEquipmentLocalServiceUtil} to access the vrcop production plant equipment local service.
+	 * Never reference this class directly. Always use {@link
+	 * com.fds.vr.business.service.VRCOPProductionPlantEquipmentLocalServiceUtil} to
+	 * access the vrcop production plant equipment local service.
 	 */
-	public List<VRCOPProductionPlantEquipment> findBycopReportRepositoryID(long mtCore, long copReportRepositoryID) throws PortalException, SystemException {
-		try {
-			return vrcopProductionPlantEquipmentPersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProductionPlantEquipment>();
-		
+	public List<VRCOPProductionPlantEquipment> findBycopReportRepositoryID_MtCore(long mtCore,
+			long copReportRepositoryID, int start, int end) {
+		return vrcopProductionPlantEquipmentPersistence.findBycopReportRepositoryID(mtCore, copReportRepositoryID,
+				start, end);
 	}
 
+	public List<VRCOPProductionPlantEquipment> findByDossierId_MtCore(long mtCore, long dossierId, int start, int end) {
+		return vrcopProductionPlantEquipmentPersistence.findByDossierId_MtCore(dossierId, mtCore, start, end);
+	}
 
-	public List<VRCOPProductionPlantEquipment> findBycopReportNo(long mtCore, String copReportNo) throws PortalException, SystemException {
-		try {
-			return vrcopProductionPlantEquipmentPersistence.findBycopReportNo(mtCore, copReportNo);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRCOPProductionPlantEquipment>();
-		
+	public List<VRCOPProductionPlantEquipment> findBycopReportNo_MtCore(long mtCore, String copReportNo, int start,
+			int end) {
+		return vrcopProductionPlantEquipmentPersistence.findBycopReportNo(mtCore, copReportNo, start, end);
 	}
 
 	public VRCOPProductionPlantEquipment updateCOPProductionPlantEquipment(Map<String, String> mapValues, int mtCore) {
-		
+
 		Date now = new Date();
 
-		long vrCOPProductionPlantEquipmentId = counterLocalService.increment(VRCOPProductionPlantEquipment.class.getName());
+		long vrCOPProductionPlantEquipmentId = counterLocalService
+				.increment(VRCOPProductionPlantEquipment.class.getName());
 
-		VRCOPProductionPlantEquipment object = vrcopProductionPlantEquipmentPersistence.create(vrCOPProductionPlantEquipmentId);
+		VRCOPProductionPlantEquipment object = vrcopProductionPlantEquipmentPersistence
+				.create(vrCOPProductionPlantEquipmentId);
 
 		/// Add audit fields
 		object.setSyncDate(now);
@@ -105,128 +106,222 @@ public class VRCOPProductionPlantEquipmentLocalServiceImpl
 		object.setTrademarkName(mapValues.get("trademarkName"));
 		object.setCommercialName(mapValues.get("commercialName"));
 		object.setModelCode(mapValues.get("modelCode"));
-		//object.setDesignSymbolNo(mapValues.get("designSymbolNo"));
+		// object.setDesignSymbolNo(mapValues.get("designSymbolNo"));
 		object.setProductionCountryCode(mapValues.get("productionCountryCode"));
 		object.setEquipmentStatus(mapValues.get("equipmentStatus"));
 		object.setNotes(mapValues.get("notes"));
 
 		return vrcopProductionPlantEquipmentPersistence.update(object);
 	}
-	
+
 	public JSONArray findData(String sql, List<String> columnNames, List<String> dataTypes, Class<?> modelClazz,
 			String modelClassName, int start, int end) throws SystemException {
 
-		return  vrcopProductionPlantEquipmentFinder.findData(sql, columnNames, dataTypes, modelClazz, modelClassName, start, end);
+		return vrcopProductionPlantEquipmentFinder.findData(sql, columnNames, dataTypes, modelClazz, modelClassName,
+				start, end);
 	}
 
 	public long counData(String sql) throws SystemException {
 
 		return vrcopProductionPlantEquipmentFinder.countData(sql);
 	}
-	
-	public JSONArray getByCOPReportNo(long mtCore,String COPReportNo) throws SystemException, PortalException{
-		
+
+	public JSONArray getByCOPReportNo(long mtCore, String COPReportNo) throws SystemException, PortalException {
+
 		JSONArray result = JSONFactoryUtil.createJSONArray();
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
-		
-		List<VRCOPProductionPlantEquipment> dataList =findBycopReportNo(mtCore,COPReportNo);
-		
-		for(VRCOPProductionPlantEquipment data:dataList) {
-			
+
+		List<VRCOPProductionPlantEquipment> dataList = findBycopReportNo_MtCore(mtCore, COPReportNo, QueryUtil.ALL_POS,
+				QueryUtil.ALL_POS);
+
+		for (VRCOPProductionPlantEquipment data : dataList) {
+
 			jsonObject = JSONFactoryUtil.createJSONObject();
-			
+
 			jsonObject = ActionUtil.object2Json(data, VRCOPProductionPlantEquipmentImpl.class, StringPool.BLANK);
-			
-			if(Validator.isNotNull(jsonObject)) {
+
+			if (Validator.isNotNull(jsonObject)) {
 				result.put(jsonObject);
 			}
 		}
 		return result;
 	}
 
+	public VRCOPProductionPlantEquipment updateVRCOPProductionPlantEquipment(long vrcopProductionPlantEquipmentId,
+			long mtCore, Date syncDate, long vrcopReportRepositoryId, String copReportNo, int sequenceNo,
+			String equipmentCode, String equipmentName, String equipmentType, String trademark, String trademarkName,
+			String commercialName, String modelCode, String productionCountryCode, String equipmentStatus,
+			Date expireDate, String notes, String equipmentSerialNo, String productionYear, String registrationYear,
+			long markupXCG, long markupXCGNK, long markupSMRM, long markupXCH, long markupXCN, long markupXMY,
+			long markupXDD, int testingResult, String description, String inspectionRecordNumber,
+			Date inspectionRecordDate, Date expiredDate, int expiredStatus, String stampTestingNo, long dossierId,
+			String dossierIdCTN, String dossierNo, long productionPlantId, String productionPlantCode) {
 
-	public int adminProcessData(JSONArray arrayData, long dossierId) {
+		VRCOPProductionPlantEquipment vrcopProductionPlantEquipment = vrcopProductionPlantEquipmentPersistence
+				.fetchByPrimaryKey(vrcopProductionPlantEquipmentId);
+
+		if (vrcopProductionPlantEquipment == null) {
+			vrcopProductionPlantEquipmentId = counterLocalService
+					.increment(VRCOPProductionPlantEquipment.class.getName());
+
+			vrcopProductionPlantEquipment = vrcopProductionPlantEquipmentPersistence
+					.create(vrcopProductionPlantEquipmentId);
+		}
+
+		Date now = new Date();
+		vrcopProductionPlantEquipment.setModifyDate(now);
+		vrcopProductionPlantEquipment.setMtCore(mtCore);
+		vrcopProductionPlantEquipment.setDossierId(dossierId);
+		vrcopProductionPlantEquipment.setCopReportRepositoryID(vrcopReportRepositoryId);
+		if (syncDate != null) {
+			vrcopProductionPlantEquipment.setSyncDate(syncDate);
+		}
+		if (copReportNo != null) {
+			vrcopProductionPlantEquipment.setCopReportNo(copReportNo);
+		}
+		vrcopProductionPlantEquipment.setSequenceNo(sequenceNo);
+		if (equipmentCode != null) {
+			vrcopProductionPlantEquipment.setEquipmentCode(equipmentCode);
+		}
+		if (equipmentName != null) {
+			vrcopProductionPlantEquipment.setEquipmentName(equipmentName);
+		}
+		if (equipmentType != null) {
+			vrcopProductionPlantEquipment.setEquipmentType(equipmentType);
+		}
+		if (trademark != null) {
+			vrcopProductionPlantEquipment.setTrademark(trademark);
+		}
+		if (trademarkName != null) {
+			vrcopProductionPlantEquipment.setTrademarkName(trademarkName);
+		}
+		if (commercialName != null) {
+			vrcopProductionPlantEquipment.setCommercialName(commercialName);
+		}
+		if (modelCode != null) {
+			vrcopProductionPlantEquipment.setModelCode(modelCode);
+		}
+		if (productionCountryCode != null) {
+			vrcopProductionPlantEquipment.setProductionCountryCode(productionCountryCode);
+		}
+		if (equipmentStatus != null) {
+			vrcopProductionPlantEquipment.setEquipmentStatus(equipmentStatus);
+		}
+		if (expireDate != null) {
+			vrcopProductionPlantEquipment.setSyncDate(expireDate);
+		}
+		if (notes != null) {
+			vrcopProductionPlantEquipment.setNotes(notes);
+		}
+		if (equipmentSerialNo != null) {
+			vrcopProductionPlantEquipment.setEquipmentSerialNo(equipmentSerialNo);
+		}
+		if (productionYear != null) {
+			vrcopProductionPlantEquipment.setProductionYear(productionYear);
+		}
+		if (registrationYear != null) {
+			vrcopProductionPlantEquipment.setRegistrationYear(registrationYear);
+		}
+		if (markupXCG >= 0) {
+			vrcopProductionPlantEquipment.setMarkupXCG(markupXCG);
+		}
+		if (markupXCGNK >= 0) {
+			vrcopProductionPlantEquipment.setMarkupXCGNK(markupXCGNK);
+		}
+		if (markupSMRM >= 0) {
+			vrcopProductionPlantEquipment.setMarkupSMRM(markupSMRM);
+		}
+		if (markupXCH >= 0) {
+			vrcopProductionPlantEquipment.setMarkupXCH(markupXCH);
+		}
+		if (markupXCN >= 0) {
+			vrcopProductionPlantEquipment.setMarkupXCN(markupXCN);
+		}
+		if (markupXMY >= 0) {
+			vrcopProductionPlantEquipment.setMarkupXMY(markupXMY);
+		}
+		if (markupXDD >= 0) {
+			vrcopProductionPlantEquipment.setMarkupXDD(markupXDD);
+		}
+		if (testingResult >= 0) {
+			vrcopProductionPlantEquipment.setTestingResult(testingResult);
+		}
+		if (description != null) {
+			vrcopProductionPlantEquipment.setDescription(description);
+		}
+		if (inspectionRecordNumber != null) {
+			vrcopProductionPlantEquipment.setInspectionRecordNumber(inspectionRecordNumber);
+		}
+		if (inspectionRecordDate != null) {
+			vrcopProductionPlantEquipment.setInspectionRecordDate(inspectionRecordDate);
+		}
+		if (expiredDate != null) {
+			vrcopProductionPlantEquipment.setExpiredDate(expiredDate);
+		}
+		if (expiredStatus >= 0) {
+			vrcopProductionPlantEquipment.setExpiredStatus(expiredStatus);
+		}
+		if (stampTestingNo != null) {
+			vrcopProductionPlantEquipment.setStampTestingNo(stampTestingNo);
+		}
+		if (dossierIdCTN != null) {
+			vrcopProductionPlantEquipment.setDossierIdCTN(dossierIdCTN);
+		}
+		if (dossierNo != null) {
+			vrcopProductionPlantEquipment.setDossierNo(dossierNo);
+		}
+		if (productionPlantId > 0) {
+			vrcopProductionPlantEquipment.setProductionPlantId(productionPlantId);
+		}
+		if (productionPlantCode != null) {
+			vrcopProductionPlantEquipment.setProductionPlantCode(productionPlantCode);
+		}
+
+		return vrcopProductionPlantEquipmentPersistence.update(vrcopProductionPlantEquipment);
+	}
+
+	public int adminProcessData(JSONArray arrayData, long mtCore, long vrcopReportRepositoryId, long dossierId,
+			String dossierIdCTN, String dossierNo) {
 
 		int result = 0;
-		
+
+		VRCOPReportRepository vrcopReportRepository = vrcopReportRepositoryPersistence
+				.fetchByPrimaryKey(vrcopReportRepositoryId);
+
 		try {
-			System.out.println("VRCOPProductionPlantEquipmentLocalServiceImpl.adminProcessData()" + dossierId);
-			vrcopProductionPlantEquipmentPersistence.removeBycopDossierId(dossierId);
-			
 			for (int i = 0; i < arrayData.length(); i++) {
 				JSONObject objectData = arrayData.getJSONObject(i);
-				
-				VRCOPProductionPlantEquipment object = null;
 
-				long id = counterLocalService.increment(VRCOPProductionPlantEquipment.class.getName());
-
-				object = vrcopProductionPlantEquipmentPersistence.create(id);
-
-				object.setModifyDate(new Date());
-				object.setMtCore(objectData.getLong("mtCore"));
-				if (!"".equals(objectData.getString("syncDate"))) {
-					object.setSyncDate(new Date(objectData.getString("syncDate")));
+				VRCOPProductionPlantEquipment object = vrcopProductionPlantEquipmentLocalService
+						.updateVRCOPProductionPlantEquipment(objectData.getLong("vrcopProductionPlantEquipmentId"),
+								mtCore, APIDateTimeUtil.parseStringToDate(objectData.getString("syncDate")),
+								vrcopReportRepositoryId, objectData.getString("copReportNo"), i + 1,
+								objectData.getString("equipmentCode"), objectData.getString("equipmentName"),
+								objectData.getString("equipmentType"), objectData.getString("trademark"),
+								objectData.getString("trademarkName"), objectData.getString("commercialName"),
+								objectData.getString("modelCode"), objectData.getString("productionCountryCode"),
+								objectData.getString("equipmentStatus"),
+								APIDateTimeUtil.parseStringToDate(objectData.getString("expireDate")),
+								objectData.getString("notes"), objectData.getString("equipmentSerialNo"),
+								objectData.getString("productionYear"), objectData.getString("registrationYear"),
+								objectData.getLong("markupXCG"), objectData.getLong("markupXCGNK"),
+								objectData.getLong("markupSMRM"), objectData.getLong("markupXCH"),
+								objectData.getLong("markupXCN"), objectData.getLong("markupXMY"),
+								objectData.getLong("markupXDD"), objectData.getInt("testingResult"),
+								objectData.getString("description"), objectData.getString("inspectionRecordNumber"),
+								APIDateTimeUtil.parseStringToDate(objectData.getString("inspectionRecordDate")),
+								APIDateTimeUtil.parseStringToDate(objectData.getString("expiredDate")),
+								objectData.getInt("expiredStatus"), objectData.getString("stampTestingNo"), dossierId,
+								dossierIdCTN, dossierNo, vrcopReportRepository.getProductionPlantId(),
+								vrcopReportRepository.getProductionPlantCode());
+				if (object != null) {
+					result = i;
 				}
-
-				object.setCopReportRepositoryID(objectData.getLong("copReportRepositoryID"));
-				object.setCopReportNo(objectData.getString("copReportNo"));
-				object.setSequenceNo(objectData.getLong("sequenceNo"));
-				object.setEquipmentCode(objectData.getString("equipmentCode"));
-				object.setEquipmentName(objectData.getString("equipmentName"));
-				object.setEquipmentType(objectData.getString("equipmentType"));
-				object.setTrademark(objectData.getString("trademark"));
-				object.setTrademarkName(objectData.getString("trademarkName"));
-				object.setCommercialName(objectData.getString("commercialName"));
-				object.setModelCode(objectData.getString("modelCode"));
-				object.setProductionCountryCode(objectData.getString("productionCountryCode"));
-				object.setEquipmentStatus(objectData.getString("equipmentStatus"));
-				if (!"".equals(objectData.getString("expireDate"))) {
-					object.setSyncDate(new Date(objectData.getString("expireDate")));
-				}
-				object.setNotes(objectData.getString("notes"));
-				object.setEquipmentSerialNo(objectData.getString("equipmentSerialNo"));
-				if (!"".equals(objectData.getString("productionYear"))) {
-					object.setProductionYear(new Date(objectData.getString("productionYear")));
-				}
-				if (!"".equals(objectData.getString("registrationYear"))) {
-					object.setRegistrationYear(new Date(objectData.getString("registrationYear")));
-				}
-				object.setMarkupXCG(objectData.getLong("markupXCG"));
-				object.setMarkupXCGNK(objectData.getLong("markupXCGNK"));
-				object.setMarkupSMRM(objectData.getLong("markupSMRM"));
-				object.setMarkupXCH(objectData.getLong("markupXCH"));
-				object.setMarkupXCN(objectData.getLong("markupXCN"));
-				object.setMarkupXMY(objectData.getLong("markupXMY"));
-				object.setMarkupXDD(objectData.getLong("markupXDD"));
-				object.setTestingResult(objectData.getInt("testingResult"));
-				object.setDescription(objectData.getString("description"));
-				object.setInspectionRecordNumber(objectData.getString("inspectionRecordNumber"));
-
-				if (!"".equals(objectData.getString("inspectionRecordDate"))) {
-					object.setInspectionRecordDate(new Date(objectData.getString("inspectionRecordDate")));
-				}
-
-				if (!"".equals(objectData.getString("expiredDate"))) {
-					object.setExpiredDate(new Date(objectData.getString("expiredDate")));
-				}
-				object.setExpiredStatus(objectData.getInt("expiredStatus"));
-				object.setStampTestingNo(objectData.getString("stampTestingNo"));
-				
-				object.setDossierId(objectData.getLong("dossierId"));
-				object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
-				object.setDossierNo(objectData.getString("dossierNo"));
-				object.setProductionPlantId(objectData.getLong("productionPlantId"));
-				object.setProductionPlantCode(objectData.getString("productionPlantCode"));
-				
-				vrcopProductionPlantEquipmentPersistence.update(object);
-				
-				result = i;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			result = -500;
 		}
-		
+
 		return result;
 	}
 

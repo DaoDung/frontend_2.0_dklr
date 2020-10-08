@@ -108,6 +108,16 @@ public class VRVehicleRecordLocalServiceWrapper
 		return _vrVehicleRecordLocalService.getVRVehicleRecord(id);
 	}
 
+	@Override
+	public com.fds.vr.business.model.VRVehicleRecord updateVRVehicleRecord(
+		com.fds.vr.business.model.VRVehicleRecord object,
+		com.liferay.portal.kernel.model.Company company)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _vrVehicleRecordLocalService.updateVRVehicleRecord(object,
+			company);
+	}
+
 	/**
 	* Updates the vr vehicle record in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -125,6 +135,15 @@ public class VRVehicleRecordLocalServiceWrapper
 		java.util.Map<java.lang.String, java.lang.String> mapValue, int mtCore) {
 		return _vrVehicleRecordLocalService.updateVRVehicleRecord(mapValue,
 			mtCore);
+	}
+
+	@Override
+	public com.fds.vr.business.model.VRVehicleRecord updateVRVehicleRecord(
+		long vehicleRecordId, int printingStatus, int postPrintingStatus)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _vrVehicleRecordLocalService.updateVRVehicleRecord(vehicleRecordId,
+			printingStatus, postPrintingStatus);
 	}
 
 	@Override
@@ -190,6 +209,14 @@ public class VRVehicleRecordLocalServiceWrapper
 		return _vrVehicleRecordLocalService.getOSGiServiceIdentifier();
 	}
 
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRVehicleRecord> adminProcess(
+		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId,
+		long issueId, long mtCore, long issueVehicleCertificateId) {
+		return _vrVehicleRecordLocalService.adminProcess(arrayData, dossierId,
+			issueId, mtCore, issueVehicleCertificateId);
+	}
+
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
 	*
@@ -242,6 +269,12 @@ public class VRVehicleRecordLocalServiceWrapper
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return _vrVehicleRecordLocalService.dynamicQuery(dynamicQuery, start,
 			end, orderByComparator);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRVehicleRecord> findByIssueId(
+		long issueId, int start, int end) {
+		return _vrVehicleRecordLocalService.findByIssueId(issueId, start, end);
 	}
 
 	@Override

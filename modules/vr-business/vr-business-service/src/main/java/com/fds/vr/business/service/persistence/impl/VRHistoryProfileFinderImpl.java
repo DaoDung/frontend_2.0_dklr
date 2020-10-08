@@ -35,16 +35,16 @@ public class VRHistoryProfileFinderImpl extends VRHistoryProfileFinderBaseImpl i
 			query.append(" WHERE 1=1 ");
 
 			if (Validator.isNotNull(applicantCode) && !applicantCode.isEmpty()) {
-				query.append(" AND applicantcode = '" + applicantCode + "'");
+				query.append(" AND applicantCode = '" + applicantCode + "'");
 			}
 			if (Validator.isNotNull(productionPlantCode) && !productionPlantCode.isEmpty()) {
 				query.append(" AND productionPlantCode = '" + productionPlantCode + "'");
 			}
 			if (Validator.isNotNull(dossierIdCTN) && !dossierIdCTN.isEmpty()) {
-				query.append(" AND dossieridCTN = '" + dossierIdCTN + "'");
+				query.append(" AND dossierIdCTN = '" + dossierIdCTN + "'");
 			}
 			if (Validator.isNotNull(dossierNo) && !dossierNo.isEmpty()) {
-				query.append(" AND dossierno = '" + dossierNo + "'");
+				query.append(" AND dossierNo = '" + dossierNo + "'");
 			}
 			if (Validator.isNotNull(contentType) && !contentType.isEmpty()) {
 				query.append(" AND contentType = '" + contentType + "'");
@@ -61,7 +61,7 @@ public class VRHistoryProfileFinderImpl extends VRHistoryProfileFinderBaseImpl i
 			q.setCacheable(false);
 			q.addEntity(VRHistoryProfileImpl.TABLE_NAME, VRHistoryProfileImpl.class);
 
-			log.info("=========findVRHistoryProfile===" + query.toString());
+			log.debug("=========findVRHistoryProfile===" + query.toString());
 			QueryPos qPos = QueryPos.getInstance(q);
 
 			return (List<VRHistoryProfile>) QueryUtil.list(q, getDialect(), start, end);

@@ -1,18 +1,24 @@
 package com.fds.vr.controler.impl;
 
+import com.fds.vr.business.action.VRVehicleRecordAction;
 import com.fds.vr.business.action.VRVehicleTypeCertificateAction;
 import com.fds.vr.business.action.impl.VRVehicleRecordActionImpl;
 import com.fds.vr.business.action.impl.VRVehicleSpecificationActionImpl;
 import com.fds.vr.business.action.impl.VRVehicleTypeCertificateActionImpl;
 import com.fds.vr.business.action.util.ActionUtil;
+import com.fds.vr.business.model.VRVehicleEquipment;
 import com.fds.vr.business.model.VRVehicleRecord;
+import com.fds.vr.business.model.impl.VRVehicleEquipmentModelImpl;
 import com.fds.vr.business.model.impl.VRVehicleRecordImpl;
 import com.fds.vr.business.model.impl.VRVehicleRecordModelImpl;
+import com.fds.vr.business.service.VRVehicleEquipmentLocalServiceUtil;
 import com.fds.vr.controler.VRVehicleManagement;
 import com.fds.vr.model.VRVehicleRecordBeanParam;
 import com.fds.vr.model.VRVehicleSpecificationBeanParam;
 import com.fds.vr.model.VRVehicleTypeCertificateBeanParam;
+import com.fds.vr.service.util.BusinessUtil;
 import com.fds.vr.util.VRRestUtil;
+import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -21,11 +27,13 @@ import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
+import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -230,6 +238,120 @@ public class VRVehicleManagementImpl implements VRVehicleManagement {
 			_log.error(e);
 			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get vrvehiclerecord").toJSONString())
 					.build();
+		}
+	}
+
+	@Override
+	public Response findByDossierId(HttpServletRequest request, HttpHeaders header, Company company, Locale locale,
+			User user, ServiceContext serviceContext, long dossierId, long mtCore) {
+		try {
+			JSONObject result = JSONFactoryUtil.createJSONObject();
+			VRVehicleTypeCertificateAction vrVehicleTypeCertificateAction = new VRVehicleTypeCertificateActionImpl();
+			result = vrVehicleTypeCertificateAction.findByDossierId_MTCore(dossierId, mtCore, serviceContext);
+			return Response.status(200).entity(result.toJSONString()).build();
+		} catch (Exception e) {
+			return Response.status(500)
+					.entity(VRRestUtil.errorMessage("Can't get vr_vehicletypecertificate").toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response findSpecificationByCertificateRecordNo(HttpServletRequest request, HttpHeaders header,
+			Company company, Locale locale, User user, ServiceContext serviceContext,
+			VRVehicleTypeCertificateBeanParam query) {
+		try {
+			JSONObject result = JSONFactoryUtil.createJSONObject();
+			VRVehicleTypeCertificateAction vrVehicleTypeCertificateAction = new VRVehicleTypeCertificateActionImpl();
+			LinkedHashMap<String, Object> params = VRRestUtil.getParamMap(query);
+			result = vrVehicleTypeCertificateAction.findSpecificationByCertificateRecordNo(user, serviceContext,
+					params);
+			return Response.status(200).entity(result.toJSONString()).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500)
+					.entity(VRRestUtil.errorMessage("Can't get vr_vehicletypecertificate").toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response findVRVehicleRecordPrintDetails(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, long vehicleRecordId) {
+		try {
+			VRVehicleRecordAction action = new VRVehicleRecordActionImpl();
+			JSONObject result = action.findVRVehicleRecordPrintDetails(vehicleRecordId, user, serviceContext);
+			return Response.status(200).entity(result.toJSONString()).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't find VRVehicleRecord").toJSONString())
+					.build();
+		}
+	}
+
+	@Override
+	public Response updateStatusAfterPrint(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, long vehicleRecordId) {
+		try {
+			VRVehicleRecordAction action = new VRVehicleRecordActionImpl();
+			JSONObject result = action.updateStatusAfterPrint(vehicleRecordId, user, serviceContext);
+			return Response.status(200).entity(result.toJSONString()).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500)
+					.entity(VRRestUtil.errorMessage("Can't update status VRVehicleRecord").toJSONString()).build();
+		}
+	}
+
+	@Override
+	public Response findVRVehicleEquipmentByDossierId(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, long dossierId, int start, int end) {
+		try {
+			JSONObject result = JSONFactoryUtil.createJSONObject();
+			List<VRVehicleEquipment> vrVehicleEquipments = VRVehicleEquipmentLocalServiceUtil.findByDossierId(dossierId,
+					start, end);
+			JSONArray array = JSONFactoryUtil.createJSONArray();
+			for (VRVehicleEquipment vrVehicleEquipment : vrVehicleEquipments) {
+				try {
+					JSONObject obj = BusinessUtil.object2Json_originColumnName(vrVehicleEquipment,
+							VRVehicleEquipmentModelImpl.class, StringPool.BLANK);
+					array.put(obj);
+				} catch (Exception e) {
+					_log.error(e);
+				}
+			}
+			result.put("data", array);
+			return Response.status(200).entity(result.toJSONString()).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't find VRVehicleEquipment").toJSONString())
+					.build();
+		}
+	}
+
+	@Override
+	public Response createVRVehicleEquipment(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, long dossierId, String data) {
+		try {
+			JSONArray arrayData = JSONFactoryUtil.createJSONArray(data);
+			
+			List<VRVehicleEquipment> vrVehicleEquipments = VRVehicleEquipmentLocalServiceUtil
+					.adminProcessData(arrayData, dossierId, 1L);
+
+			JSONArray array = JSONFactoryUtil.createJSONArray();
+			for (VRVehicleEquipment vrVehicleEquipment : vrVehicleEquipments) {
+				try {
+					JSONObject obj = BusinessUtil.object2Json_originColumnName(vrVehicleEquipment,
+							VRVehicleEquipmentModelImpl.class, StringPool.BLANK);
+					array.put(obj);
+				} catch (Exception e) {
+					_log.error(e);
+				}
+			}
+
+			return Response.status(200).entity(array.toJSONString()).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500)
+					.entity(VRRestUtil.errorMessage("Can't create VRVehicleEquipment").toJSONString()).build();
 		}
 	}
 

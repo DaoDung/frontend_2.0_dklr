@@ -31,4 +31,8 @@ public interface VRRPDossierStatisticsFinder {
 
 	public long countData(java.lang.String sql)
 		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.Iterator<java.lang.Object[]> findDataReport(
+		java.lang.String sqlQuery)
+		throws com.liferay.portal.kernel.exception.SystemException;
 }

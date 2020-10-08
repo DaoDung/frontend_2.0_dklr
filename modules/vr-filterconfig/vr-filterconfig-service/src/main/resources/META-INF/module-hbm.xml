@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.fds.vr.filterconfig.model.DMDataItem" />
+	<import class="com.fds.vr.filterconfig.model.VRCondition" />
+	<class name="com.fds.vr.filterconfig.model.impl.DMDataItemImpl" table="dm_dataitem">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="dataGroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="code_0" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_3" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="level" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="altername" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validatedFrom" type="org.hibernate.type.TimestampType" />
+		<property name="validatedTo" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="synchDate" name="syncDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.fds.vr.filterconfig.model.impl.VRConditionImpl" table="vr_condition">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="filterModuleCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="filterTableField" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="filterTableName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="specificationCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="specificationDisplayName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="specificationDataCollectionID" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sequenceNo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="specificationBasicUnit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="specificationStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="specificationGroup" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
+		<property name="syncDate" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>

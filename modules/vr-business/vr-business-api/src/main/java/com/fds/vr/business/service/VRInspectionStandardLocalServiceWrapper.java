@@ -258,6 +258,20 @@ public class VRInspectionStandardLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.fds.vr.business.model.VRInspectionStandard> findByDossierId(
+		long dossierId, int start, int end) {
+		return _vrInspectionStandardLocalService.findByDossierId(dossierId,
+			start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRInspectionStandard> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end) {
+		return _vrInspectionStandardLocalService.findByVehicleCertificateId(vehicleCertificateId,
+			start, end);
+	}
+
+	@Override
 	public java.util.List<com.fds.vr.business.model.VRInspectionStandard> findByvehicleCertificateId(
 		long vehicleCertificateId, long markupstatus)
 		throws com.liferay.portal.kernel.exception.PortalException,

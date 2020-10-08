@@ -158,7 +158,9 @@ public interface VRCOPProductTypeLocalService extends BaseLocalService,
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
-	public int adminProcessData(JSONArray arrayData, long dossierId);
+	public int adminProcessData(JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo);
 
 	/**
 	* Returns the number of vrcop product types.
@@ -214,11 +216,11 @@ public interface VRCOPProductTypeLocalService extends BaseLocalService,
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
-	public List<VRCOPProductType> findBycopReportNo(long mtCore,
-		java.lang.String copReportNo) throws PortalException, SystemException;
+	public List<VRCOPProductType> findBycopReportNo_MtCore(long mtCore,
+		java.lang.String copReportNo, int start, int end);
 
-	public List<VRCOPProductType> findBycopReportRepositoryID(long mtCore,
-		long copReportRepositoryID) throws PortalException, SystemException;
+	public List<VRCOPProductType> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end);
 
 	/**
 	* Returns a range of all the vrcop product types.

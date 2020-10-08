@@ -1,6 +1,9 @@
 package com.fds.vr.business.action;
 
 import com.fds.vr.business.model.VRVehicleRecord;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -30,5 +33,10 @@ public interface VRVehicleRecordAction {
 
 	public File doExportVRVehicleRecord(User user, ServiceContext serviceContext, LinkedHashMap<String, Object> params,
 			String headercodes, String headerlabels);
+
+	public JSONObject findVRVehicleRecordPrintDetails(long vehicleRecordId, User user, ServiceContext serviceContext)
+			throws JSONException;
+
+	public JSONObject updateStatusAfterPrint(long vehicleRecordId, User user, ServiceContext serviceContext) throws SystemException, PortalException;
 
 }

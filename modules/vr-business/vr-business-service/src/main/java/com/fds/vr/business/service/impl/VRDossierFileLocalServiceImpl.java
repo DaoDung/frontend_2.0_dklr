@@ -67,6 +67,15 @@ public class VRDossierFileLocalServiceImpl
 		return vrDossierFilePersistence.fetchByDID_FTNO_First(dossierId, fileTemplateNo, removed, orderByComparator);
 	}
 	
+	public VRDossierFile getDossierFileByDID_DPNO(long dossierId, String dossierPartNo, boolean removed) {
+		VRDossierFile vrDossierFile = null;
+		List<VRDossierFile> vrDossierFiles = vrDossierFilePersistence.findByDID_DPNO(dossierId, dossierPartNo, removed);
+		if(vrDossierFiles != null && !vrDossierFiles.isEmpty()) {
+			vrDossierFile = vrDossierFiles.get(0);
+		}
+		return vrDossierFile;
+	}
+	
 	/*
 	public JSONArray findData(String sql, List<String> columnNames, List<String> dataTypes, Class<?> modelClazz,
 			String modelClassName, int start, int end) throws SystemException {

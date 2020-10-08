@@ -393,6 +393,8 @@ public class DossierIndexer extends BaseIndexer<Dossier> {
 		} catch (Exception e) {
 			_log.error(e);
 		}
+		
+		_log.info("---> DossierId: " + document.get(DossierTerm.DOSSIER_ID));
 
 		return document;
 	}

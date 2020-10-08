@@ -23,8 +23,11 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.fds.vr.business.action.VRInputSheetActions;
+import com.fds.vr.business.action.impl.VRInputSheetActionsImpl;
 import com.fds.vr.business.model.VRInputSheet;
 import com.fds.vr.business.service.base.VRInputSheetLocalServiceBaseImpl;
 
@@ -56,7 +59,7 @@ public class VRInputSheetLocalServiceImpl
 			Long inputSheetType, String maker, String checker, 
 			String approver, String deliveryName, String inventoryName, 
 			String inventoryPlace, Date inventoryDate, String bookIDList, Long isApproval, 
-			Long totalQuantities, Long totalAmount, String amountInWords, String remark, String stampbooks)
+			Long totalQuantities, Long totalAmount, String amountInWords, String remark, String stampbooks, Company company)
 		throws PortalException, SystemException {
 		
 		VRInputSheet inputSheet = null;
@@ -113,9 +116,6 @@ public class VRInputSheetLocalServiceImpl
 		if(Validator.isNotNull(isApproval))
 			inputSheet.setIsApproval(isApproval);
 		
-		if(Validator.isNotNull(totalQuantities))
-			inputSheet.setTotalQuantities(totalQuantities);
-		
 		if(Validator.isNotNull(totalAmount))
 			inputSheet.setTotalAmount(totalAmount);
 		
@@ -125,9 +125,17 @@ public class VRInputSheetLocalServiceImpl
 		if(Validator.isNotNull(remark))
 			inputSheet.setRemark(remark);
 		
-		vrInputStampbookLocalService.updateJSONArrayInputStambook(id, corporationId, inputSheetType, stampbooks, isApproval);
+		totalQuantities = vrInputStampbookLocalService.updateJSONArrayInputStambook(id, corporationId, inputSheetType, stampbooks, isApproval);
 		
-		return vrInputSheetPersistence.update(inputSheet);
+		if(Validator.isNotNull(totalQuantities))
+			inputSheet.setTotalQuantities(totalQuantities);
+		
+		inputSheet = vrInputSheetPersistence.update(inputSheet);
+		if (inputSheet != null) {
+			VRInputSheetActions actions = new VRInputSheetActionsImpl();
+			actions.indexing(inputSheet, company);
+		}
+		return inputSheet;
 	}
 	
 	public List<VRInputSheet> findByinputSheetNo(long mtCore, String inputSheetNo) throws PortalException, SystemException {

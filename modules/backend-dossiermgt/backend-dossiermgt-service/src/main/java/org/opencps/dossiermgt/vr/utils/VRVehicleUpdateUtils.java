@@ -51,9 +51,9 @@ public class VRVehicleUpdateUtils {
 			String deliverableCode = dossierDeliverableModel.getDeliverableCode();
 			if (Validator.isNotNull(applicantIdNo)) {
 				// 1. Get ApplicantProfile, Registration and Applicant
-				List <VRApplicantProfile> lstVRApplicantProfile = VRApplicantProfileLocalServiceUtil.findByapplicantCode(1, applicantIdNo);
-				if (lstVRApplicantProfile != null && lstVRApplicantProfile.size() > 0 ) {
-					appProfile = lstVRApplicantProfile.get(0);
+				VRApplicantProfile vrApplicantProfile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(applicantIdNo);
+				if (vrApplicantProfile != null) {
+					appProfile = vrApplicantProfile;
 				}
 				//registration = VRRegistrationLocalServiceUtil.getByApplicantIdNo(applicantIdNo);
 				applicant = ApplicantLocalServiceUtil.fetchByAppId(applicantIdNo);
@@ -425,9 +425,9 @@ public class VRVehicleUpdateUtils {
 			String deliverableCode = "";//dossierDeliverableModel.getDeliverableCode();
 			if (Validator.isNotNull(applicantIdNo)) {
 				// 1. Get ApplicantProfile, Registration and Applicant
-				List <VRApplicantProfile> lstVRApplicantProfile = VRApplicantProfileLocalServiceUtil.findByapplicantCode(1, applicantIdNo);
-				if (lstVRApplicantProfile != null && lstVRApplicantProfile.size() > 0 ) {
-					appProfile = lstVRApplicantProfile.get(0);
+				VRApplicantProfile vrApplicantProfile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(applicantIdNo);
+				if (vrApplicantProfile != null) {
+					appProfile = vrApplicantProfile;
 				}
 				//registration = VRRegistrationLocalServiceUtil.getByApplicantIdNo(applicantIdNo);
 				applicant = ApplicantLocalServiceUtil.fetchByAppId(applicantIdNo);

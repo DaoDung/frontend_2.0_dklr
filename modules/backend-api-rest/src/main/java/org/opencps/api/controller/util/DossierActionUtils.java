@@ -90,6 +90,7 @@ public class DossierActionUtils {
 				model.setAutoEvent(jsonObject.getString(ProcessActionTerm.AUTO_EVENT));
 				model.setPreCondition(jsonObject.getString(ProcessActionTerm.PRE_CONDITION));
 				model.setEnable(1);
+				model.seteSignature(jsonObject.getBoolean(ProcessActionTerm.ESIGNATURE));
 				//add by Dungnv
 				JSONArray createFiles = jsonObject.getJSONArray("createFiles");
 				List<DossierActionNextActioncreateFiles> outputCreeateFiles = null;
@@ -112,6 +113,7 @@ public class DossierActionUtils {
 						dossierActionNextActioncreateFile.setReturned(createFile.getBoolean("returned"));
 						dossierActionNextActioncreateFile.setDossierFileId(createFile.getLong("dossierFileId"));
 						dossierActionNextActioncreateFile.setRequired(createFile.getBoolean("required"));
+						dossierActionNextActioncreateFile.setDossierTemplateNo(createFile.getString("dossierTemplateNo"));
 						
 						outputCreeateFiles.add(dossierActionNextActioncreateFile);
 					}

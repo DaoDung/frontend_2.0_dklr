@@ -1,31 +1,33 @@
 package org.opencps.dossiermgt.vr.utils;
 
-import java.security.MessageDigest;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import com.fds.vr.business.model.VRCOPReportRepository;
+import com.fds.vr.business.model.VRRPDossierStatistics;
+import com.fds.vr.business.model.VRVehicleTypeCertificate;
+import com.fds.vr.business.model.impl.VRRPDossierStatisticsImpl;
+import com.fds.vr.business.service.VRCOPReportRepositoryLocalServiceUtil;
+import com.fds.vr.business.service.VRRPDossierStatisticsLocalServiceUtil;
+import com.fds.vr.business.service.VRVehicleTypeCertificateLocalServiceUtil;
+import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
+import com.liferay.portal.kernel.search.Document;
+import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+
 import java.util.Date;
 import java.util.List;
 
-import org.opencps.dossiermgt.action.keypay.util.HashFunction;
+import org.opencps.dossiermgt.action.util.ConstantsUtils;
 import org.opencps.dossiermgt.constants.DossierTerm;
 import org.opencps.dossiermgt.model.Dossier;
 import org.opencps.dossiermgt.model.DossierAction;
 import org.opencps.dossiermgt.model.ServiceProcess;
 import org.opencps.dossiermgt.service.DossierLocalServiceUtil;
 import org.opencps.dossiermgt.service.ServiceProcessLocalServiceUtil;
-
-import com.fds.vr.business.model.VRRPDossierStatistics;
-import com.fds.vr.business.model.impl.VRRPDossierStatisticsImpl;
-import com.fds.vr.business.service.VRRPDossierStatisticsLocalServiceUtil;
-import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.search.Document;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.Validator;
 
 public class VRRPDossierStatisticUtils {
 
@@ -45,6 +47,12 @@ public class VRRPDossierStatisticUtils {
 			processNo = (serviceProcess != null ) ? serviceProcess.getProcessNo() : (sourceDossier != null ? sourceDossier.getServiceCode() : StringPool.BLANK);
 			
 			if (Validator.isNotNull(processNo) && groupId == 55301) {
+				Dossier dossier_CXL = DossierLocalServiceUtil.fetchDossier(dossierActionModel.getDossierId());
+				Dossier dossier_CTN = DossierLocalServiceUtil.getByRef(ConstantsUtils.GROUP_CTN, dossier_CXL.getReferenceUid());
+				VRVehicleTypeCertificate vrVehicleTypeCertificate = VRVehicleTypeCertificateLocalServiceUtil.findByDossierId_MtCore(dossier_CTN.getDossierId(), 1L);				
+				VRCOPReportRepository vrcopReportRepository = VRCOPReportRepositoryLocalServiceUtil.findByDossierId_MTCore(dossier_CTN.getDossierId(), 1L);
+				_log.info("- Dungnv - VRRPDossierStatisticUtils - dossierId_CTN: " + dossier_CTN.getDossierId());
+				
 				VRRPDossierStatistics statistics = new VRRPDossierStatisticsImpl();				
 				// finder
 				List<VRRPDossierStatistics> lstVRRPDossierStatistics = VRRPDossierStatisticsLocalServiceUtil.findByDossierId(dossierActionModel.getDossierId());
@@ -102,6 +110,8 @@ public class VRRPDossierStatisticUtils {
 					statistics.setSyncDate(new Date());
 				
 				}
+				//Add by Dungnv
+				Company company = CompanyLocalServiceUtil.getCompany(dossierActionModel.getCompanyId());
 				switch (processNo) {
 				case "TT302011BGTVTTTKXCG":  //Tham dinh thiet ke Xe co gioi
 					switch (postStepCode) {
@@ -109,11 +119,31 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){
+							statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+							statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+							statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+							statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+							statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+							statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+							statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+							statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+							statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+							statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+							statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+							statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+							statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+							statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+							statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));
+						}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -166,28 +196,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+						vrVehicleTypeCertificate.setInspectorSignTitle("To truong to Tham dinh thiet ke");
+						vrVehicleTypeCertificate.setInspectorSignPlace("---");
+						vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+						vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+						vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+						vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "201": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -202,6 +249,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+							vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -279,6 +328,17 @@ public class VRRPDossierStatisticUtils {
 						statistics.setDossiercancellingdate(dossiercancellingdate);
 						statistics.setMen2cancelled(actionUserName);
 						break;
+					case "200": //Xac nhan than toan
+						Date paymentDate = dossierActionModel.getCreateDate();
+						statistics.setDossierPaymentDate(paymentDate);
+						statistics.setMen2PaymentApproval(actionUserName);
+						break;
+						
+					case "202": //Lap bien ban
+						//add by Dungnv
+						vrVehicleTypeCertificate.setCertificateRecordDate(new Date());
+						vrVehicleTypeCertificate.setCertificateSignName(actionUserName);
+						break;
 					case "+++": //18. Ngay giay chung nhan phai xem xet hieu luc dossierexpiredate / men2expired
 					
 						break;
@@ -291,8 +351,9 @@ public class VRRPDossierStatisticUtils {
 						break;
 					default:
 						break;
-					}		
-				
+					}
+					VRVehicleTypeCertificateLocalServiceUtil.updateVRVehicleTypeCertificate(vrVehicleTypeCertificate, company);
+					
 					break;
 				case "TT302011BGTVTTDTKXMCD": //Tham dinh thiet ke Xe may chuyen dung 
 					switch (postStepCode) {
@@ -300,6 +361,24 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){
+							statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+							statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+							statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+							statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+							statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+							statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+							statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+							statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+							statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+							statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+							statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+							statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+							statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+							statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+							statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));
+						}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
@@ -491,6 +570,22 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();
@@ -688,6 +783,22 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();
@@ -885,11 +996,33 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if (vrVehicleTypeCertificate != null) {
+							statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+							statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+							statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+							statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+							statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+							statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+							statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+							statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+							statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+							statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+							statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+							statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+							statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+							statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+							statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));
+						}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+						if (vrcopReportRepository.getInspectoRendorSementDate() != null) {
+							vrcopReportRepository.setInspectoRendorSementDate(dossierreceivingdate); // ngay tiep nhan bo sung
+						}
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -970,6 +1103,11 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstassignmentdate  = dossierActionModel.getCreateDate();							
 							statistics.setDossierfirstassignmentdate(dossierfirstassignmentdate);
 							statistics.setMen2firstassignment(actionUserName);
+							//add by Dungnv
+							//vrcopReportRepository.setCorporationName();
+							//vrcopReportRepository.setCorporationId();
+							//vrcopReportRepository.setInspectorContactCode(inspectorContactCode);
+							vrcopReportRepository.setInspectorName(actionUserName);
 						}
 						break;
 					case "206": //9. Ngay bat dau soat xet hstt lan dau dossierfirstreviewdate / men2firstreview
@@ -1070,8 +1208,9 @@ public class VRRPDossierStatisticUtils {
 						break;
 					default:
 						break;
-					}	
-
+					}
+					VRCOPReportRepositoryLocalServiceUtil.updateVRCOPReportRepository(vrcopReportRepository, company);
+					
 					break;
 				case "TT302011BGTVTKTTBLANDAU": //Kiem tra tinh trang hoat dong thiet bi kiem tra
 					switch (postStepCode) {
@@ -1079,6 +1218,22 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
@@ -1274,6 +1429,15 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
@@ -1468,6 +1632,22 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
@@ -1659,6 +1839,15 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
@@ -1850,11 +2039,30 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));
+						}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -1907,28 +2115,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
-						break;
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
+					    break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						 //add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -1943,6 +2168,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -2041,11 +2268,29 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						 //add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -2098,28 +2343,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -2134,6 +2396,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -2233,11 +2497,29 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -2290,28 +2572,44 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
-						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						statistics.setDossierendorsementdate(dossierendorsementdate2);//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -2326,6 +2624,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -2424,11 +2724,29 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -2481,28 +2799,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -2517,6 +2852,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -2614,11 +2951,29 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -2671,28 +3026,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -2707,6 +3079,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -2804,11 +3178,29 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -2861,28 +3253,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -2897,6 +3306,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -2994,11 +3405,29 @@ public class VRRPDossierStatisticUtils {
 					case "130": //1. Nop ho so truc tuyen (hstt) lan dau dossiersendingdate / 
 						Date dossiersendingdate = dossierActionModel.getCreateDate();
 						statistics.setDossiersendingdate(dossiersendingdate);
+						//add by Dungnv
+						if(vrVehicleTypeCertificate != null){statistics.setDossiertype(vrVehicleTypeCertificate.getDossierType());
+						statistics.setVehicleclass(vrVehicleTypeCertificate.getVehicleClass());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertificateType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setCertifiedtrademark(vrVehicleTypeCertificate.getCertifiedTrademark());
+						statistics.setCertifiedtrademarkname(vrVehicleTypeCertificate.getCertifiedTrademarkName());
+						statistics.setCertifiedcommercialname(vrVehicleTypeCertificate.getCertifiedCommercialName());
+						statistics.setCertifiedmodelcode(vrVehicleTypeCertificate.getCertifiedModelCode());
+						statistics.setCertifiedvehicletype(vrVehicleTypeCertificate.getCertifiedVehicleType());
+						statistics.setCertifiedvehicletypedescription(vrVehicleTypeCertificate.getCertifiedVehicleTypeDescription());
+						statistics.setProductionplantaddress(vrVehicleTypeCertificate.getProductionPlantAddress());
+						statistics.setProductionplantname(vrVehicleTypeCertificate.getProductionPlantName());
+						statistics.setCertifiedassemblytype(vrVehicleTypeCertificate.getCertifiedAssemblyType());
+						statistics.setCertifiedassemblytypedescription(vrVehicleTypeCertificate.getCertifiedAssemblyTypeDescription());
+						statistics.setEquipmentimportquantity(Integer.valueOf(String.valueOf(vrVehicleTypeCertificate.getImporterQuantity())));}
 						break;
 					case "133": //2. Can bo tiep nhan hstt, chuyen to truong dossierreceivingdate / men2receiving
 						Date dossierreceivingdate =  dossierActionModel.getCreateDate();						
 						statistics.setDossierreceivingdate(dossierreceivingdate);
 						statistics.setMen2receiving(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierreceivingdate);
 						break;
 					case "131": //3. Ngay yeu cau bo sung hstt lan dau dossierfirstupdatingdate / men2firstupdating
 						Date dossierfirstupdatingdate  =  dossierActionModel.getCreateDate();						
@@ -3051,28 +3480,45 @@ public class VRRPDossierStatisticUtils {
 					case "134": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate);
 						break;
 					case "227": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate2 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate2);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate2);
 						break;
 					case "234": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate3 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate3);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate3);
 						break;
 					case "235": //5. Ngay nop BSSD hstt lan cuoi dossierendorsementdate / men2endorsement
 						Date dossierendorsementdate4 = dossierActionModel.getCreateDate();
 						statistics.setDossierendorsementdate(dossierendorsementdate4);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorendorSementDate(dossierendorsementdate4);
 						break;
 					case "136": //6. Ngay cap so hstt, duoc to truong chap thuan ho so dang ky dossiersubmittingdate / men2submitting
 						Date dossiersubmittingdate  = dossierActionModel.getCreateDate();						
 						statistics.setDossiersubmittingdate(dossiersubmittingdate);
 						statistics.setMen2submitting(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setInspectorSignName(actionUserName);
+					    vrVehicleTypeCertificate.setInspectorSignTitle("---");
+					    vrVehicleTypeCertificate.setInspectorSignPlace("---");
+					    vrVehicleTypeCertificate.setInspectorReceiveDate(statistics.getDossierreceivingdate());
+					    vrVehicleTypeCertificate.setInspectorSubmitDate(statistics.getDossiersubmittingdate());
+					    vrVehicleTypeCertificate.setDossierNo(sourceDossier.getDossierNo());
 						break;
 					case "300": //7. Ngay ky giay chung nhan moi, duoc lanh dao Cuc ky moi dossierfirstcertificatesigndate / men2firstcertificate
 						Date dossierfirstcertificatesigndate   =  dossierActionModel.getCreateDate();						
 						statistics.setDossierfirstcertificatesigndate(dossierfirstcertificatesigndate);
 						statistics.setMen2firstcertificate(actionUserName);
+						//add by Dungnv
+					    vrVehicleTypeCertificate.setVerificationCertificateDate(dossierfirstcertificatesigndate);
 						break;
 					case "200": //8. Ngay phan cong DKV lan dau (hstt cap moi, cap mo rong) dossierfirstassignmentdate / men2firstassignment
 						// Phai lay tu phieu phan cong PPC
@@ -3087,6 +3533,8 @@ public class VRRPDossierStatisticUtils {
 							Date dossierfirstreviewdate  = dossierActionModel.getCreateDate();
 							statistics.setDossierfirstreviewdate(dossierfirstreviewdate);
 							statistics.setMen2firstreview(actionUserName);
+							//add by Dungnv
+					        vrVehicleTypeCertificate.setVerificationRefDate(dossierfirstreviewdate);
 						}
 						break;
 					case "208": //10. Ngay ket thuc soat xet hstt lan dau dossiernexttreviewdate / men2nexttreview
@@ -3224,9 +3672,6 @@ public class VRRPDossierStatisticUtils {
 				default:
 					break;
 				}
-			
-				
-				
 				
 				if (flagUpdate == true) {
 					VRRPDossierStatisticsLocalServiceUtil.updateVRRPDossierStatistics(statistics);

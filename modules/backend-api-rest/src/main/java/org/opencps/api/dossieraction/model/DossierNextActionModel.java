@@ -55,7 +55,8 @@ import javax.xml.bind.annotation.XmlType;
 "autoEvent",
 "preCondition",
 "enable",
-"createFiles"
+"createFiles",
+"eSignature"
 })
 public class DossierNextActionModel {
 
@@ -67,6 +68,7 @@ public class DossierNextActionModel {
 	protected String autoEvent;
 	protected String preCondition;
 	protected Integer enable;
+	protected Boolean eSignature;
 	//add by Dungnv
 	protected List<DossierActionNextActioncreateFiles> createFiles;
 	public List<DossierActionNextActioncreateFiles> getCreateFiles() {
@@ -251,5 +253,15 @@ public Integer getEnable() {
 public void setEnable(Integer enable) {
 	this.enable = enable;
 }
+
+public Boolean geteSignature() {
+	return eSignature;
+}
+
+public void seteSignature(Boolean eSignature) {
+	this.eSignature = eSignature;
+}
+
+
 
 }

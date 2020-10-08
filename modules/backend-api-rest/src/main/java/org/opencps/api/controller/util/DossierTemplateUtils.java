@@ -1,5 +1,12 @@
 package org.opencps.api.controller.util;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.search.Document;
+import com.liferay.portal.kernel.search.Field;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.Validator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +22,9 @@ import org.opencps.dossiermgt.model.DossierPart;
 import org.opencps.dossiermgt.model.DossierTemplate;
 import org.opencps.dossiermgt.service.DossierPartLocalServiceUtil;
 
-import com.liferay.portal.kernel.search.Document;
-import com.liferay.portal.kernel.search.Field;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.Validator;
-
 public class DossierTemplateUtils {
+	
+	private static final Log _log = LogFactoryUtil.getLog(DossierTemplateUtils.class);
 
 	public static List<DossierTemplateDataModel> mappingToDossierTemplateList(List<Document> documents) {
 		List<DossierTemplateDataModel> outputs = new ArrayList<DossierTemplateDataModel>();
@@ -43,7 +47,7 @@ public class DossierTemplateUtils {
 
 	public static DossierTemplateInputModel mappingForTemplatePOST(DossierTemplate dossierTemplate) {
 		DossierTemplateInputModel output = new DossierTemplateInputModel();
-		
+
 		output.setDossierTemplateId(dossierTemplate.getPrimaryKey());
 		output.setDescription(dossierTemplate.getDescription());
 		output.setTemplateName(dossierTemplate.getTemplateName());
@@ -70,7 +74,7 @@ public class DossierTemplateUtils {
 
 			List<DossierPart> dossierParts = DossierPartLocalServiceUtil.getByTemplateNo(dossierTemplate.getGroupId(),
 					dossierTemplate.getTemplateNo());
-
+			
 			if (dossierParts != null && dossierParts.size() > 0) {
 				for (DossierPart dp : dossierParts) {
 					DossierTemplatePartDataModel elm = new DossierTemplatePartDataModel();
@@ -104,10 +108,9 @@ public class DossierTemplateUtils {
 
 		return output;
 	}
-	
-	
+
 	public static List<DossierTemplatePartDataModel> mappingToDossierPartList(List<Document> documents) {
-		
+
 		List<DossierTemplatePartDataModel> outputs = new ArrayList<DossierTemplatePartDataModel>();
 
 		for (Document doc : documents) {
@@ -123,7 +126,7 @@ public class DossierTemplateUtils {
 			model.setFileTemplateNo(doc.get(DossierPartTerm.FILE_TEMPLATE_NO));
 			model.setTypeCode(doc.get(DossierPartTerm.DELIVERABLE_TYPE));
 			model.setDeliverableAction(GetterUtil.getInteger(doc.get(DossierPartTerm.DELIVERABLE_ACTION)));
-			
+
 			boolean hasForm = false;
 
 			if (Validator.isNotNull(doc.get(DossierPartTerm.FORM_SCRIPT))) {
@@ -137,8 +140,7 @@ public class DossierTemplateUtils {
 
 		return outputs;
 	}
-	
-	
+
 	public static DossierPartInputModel mappingForPartPOST(DossierPart object) {
 		DossierPartInputModel output = new DossierPartInputModel();
 
@@ -150,7 +152,7 @@ public class DossierTemplateUtils {
 		output.setRequired(Boolean.toString(object.getRequired()));
 		output.setEsign(Boolean.toString(object.getESign()));
 		output.setFileTemplateNo(object.getFileTemplateNo());
-		
+
 		output.setTypeCode(object.getDeliverableType());
 		output.setDeliverableAction(object.getDeliverableAction());
 

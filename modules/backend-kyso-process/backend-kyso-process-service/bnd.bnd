@@ -5,6 +5,7 @@ Liferay-Require-SchemaVersion: 1.0.0
 Liferay-Service: true
 -includeresource: \
 @vgca.svrsigner.jar;lib:=true,\
+@vgca.hsmsigner.jar;lib:=true,\
 @bcpkix.jar;lib:=true,\
 @bcprov.jar;lib:=true,\
 @itextpdf.jar;lib:=true,\

@@ -60,6 +60,14 @@ public interface DossierFileManagement {
 			@ApiParam(value = "id of dossier", required = true) @PathParam("id") long id,
 			@ApiParam(value = "password for access dossier file", required = false) @PathParam("password") String password);
 
+	@GET
+	@Path("/formfiles/{fileid}")
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED })
+	@ApiOperation(value = "getFilesByFileEntryId")
+	public Response getFile(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @PathParam("fileid") long fileid);
 	
 	@POST
 	@Path("/formfiles")
@@ -132,7 +140,7 @@ public interface DossierFileManagement {
 			@ApiParam(value = "Metadata of DossierFile") @Multipart("fileType") String fileType,
 			@ApiParam(value = "Metadata of DossierFile") @Multipart("isSync") String isSync,
 			@ApiParam(value = "Metadata of DossierFile") @Multipart("formData") @Nullable String formData,
-			@ApiParam(value = "Metadata of DossierFile") @Multipart("formDataDossierFile") long formDataDossierFile);
+			@ApiParam(value = "Metadata of DossierFile") @Multipart("formDataDossierFile") @Nullable String formDataDossierFile);
 
 	/*
 	 * @POST

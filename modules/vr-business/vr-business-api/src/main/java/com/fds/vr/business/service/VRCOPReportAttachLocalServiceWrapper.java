@@ -175,9 +175,11 @@ public class VRCOPReportAttachLocalServiceWrapper
 
 	@Override
 	public int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
 		return _vrcopReportAttachLocalService.adminProcessData(arrayData,
-			dossierId);
+			mtCore, vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -264,12 +266,10 @@ public class VRCOPReportAttachLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPReportAttach> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopReportAttachLocalService.findBycopReportRepositoryID(mtCore,
-			copReportRepositoryID);
+	public java.util.List<com.fds.vr.business.model.VRCOPReportAttach> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
+		return _vrcopReportAttachLocalService.findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

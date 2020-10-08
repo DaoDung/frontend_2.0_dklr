@@ -16,28 +16,51 @@ package com.fds.vr.business.service.impl;
 
 import aQute.bnd.annotation.ProviderType;
 
+import com.fds.vr.business.model.VRReportCategory;
 import com.fds.vr.business.service.base.VRReportCategoryLocalServiceBaseImpl;
 
+import java.util.List;
 /**
  * The implementation of the vr report category local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.fds.vr.business.service.VRReportCategoryLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.fds.vr.business.service.VRReportCategoryLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
- * @author LamTV
+ * @author ddung
  * @see VRReportCategoryLocalServiceBaseImpl
  * @see com.fds.vr.business.service.VRReportCategoryLocalServiceUtil
  */
 @ProviderType
-public class VRReportCategoryLocalServiceImpl
-	extends VRReportCategoryLocalServiceBaseImpl {
+public class VRReportCategoryLocalServiceImpl extends VRReportCategoryLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRReportCategoryLocalServiceUtil} to access the vr report category local service.
+	 * Never reference this class directly. Always use {@link
+	 * com.fds.vr.business.service.VRReportCategoryLocalServiceUtil} to access the
+	 * vr report category local service.
 	 */
+
+	public VRReportCategory findByRptCode(String rptCode) {
+		return vrReportCategoryPersistence.fetchByrptCode(rptCode);
+	}
+	
+	public VRReportCategory findByRptDescription(String rptDescription) {
+		return vrReportCategoryPersistence.fetchByrptDescription(rptDescription);
+	}
+
+	public List<VRReportCategory> findByRptGroup(String rptGroup, int start, int end) {
+		return vrReportCategoryPersistence.findByrptGroup(rptGroup, start, end);
+	}
+
+	public List<VRReportCategory> findByRptLevel(int rptLevel, int start, int end) {
+		return vrReportCategoryPersistence.findByrptLevel(rptLevel, start, end);
+	}
 }

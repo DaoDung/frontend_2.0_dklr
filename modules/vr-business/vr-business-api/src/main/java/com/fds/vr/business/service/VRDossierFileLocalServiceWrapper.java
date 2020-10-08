@@ -117,6 +117,13 @@ public class VRDossierFileLocalServiceWrapper
 	}
 
 	@Override
+	public com.fds.vr.business.model.VRDossierFile getDossierFileByDID_DPNO(
+		long dossierId, java.lang.String dossierPartNo, boolean removed) {
+		return _vrDossierFileLocalService.getDossierFileByDID_DPNO(dossierId,
+			dossierPartNo, removed);
+	}
+
+	@Override
 	public com.fds.vr.business.model.VRDossierFile getDossierFileByDID_FTNO_First(
 		long dossierId, java.lang.String fileTemplateNo, boolean removed,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {

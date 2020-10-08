@@ -223,6 +223,9 @@ public interface VRProductionPlantLocalService extends BaseLocalService,
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
+	public List<VRProductionPlant> findByApplicantId(long applicantProfileId,
+		int start, int end);
+
 	public List<VRProductionPlant> findByRegistrationFormId(long mtCore,
 		long applicantProfileId, long registrationId);
 

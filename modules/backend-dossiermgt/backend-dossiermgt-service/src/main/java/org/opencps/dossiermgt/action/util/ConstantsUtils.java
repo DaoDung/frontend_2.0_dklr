@@ -17,4 +17,5 @@ public class ConstantsUtils {
 	public static final int SYNC_FAIL = 4;
 	public static final int SYNC_PENDING = 2;
 	public static final int SYNC_SUCCESS = 3;
+	public static final String LIST_BB = "KQ1, KQ5, KQ6, KQ4";
 }

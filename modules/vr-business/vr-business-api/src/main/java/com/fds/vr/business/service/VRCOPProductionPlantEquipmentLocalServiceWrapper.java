@@ -122,6 +122,38 @@ public class VRCOPProductionPlantEquipmentLocalServiceWrapper
 	}
 
 	@Override
+	public com.fds.vr.business.model.VRCOPProductionPlantEquipment updateVRCOPProductionPlantEquipment(
+		long vrcopProductionPlantEquipmentId, long mtCore,
+		java.util.Date syncDate, long vrcopReportRepositoryId,
+		java.lang.String copReportNo, int sequenceNo,
+		java.lang.String equipmentCode, java.lang.String equipmentName,
+		java.lang.String equipmentType, java.lang.String trademark,
+		java.lang.String trademarkName, java.lang.String commercialName,
+		java.lang.String modelCode, java.lang.String productionCountryCode,
+		java.lang.String equipmentStatus, java.util.Date expireDate,
+		java.lang.String notes, java.lang.String equipmentSerialNo,
+		java.lang.String productionYear, java.lang.String registrationYear,
+		long markupXCG, long markupXCGNK, long markupSMRM, long markupXCH,
+		long markupXCN, long markupXMY, long markupXDD, int testingResult,
+		java.lang.String description, java.lang.String inspectionRecordNumber,
+		java.util.Date inspectionRecordDate, java.util.Date expiredDate,
+		int expiredStatus, java.lang.String stampTestingNo, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo,
+		long productionPlantId, java.lang.String productionPlantCode) {
+		return _vrcopProductionPlantEquipmentLocalService.updateVRCOPProductionPlantEquipment(vrcopProductionPlantEquipmentId,
+			mtCore, syncDate, vrcopReportRepositoryId, copReportNo, sequenceNo,
+			equipmentCode, equipmentName, equipmentType, trademark,
+			trademarkName, commercialName, modelCode, productionCountryCode,
+			equipmentStatus, expireDate, notes, equipmentSerialNo,
+			productionYear, registrationYear, markupXCG, markupXCGNK,
+			markupSMRM, markupXCH, markupXCN, markupXMY, markupXDD,
+			testingResult, description, inspectionRecordNumber,
+			inspectionRecordDate, expiredDate, expiredStatus, stampTestingNo,
+			dossierId, dossierIdCTN, dossierNo, productionPlantId,
+			productionPlantCode);
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return _vrcopProductionPlantEquipmentLocalService.getActionableDynamicQuery();
 	}
@@ -175,9 +207,11 @@ public class VRCOPProductionPlantEquipmentLocalServiceWrapper
 
 	@Override
 	public int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
 		return _vrcopProductionPlantEquipmentLocalService.adminProcessData(arrayData,
-			dossierId);
+			mtCore, vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -255,21 +289,24 @@ public class VRCOPProductionPlantEquipmentLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportNo(
-		long mtCore, java.lang.String copReportNo)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopProductionPlantEquipmentLocalService.findBycopReportNo(mtCore,
-			copReportNo);
+	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findByDossierId_MtCore(
+		long mtCore, long dossierId, int start, int end) {
+		return _vrcopProductionPlantEquipmentLocalService.findByDossierId_MtCore(mtCore,
+			dossierId, start, end);
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopProductionPlantEquipmentLocalService.findBycopReportRepositoryID(mtCore,
-			copReportRepositoryID);
+	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportNo_MtCore(
+		long mtCore, java.lang.String copReportNo, int start, int end) {
+		return _vrcopProductionPlantEquipmentLocalService.findBycopReportNo_MtCore(mtCore,
+			copReportNo, start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
+		return _vrcopProductionPlantEquipmentLocalService.findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

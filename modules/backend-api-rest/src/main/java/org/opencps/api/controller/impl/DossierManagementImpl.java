@@ -1,8 +1,6 @@
 package org.opencps.api.controller.impl;
 
 import com.fds.vr.service.util.FileUploadUtils;
-import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
-import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -11,7 +9,6 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.User;
-import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Indexer;
@@ -25,9 +22,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -2071,6 +2066,27 @@ public class DossierManagementImpl implements DossierManagement {
 			_log.error(e);
 		}
 		return Response.status(500).entity("{error}").build();
+	}
+
+	@Override
+	public Response getDossierByReferenceUid_GroupId(HttpServletRequest request, HttpHeaders header, Company company,
+			Locale locale, User user, ServiceContext serviceContext, String referenceUid) {
+		
+		long groupId = GetterUtil.getLong(header.getHeaderString("groupId"));
+		try {
+			BackendAuth auth = new BackendAuthImpl();
+			if (!auth.isAuth(serviceContext)) {
+				throw new UnauthenticationException();
+			}
+			
+			Dossier dossier = DossierLocalServiceUtil.getByRef(groupId, referenceUid);
+			DossierDetailModel result = DossierUtils.mappingForGetDetail(dossier, user.getUserId());
+
+			return Response.status(200).entity(result).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500).entity("Can't get Dossier: " + e.getClass().getName()).build();
+		}
 	}
 
 }

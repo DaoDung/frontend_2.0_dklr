@@ -14,23 +14,21 @@
 
 package com.fds.vr.business.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONObject;
 import com.fds.vr.business.model.VRTechnicalSpec_XCN;
 import com.fds.vr.business.model.VRTechnicalSpec_XCNPart2;
 import com.fds.vr.business.model.VRTechnicalSpec_XCNPart3;
 import com.fds.vr.business.service.base.VRTechnicalSpec_XCNLocalServiceBaseImpl;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import aQute.bnd.annotation.ProviderType;
 
 /**
  * The implementation of the vr technical spec_xcn local service.
@@ -60,6 +58,14 @@ public class VRTechnicalSpec_XCNLocalServiceImpl extends VRTechnicalSpec_XCNLoca
 	 * com.fds.vr.business.service.VRTechnicalSpec_XCNLocalServiceUtil} to access
 	 * the vr technical spec_xcn local service.
 	 */
+	
+	public List<VRTechnicalSpec_XCN> findByVehicleCertificateId(long vehicleCertificateId, int start, int end) {
+		return vrTechnicalSpec_XCNPersistence.findByvehicleTypeCertificateId(vehicleCertificateId, start, end);
+	}
+	
+	public List<VRTechnicalSpec_XCN> findBy_DossierId(long dossierId, int start, int end) {
+		return vrTechnicalSpec_XCNPersistence.findBy_DossierId(dossierId, start, end);
+	}
 
 	public List<VRTechnicalSpec_XCN> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {

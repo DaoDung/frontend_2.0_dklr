@@ -225,9 +225,9 @@ public class DossierPullScheduler extends BaseSchedulerEntryMessageListener {
 								dossierFile = DossierFileLocalServiceUtil.updateDossierFile(dossierFile);
 								
 								//Add by Dungnv - Add trackchanges and history
-								serviceContext.setScopeGroupId(dossier.getGroupId());
-								String partNo = dossierFile.getDossierPartNo();
-								
+//								serviceContext.setScopeGroupId(dossier.getGroupId());
+//								String partNo = dossierFile.getDossierPartNo();
+//								
 //								VRBusinessUtils.updateVRTrackchangesAndVRHistoryProfileForDossier(dossierFile.getFormDataDossierFile(), partNo, 
 //										dossierFile.getDossierTemplateNo(), dossierId, dossier.getCompanyId(), 
 //										dossierFile.getFileEntryId(), serviceContext);
@@ -325,9 +325,9 @@ public class DossierPullScheduler extends BaseSchedulerEntryMessageListener {
 								dossierFile = DossierFileLocalServiceUtil.updateDossierFile(dossierFile);
 								
 								//Add by Dungnv - Add trackchanges and history
-								serviceContext.setScopeGroupId(dossier.getGroupId());
-								String partNo = dossierFile.getDossierPartNo();
-								
+//								serviceContext.setScopeGroupId(dossier.getGroupId());
+//								String partNo = dossierFile.getDossierPartNo();
+//								
 //								VRBusinessUtils.updateVRTrackchangesAndVRHistoryProfileForDossier(dossierFile.getFormDataDossierFile(), partNo, 
 //										dossierFile.getDossierTemplateNo(), dossierId, dossier.getCompanyId(), 
 //										dossierFile.getFileEntryId(), serviceContext);
@@ -661,6 +661,7 @@ public class DossierPullScheduler extends BaseSchedulerEntryMessageListener {
 					//DossierFileLocalServiceUtil.updateDossierFile(srcDossierFile);
 
 					// Get file from SERVER
+					_log.info("dossier.getDossierId(): " + dossier.getDossierId() + " ==== fileRef: " + fileRef);
 					String path = "dossiers/" + dossier.getDossierId() + "/files/" + fileRef;
 
 					URL url = new URL(RESTFulConfiguration.SERVER_PATH_BASE + path);
@@ -820,9 +821,9 @@ public class DossierPullScheduler extends BaseSchedulerEntryMessageListener {
 			serviceContext.setScopeGroupId(desGroupId);
 			String partNo = dossierFile.getDossierPartNo();
 			
-//			VRBusinessUtils.updateVRTrackchangesAndVRHistoryProfileForDossier(dossierFile.getFormDataDossierFile(), partNo, 
-//					dossierFile.getDossierTemplateNo(), desDossierId, dossier.getCompanyId(), 
-//					dossierFile.getFileEntryId(), serviceContext);
+			VRBusinessUtils.updateVRTrackchangesAndVRHistoryProfileForDossier(dossierFile.getFormDataDossierFile(), partNo, 
+					dossierFile.getDossierTemplateNo(), desDossierId, dossier.getCompanyId(), 
+					dossierFile.getFileEntryId(), serviceContext);
 		}
 
 	}
@@ -952,7 +953,7 @@ public class DossierPullScheduler extends BaseSchedulerEntryMessageListener {
 			if (Validator.isNull(dossierFile)) {
 				// create dossierFile
 				dossierFile = DossierFileLocalServiceUtil.addDossierFile(desGroupId, dossierId,
-						PortalUUIDUtil.generate(), dossierTemplateNo, part.getPartNo(), part.getFileTemplateNo(),
+						fileRef, dossierTemplateNo, part.getPartNo(), part.getFileTemplateNo(),
 						part.getPartName(), StringPool.BLANK, 0, null, StringPool.BLANK, StringPool.FALSE,
 						dossierActionId, serviceContext);
 			}

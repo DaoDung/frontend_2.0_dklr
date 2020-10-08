@@ -3,7 +3,6 @@ package org.opencps.dossiermgt.vr.utils;
 import com.fds.vr.business.model.VRApplicantProfile;
 import com.fds.vr.business.model.VRCOPReportRepository;
 import com.fds.vr.business.model.VRProductionPlant;
-import com.fds.vr.business.model.impl.VRProductionPlantImpl;
 import com.fds.vr.business.service.VRApplicantProfileLocalServiceUtil;
 import com.fds.vr.business.service.VRCOPProdEquipmentLocalServiceUtil;
 import com.fds.vr.business.service.VRCOPProductionPlantEmployeeLocalServiceUtil;
@@ -61,7 +60,7 @@ public class ResultDeliverableCOPUtils {
 		long dossierId = dossier.getDossierId();
 		long registrationFormId = 1;
 		//
-		VRApplicantProfile appProFile = VRApplicantProfileLocalServiceUtil.findByMT_APP_CODE(mtCore, applicantIdNo);
+		VRApplicantProfile appProFile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(applicantIdNo);
 		VRProductionPlant productionPlan = null;
 		if (appProFile != null) {
 			long applicantProfileId = appProFile.getId();

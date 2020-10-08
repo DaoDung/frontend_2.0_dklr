@@ -254,6 +254,11 @@ public class VRProductionPlantLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRProductionPlant> findByApplicantId(
+		long applicantProfileId, int start, int end) {
+		return getService().findByApplicantId(applicantProfileId, start, end);
+	}
+
 	public static java.util.List<com.fds.vr.business.model.VRProductionPlant> findByRegistrationFormId(
 		long mtCore, long applicantProfileId, long registrationId) {
 		return getService()

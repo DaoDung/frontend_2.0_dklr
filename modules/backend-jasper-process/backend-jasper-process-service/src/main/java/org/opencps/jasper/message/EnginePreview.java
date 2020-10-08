@@ -1,9 +1,5 @@
 package org.opencps.jasper.message;
 
-import java.io.File;
-
-import org.opencps.jasper.utils.JRReportUtil;
-
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -15,6 +11,10 @@ import com.liferay.portal.kernel.messaging.MessageListener;
 import com.liferay.portal.kernel.messaging.MessageListenerException;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.Validator;
+
+import java.io.File;
+
+import org.opencps.jasper.utils.JRReportUtil;
 
 public class EnginePreview implements MessageListener {
 
@@ -51,7 +51,6 @@ public class EnginePreview implements MessageListener {
 
 			responseMessage.setPayload(file.getCanonicalPath());
 			responseMessage.put("fileDes", file.getCanonicalPath());
-			
 			MessageBusUtil.sendMessage(responseMessage.getDestinationName(), responseMessage);
 
 		} catch (Exception e) {

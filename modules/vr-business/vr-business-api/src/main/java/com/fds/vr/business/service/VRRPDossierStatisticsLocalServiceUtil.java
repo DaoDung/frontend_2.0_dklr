@@ -176,6 +176,12 @@ public class VRRPDossierStatisticsLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
+	public static java.util.Iterator<java.lang.Object[]> findDataReport(
+		java.lang.String sqlQuery)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findDataReport(sqlQuery);
+	}
+
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
 	*

@@ -80,6 +80,8 @@ public interface VRInputStampbookLocalService extends BaseLocalService,
 	*/
 	public VRInputStampbook createVRInputStampbook(long id);
 
+	public VRInputStampbook deleteInputStampbook(long id);
+
 	/**
 	* Deletes the vr input stampbook from the database. Also notifies the appropriate model listeners.
 	*
@@ -234,6 +236,10 @@ public interface VRInputStampbookLocalService extends BaseLocalService,
 	public List<VRInputStampbook> findBySum3GreaterThan()
 		throws PortalException, SystemException;
 
+	public List<VRInputStampbook> findByVRInputStampBookInventorys(
+		java.lang.String vehicleClass, java.lang.String stampType, int start,
+		int end);
+
 	/**
 	* Returns a range of all the vr input stampbooks.
 	*
@@ -268,7 +274,7 @@ public interface VRInputStampbookLocalService extends BaseLocalService,
 	public long dynamicQueryCount(DynamicQuery dynamicQuery,
 		Projection projection);
 
-	public void updateJSONArrayInputStambook(long inputSheetId,
+	public long updateJSONArrayInputStambook(long inputSheetId,
 		java.lang.Long corporationId, java.lang.Long inputSheetType,
 		java.lang.String stampbooks, java.lang.Long isApproval)
 		throws PortalException, SystemException;

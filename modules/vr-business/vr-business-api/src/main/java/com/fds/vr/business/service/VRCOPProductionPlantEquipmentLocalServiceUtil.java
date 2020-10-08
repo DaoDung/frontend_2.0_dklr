@@ -123,6 +123,38 @@ public class VRCOPProductionPlantEquipmentLocalServiceUtil {
 				   .updateVRCOPProductionPlantEquipment(vrcopProductionPlantEquipment);
 	}
 
+	public static com.fds.vr.business.model.VRCOPProductionPlantEquipment updateVRCOPProductionPlantEquipment(
+		long vrcopProductionPlantEquipmentId, long mtCore,
+		java.util.Date syncDate, long vrcopReportRepositoryId,
+		java.lang.String copReportNo, int sequenceNo,
+		java.lang.String equipmentCode, java.lang.String equipmentName,
+		java.lang.String equipmentType, java.lang.String trademark,
+		java.lang.String trademarkName, java.lang.String commercialName,
+		java.lang.String modelCode, java.lang.String productionCountryCode,
+		java.lang.String equipmentStatus, java.util.Date expireDate,
+		java.lang.String notes, java.lang.String equipmentSerialNo,
+		java.lang.String productionYear, java.lang.String registrationYear,
+		long markupXCG, long markupXCGNK, long markupSMRM, long markupXCH,
+		long markupXCN, long markupXMY, long markupXDD, int testingResult,
+		java.lang.String description, java.lang.String inspectionRecordNumber,
+		java.util.Date inspectionRecordDate, java.util.Date expiredDate,
+		int expiredStatus, java.lang.String stampTestingNo, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo,
+		long productionPlantId, java.lang.String productionPlantCode) {
+		return getService()
+				   .updateVRCOPProductionPlantEquipment(vrcopProductionPlantEquipmentId,
+			mtCore, syncDate, vrcopReportRepositoryId, copReportNo, sequenceNo,
+			equipmentCode, equipmentName, equipmentType, trademark,
+			trademarkName, commercialName, modelCode, productionCountryCode,
+			equipmentStatus, expireDate, notes, equipmentSerialNo,
+			productionYear, registrationYear, markupXCG, markupXCGNK,
+			markupSMRM, markupXCH, markupXCN, markupXMY, markupXDD,
+			testingResult, description, inspectionRecordNumber,
+			inspectionRecordDate, expiredDate, expiredStatus, stampTestingNo,
+			dossierId, dossierIdCTN, dossierNo, productionPlantId,
+			productionPlantCode);
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return getService().getActionableDynamicQuery();
 	}
@@ -169,8 +201,12 @@ public class VRCOPProductionPlantEquipmentLocalServiceUtil {
 	}
 
 	public static int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
-		return getService().adminProcessData(arrayData, dossierId);
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
+		return getService()
+				   .adminProcessData(arrayData, mtCore,
+			vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -241,19 +277,22 @@ public class VRCOPProductionPlantEquipmentLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
-	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportNo(
-		long mtCore, java.lang.String copReportNo)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().findBycopReportNo(mtCore, copReportNo);
+	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findByDossierId_MtCore(
+		long mtCore, long dossierId, int start, int end) {
+		return getService().findByDossierId_MtCore(mtCore, dossierId, start, end);
 	}
 
-	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportNo_MtCore(
+		long mtCore, java.lang.String copReportNo, int start, int end) {
 		return getService()
-				   .findBycopReportRepositoryID(mtCore, copReportRepositoryID);
+				   .findBycopReportNo_MtCore(mtCore, copReportNo, start, end);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEquipment> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
+		return getService()
+				   .findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

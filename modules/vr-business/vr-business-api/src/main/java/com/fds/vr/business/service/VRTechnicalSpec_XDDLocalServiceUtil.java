@@ -231,6 +231,11 @@ public class VRTechnicalSpec_XDDLocalServiceUtil {
 	}
 
 	public static java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XDD> findByDossierId(
+		long dossierId, int start, int end) {
+		return getService().findByDossierId(dossierId, start, end);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XDD> findByDossierId(
 		long dossierId, long mtCore)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().findByDossierId(dossierId, mtCore);
@@ -252,6 +257,12 @@ public class VRTechnicalSpec_XDDLocalServiceUtil {
 		java.lang.String referenceUid)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().findByReferenceUid(referenceUid);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XDD> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end) {
+		return getService()
+				   .findByVehicleCertificateId(vehicleCertificateId, start, end);
 	}
 
 	/**

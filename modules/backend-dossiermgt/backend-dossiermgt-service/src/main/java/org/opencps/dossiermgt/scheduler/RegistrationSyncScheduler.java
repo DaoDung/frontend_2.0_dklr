@@ -1,8 +1,40 @@
 package org.opencps.dossiermgt.scheduler;
 
+import com.fds.vr.business.model.VRApplicantProfile;
+import com.fds.vr.business.model.VRApplicantProfileHistory;
+import com.fds.vr.business.model.VRProductionPlant;
+import com.fds.vr.business.model.impl.VRApplicantProfileHistoryImpl;
+import com.fds.vr.business.model.impl.VRApplicantProfileImpl;
+import com.fds.vr.business.model.impl.VRProductionPlantImpl;
+import com.fds.vr.business.service.VRApplicantProfileHistoryLocalServiceUtil;
+import com.fds.vr.business.service.VRApplicantProfileLocalServiceUtil;
+import com.fds.vr.business.service.VRProductionPlantLocalServiceUtil;
+import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.messaging.BaseSchedulerEntryMessageListener;
+import com.liferay.portal.kernel.messaging.DestinationNames;
+import com.liferay.portal.kernel.messaging.Message;
+import com.liferay.portal.kernel.model.Company;
+import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
+import com.liferay.portal.kernel.scheduler.SchedulerEngineHelper;
+import com.liferay.portal.kernel.scheduler.TimeUnit;
+import com.liferay.portal.kernel.scheduler.TriggerFactory;
+import com.liferay.portal.kernel.scheduler.TriggerFactoryUtil;
+import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.servlet.HttpMethods;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+
 import java.net.HttpURLConnection;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +48,6 @@ import org.opencps.datamgt.model.DictItem;
 import org.opencps.datamgt.service.DictCollectionLocalServiceUtil;
 import org.opencps.datamgt.service.DictItemLocalServiceUtil;
 import org.opencps.dossiermgt.constants.RegistrationTerm;
-import org.opencps.dossiermgt.exception.NoSuchRegistrationException;
 import org.opencps.dossiermgt.model.Registration;
 import org.opencps.dossiermgt.model.RegistrationForm;
 import org.opencps.dossiermgt.model.RegistrationTemplates;
@@ -31,44 +62,6 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
-
-import com.fds.vr.business.model.VRApplicantProfile;
-import com.fds.vr.business.model.VRApplicantProfileHistory;
-import com.fds.vr.business.model.VRProductionPlant;
-import com.fds.vr.business.model.impl.VRApplicantProfileHistoryImpl;
-import com.fds.vr.business.model.impl.VRApplicantProfileImpl;
-import com.fds.vr.business.model.impl.VRProductionPlantImpl;
-import com.fds.vr.business.service.VRApplicantProfileHistoryLocalServiceUtil;
-import com.fds.vr.business.service.VRApplicantProfileLocalServiceUtil;
-import com.fds.vr.business.service.VRProductionPlantLocalServiceUtil;
-import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.json.JSON;
-import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONException;
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.messaging.BaseSchedulerEntryMessageListener;
-import com.liferay.portal.kernel.messaging.DestinationNames;
-import com.liferay.portal.kernel.messaging.Message;
-import com.liferay.portal.kernel.model.Company;
-import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
-import com.liferay.portal.kernel.scheduler.SchedulerEngineHelper;
-import com.liferay.portal.kernel.scheduler.TimeUnit;
-import com.liferay.portal.kernel.scheduler.TriggerFactory;
-import com.liferay.portal.kernel.scheduler.TriggerFactoryUtil;
-import com.liferay.portal.kernel.search.Indexer;
-import com.liferay.portal.kernel.search.IndexerRegistryUtil;
-import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
-import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.servlet.HttpMethods;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.Validator;
 
 @Component(immediate = true, service = RegistrationSyncScheduler.class)
 public class RegistrationSyncScheduler extends BaseSchedulerEntryMessageListener {
@@ -203,15 +196,14 @@ public class RegistrationSyncScheduler extends BaseSchedulerEntryMessageListener
 							// 2. Update vr_applicantprofile
 
 							VRApplicantProfile appProfile = new VRApplicantProfileImpl();
-							List<VRApplicantProfile> lstAppProfile = VRApplicantProfileLocalServiceUtil
-									.findByapplicantCode(1, registrationClient.getApplicantIdNo().trim());
-							if (lstAppProfile != null && lstAppProfile.size() > 0) {
-								appProfile = lstAppProfile.get(0);
-								flagUpdate = true;
-							} else {
-								flagUpdate = false;
-								appProfile.setId(CounterLocalServiceUtil.increment(VRApplicantProfile.class.getName()));
-							}
+                    		VRApplicantProfile vrApplicantProfile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(registrationClient.getApplicantIdNo().trim());
+                            if (vrApplicantProfile != null) {
+                            	appProfile = vrApplicantProfile;
+                            	flagUpdate = true;
+                            } else {
+                            	flagUpdate = false;
+                            	appProfile.setId(CounterLocalServiceUtil.increment(VRApplicantProfile.class.getName()));
+                            }
 
 							appProfile.setMtCore(1);
 							appProfile.setModifyDate(new Date());
@@ -255,9 +247,8 @@ public class RegistrationSyncScheduler extends BaseSchedulerEntryMessageListener
 								VRApplicantProfileLocalServiceUtil.updateVRApplicantProfile(appProfile);
 							} else {
 								// Last check for duplicate error
-								List<VRApplicantProfile> lstNewAppProfile = VRApplicantProfileLocalServiceUtil
-										.findByapplicantCode(1, registrationClient.getApplicantIdNo().trim());
-								if (lstNewAppProfile != null && lstNewAppProfile.size() > 0) {
+								VRApplicantProfile profile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(registrationClient.getApplicantIdNo().trim());
+								if (profile != null) {
 									_log.info("Kiem tra va Loai bo trung lap VRApplicantProfile.");
 									flagNotDuplicate = false;
 								} else {

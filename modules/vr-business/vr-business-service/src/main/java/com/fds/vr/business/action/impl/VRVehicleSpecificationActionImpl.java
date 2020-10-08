@@ -3,6 +3,7 @@ package com.fds.vr.business.action.impl;
 import com.fds.vr.business.action.VRVehicleSpecificationAction;
 import com.fds.vr.business.action.util.ActionUtil;
 import com.fds.vr.business.engine.SQLQueryBuilder;
+import com.fds.vr.business.model.VRVehicleSpecification;
 import com.fds.vr.business.model.impl.VRVehicleSpecificationImpl;
 import com.fds.vr.business.service.VRVehicleSpecificationLocalServiceUtil;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -13,6 +14,7 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @author trungnt
@@ -130,6 +132,11 @@ public class VRVehicleSpecificationActionImpl implements VRVehicleSpecificationA
 		result.put("total", total);
 		result.put("data", data);
 		return result;
+	}
+
+	@Override
+	public List<VRVehicleSpecification> findByDossierId(long dossierId, int start, int end) {
+		return VRVehicleSpecificationLocalServiceUtil.findByDossierId(dossierId, start, end);
 	}
 
 }

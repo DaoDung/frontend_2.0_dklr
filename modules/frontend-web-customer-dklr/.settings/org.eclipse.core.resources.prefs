@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/main/java/frontend/web/customer/dklr/portlet/FrontendWebCustomerDklrPortlet.java=UTF-8
+encoding//src/main/resources/templates/customerRouting.ftl=UTF-8
+encoding//src/main/resources/templates/customerView.ftl=UTF-8
+encoding//src/main/resources/templates/customer_dossier_detail.ftl=UTF-8
+encoding//src/main/resources/templates/customer_dossier_detail_2.ftl=UTF-8
+encoding//src/main/resources/templates/manageDossierRouter.ftl=UTF-8
+encoding//src/main/resources/templates/manageDossierView.ftl=UTF-8
+encoding//src/main/resources/templates/manageDossierViewModel.ftl=UTF-8
+encoding//src/main/resources/templates/manageDossierView_3.ftl=UTF-8
+encoding//src/main/resources/templates/notificationPaying.ftl=UTF-8

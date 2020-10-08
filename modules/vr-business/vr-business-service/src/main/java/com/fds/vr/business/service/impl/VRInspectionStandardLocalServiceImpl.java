@@ -14,13 +14,7 @@
 
 package com.fds.vr.business.service.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-
+import com.fds.vr.business.model.VRDossier;
 import com.fds.vr.business.model.VRDossierFile;
 import com.fds.vr.business.model.VRInspectionStandard;
 import com.fds.vr.business.model.VRRegistration;
@@ -31,6 +25,13 @@ import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 import aQute.bnd.annotation.ProviderType;
 
@@ -56,6 +57,10 @@ public class VRInspectionStandardLocalServiceImpl
 	 *
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRInspectionStandardLocalServiceUtil} to access the vr inspection standard local service.
 	 */
+	
+	public List<VRInspectionStandard> findByDossierId(long dossierId, int start, int end) {
+		return vrInspectionStandardPersistence.findBydossierId(dossierId, start, end);
+	}
 
 	public VRInspectionStandard updateInspectionStandard(LinkedHashMap<String, String> mapValues,
 			long vrVehicleCertificateId, Date modifiedDate, VRRegistration registration, VRDossierFile dossierFile) {
@@ -88,6 +93,10 @@ public class VRInspectionStandardLocalServiceImpl
 		return new ArrayList<VRInspectionStandard>();
 		
 	}
+	
+	public List<VRInspectionStandard> findByVehicleCertificateId(long vehicleCertificateId, int start, int end) {
+		return vrInspectionStandardPersistence.findByF_vehicleCertificateId(vehicleCertificateId, start, end);
+	}
 
 
 	public List<VRInspectionStandard> findByDeliverableCode(String deliverableCode) throws PortalException, SystemException {
@@ -116,6 +125,7 @@ public class VRInspectionStandardLocalServiceImpl
 		try {
 			vrInspectionStandardPersistence.removeBydossierId(dossierId);
 			
+			VRDossier dossier = vrDossierPersistence.fetchByPrimaryKey(dossierId);
 			Date now = new Date();
 			for (int i = 0; i < arrayData.length(); i++) {
 				JSONObject objectData = arrayData.getJSONObject(i);
@@ -123,6 +133,16 @@ public class VRInspectionStandardLocalServiceImpl
 				VRInspectionStandard object = null;
 				long id = counterLocalService.increment(VRInspectionStandard.class.getName());
 				object = vrInspectionStandardPersistence.create(id);
+//				List<DictItem> dictItems = DictItemLocalServiceUtil.findByF_dictCollectionId(objectData.getLong("dictCollectionId"));
+//				Date circularDate = null;
+//				if (dictItems != null && !dictItems.isEmpty()) {
+//					dictItems.parallelStream().forEach(dictItem -> {
+//						if (dictItem.getItemName().equalsIgnoreCase(objectData.getString("circularNo"))) {
+//							
+//							break;
+//						}
+//					});
+//				}
 				
 				object.setVehicleCertificateId(vehicleTypeCertificateId);
 				object.setDeliverableCode(objectData.getString("deliverableCode"));
@@ -131,8 +151,9 @@ public class VRInspectionStandardLocalServiceImpl
 				object.setCircularno(objectData.getString("circularNo"));
 				object.setMarkupstatus(objectData.getLong("markupStatus"));
 				object.setModule(objectData.getString("module"));
-				object.setDossierId(objectData.getLong("dossierId"));
-				object.setDossierNo(objectData.getString("dossierNo"));
+				
+				object.setDossierId(dossier.getDossierId());
+				object.setDossierNo(dossier.getDossierNo());
 				object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
 				object.setModifyDate(now);
 				object.setSyncDate(now);

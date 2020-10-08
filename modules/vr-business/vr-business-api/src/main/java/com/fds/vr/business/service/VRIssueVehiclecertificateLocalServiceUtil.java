@@ -146,6 +146,13 @@ public class VRIssueVehiclecertificateLocalServiceUtil {
 			modelClassName, start, end);
 	}
 
+	public static com.liferay.portal.kernel.json.JSONObject adminProcess(
+		com.liferay.portal.kernel.json.JSONArray arrayData, long issueId,
+		long dossierId, long mtCore)
+		throws com.liferay.portal.kernel.json.JSONException {
+		return getService().adminProcess(arrayData, issueId, dossierId, mtCore);
+	}
+
 	/**
 	* @throws PortalException
 	*/
@@ -229,6 +236,18 @@ public class VRIssueVehiclecertificateLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findByIssueId(
+		long issueId, int start, int end) {
+		return getService().findByIssueId(issueId, start, end);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findByIssueId_MtCore(
+		long mtCore, long issueId, int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().findByIssueId_MtCore(mtCore, issueId, start, end);
+	}
+
 	public static java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findBycertificateId(
 		long mtCore, long dossierId, long certificateId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -241,13 +260,6 @@ public class VRIssueVehiclecertificateLocalServiceUtil {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService().findBydossierId(mtCore, dossierId);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findByissueId(
-		long mtCore, long issueId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByissueId(mtCore, issueId);
 	}
 
 	/**

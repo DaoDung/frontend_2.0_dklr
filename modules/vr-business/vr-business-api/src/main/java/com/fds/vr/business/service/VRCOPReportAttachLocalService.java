@@ -158,7 +158,9 @@ public interface VRCOPReportAttachLocalService extends BaseLocalService,
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
-	public int adminProcessData(JSONArray arrayData, long dossierId);
+	public int adminProcessData(JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo);
 
 	/**
 	* Returns the number of vrcop report attachs.
@@ -217,8 +219,8 @@ public interface VRCOPReportAttachLocalService extends BaseLocalService,
 	public List<VRCOPReportAttach> findBycopReportNo(long mtCore,
 		java.lang.String copReportNo) throws PortalException, SystemException;
 
-	public List<VRCOPReportAttach> findBycopReportRepositoryID(long mtCore,
-		long copReportRepositoryID) throws PortalException, SystemException;
+	public List<VRCOPReportAttach> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end);
 
 	/**
 	* Returns a range of all the vrcop report attachs.

@@ -16,6 +16,11 @@ package com.fds.vr.business.service;
 
 import aQute.bnd.annotation.ProviderType;
 
+import com.fds.vr.business.model.VRCOPProdEquipment;
+import com.fds.vr.business.model.VRCOPProductType;
+import com.fds.vr.business.model.VRCOPProductionPlantEmployee;
+import com.fds.vr.business.model.VRCOPProductionPlantEquipment;
+import com.fds.vr.business.model.VRCOPReportAttach;
 import com.fds.vr.business.model.VRCOPReportRepository;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
@@ -26,6 +31,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -109,6 +115,9 @@ public interface VRCOPReportRepositoryLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRCOPReportRepository fetchVRCOPReportRepository(long id);
 
+	public VRCOPReportRepository findByDossierId_MTCore(long dossierId,
+		long mtCore);
+
 	public VRCOPReportRepository findBycopReportNo(long mtCore,
 		java.lang.String copReportNo) throws PortalException, SystemException;
 
@@ -135,6 +144,9 @@ public interface VRCOPReportRepositoryLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public VRCOPReportRepository updateVRCOPReportRepository(
 		VRCOPReportRepository vrcopReportRepository);
+
+	public VRCOPReportRepository updateVRCOPReportRepository(
+		VRCOPReportRepository vrcopReportRepository, Company company);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -219,6 +231,10 @@ public interface VRCOPReportRepositoryLocalService extends BaseLocalService,
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
+	public List<VRCOPReportRepository> findByMtCore_ProductionPlantCode_COPClassification(
+		long mtCore, java.lang.String productionPlantCode,
+		java.lang.String copClassification, int start, int end);
+
 	public List<VRCOPReportRepository> findByapplicantProfileId(long mtCore,
 		long applicantProfileId) throws PortalException, SystemException;
 
@@ -234,6 +250,21 @@ public interface VRCOPReportRepositoryLocalService extends BaseLocalService,
 		long applicantProfileId, java.lang.String productionPlantName,
 		java.lang.String productionPlantAddress)
 		throws PortalException, SystemException;
+
+	public List<VRCOPProdEquipment> findVRCOPProdEquipmentsByDossierId(
+		long dossierId, long mtCore, int start, int end);
+
+	public List<VRCOPProductType> findVRCOPProductTypesByDossierId(
+		long dossierId, long mtCore, int start, int end);
+
+	public List<VRCOPProductionPlantEmployee> findVRCOPProductionPlantEmployeesByDossierId(
+		long dossierId, long mtCore, int start, int end);
+
+	public List<VRCOPProductionPlantEquipment> findVRCOPProductionPlantEquipmentsByDossierId(
+		long dossierId, long mtCore, int start, int end);
+
+	public List<VRCOPReportAttach> findVRCOPReportAttachsByDossierId(
+		long dossierId, long mtCore, int start, int end);
 
 	/**
 	* Returns a range of all the vrcop report repositories.

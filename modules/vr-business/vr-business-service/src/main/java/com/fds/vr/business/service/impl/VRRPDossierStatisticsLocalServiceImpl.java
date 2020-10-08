@@ -15,6 +15,7 @@
 package com.fds.vr.business.service.impl;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +143,10 @@ public class VRRPDossierStatisticsLocalServiceImpl extends VRRPDossierStatistics
 	public long counData(String sql) throws SystemException {
 
 		return vrrpDossierStatisticsFinder.countData(sql);
+	}
+	
+	public Iterator<Object[]> findDataReport(String sqlQuery) throws SystemException {
+		return vrrpDossierStatisticsFinder.findDataReport(sqlQuery);
 	}
 
 	private Log _log = LogFactoryUtil.getLog(VRRPDossierStatisticsLocalServiceImpl.class);

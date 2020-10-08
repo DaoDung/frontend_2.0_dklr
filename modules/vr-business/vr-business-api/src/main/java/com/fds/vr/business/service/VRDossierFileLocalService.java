@@ -122,6 +122,10 @@ public interface VRDossierFileLocalService extends BaseLocalService,
 	public VRDossierFile getByDossierFileId(long dossierFileId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public VRDossierFile getDossierFileByDID_DPNO(long dossierId,
+		java.lang.String dossierPartNo, boolean removed);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRDossierFile getDossierFileByDID_FTNO_First(long dossierId,
 		java.lang.String fileTemplateNo, boolean removed,
 		OrderByComparator orderByComparator);

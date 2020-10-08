@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.fds.vr.business.service.impl.VRActionconfigLocalServiceImpl" id="com.fds.vr.business.service.VRActionconfigLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRActionconfigPersistenceImpl" id="com.fds.vr.business.service.persistence.VRActionconfigPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRApplicantProfileLocalServiceImpl" id="com.fds.vr.business.service.VRApplicantProfileLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRApplicantProfilePersistenceImpl" id="com.fds.vr.business.service.persistence.VRApplicantProfilePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRApplicantProfileFinderImpl" id="com.fds.vr.business.service.persistence.VRApplicantProfileFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRApplicantProfileHistoryLocalServiceImpl" id="com.fds.vr.business.service.VRApplicantProfileHistoryLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRApplicantProfileHistoryPersistenceImpl" id="com.fds.vr.business.service.persistence.VRApplicantProfileHistoryPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRApplicantProfileHistoryFinderImpl" id="com.fds.vr.business.service.persistence.VRApplicantProfileHistoryFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCertificateProgressLocalServiceImpl" id="com.fds.vr.business.service.VRCertificateProgressLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCertificateProgressPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCertificateProgressPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCertificateProgressFileLocalServiceImpl" id="com.fds.vr.business.service.VRCertificateProgressFileLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCertificateProgressFilePersistenceImpl" id="com.fds.vr.business.service.persistence.VRCertificateProgressFilePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCFGStandardLocalServiceImpl" id="com.fds.vr.business.service.VRCFGStandardLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCFGStandardPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCFGStandardPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRClearingStampbookLocalServiceImpl" id="com.fds.vr.business.service.VRClearingStampbookLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRClearingStampbookPersistenceImpl" id="com.fds.vr.business.service.persistence.VRClearingStampbookPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRClearingStampbookFinderImpl" id="com.fds.vr.business.service.persistence.VRClearingStampbookFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRConfigTechSpecLocalServiceImpl" id="com.fds.vr.business.service.VRConfigTechSpecLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRConfigTechSpecPersistenceImpl" id="com.fds.vr.business.service.persistence.VRConfigTechSpecPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCOPProdEquipmentLocalServiceImpl" id="com.fds.vr.business.service.VRCOPProdEquipmentLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProdEquipmentPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCOPProdEquipmentPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProdEquipmentFinderImpl" id="com.fds.vr.business.service.persistence.VRCOPProdEquipmentFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCOPProductionPlantEmployeeLocalServiceImpl" id="com.fds.vr.business.service.VRCOPProductionPlantEmployeeLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProductionPlantEmployeePersistenceImpl" id="com.fds.vr.business.service.persistence.VRCOPProductionPlantEmployeePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProductionPlantEmployeeFinderImpl" id="com.fds.vr.business.service.persistence.VRCOPProductionPlantEmployeeFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCOPProductionPlantEquipmentLocalServiceImpl" id="com.fds.vr.business.service.VRCOPProductionPlantEquipmentLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProductionPlantEquipmentPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCOPProductionPlantEquipmentPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProductionPlantEquipmentFinderImpl" id="com.fds.vr.business.service.persistence.VRCOPProductionPlantEquipmentFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCOPProductTypeLocalServiceImpl" id="com.fds.vr.business.service.VRCOPProductTypeLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProductTypePersistenceImpl" id="com.fds.vr.business.service.persistence.VRCOPProductTypePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPProductTypeFinderImpl" id="com.fds.vr.business.service.persistence.VRCOPProductTypeFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCOPReportAttachLocalServiceImpl" id="com.fds.vr.business.service.VRCOPReportAttachLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPReportAttachPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCOPReportAttachPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPReportAttachFinderImpl" id="com.fds.vr.business.service.persistence.VRCOPReportAttachFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCOPReportRepositoryLocalServiceImpl" id="com.fds.vr.business.service.VRCOPReportRepositoryLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPReportRepositoryPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCOPReportRepositoryPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCOPReportRepositoryFinderImpl" id="com.fds.vr.business.service.persistence.VRCOPReportRepositoryFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCorporationAttendeeLocalServiceImpl" id="com.fds.vr.business.service.VRCorporationAttendeeLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCorporationAttendeePersistenceImpl" id="com.fds.vr.business.service.persistence.VRCorporationAttendeePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCorporationAttendeeFinderImpl" id="com.fds.vr.business.service.persistence.VRCorporationAttendeeFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCorporationInspectorLocalServiceImpl" id="com.fds.vr.business.service.VRCorporationInspectorLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCorporationInspectorPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCorporationInspectorPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCorporationInspectorFinderImpl" id="com.fds.vr.business.service.persistence.VRCorporationInspectorFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRCorporationViewLocalServiceImpl" id="com.fds.vr.business.service.VRCorporationViewLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCorporationViewPersistenceImpl" id="com.fds.vr.business.service.persistence.VRCorporationViewPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRCorporationViewFinderImpl" id="com.fds.vr.business.service.persistence.VRCorporationViewFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRDossierLocalServiceImpl" id="com.fds.vr.business.service.VRDossierLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRDossierPersistenceImpl" id="com.fds.vr.business.service.persistence.VRDossierPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRDossierFileLocalServiceImpl" id="com.fds.vr.business.service.VRDossierFileLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRDossierFilePersistenceImpl" id="com.fds.vr.business.service.persistence.VRDossierFilePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRESLocalServiceImpl" id="com.fds.vr.business.service.VRESLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRESPersistenceImpl" id="com.fds.vr.business.service.persistence.VRESPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRHistoryProfileLocalServiceImpl" id="com.fds.vr.business.service.VRHistoryProfileLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRHistoryProfilePersistenceImpl" id="com.fds.vr.business.service.persistence.VRHistoryProfilePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRHistoryProfileFinderImpl" id="com.fds.vr.business.service.persistence.VRHistoryProfileFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRInputSheetLocalServiceImpl" id="com.fds.vr.business.service.VRInputSheetLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInputSheetPersistenceImpl" id="com.fds.vr.business.service.persistence.VRInputSheetPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInputSheetFinderImpl" id="com.fds.vr.business.service.persistence.VRInputSheetFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRInputStampbookLocalServiceImpl" id="com.fds.vr.business.service.VRInputStampbookLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInputStampbookPersistenceImpl" id="com.fds.vr.business.service.persistence.VRInputStampbookPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInputStampbookFinderImpl" id="com.fds.vr.business.service.persistence.VRInputStampbookFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRInputStampbookDetailsLocalServiceImpl" id="com.fds.vr.business.service.VRInputStampbookDetailsLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInputStampbookDetailsPersistenceImpl" id="com.fds.vr.business.service.persistence.VRInputStampbookDetailsPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInputStampbookDetailsFinderImpl" id="com.fds.vr.business.service.persistence.VRInputStampbookDetailsFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRInspectionStandardLocalServiceImpl" id="com.fds.vr.business.service.VRInspectionStandardLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInspectionStandardPersistenceImpl" id="com.fds.vr.business.service.persistence.VRInspectionStandardPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInspectionStandardFinderImpl" id="com.fds.vr.business.service.persistence.VRInspectionStandardFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRInventoryLocalServiceImpl" id="com.fds.vr.business.service.VRInventoryLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInventoryPersistenceImpl" id="com.fds.vr.business.service.persistence.VRInventoryPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRInventoryFinderImpl" id="com.fds.vr.business.service.persistence.VRInventoryFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRIssueLocalServiceImpl" id="com.fds.vr.business.service.VRIssueLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssuePersistenceImpl" id="com.fds.vr.business.service.persistence.VRIssuePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueFinderImpl" id="com.fds.vr.business.service.persistence.VRIssueFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRIssueEquipmentCertificateLocalServiceImpl" id="com.fds.vr.business.service.VRIssueEquipmentCertificateLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueEquipmentCertificatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRIssueEquipmentCertificatePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueEquipmentCertificateFinderImpl" id="com.fds.vr.business.service.persistence.VRIssueEquipmentCertificateFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRIssueVehiclecertificateLocalServiceImpl" id="com.fds.vr.business.service.VRIssueVehiclecertificateLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueVehiclecertificatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRIssueVehiclecertificatePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueVehiclecertificateFinderImpl" id="com.fds.vr.business.service.persistence.VRIssueVehiclecertificateFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRLimitConfigTechSpecLocalServiceImpl" id="com.fds.vr.business.service.VRLimitConfigTechSpecLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRLimitConfigTechSpecPersistenceImpl" id="com.fds.vr.business.service.persistence.VRLimitConfigTechSpecPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VROutputSheetLocalServiceImpl" id="com.fds.vr.business.service.VROutputSheetLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VROutputSheetPersistenceImpl" id="com.fds.vr.business.service.persistence.VROutputSheetPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VROutputSheetFinderImpl" id="com.fds.vr.business.service.persistence.VROutputSheetFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VROutputSheetDetailsLocalServiceImpl" id="com.fds.vr.business.service.VROutputSheetDetailsLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VROutputSheetDetailsPersistenceImpl" id="com.fds.vr.business.service.persistence.VROutputSheetDetailsPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VROutputSheetDetailsFinderImpl" id="com.fds.vr.business.service.persistence.VROutputSheetDetailsFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionClassificationLocalServiceImpl" id="com.fds.vr.business.service.VRProductionClassificationLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionClassificationPersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionClassificationPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionClassificationFinderImpl" id="com.fds.vr.business.service.persistence.VRProductionClassificationFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionPlantLocalServiceImpl" id="com.fds.vr.business.service.VRProductionPlantLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantPersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantFinderImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionPlantEmployeeLocalServiceImpl" id="com.fds.vr.business.service.VRProductionPlantEmployeeLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantEmployeePersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantEmployeePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantEmployeeFinderImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantEmployeeFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionPlantEquipmentLocalServiceImpl" id="com.fds.vr.business.service.VRProductionPlantEquipmentLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantEquipmentPersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantEquipmentPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantEquipmentFinderImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantEquipmentFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionPlantEquipmentMarkupLocalServiceImpl" id="com.fds.vr.business.service.VRProductionPlantEquipmentMarkupLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantEquipmentMarkupPersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantEquipmentMarkupPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionPlantProdEquipmentLocalServiceImpl" id="com.fds.vr.business.service.VRProductionPlantProdEquipmentLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantProdEquipmentPersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantProdEquipmentPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantProdEquipmentFinderImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantProdEquipmentFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductionPlantSupplierLocalServiceImpl" id="com.fds.vr.business.service.VRProductionPlantSupplierLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantSupplierPersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantSupplierPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductionPlantSupplierFinderImpl" id="com.fds.vr.business.service.persistence.VRProductionPlantSupplierFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRProductTypeLocalServiceImpl" id="com.fds.vr.business.service.VRProductTypeLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRProductTypePersistenceImpl" id="com.fds.vr.business.service.persistence.VRProductTypePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRRegistrationLocalServiceImpl" id="com.fds.vr.business.service.VRRegistrationLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRRegistrationPersistenceImpl" id="com.fds.vr.business.service.persistence.VRRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRReportLocalServiceImpl" id="com.fds.vr.business.service.VRReportLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRReportPersistenceImpl" id="com.fds.vr.business.service.persistence.VRReportPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRRPDossierStatisticsLocalServiceImpl" id="com.fds.vr.business.service.VRRPDossierStatisticsLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRRPDossierStatisticsPersistenceImpl" id="com.fds.vr.business.service.persistence.VRRPDossierStatisticsPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRRPDossierStatisticsFinderImpl" id="com.fds.vr.business.service.persistence.VRRPDossierStatisticsFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRSyncDateLocalServiceImpl" id="com.fds.vr.business.service.VRSyncDateLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRSyncDatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRSyncDatePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_LKXCGLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_LKXCGLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_LKXCGPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_LKXCGPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_LKXMYLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_LKXMYLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_LKXMYPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_LKXMYPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_LKXMYPart2LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_LKXMYPart2LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_LKXMYPart2PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_LKXMYPart2Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGPart1LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGPart1LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPart1PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPart1Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGPart2LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGPart2LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPart2PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPart2Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGPart3LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGPart3LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPart3PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPart3Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGPart4LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGPart4LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPart4PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPart4Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGPart5LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGPart5LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPart5PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPart5Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCGPart6LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCGPart6LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCGPart6PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCGPart6Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCHLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCHLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCHPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCHPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCHPart2LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCHPart2LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCHPart2PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCHPart2Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCNLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCNLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCNPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCNPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCNPart2LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCNPart2LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCNPart2PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCNPart2Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XCNPart3LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XCNPart3LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XCNPart3PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XCNPart3Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XDDLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XDDLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XDDPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XDDPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XMYLocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XMYLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XMYPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XMYPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XMYPart2LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XMYPart2LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XMYPart2PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XMYPart2Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTechnicalSpec_XMYPart3LocalServiceImpl" id="com.fds.vr.business.service.VRTechnicalSpec_XMYPart3LocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTechnicalSpec_XMYPart3PersistenceImpl" id="com.fds.vr.business.service.persistence.VRTechnicalSpec_XMYPart3Persistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTemplateNoLocalServiceImpl" id="com.fds.vr.business.service.VRTemplateNoLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTemplateNoPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTemplateNoPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRTrackchangesLocalServiceImpl" id="com.fds.vr.business.service.VRTrackchangesLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRTrackchangesPersistenceImpl" id="com.fds.vr.business.service.persistence.VRTrackchangesPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRVehicleEquipmentLocalServiceImpl" id="com.fds.vr.business.service.VRVehicleEquipmentLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleEquipmentPersistenceImpl" id="com.fds.vr.business.service.persistence.VRVehicleEquipmentPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleEquipmentFinderImpl" id="com.fds.vr.business.service.persistence.VRVehicleEquipmentFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRVehicleRecordLocalServiceImpl" id="com.fds.vr.business.service.VRVehicleRecordLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleRecordPersistenceImpl" id="com.fds.vr.business.service.persistence.VRVehicleRecordPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleRecordFinderImpl" id="com.fds.vr.business.service.persistence.VRVehicleRecordFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRVehicleSpecificationLocalServiceImpl" id="com.fds.vr.business.service.VRVehicleSpecificationLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleSpecificationPersistenceImpl" id="com.fds.vr.business.service.persistence.VRVehicleSpecificationPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleSpecificationFinderImpl" id="com.fds.vr.business.service.persistence.VRVehicleSpecificationFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRVehicleTypeCertificateLocalServiceImpl" id="com.fds.vr.business.service.VRVehicleTypeCertificateLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleTypeCertificatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRVehicleTypeCertificatePersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRVehicleTypeCertificateFinderImpl" id="com.fds.vr.business.service.persistence.VRVehicleTypeCertificateFinder" parent="basePersistence" />
+</beans>

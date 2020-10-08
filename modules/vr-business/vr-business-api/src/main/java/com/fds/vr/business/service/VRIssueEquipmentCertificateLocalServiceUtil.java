@@ -174,6 +174,14 @@ public class VRIssueEquipmentCertificateLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRIssueEquipmentCertificate> adminProcess(
+		com.liferay.portal.kernel.json.JSONArray arrayData, long issueId,
+		long dossierId, long mtCore, long issueVehicleCertificateId) {
+		return getService()
+				   .adminProcess(arrayData, issueId, dossierId, mtCore,
+			issueVehicleCertificateId);
+	}
+
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
 	*
@@ -222,6 +230,16 @@ public class VRIssueEquipmentCertificateLocalServiceUtil {
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRIssueEquipmentCertificate> findByDossierId_MtCore(
+		long dossierId, long mtCore, int start, int end) {
+		return getService().findByDossierId_MtCore(dossierId, mtCore, start, end);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRIssueEquipmentCertificate> findByIssueId(
+		long issueId, int start, int end) {
+		return getService().findByIssueId(issueId, start, end);
 	}
 
 	/**

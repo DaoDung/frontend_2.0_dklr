@@ -19,11 +19,43 @@ import com.liferay.portal.kernel.util.Validator;
 import java.util.Iterator;
 import java.util.List;
 
-
-public class VRInputStampbookFinderImpl extends VRInputStampbookFinderBaseImpl
-	implements VRInputStampbookFinder {
+public class VRInputStampbookFinderImpl extends VRInputStampbookFinderBaseImpl implements VRInputStampbookFinder {
 
 	Log log = LogFactoryUtil.getLog(VRInputStampbookFinderImpl.class);
+
+	public long validateInputStampBook(long mtCore, String stampShortNo, long serialStartNo, long serialEndNo) {
+		Session session = null;
+		try {
+			session = openSession();
+
+			String sql = "SELECT COUNT(*) AS total FROM vr_inputstampbook WHERE mtCore = " + mtCore
+					+ " AND stampShortNo = '" + stampShortNo + "'";
+			sql += " AND ((serialStartNo <= " + serialStartNo + " AND " + serialStartNo
+					+ " <= serialEndNo) OR (serialStartNo <= " + serialEndNo + " AND " + serialEndNo
+					+ " <= serialEndNo))";
+
+			log.info("===>>>VRInputStampbook Validate Input: " + sql);
+
+			SQLQuery q = session.createSQLQuery(sql);
+			q.setCacheable(false);
+			q.addScalar("total", Type.LONG);
+
+			Iterator<Long> itr = q.list().iterator();
+
+			if (itr.hasNext()) {
+				Long count = itr.next();
+				if (count != null) {
+					return count.intValue();
+				}
+			}
+			return 0;
+		} catch (Exception e) {
+			throw new SystemException(e);
+		} finally {
+			closeSession(session);
+		}
+
+	}
 
 	public JSONArray findData(String sql, List<String> columnNames, List<String> dataTypes, Class<?> modelClazz,
 			String modelClassName, int start, int end) throws SystemException {

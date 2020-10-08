@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -128,18 +129,20 @@ public interface VROutputSheetLocalService extends BaseLocalService,
 		java.lang.String bookIDList, java.lang.Long isApproval,
 		java.lang.Long totalQuantities, java.lang.Long totalAmount,
 		java.lang.String amountInWords, java.lang.String remark,
-		java.lang.String details) throws PortalException, SystemException;
+		java.lang.String details, Company company)
+		throws PortalException, SystemException;
+
+	public VROutputSheet updateVROutputSheet(VROutputSheet object,
+		Company company) throws PortalException, SystemException;
 
 	/**
 	* Updates the vr output sheet in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param vrOutputSheet the vr output sheet
 	* @return the vr output sheet that was updated
-	* @throws SystemException
 	*/
 	@Indexable(type = IndexableType.REINDEX)
-	public VROutputSheet updateVROutputSheet(VROutputSheet vrOutputSheet)
-		throws SystemException;
+	public VROutputSheet updateVROutputSheet(VROutputSheet vrOutputSheet);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();

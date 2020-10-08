@@ -25,6 +25,8 @@ import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -142,6 +144,9 @@ public interface VRIssueVehiclecertificateLocalService extends BaseLocalService,
 		java.lang.Class<?> modelClazz, java.lang.String modelClassName,
 		int start, int end) throws SystemException;
 
+	public JSONObject adminProcess(JSONArray arrayData, long issueId,
+		long dossierId, long mtCore) throws JSONException;
+
 	/**
 	* @throws PortalException
 	*/
@@ -208,15 +213,19 @@ public interface VRIssueVehiclecertificateLocalService extends BaseLocalService,
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
+	public List<VRIssueVehiclecertificate> findByIssueId(long issueId,
+		int start, int end);
+
+	public List<VRIssueVehiclecertificate> findByIssueId_MtCore(long mtCore,
+		long issueId, int start, int end)
+		throws PortalException, SystemException;
+
 	public List<VRIssueVehiclecertificate> findBycertificateId(long mtCore,
 		long dossierId, long certificateId)
 		throws PortalException, SystemException;
 
 	public List<VRIssueVehiclecertificate> findBydossierId(long mtCore,
 		long dossierId) throws PortalException, SystemException;
-
-	public List<VRIssueVehiclecertificate> findByissueId(long mtCore,
-		long issueId) throws PortalException, SystemException;
 
 	/**
 	* Returns a range of all the vr issue vehiclecertificates.

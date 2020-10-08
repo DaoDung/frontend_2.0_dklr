@@ -116,6 +116,11 @@ public class VRVehicleTypeCertificateLocalServiceUtil {
 		return getService().fetchVRVehicleTypeCertificate(id);
 	}
 
+	public static com.fds.vr.business.model.VRVehicleTypeCertificate findByDossierId_MtCore(
+		long dossierId, long mtCore) {
+		return getService().findByDossierId_MtCore(dossierId, mtCore);
+	}
+
 	/**
 	* Returns the vr vehicle type certificate with the primary key.
 	*
@@ -320,16 +325,20 @@ public class VRVehicleTypeCertificateLocalServiceUtil {
 			applicantIdDate, appProfile, dossierFile);
 	}
 
+	public static com.fds.vr.business.model.VRVehicleTypeCertificate updateVRVehicleTypeCertificate(
+		com.fds.vr.business.model.VRVehicleTypeCertificate object,
+		com.liferay.portal.kernel.model.Company company) {
+		return getService().updateVRVehicleTypeCertificate(object, company);
+	}
+
 	/**
 	* Updates the vr vehicle type certificate in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param vrVehicleTypeCertificate the vr vehicle type certificate
 	* @return the vr vehicle type certificate that was updated
-	* @throws SystemException
 	*/
 	public static com.fds.vr.business.model.VRVehicleTypeCertificate updateVRVehicleTypeCertificate(
-		com.fds.vr.business.model.VRVehicleTypeCertificate vrVehicleTypeCertificate)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.fds.vr.business.model.VRVehicleTypeCertificate vrVehicleTypeCertificate) {
 		return getService()
 				   .updateVRVehicleTypeCertificate(vrVehicleTypeCertificate);
 	}
@@ -540,25 +549,11 @@ public class VRVehicleTypeCertificateLocalServiceUtil {
 		return getService().findByDesignsymbol(designSymbol);
 	}
 
-	public static java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findByDossier(
-		java.lang.String dossierNo)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByDossier(dossierNo);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findByDossierId(
-		long dossierId, long mtCore)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByDossierId(dossierId, mtCore);
-	}
-
-	public static java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findByDossierNo(
+	public static java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findByDossierNo_MtCore(
 		java.lang.String dossierNo, long mtCore)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByDossierNo(dossierNo, mtCore);
+		return getService().findByDossierNo_MtCore(dossierNo, mtCore);
 	}
 
 	public static java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findByEmissionstandard(
@@ -681,6 +676,11 @@ public class VRVehicleTypeCertificateLocalServiceUtil {
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .findByVerificationCertificateNo(verificationCertificateNo);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRVehicleTypeCertificate> findExpiredCertificates(
+		int day, java.lang.String expiredStatus) {
+		return getService().findExpiredCertificates(day, expiredStatus);
 	}
 
 	/**

@@ -100,6 +100,12 @@ public class VRDossierLocalServiceWrapper implements VRDossierLocalService,
 			groupId);
 	}
 
+	@Override
+	public com.fds.vr.business.model.VRDossier getByRef(long groupId,
+		java.lang.String refId) {
+		return _vrDossierLocalService.getByRef(groupId, refId);
+	}
+
 	/**
 	* Returns the vr dossier with the primary key.
 	*

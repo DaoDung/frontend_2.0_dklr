@@ -14,12 +14,15 @@
 
 package com.fds.vr.business.service.impl;
 
+import com.fds.vr.business.action.VRVehicleTypeCertificateAction;
+import com.fds.vr.business.action.impl.VRVehicleTypeCertificateActionImpl;
 import com.fds.vr.business.model.VRApplicantProfile;
 import com.fds.vr.business.model.VRCOPReportRepository;
 import com.fds.vr.business.model.VRDossier;
 import com.fds.vr.business.model.VRDossierFile;
 import com.fds.vr.business.model.VRProductionPlant;
 import com.fds.vr.business.model.VRRegistration;
+import com.fds.vr.business.model.VRVehicleEquipment;
 import com.fds.vr.business.model.VRVehicleTypeCertificate;
 import com.fds.vr.business.model.impl.VRDossierImpl;
 import com.fds.vr.business.model.impl.VRProductionPlantImpl;
@@ -30,12 +33,14 @@ import com.fds.vr.business.service.VRProductionPlantLocalServiceUtil;
 import com.fds.vr.business.service.VRVehicleSpecificationLocalServiceUtil;
 import com.fds.vr.business.service.VRVehicleTypeCertificateLocalServiceUtil;
 import com.fds.vr.business.service.base.VRVehicleTypeCertificateLocalServiceBaseImpl;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -3614,16 +3619,6 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 
 	}
 
-	public List<VRVehicleTypeCertificate> findByDossier(String dossierNo) throws PortalException, SystemException {
-		try {
-			return vrVehicleTypeCertificatePersistence.findByDossier(dossierNo);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRVehicleTypeCertificate>();
-
-	}
-
 	public List<VRVehicleTypeCertificate> findByDeliverableCode(String deliverableCode)
 			throws PortalException, SystemException {
 		try {
@@ -3787,21 +3782,14 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 
 	}
 
-	public List<VRVehicleTypeCertificate> findByDossierId(long dossierId, long mtCore)
-			throws PortalException, SystemException {
-		try {
-			return vrVehicleTypeCertificatePersistence.findByDossierId(dossierId, mtCore);
-		} catch (Exception e) {
-			_log.error(e);
-		}
-		return new ArrayList<VRVehicleTypeCertificate>();
-
+	public VRVehicleTypeCertificate findByDossierId_MtCore(long dossierId, long mtCore) {
+		return vrVehicleTypeCertificatePersistence.fetchByDossierId(dossierId, mtCore);
 	}
 
-	public List<VRVehicleTypeCertificate> findByDossierNo(String dossierNo, long mtCore)
+	public List<VRVehicleTypeCertificate> findByDossierNo_MtCore(String dossierNo, long mtCore)
 			throws PortalException, SystemException {
 		try {
-			return vrVehicleTypeCertificatePersistence.findByDossierNo(dossierNo, mtCore);
+			return vrVehicleTypeCertificatePersistence.findByDossierNo_MtCore(dossierNo, mtCore);
 		} catch (Exception e) {
 			_log.error(e);
 		}
@@ -3916,8 +3904,7 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 
 		return vrVehicleTypeCertificateFinder.countData(sql);
 	}
-	
-	
+
 	public VRVehicleTypeCertificate createVRVehicleTypeCertificate(VRVehicleTypeCertificate object)
 			throws SystemException {
 
@@ -3932,48 +3919,76 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 		return vrVehicleTypeCertificatePersistence.update(object);
 	}
 
-	public VRVehicleTypeCertificate updateVRVehicleTypeCertificate(VRVehicleTypeCertificate object)
-			throws SystemException {
+	public VRVehicleTypeCertificate updateVRVehicleTypeCertificate(VRVehicleTypeCertificate object, Company company) {
 
 		Date now = new Date();
 
 		object.setModifyDate(now);
 
-		return vrVehicleTypeCertificatePersistence.update(object);
+		object = vrVehicleTypeCertificatePersistence.update(object);
+		if (object != null) {
+			VRVehicleTypeCertificateAction action = new VRVehicleTypeCertificateActionImpl();
+			action.indexing(object, company);
+		}
+		return object;
 	}
-	
+
+	public List<VRVehicleTypeCertificate> findExpiredCertificates(int day, String expiredStatus) {
+		return vrVehicleTypeCertificateFinder.findExpiredVRVehicleTypeCertificates(day, expiredStatus);
+	}
+
 	public VRVehicleTypeCertificate adminProcessData(JSONObject objectData, long dossierId, long mtCore) {
 		VRVehicleTypeCertificate object = null;
-		
-		vrVehicleTypeCertificatePersistence.removeByDossierId(dossierId, mtCore);
-		
-		long id = counterLocalService.increment(VRVehicleTypeCertificate.class.getName());
-		
-		object = vrVehicleTypeCertificatePersistence.create(id);
-		
+
+		object = vrVehicleTypeCertificatePersistence.fetchByDossierId(dossierId, mtCore);
+
+		if (object == null) {
+			long vrVehicleTypeCertificateId = counterLocalService.increment(VRVehicleTypeCertificate.class.getName());
+
+			object = vrVehicleTypeCertificatePersistence.create(vrVehicleTypeCertificateId);
+		}
+
 		Date now = new Date();
-		object.setSyncDate(now);
+		object.setSyncDate(parseStringToDate(objectData.getString("syncDate")));
 		// Add other fields
 		object.setMtCore(1);
 		object.setDossierType(objectData.getString("dossierType"));
 		object.setDossierNo(objectData.getString("dossierNo"));
 		object.setConvertassembleId(0);
-		
-		object.setApplicantName(objectData.getString("applicantName"));
-		object.setDossierId(objectData.getLong("dossierId"));
-		object.setDossierNo(objectData.getString("dossierNo"));
-		//object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
-		object.setApplicantAddress(objectData.getString("applicantAddress"));
-		object.setApplicantRepresentative(objectData.getString("applicantRepresentative"));
-		object.setApplicantRepresentativeTitle(objectData.getString("applicantRepresentativeTitle"));
-		object.setApplicantEmail(objectData.getString("applicantEmail"));
-		object.setApplicantPhone(objectData.getString("applicantPhone"));
-		object.setApplicantFax(objectData.getString("applicantFax"));
-		object.setApplicantContactName(objectData.getString("applicantContactName"));
-		object.setApplicantContactEmail(objectData.getString("applicantContactEmail"));
-		object.setApplicantcontactPhone(objectData.getString("applicantcontactPhone"));
-		object.setManufacturerForeignCode(objectData.getString("manufacturerForeignCode"));
 
+		VRApplicantProfile vrApplicantProfile = vrApplicantProfileLocalService.findByApplicantCode(objectData.getString("applicantIdNo"));
+		VRRegistration registration = vrRegistrationPersistence.fetchByREG_APPNO(objectData.getString("applicantIdNo"));
+
+		VRDossier dossier = vrDossierPersistence.fetchByPrimaryKey(dossierId);
+		object.setServiceCode(dossier.getServiceCode());
+		object.setServiceName(dossier.getServiceName());
+		object.setReferenceUid(dossier.getReferenceUid());
+		object.setDossierId(dossier.getDossierId());
+		object.setDossierNo(dossier.getDossierNo());
+		object.setDossierIdCTN(objectData.getString("dossierIdCTN"));
+
+		object.setApplicantIdDate(registration.getApplicantIdDate());
+		object.setApplicantTelNo(vrApplicantProfile.getApplicantPhone());
+		object.setApplicantIdNo(vrApplicantProfile.getApplicantCode());
+		object.setApplicantName(vrApplicantProfile.getApplicantName());
+		object.setApplicantAddress(vrApplicantProfile.getApplicantAddress());
+		object.setApplicantRepresentative(vrApplicantProfile.getApplicantRepresentative());
+		object.setApplicantRepresentativeTitle(vrApplicantProfile.getApplicantRepresentativeTitle());
+		object.setApplicantEmail(vrApplicantProfile.getApplicantEmail());
+		object.setApplicantPhone(vrApplicantProfile.getApplicantPhone());
+		object.setApplicantFax(vrApplicantProfile.getApplicantFax());
+		object.setApplicantContactName(vrApplicantProfile.getApplicantContactName());
+		object.setApplicantContactEmail(vrApplicantProfile.getApplicantContactEmail());
+		object.setApplicantcontactPhone(vrApplicantProfile.getApplicantContactPhone());
+		object.setApplicantcontactTelNo(vrApplicantProfile.getApplicantContactPhone());
+		object.setCityCode(vrApplicantProfile.getApplicantCityCode());
+		object.setCityName(vrApplicantProfile.getApplicantCity());
+		object.setDistrictCode(vrApplicantProfile.getApplicantDistrictCode());
+		object.setDistrictName(vrApplicantProfile.getApplicantDistrictName());
+		object.setWardCode(vrApplicantProfile.getApplicantWardCode());
+		object.setWardName(vrApplicantProfile.getApplicantWardName());
+
+		object.setManufacturerForeignCode(objectData.getString("manufacturerForeignCode"));
 		object.setManufacturerName(objectData.getString("manufacturerName"));
 		object.setManufacturerAddress(objectData.getString("manufacturerAddress"));
 		object.setManufacturerRepresentative(objectData.getString("manufacturerRepresentative"));
@@ -3981,16 +3996,21 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 		object.setManufacturerEmail(objectData.getString("manufacturerEmail"));
 		object.setManufacturerPhone(objectData.getString("manufacturerPhone"));
 		object.setManufacturerFax(objectData.getString("manufacturerFax"));
-		object.setProductionPlantCode(objectData.getString("productionPlantCode"));
-		object.setProductionPlantName(objectData.getString("productionPlantName"));
-		object.setProductionPlantAddress(objectData.getString("productionPlantAddress"));
-		object.setProductionPlantRepresentative(objectData.getString("productionPlantRepresentative"));
-		object.setProductionPlantRepresentativeTitle(objectData.getString("productionPlantRepresentativeTitle"));
-		object.setCopReportNo(objectData.getString("copReportNo"));
-		object.setCopReportDate(now);
-		object.setCopReportExpireDate(now);
 
-		//object.setDesignerCode(registration.getApplicantIdNo().toString());
+		VRProductionPlant vrProductionPlant = vrProductionPlantPersistence
+				.fetchByF_ProductionPlantCode(objectData.getString("productionPlantCode"));
+		if (vrProductionPlant != null) {
+			object.setProductionPlantCode(vrProductionPlant.getProductionPlantCode());
+			object.setProductionPlantName(vrProductionPlant.getProductionPlantName());
+			object.setProductionPlantAddress(vrProductionPlant.getProductionPlantAddress());
+			object.setProductionPlantRepresentative(vrProductionPlant.getProductionPlantRepresentative());
+			object.setProductionPlantRepresentativeTitle(vrProductionPlant.getProductionPlantRepresentativeTitle());
+		}
+		object.setCopReportNo(objectData.getString("copReportNo"));
+		object.setCopReportDate(parseStringToDate(objectData.getString("copReportDate")));
+		object.setCopReportDate(parseStringToDate(objectData.getString("copReportExpireDate")));
+
+		// object.setDesignerCode(registration.getApplicantIdNo().toString());
 		object.setDesignerName(objectData.getString("designerName"));
 		object.setDesignerAddress(objectData.getString("designerAddress"));
 		object.setDesignerRepresentative(objectData.getString("designerRepresentative"));
@@ -4000,39 +4020,37 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 		object.setDesignerPhone(objectData.getString("designerPhone"));
 		object.setDesignerFax(objectData.getString("designerFax"));
 		object.setVerificationCertificateNo(objectData.getString("verificationCertificateNo"));
-		object.setVerificationCertificateDate(parseStringToDate(objectData.getString("verificationCertificateDate")));
+		object.setVerificationCertificateDate(parseStringToDate(objectData.getString("verificationCertificateDate"))); // Action
 		object.setVerificationRefNo(objectData.getString("verificationRefNo"));
-		object.setVerificationRefDate(now);
+		// object.setVerificationRefDate(now); //Action
 		object.setTypeApprovalCertificateNo(objectData.getString("typeApprovalCertificateNo"));
-		object.setTypeApprovalCertificateDate(now);
+		object.setTypeApprovalCertificateDate(parseStringToDate("typeApprovalCertificateDate"));
 		object.setDesignModelCode(objectData.getString("designModelCode"));
 		object.setDesignModelDescription(objectData.getString("designModelDescription"));
 		object.setDesignSymbol(objectData.getString("designSymbol"));
 
 		object.setRegisteredNumber(objectData.getString("registeredNumber"));
-		object.setInspectorReceiveDate(now);
-		object.setInspectorSubmitDate(now);
-		object.setInspectorendorSementDate(now);
-		object.setInspectorDeadline(now);
-		object.setInspectorFinishDate(now);
-		object.setInspectorCancelDate(now);
+		// object.setInspectorReceiveDate(now); //Action - CNCLKL
+		// object.setInspectorSubmitDate(now); //Action - CNCLKL
+		// object.setInspectorendorSementDate(now); //Action
+		// object.setInspectorDeadline(now); //Khong biet
+		// object.setInspectorFinishDate(now); //Khong biet
+		// object.setInspectorCancelDate(now); //Khong biet
 		object.setInspectorOrganization(objectData.getString("inspectorOrganization"));
 		object.setInspectorDivision(objectData.getString("inspectorDivision"));
-		object.setInspectorSignName(objectData.getString("inspectorSignName"));
-		object.setInspectorSignTitle(objectData.getString("inspectorSignTitle"));
-		object.setInspectorSignPlace(objectData.getString("inspectorSignPlace"));
 		object.setCertificateType(objectData.getString("certificateType"));
 		object.setReferenceCertificateNo(objectData.getString("referenceCertificateNo"));
-		object.setReferenceCertificateDate(now);
+		object.setReferenceCertificateDate(parseStringToDate(objectData.getString("referenceCertificateDate")));
 		object.setCertificateRecordNo(objectData.getString("certificateRecordNo"));
 		object.setCertificateSignName(objectData.getString("certificateSignName"));
 		object.setCertificateSignTitle(objectData.getString("certificateSignTitle"));
 		object.setCertificateSignPlace(objectData.getString("certificateSignPlace"));
-		object.setCertificateRecordDate(parseStringToDate(objectData.getString("certificateRecordDate")));
-		object.setCertificateRecordExpireDate(now);
-		object.setExpiredStatus("1");
-		object.setCertificateRecordStatus("3");
-		object.setDigitalIssueStatus("1");
+		// object.setCertificateRecordDate(parseStringToDate(objectData.getString("certificateRecordDate")));
+		// //CNCLKL
+		// object.setCertificateRecordExpireDate(now); //CNCLKL
+		// object.setExpiredStatus("1"); //TODO: confirm lai
+		// object.setCertificateRecordStatus("3"); //TODO: confirm lai
+		// object.setDigitalIssueStatus("1"); //TODO: confirm lai
 		object.setVehicleClass(objectData.getString("vehicleClass"));
 		object.setCertifiedVehicleType(objectData.getString("certifiedVehicleType"));
 		object.setCertifiedVehicleTypeDescription(objectData.getString("certifiedVehicleTypeDescription"));
@@ -4051,15 +4069,18 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 		object.setCertifiedEngineAttachPlace(objectData.getString("certifiedEngineAttachPlace"));
 		object.setCertifiedEnginePosition(objectData.getString("certifiedEnginePosition"));
 		object.setSafetyTestReportNo(objectData.getString("safetyTestReportNo"));
-		object.setSafetyTestReportDate(now);
+		object.setSafetyTestReportDate(parseStringToDate(objectData.getString("safetyTestReportDate")));
 		object.setEmissionTestReportNo(objectData.getString("emissionTestReportNo"));
-		object.setEmissionTestReportDate(now);
+		object.setEmissionTestReportDate(parseStringToDate(objectData.getString("emissionTestReportDate")));
 		object.setCommonSafetyStandard(objectData.getString("commonSafetyStandard"));
+		object.setCommonSafetyDescription(objectData.getString("commonSafetyDescription"));
 		object.setEmissionStandard(objectData.getString("emissionStandard"));
+		object.setEmissionDescription(objectData.getString("emissionDescription"));
 		object.setOtherTestReportNo(objectData.getString("otherTestReportNo"));
-		object.setOtherTestReportDate(now);
+		object.setOtherTestReportDate(parseStringToDate(objectData.getString("otherTestReportDate")));
 		object.setSampleFrameNo(objectData.getString("sampleFrameNo"));
-		object.setSampleVINNo(objectData.getString("sampleVINNo"));;
+		object.setSampleVINNo(objectData.getString("sampleVINNo"));
+		;
 		object.setSampleEngineNo(objectData.getString("sampleEngineNo"));
 		object.setSampleVehicleType(objectData.getString("sampleVehicleType"));
 		object.setSampleVehicleTypeDescription(objectData.getString("sampleVehicleTypeDescription"));
@@ -4068,11 +4089,11 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 		object.setSampleCommercialName(objectData.getString("sampleCommercialName"));
 		object.setSampleModelCode(objectData.getString("sampleModelCode"));
 		object.setCustomsDeclarationNo(objectData.getString("customsDeclarationNo"));
-		object.setCustomsDeclarationDate(now);
+		object.setCustomsDeclarationDate(parseStringToDate(objectData.getString("customsDeclarationDate")));
 		object.setProductionCountry(objectData.getString("productionCountry"));
 		object.setImporterQuantity(objectData.getLong("importerQuantity"));
 		object.setInspectionRecordNo(objectData.getString("inspectionRecordNo"));
-		object.setInspectionDate(now);
+		object.setInspectionDate(parseStringToDate(objectData.getString("inspectionDate")));
 		object.setInspectionSite(objectData.getString("inspectionSite"));
 		object.setInspectionDistrictCode(objectData.getString("inspectionDistrictCode"));
 		object.setInspectionDistrictName(objectData.getString("inspectionDistrictName"));
@@ -4084,10 +4105,20 @@ public class VRVehicleTypeCertificateLocalServiceImpl extends VRVehicleTypeCerti
 		object.setInspectionNote(objectData.getString("inspectionNote"));
 		object.setCertificateNote(objectData.getString("certificateNote"));
 		object.setModule(objectData.getString("module"));
+		object.setDeliverableFileEntryid(objectData.getLong("deliverableFileEntryId"));
 		object.setModifyDate(now);
-		
+
 		object = vrVehicleTypeCertificatePersistence.update(object);
-		
+
+		List<VRVehicleEquipment> vrVehicleEquipments = vrVehicleEquipmentLocalService.findByDossierId(dossierId,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		for (VRVehicleEquipment vrVehicleEquipment : vrVehicleEquipments) {
+			vrVehicleEquipment.setVehicleTypeCertificateId(object.getPrimaryKey());
+
+			vrVehicleEquipmentPersistence.update(vrVehicleEquipment);
+		}
+
 		return object;
 	}
+
 }

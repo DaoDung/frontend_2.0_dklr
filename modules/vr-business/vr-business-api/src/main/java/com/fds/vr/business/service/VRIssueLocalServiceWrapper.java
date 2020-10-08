@@ -112,10 +112,19 @@ public class VRIssueLocalServiceWrapper implements VRIssueLocalService,
 
 	@Override
 	public com.fds.vr.business.model.VRIssue updateDigitalIssueStatus(long id,
-		int digitalIssueStatus)
+		int digitalIssueStatus, com.liferay.portal.kernel.model.Company company)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _vrIssueLocalService.updateDigitalIssueStatus(id,
-			digitalIssueStatus);
+			digitalIssueStatus, company);
+	}
+
+	@Override
+	public com.fds.vr.business.model.VRIssue updateVRIssue(
+		com.fds.vr.business.model.VRIssue object,
+		com.liferay.portal.kernel.model.Company company)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _vrIssueLocalService.updateVRIssue(object, company);
 	}
 
 	/**
@@ -162,6 +171,13 @@ public class VRIssueLocalServiceWrapper implements VRIssueLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _vrIssueLocalService.findData(sql, columnNames, dataTypes,
 			modelClazz, modelClassName, start, end);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.json.JSONObject adminProcess(
+		com.liferay.portal.kernel.json.JSONObject objectData, long dossierId,
+		long mtCore) throws com.liferay.portal.kernel.json.JSONException {
+		return _vrIssueLocalService.adminProcess(objectData, dossierId, mtCore);
 	}
 
 	/**

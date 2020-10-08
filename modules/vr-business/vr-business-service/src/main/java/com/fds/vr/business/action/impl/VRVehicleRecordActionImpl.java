@@ -2,14 +2,27 @@ package com.fds.vr.business.action.impl;
 
 import com.fds.vr.business.action.VRVehicleRecordAction;
 import com.fds.vr.business.action.util.ActionUtil;
+import com.fds.vr.business.constant.VRKeys;
 import com.fds.vr.business.engine.DBField;
 import com.fds.vr.business.engine.SQLQueryBuilder;
+import com.fds.vr.business.model.VRDossier;
 import com.fds.vr.business.model.VRVehicleRecord;
+import com.fds.vr.business.model.VRVehicleSpecification;
+import com.fds.vr.business.model.VRVehicleTypeCertificate;
 import com.fds.vr.business.model.impl.VRProductionPlantEquipmentModelImpl;
 import com.fds.vr.business.model.impl.VRVehicleRecordImpl;
 import com.fds.vr.business.model.impl.VRVehicleRecordModelImpl;
+import com.fds.vr.business.model.impl.VRVehicleTypeCertificateModelImpl;
+import com.fds.vr.business.service.VRDossierLocalServiceUtil;
 import com.fds.vr.business.service.VRVehicleRecordLocalServiceUtil;
+import com.fds.vr.business.service.VRVehicleSpecificationLocalServiceUtil;
+import com.fds.vr.business.service.VRVehicleTypeCertificateLocalServiceUtil;
+import com.fds.vr.service.util.BusinessUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -151,14 +164,14 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 	private SQLQueryBuilder getBuilder(LinkedHashMap<String, Object> params) {
 		String keyword = ActionUtil.getKeyword(params);
 		Long id = null;
-		//Long mtCore = null;
-		//Long issueId = null;
-		//Long issueVehicleCertificateId = null;
-		//Long dossierId = null;
+		// Long mtCore = null;
+		// Long issueId = null;
+		// Long issueVehicleCertificateId = null;
+		// Long dossierId = null;
 		Long applicantProfileId = null;
-		//String applicantName = null;
-		//String applicantAddress = null;
-		//Long certificateId = null;
+		// String applicantName = null;
+		// String applicantAddress = null;
+		// Long certificateId = null;
 		String productionNumber = null;
 		String productionDate = null;
 		String frameNo = null;
@@ -169,13 +182,13 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 		String serialNo = null;
 		Long vehicleRecordStatus = null;
 		Long printingStatus = null;
-		//Long attachedFile = null;
-		//String signName = null;
-		//String signTitle = null;
-		//String signPlace = null;
-		//String signDate = null;
-		//String modifyDate = null;
-		//String syncDate = null;
+		// Long attachedFile = null;
+		// String signName = null;
+		// String signTitle = null;
+		// String signPlace = null;
+		// String signDate = null;
+		// String modifyDate = null;
+		// String syncDate = null;
 		String certificaterecordno = null;
 		Integer postPrintingStatus = null;
 		String qrCode = null;
@@ -186,30 +199,25 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 			if (params.containsKey("id")) {
 				id = (Long) params.get("id");
 			}
-			/*if (params.containsKey("mtcore")) {
-				mtCore = (Long)params.get("mtcore");
-			}
-			if (params.containsKey("issueid")) {
-				issueId = (Long)params.get("issueid");
-			}
-			if (params.containsKey("issuevehiclecertificateid")) {
-				issueVehicleCertificateId = (Long)params.get("issuevehiclecertificateid");
-			}
-			if (params.containsKey("dossierid")) {
-				dossierId = (Long)params.get("dossierid");
-			}*/
+			/*
+			 * if (params.containsKey("mtcore")) { mtCore = (Long)params.get("mtcore"); } if
+			 * (params.containsKey("issueid")) { issueId = (Long)params.get("issueid"); } if
+			 * (params.containsKey("issuevehiclecertificateid")) { issueVehicleCertificateId
+			 * = (Long)params.get("issuevehiclecertificateid"); } if
+			 * (params.containsKey("dossierid")) { dossierId =
+			 * (Long)params.get("dossierid"); }
+			 */
 			if (params.containsKey("applicantprofileid")) {
 				applicantProfileId = (Long) params.get("applicantprofileid");
 			}
-			/*if (params.containsKey("applicantname")) {
-				applicantName = (String)params.get("applicantname");
-			}
-			if (params.containsKey("applicantaddress")) {
-				applicantAddress = (String)params.get("applicantaddress");
-			}
-			if (params.containsKey("certificateid")) {
-				certificateId = (Long)params.get("certificateid");
-			}*/
+			/*
+			 * if (params.containsKey("applicantname")) { applicantName =
+			 * (String)params.get("applicantname"); } if
+			 * (params.containsKey("applicantaddress")) { applicantAddress =
+			 * (String)params.get("applicantaddress"); } if
+			 * (params.containsKey("certificateid")) { certificateId =
+			 * (Long)params.get("certificateid"); }
+			 */
 			if (params.containsKey("productionnumber")) {
 				productionNumber = (String) params.get("productionnumber");
 			}
@@ -240,27 +248,18 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 			if (params.containsKey("printingstatus")) {
 				printingStatus = (Long) params.get("printingstatus");
 			}
-			/*if (params.containsKey("attachedfile")) {
-				attachedFile = (Long)params.get("attachedfile");
-			}
-			if (params.containsKey("signname")) {
-				signName = (String)params.get("signname");
-			}
-			if (params.containsKey("signtitle")) {
-				signTitle = (String)params.get("signtitle");
-			}
-			if (params.containsKey("signplace")) {
-				signPlace = (String)params.get("signplace");
-			}
-			if (params.containsKey("signdate")) {
-				signDate = (String)params.get("signdate");
-			}
-			if (params.containsKey("modifydate")) {
-				modifyDate = (String)params.get("modifydate");
-			}
-			if (params.containsKey("syncdate")) {
-				syncDate = (String)params.get("syncdate");
-			}*/
+			/*
+			 * if (params.containsKey("attachedfile")) { attachedFile =
+			 * (Long)params.get("attachedfile"); } if (params.containsKey("signname")) {
+			 * signName = (String)params.get("signname"); } if
+			 * (params.containsKey("signtitle")) { signTitle =
+			 * (String)params.get("signtitle"); } if (params.containsKey("signplace")) {
+			 * signPlace = (String)params.get("signplace"); } if
+			 * (params.containsKey("signdate")) { signDate = (String)params.get("signdate");
+			 * } if (params.containsKey("modifydate")) { modifyDate =
+			 * (String)params.get("modifydate"); } if (params.containsKey("syncdate")) {
+			 * syncDate = (String)params.get("syncdate"); }
+			 */
 			if (params.containsKey("certificaterecordno")) {
 				certificaterecordno = (String) params.get("certificaterecordno");
 			}
@@ -292,20 +291,22 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 				+ ActionUtil.buildSQLCondition("signTitle", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("signPlace", keyword, "OR", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("certificaterecordno", keyword, "OR", StringPool.LIKE, "");
-		//+ ActionUtil.buildSQLCondition("qrCode", keyword, "OR", StringPool.LIKE, "");
+		// + ActionUtil.buildSQLCondition("qrCode", keyword, "OR", StringPool.LIKE, "");
 		SQLQueryBuilder builder = new SQLQueryBuilder();
 		builder.select(VRVehicleRecordModelImpl.class,
 				DBField.ins("vr_issue.vehicleclass AS vehicleclass", Types.VARCHAR),
 				DBField.ins("vr_issue.stampissueno AS stampissueno", Types.VARCHAR)).from("vr_vehiclerecord")
 				.join("INNER JOIN", "vr_vehiclerecord", "issueid", "vr_issue", "id")
 				.where("id", id, "AND", StringPool.EQUAL, "vr_vehiclerecord")
-				//.where("mtcore", mtCore, "AND", StringPool.EQUAL).where("issueid", issueId, "AND", StringPool.EQUAL)
-				//.where("issuevehiclecertificateid", issueVehicleCertificateId, "AND", StringPool.EQUAL)
-				//.where("dossierid", dossierId, "AND", StringPool.EQUAL)
+				// .where("mtcore", mtCore, "AND", StringPool.EQUAL).where("issueid", issueId,
+				// "AND", StringPool.EQUAL)
+				// .where("issuevehiclecertificateid", issueVehicleCertificateId, "AND",
+				// StringPool.EQUAL)
+				// .where("dossierid", dossierId, "AND", StringPool.EQUAL)
 				.where("applicantprofileid", applicantProfileId, "AND", StringPool.EQUAL, "vr_vehiclerecord")
-				//.where("applicantname", applicantName, "AND", StringPool.EQUAL)
-				//.where("applicantaddress", applicantAddress, "AND", StringPool.EQUAL)
-				//.where("certificateid", certificateId, "AND", StringPool.EQUAL)
+				// .where("applicantname", applicantName, "AND", StringPool.EQUAL)
+				// .where("applicantaddress", applicantAddress, "AND", StringPool.EQUAL)
+				// .where("certificateid", certificateId, "AND", StringPool.EQUAL)
 				.where("productionnumber", productionNumber, "AND", StringPool.EQUAL)
 
 				.where("frameno", frameNo, "AND", StringPool.EQUAL).where("boxno", boxNo, "AND", StringPool.EQUAL)
@@ -314,13 +315,13 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 				.where("serialno", serialNo, "AND", StringPool.EQUAL)
 				.where("vehiclerecordstatus", vehicleRecordStatus, "AND", StringPool.EQUAL)
 				.where("printingstatus", printingStatus, "AND", StringPool.EQUAL)
-				//.where("attachedfile", attachedFile, "AND", StringPool.EQUAL)
-				//.where("signname", signName, "AND", StringPool.EQUAL)
-				//.where("signtitle", signTitle, "AND", StringPool.EQUAL)
-				//.where("signplace", signPlace, "AND", StringPool.EQUAL)
-				//.where("signdate", signDate, "AND", StringPool.EQUAL)
-				//.where("modifydate", modifyDate, "AND", StringPool.EQUAL)
-				//.where("syncdate", syncDate, "AND", StringPool.EQUAL)
+				// .where("attachedfile", attachedFile, "AND", StringPool.EQUAL)
+				// .where("signname", signName, "AND", StringPool.EQUAL)
+				// .where("signtitle", signTitle, "AND", StringPool.EQUAL)
+				// .where("signplace", signPlace, "AND", StringPool.EQUAL)
+				// .where("signdate", signDate, "AND", StringPool.EQUAL)
+				// .where("modifydate", modifyDate, "AND", StringPool.EQUAL)
+				// .where("syncdate", syncDate, "AND", StringPool.EQUAL)
 				.where("certificaterecordno", certificaterecordno, "AND", StringPool.EQUAL)
 				.where("postprintingstatus", postPrintingStatus, "AND", StringPool.EQUAL)
 				.where("qrcode", qrCode, "AND", StringPool.EQUAL).where(_keywordSearchCondition, null, "AND", "", true);
@@ -333,7 +334,7 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 				calendar.set(Calendar.HOUR_OF_DAY, 0);
 				calendar.set(Calendar.MINUTE, 0);
 				calendar.set(Calendar.SECOND, 0);
-				//2019-11-28 14:05:34
+				// 2019-11-28 14:05:34
 				String fromDate = DateTimeUtils.convertDateToString(calendar.getTime(),
 						DateTimeUtils._MYSQL_TIME_FORMAT);
 
@@ -467,6 +468,47 @@ public class VRVehicleRecordActionImpl implements VRVehicleRecordAction {
 			return ActionUtil.createResponseContent(HttpsURLConnection.HTTP_INTERNAL_ERROR, StringPool.BLANK);
 
 		}
+	}
+
+	@Override
+	public JSONObject findVRVehicleRecordPrintDetails(long vehicleRecordId, User user, ServiceContext serviceContext)
+			throws JSONException {
+
+		JSONObject result = JSONFactoryUtil.createJSONObject();
+		VRVehicleRecord vrVehicleRecord = VRVehicleRecordLocalServiceUtil.fetchVRVehicleRecord(vehicleRecordId);
+		JSONObject jVRVehicleRecord = BusinessUtil.object2Json_originColumnName(vrVehicleRecord,
+				VRVehicleRecordModelImpl.class, StringPool.BLANK);
+		
+		long vehicleTypeCertificateId = vrVehicleRecord.getCertificateId();
+		VRVehicleTypeCertificate vrVehicleTypeCertificate = VRVehicleTypeCertificateLocalServiceUtil
+				.fetchVRVehicleTypeCertificate(vehicleTypeCertificateId);
+		JSONObject jVRVehicleTypeCertificate = BusinessUtil.object2Json_originColumnName(vrVehicleTypeCertificate,
+				VRVehicleTypeCertificateModelImpl.class, StringPool.BLANK);
+		
+		List<VRVehicleSpecification> vrVehicleSpecifications = VRVehicleSpecificationLocalServiceUtil
+				.findByVehicleCertificateId(vehicleTypeCertificateId);
+		JSONObject jVRVehicleSpecification = JSONFactoryUtil.createJSONObject();
+		jVRVehicleSpecification.put("dossierId", vrVehicleTypeCertificate.getDossierId());
+		jVRVehicleSpecification.put("vehicleCertificateId", vehicleTypeCertificateId);
+		vrVehicleSpecifications.parallelStream().forEach(vrVehicleSpecification -> {
+			String specificationCode = vrVehicleSpecification.getSpecificationCode();
+			String specificationValue = vrVehicleSpecification.getSpecificationValue();
+			jVRVehicleSpecification.put(specificationCode, specificationValue);
+		});
+		
+		result.put("vrVehicleRecord", jVRVehicleRecord);
+		result.put("vrVehicleTypeCertificate", jVRVehicleTypeCertificate);
+		result.put("vrVehicleSpecification", jVRVehicleSpecification);
+		
+		return result;
+	}
+
+	@Override
+	public JSONObject updateStatusAfterPrint(long vehicleRecordId, User user, ServiceContext serviceContext) throws SystemException, PortalException {
+		JSONObject result = JSONFactoryUtil.createJSONObject();
+		VRVehicleRecord vrVehicleRecord = VRVehicleRecordLocalServiceUtil.updateVRVehicleRecord(vehicleRecordId, VRKeys.DA_IN, VRKeys.BINH_THUONG);
+		result = BusinessUtil.object2Json_originColumnName(vrVehicleRecord, VRVehicleRecordModelImpl.class, StringPool.BLANK);
+		return result;
 	}
 
 }

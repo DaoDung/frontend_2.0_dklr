@@ -17,7 +17,20 @@
 
 package org.opencps.kyso.utils;
 
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfSignatureAppearance;
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.SignatureException;
+import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,13 +38,6 @@ import java.util.List;
 
 import org.opencps.pki.PdfPkcs7Signer;
 import org.opencps.pki.PdfSigner;
-
-import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.Validator;
 
 import kysovanban.signature.DocContent;
 import kysovanban.signature.PdfContent;
@@ -43,6 +49,44 @@ import kysovanban.signature.SignerInfo;
  */
 
 public class SignatureUtil {
+	
+	public static vgca.hsmsigner.ServerSigner getServerSignerHSM(String fullPath, Certificate cert, byte[] imageBytes) {
+		vgca.hsmsigner.ServerSigner signer = new vgca.hsmsigner.ServerSigner(fullPath, null, cert);
+		signer.setSignServerUrl("http://cms.ca.gov.vn/Pkcs1Signer.asmx");
+		signer.setSignatureGraphic(imageBytes);
+		signer.setSignatureAppearance(PdfSignatureAppearance.RenderingMode.GRAPHIC_AND_DESCRIPTION);
+		signer.setTsaUrl("http://tsa.ca.gov.vn");
+		
+		return signer;
+	}
+	
+	public static vgca.hsmsigner.ServerSigner getServerSignerHSM(String fullPath, Certificate cert, InputStream imageIs) 
+			throws IOException {
+		byte[] bytes = FileUtil.getBytes(imageIs);
+		
+		return getServerSignerHSM(fullPath, cert, bytes);
+	}
+	
+	public static Rectangle createRectangle(ExtractTextLocations textLocation) throws IOException {
+		int signatureImageWidth = 200;
+
+		int signatureImageHeight = 200;
+
+		float llx = textLocation.getAnchorX();
+
+		float urx = llx + signatureImageWidth / 3;
+
+		float lly = textLocation.getPageURY() - textLocation.getAnchorY() - signatureImageHeight / 3;
+
+		float ury = lly + signatureImageHeight / 3;
+
+		float destLLx = llx + 20;
+		float destLLy = lly - 125;
+		float destURx = urx + 154;
+		float destURy = ury - 80;
+		
+		return new Rectangle(destLLx, destLLy, destURx, destURy);
+	}
 
 	/**
 	 * @param filePath

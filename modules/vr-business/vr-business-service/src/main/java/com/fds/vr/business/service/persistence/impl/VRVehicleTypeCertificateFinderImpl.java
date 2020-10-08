@@ -2,6 +2,7 @@ package com.fds.vr.business.service.persistence.impl;
 
 import com.fds.vr.business.action.util.ActionUtil;
 import com.fds.vr.business.model.VRVehicleTypeCertificate;
+import com.fds.vr.business.model.impl.VRVehicleTypeCertificateImpl;
 import com.fds.vr.business.model.impl.VRVehicleTypeCertificateModelImpl;
 import com.fds.vr.business.service.persistence.VRVehicleTypeCertificateFinder;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -40,8 +41,8 @@ public class VRVehicleTypeCertificateFinderImpl extends VRVehicleTypeCertificate
 
 			if (Validator.isNotNull(modelClassName) && modelClazz != null) {
 				q.addEntity(modelClassName, modelClazz);
-				List<VRVehicleTypeCertificate> vrVehicleTypeCertificates = (List<VRVehicleTypeCertificate>) QueryUtil.list(q, getDialect(),
-						start, end);
+				List<VRVehicleTypeCertificate> vrVehicleTypeCertificates = (List<VRVehicleTypeCertificate>) QueryUtil
+						.list(q, getDialect(), start, end);
 				if (vrVehicleTypeCertificates != null) {
 					for (VRVehicleTypeCertificate vrVehicleTypeCertificate : vrVehicleTypeCertificates) {
 						JSONObject json = ActionUtil.object2Json(vrVehicleTypeCertificate,
@@ -83,6 +84,37 @@ public class VRVehicleTypeCertificateFinderImpl extends VRVehicleTypeCertificate
 		} finally {
 			closeSession(session);
 		}
+	}
+
+	public List<VRVehicleTypeCertificate> findExpiredVRVehicleTypeCertificates(int day, String expiredStatus) {
+
+		Session session = null;
+		List<VRVehicleTypeCertificate> vrVehicleTypeCertificates = null;
+		try {
+			session = openSession();
+
+			String sql = "SELECT DISTINCT vr_vehicletypecertificate.* FROM vr_vehicletypecertificate "
+					+ "LEFT JOIN vr_vehicleequipment ON vr_vehicletypecertificate.id = vr_vehicleequipment.vehicleTypeCertificateId "
+					+ "WHERE (( vr_vehicletypecertificate.copReportExpireDate IS NOT NULL AND DATEDIFF( vr_vehicletypecertificate.copReportExpireDate, NOW()) <= " + day + " )"
+					+ " OR ( vr_vehicletypecertificate.certificateRecordExpireDate IS NOT NULL AND DATEDIFF( vr_vehicletypecertificate.certificateRecordExpireDate, NOW()) <= " + day + " ))"
+					+ " AND ( vr_vehicletypecertificate.module = '03' OR vr_vehicletypecertificate.module = '04')"
+					+ " AND vr_vehicletypecertificate.expiredStatus IN (" + expiredStatus + ")";
+			
+			//log.info("===>>> Scheduler Expired: " + sql);
+
+			SQLQuery q = session.createSQLQuery(sql);
+			q.setCacheable(false);
+			q.addEntity(VRVehicleTypeCertificateModelImpl.TABLE_NAME, VRVehicleTypeCertificateImpl.class);
+
+			vrVehicleTypeCertificates = (List<VRVehicleTypeCertificate>) QueryUtil.list(q, getDialect(),
+					QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		} catch (Exception e) {
+			throw new SystemException(e);
+		} finally {
+			closeSession(session);
+		}
+
+		return vrVehicleTypeCertificates;
 	}
 
 	public long countData(String sql) throws SystemException {

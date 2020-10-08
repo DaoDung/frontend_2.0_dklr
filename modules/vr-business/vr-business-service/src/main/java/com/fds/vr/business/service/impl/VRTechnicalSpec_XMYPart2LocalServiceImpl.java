@@ -14,19 +14,16 @@
 
 package com.fds.vr.business.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-import java.util.Date;
-import java.util.LinkedHashMap;
+import com.fds.vr.business.model.VRTechnicalSpec_XMYPart2;
+import com.fds.vr.business.service.base.VRTechnicalSpec_XMYPart2LocalServiceBaseImpl;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
-import com.fds.vr.business.model.VRTechnicalSpec_XMYPart2;
-import com.fds.vr.business.service.base.VRTechnicalSpec_XMYPart2LocalServiceBaseImpl;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import aQute.bnd.annotation.ProviderType;
 
 
 /**
@@ -52,6 +49,13 @@ public class VRTechnicalSpec_XMYPart2LocalServiceImpl
 	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRTechnicalSpec_XMYPart2LocalServiceUtil} to access the vr technical spec_xmy part2 local service.
 	 */
 	
+	public List<VRTechnicalSpec_XMYPart2> findByVehicleCertificateId(long vehicleCertificateId, int start, int end) {
+		return vrTechnicalSpec_XMYPart2Persistence.findByvehicleTypeCertificateId(vehicleCertificateId, start, end);
+	}
+	
+	public List<VRTechnicalSpec_XMYPart2> findByDossierId(long dossierId, int start, int end) {
+		return vrTechnicalSpec_XMYPart2Persistence.findBy_DossierId(dossierId, start, end);
+	}
 
 	public List<VRTechnicalSpec_XMYPart2> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {

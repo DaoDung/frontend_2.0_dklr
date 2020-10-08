@@ -14,22 +14,20 @@
 
 package com.fds.vr.business.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONObject;
 import com.fds.vr.business.model.VRTechnicalSpec_XCH;
 import com.fds.vr.business.model.VRTechnicalSpec_XCHPart2;
 import com.fds.vr.business.service.base.VRTechnicalSpec_XCHLocalServiceBaseImpl;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import aQute.bnd.annotation.ProviderType;
 
 /**
  * The implementation of the vr technical spec_xch local service.
@@ -59,7 +57,15 @@ public class VRTechnicalSpec_XCHLocalServiceImpl extends VRTechnicalSpec_XCHLoca
 	 * com.fds.vr.business.service.VRTechnicalSpec_XCHLocalServiceUtil} to access
 	 * the vr technical spec_xch local service.
 	 */
+	
+	public List<VRTechnicalSpec_XCH> findByVehicleCertificateId(long vehicleCertificateId, int start, int end) {
+		return vrTechnicalSpec_XCHPersistence.findByvehicleTypeCertificateId(vehicleCertificateId, start, end);
+	}
 
+	public List<VRTechnicalSpec_XCH> findByDossierId(long dossierId, int start, int end) {
+		 return vrTechnicalSpec_XCHPersistence.findBy_DossierId(dossierId, start, end);
+	}
+	
 	public List<VRTechnicalSpec_XCH> findByConvertAssembleId(long convertAssembleId) throws SystemException {
 		try {
 			return vrTechnicalSpec_XCHPersistence.findByConvertAssembleId(convertAssembleId);

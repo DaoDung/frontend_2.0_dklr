@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -122,6 +123,9 @@ public interface VRVehicleTypeCertificateLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRVehicleTypeCertificate fetchVRVehicleTypeCertificate(long id);
 
+	public VRVehicleTypeCertificate findByDossierId_MtCore(long dossierId,
+		long mtCore);
+
 	/**
 	* Returns the vr vehicle type certificate with the primary key.
 	*
@@ -213,17 +217,18 @@ public interface VRVehicleTypeCertificateLocalService extends BaseLocalService,
 		Date applicantIdDate, VRApplicantProfile appProfile,
 		VRDossierFile dossierFile) throws PortalException, SystemException;
 
+	public VRVehicleTypeCertificate updateVRVehicleTypeCertificate(
+		VRVehicleTypeCertificate object, Company company);
+
 	/**
 	* Updates the vr vehicle type certificate in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param vrVehicleTypeCertificate the vr vehicle type certificate
 	* @return the vr vehicle type certificate that was updated
-	* @throws SystemException
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public VRVehicleTypeCertificate updateVRVehicleTypeCertificate(
-		VRVehicleTypeCertificate vrVehicleTypeCertificate)
-		throws SystemException;
+		VRVehicleTypeCertificate vrVehicleTypeCertificate);
 
 	public VRVehicleTypeCertificate updateVehicleTypeCertificate(
 		LinkedHashMap<java.lang.String, java.lang.String> mapValues,
@@ -352,13 +357,7 @@ public interface VRVehicleTypeCertificateLocalService extends BaseLocalService,
 	public List<VRVehicleTypeCertificate> findByDesignsymbol(
 		java.lang.String designSymbol) throws PortalException, SystemException;
 
-	public List<VRVehicleTypeCertificate> findByDossier(
-		java.lang.String dossierNo) throws PortalException, SystemException;
-
-	public List<VRVehicleTypeCertificate> findByDossierId(long dossierId,
-		long mtCore) throws PortalException, SystemException;
-
-	public List<VRVehicleTypeCertificate> findByDossierNo(
+	public List<VRVehicleTypeCertificate> findByDossierNo_MtCore(
 		java.lang.String dossierNo, long mtCore)
 		throws PortalException, SystemException;
 
@@ -423,6 +422,9 @@ public interface VRVehicleTypeCertificateLocalService extends BaseLocalService,
 	public List<VRVehicleTypeCertificate> findByVerificationCertificateNo(
 		java.lang.String verificationCertificateNo)
 		throws PortalException, SystemException;
+
+	public List<VRVehicleTypeCertificate> findExpiredCertificates(int day,
+		java.lang.String expiredStatus);
 
 	/**
 	* Returns a range of all the vr vehicle type certificates.

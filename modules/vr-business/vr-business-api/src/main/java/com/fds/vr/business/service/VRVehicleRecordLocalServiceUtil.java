@@ -109,6 +109,14 @@ public class VRVehicleRecordLocalServiceUtil {
 		return getService().getVRVehicleRecord(id);
 	}
 
+	public static com.fds.vr.business.model.VRVehicleRecord updateVRVehicleRecord(
+		com.fds.vr.business.model.VRVehicleRecord object,
+		com.liferay.portal.kernel.model.Company company)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().updateVRVehicleRecord(object, company);
+	}
+
 	/**
 	* Updates the vr vehicle record in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -123,6 +131,15 @@ public class VRVehicleRecordLocalServiceUtil {
 	public static com.fds.vr.business.model.VRVehicleRecord updateVRVehicleRecord(
 		java.util.Map<java.lang.String, java.lang.String> mapValue, int mtCore) {
 		return getService().updateVRVehicleRecord(mapValue, mtCore);
+	}
+
+	public static com.fds.vr.business.model.VRVehicleRecord updateVRVehicleRecord(
+		long vehicleRecordId, int printingStatus, int postPrintingStatus)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .updateVRVehicleRecord(vehicleRecordId, printingStatus,
+			postPrintingStatus);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
@@ -181,6 +198,14 @@ public class VRVehicleRecordLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRVehicleRecord> adminProcess(
+		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId,
+		long issueId, long mtCore, long issueVehicleCertificateId) {
+		return getService()
+				   .adminProcess(arrayData, dossierId, issueId, mtCore,
+			issueVehicleCertificateId);
+	}
+
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
 	*
@@ -229,6 +254,11 @@ public class VRVehicleRecordLocalServiceUtil {
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRVehicleRecord> findByIssueId(
+		long issueId, int start, int end) {
+		return getService().findByIssueId(issueId, start, end);
 	}
 
 	public static java.util.List<com.fds.vr.business.model.VRVehicleRecord> findByapplicantProfileId(

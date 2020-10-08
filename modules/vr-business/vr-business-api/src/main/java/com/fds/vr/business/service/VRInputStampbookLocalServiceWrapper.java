@@ -58,6 +58,12 @@ public class VRInputStampbookLocalServiceWrapper
 		return _vrInputStampbookLocalService.createVRInputStampbook(id);
 	}
 
+	@Override
+	public com.fds.vr.business.model.VRInputStampbook deleteInputStampbook(
+		long id) {
+		return _vrInputStampbookLocalService.deleteInputStampbook(id);
+	}
+
 	/**
 	* Deletes the vr input stampbook from the database. Also notifies the appropriate model listeners.
 	*
@@ -298,6 +304,14 @@ public class VRInputStampbookLocalServiceWrapper
 		return _vrInputStampbookLocalService.findBySum3GreaterThan();
 	}
 
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRInputStampbook> findByVRInputStampBookInventorys(
+		java.lang.String vehicleClass, java.lang.String stampType, int start,
+		int end) {
+		return _vrInputStampbookLocalService.findByVRInputStampBookInventorys(vehicleClass,
+			stampType, start, end);
+	}
+
 	/**
 	* Returns a range of all the vr input stampbooks.
 	*
@@ -349,12 +363,12 @@ public class VRInputStampbookLocalServiceWrapper
 	}
 
 	@Override
-	public void updateJSONArrayInputStambook(long inputSheetId,
+	public long updateJSONArrayInputStambook(long inputSheetId,
 		java.lang.Long corporationId, java.lang.Long inputSheetType,
 		java.lang.String stampbooks, java.lang.Long isApproval)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		_vrInputStampbookLocalService.updateJSONArrayInputStambook(inputSheetId,
+		return _vrInputStampbookLocalService.updateJSONArrayInputStambook(inputSheetId,
 			corporationId, inputSheetType, stampbooks, isApproval);
 	}
 

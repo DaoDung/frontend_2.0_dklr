@@ -110,6 +110,13 @@ public interface VRProductionManagement {
 	public Response findProductionPlant(@Context HttpServletRequest request, @Context HttpHeaders header,
 			@Context Company company, @Context Locale locale, @Context User user,
 			@Context ServiceContext serviceContext, @BeanParam VRProductionPlantBeanParam query);
+	
+	@GET
+	@Path("/plant/count")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response countProductionPlant(@Context HttpServletRequest request, @Context HttpHeaders header,
+			@Context Company company, @Context Locale locale, @Context User user,
+			@Context ServiceContext serviceContext, @BeanParam VRProductionPlantBeanParam query);
 
 	@GET
 	@Path("/plantsupplier/search")

@@ -26,6 +26,9 @@ import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -117,8 +120,11 @@ public interface VRIssueLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRIssue getVRIssue(long id) throws PortalException;
 
-	public VRIssue updateDigitalIssueStatus(long id, int digitalIssueStatus)
-		throws PortalException;
+	public VRIssue updateDigitalIssueStatus(long id, int digitalIssueStatus,
+		Company company) throws PortalException;
+
+	public VRIssue updateVRIssue(VRIssue object, Company company)
+		throws PortalException, SystemException;
 
 	/**
 	* Updates the vr issue in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
@@ -145,6 +151,9 @@ public interface VRIssueLocalService extends BaseLocalService,
 		List<java.lang.String> columnNames, List<java.lang.String> dataTypes,
 		java.lang.Class<?> modelClazz, java.lang.String modelClassName,
 		int start, int end) throws SystemException;
+
+	public JSONObject adminProcess(JSONObject objectData, long dossierId,
+		long mtCore) throws JSONException;
 
 	/**
 	* @throws PortalException

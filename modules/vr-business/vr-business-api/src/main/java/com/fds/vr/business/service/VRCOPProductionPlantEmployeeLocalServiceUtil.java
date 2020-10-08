@@ -169,8 +169,12 @@ public class VRCOPProductionPlantEmployeeLocalServiceUtil {
 	}
 
 	public static int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
-		return getService().adminProcessData(arrayData, dossierId);
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
+		return getService()
+				   .adminProcessData(arrayData, mtCore,
+			vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -241,19 +245,17 @@ public class VRCOPProductionPlantEmployeeLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
-	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportNo(
-		long mtCore, java.lang.String copReportNo)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().findBycopReportNo(mtCore, copReportNo);
+	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportNo_MtCore(
+		long mtCore, java.lang.String copReportNo, int start, int end) {
+		return getService()
+				   .findBycopReportNo_MtCore(mtCore, copReportNo, start, end);
 	}
 
-	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+	public static java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
 		return getService()
-				   .findBycopReportRepositoryID(mtCore, copReportRepositoryID);
+				   .findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

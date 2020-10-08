@@ -105,6 +105,11 @@ public class VRDossierLocalServiceUtil {
 		return getService().fetchVRDossierByUuidAndGroupId(uuid, groupId);
 	}
 
+	public static com.fds.vr.business.model.VRDossier getByRef(long groupId,
+		java.lang.String refId) {
+		return getService().getByRef(groupId, refId);
+	}
+
 	/**
 	* Returns the vr dossier with the primary key.
 	*

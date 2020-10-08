@@ -209,6 +209,9 @@ public interface VRTechnicalSpec_LKXMYLocalService extends BaseLocalService,
 		java.lang.String deliverableCode) throws SystemException;
 
 	public List<VRTechnicalSpec_LKXMY> findByDossierId(long dossierId,
+		int start, int end);
+
+	public List<VRTechnicalSpec_LKXMY> findByDossierId(long dossierId,
 		long mtCore) throws SystemException;
 
 	public List<VRTechnicalSpec_LKXMY> findByDossierIdCTN(
@@ -219,6 +222,9 @@ public interface VRTechnicalSpec_LKXMYLocalService extends BaseLocalService,
 
 	public List<VRTechnicalSpec_LKXMY> findByReferenceUid(
 		java.lang.String referenceUid) throws SystemException;
+
+	public List<VRTechnicalSpec_LKXMY> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end);
 
 	/**
 	* Returns a range of all the vr technical spec_lkxmies.

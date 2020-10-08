@@ -233,9 +233,9 @@ public class RegistrationSyncScheduler_bk extends BaseSchedulerEntryMessageListe
                                         //2. Update vr_applicantprofile
                                         
                                 		VRApplicantProfile appProfile = new VRApplicantProfileImpl();
-                                        List <VRApplicantProfile> lstAppProfile = VRApplicantProfileLocalServiceUtil.findByapplicantCode(1, registrationClient.getApplicantIdNo().trim());
-                                        if (lstAppProfile != null && lstAppProfile.size() > 0 ) {
-                                        	appProfile = lstAppProfile.get(0);
+                                		VRApplicantProfile vrApplicantProfile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(registrationClient.getApplicantIdNo().trim());
+                                        if (vrApplicantProfile != null) {
+                                        	appProfile = vrApplicantProfile;
                                         	flagUpdate = true;
                                         } else {
                                         	flagUpdate = false;

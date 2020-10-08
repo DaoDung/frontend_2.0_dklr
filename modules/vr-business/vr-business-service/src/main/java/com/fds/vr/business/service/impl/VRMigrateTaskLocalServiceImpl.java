@@ -15,17 +15,24 @@
 package com.fds.vr.business.service.impl;
 
 import aQute.bnd.annotation.ProviderType;
-
+import com.fds.vr.business.model.VRMigrateTask;
 import com.fds.vr.business.service.base.VRMigrateTaskLocalServiceBaseImpl;
+import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+
+import java.util.List;
 
 /**
  * The implementation of the vr migrate task local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.fds.vr.business.service.VRMigrateTaskLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.fds.vr.business.service.VRMigrateTaskLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author LamTV
@@ -33,11 +40,16 @@ import com.fds.vr.business.service.base.VRMigrateTaskLocalServiceBaseImpl;
  * @see com.fds.vr.business.service.VRMigrateTaskLocalServiceUtil
  */
 @ProviderType
-public class VRMigrateTaskLocalServiceImpl
-	extends VRMigrateTaskLocalServiceBaseImpl {
+public class VRMigrateTaskLocalServiceImpl extends VRMigrateTaskLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.fds.vr.business.service.VRMigrateTaskLocalServiceUtil} to access the vr migrate task local service.
+	 * Never reference this class directly. Always use {@link
+	 * com.fds.vr.business.service.VRMigrateTaskLocalServiceUtil} to access the vr
+	 * migrate task local service.
 	 */
+	public List<VRMigrateTask> findVRMigrateTasks(int start, int end) {
+		return vrMigrateTaskPersistence.findAll(start, end,
+				OrderByComparatorFactoryUtil.create("vr_migrate_task", "task_id", false));
+	}
 }

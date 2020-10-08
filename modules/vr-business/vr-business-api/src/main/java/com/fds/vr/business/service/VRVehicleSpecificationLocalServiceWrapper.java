@@ -264,10 +264,15 @@ public class VRVehicleSpecificationLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.fds.vr.business.model.VRVehicleSpecification> findByDossierId(
+		long dossierId, int start, int end) {
+		return _vrVehicleSpecificationLocalService.findByDossierId(dossierId,
+			start, end);
+	}
+
+	@Override
 	public java.util.List<com.fds.vr.business.model.VRVehicleSpecification> findByVehicleCertificateId(
-		long vehicleCertificateId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		long vehicleCertificateId) {
 		return _vrVehicleSpecificationLocalService.findByVehicleCertificateId(vehicleCertificateId);
 	}
 

@@ -180,9 +180,9 @@ public class VRVehicleEquipmentLocalServiceWrapper
 	@Override
 	public java.util.List<com.fds.vr.business.model.VRVehicleEquipment> adminProcessData(
 		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId,
-		long vehicleTypeCertificateId) {
+		long mtCore) {
 		return _vrVehicleEquipmentLocalService.adminProcessData(arrayData,
-			dossierId, vehicleTypeCertificateId);
+			dossierId, mtCore);
 	}
 
 	/**
@@ -237,6 +237,20 @@ public class VRVehicleEquipmentLocalServiceWrapper
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return _vrVehicleEquipmentLocalService.dynamicQuery(dynamicQuery,
 			start, end, orderByComparator);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRVehicleEquipment> findByDossierId(
+		long dossierId, int start, int end) {
+		return _vrVehicleEquipmentLocalService.findByDossierId(dossierId,
+			start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRVehicleEquipment> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end) {
+		return _vrVehicleEquipmentLocalService.findByVehicleCertificateId(vehicleCertificateId,
+			start, end);
 	}
 
 	/**

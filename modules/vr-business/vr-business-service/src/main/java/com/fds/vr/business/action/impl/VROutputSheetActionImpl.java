@@ -3,21 +3,33 @@ package com.fds.vr.business.action.impl;
 import com.fds.vr.business.action.VROutputSheetAction;
 import com.fds.vr.business.action.util.ActionUtil;
 import com.fds.vr.business.engine.SQLQueryBuilder;
+import com.fds.vr.business.model.VRES;
 import com.fds.vr.business.model.VROutputSheet;
+import com.fds.vr.business.model.VROutputSheetDetails;
+import com.fds.vr.business.model.impl.VROutputSheetDetailsModelImpl;
 import com.fds.vr.business.model.impl.VROutputSheetImpl;
 import com.fds.vr.business.model.impl.VROutputSheetModelImpl;
+import com.fds.vr.business.service.VROutputSheetDetailsLocalServiceUtil;
 import com.fds.vr.business.service.VROutputSheetLocalServiceUtil;
+import com.fds.vr.business.service.indexer.ElasticQueryWrapUtil;
+import com.fds.vr.service.util.BusinessUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
 
+import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -59,8 +71,8 @@ public class VROutputSheetActionImpl implements VROutputSheetAction {
 		Long totalAmount = null;
 		String amountInWords = null;
 		String remark = null;
-		//String modifyDate = null;
-		//String syncDate = null;
+		// String modifyDate = null;
+		// String syncDate = null;
 		if (params != null) {
 			if (params.containsKey("id")) {
 				id = GetterUtil.getLong(params.get("id"));
@@ -140,12 +152,12 @@ public class VROutputSheetActionImpl implements VROutputSheetAction {
 			if (params.containsKey("remark")) {
 				remark = GetterUtil.getString(params.get("remark"));
 			}
-			/*if (params.containsKey("modifydate")) {
-				modifyDate = GetterUtil.getString(params.get("modifydate"));
-			}
-			if (params.containsKey("syncdate")) {
-				syncDate = GetterUtil.getString(params.get("syncdate"));
-			}*/
+			/*
+			 * if (params.containsKey("modifydate")) { modifyDate =
+			 * GetterUtil.getString(params.get("modifydate")); } if
+			 * (params.containsKey("syncdate")) { syncDate =
+			 * GetterUtil.getString(params.get("syncdate")); }
+			 */
 		}
 		String _keywordSearchCondition = ActionUtil.buildSQLCondition("outputSheetNo", keyword, "", StringPool.LIKE, "")
 				+ ActionUtil.buildSQLCondition("originalDocumentNo", keyword, "OR", StringPool.LIKE, "")
@@ -186,8 +198,8 @@ public class VROutputSheetActionImpl implements VROutputSheetAction {
 				.where("totalamount", totalAmount, "AND", StringPool.EQUAL)
 				.where("amountinwords", amountInWords, "AND", StringPool.EQUAL)
 				.where("remark", remark, "AND", StringPool.EQUAL)
-				//.where("modifydate", modifyDate, "AND", StringPool.EQUAL)
-				//.where("syncdate", syncDate, "AND", StringPool.EQUAL)
+				// .where("modifydate", modifyDate, "AND", StringPool.EQUAL)
+				// .where("syncdate", syncDate, "AND", StringPool.EQUAL)
 				.where(_keywordSearchCondition, null, "AND", "", true).build();
 		JSONObject result = JSONFactoryUtil.createJSONObject();
 		long total = VROutputSheetLocalServiceUtil.counData(builder.getCountQuery());
@@ -260,4 +272,34 @@ public class VROutputSheetActionImpl implements VROutputSheetAction {
 	}
 
 	private Log _log = LogFactoryUtil.getLog(VROutputSheetActionImpl.class);
+
+	@Override
+	public void indexing(VROutputSheet vrOutputSheet, Company company) throws SystemException, PortalException {
+		final String CLASS_NAME = VRES.class.getName();
+		JSONObject object = JSONFactoryUtil.createJSONObject();
+		JSONObject jVROutputSheet = BusinessUtil.object2Json_originValue(vrOutputSheet, VROutputSheetModelImpl.class,
+				StringPool.BLANK);
+		object.put("vr_OutputSheet", jVROutputSheet);
+
+		List<VROutputSheetDetails> vrOutputSheetDetails = VROutputSheetDetailsLocalServiceUtil
+				.findByOutputSheetId(vrOutputSheet.getMtCore(), vrOutputSheet.getPrimaryKey());
+		object = BusinessUtil.array2JSON(vrOutputSheetDetails, VROutputSheetDetailsModelImpl.class, object,
+				"vr_OutputSheetDetails");
+
+		JSONObject esData = JSONFactoryUtil.createJSONObject();
+		esData.put("type_es", "vr_outputsheet");
+		esData.put(Field.MODIFIED_DATE + "_es", new Date().getTime());
+		esData.put(Field.COMPANY_ID, String.valueOf(company.getCompanyId()));
+		esData.put("id", String.valueOf(vrOutputSheet.getId()));
+		esData.put("data", object);
+
+		int deletex = ElasticQueryWrapUtil.DELETE("id", String.valueOf(vrOutputSheet.getPrimaryKey()),
+				company.getCompanyId(), "vr_outputsheet");
+		if (deletex == 0) {
+			ElasticQueryWrapUtil.POST(esData.toJSONString(), CLASS_NAME, company.getCompanyId());
+		}
+		_log.info("---> DocumentId - outputSheetId: " + vrOutputSheet.getPrimaryKey());
+
+		_log.info("=== DONE INDEXING ===");
+	}
 }

@@ -264,6 +264,20 @@ public class VRTechnicalSpec_XCNPart2LocalServiceWrapper
 		return _vrTechnicalSpec_XCNPart2LocalService.findByReferenceUid(referenceUid);
 	}
 
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XCNPart2> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end) {
+		return _vrTechnicalSpec_XCNPart2LocalService.findByVehicleCertificateId(vehicleCertificateId,
+			start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRTechnicalSpec_XCNPart2> findBy_DossierId(
+		long dossierId, int start, int end) {
+		return _vrTechnicalSpec_XCNPart2LocalService.findBy_DossierId(dossierId,
+			start, end);
+	}
+
 	/**
 	* Returns a range of all the vr technical spec_xcn part2s.
 	*

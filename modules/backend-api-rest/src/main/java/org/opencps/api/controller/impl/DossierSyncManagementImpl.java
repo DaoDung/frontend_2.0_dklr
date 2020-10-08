@@ -608,6 +608,7 @@ public class DossierSyncManagementImpl implements DossierSyncManagement {
 										formData = dossierFile.getFormData();
 									}
 							        properties.put("formData", formData);
+							        properties.put("formDataDossierFile", String.valueOf(dossierFile.getFormDataDossierFile()));
 							        //Comment by Dungnv
 									//properties.put("formData", dossierFile.getFormData());
 		

@@ -18,4 +18,5 @@ Export-Package: \
 	com.fds.vr.business.exception,\
 	com.fds.vr.business.engine,\
 	org.apache.poi.ss.usermodel,\
-	org.apache.poi.xssf.usermodel
+	org.apache.poi.xssf.usermodel,\
+	com.fds.vr.business.report

@@ -147,6 +147,15 @@ public class VRIssueVehiclecertificateLocalServiceWrapper
 			columnNames, dataTypes, modelClazz, modelClassName, start, end);
 	}
 
+	@Override
+	public com.liferay.portal.kernel.json.JSONObject adminProcess(
+		com.liferay.portal.kernel.json.JSONArray arrayData, long issueId,
+		long dossierId, long mtCore)
+		throws com.liferay.portal.kernel.json.JSONException {
+		return _vrIssueVehiclecertificateLocalService.adminProcess(arrayData,
+			issueId, dossierId, mtCore);
+	}
+
 	/**
 	* @throws PortalException
 	*/
@@ -239,6 +248,22 @@ public class VRIssueVehiclecertificateLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findByIssueId(
+		long issueId, int start, int end) {
+		return _vrIssueVehiclecertificateLocalService.findByIssueId(issueId,
+			start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findByIssueId_MtCore(
+		long mtCore, long issueId, int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _vrIssueVehiclecertificateLocalService.findByIssueId_MtCore(mtCore,
+			issueId, start, end);
+	}
+
+	@Override
 	public java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findBycertificateId(
 		long mtCore, long dossierId, long certificateId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -254,15 +279,6 @@ public class VRIssueVehiclecertificateLocalServiceWrapper
 			com.liferay.portal.kernel.exception.SystemException {
 		return _vrIssueVehiclecertificateLocalService.findBydossierId(mtCore,
 			dossierId);
-	}
-
-	@Override
-	public java.util.List<com.fds.vr.business.model.VRIssueVehiclecertificate> findByissueId(
-		long mtCore, long issueId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrIssueVehiclecertificateLocalService.findByissueId(mtCore,
-			issueId);
 	}
 
 	/**

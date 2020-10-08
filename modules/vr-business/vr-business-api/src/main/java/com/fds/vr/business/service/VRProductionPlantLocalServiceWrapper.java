@@ -268,6 +268,13 @@ public class VRProductionPlantLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.fds.vr.business.model.VRProductionPlant> findByApplicantId(
+		long applicantProfileId, int start, int end) {
+		return _vrProductionPlantLocalService.findByApplicantId(applicantProfileId,
+			start, end);
+	}
+
+	@Override
 	public java.util.List<com.fds.vr.business.model.VRProductionPlant> findByRegistrationFormId(
 		long mtCore, long applicantProfileId, long registrationId) {
 		return _vrProductionPlantLocalService.findByRegistrationFormId(mtCore,

@@ -220,6 +220,12 @@ public interface VRTechnicalSpec_XCNLocalService extends BaseLocalService,
 	public List<VRTechnicalSpec_XCN> findByReferenceUid(
 		java.lang.String referenceUid) throws SystemException;
 
+	public List<VRTechnicalSpec_XCN> findByVehicleCertificateId(
+		long vehicleCertificateId, int start, int end);
+
+	public List<VRTechnicalSpec_XCN> findBy_DossierId(long dossierId,
+		int start, int end);
+
 	/**
 	* Returns a range of all the vr technical spec_xcns.
 	*

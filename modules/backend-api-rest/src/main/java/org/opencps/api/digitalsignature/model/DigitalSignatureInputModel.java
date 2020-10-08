@@ -7,6 +7,7 @@
 
 package org.opencps.api.digitalsignature.model;
 
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -46,7 +47,8 @@ import javax.xml.bind.annotation.XmlType;
  "actionNote",
  "assignUserId",
  "subUsers",
- "postStepCode"
+ "postStepCode",
+ "useHSM"
 })
 public class DigitalSignatureInputModel {
 
@@ -72,6 +74,9 @@ public class DigitalSignatureInputModel {
 	protected String subUsers;
 	@FormParam(value = "postStepCode")
 	protected String postStepCode;
+	@FormParam(value = "useHSM")
+	@DefaultValue("false")
+	protected boolean useHSM;
 	 /**
 	  * Gets the value of the deliverableType property.
 	  * 
@@ -208,4 +213,11 @@ public class DigitalSignatureInputModel {
 		this.postStepCode = postStepCode;
 	}
 
+	public boolean isUseHSM() {
+		return useHSM;
+	}
+
+	public void setUseHSM(boolean useHSM) {
+		this.useHSM = useHSM;
+	}
 }

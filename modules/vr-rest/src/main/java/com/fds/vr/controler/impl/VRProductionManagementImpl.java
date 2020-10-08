@@ -632,4 +632,20 @@ public class VRProductionManagementImpl implements VRProductionManagement {
 		}
 	}
 
+	@Override
+	public Response countProductionPlant(HttpServletRequest request, HttpHeaders header, Company company, Locale locale,
+			User user, ServiceContext serviceContext, VRProductionPlantBeanParam query) {
+		long total = 0;
+		try {
+			LinkedHashMap<String, Object> params = VRRestUtil.getParamMap(query);
+			VRProductionPlantAction actionImpl = new VRProductionPlantActionImpl();
+			total = actionImpl.countVRProductionPlant(user, serviceContext, params);
+			return Response.status(200).entity(total).build();
+		} catch (Exception e) {
+			_log.error(e);
+			return Response.status(500).entity(VRRestUtil.errorMessage("Can't get vrproductionplant").toJSONString())
+					.build();
+		}
+	}
+
 }

@@ -222,8 +222,11 @@ public interface VRVehicleSpecificationLocalService extends BaseLocalService,
 		java.lang.String deliverableCode)
 		throws PortalException, SystemException;
 
+	public List<VRVehicleSpecification> findByDossierId(long dossierId,
+		int start, int end);
+
 	public List<VRVehicleSpecification> findByVehicleCertificateId(
-		long vehicleCertificateId) throws PortalException, SystemException;
+		long vehicleCertificateId);
 
 	/**
 	* Returns a range of all the vr vehicle specifications.

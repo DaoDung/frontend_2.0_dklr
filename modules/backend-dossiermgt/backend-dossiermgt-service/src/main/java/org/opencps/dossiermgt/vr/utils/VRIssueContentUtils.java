@@ -1,20 +1,5 @@
 package org.opencps.dossiermgt.vr.utils;
 
-import java.io.File;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.opencps.dossiermgt.model.Dossier;
-import org.opencps.dossiermgt.model.DossierAction;
-import org.opencps.dossiermgt.model.DossierFile;
-import org.opencps.dossiermgt.model.ProcessStep;
-import org.opencps.dossiermgt.service.DossierFileLocalServiceUtil;
-import org.opencps.dossiermgt.service.DossierLocalServiceUtil;
-import org.opencps.dossiermgt.service.ProcessStepLocalServiceUtil;
-import org.opencps.dossiermgt.service.comparator.DossierFileComparator;
-
 import com.fds.vr.business.model.VRApplicantProfile;
 import com.fds.vr.business.model.VRIssue;
 import com.fds.vr.business.model.VRIssueVehiclecertificate;
@@ -33,6 +18,17 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
+
+import java.io.File;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.opencps.dossiermgt.model.Dossier;
+import org.opencps.dossiermgt.model.DossierAction;
+import org.opencps.dossiermgt.model.DossierFile;
+import org.opencps.dossiermgt.service.DossierFileLocalServiceUtil;
+import org.opencps.dossiermgt.service.comparator.DossierFileComparator;
 
 
 public class VRIssueContentUtils {
@@ -142,7 +138,7 @@ public class VRIssueContentUtils {
 			mapIssue.put("appliedDate", String.valueOf(objDossier.getReceiveDate()));
 			mapIssue.put("vehicleclass", issueVehicleClass);
 			//Get applicant profile
-			VRApplicantProfile appProfile = VRApplicantProfileLocalServiceUtil.findByMT_APP_CODE(mtCore, objDossier.getApplicantIdNo());
+			VRApplicantProfile appProfile = VRApplicantProfileLocalServiceUtil.findByApplicantCode(objDossier.getApplicantIdNo());
 			if (appProfile != null) {
 				mapIssue.put("applicantprofileId", String.valueOf(appProfile.getId()));
 				mapIssue.put("applicantName", appProfile.getApplicantName());

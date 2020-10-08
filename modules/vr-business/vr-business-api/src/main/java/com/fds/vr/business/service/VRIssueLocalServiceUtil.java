@@ -113,9 +113,19 @@ public class VRIssueLocalServiceUtil {
 	}
 
 	public static com.fds.vr.business.model.VRIssue updateDigitalIssueStatus(
-		long id, int digitalIssueStatus)
+		long id, int digitalIssueStatus,
+		com.liferay.portal.kernel.model.Company company)
 		throws com.liferay.portal.kernel.exception.PortalException {
-		return getService().updateDigitalIssueStatus(id, digitalIssueStatus);
+		return getService()
+				   .updateDigitalIssueStatus(id, digitalIssueStatus, company);
+	}
+
+	public static com.fds.vr.business.model.VRIssue updateVRIssue(
+		com.fds.vr.business.model.VRIssue object,
+		com.liferay.portal.kernel.model.Company company)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().updateVRIssue(object, company);
 	}
 
 	/**
@@ -157,6 +167,12 @@ public class VRIssueLocalServiceUtil {
 		return getService()
 				   .findData(sql, columnNames, dataTypes, modelClazz,
 			modelClassName, start, end);
+	}
+
+	public static com.liferay.portal.kernel.json.JSONObject adminProcess(
+		com.liferay.portal.kernel.json.JSONObject objectData, long dossierId,
+		long mtCore) throws com.liferay.portal.kernel.json.JSONException {
+		return getService().adminProcess(objectData, dossierId, mtCore);
 	}
 
 	/**

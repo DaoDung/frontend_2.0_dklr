@@ -29,6 +29,7 @@ dependencies {
 	compileOnly project(":modules:backend-kyso-process:backend-kyso-process-api")
 	
 	compile name : "vgca.svrsigner"
+	compile name : "vgca.hsmsigner"
 	compile name : "bcpkix"
 	compile name : "bcprov"
 	compile name : "itextpdf"

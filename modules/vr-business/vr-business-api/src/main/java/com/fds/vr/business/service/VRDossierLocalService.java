@@ -114,6 +114,9 @@ public interface VRDossierLocalService extends BaseLocalService,
 	public VRDossier fetchVRDossierByUuidAndGroupId(java.lang.String uuid,
 		long groupId);
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public VRDossier getByRef(long groupId, java.lang.String refId);
+
 	/**
 	* Returns the vr dossier with the primary key.
 	*

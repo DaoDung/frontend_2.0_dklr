@@ -175,9 +175,11 @@ public class VRCOPProductionPlantEmployeeLocalServiceWrapper
 
 	@Override
 	public int adminProcessData(
-		com.liferay.portal.kernel.json.JSONArray arrayData, long dossierId) {
+		com.liferay.portal.kernel.json.JSONArray arrayData, long mtCore,
+		long vrcopReportRepositoryId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo) {
 		return _vrcopProductionPlantEmployeeLocalService.adminProcessData(arrayData,
-			dossierId);
+			mtCore, vrcopReportRepositoryId, dossierId, dossierIdCTN, dossierNo);
 	}
 
 	/**
@@ -255,21 +257,17 @@ public class VRCOPProductionPlantEmployeeLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportNo(
-		long mtCore, java.lang.String copReportNo)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopProductionPlantEmployeeLocalService.findBycopReportNo(mtCore,
-			copReportNo);
+	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportNo_MtCore(
+		long mtCore, java.lang.String copReportNo, int start, int end) {
+		return _vrcopProductionPlantEmployeeLocalService.findBycopReportNo_MtCore(mtCore,
+			copReportNo, start, end);
 	}
 
 	@Override
-	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportRepositoryID(
-		long mtCore, long copReportRepositoryID)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _vrcopProductionPlantEmployeeLocalService.findBycopReportRepositoryID(mtCore,
-			copReportRepositoryID);
+	public java.util.List<com.fds.vr.business.model.VRCOPProductionPlantEmployee> findBycopReportRepositoryID_MtCore(
+		long mtCore, long copReportRepositoryID, int start, int end) {
+		return _vrcopProductionPlantEmployeeLocalService.findBycopReportRepositoryID_MtCore(mtCore,
+			copReportRepositoryID, start, end);
 	}
 
 	/**

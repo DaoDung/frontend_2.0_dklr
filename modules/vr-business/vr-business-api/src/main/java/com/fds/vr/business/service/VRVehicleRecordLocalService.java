@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -118,6 +119,9 @@ public interface VRVehicleRecordLocalService extends BaseLocalService,
 	public VRVehicleRecord getVRVehicleRecord(long id)
 		throws PortalException;
 
+	public VRVehicleRecord updateVRVehicleRecord(VRVehicleRecord object,
+		Company company) throws PortalException, SystemException;
+
 	/**
 	* Updates the vr vehicle record in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -130,6 +134,10 @@ public interface VRVehicleRecordLocalService extends BaseLocalService,
 
 	public VRVehicleRecord updateVRVehicleRecord(
 		Map<java.lang.String, java.lang.String> mapValue, int mtCore);
+
+	public VRVehicleRecord updateVRVehicleRecord(long vehicleRecordId,
+		int printingStatus, int postPrintingStatus)
+		throws PortalException, SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -171,6 +179,10 @@ public interface VRVehicleRecordLocalService extends BaseLocalService,
 	*/
 	public java.lang.String getOSGiServiceIdentifier();
 
+	public List<VRVehicleRecord> adminProcess(JSONArray arrayData,
+		long dossierId, long issueId, long mtCore,
+		long issueVehicleCertificateId);
+
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
 	*
@@ -209,6 +221,8 @@ public interface VRVehicleRecordLocalService extends BaseLocalService,
 	*/
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
+
+	public List<VRVehicleRecord> findByIssueId(long issueId, int start, int end);
 
 	public List<VRVehicleRecord> findByapplicantProfileId(long mtCore,
 		long applicantProfileId) throws PortalException, SystemException;
