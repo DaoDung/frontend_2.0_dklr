@@ -92,6 +92,16 @@ public class VRReportCategoryLocalServiceUtil {
 		return getService().fetchVRReportCategory(id);
 	}
 
+	public static com.fds.vr.business.model.VRReportCategory findByRptCode(
+		java.lang.String rptCode) {
+		return getService().findByRptCode(rptCode);
+	}
+
+	public static com.fds.vr.business.model.VRReportCategory findByRptDescription(
+		java.lang.String rptDescription) {
+		return getService().findByRptDescription(rptDescription);
+	}
+
 	/**
 	* Returns the vr report category with the primary key.
 	*
@@ -208,6 +218,16 @@ public class VRReportCategoryLocalServiceUtil {
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRReportCategory> findByRptGroup(
+		java.lang.String rptGroup, int start, int end) {
+		return getService().findByRptGroup(rptGroup, start, end);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRReportCategory> findByRptLevel(
+		int rptLevel, int start, int end) {
+		return getService().findByRptLevel(rptLevel, start, end);
 	}
 
 	/**

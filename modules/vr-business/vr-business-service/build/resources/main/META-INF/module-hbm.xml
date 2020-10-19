@@ -22,6 +22,7 @@
 	<import class="com.fds.vr.business.model.VRDossier" />
 	<import class="com.fds.vr.business.model.VRDossierFile" />
 	<import class="com.fds.vr.business.model.VRES" />
+	<import class="com.fds.vr.business.model.VRExpireCertificate" />
 	<import class="com.fds.vr.business.model.VRHistoryProfile" />
 	<import class="com.fds.vr.business.model.VRInputSheet" />
 	<import class="com.fds.vr.business.model.VRInputStampbook" />
@@ -30,8 +31,12 @@
 	<import class="com.fds.vr.business.model.VRInventory" />
 	<import class="com.fds.vr.business.model.VRIssue" />
 	<import class="com.fds.vr.business.model.VRIssueEquipmentCertificate" />
+	<import class="com.fds.vr.business.model.VRIssueInspectionRecord" />
 	<import class="com.fds.vr.business.model.VRIssueVehiclecertificate" />
 	<import class="com.fds.vr.business.model.VRLimitConfigTechSpec" />
+	<import class="com.fds.vr.business.model.VRMigrateMappings" />
+	<import class="com.fds.vr.business.model.VRMigrateReview" />
+	<import class="com.fds.vr.business.model.VRMigrateTask" />
 	<import class="com.fds.vr.business.model.VROutputSheet" />
 	<import class="com.fds.vr.business.model.VROutputSheetDetails" />
 	<import class="com.fds.vr.business.model.VRProductionClassification" />
@@ -44,6 +49,7 @@
 	<import class="com.fds.vr.business.model.VRProductType" />
 	<import class="com.fds.vr.business.model.VRRegistration" />
 	<import class="com.fds.vr.business.model.VRReport" />
+	<import class="com.fds.vr.business.model.VRReportCategory" />
 	<import class="com.fds.vr.business.model.VRRPDossierStatistics" />
 	<import class="com.fds.vr.business.model.VRSyncDate" />
 	<import class="com.fds.vr.business.model.VRTechnicalSpec_LKXCG" />
@@ -365,8 +371,8 @@
 		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
 		<property name="syncDate" type="org.hibernate.type.TimestampType" />
 		<property name="equipmentSerialNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="productionYear" type="org.hibernate.type.TimestampType" />
-		<property name="registrationYear" type="org.hibernate.type.TimestampType" />
+		<property name="productionYear" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="registrationYear" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="markupXCG" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="markupXCGNK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="markupSMRM" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -488,6 +494,73 @@
 		<property name="dossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantTelNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantFax" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantContactName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantContactEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantContactPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantContactTelNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantBusinessType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="markupDesigner" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="markupOverseasManufacturer" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="markupMaintainer" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="importerDomesticSite" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="siteOfNationality" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="siteOfNationalityCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="siteOfRegion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="siteOfRegionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="siteOfCity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="siteOfCityCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerRepresentative" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerRepresentativeTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerFax" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantWebsite" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantRepresentative" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantRepresentativeTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="corporationName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectorContactCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectoRendorSementDate" type="org.hibernate.type.TimestampType" />
+		<property name="inspectorDeadline" type="org.hibernate.type.TimestampType" />
+		<property name="resolvedStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="numberOfNonConformity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="numberOfResolved" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="observationDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectionAuditCycle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectionNote" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionConformityChecking" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionStampChecking" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="testingEquipmentChecking" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantClassification" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="actualCapacity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="maxCapacity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="averageCapacity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalEmployee" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalWorker" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalManager" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalTechnical" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalQaEmployee" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalSquareMeter" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="wareHouseSquare" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="officeSquare" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionSquare" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="machiningArea" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="weldingArea" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="paintingArea" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionAssembleArea" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="finishProductArea" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="testingArea" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="selfEquipment" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="contractEquipment" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="circularNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="circularDate" type="org.hibernate.type.TimestampType" />
+		<property name="circularNo2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="circularDate2" type="org.hibernate.type.TimestampType" />
 	</class>
 	<class name="com.fds.vr.business.model.impl.VRCorporationAttendeeImpl" table="vr_corporation_attendee">
 		<id name="id" type="long">
@@ -708,6 +781,60 @@
 		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="data" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
+	<class name="com.fds.vr.business.model.impl.VRExpireCertificateImpl" table="vr_expire_certificate">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="mtCore" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="convertAssembleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="validDossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="validDossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validDossierNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dossierNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dossierStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="previousExpireDate" type="org.hibernate.type.TimestampType" />
+		<property name="certificateRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certificateRecordDate" type="org.hibernate.type.TimestampType" />
+		<property name="certificateRecordExpireDate" type="org.hibernate.type.TimestampType" />
+		<property name="expiredStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="vehicleClass" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedVehicleType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedVehicleTypeDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedTrademark" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedTrademarkName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedCommercialName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedModelCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionCountry" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="safetytestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="safetytestReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="emissionTestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionTestReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="commonSafetyStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="commonSafetyDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="othertestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="othertestReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="copReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="copReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="copReportExpireDate" type="org.hibernate.type.TimestampType" />
+		<property name="validRequestNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validRequestDate" type="org.hibernate.type.TimestampType" />
+		<property name="validInspectionRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validInspectionRecordDate" type="org.hibernate.type.TimestampType" />
+		<property name="validCorporationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="validInspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="validInspectorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validRemarks" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validInspectionNote" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="deliverableFileEntryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="documentFileEntryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
+		<property name="syncDate" type="org.hibernate.type.TimestampType" />
+	</class>
 	<class name="com.fds.vr.business.model.impl.VRHistoryProfileImpl" table="vr_history_profile">
 		<id name="id" type="long">
 			<generator class="assigned" />
@@ -887,7 +1014,7 @@
 		<property name="totalInDocument" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="issueCorporationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="verifyCorporationId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="digitalissuestatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="digitalIssueStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="issueType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="averageSTBQuantity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="maxMonthQuantity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
@@ -902,18 +1029,20 @@
 		<property name="examinationRequired" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="examinationPeriod" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="examinationLastTime" type="org.hibernate.type.TimestampType" />
-		<property name="copresult" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="copreportno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="copreportdate" type="org.hibernate.type.TimestampType" />
-		<property name="postreview" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="postreviewrecordno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="postreviewrecorddate" type="org.hibernate.type.TimestampType" />
+		<property name="copResult" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="copReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="copReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="postReview" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="postReviewRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="postReviewRecordDate" type="org.hibernate.type.TimestampType" />
 		<property name="corporationId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="inspectorcode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="inspectorname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="leadername" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="applicantmaker" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="applicantchecker" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectorCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="leaderName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantMaker" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantChecker" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certificateRecordDate" type="org.hibernate.type.TimestampType" />
+		<property name="issueInspectionRecordId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="inspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="issueInspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="verifyInspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -924,10 +1053,11 @@
 		<id name="id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="mtcore" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="mtCore" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="issueId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="issueVehicleCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="vehiclecertificaterecordno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleCertificateRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="equipmentName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="equipmentType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="equipmentCertificateType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -940,10 +1070,38 @@
 		<property name="TotalInUse" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="TotalNotUsed" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="applicantNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="applicantname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="applicantaddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="productionplantname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="productionplantaddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionPlantAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
+		<property name="syncDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.fds.vr.business.model.impl.VRIssueInspectionRecordImpl" table="vr_issue_inspectionrecord">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="mtCore" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="issueId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="certificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="totalQuantity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="postReview" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="postReviewRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="postReviewRecordDate" type="org.hibernate.type.TimestampType" />
+		<property name="corporationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="inspectorCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inspectorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="leaderName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="issueCorporationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="verifyCorporationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="inspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="issueInspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="verifyInspectorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="digitalIssueStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validRemarks" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validInspectionNote" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="documentFileEntryid" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
 		<property name="syncDate" type="org.hibernate.type.TimestampType" />
 	</class>
@@ -958,9 +1116,10 @@
 		<property name="vehiclePrice" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="totalQuantity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="unitPrice" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property column="totalproduct" name="totalProduct" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="certificaterecordno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="productionexamreportno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="totalProduct" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="certificateRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionExamReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certificateRecordDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
 		<property name="syncDate" type="org.hibernate.type.TimestampType" />
 	</class>
@@ -977,6 +1136,56 @@
 		<property column="specificationcode" name="specificationCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property column="specificationname" name="specificationName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property column="synchdate" name="synchDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.fds.vr.business.model.impl.VRMigrateMappingsImpl" table="vr_migrate_mappings">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="dataGroupID" name="dataGroupId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sequenceNo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="migrateTableName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dataItemID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="itemCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="itemName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="itemShortName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="itemDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_0" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code_3" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="level" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="seqNo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="markedAsRestore" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="markedAsDelete" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="alterCollectionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="alterItemCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="alterItemName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="alterGroupCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="alterLevel" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="taskMigrationID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.fds.vr.business.model.impl.VRMigrateReviewImpl" table="vr_migrate_review">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="dataGroupID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="migrateTableName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="migrationConfiguration" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sequenceNo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="taskMigrationID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="migrateRows" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="migrateRemarks" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.fds.vr.business.model.impl.VRMigrateTaskImpl" table="vr_migrate_task">
+		<id name="task_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="task_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="taskMigrationID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="source_config" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="target_config" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="remarks" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
 	<class name="com.fds.vr.business.model.impl.VROutputSheetImpl" table="vr_outputsheet">
 		<id name="id" type="long">
@@ -1283,6 +1492,20 @@
 		<property name="reportName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="formReport" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
+	<class name="com.fds.vr.business.model.impl.VRReportCategoryImpl" table="vr_report_category">
+		<id name="id" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="rptCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rptName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rptDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rptGroup" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rptLevel" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sequenceNo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="jasperFileTemplate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="excelFileTemplate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
 	<class name="com.fds.vr.business.model.impl.VRRPDossierStatisticsImpl" table="vr_rp_dossierstatistics">
 		<id name="id" type="long">
 			<generator class="assigned" />
@@ -1370,6 +1593,8 @@
 		<property name="men2cancelled" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="men2expired" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="men2violated" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="dossierpaymentdate" name="dossierPaymentDate" type="org.hibernate.type.TimestampType" />
+		<property column="men2paymentapproval" name="men2PaymentApproval" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
 		<property name="syncDate" type="org.hibernate.type.TimestampType" />
 	</class>
@@ -1783,6 +2008,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="LKXMY0507" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="LKXMY0508" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="LKXMY0509" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -1942,6 +2168,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="loai_dong_co" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01001" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01002" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -2112,6 +2339,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCG01163" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01164" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01165" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -2270,6 +2498,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCG01310" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01311" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01312" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -2464,6 +2693,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCG01496" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01497" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01498" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -2597,6 +2827,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCG01598" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01599" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01600" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -2790,6 +3021,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCG01757" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01758" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCG01759" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -3233,6 +3465,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCH01273" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCH01274" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCH01275" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -3621,6 +3854,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCN01186" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCN01187" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCN01188" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -3785,6 +4019,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XCN01336" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCN01337" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XCN01338" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4334,6 +4569,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XMY0010" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XMY0011" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XMY0012" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4484,6 +4720,7 @@
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="XMY0149" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XMY0150" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="XMY0151" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4671,11 +4908,46 @@
 		<id name="id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="vehicleCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="vehicleTypeCertificateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="certificateRecordId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property column="dossierid" name="dossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property column="dossierno" name="dossierNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="isMandatory" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sequenceNo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="certificateRecordNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certificateRecordDate" type="org.hibernate.type.TimestampType" />
+		<property name="certificateRecordExpireDate" type="org.hibernate.type.TimestampType" />
+		<property name="expiredStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="vehicleClass" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="equipmentCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="equipmentName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedVehicleType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedVehicleTypeDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedTrademark" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedTrademarkName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedCommercialName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="certifiedModelCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionCountry" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="originalCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="originalName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productionAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="manufacturerAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="safetytestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="safetytestReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="emissionTestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionTestReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="commonSafetyStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="commonSafetyDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="othertestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="othertestReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="copReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="copReportDate" type="org.hibernate.type.TimestampType" />
+		<property name="copReportExpireDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
 		<property name="syncDate" type="org.hibernate.type.TimestampType" />
 	</class>
@@ -4740,6 +5012,7 @@
 		</id>
 		<property name="mtCore" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="dossierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dossierIdCTN" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="dossierNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="referenceUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4747,6 +5020,7 @@
 		<property name="serviceName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="convertassembleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="applicantIdNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantTelNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="applicantName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="applicantIdDate" type="org.hibernate.type.TimestampType" />
 		<property name="applicantAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4758,7 +5032,13 @@
 		<property name="applicantContactName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="applicantContactEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="applicantcontactPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicantcontactTelNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="cityCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cityName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="districtCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="districtName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="wardCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="wardName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="manufacturerForeignCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="manufacturerName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="manufacturerAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4838,9 +5118,9 @@
 		<property name="emissionTestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="emissionTestReportDate" type="org.hibernate.type.TimestampType" />
 		<property name="commonSafetyStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="commonSafetyDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="emissionStandard" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property column="commonsafetydescription" name="commonSafetyDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property column="emissiondescription" name="emissionDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emissionDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="otherTestReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="otherTestReportDate" type="org.hibernate.type.TimestampType" />
 		<property name="sampleFrameNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -4869,6 +5149,7 @@
 		<property name="inspectionNote" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="certificateNote" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="deliverableCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="deliverableFileEntryid" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="module" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="modifyDate" type="org.hibernate.type.TimestampType" />
 		<property name="syncDate" type="org.hibernate.type.TimestampType" />

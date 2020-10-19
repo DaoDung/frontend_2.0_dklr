@@ -210,6 +210,13 @@ public class VRMigrateMappingsLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRMigrateMappings> findByTaskId_DataGroupId_SeqNo(
+		int taskMigrationID, int dataGroupId, int seqNo, int start, int end) {
+		return getService()
+				   .findByTaskId_DataGroupId_SeqNo(taskMigrationID,
+			dataGroupId, seqNo, start, end);
+	}
+
 	/**
 	* Returns a range of all the vr migrate mappingses.
 	*

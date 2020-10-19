@@ -89,6 +89,18 @@ public class VRReportCategoryLocalServiceWrapper
 		return _vrReportCategoryLocalService.fetchVRReportCategory(id);
 	}
 
+	@Override
+	public com.fds.vr.business.model.VRReportCategory findByRptCode(
+		java.lang.String rptCode) {
+		return _vrReportCategoryLocalService.findByRptCode(rptCode);
+	}
+
+	@Override
+	public com.fds.vr.business.model.VRReportCategory findByRptDescription(
+		java.lang.String rptDescription) {
+		return _vrReportCategoryLocalService.findByRptDescription(rptDescription);
+	}
+
 	/**
 	* Returns the vr report category with the primary key.
 	*
@@ -218,6 +230,18 @@ public class VRReportCategoryLocalServiceWrapper
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return _vrReportCategoryLocalService.dynamicQuery(dynamicQuery, start,
 			end, orderByComparator);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRReportCategory> findByRptGroup(
+		java.lang.String rptGroup, int start, int end) {
+		return _vrReportCategoryLocalService.findByRptGroup(rptGroup, start, end);
+	}
+
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRReportCategory> findByRptLevel(
+		int rptLevel, int start, int end) {
+		return _vrReportCategoryLocalService.findByRptLevel(rptLevel, start, end);
 	}
 
 	/**

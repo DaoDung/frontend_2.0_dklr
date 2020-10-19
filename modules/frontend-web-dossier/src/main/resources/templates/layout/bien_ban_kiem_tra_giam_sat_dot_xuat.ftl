@@ -13,7 +13,7 @@
             <v-list class="list_li_active" style="max-height: 314px; overflow: auto;">
               <v-list-tile v-for="(item, index) in detailSoatXetGCN['bang_khai']" v-bind:key="item['certificateId']" @click="selectSoGCNCapPhieu(item, index)" :class="{active: indexGCNXuatKho === index}">
                 <v-list-tile-content>
-                  <v-list-tile-title class="text-xs-center">{{item['so_gcn']}}</v-list-tile-title>
+                  <v-list-tile-title class="text-xs-center">{{item['so_gcn']}} <br> <i>{{item['ngay_cap']}}</i></v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
@@ -21,38 +21,38 @@
           <div class="flex xs12 sm8" style="border-right: 1px solid rgb(204, 204, 204);">
             <div class="layout row wrap ml-0">
 
-              <div class="flex text-xs-left xs12 sm6 pl-1">
-                <label class="pt-2">Số GCN: {{thongTinGCN['so_gcn']}}</label> 
+              <div class="flex text-xs-left xs12 sm12 pl-1">
+                <span>Số GCN:</span> <label> {{thongTinGCN['so_gcn']}}</label> 
               </div>
 
-              <div class="flex text-xs-left xs12 sm6 pl-1">
-                <label class="">Ngày cấp: {{thongTinGCN['ngay_cap']}}</label>
-              </div>
+              <#-- <div class="flex text-xs-left xs12 sm12 pl-1">
+                <span>Ngày cấp:</span> <label class=""> {{thongTinGCN['ngay_cap']}}</label>
+              </div> -->
 
-              <div class="flex text-xs-left xs12 sm4 pl-1"><label class="pt-2">1. Loại P.tiện: </label></div>
-              <div class="flex xs12 sm8"><label class="pt-2 pl-2"> {{thongTinGCN['loai_phuong_tien']}}</label></div>
+              <div class="flex text-xs-left xs12 sm4 pl-1"><span>1. Loại P.tiện: </span></div>
+              <div class="flex xs12 sm8"><label class=" pl-2"> {{thongTinGCN['loai_phuong_tien']}}</label></div>
 
-              <div class="flex text-xs-left xs12 sm4 pl-1"><label class="pt-2">2. Nhãn hiệu: </label></div>
-              <div class="flex xs12 sm8"><label class="pt-2 pl-2"> {{thongTinGCN['nhan_hieu']}}</label></div>
+              <div class="flex text-xs-left xs12 sm4 pl-1"><span>2. Nhãn hiệu: </span></div>
+              <div class="flex xs12 sm8"><label class=" pl-2"> {{thongTinGCN['nhan_hieu']}}</label></div>
 
-              <div class="flex text-xs-left xs12 sm4 pl-1"><label class="pt-2">3. Tên thương mại: </label></div>
-              <div class="flex xs12 sm8"><label class="pt-2 pl-2"> {{thongTinGCN['ten_thuong_mai']}}</label></div>
+              <div class="flex text-xs-left xs12 sm4 pl-1"><span>3. Tên thương mại: </span></div>
+              <div class="flex xs12 sm8"><label class=" pl-2"> {{thongTinGCN['ten_thuong_mai']}}</label></div>
 
-              <div class="flex text-xs-left xs12 sm4 pl-1"><label class="pt-2">4. Mã kiểu loại: </label></div>
-              <div class="flex xs12 sm8"><label class="pt-2 pl-2"> {{thongTinGCN['ma_kieu_loai']}}</label></div>
+              <div class="flex text-xs-left xs12 sm4 pl-1"><span>4. Mã kiểu loại: </span></div>
+              <div class="flex xs12 sm8"><label class=" pl-2"> {{thongTinGCN['ma_kieu_loai']}}</label></div>
 
-              <div class="flex text-xs-left xs12 sm4 pl-1"><label class="pt-2">5. Xuất xứ: </label></div>
-              <div class="flex xs12 sm8"><label class="pt-2 pl-2"> {{thongTinGCN['xuat_xu']}}</label></div>
+              <div class="flex text-xs-left xs12 sm4 pl-1"><span>5. Xuất xứ: </span></div>
+              <div class="flex xs12 sm8"><label class=" pl-2"> {{thongTinGCN['xuat_xu']}}</label></div>
 
 
-              <div class="flex text-xs-left xs12 sm5 pl-1"><label class="pt-2">5. Số lượng biên bản  {{stateKiemTraDotXuat === -1 ? 'KTGS' : 'KTĐX'}}: </label></div>
-              <div class="flex xs12 sm7"><label class="pt-2 pl-2"> {{dsBBKiemTraGS['length']}}</label></div>
+              <div class="flex text-xs-left xs12 sm5 pl-1"><span>5. Số lượng biên bản  {{stateKiemTraDotXuat === -1 ? 'KTGS' : 'KTĐX'}}: </span></div>
+              <div class="flex xs12 sm7"><label class="pl-2"> {{dsBBKiemTraGS['length']}}</label></div>
 
-              <div class="flex text-xs-left xs12 sm5 pl-1"><label class="pt-2">6. Số lượng chờ {{stateKiemTraDotXuat === -1 ? 'GS' : 'ĐX'}}: </label></div>
-              <div class="flex xs12 sm7"><label class="pt-2 pl-2"> {{thongTinGCN['so_luong']}}</label></div>
+              <div class="flex text-xs-left xs12 sm5 pl-1"><span>6. Số lượng chờ {{stateKiemTraDotXuat === -1 ? 'GS' : 'ĐX'}}: </span></div>
+              <div class="flex xs12 sm7"><label class=" pl-2"> {{thongTinGCN['so_luong']}}</label></div>
 
-              <div class="flex text-xs-left xs12 sm5 pl-1"><label class="pt-2">7. Số lượng đã đạt: </label></div>
-              <div class="flex xs12 sm7"><label class="pt-2 pl-2"> {{totalDat}}</label></div>
+              <div class="flex text-xs-left xs12 sm5 pl-1"><span>7. Số lượng đã đạt: </span></div>
+              <div class="flex xs12 sm7"><label class="pl-2"> {{totalDat}}</label></div>
             </div>
           </div>
         </div>

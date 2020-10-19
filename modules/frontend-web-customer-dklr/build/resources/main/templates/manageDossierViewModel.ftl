@@ -201,7 +201,7 @@
 			}
 		}),
 		$.ajax({
-			url : "/o/rest/vr-app/expiredcertificates",
+			url : "/o/rest/v2/dossiers/expiredcertificates",
 			dataType : "json",
 			type : "GET",
 			data : {
@@ -352,7 +352,7 @@
 				var url = "${api.server}/dossiers";
 				console.log('options==========', options['data'])
 				if (options['data'] && (options['data']['id'] === "HSDHXNHL" || options['data']['id'] === "DNXNHL" || options['data']['id'] === "XNHL")) {
-					url = "/o/rest/vr-app/expiredcertificates"
+					url = "/o/rest/v2/dossiers/expiredcertificates"
 					options['data']['start'] = -1
 					options['data']['end'] = -1
 				}

@@ -9,7 +9,6 @@ create unique index IX_9525BE4 on opencps_dossier (uuid_[$COLUMN_LENGTH:75$], gr
 
 create index IX_65A9A912 on opencps_dossierfile (deliverableCode[$COLUMN_LENGTH:75$]);
 create index IX_54A1F868 on opencps_dossierfile (dossierFileId);
-create index IX_32059C0D on opencps_dossierfile (dossierId, dossierPartNo[$COLUMN_LENGTH:75$], removed);
 create index IX_A0D470F4 on opencps_dossierfile (dossierId, dossierPartType, removed);
 create index IX_967E0D40 on opencps_dossierfile (dossierId, fileTemplateNo[$COLUMN_LENGTH:75$], dossierPartType, fileEntryId, removed);
 create index IX_7FA1EF5F on opencps_dossierfile (dossierId, fileTemplateNo[$COLUMN_LENGTH:75$], dossierPartType, removed);
@@ -35,13 +34,7 @@ create unique index IX_41656738 on opencps_registration (uuid_[$COLUMN_LENGTH:75
 
 create index IX_CA603D28 on vr_actionconfig (actionCode[$COLUMN_LENGTH:75$], processNo[$COLUMN_LENGTH:75$]);
 
-create index IX_4EB87313 on vr_applicantprofile (mtCore, applicantCity[$COLUMN_LENGTH:75$]);
-create index IX_4F056F15 on vr_applicantprofile (mtCore, applicantCode[$COLUMN_LENGTH:75$]);
-create index IX_AE10CCDC on vr_applicantprofile (mtCore, applicantRegion[$COLUMN_LENGTH:75$]);
-create index IX_25D02E5A on vr_applicantprofile (mtCore, applicantStatus[$COLUMN_LENGTH:75$]);
-create index IX_A0484331 on vr_applicantprofile (mtCore, mappingMA_CTY[$COLUMN_LENGTH:75$]);
-create index IX_9F98B126 on vr_applicantprofile (mtCore, mappingStatus[$COLUMN_LENGTH:75$]);
-create index IX_C1B07E56 on vr_applicantprofile (mtCore, mappingTEN_CTY[$COLUMN_LENGTH:75$]);
+create index IX_CA63562F on vr_applicantprofile (applicantCode[$COLUMN_LENGTH:75$]);
 
 create index IX_A8FFD4D3 on vr_applicantprofilehistory (mtCore, applicantCity[$COLUMN_LENGTH:75$]);
 create index IX_A94CD0D5 on vr_applicantprofilehistory (mtCore, applicantCode[$COLUMN_LENGTH:75$]);
@@ -63,31 +56,32 @@ create index IX_CE4C1AF5 on vr_clearingstampbook (mtCore, debitNoteId);
 create index IX_326198DD on vr_clearingstampbook (mtCore, inputSheetId, bookId, stampType[$COLUMN_LENGTH:75$]);
 create index IX_4FE9D640 on vr_clearingstampbook (mtCore, outputSheetId, bookId, stampType[$COLUMN_LENGTH:75$]);
 
-create index IX_25D6DEF1 on vr_copproductionplantemployee (dossierId);
+create index IX_C20325CB on vr_copproductionplantemployee (dossierId, mtCore);
 create index IX_26C0D5CA on vr_copproductionplantemployee (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_6B40D82E on vr_copproductionplantemployee (mtCore, copReportRepositoryID);
 
-create index IX_7C62DC13 on vr_copproductionplantequipment (dossierId);
+create index IX_B058E0ED on vr_copproductionplantequipment (dossierId, mtCore);
 create index IX_D694506C on vr_copproductionplantequipment (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_E53CF050 on vr_copproductionplantequipment (mtCore, copReportRepositoryID);
 
-create index IX_B12F73AA on vr_copproductionplantprodequipment (dossierId);
+create index IX_2AFBF184 on vr_copproductionplantprodequipment (dossierId, mtCore);
 create index IX_34B59743 on vr_copproductionplantprodequipment (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_6310D667 on vr_copproductionplantprodequipment (mtCore, copReportRepositoryID);
 
-create index IX_3CB89068 on vr_copproducttype (dossierId);
+create index IX_A4737042 on vr_copproducttype (dossierId, mtCore);
 create index IX_2E485E81 on vr_copproducttype (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_E47A2825 on vr_copproducttype (mtCore, copReportRepositoryID);
 
-create index IX_102B1081 on vr_copreport_attach (dossierId);
+create index IX_9814C75B on vr_copreport_attach (dossierId, mtCore);
 create index IX_BEF0535A on vr_copreport_attach (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_409CA1BE on vr_copreport_attach (mtCore, copReportRepositoryID);
 
-create index IX_A7ABEB51 on vr_copreportrepository (dossierId);
+create index IX_6DB5D22B on vr_copreportrepository (dossierId, mtCore);
 create index IX_E7D077BA on vr_copreportrepository (mtCore, applicantProfileId, productionPlantCode[$COLUMN_LENGTH:75$]);
 create index IX_403A2E2E on vr_copreportrepository (mtCore, applicantProfileId, productionPlantName[$COLUMN_LENGTH:75$], productionPlantAddress[$COLUMN_LENGTH:75$]);
 create index IX_B079EA2A on vr_copreportrepository (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_2293509B on vr_copreportrepository (mtCore, copReportStatus[$COLUMN_LENGTH:75$]);
+create index IX_4FA9DF8A on vr_copreportrepository (mtCore, productionPlantCode[$COLUMN_LENGTH:75$], copClassification[$COLUMN_LENGTH:75$]);
 
 create index IX_54C9F50A on vr_corporation_attendee (applicantIdNo[$COLUMN_LENGTH:75$], inspectionDate);
 create index IX_44BAF401 on vr_corporation_attendee (corporationCode[$COLUMN_LENGTH:75$], inspectionDate);
@@ -106,6 +100,10 @@ create index IX_1A07F035 on vr_corporation_view (corporationid[$COLUMN_LENGTH:75
 create index IX_87438C5D on vr_corporation_view (inspectorid, corporationid[$COLUMN_LENGTH:75$], isleader);
 create index IX_ABEFCE4C on vr_corporation_view (isleader);
 
+create index IX_A443D956 on vr_expire_certificate (dossierId);
+create index IX_818435ED on vr_expire_certificate (dossierStatus[$COLUMN_LENGTH:75$]);
+create index IX_E9D87440 on vr_expire_certificate (vehicleTypeCertificateId);
+
 create index IX_AA25305E on vr_history_profile (applicantCode[$COLUMN_LENGTH:75$]);
 create index IX_A12E5E2 on vr_history_profile (contentType[$COLUMN_LENGTH:75$]);
 create index IX_8028C655 on vr_history_profile (dossierId);
@@ -118,6 +116,7 @@ create index IX_B102FB1B on vr_inputsheet (mtCore, inputSheetType);
 
 create index IX_6D93834C on vr_inputstampbook (mtCore, inputSheetId, bookId, stampType[$COLUMN_LENGTH:75$]);
 create index IX_219FA807 on vr_inputstampbook (sum3);
+create index IX_6156907E on vr_inputstampbook (vehicleClass[$COLUMN_LENGTH:75$], stampType[$COLUMN_LENGTH:75$], sum3);
 
 create index IX_96FD5ED1 on vr_inputstampbookdetails (bookId, sequenceNo);
 create index IX_6E020C25 on vr_inputstampbookdetails (mtCore, certificateId);
@@ -137,8 +136,8 @@ create index IX_3A84D3F9 on vr_inventory (mtCore, checkType);
 create index IX_27112A51 on vr_inventory (mtCore, yearofPeriod, corporationId);
 create index IX_79A029C2 on vr_inventory (mtCore, yearofPeriod, vehicleClass[$COLUMN_LENGTH:75$]);
 
-create index IX_9F0FC661 on vr_issue (issueCorporationId, digitalissuestatus);
-create index IX_E3402173 on vr_issue (mtCore, copreportno[$COLUMN_LENGTH:75$]);
+create index IX_D2895A61 on vr_issue (issueCorporationId, digitalIssueStatus);
+create index IX_5A0371B3 on vr_issue (mtCore, copReportNo[$COLUMN_LENGTH:75$]);
 create index IX_AB7D8BD on vr_issue (mtCore, corporationId[$COLUMN_LENGTH:75$]);
 create index IX_C32D59B6 on vr_issue (mtCore, dossierId, applicantProfileId);
 create index IX_1764BD94 on vr_issue (mtCore, issueCorporationId);
@@ -146,12 +145,23 @@ create index IX_756154E7 on vr_issue (mtCore, productionPlantId);
 create index IX_AD9D84A1 on vr_issue (mtCore, stampIssueNo[$COLUMN_LENGTH:75$]);
 create index IX_328C0104 on vr_issue (mtCore, verifyCorporationId[$COLUMN_LENGTH:75$]);
 
-create index IX_BB3D7FAC on vr_issue_equipmentcertificate (applicantNo[$COLUMN_LENGTH:75$], vehiclecertificaterecordno[$COLUMN_LENGTH:75$]);
+create index IX_9EE21FCC on vr_issue_equipmentcertificate (applicantNo[$COLUMN_LENGTH:75$], vehicleCertificateRecordNo[$COLUMN_LENGTH:75$]);
+create index IX_C74864B8 on vr_issue_equipmentcertificate (dossierId, mtCore);
+create index IX_639D0F6C on vr_issue_equipmentcertificate (issueId);
 create index IX_C549F317 on vr_issue_equipmentcertificate (issueVehicleCertificateId);
-create index IX_60ED1289 on vr_issue_equipmentcertificate (vehiclecertificaterecordno[$COLUMN_LENGTH:75$]);
+create index IX_4491B2A9 on vr_issue_equipmentcertificate (vehicleCertificateRecordNo[$COLUMN_LENGTH:75$]);
 
+create index IX_38B0642E on vr_issue_inspectionrecord (certificateId);
+create index IX_2E5CAC62 on vr_issue_inspectionrecord (dossierId);
+create index IX_72BBF1F0 on vr_issue_inspectionrecord (issueId);
+
+create index IX_59ACF84A on vr_issue_vehiclecertificate (issueId);
 create index IX_B138AAE0 on vr_issue_vehiclecertificate (mtCore, dossierId, certificateId);
 create index IX_BF91BFB0 on vr_issue_vehiclecertificate (mtCore, issueId);
+
+create index IX_E632B6E4 on vr_migrate_mappings (taskMigrationID, dataGroupID, sequenceNo);
+
+create index IX_1B43571F on vr_migrate_review (taskMigrationID);
 
 create index IX_ADDE70BB on vr_outputsheet (mtCore, dossierId);
 create index IX_4C1252F4 on vr_outputsheet (mtCore, outputSheetNo[$COLUMN_LENGTH:75$]);
@@ -197,6 +207,11 @@ create index IX_3607894F on vr_producttype (productionPlantCode[$COLUMN_LENGTH:7
 
 create index IX_BDE0B212 on vr_report (reportCode[$COLUMN_LENGTH:75$]);
 
+create index IX_B65FB287 on vr_report_category (rptCode[$COLUMN_LENGTH:75$]);
+create index IX_DEBA6686 on vr_report_category (rptDescription[$COLUMN_LENGTH:75$]);
+create index IX_EEF16649 on vr_report_category (rptGroup[$COLUMN_LENGTH:75$]);
+create index IX_E19CDE0E on vr_report_category (rptLevel);
+
 create index IX_C713A3BD on vr_rp_dossierstatistics (applicantNo[$COLUMN_LENGTH:75$]);
 create index IX_4DBCA89D on vr_rp_dossierstatistics (corporationId[$COLUMN_LENGTH:75$]);
 create index IX_490EFC81 on vr_rp_dossierstatistics (dossierIdCTN[$COLUMN_LENGTH:75$]);
@@ -210,6 +225,7 @@ create index IX_723DE117 on vr_technicalspec_lkxcg (dossierId, mtCore);
 create index IX_C6353F04 on vr_technicalspec_lkxcg (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_FE89CA3D on vr_technicalspec_lkxcg (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_9FDF8192 on vr_technicalspec_lkxcg (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_E9B25C79 on vr_technicalspec_lkxcg (vehicleTypeCertificateId);
 
 create index IX_B52FB9AF on vr_technicalspec_lkxmy (convertassembleId);
 create index IX_50D2DBFB on vr_technicalspec_lkxmy (deliverableCode[$COLUMN_LENGTH:75$]);
@@ -217,6 +233,7 @@ create index IX_CD94FCCF on vr_technicalspec_lkxmy (dossierId, mtCore);
 create index IX_1FD9B04C on vr_technicalspec_lkxmy (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_59E0E5F5 on vr_technicalspec_lkxmy (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_F983F2DA on vr_technicalspec_lkxmy (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_D80F21C1 on vr_technicalspec_lkxmy (vehicleTypeCertificateId);
 
 create index IX_5307DFF8 on vr_technicalspec_xcg (convertassembleId);
 create index IX_F5E20084 on vr_technicalspec_xcg (deliverableCode[$COLUMN_LENGTH:75$]);
@@ -224,6 +241,7 @@ create index IX_6B6D2318 on vr_technicalspec_xcg (dossierId, mtCore);
 create index IX_B8930063 on vr_technicalspec_xcg (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_F7B90C3E on vr_technicalspec_xcg (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_923D42F1 on vr_technicalspec_xcg (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_83160758 on vr_technicalspec_xcg (vehicleTypeCertificateId);
 
 create index IX_A39EEF17 on vr_technicalspec_xchbb (convertassembleId);
 create index IX_CE04B63 on vr_technicalspec_xchbb (deliverableCode[$COLUMN_LENGTH:75$]);
@@ -231,6 +249,7 @@ create index IX_BC043237 on vr_technicalspec_xchbb (dossierId, mtCore);
 create index IX_EDC8B9E4 on vr_technicalspec_xchbb (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_48501B5D on vr_technicalspec_xchbb (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_C772FC72 on vr_technicalspec_xchbb (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_70848759 on vr_technicalspec_xchbb (vehicleTypeCertificateId);
 
 create index IX_8BA84851 on vr_technicalspec_xcnbb (convertassembleId);
 create index IX_3402AB1D on vr_technicalspec_xcnbb (deliverableCode[$COLUMN_LENGTH:75$]);
@@ -238,6 +257,7 @@ create index IX_A40D8B71 on vr_technicalspec_xcnbb (dossierId, mtCore);
 create index IX_BFC7046A on vr_technicalspec_xcnbb (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_30597497 on vr_technicalspec_xcnbb (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_997146F8 on vr_technicalspec_xcnbb (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_EDF938DF on vr_technicalspec_xcnbb (vehicleTypeCertificateId);
 
 create index IX_9A8495C on vr_technicalspec_xdd (convertassembleId);
 create index IX_4B9572E8 on vr_technicalspec_xdd (deliverableCode[$COLUMN_LENGTH:75$]);
@@ -245,6 +265,7 @@ create index IX_220D8C7C on vr_technicalspec_xdd (dossierId, mtCore);
 create index IX_8B27487F on vr_technicalspec_xdd (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_AE5975A2 on vr_technicalspec_xdd (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_64D18B0D on vr_technicalspec_xdd (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_7D30574 on vr_technicalspec_xdd (vehicleTypeCertificateId);
 
 create index IX_AE5EFBB0 on vr_technicalspec_xmy (convertassembleId);
 create index IX_BD3CAA3C on vr_technicalspec_xmy (deliverableCode[$COLUMN_LENGTH:75$]);
@@ -252,6 +273,7 @@ create index IX_C6C43ED0 on vr_technicalspec_xmy (dossierId, mtCore);
 create index IX_123771AB on vr_technicalspec_xmy (dossierIdCTN[$COLUMN_LENGTH:75$]);
 create index IX_531027F6 on vr_technicalspec_xmy (dossierNo[$COLUMN_LENGTH:75$], mtCore);
 create index IX_EBE1B439 on vr_technicalspec_xmy (referenceUid[$COLUMN_LENGTH:75$]);
+create index IX_7172CCA0 on vr_technicalspec_xmy (vehicleTypeCertificateId);
 
 create index IX_D5C1D02E on vr_templateno (patternNo[$COLUMN_LENGTH:75$], year);
 
@@ -261,9 +283,11 @@ create index IX_3EA06EAA on vr_trackchanges (dossierId, contentFileTemplate[$COL
 create index IX_2B646CF3 on vr_trackchanges (dossierIdCTN[$COLUMN_LENGTH:75$], contentFileTemplate[$COLUMN_LENGTH:75$]);
 create index IX_9E66DA8E on vr_trackchanges (productionPlantCode[$COLUMN_LENGTH:75$]);
 
+create index IX_94CFC4C8 on vr_vehicleequipment (certificateRecordId);
 create index IX_C4E04EB on vr_vehicleequipment (dossierid);
-create index IX_4C8ACF05 on vr_vehicleequipment (vehicleCertificateId);
+create index IX_416CD3EB on vr_vehicleequipment (vehicleTypeCertificateId);
 
+create index IX_14722A84 on vr_vehiclerecord (issueId);
 create index IX_DFDB442B on vr_vehiclerecord (mtCore, applicantProfileId, printingStatus);
 create index IX_11DCB74F on vr_vehiclerecord (mtCore, applicantProfileId, vehicleRecordStatus);
 create index IX_1060A6A8 on vr_vehiclerecord (mtCore, certificateId);

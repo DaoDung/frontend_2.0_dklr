@@ -92,6 +92,17 @@ public class VRExpireCertificateLocalServiceUtil {
 		return getService().fetchVRExpireCertificate(id);
 	}
 
+	public static com.fds.vr.business.model.VRExpireCertificate findByDossierId(
+		long dossierId) {
+		return getService().findByDossierId(dossierId);
+	}
+
+	public static com.fds.vr.business.model.VRExpireCertificate findByVehicleTypeCertificateId(
+		long vehicleTypeCertificateId) {
+		return getService()
+				   .findByVehicleTypeCertificateId(vehicleTypeCertificateId);
+	}
+
 	/**
 	* Returns the vr expire certificate with the primary key.
 	*
@@ -113,6 +124,62 @@ public class VRExpireCertificateLocalServiceUtil {
 	public static com.fds.vr.business.model.VRExpireCertificate updateVRExpireCertificate(
 		com.fds.vr.business.model.VRExpireCertificate vrExpireCertificate) {
 		return getService().updateVRExpireCertificate(vrExpireCertificate);
+	}
+
+	public static com.fds.vr.business.model.VRExpireCertificate updateVRExpireCertificate(
+		long id, long mtCore, long convertAssembleId, long validDossierId,
+		java.lang.String validDossierIdCTN, java.lang.String validDossierNo,
+		long vehicleTypeCertificateId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo,
+		java.lang.String dossierStatus, java.util.Date previousExpireDate,
+		java.lang.String certificateRecordNo,
+		java.util.Date certificateRecordDate,
+		java.util.Date certificateRecordExpireDate, int expiredStatus,
+		java.lang.String vehicleClass, java.lang.String certifiedVehicleType,
+		java.lang.String certifiedVehicleTypeDescription,
+		java.lang.String certifiedTrademark,
+		java.lang.String certifiedTrademarkName,
+		java.lang.String certifiedCommercialName,
+		java.lang.String certifiedModelCode,
+		java.lang.String productionCountry,
+		java.lang.String safetytestReportNo,
+		java.util.Date safetytestReportDate,
+		java.lang.String emissionTestReportNo,
+		java.util.Date emissionTestReportDate,
+		java.lang.String commonSafetyStandard,
+		java.lang.String commonSafetyDescription,
+		java.lang.String emissionStandard,
+		java.lang.String emissionDescription,
+		java.lang.String othertestReportNo, java.util.Date othertestReportDate,
+		java.lang.String copReportNo, java.util.Date copReportDate,
+		java.util.Date copReportExpireDate, java.lang.String validRequestNo,
+		java.util.Date validRequestDate,
+		java.lang.String validInspectionRecordNo,
+		java.util.Date validInspectionRecordDate, long validCorporationId,
+		long validInspectorId, java.lang.String validInspectorName,
+		java.lang.String validRemarks, java.lang.String validInspectionNote,
+		long deliverableFileEntryId, long documentFileEntryId,
+		java.util.Date syncDate, java.lang.String typeUpdate,
+		com.liferay.portal.kernel.model.Company company) {
+		return getService()
+				   .updateVRExpireCertificate(id, mtCore, convertAssembleId,
+			validDossierId, validDossierIdCTN, validDossierNo,
+			vehicleTypeCertificateId, dossierId, dossierIdCTN, dossierNo,
+			dossierStatus, previousExpireDate, certificateRecordNo,
+			certificateRecordDate, certificateRecordExpireDate, expiredStatus,
+			vehicleClass, certifiedVehicleType,
+			certifiedVehicleTypeDescription, certifiedTrademark,
+			certifiedTrademarkName, certifiedCommercialName,
+			certifiedModelCode, productionCountry, safetytestReportNo,
+			safetytestReportDate, emissionTestReportNo, emissionTestReportDate,
+			commonSafetyStandard, commonSafetyDescription, emissionStandard,
+			emissionDescription, othertestReportNo, othertestReportDate,
+			copReportNo, copReportDate, copReportExpireDate, validRequestNo,
+			validRequestDate, validInspectionRecordNo,
+			validInspectionRecordDate, validCorporationId, validInspectorId,
+			validInspectorName, validRemarks, validInspectionNote,
+			deliverableFileEntryId, documentFileEntryId, syncDate, typeUpdate,
+			company);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
@@ -208,6 +275,11 @@ public class VRExpireCertificateLocalServiceUtil {
 		com.liferay.portal.kernel.util.OrderByComparator<T> orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
+	}
+
+	public static java.util.List<com.fds.vr.business.model.VRExpireCertificate> findByDossierStatus(
+		java.lang.String dossierStatus, int start, int end) {
+		return getService().findByDossierStatus(dossierStatus, start, end);
 	}
 
 	/**

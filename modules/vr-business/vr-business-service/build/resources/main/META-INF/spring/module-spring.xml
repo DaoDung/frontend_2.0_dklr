@@ -53,6 +53,8 @@
 	<bean class="com.fds.vr.business.service.persistence.impl.VRDossierFilePersistenceImpl" id="com.fds.vr.business.service.persistence.VRDossierFilePersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VRESLocalServiceImpl" id="com.fds.vr.business.service.VRESLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRESPersistenceImpl" id="com.fds.vr.business.service.persistence.VRESPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRExpireCertificateLocalServiceImpl" id="com.fds.vr.business.service.VRExpireCertificateLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRExpireCertificatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRExpireCertificatePersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VRHistoryProfileLocalServiceImpl" id="com.fds.vr.business.service.VRHistoryProfileLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRHistoryProfilePersistenceImpl" id="com.fds.vr.business.service.persistence.VRHistoryProfilePersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRHistoryProfileFinderImpl" id="com.fds.vr.business.service.persistence.VRHistoryProfileFinder" parent="basePersistence" />
@@ -77,11 +79,19 @@
 	<bean class="com.fds.vr.business.service.impl.VRIssueEquipmentCertificateLocalServiceImpl" id="com.fds.vr.business.service.VRIssueEquipmentCertificateLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueEquipmentCertificatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRIssueEquipmentCertificatePersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueEquipmentCertificateFinderImpl" id="com.fds.vr.business.service.persistence.VRIssueEquipmentCertificateFinder" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRIssueInspectionRecordLocalServiceImpl" id="com.fds.vr.business.service.VRIssueInspectionRecordLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueInspectionRecordPersistenceImpl" id="com.fds.vr.business.service.persistence.VRIssueInspectionRecordPersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VRIssueVehiclecertificateLocalServiceImpl" id="com.fds.vr.business.service.VRIssueVehiclecertificateLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueVehiclecertificatePersistenceImpl" id="com.fds.vr.business.service.persistence.VRIssueVehiclecertificatePersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRIssueVehiclecertificateFinderImpl" id="com.fds.vr.business.service.persistence.VRIssueVehiclecertificateFinder" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VRLimitConfigTechSpecLocalServiceImpl" id="com.fds.vr.business.service.VRLimitConfigTechSpecLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRLimitConfigTechSpecPersistenceImpl" id="com.fds.vr.business.service.persistence.VRLimitConfigTechSpecPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRMigrateMappingsLocalServiceImpl" id="com.fds.vr.business.service.VRMigrateMappingsLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRMigrateMappingsPersistenceImpl" id="com.fds.vr.business.service.persistence.VRMigrateMappingsPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRMigrateReviewLocalServiceImpl" id="com.fds.vr.business.service.VRMigrateReviewLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRMigrateReviewPersistenceImpl" id="com.fds.vr.business.service.persistence.VRMigrateReviewPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRMigrateTaskLocalServiceImpl" id="com.fds.vr.business.service.VRMigrateTaskLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRMigrateTaskPersistenceImpl" id="com.fds.vr.business.service.persistence.VRMigrateTaskPersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VROutputSheetLocalServiceImpl" id="com.fds.vr.business.service.VROutputSheetLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VROutputSheetPersistenceImpl" id="com.fds.vr.business.service.persistence.VROutputSheetPersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VROutputSheetFinderImpl" id="com.fds.vr.business.service.persistence.VROutputSheetFinder" parent="basePersistence" />
@@ -114,6 +124,8 @@
 	<bean class="com.fds.vr.business.service.persistence.impl.VRRegistrationPersistenceImpl" id="com.fds.vr.business.service.persistence.VRRegistrationPersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VRReportLocalServiceImpl" id="com.fds.vr.business.service.VRReportLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRReportPersistenceImpl" id="com.fds.vr.business.service.persistence.VRReportPersistence" parent="basePersistence" />
+	<bean class="com.fds.vr.business.service.impl.VRReportCategoryLocalServiceImpl" id="com.fds.vr.business.service.VRReportCategoryLocalService" />
+	<bean class="com.fds.vr.business.service.persistence.impl.VRReportCategoryPersistenceImpl" id="com.fds.vr.business.service.persistence.VRReportCategoryPersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.impl.VRRPDossierStatisticsLocalServiceImpl" id="com.fds.vr.business.service.VRRPDossierStatisticsLocalService" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRRPDossierStatisticsPersistenceImpl" id="com.fds.vr.business.service.persistence.VRRPDossierStatisticsPersistence" parent="basePersistence" />
 	<bean class="com.fds.vr.business.service.persistence.impl.VRRPDossierStatisticsFinderImpl" id="com.fds.vr.business.service.persistence.VRRPDossierStatisticsFinder" parent="basePersistence" />

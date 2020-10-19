@@ -6873,22 +6873,45 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 								let colHeaders_loai2 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri mất', 'Số seri mới']
 								let colHeaders_loai1 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri']
 								if (vm.detailSoatXetGCN['hinh_thuc_cap'] === 1 || vm.detailSoatXetGCN['hinh_thuc_cap'] === '1') {
-									colHeaders = colHeaders_loai1
-									colWidths = [ 110, 110, 110, 110, 110]
+									// colHeaders = colHeaders_loai1
+									// columns = [
+									// 	{ type: 'text'},
+									// 	{ type: 'text'},
+									// 	{ type: 'text'},
+									// 	{ type: 'text'},
+									// 	{ type: 'text'}
+									// ]
 									columns = [
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'}
+										{
+											type:'text',
+											width:'150',
+											name:'Số khung'
+										},
+										{
+											type:'text',
+											width:'150',
+											name:'Số máy'
+										},
+										{
+											type:'text',
+											width:'150',
+											name:'Mầu sơn'
+										},
+										{
+											type:'text',
+											width:'150',
+											name:'Số seri'
+										},
 									]
 								}
-								$('#dsXeCapPhieuHoSo').jexcel({
-									data: item['chi_tiet'],
-									colHeaders:  colHeaders,
-									colWidths: colWidths,
+								jexcel(document.getElementById('dsXeCapPhieuHoSo'), {
+									json: item['chi_tiet'],
 									columns: columns
 								});
+								// $('#dsXeCapPhieuHoSo').jexcel({
+								// 	json: item['chi_tiet'],
+								// 	columns: columns
+								// });
 							}
 						},
 						inPhieuBanGiao () {

@@ -212,6 +212,11 @@ public class VRMigrateTaskLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
+	public static java.util.List<com.fds.vr.business.model.VRMigrateTask> findVRMigrateTasks(
+		int start, int end) {
+		return getService().findVRMigrateTasks(start, end);
+	}
+
 	/**
 	* Returns a range of all the vr migrate tasks.
 	*

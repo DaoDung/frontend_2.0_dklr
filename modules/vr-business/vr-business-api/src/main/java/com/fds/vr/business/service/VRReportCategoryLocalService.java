@@ -103,6 +103,11 @@ public interface VRReportCategoryLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRReportCategory fetchVRReportCategory(int id);
 
+	public VRReportCategory findByRptCode(java.lang.String rptCode);
+
+	public VRReportCategory findByRptDescription(
+		java.lang.String rptDescription);
+
 	/**
 	* Returns the vr report category with the primary key.
 	*
@@ -197,6 +202,12 @@ public interface VRReportCategoryLocalService extends BaseLocalService,
 	*/
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
+
+	public List<VRReportCategory> findByRptGroup(java.lang.String rptGroup,
+		int start, int end);
+
+	public List<VRReportCategory> findByRptLevel(int rptLevel, int start,
+		int end);
 
 	/**
 	* Returns a range of all the vr report categories.

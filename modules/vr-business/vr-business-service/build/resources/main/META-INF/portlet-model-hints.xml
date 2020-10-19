@@ -273,8 +273,8 @@
 		<field name="modifyDate" type="Date" />
 		<field name="syncDate" type="Date" />
 		<field name="equipmentSerialNo" type="String" />
-		<field name="productionYear" type="Date" />
-		<field name="registrationYear" type="Date" />
+		<field name="productionYear" type="String" />
+		<field name="registrationYear" type="String" />
 		<field name="markupXCG" type="long" />
 		<field name="markupXCGNK" type="long" />
 		<field name="markupSMRM" type="long" />
@@ -390,6 +390,73 @@
 		<field name="dossierId" type="long" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="dossierNo" type="String" />
+		<field name="applicantEmail" type="String" />
+		<field name="applicantPhone" type="String" />
+		<field name="applicantTelNo" type="String" />
+		<field name="applicantFax" type="String" />
+		<field name="applicantContactName" type="String" />
+		<field name="applicantContactEmail" type="String" />
+		<field name="applicantContactPhone" type="String" />
+		<field name="applicantContactTelNo" type="String" />
+		<field name="applicantBusinessType" type="String" />
+		<field name="markupDesigner" type="String" />
+		<field name="markupOverseasManufacturer" type="String" />
+		<field name="markupMaintainer" type="String" />
+		<field name="importerDomesticSite" type="String" />
+		<field name="siteOfNationality" type="String" />
+		<field name="siteOfNationalityCode" type="String" />
+		<field name="siteOfRegion" type="String" />
+		<field name="siteOfRegionCode" type="String" />
+		<field name="siteOfCity" type="String" />
+		<field name="siteOfCityCode" type="String" />
+		<field name="manufacturerRepresentative" type="String" />
+		<field name="manufacturerRepresentativeTitle" type="String" />
+		<field name="manufacturerEmail" type="String" />
+		<field name="manufacturerPhone" type="String" />
+		<field name="manufacturerFax" type="String" />
+		<field name="productionPlantEmail" type="String" />
+		<field name="productionPlantWebsite" type="String" />
+		<field name="productionPlantRepresentative" type="String" />
+		<field name="productionPlantRepresentativeTitle" type="String" />
+		<field name="corporationName" type="String" />
+		<field name="inspectorContactCode" type="String" />
+		<field name="inspectorName" type="String" />
+		<field name="inspectoRendorSementDate" type="Date" />
+		<field name="inspectorDeadline" type="Date" />
+		<field name="resolvedStatus" type="String" />
+		<field name="numberOfNonConformity" type="int" />
+		<field name="numberOfResolved" type="int" />
+		<field name="observationDescription" type="String" />
+		<field name="inspectionAuditCycle" type="String" />
+		<field name="inspectionNote" type="String" />
+		<field name="productionConformityChecking" type="String" />
+		<field name="productionStampChecking" type="String" />
+		<field name="testingEquipmentChecking" type="String" />
+		<field name="productionPlantClassification" type="String" />
+		<field name="actualCapacity" type="String" />
+		<field name="maxCapacity" type="String" />
+		<field name="averageCapacity" type="String" />
+		<field name="totalEmployee" type="String" />
+		<field name="totalWorker" type="String" />
+		<field name="totalManager" type="String" />
+		<field name="totalTechnical" type="String" />
+		<field name="totalQaEmployee" type="String" />
+		<field name="totalSquareMeter" type="String" />
+		<field name="wareHouseSquare" type="String" />
+		<field name="officeSquare" type="String" />
+		<field name="productionSquare" type="String" />
+		<field name="machiningArea" type="String" />
+		<field name="weldingArea" type="String" />
+		<field name="paintingArea" type="String" />
+		<field name="productionAssembleArea" type="String" />
+		<field name="finishProductArea" type="String" />
+		<field name="testingArea" type="String" />
+		<field name="selfEquipment" type="String" />
+		<field name="contractEquipment" type="String" />
+		<field name="circularNo" type="String" />
+		<field name="circularDate" type="Date" />
+		<field name="circularNo2" type="String" />
+		<field name="circularDate2" type="Date" />
 	</model>
 	<model name="com.fds.vr.business.model.VRCorporationAttendee">
 		<field name="id" type="long" />
@@ -598,6 +665,58 @@
 		<field name="type" type="String" />
 		<field name="data" type="String" />
 	</model>
+	<model name="com.fds.vr.business.model.VRExpireCertificate">
+		<field name="id" type="long" />
+		<field name="mtCore" type="long" />
+		<field name="convertAssembleId" type="long" />
+		<field name="validDossierId" type="long" />
+		<field name="validDossierIdCTN" type="String" />
+		<field name="validDossierNo" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
+		<field name="dossierId" type="long" />
+		<field name="dossierIdCTN" type="String" />
+		<field name="dossierNo" type="String" />
+		<field name="dossierStatus" type="String" />
+		<field name="previousExpireDate" type="Date" />
+		<field name="certificateRecordNo" type="String" />
+		<field name="certificateRecordDate" type="Date" />
+		<field name="certificateRecordExpireDate" type="Date" />
+		<field name="expiredStatus" type="int" />
+		<field name="vehicleClass" type="String" />
+		<field name="certifiedVehicleType" type="String" />
+		<field name="certifiedVehicleTypeDescription" type="String" />
+		<field name="certifiedTrademark" type="String" />
+		<field name="certifiedTrademarkName" type="String" />
+		<field name="certifiedCommercialName" type="String" />
+		<field name="certifiedModelCode" type="String" />
+		<field name="productionCountry" type="String" />
+		<field name="safetytestReportNo" type="String" />
+		<field name="safetytestReportDate" type="Date" />
+		<field name="emissionTestReportNo" type="String" />
+		<field name="emissionTestReportDate" type="Date" />
+		<field name="commonSafetyStandard" type="String" />
+		<field name="commonSafetyDescription" type="String" />
+		<field name="emissionStandard" type="String" />
+		<field name="emissionDescription" type="String" />
+		<field name="othertestReportNo" type="String" />
+		<field name="othertestReportDate" type="Date" />
+		<field name="copReportNo" type="String" />
+		<field name="copReportDate" type="Date" />
+		<field name="copReportExpireDate" type="Date" />
+		<field name="validRequestNo" type="String" />
+		<field name="validRequestDate" type="Date" />
+		<field name="validInspectionRecordNo" type="String" />
+		<field name="validInspectionRecordDate" type="Date" />
+		<field name="validCorporationId" type="long" />
+		<field name="validInspectorId" type="long" />
+		<field name="validInspectorName" type="String" />
+		<field name="validRemarks" type="String" />
+		<field name="validInspectionNote" type="String" />
+		<field name="deliverableFileEntryId" type="long" />
+		<field name="documentFileEntryId" type="long" />
+		<field name="modifyDate" type="Date" />
+		<field name="syncDate" type="Date" />
+	</model>
 	<model name="com.fds.vr.business.model.VRHistoryProfile">
 		<field name="id" type="long" />
 		<field name="applicantCode" type="String" />
@@ -763,7 +882,7 @@
 		<field name="totalInDocument" type="long" />
 		<field name="issueCorporationId" type="long" />
 		<field name="verifyCorporationId" type="String" />
-		<field name="digitalissuestatus" type="int" />
+		<field name="digitalIssueStatus" type="int" />
 		<field name="issueType" type="String" />
 		<field name="averageSTBQuantity" type="int" />
 		<field name="maxMonthQuantity" type="int" />
@@ -778,18 +897,20 @@
 		<field name="examinationRequired" type="String" />
 		<field name="examinationPeriod" type="String" />
 		<field name="examinationLastTime" type="Date" />
-		<field name="copresult" type="String" />
-		<field name="copreportno" type="String" />
-		<field name="copreportdate" type="Date" />
-		<field name="postreview" type="String" />
-		<field name="postreviewrecordno" type="String" />
-		<field name="postreviewrecorddate" type="Date" />
+		<field name="copResult" type="String" />
+		<field name="copReportNo" type="String" />
+		<field name="copReportDate" type="Date" />
+		<field name="postReview" type="String" />
+		<field name="postReviewRecordNo" type="String" />
+		<field name="postReviewRecordDate" type="Date" />
 		<field name="corporationId" type="String" />
-		<field name="inspectorcode" type="String" />
-		<field name="inspectorname" type="String" />
-		<field name="leadername" type="String" />
-		<field name="applicantmaker" type="String" />
-		<field name="applicantchecker" type="String" />
+		<field name="inspectorCode" type="String" />
+		<field name="inspectorName" type="String" />
+		<field name="leaderName" type="String" />
+		<field name="applicantMaker" type="String" />
+		<field name="applicantChecker" type="String" />
+		<field name="certificateRecordDate" type="Date" />
+		<field name="issueInspectionRecordId" type="long" />
 		<field name="inspectorId" type="long" />
 		<field name="issueInspectorId" type="long" />
 		<field name="verifyInspectorId" type="long" />
@@ -798,10 +919,11 @@
 	</model>
 	<model name="com.fds.vr.business.model.VRIssueEquipmentCertificate">
 		<field name="id" type="long" />
-		<field name="mtcore" type="int" />
+		<field name="mtCore" type="long" />
+		<field name="dossierId" type="long" />
 		<field name="issueId" type="long" />
 		<field name="issueVehicleCertificateId" type="long" />
-		<field name="vehiclecertificaterecordno" type="String" />
+		<field name="vehicleCertificateRecordNo" type="String" />
 		<field name="equipmentName" type="String" />
 		<field name="equipmentType" type="String" />
 		<field name="equipmentCertificateType" type="String" />
@@ -814,10 +936,36 @@
 		<field name="TotalInUse" type="int" />
 		<field name="TotalNotUsed" type="int" />
 		<field name="applicantNo" type="String" />
-		<field name="applicantname" type="String" />
-		<field name="applicantaddress" type="String" />
-		<field name="productionplantname" type="String" />
-		<field name="productionplantaddress" type="String" />
+		<field name="applicantName" type="String" />
+		<field name="applicantAddress" type="String" />
+		<field name="productionPlantName" type="String" />
+		<field name="productionPlantAddress" type="String" />
+		<field name="modifyDate" type="Date" />
+		<field name="syncDate" type="Date" />
+	</model>
+	<model name="com.fds.vr.business.model.VRIssueInspectionRecord">
+		<field name="id" type="long" />
+		<field name="mtCore" type="long" />
+		<field name="issueId" type="long" />
+		<field name="dossierId" type="long" />
+		<field name="certificateId" type="long" />
+		<field name="totalQuantity" type="int" />
+		<field name="postReview" type="String" />
+		<field name="postReviewRecordNo" type="String" />
+		<field name="postReviewRecordDate" type="Date" />
+		<field name="corporationId" type="long" />
+		<field name="inspectorCode" type="String" />
+		<field name="inspectorName" type="String" />
+		<field name="leaderName" type="String" />
+		<field name="issueCorporationId" type="long" />
+		<field name="verifyCorporationId" type="long" />
+		<field name="inspectorId" type="long" />
+		<field name="issueInspectorId" type="long" />
+		<field name="verifyInspectorId" type="long" />
+		<field name="digitalIssueStatus" type="String" />
+		<field name="validRemarks" type="String" />
+		<field name="validInspectionNote" type="String" />
+		<field name="documentFileEntryid" type="long" />
 		<field name="modifyDate" type="Date" />
 		<field name="syncDate" type="Date" />
 	</model>
@@ -831,8 +979,9 @@
 		<field name="totalQuantity" type="long" />
 		<field name="unitPrice" type="long" />
 		<field name="totalProduct" type="int" />
-		<field name="certificaterecordno" type="String" />
-		<field name="productionexamreportno" type="String" />
+		<field name="certificateRecordNo" type="String" />
+		<field name="productionExamReportNo" type="String" />
+		<field name="certificateRecordDate" type="Date" />
 		<field name="modifyDate" type="Date" />
 		<field name="syncDate" type="Date" />
 	</model>
@@ -847,6 +996,50 @@
 		<field name="specificationCode" type="String" />
 		<field name="specificationName" type="String" />
 		<field name="synchDate" type="Date" />
+	</model>
+	<model name="com.fds.vr.business.model.VRMigrateMappings">
+		<field name="id" type="long" />
+		<field name="dataGroupId" type="int" />
+		<field name="sequenceNo" type="int" />
+		<field name="migrateTableName" type="String" />
+		<field name="dataItemID" type="int" />
+		<field name="itemCode" type="String" />
+		<field name="itemName" type="String" />
+		<field name="itemShortName" type="String" />
+		<field name="itemDescription" type="String" />
+		<field name="code_0" type="String" />
+		<field name="code_1" type="String" />
+		<field name="code_2" type="String" />
+		<field name="code_3" type="String" />
+		<field name="level" type="int" />
+		<field name="seqNo" type="int" />
+		<field name="markedAsRestore" type="int" />
+		<field name="markedAsDelete" type="int" />
+		<field name="alterCollectionCode" type="String" />
+		<field name="alterItemCode" type="String" />
+		<field name="alterItemName" type="String" />
+		<field name="alterGroupCode" type="String" />
+		<field name="alterLevel" type="String" />
+		<field name="taskMigrationID" type="int" />
+	</model>
+	<model name="com.fds.vr.business.model.VRMigrateReview">
+		<field name="id" type="long" />
+		<field name="dataGroupID" type="int" />
+		<field name="migrateTableName" type="String" />
+		<field name="migrationConfiguration" type="String" />
+		<field name="sequenceNo" type="int" />
+		<field name="taskMigrationID" type="int" />
+		<field name="migrateRows" type="String" />
+		<field name="migrateRemarks" type="String" />
+	</model>
+	<model name="com.fds.vr.business.model.VRMigrateTask">
+		<field name="task_id" type="long" />
+		<field name="task_name" type="String" />
+		<field name="taskMigrationID" type="int" />
+		<field name="source_config" type="String" />
+		<field name="target_config" type="String" />
+		<field name="remarks" type="String" />
+		<field name="status" type="int" />
 	</model>
 	<model name="com.fds.vr.business.model.VROutputSheet">
 		<field name="id" type="long" />
@@ -1129,6 +1322,18 @@
 		<field name="reportName" type="String" />
 		<field name="formReport" type="String" />
 	</model>
+	<model name="com.fds.vr.business.model.VRReportCategory">
+		<field name="id" type="int" />
+		<field name="rptCode" type="String" />
+		<field name="rptName" type="String" />
+		<field name="rptDescription" type="String" />
+		<field name="rptGroup" type="String" />
+		<field name="rptLevel" type="int" />
+		<field name="sequenceNo" type="int" />
+		<field name="jasperFileTemplate" type="String" />
+		<field name="excelFileTemplate" type="String" />
+		<field name="modifiedDate" type="Date" />
+	</model>
 	<model name="com.fds.vr.business.model.VRRPDossierStatistics">
 		<field name="id" type="long" />
 		<field name="dossierid" type="long" />
@@ -1214,6 +1419,8 @@
 		<field name="men2cancelled" type="String" />
 		<field name="men2expired" type="String" />
 		<field name="men2violated" type="String" />
+		<field name="dossierPaymentDate" type="Date" />
+		<field name="men2PaymentApproval" type="String" />
 		<field name="modifyDate" type="Date" />
 		<field name="syncDate" type="Date" />
 	</model>
@@ -1619,6 +1826,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="LKXMY0507" type="String" />
 		<field name="LKXMY0508" type="String" />
 		<field name="LKXMY0509" type="String" />
@@ -1774,6 +1982,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="loai_dong_co" type="String" />
 		<field name="XCG01001" type="String" />
 		<field name="XCG01002" type="String" />
@@ -1942,6 +2151,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCG01163" type="String" />
 		<field name="XCG01164" type="String" />
 		<field name="XCG01165" type="String" />
@@ -2098,6 +2308,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCG01310" type="String" />
 		<field name="XCG01311" type="String" />
 		<field name="XCG01312" type="String" />
@@ -2290,6 +2501,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCG01496" type="String" />
 		<field name="XCG01497" type="String" />
 		<field name="XCG01498" type="String" />
@@ -2421,6 +2633,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCG01598" type="String" />
 		<field name="XCG01599" type="String" />
 		<field name="XCG01600" type="String" />
@@ -2612,6 +2825,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCG01757" type="String" />
 		<field name="XCG01758" type="String" />
 		<field name="XCG01759" type="String" />
@@ -3051,6 +3265,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCH01273" type="String" />
 		<field name="XCH01274" type="String" />
 		<field name="XCH01275" type="String" />
@@ -3435,6 +3650,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCN01186" type="String" />
 		<field name="XCN01187" type="String" />
 		<field name="XCN01188" type="String" />
@@ -3597,6 +3813,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XCN01336" type="String" />
 		<field name="XCN01337" type="String" />
 		<field name="XCN01338" type="String" />
@@ -4140,6 +4357,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XMY0010" type="String" />
 		<field name="XMY0011" type="String" />
 		<field name="XMY0012" type="String" />
@@ -4288,6 +4506,7 @@
 		<field name="referenceUid" type="String" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="XMY0149" type="String" />
 		<field name="XMY0150" type="String" />
 		<field name="XMY0151" type="String" />
@@ -4469,11 +4688,46 @@
 	</model>
 	<model name="com.fds.vr.business.model.VRVehicleEquipment">
 		<field name="id" type="long" />
-		<field name="vehicleCertificateId" type="long" />
+		<field name="vehicleTypeCertificateId" type="long" />
 		<field name="certificateRecordId" type="long" />
 		<field name="dossierId" type="long" />
 		<field name="dossierIdCTN" type="String" />
 		<field name="dossierNo" type="String" />
+		<field name="isMandatory" type="int" />
+		<field name="sequenceNo" type="long" />
+		<field name="certificateRecordNo" type="String" />
+		<field name="certificateRecordDate" type="Date" />
+		<field name="certificateRecordExpireDate" type="Date" />
+		<field name="expiredStatus" type="int" />
+		<field name="vehicleClass" type="String" />
+		<field name="equipmentCode" type="String" />
+		<field name="equipmentName" type="String" />
+		<field name="certifiedVehicleType" type="String" />
+		<field name="certifiedVehicleTypeDescription" type="String" />
+		<field name="certifiedTrademark" type="String" />
+		<field name="certifiedTrademarkName" type="String" />
+		<field name="certifiedCommercialName" type="String" />
+		<field name="certifiedModelCode" type="String" />
+		<field name="productionCountry" type="String" />
+		<field name="originalCode" type="String" />
+		<field name="originalName" type="String" />
+		<field name="productionName" type="String" />
+		<field name="productionAddress" type="String" />
+		<field name="manufacturerName" type="String" />
+		<field name="manufacturerAddress" type="String" />
+		<field name="safetytestReportNo" type="String" />
+		<field name="safetytestReportDate" type="Date" />
+		<field name="emissionTestReportNo" type="String" />
+		<field name="emissionTestReportDate" type="Date" />
+		<field name="commonSafetyStandard" type="String" />
+		<field name="commonSafetyDescription" type="String" />
+		<field name="emissionStandard" type="String" />
+		<field name="emissionDescription" type="String" />
+		<field name="othertestReportNo" type="String" />
+		<field name="othertestReportDate" type="Date" />
+		<field name="copReportNo" type="String" />
+		<field name="copReportDate" type="Date" />
+		<field name="copReportExpireDate" type="Date" />
 		<field name="modifyDate" type="Date" />
 		<field name="syncDate" type="Date" />
 	</model>
@@ -4532,6 +4786,7 @@
 		<field name="id" type="long" />
 		<field name="mtCore" type="long" />
 		<field name="dossierId" type="long" />
+		<field name="dossierIdCTN" type="String" />
 		<field name="dossierType" type="String" />
 		<field name="dossierNo" type="String" />
 		<field name="referenceUid" type="String" />
@@ -4539,6 +4794,7 @@
 		<field name="serviceName" type="String" />
 		<field name="convertassembleId" type="long" />
 		<field name="applicantIdNo" type="String" />
+		<field name="applicantTelNo" type="String" />
 		<field name="applicantName" type="String" />
 		<field name="applicantIdDate" type="Date" />
 		<field name="applicantAddress" type="String" />
@@ -4550,7 +4806,13 @@
 		<field name="applicantContactName" type="String" />
 		<field name="applicantContactEmail" type="String" />
 		<field name="applicantcontactPhone" type="String" />
+		<field name="applicantcontactTelNo" type="String" />
 		<field name="cityCode" type="String" />
+		<field name="cityName" type="String" />
+		<field name="districtCode" type="String" />
+		<field name="districtName" type="String" />
+		<field name="wardCode" type="String" />
+		<field name="wardName" type="String" />
 		<field name="manufacturerForeignCode" type="String" />
 		<field name="manufacturerName" type="String" />
 		<field name="manufacturerAddress" type="String" />
@@ -4630,8 +4892,8 @@
 		<field name="emissionTestReportNo" type="String" />
 		<field name="emissionTestReportDate" type="Date" />
 		<field name="commonSafetyStandard" type="String" />
-		<field name="emissionStandard" type="String" />
 		<field name="commonSafetyDescription" type="String" />
+		<field name="emissionStandard" type="String" />
 		<field name="emissionDescription" type="String" />
 		<field name="otherTestReportNo" type="String" />
 		<field name="otherTestReportDate" type="Date" />
@@ -4661,6 +4923,7 @@
 		<field name="inspectionNote" type="String" />
 		<field name="certificateNote" type="String" />
 		<field name="deliverableCode" type="String" />
+		<field name="deliverableFileEntryid" type="long" />
 		<field name="module" type="String" />
 		<field name="modifyDate" type="Date" />
 		<field name="syncDate" type="Date" />

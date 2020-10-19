@@ -221,6 +221,12 @@ public class VRMigrateTaskLocalServiceWrapper
 			end, orderByComparator);
 	}
 
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRMigrateTask> findVRMigrateTasks(
+		int start, int end) {
+		return _vrMigrateTaskLocalService.findVRMigrateTasks(start, end);
+	}
+
 	/**
 	* Returns a range of all the vr migrate tasks.
 	*

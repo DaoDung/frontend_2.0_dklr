@@ -197,6 +197,9 @@ public interface VRMigrateReviewLocalService extends BaseLocalService,
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
+	public List<VRMigrateReview> findByTaskMigrateId(int taskMigrationID,
+		int start, int end);
+
 	/**
 	* Returns a range of all the vr migrate reviews.
 	*

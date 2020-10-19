@@ -4214,54 +4214,104 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							$('#dsXePopUpCapPhieu').empty()
 							console.log('chi tiet=========', item)
 							if (item['chi_tiet']) {
-								let colHeaders = []
 								let columns = []
-								let colWidths = []
-								let colHeaders_loai3 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri hỏng']
-								let colHeaders_loai2 = [ 'Số khung', 'Số máy', 'Mầu sơn', 'Số seri mất']
-								let colHeaders_loai1 = [ 'Số khung', 'Số máy', 'Mầu sơn']
 								if (vm.detailSoatXetGCN['hinh_thuc_cap'] === 1 || vm.detailSoatXetGCN['hinh_thuc_cap'] === '1') {
-									colHeaders = colHeaders_loai1
-									colWidths = [ 200, 200, 200, 200]
 									columns = [
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'}
+										{ 
+											type: 'text',
+											title: 'Số khung',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Số máy',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Mầu sơn',
+											width: 200
+										}
 									]
 								} else if (vm.detailSoatXetGCN['hinh_thuc_cap'] === 2 || vm.detailSoatXetGCN['hinh_thuc_cap'] === '2') {
-									colHeaders = colHeaders_loai2
-									colWidths = [ 200, 200, 200, 200]
 									columns = [
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'}
+										{ 
+											type: 'text',
+											title: 'Số khung',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Số máy',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Mầu sơn',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Số seri mất',
+											width: 200
+										}
 									]
 								} else {
-									colHeaders = colHeaders_loai3
-									colWidths = [ 200, 200, 200]
 									columns = [
-										{ type: 'text'},
-										{ type: 'text'},
-										{ type: 'text'}
+										{ 
+											type: 'text',
+											title: 'Số khung',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Số máy',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Mầu sơn',
+											width: 200
+										},
+										{ 
+											type: 'text',
+											title: 'Số seri hỏng',
+											width: 200
+										}
 									]
 								}
-								$('#dsXePopUpCapPhieu').jexcel({
+								jexcel(document.getElementById('chiTietPhieuTable'), {
 									data: item['chi_tiet'],
-									colHeaders:  colHeaders,
-									colWidths: colWidths,
+									onchange: vm.checkStateNumberGCN(item),
 									columns: columns
-								});
+								})
+								// $('#dsXePopUpCapPhieu').jexcel({
+								// 	data: item['chi_tiet'],
+								// 	colHeaders:  colHeaders,
+								// 	colWidths: colWidths,
+								// 	columns: columns
+								// });
 							} else {
-								$('#dsXePopUpCapPhieu').jexcel({
+								jexcel(document.getElementById('chiTietPhieuTable'), {
 									data: [],
-									colHeaders:  ['Không có dữ liệu'],
-									colWidths: [600],
 									columns: [
-										{ type: 'text'}
+										{ 
+											type: 'text',
+											title: 'Không có dữ liệu',
+											width: 600
+										}
 									]
-								});
+								})
+								// $('#dsXePopUpCapPhieu').jexcel({
+								// 	data: [],
+								// 	columns: [
+								// 		{ 
+								// 			type: 'text',
+								// 			title: 'Số khung',
+								// 			width: 200
+								// 		}
+								// 	]
+								// });
 							}
 						},
 						uploadFileCop (key) {
@@ -6929,7 +6979,7 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							})
 							let indexGCNXuatKho = vm.indexGCNXuatKho
 							if (vm.indexGCNXuatKho != -1) {
-								let data = $('#dsXeCapPhieuHoSo').jexcel('getData');
+								let data = $('#dsXeCapPhieuHoSo').jexcel.getJson();
 								let mang = []
 								let i = 0;
 								let notSeri = 0
@@ -7115,22 +7165,79 @@ var funLoadVue = function (stateWindowParam, dossierIdParam, dossierPartNo, emai
 							vm.popUpChiTietPhieu = !vm.popUpChiTietPhieu;
 							vm.chiTietPhieuModel = item;
 							vm.stateNumberSerial = 1
-							$('#chiTietPhieuTable').jexcel({
+							// $('#chiTietPhieuTable').jexcel({
+							// 	data: vm.dsCTPItems,
+							// 	colWidths: [ 120, 120, 150, 150, 150, 150 ],
+							// 	colHeaders: ['Số seri', 'Số phiếu quản lý', 'Ngày XX', 'Màu sơn', 'Số khung', 'Số động cơ']
+							// });
+							jexcel(document.getElementById('chiTietPhieuTable'), {
 								data: vm.dsCTPItems,
-								colWidths: [ 120, 120, 150, 150, 150, 150 ],
-								colHeaders: ['Số seri', 'Số phiếu quản lý', 'Ngày XX', 'Màu sơn', 'Số khung', 'Số động cơ']
-							});
-							$('#dsSoSerial').jexcel({
-								data: vm.dsSoSerialItems,
-								colWidths: [ 240, 240, 240 ],
-								onchange: vm.checkStateNumberGCN(item),
-								colHeaders: ['Số seri', 'Từ số', 'Đến số'],
 								columns: [
-									{ type: 'text' },
-									{ type: 'numeric' },
-									{ type: 'numeric' }
+									{
+										type: 'text',
+										title: 'Số seri',
+										width: 120
+									},
+									{
+										type: 'text',
+										title: 'Số phiếu quản lý',
+										width: 120
+									},
+									{
+										type: 'text',
+										title: 'Ngày XX',
+										width: 150
+									},
+									{
+										type: 'text',
+										title: 'Màu sơn',
+										width: 150
+									},
+									{
+										type: 'text',
+										title: 'Số khung',
+										width: 150
+									},
+									{
+										type: 'text',
+										title: 'Số động cơ',
+										width: 150
+									}
 								]
-							});
+							})
+
+							jexcel(document.getElementById('chiTietPhieuTable'), {
+								data: vm.dsCTPItems,
+								onchange: vm.checkStateNumberGCN(item),
+								columns: [
+									{
+										type: 'text',
+										title: 'Số seri',
+										width: 240
+									},
+									{
+										type: 'numeric',
+										title: 'Từ số',
+										width: 240
+									},
+									{
+										type: 'numeric',
+										title: 'Đến số',
+										width: 240
+									}
+								]
+							})
+							// $('#dsSoSerial').jexcel({
+							// 	data: vm.dsSoSerialItems,
+							// 	colWidths: [ 240, 240, 240 ],
+							// 	onchange: vm.checkStateNumberGCN(item),
+							// 	colHeaders: ['Số seri', 'Từ số', 'Đến số'],
+							// 	columns: [
+							// 		{ type: 'text' },
+							// 		{ type: 'numeric' },
+							// 		{ type: 'numeric' }
+							// 	]
+							// });
 						},
 						checkStateNumberGCN: function (item) {
 							var vm = this;

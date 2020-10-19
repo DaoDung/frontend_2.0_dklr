@@ -220,6 +220,13 @@ public class VRMigrateReviewLocalServiceWrapper
 			end, orderByComparator);
 	}
 
+	@Override
+	public java.util.List<com.fds.vr.business.model.VRMigrateReview> findByTaskMigrateId(
+		int taskMigrationID, int start, int end) {
+		return _vrMigrateReviewLocalService.findByTaskMigrateId(taskMigrationID,
+			start, end);
+	}
+
 	/**
 	* Returns a range of all the vr migrate reviews.
 	*

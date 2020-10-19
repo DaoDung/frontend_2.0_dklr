@@ -198,6 +198,9 @@ public interface VRMigrateMappingsLocalService extends BaseLocalService,
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
 
+	public List<VRMigrateMappings> findByTaskId_DataGroupId_SeqNo(
+		int taskMigrationID, int dataGroupId, int seqNo, int start, int end);
+
 	/**
 	* Returns a range of all the vr migrate mappingses.
 	*

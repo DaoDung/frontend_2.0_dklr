@@ -10,28 +10,30 @@ Export-Package: com.fds.vr.business.model.impl;uses:="com.fds.vr.busin
  odel.impl,com.liferay.portal.kernel.service";version="1.0.0",com.fds.
  vr.business.service.impl;uses:="com.fds.vr.business.exception,com.fds
  .vr.business.model,com.liferay.portal.kernel.exception,com.liferay.po
- rtal.kernel.json,com.liferay.portal.kernel.service,com.liferay.portal
- .kernel.util";version="1.0.0",com.fds.vr.business.service.persistence
- .impl;uses:="com.fds.vr.business.exception,com.fds.vr.business.model,
- com.fds.vr.business.model.impl,com.fds.vr.business.service.persistenc
- e,com.liferay.portal.kernel.bean,com.liferay.portal.kernel.dao.orm,co
- m.liferay.portal.kernel.exception,com.liferay.portal.kernel.json,com.
- liferay.portal.kernel.model,com.liferay.portal.kernel.service.persist
- ence,com.liferay.portal.kernel.service.persistence.impl,com.liferay.p
- ortal.kernel.util,com.liferay.portal.spring.extender.service";version
- ="1.0.0",com.fds.vr.business.action;uses:="com.fds.vr.business.model,
- com.liferay.portal.kernel.json,com.liferay.portal.kernel.model,com.li
- feray.portal.kernel.search,com.liferay.portal.kernel.service";version
- ="1.0.0",com.fds.vr.business.action.impl;uses:="com.fds.vr.business.a
- ction,com.fds.vr.business.model,com.liferay.portal.kernel.json,com.li
- feray.portal.kernel.model,com.liferay.portal.kernel.search,com.lifera
- y.portal.kernel.service,org.opencps.datamgt.model";version="1.0.0",co
- m.fds.vr.business.action.util;uses:="com.fds.vr.business.engine,com.l
- iferay.portal.kernel.json";version="1.0.0",com.fds.vr.business.except
- ion;version="1.0.0";uses:="com.liferay.portal.kernel.exception",com.f
- ds.vr.business.engine;version="1.0.0",org.apache.poi.ss.usermodel;ver
- sion="1.0.0",org.apache.poi.xssf.usermodel;uses:="org.apache.poi.ss.u
- sermodel,org.w3c.dom";version="1.0.0"
+ rtal.kernel.json,com.liferay.portal.kernel.model,com.liferay.portal.k
+ ernel.service,com.liferay.portal.kernel.util";version="1.0.0",com.fds
+ .vr.business.service.persistence.impl;uses:="com.fds.vr.business.exce
+ ption,com.fds.vr.business.model,com.fds.vr.business.model.impl,com.fd
+ s.vr.business.service.persistence,com.liferay.portal.kernel.bean,com.
+ liferay.portal.kernel.dao.orm,com.liferay.portal.kernel.exception,com
+ .liferay.portal.kernel.json,com.liferay.portal.kernel.model,com.lifer
+ ay.portal.kernel.service.persistence,com.liferay.portal.kernel.servic
+ e.persistence.impl,com.liferay.portal.kernel.util,com.liferay.portal.
+ spring.extender.service";version="1.0.0",com.fds.vr.business.action;u
+ ses:="com.fds.vr.business.model,com.liferay.portal.kernel.exception,c
+ om.liferay.portal.kernel.json,com.liferay.portal.kernel.model,com.lif
+ eray.portal.kernel.search,com.liferay.portal.kernel.service";version=
+ "1.0.0",com.fds.vr.business.action.impl;uses:="com.fds.vr.business.ac
+ tion,com.fds.vr.business.model,com.liferay.portal.kernel.exception,co
+ m.liferay.portal.kernel.json,com.liferay.portal.kernel.model,com.life
+ ray.portal.kernel.search,com.liferay.portal.kernel.service,org.opencp
+ s.datamgt.model";version="1.0.0",com.fds.vr.business.action.util;uses
+ :="com.fds.vr.business.engine,com.liferay.portal.kernel.json";version
+ ="1.0.0",com.fds.vr.business.exception;version="1.0.0";uses:="com.lif
+ eray.portal.kernel.exception",com.fds.vr.business.engine;version="1.0
+ .0",org.apache.poi.ss.usermodel;version="1.0.0",org.apache.poi.xssf.u
+ sermodel;uses:="org.apache.poi.ss.usermodel,org.w3c.dom";version="1.0
+ .0",com.fds.vr.business.report;version="1.0.0"
 Import-Package: com.fds.vr.business.action;resolution:=optional,com.fd
  s.vr.business.action.util;resolution:=optional,com.fds.vr.business.en
  gine;resolution:=optional,com.fds.vr.business.exception;resolution:=o
@@ -138,13 +140,16 @@ Import-Package: com.fds.vr.business.action;resolution:=optional,com.fd
  :=optional;version="[1.0,2)",org.opencps.datamgt.model.impl;resolutio
  n:=optional;version="[1.0,2)",org.opencps.datamgt.service;resolution:
  =optional;version="[1.0,2)",org.opencps.datamgt.utils;resolution:=opt
- ional;version="[1.0,2)",org.tukaani.xz;resolution:=optional,org.w3c.d
- om;resolution:=optional,org.w3c.dom.events;resolution:=optional,org.w
- 3c.dom.ls;resolution:=optional,org.w3c.dom.ranges;resolution:=optiona
- l,org.w3c.dom.traversal;resolution:=optional,org.w3c.dom.views;resolu
- tion:=optional,org.xml.sax;resolution:=optional,org.xml.sax.ext;resol
- ution:=optional,org.xml.sax.helpers;resolution:=optional,sun.io;resol
- ution:=optional
+ ional;version="[1.0,2)",org.opencps.usermgt.model;resolution:=optiona
+ l;version="[1.0,2)",org.opencps.usermgt.service;resolution:=optional;
+ version="[1.0,2)",org.opencps.usermgt.service.util;resolution:=option
+ al;version="[1.0,2)",org.tukaani.xz;resolution:=optional,org.w3c.dom;
+ resolution:=optional,org.w3c.dom.events;resolution:=optional,org.w3c.
+ dom.ls;resolution:=optional,org.w3c.dom.ranges;resolution:=optional,o
+ rg.w3c.dom.traversal;resolution:=optional,org.w3c.dom.views;resolutio
+ n:=optional,org.xml.sax;resolution:=optional,org.xml.sax.ext;resoluti
+ on:=optional,org.xml.sax.helpers;resolution:=optional,sun.io;resoluti
+ on:=optional
 Javac-Debug: on
 Javac-Deprecation: off
 Javac-Encoding: Cp1252

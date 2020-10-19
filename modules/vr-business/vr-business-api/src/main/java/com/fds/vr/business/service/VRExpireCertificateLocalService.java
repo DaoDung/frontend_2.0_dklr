@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -36,6 +37,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -103,6 +105,11 @@ public interface VRExpireCertificateLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public VRExpireCertificate fetchVRExpireCertificate(long id);
 
+	public VRExpireCertificate findByDossierId(long dossierId);
+
+	public VRExpireCertificate findByVehicleTypeCertificateId(
+		long vehicleTypeCertificateId);
+
 	/**
 	* Returns the vr expire certificate with the primary key.
 	*
@@ -123,6 +130,37 @@ public interface VRExpireCertificateLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public VRExpireCertificate updateVRExpireCertificate(
 		VRExpireCertificate vrExpireCertificate);
+
+	public VRExpireCertificate updateVRExpireCertificate(long id, long mtCore,
+		long convertAssembleId, long validDossierId,
+		java.lang.String validDossierIdCTN, java.lang.String validDossierNo,
+		long vehicleTypeCertificateId, long dossierId,
+		java.lang.String dossierIdCTN, java.lang.String dossierNo,
+		java.lang.String dossierStatus, Date previousExpireDate,
+		java.lang.String certificateRecordNo, Date certificateRecordDate,
+		Date certificateRecordExpireDate, int expiredStatus,
+		java.lang.String vehicleClass, java.lang.String certifiedVehicleType,
+		java.lang.String certifiedVehicleTypeDescription,
+		java.lang.String certifiedTrademark,
+		java.lang.String certifiedTrademarkName,
+		java.lang.String certifiedCommercialName,
+		java.lang.String certifiedModelCode,
+		java.lang.String productionCountry,
+		java.lang.String safetytestReportNo, Date safetytestReportDate,
+		java.lang.String emissionTestReportNo, Date emissionTestReportDate,
+		java.lang.String commonSafetyStandard,
+		java.lang.String commonSafetyDescription,
+		java.lang.String emissionStandard,
+		java.lang.String emissionDescription,
+		java.lang.String othertestReportNo, Date othertestReportDate,
+		java.lang.String copReportNo, Date copReportDate,
+		Date copReportExpireDate, java.lang.String validRequestNo,
+		Date validRequestDate, java.lang.String validInspectionRecordNo,
+		Date validInspectionRecordDate, long validCorporationId,
+		long validInspectorId, java.lang.String validInspectorName,
+		java.lang.String validRemarks, java.lang.String validInspectionNote,
+		long deliverableFileEntryId, long documentFileEntryId, Date syncDate,
+		java.lang.String typeUpdate, Company company);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -197,6 +235,9 @@ public interface VRExpireCertificateLocalService extends BaseLocalService,
 	*/
 	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery, int start,
 		int end, OrderByComparator<T> orderByComparator);
+
+	public List<VRExpireCertificate> findByDossierStatus(
+		java.lang.String dossierStatus, int start, int end);
 
 	/**
 	* Returns a range of all the vr expire certificates.

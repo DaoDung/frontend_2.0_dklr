@@ -27,6 +27,7 @@
 		<input type="hidden" name="dossierNo" id="dossierNo" value="${(dossier.dossierNo)!}">
 		<input type="hidden" name="applicantIdNo" id="applicantIdNo" value="${(dossier.applicantIdNo)!}">
 		<input type="hidden" name="expireCertificateId_hidden" id="expireCertificateId_hidden" value="">
+		<input type="hidden" name="dossierIdCTN" id="dossierIdCTN" value="${(dossier.dossierIdCTN)!}">
 		<div class="row-header align-middle">
 			<div class="background-triangle-big">Tên thủ tục</div> 
 			<span class="text-bold" data-bind="text:serviceName"></span>
